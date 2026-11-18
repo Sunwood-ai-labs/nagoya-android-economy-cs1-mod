@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>名古屋2050｜共存シミュレーション観測</title>
+  <style>
+    :root { color-scheme: light; --ink:#22291f; --paper:#f4f1e6; --green:#27513a;
+      --line:#b5bbae; --orange:#a74422; --muted:#4b594b; --white:#fcfaf0; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink);
+      font:15px/1.65 "Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif; }
+    main { max-width:1200px; margin:auto; padding:28px clamp(14px,4vw,54px) 48px; }
+    header { padding:24px 0 20px; border-top:7px solid var(--green); border-bottom:1px solid var(--line); }
+    .eyebrow, time, .glyph { font:700 13px/1.5 Consolas,monospace; letter-spacing:.045em; }
+    .eyebrow { color:var(--green); }
+    h1 { font:800 clamp(28px,5vw,52px)/1.15 "Yu Mincho",serif; margin:.3em 0; }
+    h2 { font-size:20px; margin:0 0 6px; }
+    h3 { font-size:16px; margin:0 0 8px; }
+    p { margin:.45em 0; }
+    .note { color:var(--muted); font-size:13px; }
+    .summary, .inspect { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin-top:22px; }
+    .panel { background:var(--white); border:1px solid var(--line); padding:18px; min-width:0; }
+    .panel.native { border-top:4px solid var(--green); }
+    .panel.mod { border-top:4px solid var(--orange); }
+    .metric { display:flex; justify-content:space-between; gap:12px; padding:5px 0; border-bottom:1px solid #dedfd1; }
+    .metric dd { margin:0; text-align:right; font-weight:800; font-variant-numeric:tabular-nums; }
+    .warning { color:var(--orange); font-weight:700; }
+    .grid { display:grid; gap:4px; width:min(100%,360px); margin:10px auto; }
+    .grid button { min-width:0; aspect-ratio:1; padding:0; border:1px solid var(--line);
+      background:#edece1; color:var(--ink); border-radius:2px; cursor:pointer; font:700 clamp(10px,1.4vw,14px) Consolas,monospace; }
+    .grid button[data-phase="delivery"] { background:#dfebd8; border-color:#708c73; }
+    .grid button[data-phase="collection"] { background:var(--green); color:white; border-color:var(--green); }
+    .grid button[data-phase="error"] { background:#fbdacb; color:#713113; border-color:var(--orange); }
+    .grid button[aria-pressed="true"] { outline:3px solid var(--orange); outline-offset:1px; }
+    .grid button:focus-visible { outline:3px dashed #18518c; outline-offset:2px; }
+    #legend { display:flex; flex-wrap:wrap; gap:.2em 1em; }
+    .rows { padding-left:1.25em; }
+    .rows li { padding:5px 0; overflow-wrap:anywhere; border-bottom:1px solid #dedfd1; }
+    footer { margin-top:22px; padding-top:12px; border-top:1px solid var(--line); }
+    @media (max-width:660px) { .summary,.inspect { grid-template-columns:1fr; gap:14px; } .panel {padding:14px} }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">NAGOYA 2050 / FIELD OBSERVATORY</div>
+    <h1>人とアンドロイドの街</h1>
+    <p id="headline" aria-live="polite"></p>
+    <p class="note"><time id="timestamp">観測日時なし</time> · 保存時点のスナップショット</p>
+  </header>
+  <div class="summary">
+    <section class="panel native" aria-labelledby="native-title">
+      <h2 id="native-title">CS1標準の街</h2>
+      <p class="note" id="native-note"></p>
+      <dl id="native-metrics"></dl>
+    </section>
+    <section class="panel mod" aria-labelledby="mod-title">
+      <h2 id="mod-title">配送MOD</h2>
+      <p class="note">各地域の拠点、建物前面、充電器を結ぶ運用実験。</p>
+      <dl id="mod-metrics"></dl>
+    </section>
+  </div>
+  <div class="inspect">
+    <section class="panel" aria-labelledby="region-title">
+      <h2 id="region-title">配送地域グリッド</h2>
+      <div class="note" id="legend"><span>待 · 未配達</span><span>配 · 配達あり</span><span>回 · 回収あり</span><span>! · エラー</span></div>
+      <div id="region-grid" class="grid" aria-label="MODの地域配置"></div>
+      <p class="note">格子はMODの地域座標を表す。行政区や道路形状は含まない。</p>
+    </section>
+    <section class="panel" aria-labelledby="details-title">
+      <h2 id="details-title">地域別の建物と実績</h2>
+      <div id="details" aria-live="polite">地域を選択してください。</div>
+    </section>
+  </div>
+  <footer class="note">データ元はCS1の読み取りAPIと配送MODのランタイム状態。CS1の市民レコードには実験用インスタンス等が含まれるため、居住人口として扱わない。</footer>
+</main>
+<script id="observation" type="application/json">__NAGOYA_OBSERVATION__</script>
+<script>
+  "use strict";
+  const doc = JSON.parse(document.querySelector("#observation").textContent);
+  const $ = id => document.getElementById(id);
+  const value = v => typeof v === "number" ? v.toLocaleString("ja-JP") : (v ?? "未取得");
+  const add = (tag, label) => Object.assign(document.createElement(tag), {textContent:label});
+  function metrics(list, rows) {
+    list.replaceChildren(...rows.map(([name, reading]) => {
+      const row = document.createElement("div"); row.className = "metric";
+      row.append(add("dt", name), add("dd", value(reading))); return row;
+    }));
+  }
+  const native = doc.native, mod = doc.mod, regions = mod?.regions ?? [], totals = mod?.totals;
+  const coverage = (key) => regions.filter(r => r[key] > 0).length;
+  const retained = doc.nativeStationWalk, scenery = doc.scenery;
+  $("timestamp").dateTime = doc.capturedUtc;
+  $("timestamp").textContent = new Date(doc.capturedUtc).toLocaleString("ja-JP", {timeZone:"Asia/Tokyo"}) + " JST";
+  $("headline").textContent = "CS1標準の生活需要がアンドロイドの配送を発生させる連動は未確認。";
+  $("native-note").textContent = native.gameTime
+    ? "観測したゲーム日時 " + native.gameTime.replace("T"," ")
+    : "CS1の読み取りAPIから都市データを取得できませんでした。";
+  if (doc.unavailableNativeReadings.length) {
+    $("native-note").textContent += " 一部の指標は未取得です。";
+    $("native-note").classList.add("warning");
+  }
+  metrics($("native-metrics"), [
+    ["住宅 / 商業 / 産業 / オフィス", native.growables == null ? null
+      : [native.homes,native.shops,native.industry,native.offices].map(value).join(" / ")],
+    ["ゾーニング済みセル", native.zonedCells],
+    ["都市の道路から外部接続", native.outsideConnected == null ? null : native.outsideConnected ? "接続あり" : "切断"],
+    ["公共交通の路線 / 乗客カウンター", native.lineCount == null ? null
+      : native.lineCount + " / " + value(native.linePassengers) +
+        (native.linesRead < native.lineCount ? "（取得した路線分）" : "")],
+    ["標準バスの路線 / 車両 / 乗客", native.busLines == null ? null
+      : [native.busLines,native.busVehicles,native.busPassengers].map(value).join(" / ")],
+    ["実験用の標準歩行経路（駅周辺）", retained
+      ? retained.nativePath + " / " + retained.tracked + (retained.economicIsolation ? "（分離用MODあり）" : "") : null],
+    ["市民レコード数", native.citizenRecords],
+    ["稼働中の市民インスタンス", native.citizenInstances],
+  ]);
+  metrics($("mod-metrics"), [
+    ["記録の状態", mod ? mod.fresh && mod.phase === "running" ? "観測時稼働" : "停止中または古い記録" : null],
+    ["アンドロイド / MOD歩行者", mod ? mod.activeAndroid + " / " + mod.activeHuman : null],
+    ["PLATEAUの元データ（棟）", scenery?.sourceBuildings],
+    ["描画用オブジェクト（複数棟を含む）", scenery?.sceneObjects],
+    ["配送先に登録した建物（棟）", mod?.buildingCount],
+    ["標準マップ5×5タイル内の配送拠点", mod?.standardMapHubs == null ? null : mod.standardMapHubs + " / " + regions.length],
+    ["配達が記録された地域", mod ? coverage("deliveries") + " / " + regions.length : null],
+    ["回収が記録された地域", mod ? coverage("collections") + " / " + regions.length : null],
+    ["累計の配送 / 回収", totals ? totals.delivered + " / " + totals.collected : null],
+    ["充電が記録された地域", mod ? coverage("charges") + " / " + regions.length : null],
+  ]);
+  function select(region, buttons) {
+    for (const button of buttons) button.setAttribute("aria-pressed", String(+button.dataset.region === region.id));
+    const list = document.createElement("ul"); list.className = "rows";
+    for (const target of region.targets) {
+      const li = add("li", "配送 " + target.deliveries + " / 回収 " + target.collections + " · ");
+      li.append(add("code",target.sourceID)); list.append(li);
+    }
+    const info = document.createElement("dl");
+    metrics(info,[["アンドロイド",region.androidCount],
+      ["電池残量",region.batteryLow == null ? null : region.batteryLow.toFixed(1)+"–"+region.batteryHigh.toFixed(1)+" %"],
+      ["充電中 / 待機中",region.charging+" / "+region.waitingForCharger],
+      ["MOD歩行者の状態",region.humanState],["充電開始累計",region.charges]]);
+    const header = add("h3", "地域 " + region.id + (region.grid ? " · "+region.grid.join(", ") : ""));
+    $("details").replaceChildren(header, info, list);
+    if (region.error) $("details").append(add("p",region.error));
+  }
+  const grid = $("region-grid"), coordinates = regions.filter(r => r.grid).map(r => r.grid);
+  const xmin = Math.min(...coordinates.map(c => c[0])), xmax = Math.max(...coordinates.map(c => c[0]));
+  const zmax = Math.max(...coordinates.map(c => c[1]));
+  if (coordinates.length) grid.style.gridTemplateColumns = "repeat(" + (xmax - xmin + 1) + ",minmax(0,1fr))";
+  const buttons = regions.map(region => {
+    const phase = region.error ? "error" : region.collections > 0 ? "collection" : region.deliveries > 0 ? "delivery" : "waiting";
+    const caption = {waiting:"待",delivery:"配",collection:"回",error:"!"}[phase];
+    const button = add("button",caption);
+    button.type = "button"; button.dataset.region = region.id; button.dataset.phase = phase;
+    button.setAttribute("aria-label","地域 " + region.id + " 配送 " + region.deliveries + " 回収 " + region.collections);
+    if (region.grid) { button.style.gridColumn = region.grid[0] - xmin + 1; button.style.gridRow = zmax - region.grid[1] + 1; }
+    button.addEventListener("click",() => select(region,buttons)); grid.append(button); return button;
+  });
+  if (regions.length) select(regions.find(r => r.collections > 0) || regions[0], buttons);
+</script>
+</body>
+</html>
