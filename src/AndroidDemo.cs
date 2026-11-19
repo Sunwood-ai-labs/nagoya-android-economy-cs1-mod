@@ -22,13 +22,28 @@ namespace NagoyaAndroidDemo
         {
             if (mode != LoadMode.NewGame && mode != LoadMode.LoadGame) return;
             host = new GameObject("NagoyaAndroidDemoController");
-            host.AddComponent<Demo>().Mode = mode.ToString();
-            host.AddComponent<NagoyaRoadDelivery.DistrictController>().Mode = mode.ToString();
-            host.AddComponent<NagoyaRoadDelivery.HumanDistrictController>().Mode = mode.ToString();
-            host.AddComponent<NagoyaRoadDelivery.CitywideScene>();
+            string city = SimulationManager.instance.m_metaData.m_CityName;
+            bool construction = city != null && city.StartsWith("NagoyaCitywide-", StringComparison.Ordinal);
+            if (!construction)
+            {
+                host.AddComponent<Demo>().Mode = mode.ToString();
+                host.AddComponent<NagoyaRoadDelivery.DistrictController>().Mode = mode.ToString();
+                host.AddComponent<NagoyaRoadDelivery.HumanDistrictController>().Mode = mode.ToString();
+            }
+            host.AddComponent<NagoyaRoadDelivery.CitywideScene>().NativeConstruction = construction;
+            if (construction)
+            {
+                NagoyaRoadDelivery.NativeCityLedger.Enter(city);
+                host.AddComponent<NagoyaRoadDelivery.NativeCityModelAlignment>();
+                host.AddComponent<NagoyaRoadDelivery.NativeCityRoster>();
+            }
+            host.AddComponent<NagoyaRoadDelivery.NativeCityFlatStart>().NewGame = mode == LoadMode.NewGame;
+            host.AddComponent<NagoyaRoadDelivery.NativeCityRoadBuilder>();
+            host.AddComponent<NagoyaRoadDelivery.NativeCityZoneBuilder>();
         }
         public override void OnLevelUnloading()
         {
+            NagoyaRoadDelivery.NativeCityLedger.Leave();
             if (host != null) UnityEngine.Object.Destroy(host);
             host = null;
         }

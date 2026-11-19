@@ -15,6 +15,7 @@ namespace NagoyaRoadDelivery
     public sealed partial class CitywideScene : MonoBehaviour, ICitywideVisuals, ICitywideSurfaceVisuals, ICitywideFleetVisuals
     {
         private const string Root=@"H:\CS1-PLATEAU\nagoya-station\citywide-live-v1";
+        internal bool NativeConstruction;
         private RoutingGraph graph;
         private SurfaceMetadata surfaceMetadata;
         private GradeProfile gradeProfile;
@@ -124,7 +125,29 @@ namespace NagoyaRoadDelivery
             if(activeGraphHash.Length>0&&actual!=activeGraphHash.ToLowerInvariant())throw new FormatException("Selected road graph hash mismatch");
             activeGraphHash=actual;return RoutingGraph.Load(new MemoryStream(bytes));
         }
-        public void Start(){if(!File.Exists(Path.Combine(Root,"enabled.txt")))return;runId=DateTime.UtcNow.ToString("yyyyMMddTHHmmssfffZ");phase="loading";scene=new GameObject("Nagoya Citywide Source Network");scene.transform.parent=transform;scene.AddComponent<NativeGoodsMonitor>();StartCoroutine(Boot());}
+        public void Start()
+        {
+            if (NativeConstruction)
+            {
+                scene = new GameObject("Nagoya native resident androids");
+                scene.transform.parent = transform;
+                try
+                {
+                    LoadAndroid();
+                    string nativeRun = DateTime.UtcNow.ToString("yyyyMMddTHHmmssfffZ");
+                    scene.AddComponent<AndroidLifePilot>().Initialize(this, NativeCityRoadBuilder.Root, nativeRun);
+                }
+                catch (Exception failure) { Debug.LogException(failure); }
+                return;
+            }
+            if (!File.Exists(Path.Combine(Root, "enabled.txt"))) return;
+            runId = DateTime.UtcNow.ToString("yyyyMMddTHHmmssfffZ");
+            phase = "loading";
+            scene = new GameObject("Nagoya Citywide Source Network");
+            scene.transform.parent = transform;
+            scene.AddComponent<NativeGoodsMonitor>();
+            StartCoroutine(Boot());
+        }
         private IEnumerator Boot()
         {
             Dictionary<string,object> index=null;bool good=true;
@@ -357,7 +380,7 @@ namespace NagoyaRoadDelivery
                 roadMaterial.color=new Color(gain,gain,gain,1);appearanceSignature=signature;appearanceError="";
             } catch(Exception e) {lastAppearanceAttempt=attempt;appearanceError=e.Message;}
         }
-        public void Update(){ApplyAndroidAppearance();ApplyAppearance();if(simulation!=null&&error.Length==0){SimulationManager s=Singleton<SimulationManager>.instance;float dt=s.SimulationPaused?0:Time.deltaTime*Mathf.Clamp(s.FinalSimulationSpeed,0,3);try{simulation.Step(dt);}catch(Exception e){Fail(e);}}if(runId.Length>0&&Time.realtimeSinceStartup>=nextState){nextState=Time.realtimeSinceStartup+2;WriteState();}}
+        public void Update(){if(NativeConstruction)return;ApplyAndroidAppearance();ApplyAppearance();if(simulation!=null&&error.Length==0){SimulationManager s=Singleton<SimulationManager>.instance;float dt=s.SimulationPaused?0:Time.deltaTime*Mathf.Clamp(s.FinalSimulationSpeed,0,3);try{simulation.Step(dt);}catch(Exception e){Fail(e);}}if(runId.Length>0&&Time.realtimeSinceStartup>=nextState){nextState=Time.realtimeSinceStartup+2;WriteState();}}
         private void Fail(Exception e){phase="error";error=e.ToString();Debug.LogException(e);WriteState();}
         private void WriteState(){try{Dictionary<string,object> m=new Dictionary<string,object>{{"utc",DateTime.UtcNow.ToString("o")},{"runId",runId},{"phase",phase},{"error",error},{"roadChunksLoaded",loadedChunks},{"roadChunksExpected",expectedChunks},{"roadTriangles",roadTriangles},{ "roadMaterialGain",roadMaterial!=null?roadMaterial.color.r:0f},{"appearanceError",appearanceError},{"appearanceSignature",appearanceSignature},{"surfacePlacementVersion","route-owned width, travel side and supported grades v3"},{"nativeRoadsCreated",0},{ "networkName",networkName},{"routingGraphSHA256",activeGraphHash},{"entranceBuildingTargets",buildingTargets},{"entranceHubCount",entranceHubs.Count},{"implementation","actual OSM source geometry; MOD-owned roads, routing and actor rules"},{"humanVisualSource",humanSource},{"humanWalkVersion","continuous deformation v2"},{"removedHumanAccessoryTriangles",removedHumanAccessoryTriangles},{"actorObjects",actors.Count},{"chargers",chargers.Count},{"assemblyMvid",GetType().Assembly.ManifestModule.ModuleVersionId.ToString()}};if(simulation!=null){
                 m["simulation"]=JsonData.Parse(simulation.StateJson());

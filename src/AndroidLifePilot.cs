@@ -14,17 +14,19 @@ namespace NagoyaRoadDelivery
     public sealed class AndroidLifePilot : MonoBehaviour
     {
         private const int MembersPerUnit = 5;
-        private const int MaximumAndroids = 32;
+        private const int MaximumAndroids = 512;
         private const int MaximumUnitsPerBuilding = 2048;
         private const string RenderPatchId = "sunwood.nagoya.android-residence-render";
         private static AndroidLifePilot renderer;
+        private static AndroidLifePilot active;
         private Harmony renderPatch;
         private readonly Dictionary<uint, Resident> cohort = new Dictionary<uint, Resident>();
         private volatile uint[] residents = new uint[0];
         private readonly Dictionary<uint, object> visuals = new Dictionary<uint, object>();
         private CitywideScene city;
-        private string root, runId, caseId, error;
+        private string root, runId, caseId, error, visualError;
         private bool attempted;
+        private bool restored;
         private float nextSample;
         private DateTime lastGameTime;
         private int queued;
@@ -52,24 +54,32 @@ namespace NagoyaRoadDelivery
             city = host;
             root = data;
             runId = id;
+            active = this;
             try
             {
-                MethodInfo target = typeof(CitizenInstance).GetMethod("RenderInstance", new Type[] {
-                    typeof(RenderManager.CameraInfo), typeof(CitizenInfo), typeof(Vector3)
-                });
+                MethodInfo target = typeof(CitizenInstance).GetMethod("RenderInstance",
+                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null,
+                    new Type[] {typeof(RenderManager.CameraInfo), typeof(ushort)}, null);
                 MethodInfo prefix = typeof(AndroidLifePilot).GetMethod("KeepNativeSkin", BindingFlags.Static | BindingFlags.NonPublic);
                 if (target == null) throw new MissingMethodException("CitizenInstance.RenderInstance");
                 renderPatch = new Harmony(RenderPatchId);
                 renderPatch.Patch(target, new HarmonyMethod(prefix), null, null, null);
                 renderer = this;
             }
-            catch (Exception ex) { Debug.LogException(ex); }
+            catch (Exception ex)
+            {
+                visualError = ex.GetBaseException().Message;
+                Debug.LogException(ex);
+            }
         }
 
-        private static bool KeepNativeSkin(ref CitizenInstance __instance)
+        private static bool KeepNativeSkin(ref CitizenInstance __instance, ref bool __result)
         {
             AndroidLifePilot scene = renderer;
-            return scene == null || Array.IndexOf(scene.residents, __instance.m_citizen) < 0;
+            if (scene == null || Array.BinarySearch(scene.residents, __instance.m_citizen) < 0)
+                return true;
+            __result = true;
+            return false;
         }
 
         public void Update()
@@ -98,6 +108,7 @@ namespace NagoyaRoadDelivery
 
         private void CreateRequestedResidents()
         {
+            if (!restored) RestoreSavedResidents();
             if (attempted) return;
             string request = Path.Combine(root, "android-life-scenario.json");
             if (!File.Exists(request)) return;
@@ -116,8 +127,9 @@ namespace NagoyaRoadDelivery
                 NativeBuilding[] buildings = BuildingManager.instance.m_buildings.m_buffer;
                 Randomizer random = new Randomizer(5102026);
                 List<uint> added = new List<uint>();
-                for (int i = 1; i < buildings.Length && added.Count < requested; i++)
+                foreach (int i in HomeOrder(buildings.Length))
                 {
+                    if (added.Count >= requested) break;
                     NativeBuilding building = buildings[i];
                     BuildingInfo info = building.Info;
                     if ((building.m_flags & (NativeBuilding.Flags.Created | NativeBuilding.Flags.Abandoned)) != NativeBuilding.Flags.Created ||
@@ -141,7 +153,10 @@ namespace NagoyaRoadDelivery
                             citizens.m_citizens.m_buffer[citizenId].CurrentLocation = Citizen.Location.Home;
                             cohort.Add(citizenId, new Resident { Home = (ushort)i, HomeUnit = unitId });
                             added.Add(citizenId);
-                            residents = added.ToArray();
+                            NativeCityLedger.Record(new NativeCityLedger.Android {
+                                Id=citizenId, Home=(ushort)i, HomeUnit=unitId, Battery=65
+                            });
+                            if (root == NativeCityRoadBuilder.Root) break;
                         }
                         unitId = unit.m_nextUnit;
                     }
@@ -149,6 +164,86 @@ namespace NagoyaRoadDelivery
                 if (added.Count < requested) error = "Vacant residential units limited the experiment to " + added.Count;
             }
             catch (Exception ex) { error = ex.GetBaseException().Message; }
+            finally
+            {
+                UpdateResidentIds();
+            }
+        }
+
+        private IEnumerable<int> HomeOrder(int nativeLength)
+        {
+            if (root != NativeCityRoadBuilder.Root)
+            {
+                for (int i = 1; i < nativeLength; i++) yield return i;
+                yield break;
+            }
+            NativeCityLedger.Road[] roads;
+            NativeCityLedger.Lot[] lots;
+            NativeCityLedger.Snapshot(out roads, out lots);
+            Dictionary<string, Queue<int>> homes = new Dictionary<string, Queue<int>>();
+            foreach (NativeCityLedger.Lot lot in lots)
+            {
+                if ((lot.Zone != ItemClass.Zone.ResidentialLow && lot.Zone != ItemClass.Zone.ResidentialHigh) ||
+                    !NativeCityLedger.HasActiveZone(lot)) continue;
+                Queue<int> wardHomes;
+                if (!homes.TryGetValue(lot.Ward, out wardHomes))
+                    homes.Add(lot.Ward, wardHomes = new Queue<int>());
+                wardHomes.Enqueue(lot.Id);
+            }
+            List<string> wards = new List<string>(homes.Keys);
+            wards.Sort(StringComparer.Ordinal);
+            for (int remaining = lots.Length; remaining > 0;)
+            {
+                int previous = remaining;
+                foreach (string ward in wards)
+                {
+                    if (homes[ward].Count == 0) continue;
+                    remaining--;
+                    yield return homes[ward].Dequeue();
+                }
+                if (remaining == previous) break;
+            }
+        }
+
+        private void RestoreSavedResidents()
+        {
+            restored = true;
+            if (root != NativeCityRoadBuilder.Root) return;
+            CitizenManager manager = CitizenManager.instance;
+            Citizen[] stock = manager.m_citizens.m_buffer;
+            CitizenUnit[] units = manager.m_units.m_buffer;
+            NativeCityLedger.Android[] saved = NativeCityLedger.SavedAndroids();
+            foreach (NativeCityLedger.Android resident in saved)
+            {
+                if (resident.Id >= stock.Length || resident.HomeUnit >= units.Length ||
+                    (stock[resident.Id].m_flags & (Citizen.Flags.Created | Citizen.Flags.Dead)) != Citizen.Flags.Created ||
+                    stock[resident.Id].m_homeBuilding != resident.Home || !Contains(units[resident.HomeUnit], resident.Id))
+                {
+                    NativeCityLedger.RemoveAndroid(resident.Id);
+                    continue;
+                }
+                cohort.Add(resident.Id, new Resident {Home=resident.Home, HomeUnit=resident.HomeUnit, Battery=resident.Battery});
+            }
+            if (cohort.Count > 0)
+            {
+                attempted = true;
+                caseId = "restored-native-residents";
+                UpdateResidentIds();
+            }
+        }
+
+        private void UpdateResidentIds()
+        {
+            uint[] ids = new uint[cohort.Count];
+            cohort.Keys.CopyTo(ids, 0);
+            Array.Sort(ids);
+            residents = ids;
+        }
+
+        internal static bool IsAndroidCitizen(uint id)
+        {
+            AndroidLifePilot runner = active;
+            return runner != null && Array.BinarySearch(runner.residents, id) >= 0;
         }
 
         private Sample Observe()
@@ -191,6 +286,9 @@ namespace NagoyaRoadDelivery
                 member.Charging = charge;
                 if (charge) member.Battery = Math.Min(100, member.Battery + minutes * .25);
                 if (work || running) member.Battery = Math.Max(0, member.Battery - minutes * .10);
+                NativeCityLedger.Record(new NativeCityLedger.Android {
+                    Id=(uint)i, Home=member.Home, HomeUnit=member.HomeUnit, Battery=(float)member.Battery
+                });
                 CitizenInstance instance = data.m_instance > 0 ? manager.m_instances.m_buffer[data.m_instance] : new CitizenInstance();
                 if (jobMember && instance.m_path != 0 && instance.m_sourceBuilding == member.Home &&
                     instance.m_targetBuilding == data.m_workBuilding)
@@ -208,6 +306,7 @@ namespace NagoyaRoadDelivery
             Dictionary<string, object> report = new Dictionary<string, object> {
                 {"utc",DateTime.UtcNow.ToString("o")}, {"gameTime",now.ToString("s")}, {"runId",runId}, {"caseId",caseId},
                 {"status",error == null ? (attempted ? "running" : "baseline") : "limited"}, {"error",error},
+                {"androidRenderHookActive",renderer == this}, {"visualError",visualError},
                 {"nativeHumanResidents",humans}, {"humansWithWorkplace",humanEmployed}, {"androidHomeMembers",androidHomeMembers},
                 {"androidWorkMembers",androidWorkMembers}, {"androidAtHome",atHome}, {"androidAtWork",atWork}, {"androidMoving",moving},
                 {"androids",rows}
@@ -268,6 +367,7 @@ namespace NagoyaRoadDelivery
 
         private void UpdateVisuals()
         {
+            if (renderer != this) return;
             CitizenManager manager = CitizenManager.instance;
             foreach (uint id in residents)
             {
@@ -303,6 +403,7 @@ namespace NagoyaRoadDelivery
 
         public void OnDestroy()
         {
+            if (active == this) active = null;
             if (renderer == this) renderer = null;
             if (renderPatch != null) renderPatch.UnpatchAll(RenderPatchId);
         }

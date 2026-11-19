@@ -8,6 +8,7 @@
 - [CS1標準の住宅・就業・通勤を使った生活試験](docs/android-life.md)
 - [PLATEAU建物をCS1の住宅として割り当てた検証](docs/plateau-zoning.md)
 - [名古屋全域の建物用途とCS1への接続計画](docs/citywide-zoning.md)
+- [全域建設のデータと実機での適用手順](docs/native-city-construction.md)
 - [168体の実ゲーム観測](docs/evidence/live-168-20261118.json)
 - [CS1標準の商品需要と在庫の観測](docs/evidence/native-goods-baseline-20261118.json)
 
