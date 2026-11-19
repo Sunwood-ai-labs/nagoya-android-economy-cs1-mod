@@ -84,11 +84,11 @@ class Corridor:
         left, bottom, right, top = self.bounds
         return x + w / 2 >= left and x - w / 2 <= right and z + h / 2 >= bottom and z - h / 2 <= top
 
-    def intersects(self, triangle, ox, oz):
+    def intersects(self, triangle, ox, oz, scale):
         # Separating axes for a triangle and a rectangle aligned to the road.
         mx, mz = ox - self.x, oz - self.z
-        points = [((x + mx) * self.dx + (z + mz) * self.dz,
-                   (z + mz) * self.dx - (x + mx) * self.dz) for x, z in triangle]
+        points = [((x * scale + mx) * self.dx + (z * scale + mz) * self.dz,
+                   (z * scale + mz) * self.dx - (x * scale + mx) * self.dz) for x, z in triangle]
         along, across = zip(*points)
         w = self.half_width
         if max(along) < 0 or min(along) > self.length or max(across) < -w or min(across) > w:
@@ -103,13 +103,23 @@ class Corridor:
         return True
 
 
-def audit(runtime, roads):
+def audit(runtime, roads, transform=None):
+    scale = 1.0 if transform is None else float(transform["scale"])
+    ox, oz = (0.0, 0.0) if transform is None else map(float, transform["originalCenterXZ"])
+    if not all(map(math.isfinite, (ox, oz, scale))) or scale <= 0:
+        raise ValueError("Expected a finite map center and a positive scale")
     corridors = [(road, Corridor(road), Counter()) for road in roads]
     inspected = 0
     for model in runtime["models"]:
-        eligible = [(corridor, hits) for _, corridor, hits in corridors if model["active"] and corridor.overlaps(model)]
+        if not model["active"]:
+            continue
+        x, y, z = model["boundsCenter"]
+        w, h, d = model["bounds"]
+        bounds = {"boundsCenter": ((x - ox) * scale, y, (z - oz) * scale), "bounds": (w * scale, h, d * scale)}
+        eligible = [(corridor, hits) for _, corridor, hits in corridors if corridor.overlaps(bounds)]
         if not eligible:
             continue
+        model_x, model_z = (model["x"] - ox) * scale, (model["z"] - oz) * scale
         inspected += 1
         limits = iter(sources(model))
         source, stop = next(limits)
@@ -119,11 +129,12 @@ def audit(runtime, roads):
                 source, stop = next(limits)
             triangle_count += 1
             for corridor, hits in eligible:
-                if corridor.intersects(points, model["x"], model["z"]):
+                if corridor.intersects(points, model_x, model_z, scale):
                     hits[source] += 1
         if triangle_count != model["triangles"]:
             raise ValueError(f"Unexpected triangle count for {model['id']}")
-    return {"revision": runtime["revision"], "activeMeshCount": sum(model["active"] for model in runtime["models"]),
+    return {"revision": runtime["revision"], "appliedTransform": transform,
+            "activeMeshCount": sum(model["active"] for model in runtime["models"]),
             "inspectedMeshCount": inspected, "roads": [dict(road, overlappingSources=dict(sorted(hits.items())))
             for road, _, hits in corridors]}
 
@@ -132,13 +143,17 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("runtime", type=Path, help="block-runtime.json exported by the scenery loader")
     parser.add_argument("roads", type=Path, help="array of start, end, halfWidth and optional road metadata")
+    parser.add_argument("--transform-plan", type=Path, help="optionally project the read-back meshes using the native road plan")
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
     runtime = json.loads(args.runtime.read_text(encoding="utf-8-sig"))
     roads = json.loads(args.roads.read_text(encoding="utf-8-sig"))
     if not isinstance(roads, list) or not 1 <= len(roads) <= 100:
         parser.error("Supply between 1 and 100 straight ground-road candidates")
-    result = audit(runtime, roads)
+    transform = None
+    if args.transform_plan is not None:
+        transform = json.loads(args.transform_plan.read_text(encoding="utf-8-sig"))["audit"]["transform"]
+    result = audit(runtime, roads, transform)
     with args.output.open("x", encoding="utf-8") as output:
         json.dump(result, output, ensure_ascii=False, indent=2)
         output.write("\n")

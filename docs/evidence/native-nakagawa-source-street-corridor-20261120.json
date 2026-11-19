@@ -1,0 +1,426 @@
+{
+  "status": "planning with live input; no construction or projected runtime changes",
+  "nativeSnapshotSha256": "202e958977c4145d4ed13900ffbf9a97007f39f69baad890054bf7ed0b6c04ed",
+  "sourceGraphSha256": "2e97c8445627dbb17bb9c2cd611c0441b90c9b746101069947ab54e7f8443158",
+  "liveScenery": {
+    "revision": "nagoya-city738033-flat140-roof-g-split-v11",
+    "activeMeshes": 1901,
+    "x": [
+      -8020.823,
+      15929.1
+    ],
+    "z": [
+      -14817.58,
+      10131.2
+    ]
+  },
+  "nativeTransform": {
+    "scale": 0.3609817361802207,
+    "originalCenterXZ": [
+      3983.025225638404,
+      -2625.1867492695537
+    ]
+  },
+  "initialStreetRoutes": 17,
+  "comparedRoutes": {
+    "asDisplayed": [
+      {
+        "fromNode": 13222,
+        "toNode": 20531,
+        "overlappedByFullWidth": {
+          "3.0": 13,
+          "8": 21,
+          "16": 26
+        }
+      },
+      {
+        "fromNode": 28684,
+        "toNode": 21466,
+        "overlappedByFullWidth": {
+          "3.0": 22,
+          "8": 25,
+          "16": 32
+        }
+      },
+      {
+        "fromNode": 28684,
+        "toNode": 24197,
+        "overlappedByFullWidth": {
+          "3.0": 25,
+          "8": 32,
+          "16": 43
+        }
+      },
+      {
+        "fromNode": 30081,
+        "toNode": 20531,
+        "overlappedByFullWidth": {
+          "3.0": 14,
+          "8": 19,
+          "16": 28
+        }
+      },
+      {
+        "fromNode": 5382,
+        "toNode": 1013,
+        "overlappedByFullWidth": {
+          "3.0": 10,
+          "8": 17,
+          "16": 22
+        }
+      },
+      {
+        "fromNode": 5382,
+        "toNode": 14738,
+        "overlappedByFullWidth": {
+          "3.0": 11,
+          "8": 19,
+          "16": 26
+        }
+      },
+      {
+        "fromNode": 28684,
+        "toNode": 28880,
+        "overlappedByFullWidth": {
+          "3.0": 7,
+          "8": 10,
+          "16": 11
+        }
+      },
+      {
+        "fromNode": 5382,
+        "toNode": 9086,
+        "overlappedByFullWidth": {
+          "3.0": 16,
+          "8": 19,
+          "16": 25
+        }
+      }
+    ],
+    "reprojected-": [
+      {
+        "fromNode": 13222,
+        "toNode": 20531,
+        "overlappedByFullWidth": {
+          "3.0": 4,
+          "8": 48,
+          "16": 78
+        }
+      },
+      {
+        "fromNode": 28684,
+        "toNode": 21466,
+        "overlappedByFullWidth": {
+          "3.0": 8,
+          "8": 30,
+          "16": 52
+        }
+      },
+      {
+        "fromNode": 28684,
+        "toNode": 24197,
+        "overlappedByFullWidth": {
+          "3.0": 19,
+          "8": 58,
+          "16": 87
+        }
+      },
+      {
+        "fromNode": 30081,
+        "toNode": 20531,
+        "overlappedByFullWidth": {
+          "3.0": 15,
+          "8": 48,
+          "16": 96
+        }
+      },
+      {
+        "fromNode": 5382,
+        "toNode": 1013,
+        "overlappedByFullWidth": {
+          "3.0": 12,
+          "8": 51,
+          "16": 89
+        }
+      },
+      {
+        "fromNode": 5382,
+        "toNode": 14738,
+        "overlappedByFullWidth": {
+          "3.0": 20,
+          "8": 70,
+          "16": 115
+        }
+      },
+      {
+        "fromNode": 28684,
+        "toNode": 28880,
+        "overlappedByFullWidth": {
+          "3.0": 14,
+          "8": 37,
+          "16": 56
+        }
+      },
+      {
+        "fromNode": 5382,
+        "toNode": 9086,
+        "overlappedByFullWidth": {
+          "3.0": 14,
+          "8": 75,
+          "16": 124
+        }
+      }
+    ]
+  },
+  "window": [
+    -2630.0,
+    -350.0,
+    -2140.0,
+    380.0
+  ],
+  "evaluatedStreetEdges": 3319,
+  "anchorCounts": [
+    69,
+    70
+  ],
+  "widthMatrix": {
+    "3": {
+      "obstructed": 1200,
+      "clearRoutes": 26
+    },
+    "4": {
+      "obstructed": 1609,
+      "clearRoutes": 2
+    },
+    "4.5": {
+      "obstructed": 1726,
+      "clearRoutes": 1
+    },
+    "5": {
+      "obstructed": 1819,
+      "clearRoutes": 0
+    },
+    "5.5": {
+      "obstructed": 1940,
+      "clearRoutes": 0
+    },
+    "6": {
+      "obstructed": 2100,
+      "clearRoutes": 0
+    },
+    "8": {
+      "obstructed": 2460,
+      "clearRoutes": 0
+    }
+  },
+  "stockPedestrianPavementFullWidth": 6,
+  "candidate": {
+    "fromNode": 30090,
+    "toNode": 20531,
+    "newLength": 190.347,
+    "totalLength": 299.187,
+    "anchorGaps": [
+      0.646,
+      0.0
+    ],
+    "sourceEdges": [
+      "w100287323:p0:e26096",
+      "w100287323:p0:e26097",
+      "w100287323:p0:e26098",
+      "w100287323:p0:e26099",
+      "w100287323:p0:e26100",
+      "w100287323:p0:e26101",
+      "w100287323:p0:e26102",
+      "w100287323:p0:e26103",
+      "w100287323:p0:e26104",
+      "w100287323:p0:e26105",
+      "w100287323:p0:e26106",
+      "w100287323:p0:e26107",
+      "w100287323:p0:e26108",
+      "w100287323:p0:e26109",
+      "w1270875618:p0:e194435",
+      "w1270875617:p0:e194415",
+      "w1270875617:p0:e194416",
+      "w1270875617:p0:e194417",
+      "w1270875617:p0:e194418",
+      "w1270875617:p0:e194419",
+      "w1270875617:p0:e194420",
+      "w1270875617:p0:e194421",
+      "w1270875617:p0:e194422",
+      "w1270875617:p0:e194423"
+    ]
+  },
+  "sourceWays": [
+    100287323,
+    1270875617,
+    1270875618
+  ],
+  "checkedChords": {
+    "sourceNodes": [
+      30090,
+      20531
+    ],
+    "scene": "nagoya-city738033-flat140-roof-g-split-v11",
+    "projection": {
+      "scale": 0.3609817361802207,
+      "originalCenterXZ": [
+        3983.025225638404,
+        -2625.1867492695537
+      ]
+    },
+    "rawPoints": 26,
+    "candidateChords": 100,
+    "clearChords": 95,
+    "selection": [
+      {
+        "i": 0,
+        "j": 5,
+        "start": {
+          "x": -2258.159,
+          "z": 33.73
+        },
+        "end": {
+          "x": -2294.744881697196,
+          "z": 25.094175065206635
+        },
+        "halfWidth": 2.25,
+        "length": 37.591,
+        "overlappingSources": {}
+      },
+      {
+        "i": 5,
+        "j": 9,
+        "start": {
+          "x": -2294.744881697196,
+          "z": 25.094175065206635
+        },
+        "end": {
+          "x": -2333.4255322969307,
+          "z": 12.324814851506094
+        },
+        "halfWidth": 2.25,
+        "length": 40.734,
+        "overlappingSources": {}
+      },
+      {
+        "i": 9,
+        "j": 12,
+        "start": {
+          "x": -2333.4255322969307,
+          "z": 12.324814851506094
+        },
+        "end": {
+          "x": -2361.573563421533,
+          "z": 3.0347050507732543
+        },
+        "halfWidth": 2.25,
+        "length": 29.641,
+        "overlappingSources": {}
+      },
+      {
+        "i": 12,
+        "j": 20,
+        "start": {
+          "x": -2361.573563421533,
+          "z": 3.0347050507732543
+        },
+        "end": {
+          "x": -2400.0656555189894,
+          "z": -9.22589215457031
+        },
+        "halfWidth": 2.25,
+        "length": 40.398,
+        "overlappingSources": {}
+      },
+      {
+        "i": 20,
+        "j": 21,
+        "start": {
+          "x": -2400.0656555189894,
+          "z": -9.22589215457031
+        },
+        "end": {
+          "x": -2411.0940510831915,
+          "z": -11.26137361521495
+        },
+        "halfWidth": 2.25,
+        "length": 11.215,
+        "overlappingSources": {}
+      },
+      {
+        "i": 21,
+        "j": 25,
+        "start": {
+          "x": -2411.0940510831915,
+          "z": -11.26137361521495
+        },
+        "end": {
+          "x": -2442.482,
+          "z": -11.238
+        },
+        "halfWidth": 2.25,
+        "length": 31.388,
+        "overlappingSources": {}
+      }
+    ]
+  },
+  "otherInfrastructureCrossings": {
+    "state": {
+      "ok": true,
+      "gameTime": "2030-01-07T15:13:09",
+      "buildIndex": 126155,
+      "simulation": {
+        "paused": true,
+        "selectedSpeed": 1,
+        "forcedPaused": false,
+        "loadingComplete": true,
+        "finalSpeed": 0
+      },
+      "network": {
+        "nodes": 32699,
+        "segments": 32718,
+        "lanes": 157604
+      },
+      "citizens": {
+        "count": 12121
+      },
+      "demand": {
+        "residential": 2,
+        "commercial": 0,
+        "workplace": 0
+      }
+    },
+    "counts": {
+      "PublicTransport": 1035,
+      "Electricity": 4214,
+      "Beautification": 207
+    },
+    "crossings": [
+      {
+        "service": "PublicTransport",
+        "segment": 19739,
+        "prefab": "Airplane Path",
+        "chord": 4,
+        "crossingXZHeight": [
+          -2368.86,
+          0.71,
+          138.24
+        ],
+        "verticalClearance": 1.76
+      },
+      {
+        "service": "Electricity",
+        "segment": 34122,
+        "prefab": "Power Line",
+        "chord": 6,
+        "crossingXZHeight": [
+          -2442.31,
+          -11.24,
+          140.0
+        ],
+        "verticalClearance": 0.0
+      }
+    ]
+  },
+  "readBackSha256": "e2ac6f23c501cfe9d2f9dd51166b989a8f5d4276ad268fdfadfef37edeb9e5f8"
+}
