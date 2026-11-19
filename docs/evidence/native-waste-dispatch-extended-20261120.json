@@ -1,0 +1,354 @@
+{
+  "preLoanSave": {
+    "name": "NagoyaCitywide-WasteBudgetTrial-LocalDispatchObserved",
+    "bytes": 15449992,
+    "sha256": "0B938FB74599441E975A0ACA1C42FFA75BEFF1D6E2EF13B7B5B061CE6E7AC64F",
+    "baselinePreserved": true,
+    "continueSave": "NagoyaCitywide-WasteBudgetTrial-LocalDispatchObserved"
+  },
+  "extendedTrialSave": {
+    "name": "NagoyaCitywide-WasteBudgetTrial-LocalDispatchExtended",
+    "bytes": 15474601,
+    "sha256": "203CBC4370E56CE61CABB56D79243E5AA01888823138F849D750DEABA2AC66CB",
+    "preLoanSavePreserved": true,
+    "continueSave": "NagoyaCitywide-WasteBudgetTrial-LocalDispatchExtended"
+  },
+  "openingGameTime": "2029-12-03T08:53:31",
+  "endingGameTime": "2029-12-08T11:27:26",
+  "testedDurationSeconds": 441235.0,
+  "funding": {
+    "method": "Cities: Skylines economy panel",
+    "principal": 60000,
+    "interestPercent": 10,
+    "repaymentWeeks": 260,
+    "weeklyQuoted": 253.85,
+    "cashBefore": 3586.31,
+    "cashAfter": 63586.31,
+    "endingCash": 9519.17,
+    "endingNativeLoanExpensesRaw": 19037
+  },
+  "monitoredBuildings": 64,
+  "warningCountBefore": 63,
+  "warningCountAfter": 57,
+  "confirmedPickups": [
+    {
+      "building": 39948,
+      "generation": 113973,
+      "pickup": {
+        "gameTime": "2029-12-05T16:34:07",
+        "vehicle": 5017,
+        "sourceFacility": 28215,
+        "garbageBefore": 3897,
+        "garbageAfter": 1117,
+        "truckLoadBefore": 17220,
+        "truckLoadAfter": 20000
+      },
+      "units": 2780,
+      "warningAtStart": true,
+      "warningAtEnd": false,
+      "bufferAtEnd": 20,
+      "selectedForLocalTrial": true,
+      "vehicleFromLocalTrial": true
+    },
+    {
+      "building": 2938,
+      "generation": 114708,
+      "pickup": {
+        "gameTime": "2029-12-06T17:01:02",
+        "vehicle": 9897,
+        "sourceFacility": 28215,
+        "garbageBefore": 3374,
+        "garbageAfter": 0,
+        "truckLoadBefore": 15159,
+        "truckLoadAfter": 18533
+      },
+      "units": 3374,
+      "warningAtStart": true,
+      "warningAtEnd": false,
+      "bufferAtEnd": 12,
+      "selectedForLocalTrial": true,
+      "vehicleFromLocalTrial": true
+    },
+    {
+      "building": 19781,
+      "generation": 107621,
+      "pickup": {
+        "gameTime": "2029-12-07T02:15:34",
+        "vehicle": 4995,
+        "sourceFacility": 28215,
+        "garbageBefore": 5490,
+        "garbageAfter": 0,
+        "truckLoadBefore": 2028,
+        "truckLoadAfter": 7518
+      },
+      "units": 5490,
+      "warningAtStart": true,
+      "warningAtEnd": false,
+      "bufferAtEnd": 10,
+      "selectedForLocalTrial": false,
+      "vehicleFromLocalTrial": false
+    },
+    {
+      "building": 1766,
+      "generation": 79274,
+      "pickup": {
+        "gameTime": "2029-12-07T13:12:58",
+        "vehicle": 4995,
+        "sourceFacility": 28215,
+        "garbageBefore": 4146,
+        "garbageAfter": 0,
+        "truckLoadBefore": 9723,
+        "truckLoadAfter": 13869
+      },
+      "units": 4146,
+      "warningAtStart": true,
+      "warningAtEnd": false,
+      "bufferAtEnd": 4,
+      "selectedForLocalTrial": false,
+      "vehicleFromLocalTrial": false
+    },
+    {
+      "building": 22620,
+      "generation": 59102,
+      "pickup": {
+        "gameTime": "2029-12-07T16:29:13",
+        "vehicle": 4995,
+        "sourceFacility": 28215,
+        "garbageBefore": 4974,
+        "garbageAfter": 1331,
+        "truckLoadBefore": 16357,
+        "truckLoadAfter": 20000
+      },
+      "units": 3643,
+      "warningAtStart": true,
+      "warningAtEnd": false,
+      "bufferAtEnd": 1335,
+      "selectedForLocalTrial": false,
+      "vehicleFromLocalTrial": false
+    }
+  ],
+  "manualDispatchFleet": [
+    {
+      "dispatchId": 4672,
+      "facility": 16719,
+      "assignedDestination": 12921,
+      "atMidpoint": {
+        "id": 4672,
+        "facility": 16719,
+        "target": 12921,
+        "path": 235733,
+        "load": 16,
+        "spawned": true,
+        "returning": false,
+        "waitingForPath": false
+      },
+      "atEnd": {
+        "id": 4672,
+        "facility": 16719,
+        "target": 12921,
+        "path": 152479,
+        "load": 18,
+        "spawned": true,
+        "returning": false,
+        "waitingForPath": false
+      }
+    },
+    {
+      "dispatchId": 10444,
+      "facility": 16719,
+      "assignedDestination": 45906,
+      "atMidpoint": {
+        "id": 10444,
+        "facility": 16719,
+        "target": 45906,
+        "path": 222537,
+        "load": 9053,
+        "spawned": true,
+        "returning": false,
+        "waitingForPath": false
+      },
+      "atEnd": {
+        "id": 10444,
+        "facility": 16719,
+        "target": 45906,
+        "path": 223822,
+        "load": 12867,
+        "spawned": true,
+        "returning": false,
+        "waitingForPath": false
+      }
+    },
+    {
+      "dispatchId": 9897,
+      "facility": 28215,
+      "assignedDestination": 39948,
+      "atMidpoint": {
+        "id": 9897,
+        "facility": 28215,
+        "target": 0,
+        "path": 257973,
+        "load": 20000,
+        "spawned": true,
+        "returning": true,
+        "waitingForPath": false
+      },
+      "atEnd": {
+        "id": 9897,
+        "facility": 28215,
+        "target": 0,
+        "path": 27145,
+        "load": 20000,
+        "spawned": true,
+        "returning": true,
+        "waitingForPath": false
+      }
+    },
+    {
+      "dispatchId": 5017,
+      "facility": 28215,
+      "assignedDestination": 2938,
+      "atMidpoint": {
+        "id": 5017,
+        "facility": 28215,
+        "target": 0,
+        "path": 31608,
+        "load": 20000,
+        "spawned": true,
+        "returning": true,
+        "waitingForPath": false
+      },
+      "atEnd": null
+    },
+    {
+      "dispatchId": 6823,
+      "facility": 45809,
+      "assignedDestination": 39448,
+      "atMidpoint": {
+        "id": 6823,
+        "facility": 45809,
+        "target": 39448,
+        "path": 120836,
+        "load": 272,
+        "spawned": true,
+        "returning": false,
+        "waitingForPath": false
+      },
+      "atEnd": {
+        "id": 6823,
+        "facility": 45809,
+        "target": 39448,
+        "path": 128518,
+        "load": 348,
+        "spawned": true,
+        "returning": false,
+        "waitingForPath": false
+      }
+    },
+    {
+      "dispatchId": 3310,
+      "facility": 45809,
+      "assignedDestination": 40678,
+      "atMidpoint": {
+        "id": 3310,
+        "facility": 45809,
+        "target": 40678,
+        "path": 121997,
+        "load": 27,
+        "spawned": true,
+        "returning": false,
+        "waitingForPath": false
+      },
+      "atEnd": {
+        "id": 3310,
+        "facility": 45809,
+        "target": 40678,
+        "path": 89035,
+        "load": 40,
+        "spawned": true,
+        "returning": false,
+        "waitingForPath": false
+      }
+    }
+  ],
+  "standardDispatchTrialVehicle": {
+    "gameTime": "2029-12-04T12:20:50",
+    "vehicle": 4995,
+    "facility": 28215,
+    "offeredTarget": 3817,
+    "target": 3817,
+    "localTrial": false,
+    "path": 102684,
+    "waitingForPath": true,
+    "outboundPathResult": {
+      "result": "ready",
+      "gameTime": "2029-12-04T13:01:15",
+      "flags": 4,
+      "target": 3817,
+      "lengthMeters": 2493.795,
+      "firstSegment": 24054,
+      "firstLane": 4
+    },
+    "firstSpawn": {
+      "gameTime": "2029-12-04T13:01:15",
+      "target": 3817,
+      "path": 102684,
+      "load": 0,
+      "spawned": true
+    },
+    "firstPickup": {
+      "building": 20912,
+      "pickup": {
+        "gameTime": "2029-12-04T20:53:38",
+        "vehicle": 4995,
+        "sourceFacility": 28215,
+        "garbageBefore": 4,
+        "garbageAfter": 0,
+        "truckLoadBefore": 0,
+        "truckLoadAfter": 4
+      }
+    },
+    "returned": null,
+    "released": null,
+    "pathRequestSegments": [
+      24054,
+      26516,
+      0,
+      0
+    ],
+    "pathRequestLanes": [
+      4,
+      4,
+      0,
+      0
+    ]
+  },
+  "endWardCountWithHumansAndAndroidsInHomesAndJobs": 16,
+  "nativeZonedSiteStatuses": {
+    "operational": 4993,
+    "underConstruction": 1,
+    "abandoned": 2119,
+    "inactive": 142
+  },
+  "citywideActiveGrowableWarningsAtEnd": [
+    {
+      "service": "Residential",
+      "buildings": 3584,
+      "activeWithGarbageWarning": 790
+    },
+    {
+      "service": "Industrial",
+      "buildings": 1513,
+      "activeWithGarbageWarning": 478
+    },
+    {
+      "service": "Commercial",
+      "buildings": 1718,
+      "activeWithGarbageWarning": 10
+    },
+    {
+      "service": "Office",
+      "buildings": 1815,
+      "activeWithGarbageWarning": 0
+    }
+  ]
+}
