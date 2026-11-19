@@ -309,21 +309,25 @@ namespace NagoyaRoadDelivery
 
         internal LocalOpening FindLocalOpening(string ward, Func<ushort, uint> vacantHomeUnit, HashSet<ushort> admittedFactories,
             Dictionary<ushort, List<uint>> assignedWorkers, HashSet<ushort> startupFactories, HashSet<ushort> startupShops,
-            out Dictionary<string, int> counts)
+            HashSet<ushort> startupHomes, out Dictionary<string, int> counts)
         {
+            bool advanceRegistration = startupHomes.Count > 0;
+            global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
+            Dictionary<ushort, ushort> planningRoads = advanceRegistration
+                ? NewPlacementRoads(ward, startupHomes, startupFactories, startupShops) : streetByBuilding;
             var homes = new Dictionary<ushort, uint>();
             foreach (NativeCityLedger.Lot lot in sites.Values)
             {
                 if (lot.Zone != ItemClass.Zone.ResidentialLow && lot.Zone != ItemClass.Zone.ResidentialHigh) continue;
-                if (!streetByBuilding.ContainsKey(lot.Id)) continue;
+                if (!planningRoads.ContainsKey(lot.Id) || (advanceRegistration && !startupHomes.Contains(lot.Id))) continue;
                 uint unit = vacantHomeUnit(lot.Id);
                 if (unit != 0) homes.Add(lot.Id, unit);
             }
-            var destinations = shops.FindAll(delegate(NativeCityLedger.Lot shop) {
-                return shop.Ward == ward && streetByBuilding.ContainsKey(shop.Id) &&
+            var eligibleShops = advanceRegistration ? NewReceivingStores(startupShops, planningRoads, buildings) : shops;
+            var destinations = eligibleShops.FindAll(delegate(NativeCityLedger.Lot shop) {
+                return shop.Ward == ward && planningRoads.ContainsKey(shop.Id) &&
                     (startupShops.Count == 0 || startupShops.Contains(shop.Id));
             });
-            global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
             List<NativeCityLedger.Lot> eligibleFactories = factories;
             if (startupFactories.Count > 0)
             {
@@ -332,7 +336,7 @@ namespace NagoyaRoadDelivery
                 {
                     NativeCityLedger.Lot candidate;
                     if (sites.TryGetValue(id, out candidate) && candidate.Ward == ward && candidate.Zone == ItemClass.Zone.Industrial &&
-                        streetByBuilding.ContainsKey(id) && ActiveAI(ref buildings[id]) is IndustrialBuildingAI)
+                        planningRoads.ContainsKey(id) && OpeningAI(ref buildings[id], advanceRegistration) is IndustrialBuildingAI)
                         eligibleFactories.Add(candidate);
                 }
             }
@@ -363,10 +367,11 @@ namespace NagoyaRoadDelivery
                     if (direct < 12 * 12 || direct > straightLimit * straightLimit) continue;
                     if (reach == null)
                     {
-                        reach = StreetReach(factory, origin, hasWorkers);
+                        reach = advanceRegistration ? new NativeDeliveryStreetReach(planningRoads[factory.Id], origin, streetLimit)
+                            : StreetReach(factory, origin, hasWorkers);
                         counts["factoriesWithinShopRadius"]++;
                     }
-                    double distance = reach.DistanceTo(streetByBuilding[shop.Id], buildings[shop.Id].m_position);
+                    double distance = reach.DistanceTo(planningRoads[shop.Id], buildings[shop.Id].m_position);
                     if (distance >= shopDistance) continue;
                     destination = shop.Id;
                     shopDistance = distance;
@@ -391,7 +396,7 @@ namespace NagoyaRoadDelivery
                 }
                 if (shopDistance >= StreetRadiusMeters || (buildings[destination].m_position - origin).sqrMagnitude >
                     MaximumShopDistanceFromFactory * MaximumShopDistanceFromFactory) continue;
-                IndustrialBuildingAI industry = ActiveAI(ref buildings[factory.Id]) as IndustrialBuildingAI;
+                IndustrialBuildingAI industry = OpeningAI(ref buildings[factory.Id], advanceRegistration) as IndustrialBuildingAI;
                 if (industry == null || VacantWorkplaces(factory.Id, industry, ref buildings[factory.Id]) <= 0) continue;
                 counts["factoriesWithVacancy"]++;
                 int nativeStock = Stock(industry, factory.Id, ref buildings[factory.Id]);
@@ -399,7 +404,7 @@ namespace NagoyaRoadDelivery
                 {
                     Vector3 position = buildings[home.Key].m_position;
                     if ((position - origin).sqrMagnitude >= LocalEmploymentRadiusMeters * LocalEmploymentRadiusMeters) continue;
-                    double distance = reach.DistanceTo(streetByBuilding[home.Key], position);
+                    double distance = reach.DistanceTo(planningRoads[home.Key], position);
                     if (distance >= LocalEmploymentStreetMeters || 2 * distance + shopDistance >= score) continue;
                     opening = new LocalOpening {Home=home.Key, HomeUnit=home.Value, Factory=factory.Id, Shop=destination,
                         HomeDistance=distance, ShopDistance=shopDistance, FactoryGoods=nativeStock};
@@ -407,6 +412,39 @@ namespace NagoyaRoadDelivery
                 }
             }
             return existing.Worker != 0 ? existing : opening;
+        }
+
+        private Dictionary<ushort, ushort> NewPlacementRoads(string ward, params HashSet<ushort>[] groups)
+        {
+            var roads = new Dictionary<ushort, ushort>();
+            NetSegment[] network = NetManager.instance.m_segments.m_buffer;
+            foreach (var group in groups)
+                foreach (ushort id in group)
+                {
+                    NativeCityLedger.Lot site;
+                    if (sites.TryGetValue(id, out site) && site.Ward == ward && NativeDeliveryStreetReach.HasSidewalk(network, site.Road))
+                        roads[id] = site.Road;
+                }
+            return roads;
+        }
+
+        private List<NativeCityLedger.Lot> NewReceivingStores(HashSet<ushort> ids, Dictionary<ushort, ushort> roads, global::Building[] buildings)
+        {
+            var stores = new List<NativeCityLedger.Lot>();
+            foreach (ushort id in ids)
+            {
+                if (!roads.ContainsKey(id)) continue;
+                CommercialBuildingAI ai = OpeningAI(ref buildings[id], true) as CommercialBuildingAI;
+                if (ai != null && ai.m_incomingResource == TransferManager.TransferReason.Goods) stores.Add(sites[id]);
+            }
+            return stores;
+        }
+
+        private static BuildingAI OpeningAI(ref global::Building building, bool advanceRegistration)
+        {
+            if (!advanceRegistration) return ActiveAI(ref building);
+            return (building.m_flags & (global::Building.Flags.Created | global::Building.Flags.Deleted)) == global::Building.Flags.Created &&
+                building.Info != null ? building.Info.m_buildingAI : null;
         }
 
         private double WalkFromWorkerHome(uint worker, ref Citizen citizen, Vector3 factory,

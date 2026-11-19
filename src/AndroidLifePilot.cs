@@ -233,7 +233,9 @@ namespace NagoyaRoadDelivery
                 throw new InvalidDataException("Local hiring request is outside the district or population limits");
             HashSet<ushort> startupFactories = ReadScenarioFacilities(config, "startupFactoryIds");
             HashSet<ushort> startupShops = ReadScenarioFacilities(config, "startupShopIds");
-            if ((startupFactories.Count == 0) != (startupShops.Count == 0))
+            HashSet<ushort> startupHomes = ReadScenarioFacilities(config, "startupHomeIds");
+            if ((startupFactories.Count == 0) != (startupShops.Count == 0) ||
+                (startupHomes.Count != 0 && startupFactories.Count == 0))
                 throw new InvalidDataException("New work sites and their receiving shops must be provided together");
             localDeliveries.BeginSample(sim.m_currentGameTime);
             localDeliveryAdmissions = new List<object>();
@@ -242,13 +244,16 @@ namespace NagoyaRoadDelivery
             object preferWorkers;
             var workers = config.TryGetValue("preferExistingWorkers", out preferWorkers) && (bool)preferWorkers
                 ? ConfirmedWorkersByFactory() : new Dictionary<ushort, List<uint>>();
+            if (startupHomes.Count > 0 && workers.Count > 0)
+                throw new InvalidDataException("Advance registration requires vacant residential and employment units");
+            Func<ushort, uint> vacantHome = startupHomes.Count > 0 ? (Func<ushort, uint>)FindEmptyHousehold : FindVacantHomeUnit;
             foreach (string ward in wards)
             {
                 for (int attempt = 0; attempt < perWard; attempt++)
                 {
                     Dictionary<string, int> counts;
-                    NativeAndroidDeliveries.LocalOpening opening = localDeliveries.FindLocalOpening(ward, FindVacantHomeUnit,
-                        usedFactories, workers, startupFactories, startupShops, out counts);
+                    NativeAndroidDeliveries.LocalOpening opening = localDeliveries.FindLocalOpening(ward, vacantHome,
+                        usedFactories, workers, startupFactories, startupShops, startupHomes, out counts);
                     var record = new Dictionary<string, object> {{"ward",ward}, {"candidateCounts",counts}};
                     localDeliveryAdmissions.Add(record);
                     if (opening.Home == 0)
@@ -275,6 +280,7 @@ namespace NagoyaRoadDelivery
                     record["homeUnit"] = cohort[id].HomeUnit;
                     record["factory"] = opening.Factory;
                     record["shop"] = opening.Shop;
+                    record["usedNewPlacementFrontage"] = startupHomes.Count > 0;
                     if (opening.Worker == 0) record["factoryGoodsBeforeRegistration"] = opening.FactoryGoods;
                     record["homeToFactoryMeters"] = Double.IsInfinity(opening.HomeDistance) ? null : (object)opening.HomeDistance;
                     record["factoryToShopMeters"] = opening.ShopDistance;
@@ -317,6 +323,11 @@ namespace NagoyaRoadDelivery
         private static uint FindVacantHomeUnit(ushort home)
         {
             if (!HasElectricity(home)) return 0;
+            return FindEmptyHousehold(home);
+        }
+
+        private static uint FindEmptyHousehold(ushort home)
+        {
             CitizenUnit[] units = CitizenManager.instance.m_units.m_buffer;
             uint unit = BuildingManager.instance.m_buildings.m_buffer[home].m_citizenUnits;
             for (int i = 0; i < MaximumUnitsPerBuilding && unit != 0 && unit < units.Length; i++)

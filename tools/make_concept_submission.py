@@ -132,6 +132,10 @@ def render(args):
             f"{len(wards_delivered)}区で、工場から店への",
             "アンドロイド配送を確認。",
         )
+        if len(wards_delivered) == 16:
+            if {event["ward"] for event in events} != wards_delivered:
+                raise ValueError("Each of the 16 wards must have a confirmed stock transfer")
+            delivery_caption = ("アンドロイドによる店舗配送を", "検証を通算して全16区で確認。")
     if args.return_evidence:
         evidence = read(args.return_evidence)["sameSessionCycle"]
         moving, charging = evidence["returnJourney"], evidence["atHomeCharging"]

@@ -7,14 +7,16 @@ param(
     [switch]$PreferExistingWorkers,
     [switch]$DispatchAtWork,
     [uint16[]]$StartupFactoryId = @(),
-    [uint16[]]$StartupShopId = @()
+    [uint16[]]$StartupShopId = @(),
+    [uint16[]]$StartupHomeId = @()
 )
 
 $ErrorActionPreference = 'Stop'
 if ($DispatchAtWork -and $PreferExistingWorkers) { throw 'Choose live dispatch at work or fixed worker assignments.' }
 if (($StartupFactoryId.Count -eq 0) -ne ($StartupShopId.Count -eq 0) -or
-    $StartupFactoryId.Count -gt 48 -or $StartupShopId.Count -gt 48 -or
-    0 -in $StartupFactoryId -or 0 -in $StartupShopId -or
+    $StartupFactoryId.Count -gt 48 -or $StartupShopId.Count -gt 48 -or $StartupHomeId.Count -gt 48 -or
+    0 -in $StartupFactoryId -or 0 -in $StartupShopId -or 0 -in $StartupHomeId -or
+    ($StartupHomeId.Count -gt 0 -and $StartupFactoryId.Count -eq 0) -or
     (($StartupFactoryId.Count -gt 0) -and ($DispatchAtWork -or $PreferExistingWorkers))) {
     throw 'Provide both new factory and store IDs for starting a local work assignment.'
 }
@@ -47,6 +49,7 @@ $request=@{
     dispatchAtWork=[bool]$DispatchAtWork
     startupFactoryIds=@($StartupFactoryId | Sort-Object -Unique)
     startupShopIds=@($StartupShopId | Sort-Object -Unique)
+    startupHomeIds=@($StartupHomeId | Sort-Object -Unique)
     expectedBuildIndex=$state.buildIndex
     expectedSegments=$state.network.segments
 }
