@@ -25,6 +25,7 @@
 - [CS1の出入口で経路を選んだ配送と天白区の到着記録](docs/evidence/native-entrance-routing-20261119.json)
 - [昭和区で警察と一般商品を扱う商店5棟の稼働を確認](docs/evidence/native-showa-goods-and-police-20261119.json)
 - [配送未確認の5区を対象にした通勤と配車の試験](docs/evidence/native-commute-first-deliveries-20261119.json)
+- [通勤の再試行と15区での用途付き建物の復旧](docs/evidence/native-travel-and-zoning-recovery-20261119.json)
 - [同じセーブでの雇用比較](docs/evidence/native-employment-matched-20261119.json)
 - [168体の実ゲーム観測](docs/evidence/live-168-20261118.json)
 - [CS1標準の商品需要と在庫の観測](docs/evidence/native-goods-baseline-20261118.json)

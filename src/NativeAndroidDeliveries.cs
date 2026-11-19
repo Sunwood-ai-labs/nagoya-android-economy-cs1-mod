@@ -667,6 +667,8 @@ namespace NagoyaRoadDelivery
         private void ObserveArrival(Arrival arrival, bool success)
         {
             uint id = arrival.Citizen;
+            if (arrival.Target != 0 && AndroidLifePilot.IsAndroidCitizen(id))
+                AndroidLifePilot.ObserveNativeWorkArrival(id, arrival.Target, success);
             Trip trip;
             if (!trips.TryGetValue(id, out trip))
             {
