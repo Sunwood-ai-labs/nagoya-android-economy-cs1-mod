@@ -13,6 +13,9 @@ namespace NagoyaRoadDelivery
         private const uint RouteLossGrace = 48;
         private const uint StallGraceFrames = 8192;
         private const double LocalStreetRadiusMeters = 1500;
+        private const uint GoodsOfferWindowFrames = 256;
+        private const double RecentDemandBonusMeters = 150;
+        private const double ExistingDeliveryPenaltyMeters = 120;
         private static NativeAndroidDeliveries active;
         private Harmony harmony;
         private readonly Dictionary<uint, Trip> trips = new Dictionary<uint, Trip>();
@@ -26,13 +29,17 @@ namespace NagoyaRoadDelivery
         private readonly Dictionary<uint, DateTime> failedRoutes = new Dictionary<uint, DateTime>();
         private readonly Dictionary<string, int> deliveredByWard = new Dictionary<string, int>(StringComparer.Ordinal);
         private readonly Dictionary<string, int> stockedFactoriesByWard = new Dictionary<string, int>(StringComparer.Ordinal);
+        private readonly Dictionary<string, int> activeShopsByWard = new Dictionary<string, int>(StringComparer.Ordinal);
         private readonly Dictionary<string, int> shopsWithSpaceByWard = new Dictionary<string, int>(StringComparer.Ordinal);
+        private readonly Dictionary<ushort, GoodsRequest> goodsRequests = new Dictionary<ushort, GoodsRequest>();
+        private readonly Dictionary<string, int> activeDeliveriesByWard = new Dictionary<string, int>(StringComparer.Ordinal);
+        private readonly Dictionary<string, int> requestingShopsByWard = new Dictionary<string, int>(StringComparer.Ordinal);
         private readonly Queue<uint> readyAtFactory = new Queue<uint>();
         private readonly Queue<uint> arrivedAtWork = new Queue<uint>();
         private readonly Queue<object> recent = new Queue<object>();
         private readonly Queue<object> failures = new Queue<object>();
         private int pickupStarts, pickupArrivals, started, delivered, goods, stockedFactories, shopsWithSpace, workersSeenAtFactory, failedLegs, expiredLegs;
-        private int blockedByStreetReach;
+        private int blockedByStreetReach, observedGoodsOffers;
         internal int Delivered { get { return delivered; } }
 
         private sealed class Trip
@@ -41,8 +48,15 @@ namespace NagoyaRoadDelivery
             public uint SupplierGeneration, TargetGeneration;
             public string SupplierWard, TargetWard;
             public uint Frame, LastRouteFrame, LastProgressFrame;
+            public GoodsRequest Demand;
             public Vector3 LastPosition;
             public bool Collecting, HasPosition;
+        }
+
+        private struct GoodsRequest
+        {
+            public uint Frame, BuildIndex;
+            public int Priority, Amount;
         }
 
         private struct Arrival
@@ -63,11 +77,16 @@ namespace NagoyaRoadDelivery
                 null, new Type[] {typeof(int)}, null);
             if (step == null) throw new MissingMethodException("CitizenManager.SimulationStepImpl");
             MethodInfo afterStep = typeof(NativeAndroidDeliveries).GetMethod("AfterCitizenStep", BindingFlags.Static | BindingFlags.NonPublic);
+            MethodInfo incomingOffer = typeof(TransferManager).GetMethod("AddIncomingOffer",
+                new Type[] {typeof(TransferManager.TransferReason), typeof(TransferManager.TransferOffer)});
+            if (incomingOffer == null) throw new MissingMethodException("TransferManager.AddIncomingOffer");
+            MethodInfo afterOffer = typeof(NativeAndroidDeliveries).GetMethod("AfterIncomingOffer", BindingFlags.Static | BindingFlags.NonPublic);
             harmony = new Harmony(PatchId);
             try
             {
                 harmony.Patch(target, new HarmonyMethod(prefix), new HarmonyMethod(postfix), null, null);
                 harmony.Patch(step, null, new HarmonyMethod(afterStep), null, null);
+                harmony.Patch(incomingOffer, null, new HarmonyMethod(afterOffer), null, null);
             }
             catch
             {
@@ -128,7 +147,9 @@ namespace NagoyaRoadDelivery
             stockedFactories = 0;
             shopsWithSpace = 0;
             stockedFactoriesByWard.Clear();
+            activeShopsByWard.Clear();
             shopsWithSpaceByWard.Clear();
+            requestingShopsByWard.Clear();
             global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
             NativeCityLedger.Road[] roads;
             NativeCityLedger.Lot[] lots;
@@ -150,9 +171,13 @@ namespace NagoyaRoadDelivery
                     }
                     continue;
                 }
-                if (!(ai is CommercialBuildingAI) || Space(ai, lot.Id, ref buildings[lot.Id]) < ParcelSize) continue;
+                if (!(ai is CommercialBuildingAI)) continue;
+                AddWardCount(activeShopsByWard, lot.Ward);
+                if (Space(ai, lot.Id, ref buildings[lot.Id]) < ParcelSize) continue;
                 shopsWithSpace++;
                 AddWardCount(shopsWithSpaceByWard, lot.Ward);
+                GoodsRequest request;
+                if (TryGetGoodsRequest(lot, frame, out request)) AddWardCount(requestingShopsByWard, lot.Ward);
                 shops.Add(lot);
             }
         }
@@ -191,18 +216,30 @@ namespace NagoyaRoadDelivery
                 return false;
             }
             NativeCityLedger.Lot target = new NativeCityLedger.Lot();
-            double best = LocalStreetRadiusMeters;
+            GoodsRequest targetRequest = new GoodsRequest();
+            double best = double.PositiveInfinity;
+            uint frame = SimulationManager.instance.m_currentFrameIndex;
             foreach (NativeCityLedger.Lot shop in shops)
             {
                 float distance = (buildings[shop.Id].m_position - source).sqrMagnitude;
                 if (reservedShops.Contains(shop.Id) || distance < 12 * 12 || distance > 700 * 700 ||
                     !accessRoads.ContainsKey(shop.Road) || buildings[shop.Id].m_buildIndex != shop.BuildIndex ||
                     IsRouteCoolingDown(supplier.Id, shop.Id, gameTime)) continue;
-                double score = reach.DistanceTo(shop.Road, buildings[shop.Id].m_position);
+                double distanceAlongStreets = reach.DistanceTo(shop.Road, buildings[shop.Id].m_position);
+                if (distanceAlongStreets >= LocalStreetRadiusMeters) continue;
+                GoodsRequest request;
+                bool hasRequest = TryGetGoodsRequest(shop, frame, out request);
+                int deliveredHere;
+                deliveredByWard.TryGetValue(shop.Ward, out deliveredHere);
+                int inFlightHere;
+                activeDeliveriesByWard.TryGetValue(shop.Ward, out inFlightHere);
+                double score = distanceAlongStreets + Math.Min(3, deliveredHere + inFlightHere) * ExistingDeliveryPenaltyMeters;
+                if (hasRequest) score -= RecentDemandBonusMeters;
                 if (score >= best) continue;
                 BuildingAI ai = ActiveAI(ref buildings[shop.Id]);
                 if (!(ai is CommercialBuildingAI) || Space(ai, shop.Id, ref buildings[shop.Id]) < ParcelSize) continue;
                 target = shop;
+                targetRequest = hasRequest ? request : new GoodsRequest();
                 best = score;
             }
             if (target.Id == 0)
@@ -210,15 +247,15 @@ namespace NagoyaRoadDelivery
                 blockedByStreetReach++;
                 return false;
             }
-            uint frame = SimulationManager.instance.m_currentFrameIndex;
             Trip trip = new Trip {Supplier=supplier.Id, Target=target.Id, From=from,
                 SupplierGeneration=buildings[supplier.Id].m_buildIndex, TargetGeneration=buildings[target.Id].m_buildIndex,
                 SupplierWard=supplier.Ward, TargetWard=target.Ward,
                 Frame=frame, LastRouteFrame=frame, LastProgressFrame=frame,
-                Collecting=atHome};
+                Collecting=atHome, Demand=targetRequest};
             trips.Add(id, trip);
             reservedShops.Add(target.Id);
             reservedFactories.Add(supplier.Id);
+            AddWardCount(activeDeliveriesByWard, target.Ward);
             if (!StartLeg(id, ref citizen, from, atHome ? supplier.Id : target.Id, !atHome))
             {
                 if (trips.ContainsKey(id)) FailLeg(id, trip, 0, "native path rejected at departure", gameTime);
@@ -231,6 +268,23 @@ namespace NagoyaRoadDelivery
         private static uint RouteKey(ushort from, ushort to)
         {
             return ((uint)from << 16) | to;
+        }
+
+        private static void AfterIncomingOffer(TransferManager.TransferReason __0, TransferManager.TransferOffer __1)
+        {
+            NativeAndroidDeliveries delivery = active;
+            if (delivery == null || __0 != TransferManager.TransferReason.Goods || __1.Building == 0 || __1.Amount <= 0) return;
+            global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
+            if (!(ActiveAI(ref buildings[__1.Building]) is CommercialBuildingAI)) return;
+            delivery.goodsRequests[__1.Building] = new GoodsRequest {Frame=SimulationManager.instance.m_currentFrameIndex,
+                BuildIndex=buildings[__1.Building].m_buildIndex, Priority=__1.Priority, Amount=__1.Amount};
+            delivery.observedGoodsOffers++;
+        }
+
+        private bool TryGetGoodsRequest(NativeCityLedger.Lot lot, uint frame, out GoodsRequest request)
+        {
+            return goodsRequests.TryGetValue(lot.Id, out request) && request.BuildIndex == lot.BuildIndex &&
+                unchecked(frame - request.Frame) <= GoodsOfferWindowFrames;
         }
 
         private bool IsRouteCoolingDown(ushort from, ushort to, DateTime now)
@@ -420,7 +474,7 @@ namespace NagoyaRoadDelivery
             if (recent.Count == 64) recent.Dequeue();
             recent.Enqueue(new Dictionary<string, object> {{"android",id}, {"from",trip.Supplier}, {"to",target},
                 {"ward",trip.TargetWard}, {"sourceWard",trip.SupplierWard}, {"stockAdded",credit}, {"factoryBefore",factoryBefore},
-                {"factoryAfter",Stock(source, trip.Supplier, ref buildings[trip.Supplier])}, {"shopBefore",shopBefore},
+                {"factoryAfter",Stock(source, trip.Supplier, ref buildings[trip.Supplier])}, {"shopBefore",shopBefore}, {"nativeRequest",RequestSnapshot(trip.Demand)},
                 {"shopAfter",Stock(destination, target, ref buildings[target])}, {"gameTime",SimulationManager.instance.m_currentGameTime.ToString("s")}});
         }
 
@@ -438,6 +492,9 @@ namespace NagoyaRoadDelivery
             trips.Remove(id);
             reservedShops.Remove(trip.Target);
             reservedFactories.Remove(trip.Supplier);
+            int remaining = activeDeliveriesByWard[trip.TargetWard] - 1;
+            if (remaining == 0) activeDeliveriesByWard.Remove(trip.TargetWard);
+            else activeDeliveriesByWard[trip.TargetWard] = remaining;
         }
 
         private static BuildingAI ActiveAI(ref global::Building building)
@@ -461,6 +518,11 @@ namespace NagoyaRoadDelivery
             return Math.Max(0, capacity - stock);
         }
 
+        private static object RequestSnapshot(GoodsRequest request)
+        {
+            return request.Amount > 0 ? new Dictionary<string, object> {{"frame",request.Frame}, {"priority",request.Priority}, {"amount",request.Amount}} : null;
+        }
+
         internal object Snapshot()
         {
             var inFlight = new List<object>();
@@ -469,12 +531,13 @@ namespace NagoyaRoadDelivery
                 Trip leg = live.Value;
                 inFlight.Add(new Dictionary<string, object> {{"android",live.Key}, {"from",leg.From},
                     {"target",leg.Collecting ? leg.Supplier : leg.Target}, {"destinationWard",leg.TargetWard},
-                    {"frame",leg.Frame}, {"lastProgressFrame",leg.LastProgressFrame},
+                    {"frame",leg.Frame}, {"lastProgressFrame",leg.LastProgressFrame}, {"nativeRequest",RequestSnapshot(leg.Demand)},
                     {"position",leg.HasPosition ? new float[] {leg.LastPosition.x, leg.LastPosition.y, leg.LastPosition.z} : null}});
             }
             return new Dictionary<string, object> {{"active",trips.Count}, {"started",started}, {"delivered",delivered},
                 {"stockAdded",goods}, {"stockedFactories",stockedFactories}, {"shopsWithSpace",shopsWithSpace},
-                {"stockedFactoriesByWard",stockedFactoriesByWard}, {"shopsWithSpaceByWard",shopsWithSpaceByWard},
+                {"stockedFactoriesByWard",stockedFactoriesByWard}, {"activeShopsByWard",activeShopsByWard}, {"shopsWithSpaceByWard",shopsWithSpaceByWard},
+                {"observedGoodsOffers",observedGoodsOffers}, {"requestingShopsByWard",requestingShopsByWard}, {"activeDeliveriesByWard",activeDeliveriesByWard},
                 {"workersSeenAtFactory",workersSeenAtFactory}, {"pickupStarts",pickupStarts}, {"pickupArrivals",pickupArrivals},
                 {"failedLegs",failedLegs}, {"expiredLegs",expiredLegs}, {"deliveriesByWard",deliveredByWard},
                 {"noEligibleStreetCandidate",blockedByStreetReach},

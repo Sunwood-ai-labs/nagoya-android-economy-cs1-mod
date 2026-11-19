@@ -1,0 +1,446 @@
+{
+  "test": "Observe stock replenishment with native commercial Goods requests in Android Skyline",
+  "city": "NagoyaCitywide-Construction",
+  "startingSave": {
+    "name": "NagoyaCitywide-Delivery-Return-Charge.crp",
+    "sha256": "21e65319201b9b3ff3b7e76e8ef36b178a6e8201513ec3f3b365ed5a00c26f45"
+  },
+  "resultSave": {
+    "name": "NagoyaCitywide-NativeGoodsRequests.crp",
+    "sha256": "d1797321f4ac5152dcc5540a4fd5694b60b9569f3c82cddd83c85d853ca6db2c",
+    "gameTime": "2027-05-18T23:38:43",
+    "bytes": 12606020
+  },
+  "assembly": {
+    "sha256": "fb7334a1d965c5d33a232a69d7e31c89b3fe7660510f505c47554c357b5d6c6f",
+    "mvid": "328e6f17-7722-450e-9758-68e07a650fc3"
+  },
+  "finance": "Exact-city experiment funds enabled while observing the three windows and restored afterward.",
+  "samples": [
+    {
+      "sample": "demand-window-01/before-life.json",
+      "sha256": "a82c9fd31c314e2015485870cdae8b7cb0e772e8e4b1aa48eff34917e9b7e5b5",
+      "gameTime": "2027-05-06T16:44:54",
+      "runId": "20261119T065111110Z",
+      "observedGoodsOfferCalls": 54,
+      "wardsWithRecentOffersAndSpace": {
+        "守山区": 7,
+        "熱田区": 3,
+        "天白区": 1,
+        "緑区": 6,
+        "西区": 4,
+        "中村区": 1,
+        "中川区": 3,
+        "東区": 1,
+        "北区": 2,
+        "瑞穂区": 1,
+        "名東区": 1
+      },
+      "activeShopsByWard": {
+        "瑞穂区": 18,
+        "港区": 52,
+        "西区": 42,
+        "守山区": 59,
+        "緑区": 59,
+        "南区": 19,
+        "北区": 30,
+        "千種区": 37,
+        "中川区": 45,
+        "昭和区": 23,
+        "中区": 23,
+        "中村区": 31,
+        "熱田区": 17,
+        "名東区": 39,
+        "天白区": 29,
+        "東区": 18,
+        "unassigned": 1
+      },
+      "shopsWithSpaceByWard": {
+        "守山区": 7,
+        "熱田区": 4,
+        "緑区": 12,
+        "北区": 6,
+        "西区": 9,
+        "港区": 3,
+        "天白区": 2,
+        "名東区": 2,
+        "中村区": 2,
+        "中川区": 5,
+        "南区": 3,
+        "東区": 3,
+        "中区": 1,
+        "瑞穂区": 2
+      },
+      "deliveriesByWard": {},
+      "goodsTransferred": 0,
+      "inFlightByWard": {
+        "守山区": 1
+      }
+    },
+    {
+      "sample": "demand-window-01/terminal-life.json",
+      "sha256": "79fa1694a9feecd0c7aeb9bcb1609930e8beffadcb2f1a623670288e26109ef1",
+      "gameTime": "2027-05-10T11:58:07",
+      "runId": "20261119T065111110Z",
+      "observedGoodsOfferCalls": 629,
+      "wardsWithRecentOffersAndSpace": {
+        "守山区": 6,
+        "熱田区": 4,
+        "緑区": 9,
+        "港区": 2,
+        "西区": 5,
+        "天白区": 1,
+        "北区": 3,
+        "中川区": 4,
+        "南区": 1,
+        "東区": 1,
+        "中区": 1,
+        "瑞穂区": 2,
+        "名東区": 1
+      },
+      "activeShopsByWard": {
+        "瑞穂区": 18,
+        "港区": 51,
+        "西区": 42,
+        "守山区": 58,
+        "緑区": 59,
+        "南区": 19,
+        "北区": 30,
+        "千種区": 37,
+        "中川区": 45,
+        "昭和区": 23,
+        "中区": 23,
+        "中村区": 31,
+        "熱田区": 17,
+        "名東区": 39,
+        "天白区": 29,
+        "東区": 18,
+        "unassigned": 1
+      },
+      "shopsWithSpaceByWard": {
+        "守山区": 7,
+        "熱田区": 4,
+        "緑区": 12,
+        "北区": 6,
+        "西区": 9,
+        "港区": 3,
+        "天白区": 2,
+        "名東区": 2,
+        "中村区": 2,
+        "中川区": 5,
+        "南区": 3,
+        "東区": 3,
+        "中区": 1,
+        "瑞穂区": 2
+      },
+      "deliveriesByWard": {},
+      "goodsTransferred": 0,
+      "inFlightByWard": {
+        "守山区": 3,
+        "緑区": 2,
+        "北区": 1,
+        "西区": 1,
+        "港区": 1,
+        "南区": 1
+      }
+    },
+    {
+      "sample": "demand-window-02/terminal-life.json",
+      "sha256": "b6efda74647d05ec49a4b4b3d9cc2899eee9c581adfe24c2501305ec0c9a59c6",
+      "gameTime": "2027-05-14T16:48:34",
+      "runId": "20261119T065111110Z",
+      "observedGoodsOfferCalls": 1242,
+      "wardsWithRecentOffersAndSpace": {
+        "緑区": 7,
+        "西区": 5,
+        "港区": 2,
+        "守山区": 3,
+        "名東区": 2,
+        "北区": 3,
+        "南区": 2,
+        "東区": 1,
+        "中川区": 2,
+        "瑞穂区": 2
+      },
+      "activeShopsByWard": {
+        "瑞穂区": 18,
+        "港区": 51,
+        "西区": 40,
+        "守山区": 58,
+        "緑区": 59,
+        "南区": 18,
+        "北区": 29,
+        "千種区": 37,
+        "中川区": 44,
+        "昭和区": 23,
+        "中区": 22,
+        "中村区": 29,
+        "熱田区": 13,
+        "名東区": 39,
+        "天白区": 29,
+        "東区": 16,
+        "unassigned": 1
+      },
+      "shopsWithSpaceByWard": {
+        "守山区": 7,
+        "緑区": 12,
+        "北区": 5,
+        "西区": 7,
+        "港区": 3,
+        "天白区": 2,
+        "名東区": 2,
+        "中川区": 4,
+        "南区": 2,
+        "東区": 1,
+        "瑞穂区": 2
+      },
+      "deliveriesByWard": {
+        "守山区": 3,
+        "緑区": 1,
+        "南区": 1,
+        "北区": 1
+      },
+      "goodsTransferred": 600,
+      "inFlightByWard": {
+        "緑区": 1,
+        "西区": 1,
+        "港区": 2
+      }
+    },
+    {
+      "sample": "demand-window-03/terminal-life.json",
+      "sha256": "627fe45eec4642d020366dee7cd2f8305676a16631f095be5a59d33e79bba938",
+      "gameTime": "2027-05-18T16:10:49",
+      "runId": "20261119T065111110Z",
+      "observedGoodsOfferCalls": 1820,
+      "wardsWithRecentOffersAndSpace": {
+        "守山区": 5,
+        "西区": 7,
+        "港区": 3,
+        "天白区": 1,
+        "緑区": 8,
+        "名東区": 1,
+        "北区": 4,
+        "中川区": 3,
+        "東区": 1,
+        "南区": 1,
+        "瑞穂区": 1
+      },
+      "activeShopsByWard": {
+        "瑞穂区": 18,
+        "港区": 51,
+        "西区": 40,
+        "守山区": 58,
+        "緑区": 59,
+        "南区": 18,
+        "北区": 29,
+        "千種区": 37,
+        "中川区": 43,
+        "昭和区": 23,
+        "中区": 22,
+        "中村区": 29,
+        "熱田区": 13,
+        "名東区": 39,
+        "天白区": 29,
+        "東区": 16,
+        "unassigned": 1
+      },
+      "shopsWithSpaceByWard": {
+        "守山区": 7,
+        "緑区": 12,
+        "北区": 5,
+        "西区": 7,
+        "港区": 3,
+        "天白区": 2,
+        "名東区": 2,
+        "中川区": 4,
+        "南区": 2,
+        "東区": 1,
+        "瑞穂区": 2
+      },
+      "deliveriesByWard": {
+        "守山区": 3,
+        "緑区": 1,
+        "南区": 1,
+        "北区": 1
+      },
+      "goodsTransferred": 600,
+      "inFlightByWard": {
+        "守山区": 2,
+        "緑区": 2,
+        "西区": 1,
+        "港区": 1,
+        "南区": 1
+      }
+    }
+  ],
+  "transfers": [
+    {
+      "android": 364907,
+      "from": 15223,
+      "to": 33609,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 1558,
+      "factoryAfter": 1458,
+      "shopBefore": 11765,
+      "nativeRequest": null,
+      "shopAfter": 11865,
+      "gameTime": "2027-05-11T04:58:20"
+    },
+    {
+      "android": 609638,
+      "from": 8491,
+      "to": 35125,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 1787,
+      "factoryAfter": 1687,
+      "shopBefore": 12495,
+      "nativeRequest": null,
+      "shopAfter": 12595,
+      "gameTime": "2027-05-11T05:59:56"
+    },
+    {
+      "android": 467443,
+      "from": 36020,
+      "to": 11971,
+      "ward": "南区",
+      "sourceWard": "南区",
+      "stockAdded": 100,
+      "factoryBefore": 1822,
+      "factoryAfter": 1722,
+      "shopBefore": 12053,
+      "nativeRequest": {
+        "frame": 54729790,
+        "priority": 3,
+        "amount": 1
+      },
+      "shopAfter": 12153,
+      "gameTime": "2027-05-13T09:23:48"
+    },
+    {
+      "android": 249390,
+      "from": 49128,
+      "to": 25593,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 1782,
+      "factoryAfter": 1682,
+      "shopBefore": 1633,
+      "nativeRequest": {
+        "frame": 54729605,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 1733,
+      "gameTime": "2027-05-13T10:27:54"
+    },
+    {
+      "android": 245513,
+      "from": 2839,
+      "to": 19252,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 1774,
+      "factoryAfter": 1674,
+      "shopBefore": 9672,
+      "nativeRequest": {
+        "frame": 54729316,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 9772,
+      "gameTime": "2027-05-14T12:02:13"
+    },
+    {
+      "android": 338017,
+      "from": 23732,
+      "to": 40689,
+      "ward": "北区",
+      "sourceWard": "西区",
+      "stockAdded": 100,
+      "factoryBefore": 2057,
+      "factoryAfter": 1957,
+      "shopBefore": 9041,
+      "nativeRequest": null,
+      "shopAfter": 9141,
+      "gameTime": "2027-05-14T16:10:49"
+    }
+  ],
+  "deliveryWithEarlierNativeRequest": {
+    "inFlightSample": "demand-window-01/terminal-life.json",
+    "sha256": "79fa1694a9feecd0c7aeb9bcb1609930e8beffadcb2f1a623670288e26109ef1",
+    "inFlight": {
+      "android": 467443,
+      "from": 36020,
+      "target": 11971,
+      "destinationWard": "南区",
+      "frame": 54729904,
+      "lastProgressFrame": 54729904,
+      "nativeRequest": {
+        "frame": 54729790,
+        "priority": 3,
+        "amount": 1
+      },
+      "position": null
+    },
+    "arrival": {
+      "android": 467443,
+      "from": 36020,
+      "to": 11971,
+      "ward": "南区",
+      "sourceWard": "南区",
+      "stockAdded": 100,
+      "factoryBefore": 1822,
+      "factoryAfter": 1722,
+      "shopBefore": 12053,
+      "nativeRequest": {
+        "frame": 54729790,
+        "priority": 3,
+        "amount": 1
+      },
+      "shopAfter": 12153,
+      "gameTime": "2027-05-13T09:23:48"
+    }
+  },
+  "transfersWithObservedNativeRequests": 3,
+  "newCoveredWardsInRun": [
+    "北区",
+    "南区"
+  ],
+  "coveredAcrossRecordedSessions": [
+    "北区",
+    "南区",
+    "守山区",
+    "港区",
+    "熱田区",
+    "緑区",
+    "西区"
+  ],
+  "simultaneousNativeCity": {
+    "sample": "demand-window-03/terminal-roster.json",
+    "sha256": "2206b94258c6130333e02624293bbb4f9af7ee3822da0b1ab1b0acc9a510e6cf",
+    "wardsWithHumanAndAndroidPopulationAndJobs": 16,
+    "activeNativeRoads": 18604,
+    "activeNativeZonedSites": 3065,
+    "nativeTraffic": {
+      "passengerCars": 706,
+      "cargoTrucks": 705,
+      "buses": 28,
+      "otherVehicles": 29,
+      "roadVehiclesWithNativePath": 1431
+    }
+  },
+  "limitations": [
+    "Offer counts are observations of calls and include repeat requests.",
+    "The recent offer is a dispatch signal; the base game retains control over truck matching.",
+    "Coverage combines separately recorded native sessions. The run does not verify deliveries across all 16 wards.",
+    "Active commercial zoning and an available Goods buffer are distinct.",
+    "The earlier replay and this run have different observation lengths and cannot establish a speedup."
+  ]
+}
