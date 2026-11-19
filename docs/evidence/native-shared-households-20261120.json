@@ -1,0 +1,475 @@
+{
+  "baselineSave": {
+    "name": "NagoyaCitywide-EmploymentTrial-SharedHomesBaseline",
+    "sha256": "13903E902A0B382C6667BC6E32518023D47221315A0E80578AB2DA89E2222161",
+    "bytes": 15339215,
+    "parent": "NagoyaCitywide-WasteBudgetTrial-StockDispatchControl",
+    "buildIndex": 126056,
+    "segments": 32718,
+    "gameTime": "2029-12-18T08:58:09",
+    "dllSha256": "25B01E905D784A4088EA233BF9F49A9A7AA8C8C900E05EDA446AF507BE5B2A11"
+  },
+  "observedSave": {
+    "sha256": "105FFA04770B240762305E840B972A609EED15CBA63F9B86D436ACADAF23CC7E",
+    "segments": 32718,
+    "gameTime": "2029-12-24T08:57:39",
+    "name": "NagoyaCitywide-EmploymentTrial-SharedHomesObserved",
+    "buildIndex": 126084,
+    "bytes": 15397412,
+    "parent": "NagoyaCitywide-EmploymentTrial-SharedHomesBaseline"
+  },
+  "reloadModSha256": "C5DE6FFFB87A17B4E680FE16C68494343349690A29BD43E3EF00127AC9B65E24",
+  "test": {
+    "opening": {
+      "gameTime": "2029-12-18T09:00:33",
+      "nativeHumanResidents": 9779,
+      "humansWithWorkplace": 4406,
+      "androidHomeMembers": 559,
+      "androidWorkMembers": 529
+    },
+    "immediate": {
+      "gameTime": "2029-12-18T09:00:33",
+      "nativeHumanResidents": 9779,
+      "humansWithWorkplace": 4406,
+      "androidHomeMembers": 572,
+      "androidWorkMembers": 529
+    },
+    "close": {
+      "gameTime": "2029-12-24T09:00:54",
+      "nativeHumanResidents": 9736,
+      "humansWithWorkplace": 4374,
+      "androidHomeMembers": 570,
+      "androidWorkMembers": 535
+    },
+    "requested": 160,
+    "admitted": 13,
+    "sameHomePairsAtClose": 13,
+    "newcomersInCity": 13,
+    "newcomersWithWork": 12,
+    "newcomersWithCommutes": 9,
+    "newcomersWithWorkArrival": 1,
+    "newcomersWithChargeStart": 13,
+    "newlyAdmittedIdentitiesWithDeliveryInRecentLog": [],
+    "emptyServicedHouseholdsBefore": 61,
+    "emptyServicedHouseholdsAfterAdmission": 61,
+    "emptyServicedHouseholdsAtEnd": 90,
+    "economy": {
+      "openingCashTargetRaw": 10417862,
+      "openingCreditRaw": 0,
+      "beforeOpeningCredit": {
+        "cashRaw": 10417862,
+        "taxAndTransitIncomeRaw": 3119469,
+        "operatingExpensesRaw": 10523984,
+        "loanExpensesRaw": 69616,
+        "policyExpensesRaw": 0
+      },
+      "end": {
+        "cashRaw": 3974346,
+        "taxAndTransitIncomeRaw": 3112016,
+        "operatingExpensesRaw": 10523984,
+        "loanExpensesRaw": 69616,
+        "policyExpensesRaw": 0
+      }
+    }
+  },
+  "reload": {
+    "time": "2029-12-24T10:04:53",
+    "verifiedReloadedPairs": 13,
+    "reloadedHomeUnits": [
+      523943,
+      130401,
+      287541,
+      291005,
+      469914,
+      166334,
+      102696,
+      497513,
+      76806,
+      44370,
+      383454,
+      328002,
+      147224
+    ],
+    "wards": 16,
+    "androidOnly": 29.0,
+    "mixedWithHumans": 306.0,
+    "singleAndroid": 2.0,
+    "emptyPlacesInAndroidOnly": 89.0,
+    "emptyPlacesInMixed": 422.0,
+    "wardsWithMixed": 16,
+    "capacityByWard": [
+      {
+        "ward": "中区",
+        "emptyHouseholds": 0,
+        "androidHouseholds": {
+          "androidOnly": 1,
+          "mixedWithHumans": 10,
+          "singleAndroid": 0,
+          "emptyPlacesInAndroidOnly": 3,
+          "emptyPlacesInMixed": 11
+        }
+      },
+      {
+        "ward": "中川区",
+        "emptyHouseholds": 18,
+        "androidHouseholds": {
+          "androidOnly": 3,
+          "mixedWithHumans": 26,
+          "singleAndroid": 0,
+          "emptyPlacesInAndroidOnly": 9,
+          "emptyPlacesInMixed": 40
+        }
+      },
+      {
+        "ward": "中村区",
+        "emptyHouseholds": 2,
+        "androidHouseholds": {
+          "androidOnly": 0,
+          "mixedWithHumans": 14,
+          "singleAndroid": 0,
+          "emptyPlacesInAndroidOnly": 0,
+          "emptyPlacesInMixed": 25
+        }
+      },
+      {
+        "ward": "北区",
+        "emptyHouseholds": 4,
+        "androidHouseholds": {
+          "androidOnly": 3,
+          "mixedWithHumans": 18,
+          "singleAndroid": 1,
+          "emptyPlacesInAndroidOnly": 10,
+          "emptyPlacesInMixed": 18
+        }
+      },
+      {
+        "ward": "千種区",
+        "emptyHouseholds": 1,
+        "androidHouseholds": {
+          "androidOnly": 1,
+          "mixedWithHumans": 23,
+          "singleAndroid": 0,
+          "emptyPlacesInAndroidOnly": 3,
+          "emptyPlacesInMixed": 26
+        }
+      },
+      {
+        "ward": "南区",
+        "emptyHouseholds": 3,
+        "androidHouseholds": {
+          "androidOnly": 1,
+          "mixedWithHumans": 16,
+          "singleAndroid": 0,
+          "emptyPlacesInAndroidOnly": 3,
+          "emptyPlacesInMixed": 26
+        }
+      },
+      {
+        "ward": "名東区",
+        "emptyHouseholds": 1,
+        "androidHouseholds": {
+          "androidOnly": 1,
+          "mixedWithHumans": 15,
+          "singleAndroid": 0,
+          "emptyPlacesInAndroidOnly": 3,
+          "emptyPlacesInMixed": 25
+        }
+      },
+      {
+        "ward": "天白区",
+        "emptyHouseholds": 13,
+        "androidHouseholds": {
+          "androidOnly": 2,
+          "mixedWithHumans": 24,
+          "singleAndroid": 1,
+          "emptyPlacesInAndroidOnly": 7,
+          "emptyPlacesInMixed": 41
+        }
+      },
+      {
+        "ward": "守山区",
+        "emptyHouseholds": 12,
+        "androidHouseholds": {
+          "androidOnly": 4,
+          "mixedWithHumans": 34,
+          "singleAndroid": 0,
+          "emptyPlacesInAndroidOnly": 12,
+          "emptyPlacesInMixed": 51
+        }
+      },
+      {
+        "ward": "昭和区",
+        "emptyHouseholds": 3,
+        "androidHouseholds": {
+          "androidOnly": 0,
+          "mixedWithHumans": 13,
+          "singleAndroid": 0,
+          "emptyPlacesInAndroidOnly": 0,
+          "emptyPlacesInMixed": 12
+        }
+      },
+      {
+        "ward": "東区",
+        "emptyHouseholds": 3,
+        "androidHouseholds": {
+          "androidOnly": 2,
+          "mixedWithHumans": 12,
+          "singleAndroid": 0,
+          "emptyPlacesInAndroidOnly": 6,
+          "emptyPlacesInMixed": 14
+        }
+      },
+      {
+        "ward": "港区",
+        "emptyHouseholds": 9,
+        "androidHouseholds": {
+          "androidOnly": 4,
+          "mixedWithHumans": 24,
+          "singleAndroid": 0,
+          "emptyPlacesInAndroidOnly": 12,
+          "emptyPlacesInMixed": 35
+        }
+      },
+      {
+        "ward": "熱田区",
+        "emptyHouseholds": 0,
+        "androidHouseholds": {
+          "androidOnly": 1,
+          "mixedWithHumans": 6,
+          "singleAndroid": 0,
+          "emptyPlacesInAndroidOnly": 3,
+          "emptyPlacesInMixed": 6
+        }
+      },
+      {
+        "ward": "瑞穂区",
+        "emptyHouseholds": 6,
+        "androidHouseholds": {
+          "androidOnly": 1,
+          "mixedWithHumans": 14,
+          "singleAndroid": 0,
+          "emptyPlacesInAndroidOnly": 3,
+          "emptyPlacesInMixed": 17
+        }
+      },
+      {
+        "ward": "緑区",
+        "emptyHouseholds": 15,
+        "androidHouseholds": {
+          "androidOnly": 4,
+          "mixedWithHumans": 41,
+          "singleAndroid": 0,
+          "emptyPlacesInAndroidOnly": 12,
+          "emptyPlacesInMixed": 58
+        }
+      },
+      {
+        "ward": "西区",
+        "emptyHouseholds": 2,
+        "androidHouseholds": {
+          "androidOnly": 1,
+          "mixedWithHumans": 16,
+          "singleAndroid": 0,
+          "emptyPlacesInAndroidOnly": 3,
+          "emptyPlacesInMixed": 17
+        }
+      }
+    ]
+  },
+  "nativePairs": [
+    {
+      "existingAndroid": 213553,
+      "admittedAndroid": 713948,
+      "homeBuilding": 1677,
+      "homeUnit": 523943,
+      "hostStayed": true,
+      "guestStayed": true,
+      "guestInCity": true,
+      "guestWorkBuilding": 7517,
+      "guestCommutes": 0,
+      "guestWorkArrivals": 0,
+      "guestChargeStarts": 1
+    },
+    {
+      "existingAndroid": 616584,
+      "admittedAndroid": 420131,
+      "homeBuilding": 13841,
+      "homeUnit": 130401,
+      "hostStayed": true,
+      "guestStayed": true,
+      "guestInCity": true,
+      "guestWorkBuilding": 31285,
+      "guestCommutes": 2,
+      "guestWorkArrivals": 0,
+      "guestChargeStarts": 1
+    },
+    {
+      "existingAndroid": 532814,
+      "admittedAndroid": 797196,
+      "homeBuilding": 26752,
+      "homeUnit": 287541,
+      "hostStayed": true,
+      "guestStayed": true,
+      "guestInCity": true,
+      "guestWorkBuilding": null,
+      "guestCommutes": 0,
+      "guestWorkArrivals": 0,
+      "guestChargeStarts": 1
+    },
+    {
+      "existingAndroid": 764742,
+      "admittedAndroid": 727071,
+      "homeBuilding": 26912,
+      "homeUnit": 291005,
+      "hostStayed": true,
+      "guestStayed": true,
+      "guestInCity": true,
+      "guestWorkBuilding": 2963,
+      "guestCommutes": 0,
+      "guestWorkArrivals": 0,
+      "guestChargeStarts": 1
+    },
+    {
+      "existingAndroid": 30619,
+      "admittedAndroid": 660218,
+      "homeBuilding": 43739,
+      "homeUnit": 469914,
+      "hostStayed": true,
+      "guestStayed": true,
+      "guestInCity": true,
+      "guestWorkBuilding": 14034,
+      "guestCommutes": 1,
+      "guestWorkArrivals": 0,
+      "guestChargeStarts": 1
+    },
+    {
+      "existingAndroid": 415429,
+      "admittedAndroid": 157439,
+      "homeBuilding": 38551,
+      "homeUnit": 166334,
+      "hostStayed": true,
+      "guestStayed": true,
+      "guestInCity": true,
+      "guestWorkBuilding": 40013,
+      "guestCommutes": 4,
+      "guestWorkArrivals": 0,
+      "guestChargeStarts": 1
+    },
+    {
+      "existingAndroid": 294022,
+      "admittedAndroid": 688266,
+      "homeBuilding": 14135,
+      "homeUnit": 102696,
+      "hostStayed": true,
+      "guestStayed": true,
+      "guestInCity": true,
+      "guestWorkBuilding": 7517,
+      "guestCommutes": 0,
+      "guestWorkArrivals": 0,
+      "guestChargeStarts": 1
+    },
+    {
+      "existingAndroid": 380669,
+      "admittedAndroid": 536483,
+      "homeBuilding": 9903,
+      "homeUnit": 497513,
+      "hostStayed": true,
+      "guestStayed": true,
+      "guestInCity": true,
+      "guestWorkBuilding": 15890,
+      "guestCommutes": 1,
+      "guestWorkArrivals": 0,
+      "guestChargeStarts": 1
+    },
+    {
+      "existingAndroid": 560146,
+      "admittedAndroid": 213568,
+      "homeBuilding": 28732,
+      "homeUnit": 76806,
+      "hostStayed": true,
+      "guestStayed": true,
+      "guestInCity": true,
+      "guestWorkBuilding": 30896,
+      "guestCommutes": 3,
+      "guestWorkArrivals": 0,
+      "guestChargeStarts": 1
+    },
+    {
+      "existingAndroid": 965956,
+      "admittedAndroid": 389619,
+      "homeBuilding": 4087,
+      "homeUnit": 44370,
+      "hostStayed": true,
+      "guestStayed": true,
+      "guestInCity": true,
+      "guestWorkBuilding": 5753,
+      "guestCommutes": 3,
+      "guestWorkArrivals": 3,
+      "guestChargeStarts": 1
+    },
+    {
+      "existingAndroid": 436637,
+      "admittedAndroid": 467252,
+      "homeBuilding": 7684,
+      "homeUnit": 383454,
+      "hostStayed": true,
+      "guestStayed": true,
+      "guestInCity": true,
+      "guestWorkBuilding": 31941,
+      "guestCommutes": 2,
+      "guestWorkArrivals": 0,
+      "guestChargeStarts": 1
+    },
+    {
+      "existingAndroid": 713097,
+      "admittedAndroid": 558773,
+      "homeBuilding": 551,
+      "homeUnit": 328002,
+      "hostStayed": true,
+      "guestStayed": true,
+      "guestInCity": true,
+      "guestWorkBuilding": 46705,
+      "guestCommutes": 1,
+      "guestWorkArrivals": 0,
+      "guestChargeStarts": 1
+    },
+    {
+      "existingAndroid": 666488,
+      "admittedAndroid": 184340,
+      "homeBuilding": 13453,
+      "homeUnit": 147224,
+      "hostStayed": true,
+      "guestStayed": true,
+      "guestInCity": true,
+      "guestWorkBuilding": 39279,
+      "guestCommutes": 4,
+      "guestWorkArrivals": 0,
+      "guestChargeStarts": 1
+    }
+  ],
+  "city": {
+    "registeredPlateauSitesStart": 7252,
+    "operatingPlateauSitesStart": 4966,
+    "registeredPlateauSitesEnd": 7251,
+    "operatingPlateauSitesEnd": 4952,
+    "roadAssociations": 22007,
+    "wardsWithHumanAndAndroidResidenceAndJobs": 16,
+    "operationalSourceCoverage": {
+      "noActiveRole": 118971,
+      "allRolesActive": 571324,
+      "someRolesActive": 15440,
+      "withoutClassifiedRoles": 32298
+    },
+    "startingOfficeStock": {
+      "citywideOfficeGrowables": 1815,
+      "abandoned": 1643,
+      "abandonedWithStaffingWarning": 1641,
+      "scope": "All game-native office growables, including sites outside the PLATEAU linkage"
+    }
+  },
+  "notes": [
+    "No added cash in this run. The source save already had loans from earlier trials.",
+    "Free places are unused member slots in otherwise valid native households, not measured larger-scale admission capacity.",
+    "The six-day run does not have a matched no-admission control."
+  ]
+}

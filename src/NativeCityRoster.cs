@@ -20,6 +20,8 @@ namespace NagoyaRoadDelivery
         private sealed class Capacity
         {
             public int ReadyHomes, EmptyHouseholds, HomesWithVacancy;
+            public int AndroidOnlyHouseholds, MixedHouseholds, SoloAndroidHouseholds;
+            public int FreePlacesInAndroidOnlyHouseholds, FreePlacesInMixedHouseholds;
             public readonly Dictionary<string, JobCapacity> Jobs = new Dictionary<string, JobCapacity>(StringComparer.Ordinal);
         }
 
@@ -64,7 +66,9 @@ namespace NagoyaRoadDelivery
                     if (unit.m_building != lot.Id) continue;
                     if (home)
                     {
-                        if ((unit.m_flags & CitizenUnit.Flags.Home) != 0 && AndroidLifePilot.Empty(unit)) seats++;
+                        if ((unit.m_flags & CitizenUnit.Flags.Home) == 0) continue;
+                        if (AndroidLifePilot.Empty(unit)) seats++;
+                        else AuditOccupiedHousehold(unit, lot.Id, citizens, ward);
                         continue;
                     }
                     if ((unit.m_flags & CitizenUnit.Flags.Work) == 0) continue;
@@ -119,10 +123,43 @@ namespace NagoyaRoadDelivery
                 }
                 report.Add(item.Key, new Dictionary<string, object> {
                     {"servicedResidentialSites",ward.ReadyHomes}, {"vacantHouseholds",ward.EmptyHouseholds},
-                    {"sitesWithVacantHouseholds",ward.HomesWithVacancy}, {"workByUse",jobs}
+                    {"sitesWithVacantHouseholds",ward.HomesWithVacancy}, {"workByUse",jobs},
+                    {"androidHouseholds",new Dictionary<string, object> {
+                        {"androidOnly",ward.AndroidOnlyHouseholds}, {"mixedWithHumans",ward.MixedHouseholds},
+                        {"singleAndroid",ward.SoloAndroidHouseholds},
+                        {"emptyPlacesInAndroidOnly",ward.FreePlacesInAndroidOnlyHouseholds},
+                        {"emptyPlacesInMixed",ward.FreePlacesInMixedHouseholds}
+                    }}
                 });
             }
             return report;
+        }
+
+        private static void AuditOccupiedHousehold(CitizenUnit unit, ushort address, CitizenManager citizens, Capacity ward)
+        {
+            const int capacity = 5;
+            int androids = 0, humans = 0, free = 0;
+            for (int slot = 0; slot < capacity; slot++)
+            {
+                uint id = unit.GetCitizen(slot);
+                if (id == 0) { free++; continue; }
+                if (id >= citizens.m_citizens.m_buffer.Length) continue;
+                Citizen person = citizens.m_citizens.m_buffer[id];
+                if ((person.m_flags & (Citizen.Flags.Created | Citizen.Flags.Dead)) != Citizen.Flags.Created ||
+                    person.m_homeBuilding != address) continue;
+                if (AndroidLifePilot.IsAndroidCitizen(id)) androids++;
+                else humans++;
+            }
+            if (androids == 0 || androids + humans + free != capacity) return;
+            if (humans == 0)
+            {
+                ward.AndroidOnlyHouseholds++;
+                ward.FreePlacesInAndroidOnlyHouseholds += free;
+                if (androids == 1) ward.SoloAndroidHouseholds++;
+                return;
+            }
+            ward.MixedHouseholds++;
+            ward.FreePlacesInMixedHouseholds += free;
         }
 
         private readonly string runId = Guid.NewGuid().ToString("N");

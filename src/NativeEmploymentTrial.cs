@@ -23,6 +23,8 @@ namespace NagoyaRoadDelivery
         public int AdditionalResidents, Hours, Speed;
         public int? OpeningCash;
         public bool NormalEconomy;
+        public bool ShareAndroidHouseholds;
+        public List<object> SharedHouseholdAdmissions;
         public long OpeningCreditRaw;
         public Dictionary<string, object> OpeningEconomy;
         public DateTime Start, End, NextSample, Deadline;
@@ -63,12 +65,16 @@ namespace NagoyaRoadDelivery
                 bool normalEconomy = funded || keepOpeningCash;
                 int hours = ReadInt(values, "durationHours", 1, normalEconomy ? 720 : 96);
                 int additional = ReadInt(values, "additionalAndroids", 0, NativeCityLedger.MaxResidents);
+                object shareHomes;
+                bool shareAndroidHouseholds = values.TryGetValue("shareAndroidHouseholds", out shareHomes) && (bool)shareHomes;
+                if (shareAndroidHouseholds && additional == 0)
+                    throw new FormatException("Household sharing requires additional Android residents");
                 int? openingCash = funded ? (int?)ReadInt(values, "openingCash", 100000, 5000000) : null;
                 File.Move(path, Path.Combine(root, "native-employment-" + id + ".request.json"));
                 simulation.SimulationPaused = true;
                 return new NativeEmploymentTrial {
                     CaseId=id, AdditionalResidents=additional, Hours=hours, OpeningCash=openingCash,
-                    NormalEconomy=normalEconomy, Speed=normalEconomy ? 2 : 1
+                    NormalEconomy=normalEconomy, Speed=normalEconomy ? 2 : 1, ShareAndroidHouseholds=shareAndroidHouseholds
                 };
             }
             catch (Exception error)
@@ -144,6 +150,7 @@ namespace NagoyaRoadDelivery
                     {"openingCreditRaw",OpeningCreditRaw},
                     {"beforeOpeningCredit",OpeningEconomy}, {"end",ReadEconomy()}
                 };
+            if (ShareAndroidHouseholds) result["sharedHouseholdAdmissions"] = SharedHouseholdAdmissions;
             string path = Path.Combine(NativeCityRoadBuilder.Root, "native-employment-" + CaseId + ".json");
             string pending = path + ".tmp";
             File.WriteAllText(pending, JsonData.Stringify(result), new UTF8Encoding(false));
