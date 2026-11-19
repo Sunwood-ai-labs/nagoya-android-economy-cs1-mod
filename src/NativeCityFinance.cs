@@ -110,6 +110,7 @@ namespace NagoyaRoadDelivery
                     {"lastCash",economy.LastCashAmount}, {"lastCashDelta",economy.LastCashDelta},
                     {"loanExpenses",economy.GetLoanExpenses()}, {"policyExpenses",economy.GetPolicyExpenses()},
                     {"services",services}, {"publicTransport",transport}, {"writesToCity",changed},
+                    {"networkMaintenance", NetworkMaintenanceSnapshot()},
                     {"electricity",PowerSnapshot(economy, powerDay, powerNight)},
                     {"garbage",WasteSnapshot(economy, wasteDay, wasteNight)}
                 });
@@ -167,12 +168,26 @@ namespace NagoyaRoadDelivery
             var existingByUse = new Dictionary<string, object>();
             var activeByUse = new Dictionary<string, object>();
             var problemsByUse = new Dictionary<string, object>();
+            var producers = new List<object>();
             for (int index = 1; index < buildings.Length; index++)
             {
                 NativeBuilding building = buildings[index];
                 const NativeBuilding.Flags created = NativeBuilding.Flags.Created;
                 if ((building.m_flags & (created | NativeBuilding.Flags.Deleted)) != created || building.Info == null) continue;
                 ItemClass.Service service = building.Info.GetService();
+                if (service == ItemClass.Service.Electricity && building.Info.m_buildingAI is PlayerBuildingAI)
+                {
+                    PlayerBuildingAI ai = (PlayerBuildingAI)building.Info.m_buildingAI;
+                    int production, maximum;
+                    ai.GetElectricityProduction(out production, out maximum);
+                    if (production > 0 || maximum > 0)
+                        producers.Add(new Dictionary<string, object> {
+                            {"id",index}, {"prefab",building.Info.name}, {"generation",building.m_buildIndex},
+                            {"active",(building.m_flags & NativeBuilding.Flags.Active) != 0},
+                            {"electricityRate",ai.GetElectricityRate((ushort)index, ref building)},
+                            {"finalMaintenance",ai.GetFinalMaintenanceCost((ushort)index, ref building)}
+                        });
+                }
                 if (service != ItemClass.Service.Residential && service != ItemClass.Service.Commercial &&
                     service != ItemClass.Service.Industrial && service != ItemClass.Service.Office) continue;
                 string use = service.ToString();
@@ -186,9 +201,89 @@ namespace NagoyaRoadDelivery
                 {"dayBudgetPercent", Budget(economy, ItemClass.Service.Electricity, false)},
                 {"nightBudgetPercent", Budget(economy, ItemClass.Service.Electricity, true)},
                 {"capacityKW", citywide.GetElectricityCapacity()}, {"consumptionKW", citywide.GetElectricityConsumption()},
+                {"producers",producers}, {"availableStockProducers",StockPowerPrefabs()},
                 {"existingBuildingsByUse", existingByUse}, {"activeBuildingsByUse", activeByUse},
                 {"buildingsWithElectricityProblemByUse", problemsByUse}
             };
+        }
+
+        private static List<object> StockPowerPrefabs()
+        {
+            var result = new List<object>();
+            string[] names = {"Coal Power Plant", "Oil Power Plant", "Solar Power Plant", "Nuclear Power Plant",
+                "Wind Turbine", "Advanced Wind Turbine", "Fusion Power Plant"};
+            foreach (string name in names)
+            {
+                BuildingInfo info = PrefabCollection<BuildingInfo>.FindLoaded(name);
+                PlayerBuildingAI ai = info == null ? null : info.m_buildingAI as PlayerBuildingAI;
+                if (ai == null) continue;
+                int production, maximum;
+                ai.GetElectricityProduction(out production, out maximum);
+                result.Add(new Dictionary<string, object> {
+                    {"prefab",name}, {"minNominalOutput",production}, {"maxNominalOutput",maximum},
+                    {"maintenance",ai.GetMaintenanceCost()}, {"construction",ai.GetConstructionCost()}
+                });
+            }
+            return result;
+        }
+
+        private sealed class NetworkCost
+        {
+            public int Segments, SegmentsWithTraffic;
+            public double LengthMeters;
+            public long PrefabMaintenance;
+        }
+
+        private static Dictionary<string, object> NetworkMaintenanceSnapshot()
+        {
+            var byService = new Dictionary<string, Dictionary<string, NetworkCost>>(StringComparer.Ordinal);
+            NetManager net = NetManager.instance;
+            NetSegment[] segments = net.m_segments.m_buffer;
+            NetNode[] nodes = net.m_nodes.m_buffer;
+            for (int i = 1; i < segments.Length; i++)
+            {
+                NetSegment segment = segments[i];
+                if ((segment.m_flags & (NetSegment.Flags.Created | NetSegment.Flags.Deleted)) != NetSegment.Flags.Created) continue;
+                NetInfo info = segment.Info;
+                if (info == null || !(info.m_netAI is PlayerNetAI) || segment.m_startNode == 0 || segment.m_endNode == 0) continue;
+                ItemClass.Service service = info.GetService();
+                if (service != ItemClass.Service.Road && service != ItemClass.Service.Water && service != ItemClass.Service.Electricity)
+                    continue;
+                string key = service.ToString();
+                Dictionary<string, NetworkCost> prefabs;
+                if (!byService.TryGetValue(key, out prefabs))
+                {
+                    prefabs = new Dictionary<string, NetworkCost>(StringComparer.Ordinal);
+                    byService.Add(key, prefabs);
+                }
+                NetworkCost cost;
+                if (!prefabs.TryGetValue(info.name, out cost))
+                {
+                    cost = new NetworkCost();
+                    prefabs.Add(info.name, cost);
+                }
+                cost.Segments++;
+                if (segment.m_trafficDensity > 0) cost.SegmentsWithTraffic++;
+                Vector3 start = nodes[segment.m_startNode].m_position;
+                Vector3 end = nodes[segment.m_endNode].m_position;
+                cost.LengthMeters += segment.m_averageLength > 0 ? segment.m_averageLength : Vector3.Distance(start, end);
+                cost.PrefabMaintenance += info.m_netAI.GetMaintenanceCost(start, end);
+            }
+            var result = new Dictionary<string, object>(StringComparer.Ordinal);
+            foreach (var service in byService)
+            {
+                var prefabs = new Dictionary<string, object>(StringComparer.Ordinal);
+                foreach (var prefab in service.Value)
+                {
+                    NetworkCost cost = prefab.Value;
+                    prefabs.Add(prefab.Key, new Dictionary<string, object> {
+                        {"segments",cost.Segments}, {"segmentsWithNonzeroTrafficDensity",cost.SegmentsWithTraffic},
+                        {"lengthMeters",cost.LengthMeters}, {"sumNativePrefabMaintenance",cost.PrefabMaintenance}
+                    });
+                }
+                result.Add(service.Key, prefabs);
+            }
+            return result;
         }
 
         private Dictionary<string, object> WasteSnapshot(EconomyManager economy, int beforeDay, int beforeNight)

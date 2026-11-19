@@ -1,0 +1,2539 @@
+{
+  "checkpoint": {
+    "name": "NagoyaCitywide-PowerBudgetTrial-65Start",
+    "sha256": "9C619173FD106C95D4F7FD1602FB34877F8F445489F00B63CEFFDF9135844FB9"
+  },
+  "resultSave": {
+    "name": "NagoyaCitywide-PowerBudgetTrial-65",
+    "sha256": "CF8FC0735A76C0A6341BD8824A675649DCFF40FCBB8FF854AE2B11C73C12B8CA",
+    "bytes": 15486032
+  },
+  "gameElapsedSeconds": 1191400,
+  "before": {
+    "runId": "1b83c4149ed945049528d73adc37a90c",
+    "commandId": "b8df32e765ba4242a1f333b2662f3309",
+    "cityName": "NagoyaCitywide-Construction",
+    "buildIndex": 125002,
+    "segments": 32655,
+    "gameTime": "2029-07-20T22:12:09",
+    "internalCash": 146421766,
+    "lastCash": 146742354,
+    "lastCashDelta": -7637483,
+    "loanExpenses": 0,
+    "policyExpenses": 0,
+    "services": [
+      {
+        "service": "Residential",
+        "subService": "None",
+        "income": 1188318,
+        "expenses": 0
+      },
+      {
+        "service": "Commercial",
+        "subService": "None",
+        "income": 1306925,
+        "expenses": 0
+      },
+      {
+        "service": "Industrial",
+        "subService": "None",
+        "income": 491170,
+        "expenses": 0
+      },
+      {
+        "service": "Natural",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Vehicles",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Citizen",
+        "subService": "None",
+        "income": 1306925,
+        "expenses": 0
+      },
+      {
+        "service": "Tourism",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Office",
+        "subService": "None",
+        "income": 39216,
+        "expenses": 0
+      },
+      {
+        "service": "Road",
+        "subService": "None",
+        "income": 0,
+        "expenses": 4384368
+      },
+      {
+        "service": "Electricity",
+        "subService": "None",
+        "income": 0,
+        "expenses": 2755488
+      },
+      {
+        "service": "Water",
+        "subService": "None",
+        "income": 0,
+        "expenses": 758976
+      },
+      {
+        "service": "Beautification",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Garbage",
+        "subService": "None",
+        "income": 0,
+        "expenses": 864000
+      },
+      {
+        "service": "HealthCare",
+        "subService": "None",
+        "income": 0,
+        "expenses": 752000
+      },
+      {
+        "service": "PoliceDepartment",
+        "subService": "None",
+        "income": 0,
+        "expenses": 528000
+      },
+      {
+        "service": "Education",
+        "subService": "None",
+        "income": 0,
+        "expenses": 256000
+      },
+      {
+        "service": "Monument",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "FireDepartment",
+        "subService": "None",
+        "income": 0,
+        "expenses": 280000
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "None",
+        "income": 200,
+        "expenses": 84480
+      },
+      {
+        "service": "Disaster",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PlayerIndustry",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PlayerEducation",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Museums",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "VarsitySports",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Fishing",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "ServicePoint",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Hotel",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Race",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      }
+    ],
+    "publicTransport": [
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportBus",
+        "income": 200,
+        "expenses": 84480
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportMetro",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportTrain",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportShip",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportPlane",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportTaxi",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportTram",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportMonorail",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportCableCar",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportTours",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportPost",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportTrolleybus",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportConcourse",
+        "income": 0,
+        "expenses": 0
+      }
+    ],
+    "writesToCity": false,
+    "networkMaintenance": {
+      "Road": {
+        "Medium Road": {
+          "segments": 8778,
+          "segmentsWithNonzeroTrafficDensity": 964,
+          "lengthMeters": 125378.218410015,
+          "sumNativePrefabMaintenance": 9990500
+        },
+        "Basic Road": {
+          "segments": 6296,
+          "segmentsWithNonzeroTrafficDensity": 141,
+          "lengthMeters": 71623.1365987417,
+          "sumNativePrefabMaintenance": 2715000
+        },
+        "Basic Road Bridge": {
+          "segments": 3381,
+          "segmentsWithNonzeroTrafficDensity": 29,
+          "lengthMeters": 66667.9622774217,
+          "sumNativePrefabMaintenance": 5963400
+        },
+        "Highway": {
+          "segments": 3305,
+          "segmentsWithNonzeroTrafficDensity": 703,
+          "lengthMeters": 98990.1341656866,
+          "sumNativePrefabMaintenance": 8217600
+        },
+        "Highway Elevated": {
+          "segments": 269,
+          "segmentsWithNonzeroTrafficDensity": 245,
+          "lengthMeters": 20871.3887694478,
+          "sumNativePrefabMaintenance": 3425500
+        },
+        "Basic Road Tunnel": {
+          "segments": 490,
+          "segmentsWithNonzeroTrafficDensity": 28,
+          "lengthMeters": 12746.6339193522,
+          "sumNativePrefabMaintenance": 2170800
+        },
+        "HighwayRampElevated": {
+          "segments": 31,
+          "segmentsWithNonzeroTrafficDensity": 26,
+          "lengthMeters": 2159.51807403564,
+          "sumNativePrefabMaintenance": 110400
+        },
+        "Highway Slope": {
+          "segments": 113,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 1430.8757661581,
+          "sumNativePrefabMaintenance": 985600
+        },
+        "HighwayRamp": {
+          "segments": 65,
+          "segmentsWithNonzeroTrafficDensity": 32,
+          "lengthMeters": 4428.58346557617,
+          "sumNativePrefabMaintenance": 115400
+        },
+        "Highway Tunnel": {
+          "segments": 21,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 164.561835765839,
+          "sumNativePrefabMaintenance": 131200
+        },
+        "Basic Road Elevated": {
+          "segments": 111,
+          "segmentsWithNonzeroTrafficDensity": 16,
+          "lengthMeters": 4112.21575386822,
+          "sumNativePrefabMaintenance": 269500
+        },
+        "Basic Road Slope": {
+          "segments": 149,
+          "segmentsWithNonzeroTrafficDensity": 13,
+          "lengthMeters": 4463.84357869625,
+          "sumNativePrefabMaintenance": 982800
+        },
+        "Medium Road Slope": {
+          "segments": 13,
+          "segmentsWithNonzeroTrafficDensity": 1,
+          "lengthMeters": 181.409955620766,
+          "sumNativePrefabMaintenance": 108000
+        },
+        "Highway Connection": {
+          "segments": 6,
+          "segmentsWithNonzeroTrafficDensity": 6,
+          "lengthMeters": 366.85404586792,
+          "sumNativePrefabMaintenance": 34800
+        },
+        "Highway Bridge": {
+          "segments": 24,
+          "segmentsWithNonzeroTrafficDensity": 20,
+          "lengthMeters": 2400.06095123291,
+          "sumNativePrefabMaintenance": 492800
+        },
+        "Medium Road Elevated": {
+          "segments": 2,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 27.9974546432495,
+          "sumNativePrefabMaintenance": 2000
+        },
+        "Medium Road Tunnel": {
+          "segments": 2,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 21.3489909172058,
+          "sumNativePrefabMaintenance": 21000
+        }
+      },
+      "Water": {
+        "Water Pipe": {
+          "segments": 4175,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 0,
+          "sumNativePrefabMaintenance": 2243600
+        }
+      },
+      "Electricity": {
+        "Power Line": {
+          "segments": 4182,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 0,
+          "sumNativePrefabMaintenance": 13434300
+        }
+      }
+    },
+    "electricity": {
+      "previousDayBudgetPercent": 75,
+      "previousNightBudgetPercent": 75,
+      "dayBudgetPercent": 75,
+      "nightBudgetPercent": 75,
+      "capacityKW": 392912,
+      "consumptionKW": 259840,
+      "producers": [
+        {
+          "id": 18773,
+          "prefab": "Wind Turbine",
+          "generation": 102713,
+          "active": true,
+          "electricityRate": 285,
+          "finalMaintenance": 375
+        },
+        {
+          "id": 43566,
+          "prefab": "Nuclear Power Plant",
+          "generation": 78234,
+          "active": true,
+          "electricityRate": 22800,
+          "finalMaintenance": 37500
+        }
+      ],
+      "availableStockProducers": [
+        {
+          "prefab": "Coal Power Plant",
+          "minNominalOutput": 2500,
+          "maxNominalOutput": 2500,
+          "maintenance": 350000,
+          "construction": 1900000
+        },
+        {
+          "prefab": "Oil Power Plant",
+          "minNominalOutput": 7500,
+          "maxNominalOutput": 7500,
+          "maintenance": 1200000,
+          "construction": 5000000
+        },
+        {
+          "prefab": "Solar Power Plant",
+          "minNominalOutput": 7000,
+          "maxNominalOutput": 10000,
+          "maintenance": 750000,
+          "construction": 8000000
+        },
+        {
+          "prefab": "Nuclear Power Plant",
+          "minNominalOutput": 40000,
+          "maxNominalOutput": 40000,
+          "maintenance": 5000000,
+          "construction": 20000000
+        },
+        {
+          "prefab": "Wind Turbine",
+          "minNominalOutput": 0,
+          "maxNominalOutput": 500,
+          "maintenance": 50000,
+          "construction": 600000
+        },
+        {
+          "prefab": "Advanced Wind Turbine",
+          "minNominalOutput": 0,
+          "maxNominalOutput": 1250,
+          "maintenance": 125000,
+          "construction": 1200000
+        },
+        {
+          "prefab": "Fusion Power Plant",
+          "minNominalOutput": 1000000,
+          "maxNominalOutput": 1000000,
+          "maintenance": 5000000,
+          "construction": 100000000
+        }
+      ],
+      "existingBuildingsByUse": {
+        "Office": 1795,
+        "Industrial": 1505,
+        "Residential": 3513,
+        "Commercial": 1699
+      },
+      "activeBuildingsByUse": {
+        "Office": 151,
+        "Industrial": 1391,
+        "Residential": 3243,
+        "Commercial": 1094
+      },
+      "buildingsWithElectricityProblemByUse": {
+        "Industrial": 6,
+        "Office": 2,
+        "Residential": 1,
+        "Commercial": 1
+      }
+    },
+    "garbage": {
+      "previousDayBudgetPercent": 150,
+      "previousNightBudgetPercent": 150,
+      "dayBudgetPercent": 150,
+      "nightBudgetPercent": 150,
+      "productionPerWeek": 224752,
+      "processingCapacityPerWeek": 240000,
+      "landfillCapacity": 0,
+      "landfillAmount": 0,
+      "monitoredBuildings": null
+    }
+  },
+  "afterChange": {
+    "previousDayBudgetPercent": 75,
+    "previousNightBudgetPercent": 75,
+    "dayBudgetPercent": 65,
+    "nightBudgetPercent": 65,
+    "capacityKW": 392912,
+    "consumptionKW": 259840,
+    "producers": [
+      {
+        "id": 18773,
+        "prefab": "Wind Turbine",
+        "generation": 102713,
+        "active": true,
+        "electricityRate": 215,
+        "finalMaintenance": 325
+      },
+      {
+        "id": 43566,
+        "prefab": "Nuclear Power Plant",
+        "generation": 78234,
+        "active": true,
+        "electricityRate": 17200,
+        "finalMaintenance": 32500
+      }
+    ],
+    "availableStockProducers": [
+      {
+        "prefab": "Coal Power Plant",
+        "minNominalOutput": 2500,
+        "maxNominalOutput": 2500,
+        "maintenance": 350000,
+        "construction": 1900000
+      },
+      {
+        "prefab": "Oil Power Plant",
+        "minNominalOutput": 7500,
+        "maxNominalOutput": 7500,
+        "maintenance": 1200000,
+        "construction": 5000000
+      },
+      {
+        "prefab": "Solar Power Plant",
+        "minNominalOutput": 7000,
+        "maxNominalOutput": 10000,
+        "maintenance": 750000,
+        "construction": 8000000
+      },
+      {
+        "prefab": "Nuclear Power Plant",
+        "minNominalOutput": 40000,
+        "maxNominalOutput": 40000,
+        "maintenance": 5000000,
+        "construction": 20000000
+      },
+      {
+        "prefab": "Wind Turbine",
+        "minNominalOutput": 0,
+        "maxNominalOutput": 500,
+        "maintenance": 50000,
+        "construction": 600000
+      },
+      {
+        "prefab": "Advanced Wind Turbine",
+        "minNominalOutput": 0,
+        "maxNominalOutput": 1250,
+        "maintenance": 125000,
+        "construction": 1200000
+      },
+      {
+        "prefab": "Fusion Power Plant",
+        "minNominalOutput": 1000000,
+        "maxNominalOutput": 1000000,
+        "maintenance": 5000000,
+        "construction": 100000000
+      }
+    ],
+    "existingBuildingsByUse": {
+      "Office": 1795,
+      "Industrial": 1505,
+      "Residential": 3513,
+      "Commercial": 1699
+    },
+    "activeBuildingsByUse": {
+      "Office": 151,
+      "Industrial": 1391,
+      "Residential": 3243,
+      "Commercial": 1094
+    },
+    "buildingsWithElectricityProblemByUse": {
+      "Industrial": 6,
+      "Office": 2,
+      "Residential": 1,
+      "Commercial": 1
+    }
+  },
+  "trialEnd": {
+    "runId": "1b83c4149ed945049528d73adc37a90c",
+    "commandId": "6aa16ad66d0042d88ee50a1f35e12e68",
+    "cityName": "NagoyaCitywide-Construction",
+    "buildIndex": 125066,
+    "segments": 32655,
+    "gameTime": "2029-08-03T17:08:49",
+    "internalCash": 131380834,
+    "lastCash": 131517617,
+    "lastCashDelta": -7627227,
+    "loanExpenses": 0,
+    "policyExpenses": 0,
+    "services": [
+      {
+        "service": "Residential",
+        "subService": "None",
+        "income": 1175578,
+        "expenses": 0
+      },
+      {
+        "service": "Commercial",
+        "subService": "None",
+        "income": 1254403,
+        "expenses": 0
+      },
+      {
+        "service": "Industrial",
+        "subService": "None",
+        "income": 486156,
+        "expenses": 0
+      },
+      {
+        "service": "Natural",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Vehicles",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Citizen",
+        "subService": "None",
+        "income": 1254403,
+        "expenses": 0
+      },
+      {
+        "service": "Tourism",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Office",
+        "subService": "None",
+        "income": 38848,
+        "expenses": 0
+      },
+      {
+        "service": "Road",
+        "subService": "None",
+        "income": 0,
+        "expenses": 4384368
+      },
+      {
+        "service": "Electricity",
+        "subService": "None",
+        "income": 0,
+        "expenses": 2674688
+      },
+      {
+        "service": "Water",
+        "subService": "None",
+        "income": 0,
+        "expenses": 758976
+      },
+      {
+        "service": "Beautification",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Garbage",
+        "subService": "None",
+        "income": 0,
+        "expenses": 864000
+      },
+      {
+        "service": "HealthCare",
+        "subService": "None",
+        "income": 0,
+        "expenses": 752000
+      },
+      {
+        "service": "PoliceDepartment",
+        "subService": "None",
+        "income": 0,
+        "expenses": 528000
+      },
+      {
+        "service": "Education",
+        "subService": "None",
+        "income": 0,
+        "expenses": 256000
+      },
+      {
+        "service": "Monument",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "FireDepartment",
+        "subService": "None",
+        "income": 0,
+        "expenses": 280000
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "None",
+        "income": 300,
+        "expenses": 84480
+      },
+      {
+        "service": "Disaster",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PlayerIndustry",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PlayerEducation",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Museums",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "VarsitySports",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Fishing",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "ServicePoint",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Hotel",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Race",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      }
+    ],
+    "publicTransport": [
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportBus",
+        "income": 300,
+        "expenses": 84480
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportMetro",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportTrain",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportShip",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportPlane",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportTaxi",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportTram",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportMonorail",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportCableCar",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportTours",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportPost",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportTrolleybus",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportConcourse",
+        "income": 0,
+        "expenses": 0
+      }
+    ],
+    "writesToCity": false,
+    "networkMaintenance": {
+      "Road": {
+        "Medium Road": {
+          "segments": 8778,
+          "segmentsWithNonzeroTrafficDensity": 869,
+          "lengthMeters": 125378.218410015,
+          "sumNativePrefabMaintenance": 9990500
+        },
+        "Basic Road": {
+          "segments": 6296,
+          "segmentsWithNonzeroTrafficDensity": 157,
+          "lengthMeters": 71623.1365987417,
+          "sumNativePrefabMaintenance": 2715000
+        },
+        "Basic Road Bridge": {
+          "segments": 3381,
+          "segmentsWithNonzeroTrafficDensity": 28,
+          "lengthMeters": 66667.9622774217,
+          "sumNativePrefabMaintenance": 5963400
+        },
+        "Highway": {
+          "segments": 3305,
+          "segmentsWithNonzeroTrafficDensity": 705,
+          "lengthMeters": 98990.1341656866,
+          "sumNativePrefabMaintenance": 8217600
+        },
+        "Highway Elevated": {
+          "segments": 269,
+          "segmentsWithNonzeroTrafficDensity": 240,
+          "lengthMeters": 20871.3887694478,
+          "sumNativePrefabMaintenance": 3425500
+        },
+        "Basic Road Tunnel": {
+          "segments": 490,
+          "segmentsWithNonzeroTrafficDensity": 7,
+          "lengthMeters": 12746.6339193522,
+          "sumNativePrefabMaintenance": 2170800
+        },
+        "HighwayRampElevated": {
+          "segments": 31,
+          "segmentsWithNonzeroTrafficDensity": 26,
+          "lengthMeters": 2159.51807403564,
+          "sumNativePrefabMaintenance": 110400
+        },
+        "Highway Slope": {
+          "segments": 113,
+          "segmentsWithNonzeroTrafficDensity": 1,
+          "lengthMeters": 1430.8757661581,
+          "sumNativePrefabMaintenance": 985600
+        },
+        "HighwayRamp": {
+          "segments": 65,
+          "segmentsWithNonzeroTrafficDensity": 21,
+          "lengthMeters": 4428.58346557617,
+          "sumNativePrefabMaintenance": 115400
+        },
+        "Highway Tunnel": {
+          "segments": 21,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 164.561835765839,
+          "sumNativePrefabMaintenance": 131200
+        },
+        "Basic Road Elevated": {
+          "segments": 111,
+          "segmentsWithNonzeroTrafficDensity": 17,
+          "lengthMeters": 4112.21575386822,
+          "sumNativePrefabMaintenance": 269500
+        },
+        "Basic Road Slope": {
+          "segments": 149,
+          "segmentsWithNonzeroTrafficDensity": 8,
+          "lengthMeters": 4463.84357869625,
+          "sumNativePrefabMaintenance": 982800
+        },
+        "Medium Road Slope": {
+          "segments": 13,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 181.409955620766,
+          "sumNativePrefabMaintenance": 108000
+        },
+        "Highway Connection": {
+          "segments": 6,
+          "segmentsWithNonzeroTrafficDensity": 6,
+          "lengthMeters": 366.85404586792,
+          "sumNativePrefabMaintenance": 34800
+        },
+        "Highway Bridge": {
+          "segments": 24,
+          "segmentsWithNonzeroTrafficDensity": 17,
+          "lengthMeters": 2400.06095123291,
+          "sumNativePrefabMaintenance": 492800
+        },
+        "Medium Road Elevated": {
+          "segments": 2,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 27.9974546432495,
+          "sumNativePrefabMaintenance": 2000
+        },
+        "Medium Road Tunnel": {
+          "segments": 2,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 21.3489909172058,
+          "sumNativePrefabMaintenance": 21000
+        }
+      },
+      "Water": {
+        "Water Pipe": {
+          "segments": 4175,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 0,
+          "sumNativePrefabMaintenance": 2243600
+        }
+      },
+      "Electricity": {
+        "Power Line": {
+          "segments": 4182,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 0,
+          "sumNativePrefabMaintenance": 13434300
+        }
+      }
+    },
+    "electricity": {
+      "previousDayBudgetPercent": 65,
+      "previousNightBudgetPercent": 65,
+      "dayBudgetPercent": 65,
+      "nightBudgetPercent": 65,
+      "capacityKW": 304528,
+      "consumptionKW": 272752,
+      "producers": [
+        {
+          "id": 18773,
+          "prefab": "Wind Turbine",
+          "generation": 102713,
+          "active": true,
+          "electricityRate": 190,
+          "finalMaintenance": 325
+        },
+        {
+          "id": 43566,
+          "prefab": "Nuclear Power Plant",
+          "generation": 78234,
+          "active": true,
+          "electricityRate": 17200,
+          "finalMaintenance": 32500
+        }
+      ],
+      "availableStockProducers": [
+        {
+          "prefab": "Coal Power Plant",
+          "minNominalOutput": 2500,
+          "maxNominalOutput": 2500,
+          "maintenance": 350000,
+          "construction": 1900000
+        },
+        {
+          "prefab": "Oil Power Plant",
+          "minNominalOutput": 7500,
+          "maxNominalOutput": 7500,
+          "maintenance": 1200000,
+          "construction": 5000000
+        },
+        {
+          "prefab": "Solar Power Plant",
+          "minNominalOutput": 7000,
+          "maxNominalOutput": 10000,
+          "maintenance": 750000,
+          "construction": 8000000
+        },
+        {
+          "prefab": "Nuclear Power Plant",
+          "minNominalOutput": 40000,
+          "maxNominalOutput": 40000,
+          "maintenance": 5000000,
+          "construction": 20000000
+        },
+        {
+          "prefab": "Wind Turbine",
+          "minNominalOutput": 0,
+          "maxNominalOutput": 500,
+          "maintenance": 50000,
+          "construction": 600000
+        },
+        {
+          "prefab": "Advanced Wind Turbine",
+          "minNominalOutput": 0,
+          "maxNominalOutput": 1250,
+          "maintenance": 125000,
+          "construction": 1200000
+        },
+        {
+          "prefab": "Fusion Power Plant",
+          "minNominalOutput": 1000000,
+          "maxNominalOutput": 1000000,
+          "maintenance": 5000000,
+          "construction": 100000000
+        }
+      ],
+      "existingBuildingsByUse": {
+        "Office": 1795,
+        "Industrial": 1505,
+        "Residential": 3513,
+        "Commercial": 1699
+      },
+      "activeBuildingsByUse": {
+        "Office": 151,
+        "Industrial": 1386,
+        "Residential": 3208,
+        "Commercial": 1071
+      },
+      "buildingsWithElectricityProblemByUse": {
+        "Industrial": 6,
+        "Office": 2,
+        "Residential": 1,
+        "Commercial": 1
+      }
+    },
+    "garbage": {
+      "previousDayBudgetPercent": 150,
+      "previousNightBudgetPercent": 150,
+      "dayBudgetPercent": 150,
+      "nightBudgetPercent": 150,
+      "productionPerWeek": 223232,
+      "processingCapacityPerWeek": 240000,
+      "landfillCapacity": 0,
+      "landfillAmount": 0,
+      "monitoredBuildings": null
+    }
+  },
+  "afterReload": {
+    "runId": "16f08f3af2dc48168cc6da51197604e0",
+    "commandId": "3ff59dc56e7443c0b8e10588c06120ef",
+    "cityName": "NagoyaCitywide-Construction",
+    "buildIndex": 125073,
+    "segments": 32655,
+    "gameTime": "2029-08-05T06:26:06",
+    "internalCash": 129705261,
+    "lastCash": 130085810,
+    "lastCashDelta": -7630235,
+    "loanExpenses": 0,
+    "policyExpenses": 0,
+    "services": [
+      {
+        "service": "Residential",
+        "subService": "None",
+        "income": 1176760,
+        "expenses": 0
+      },
+      {
+        "service": "Commercial",
+        "subService": "None",
+        "income": 1250180,
+        "expenses": 0
+      },
+      {
+        "service": "Industrial",
+        "subService": "None",
+        "income": 486205,
+        "expenses": 0
+      },
+      {
+        "service": "Natural",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Vehicles",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Citizen",
+        "subService": "None",
+        "income": 1250180,
+        "expenses": 0
+      },
+      {
+        "service": "Tourism",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Office",
+        "subService": "None",
+        "income": 38832,
+        "expenses": 0
+      },
+      {
+        "service": "Road",
+        "subService": "None",
+        "income": 0,
+        "expenses": 4384368
+      },
+      {
+        "service": "Electricity",
+        "subService": "None",
+        "income": 0,
+        "expenses": 2674688
+      },
+      {
+        "service": "Water",
+        "subService": "None",
+        "income": 0,
+        "expenses": 758976
+      },
+      {
+        "service": "Beautification",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Garbage",
+        "subService": "None",
+        "income": 0,
+        "expenses": 864000
+      },
+      {
+        "service": "HealthCare",
+        "subService": "None",
+        "income": 0,
+        "expenses": 752000
+      },
+      {
+        "service": "PoliceDepartment",
+        "subService": "None",
+        "income": 0,
+        "expenses": 528000
+      },
+      {
+        "service": "Education",
+        "subService": "None",
+        "income": 0,
+        "expenses": 256000
+      },
+      {
+        "service": "Monument",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "FireDepartment",
+        "subService": "None",
+        "income": 0,
+        "expenses": 280000
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "None",
+        "income": 300,
+        "expenses": 84480
+      },
+      {
+        "service": "Disaster",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PlayerIndustry",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PlayerEducation",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Museums",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "VarsitySports",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Fishing",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "ServicePoint",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Hotel",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "Race",
+        "subService": "None",
+        "income": 0,
+        "expenses": 0
+      }
+    ],
+    "publicTransport": [
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportBus",
+        "income": 300,
+        "expenses": 84480
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportMetro",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportTrain",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportShip",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportPlane",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportTaxi",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportTram",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportMonorail",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportCableCar",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportTours",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportPost",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportTrolleybus",
+        "income": 0,
+        "expenses": 0
+      },
+      {
+        "service": "PublicTransport",
+        "subService": "PublicTransportConcourse",
+        "income": 0,
+        "expenses": 0
+      }
+    ],
+    "writesToCity": false,
+    "networkMaintenance": {
+      "Road": {
+        "Medium Road": {
+          "segments": 8778,
+          "segmentsWithNonzeroTrafficDensity": 851,
+          "lengthMeters": 125561.976252556,
+          "sumNativePrefabMaintenance": 9990500
+        },
+        "Basic Road": {
+          "segments": 6296,
+          "segmentsWithNonzeroTrafficDensity": 109,
+          "lengthMeters": 72051.6148187276,
+          "sumNativePrefabMaintenance": 2715000
+        },
+        "Basic Road Bridge": {
+          "segments": 3381,
+          "segmentsWithNonzeroTrafficDensity": 38,
+          "lengthMeters": 66722.0969591234,
+          "sumNativePrefabMaintenance": 5963400
+        },
+        "Highway": {
+          "segments": 3305,
+          "segmentsWithNonzeroTrafficDensity": 675,
+          "lengthMeters": 98990.1341656866,
+          "sumNativePrefabMaintenance": 8217600
+        },
+        "Highway Elevated": {
+          "segments": 269,
+          "segmentsWithNonzeroTrafficDensity": 234,
+          "lengthMeters": 20871.3887694478,
+          "sumNativePrefabMaintenance": 3425500
+        },
+        "Basic Road Tunnel": {
+          "segments": 490,
+          "segmentsWithNonzeroTrafficDensity": 4,
+          "lengthMeters": 12746.6339193522,
+          "sumNativePrefabMaintenance": 2170800
+        },
+        "HighwayRampElevated": {
+          "segments": 31,
+          "segmentsWithNonzeroTrafficDensity": 28,
+          "lengthMeters": 2159.51807403564,
+          "sumNativePrefabMaintenance": 110400
+        },
+        "Highway Slope": {
+          "segments": 113,
+          "segmentsWithNonzeroTrafficDensity": 1,
+          "lengthMeters": 1430.8757661581,
+          "sumNativePrefabMaintenance": 985600
+        },
+        "HighwayRamp": {
+          "segments": 65,
+          "segmentsWithNonzeroTrafficDensity": 28,
+          "lengthMeters": 4428.58346557617,
+          "sumNativePrefabMaintenance": 115400
+        },
+        "Highway Tunnel": {
+          "segments": 21,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 164.561835765839,
+          "sumNativePrefabMaintenance": 131200
+        },
+        "Basic Road Elevated": {
+          "segments": 111,
+          "segmentsWithNonzeroTrafficDensity": 20,
+          "lengthMeters": 4112.21575386822,
+          "sumNativePrefabMaintenance": 269500
+        },
+        "Basic Road Slope": {
+          "segments": 149,
+          "segmentsWithNonzeroTrafficDensity": 4,
+          "lengthMeters": 4463.84357869625,
+          "sumNativePrefabMaintenance": 982800
+        },
+        "Medium Road Slope": {
+          "segments": 13,
+          "segmentsWithNonzeroTrafficDensity": 1,
+          "lengthMeters": 181.409955620766,
+          "sumNativePrefabMaintenance": 108000
+        },
+        "Highway Connection": {
+          "segments": 6,
+          "segmentsWithNonzeroTrafficDensity": 6,
+          "lengthMeters": 366.85404586792,
+          "sumNativePrefabMaintenance": 34800
+        },
+        "Highway Bridge": {
+          "segments": 24,
+          "segmentsWithNonzeroTrafficDensity": 16,
+          "lengthMeters": 2400.06095123291,
+          "sumNativePrefabMaintenance": 492800
+        },
+        "Medium Road Elevated": {
+          "segments": 2,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 27.9974546432495,
+          "sumNativePrefabMaintenance": 2000
+        },
+        "Medium Road Tunnel": {
+          "segments": 2,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 21.3489909172058,
+          "sumNativePrefabMaintenance": 21000
+        }
+      },
+      "Water": {
+        "Water Pipe": {
+          "segments": 4175,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 355280.644919395,
+          "sumNativePrefabMaintenance": 2243600
+        }
+      },
+      "Electricity": {
+        "Power Line": {
+          "segments": 4182,
+          "segmentsWithNonzeroTrafficDensity": 0,
+          "lengthMeters": 354513.936510086,
+          "sumNativePrefabMaintenance": 13434300
+        }
+      }
+    },
+    "electricity": {
+      "previousDayBudgetPercent": 65,
+      "previousNightBudgetPercent": 65,
+      "dayBudgetPercent": 65,
+      "nightBudgetPercent": 65,
+      "capacityKW": 304416,
+      "consumptionKW": 269984,
+      "producers": [
+        {
+          "id": 18773,
+          "prefab": "Wind Turbine",
+          "generation": 102713,
+          "active": true,
+          "electricityRate": 190,
+          "finalMaintenance": 325
+        },
+        {
+          "id": 43566,
+          "prefab": "Nuclear Power Plant",
+          "generation": 78234,
+          "active": true,
+          "electricityRate": 17200,
+          "finalMaintenance": 32500
+        }
+      ],
+      "availableStockProducers": [
+        {
+          "prefab": "Coal Power Plant",
+          "minNominalOutput": 2500,
+          "maxNominalOutput": 2500,
+          "maintenance": 350000,
+          "construction": 1900000
+        },
+        {
+          "prefab": "Oil Power Plant",
+          "minNominalOutput": 7500,
+          "maxNominalOutput": 7500,
+          "maintenance": 1200000,
+          "construction": 5000000
+        },
+        {
+          "prefab": "Solar Power Plant",
+          "minNominalOutput": 7000,
+          "maxNominalOutput": 10000,
+          "maintenance": 750000,
+          "construction": 8000000
+        },
+        {
+          "prefab": "Nuclear Power Plant",
+          "minNominalOutput": 40000,
+          "maxNominalOutput": 40000,
+          "maintenance": 5000000,
+          "construction": 20000000
+        },
+        {
+          "prefab": "Wind Turbine",
+          "minNominalOutput": 0,
+          "maxNominalOutput": 500,
+          "maintenance": 50000,
+          "construction": 600000
+        },
+        {
+          "prefab": "Advanced Wind Turbine",
+          "minNominalOutput": 0,
+          "maxNominalOutput": 1250,
+          "maintenance": 125000,
+          "construction": 1200000
+        },
+        {
+          "prefab": "Fusion Power Plant",
+          "minNominalOutput": 1000000,
+          "maxNominalOutput": 1000000,
+          "maintenance": 5000000,
+          "construction": 100000000
+        }
+      ],
+      "existingBuildingsByUse": {
+        "Office": 1795,
+        "Industrial": 1505,
+        "Residential": 3513,
+        "Commercial": 1699
+      },
+      "activeBuildingsByUse": {
+        "Office": 151,
+        "Industrial": 1386,
+        "Residential": 3208,
+        "Commercial": 1068
+      },
+      "buildingsWithElectricityProblemByUse": {
+        "Industrial": 6,
+        "Office": 2,
+        "Residential": 1,
+        "Commercial": 1
+      }
+    },
+    "garbage": {
+      "previousDayBudgetPercent": 150,
+      "previousNightBudgetPercent": 150,
+      "dayBudgetPercent": 150,
+      "nightBudgetPercent": 150,
+      "productionPerWeek": 222480,
+      "processingCapacityPerWeek": 240000,
+      "landfillCapacity": 0,
+      "landfillAmount": 0,
+      "monitoredBuildings": null
+    }
+  },
+  "finance": [
+    {
+      "income": 30258.29,
+      "expenses": 106633.12,
+      "net": -76374.83,
+      "cash": 1464217.66,
+      "power": 27554.88,
+      "road": 43843.68
+    },
+    {
+      "income": 29552.85,
+      "expenses": 105825.12,
+      "net": -76272.27,
+      "cash": 1313808.34,
+      "power": 26746.88,
+      "road": 43843.68
+    },
+    {
+      "income": 29522.77,
+      "expenses": 105825.12,
+      "net": -76302.35,
+      "cash": 1297052.61,
+      "power": 26746.88,
+      "road": 43843.68
+    }
+  ],
+  "electricityMaintenanceFromStockDebits": [
+    {
+      "generation": 6060.0,
+      "line": 21494.88
+    },
+    {
+      "generation": 5252.0,
+      "line": 21494.88
+    },
+    {
+      "generation": 5252.0,
+      "line": 21494.88
+    }
+  ],
+  "powerGraph": {
+    "lines": 4182,
+    "nodes": 4159,
+    "components": 1,
+    "largestComponentNodes": 4159,
+    "connectedNodeCountTopTen": [
+      4159
+    ],
+    "directEndpointLengthMeters": 354513.93351402413,
+    "leafNodes": 781,
+    "redundantCycleEdgesInPhysicalGraph": 24,
+    "cycleEdges": [
+      32375,
+      27664,
+      21015,
+      20969,
+      21240,
+      19734,
+      30179,
+      20337,
+      3328,
+      24860,
+      32008,
+      19775,
+      31014,
+      5015,
+      18588,
+      6514,
+      30287,
+      21788,
+      28625,
+      34150,
+      28451,
+      11445,
+      14383,
+      6015
+    ]
+  },
+  "nativeDeliveriesDuringTrial": [
+    {
+      "android": 348225,
+      "from": 28289,
+      "to": 8976,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 6077,
+      "factoryAccessStreet": 35407,
+      "shopAccessStreet": 10068,
+      "factoryAfter": 5977,
+      "shopBefore": 13499,
+      "nativeRequest": null,
+      "shopAfter": 13599,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55198581,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-20T22:23:16"
+    },
+    {
+      "android": 71791,
+      "from": 26235,
+      "to": 24107,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 3856,
+      "factoryAccessStreet": 30292,
+      "shopAccessStreet": 20782,
+      "factoryAfter": 3756,
+      "shopBefore": 12422,
+      "nativeRequest": null,
+      "shopAfter": 12522,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55196279,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-20T22:49:45"
+    },
+    {
+      "android": 955683,
+      "from": 14696,
+      "to": 9110,
+      "ward": "東区",
+      "sourceWard": "東区",
+      "stockAdded": 100,
+      "factoryBefore": 397,
+      "factoryAccessStreet": 6118,
+      "shopAccessStreet": 9079,
+      "factoryAfter": 297,
+      "shopBefore": 7935,
+      "nativeRequest": null,
+      "shopAfter": 8035,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55198009,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-21T01:17:57"
+    },
+    {
+      "android": 414831,
+      "from": 31252,
+      "to": 44611,
+      "ward": "天白区",
+      "sourceWard": "名東区",
+      "stockAdded": 100,
+      "factoryBefore": 5025,
+      "factoryAccessStreet": 19297,
+      "shopAccessStreet": 4157,
+      "factoryAfter": 4925,
+      "shopBefore": 7027,
+      "nativeRequest": null,
+      "shopAfter": 7127,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55195116,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-21T22:23:07"
+    },
+    {
+      "android": 167851,
+      "from": 15223,
+      "to": 18946,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 1277,
+      "factoryAccessStreet": 32293,
+      "shopAccessStreet": 35783,
+      "factoryAfter": 1177,
+      "shopBefore": 13063,
+      "nativeRequest": null,
+      "shopAfter": 13163,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55196962,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-22T06:55:12"
+    },
+    {
+      "android": 691993,
+      "from": 10658,
+      "to": 29000,
+      "ward": "西区",
+      "sourceWard": "西区",
+      "stockAdded": 100,
+      "factoryBefore": 4163,
+      "factoryAccessStreet": 11614,
+      "shopAccessStreet": 14778,
+      "factoryAfter": 4063,
+      "shopBefore": 10950,
+      "nativeRequest": null,
+      "shopAfter": 11050,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55195020,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-22T08:52:53"
+    },
+    {
+      "android": 771601,
+      "from": 6527,
+      "to": 16393,
+      "ward": "西区",
+      "sourceWard": "西区",
+      "stockAdded": 100,
+      "factoryBefore": 7577,
+      "factoryAccessStreet": 10714,
+      "shopAccessStreet": 12973,
+      "factoryAfter": 7477,
+      "shopBefore": 11824,
+      "nativeRequest": null,
+      "shopAfter": 11924,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55196826,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-22T15:43:57"
+    },
+    {
+      "android": 137034,
+      "from": 5743,
+      "to": 18518,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 2187,
+      "factoryAccessStreet": 32782,
+      "shopAccessStreet": 24610,
+      "factoryAfter": 2087,
+      "shopBefore": 10567,
+      "nativeRequest": {
+        "frame": 55200096,
+        "priority": 6,
+        "amount": 1
+      },
+      "shopAfter": 10667,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55200263,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-23T19:54:55"
+    },
+    {
+      "android": 2443,
+      "from": 23671,
+      "to": 35638,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 4889,
+      "factoryAccessStreet": 27329,
+      "shopAccessStreet": 33561,
+      "factoryAfter": 4789,
+      "shopBefore": 4985,
+      "nativeRequest": {
+        "frame": 55200185,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 5085,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55200332,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-24T06:38:48"
+    },
+    {
+      "android": 6204,
+      "from": 26340,
+      "to": 48754,
+      "ward": "天白区",
+      "sourceWard": "天白区",
+      "stockAdded": 100,
+      "factoryBefore": 1888,
+      "factoryAccessStreet": 25063,
+      "shopAccessStreet": 28982,
+      "factoryAfter": 1788,
+      "shopBefore": 2140,
+      "nativeRequest": {
+        "frame": 55200253,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 2240,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55200340,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-24T17:46:51"
+    },
+    {
+      "android": 31206,
+      "from": 19877,
+      "to": 9232,
+      "ward": "中区",
+      "sourceWard": "西区",
+      "stockAdded": 100,
+      "factoryBefore": 1696,
+      "factoryAccessStreet": 4178,
+      "shopAccessStreet": 25156,
+      "factoryAfter": 1596,
+      "shopBefore": 10044,
+      "nativeRequest": {
+        "frame": 55200304,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 10144,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55200398,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-24T18:30:48"
+    },
+    {
+      "android": 338017,
+      "from": 23732,
+      "to": 40689,
+      "ward": "北区",
+      "sourceWard": "西区",
+      "stockAdded": 100,
+      "factoryBefore": 5939,
+      "factoryAccessStreet": 5096,
+      "shopAccessStreet": 13301,
+      "factoryAfter": 5839,
+      "shopBefore": 11389,
+      "nativeRequest": null,
+      "shopAfter": 11489,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55196962,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-24T18:54:44"
+    },
+    {
+      "android": 982112,
+      "from": 5268,
+      "to": 6148,
+      "ward": "千種区",
+      "sourceWard": "千種区",
+      "stockAdded": 26,
+      "factoryBefore": 2491,
+      "factoryAccessStreet": 3159,
+      "shopAccessStreet": 3159,
+      "factoryAfter": 2465,
+      "shopBefore": 15974,
+      "nativeRequest": null,
+      "shopAfter": 16000,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55202041,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-25T21:32:36"
+    },
+    {
+      "android": 30623,
+      "from": 37579,
+      "to": 10526,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 3962,
+      "factoryAccessStreet": 4340,
+      "shopAccessStreet": 4880,
+      "factoryAfter": 3862,
+      "shopBefore": 13091,
+      "nativeRequest": {
+        "frame": 55202614,
+        "priority": 1,
+        "amount": 1
+      },
+      "shopAfter": 13191,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55202706,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-27T04:01:33"
+    },
+    {
+      "android": 143971,
+      "from": 29062,
+      "to": 8516,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 2013,
+      "factoryAccessStreet": 28933,
+      "shopAccessStreet": 3040,
+      "factoryAfter": 1913,
+      "shopBefore": 11549,
+      "nativeRequest": null,
+      "shopAfter": 11649,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55202041,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-27T15:24:03"
+    },
+    {
+      "android": 222987,
+      "from": 3322,
+      "to": 44611,
+      "ward": "天白区",
+      "sourceWard": "天白区",
+      "stockAdded": 100,
+      "factoryBefore": 2128,
+      "factoryAccessStreet": 17350,
+      "shopAccessStreet": 4157,
+      "factoryAfter": 2028,
+      "shopBefore": 6972,
+      "nativeRequest": {
+        "frame": 55201512,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 7072,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55201561,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-27T20:46:34"
+    },
+    {
+      "android": 289237,
+      "from": 41265,
+      "to": 18244,
+      "ward": "中区",
+      "sourceWard": "中区",
+      "stockAdded": 100,
+      "factoryBefore": 6785,
+      "factoryAccessStreet": 6649,
+      "shopAccessStreet": 32115,
+      "factoryAfter": 6685,
+      "shopBefore": 8123,
+      "nativeRequest": {
+        "frame": 55202143,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 8223,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55202219,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-27T23:51:51"
+    },
+    {
+      "android": 974117,
+      "from": 22590,
+      "to": 44243,
+      "ward": "中村区",
+      "sourceWard": "中村区",
+      "stockAdded": 100,
+      "factoryBefore": 2016,
+      "factoryAccessStreet": 2483,
+      "shopAccessStreet": 31359,
+      "factoryAfter": 1916,
+      "shopBefore": 4991,
+      "nativeRequest": {
+        "frame": 55202534,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 5091,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55202667,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-28T00:43:34"
+    },
+    {
+      "android": 955683,
+      "from": 14696,
+      "to": 9110,
+      "ward": "東区",
+      "sourceWard": "東区",
+      "stockAdded": 100,
+      "factoryBefore": 348,
+      "factoryAccessStreet": 6118,
+      "shopAccessStreet": 9079,
+      "factoryAfter": 248,
+      "shopBefore": 7877,
+      "nativeRequest": null,
+      "shopAfter": 7977,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55202598,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-28T22:58:19"
+    },
+    {
+      "android": 86118,
+      "from": 33409,
+      "to": 10760,
+      "ward": "中川区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 3853,
+      "factoryAccessStreet": 8738,
+      "shopAccessStreet": 1355,
+      "factoryAfter": 3753,
+      "shopBefore": 2161,
+      "nativeRequest": null,
+      "shopAfter": 2261,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55202041,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-29T04:20:15"
+    },
+    {
+      "android": 420125,
+      "from": 32168,
+      "to": 6980,
+      "ward": "昭和区",
+      "sourceWard": "昭和区",
+      "stockAdded": 100,
+      "factoryBefore": 1039,
+      "factoryAccessStreet": 2844,
+      "shopAccessStreet": 2844,
+      "factoryAfter": 939,
+      "shopBefore": 13796,
+      "nativeRequest": {
+        "frame": 55203620,
+        "priority": 0,
+        "amount": 1
+      },
+      "shopAfter": 13896,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55203856,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-29T06:08:27"
+    },
+    {
+      "android": 955876,
+      "from": 8054,
+      "to": 6726,
+      "ward": "瑞穂区",
+      "sourceWard": "瑞穂区",
+      "stockAdded": 100,
+      "factoryBefore": 3929,
+      "factoryAccessStreet": 12174,
+      "shopAccessStreet": 7352,
+      "factoryAfter": 3829,
+      "shopBefore": 12395,
+      "nativeRequest": {
+        "frame": 55203875,
+        "priority": 3,
+        "amount": 1
+      },
+      "shopAfter": 12495,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55203937,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-29T09:17:36"
+    },
+    {
+      "android": 982112,
+      "from": 5268,
+      "to": 6148,
+      "ward": "千種区",
+      "sourceWard": "千種区",
+      "stockAdded": 13,
+      "factoryBefore": 2486,
+      "factoryAccessStreet": 3159,
+      "shopAccessStreet": 3159,
+      "factoryAfter": 2473,
+      "shopBefore": 15987,
+      "nativeRequest": null,
+      "shopAfter": 16000,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55204417,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-29T22:58:24"
+    },
+    {
+      "android": 146675,
+      "from": 26327,
+      "to": 27098,
+      "ward": "中川区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 4063,
+      "factoryAccessStreet": 27746,
+      "shopAccessStreet": 13618,
+      "factoryAfter": 3963,
+      "shopBefore": 987,
+      "nativeRequest": {
+        "frame": 55201933,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 1087,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55202041,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-30T10:11:33"
+    },
+    {
+      "android": 717628,
+      "from": 7704,
+      "to": 8370,
+      "ward": "中村区",
+      "sourceWard": "中村区",
+      "stockAdded": 100,
+      "factoryBefore": 973,
+      "factoryAccessStreet": 16798,
+      "shopAccessStreet": 8564,
+      "factoryAfter": 873,
+      "shopBefore": 11656,
+      "nativeRequest": {
+        "frame": 55201835,
+        "priority": 4,
+        "amount": 1
+      },
+      "shopAfter": 11756,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55202041,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-30T10:49:23"
+    },
+    {
+      "android": 2443,
+      "from": 23671,
+      "to": 35638,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 5103,
+      "factoryAccessStreet": 27329,
+      "shopAccessStreet": 33561,
+      "factoryAfter": 5003,
+      "shopBefore": 4893,
+      "nativeRequest": null,
+      "shopAfter": 4993,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55204562,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-31T12:24:43"
+    },
+    {
+      "android": 340511,
+      "from": 33090,
+      "to": 29100,
+      "ward": "天白区",
+      "sourceWard": "天白区",
+      "stockAdded": 100,
+      "factoryBefore": 2194,
+      "factoryAccessStreet": 13437,
+      "shopAccessStreet": 28007,
+      "factoryAfter": 2094,
+      "shopBefore": 10671,
+      "nativeRequest": {
+        "frame": 55201431,
+        "priority": 6,
+        "amount": 1
+      },
+      "shopAfter": 10771,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55201561,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-31T17:41:31"
+    },
+    {
+      "android": 31206,
+      "from": 19877,
+      "to": 48869,
+      "ward": "西区",
+      "sourceWard": "西区",
+      "stockAdded": 100,
+      "factoryBefore": 1639,
+      "factoryAccessStreet": 4178,
+      "shopAccessStreet": 668,
+      "factoryAfter": 1539,
+      "shopBefore": 9363,
+      "nativeRequest": {
+        "frame": 55204862,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 9463,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55204967,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-31T19:19:10"
+    },
+    {
+      "android": 187618,
+      "from": 16249,
+      "to": 36999,
+      "ward": "千種区",
+      "sourceWard": "千種区",
+      "stockAdded": 100,
+      "factoryBefore": 3038,
+      "factoryAccessStreet": 30182,
+      "shopAccessStreet": 25077,
+      "factoryAfter": 2938,
+      "shopBefore": 1557,
+      "nativeRequest": {
+        "frame": 55201984,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 1657,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55202167,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-07-31T20:09:35"
+    },
+    {
+      "android": 610126,
+      "from": 17513,
+      "to": 915,
+      "ward": "西区",
+      "sourceWard": "北区",
+      "stockAdded": 100,
+      "factoryBefore": 3770,
+      "factoryAccessStreet": 8991,
+      "shopAccessStreet": 26341,
+      "factoryAfter": 3670,
+      "shopBefore": 15669,
+      "nativeRequest": null,
+      "shopAfter": 15769,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55200339,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-02T07:38:05"
+    },
+    {
+      "android": 982112,
+      "from": 5268,
+      "to": 6148,
+      "ward": "千種区",
+      "sourceWard": "千種区",
+      "stockAdded": 11,
+      "factoryBefore": 2498,
+      "factoryAccessStreet": 3159,
+      "shopAccessStreet": 3159,
+      "factoryAfter": 2487,
+      "shopBefore": 15989,
+      "nativeRequest": null,
+      "shopAfter": 16000,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55206759,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-02T22:30:47"
+    },
+    {
+      "android": 49176,
+      "from": 23180,
+      "to": 15471,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 3779,
+      "factoryAccessStreet": 3295,
+      "shopAccessStreet": 20414,
+      "factoryAfter": 3679,
+      "shopBefore": 8606,
+      "nativeRequest": {
+        "frame": 55204176,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 8706,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55204417,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-02T23:53:44"
+    },
+    {
+      "android": 337942,
+      "from": 42162,
+      "to": 44611,
+      "ward": "天白区",
+      "sourceWard": "天白区",
+      "stockAdded": 100,
+      "factoryBefore": 2629,
+      "factoryAccessStreet": 4071,
+      "shopAccessStreet": 4157,
+      "factoryAfter": 2529,
+      "shopBefore": 6923,
+      "nativeRequest": null,
+      "shopAfter": 7023,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55203937,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-03T06:23:37"
+    }
+  ],
+  "deliveryWards": [
+    "中区",
+    "中川区",
+    "中村区",
+    "北区",
+    "千種区",
+    "天白区",
+    "守山区",
+    "昭和区",
+    "東区",
+    "港区",
+    "瑞穂区",
+    "緑区",
+    "西区"
+  ],
+  "lifeAndTraffic": [
+    {
+      "time": "2029-07-20T22:12:09",
+      "humanResidents": 8975,
+      "androidResidents": 513,
+      "humanWorkers": 4067,
+      "androidWorkers": 499,
+      "deliveries": 172,
+      "wardsWithBothResidentAndWorkerTypes": 16,
+      "nativeTraffic": {
+        "passengerCars": 606,
+        "cargoTrucks": 708,
+        "buses": 40,
+        "roadVehiclesWithNativePath": 1349
+      }
+    },
+    {
+      "time": "2029-08-03T17:08:49",
+      "humanResidents": 9062,
+      "androidResidents": 507,
+      "humanWorkers": 4098,
+      "androidWorkers": 492,
+      "deliveries": 205,
+      "wardsWithBothResidentAndWorkerTypes": 16,
+      "nativeTraffic": {
+        "passengerCars": 622,
+        "cargoTrucks": 735,
+        "buses": 41,
+        "roadVehiclesWithNativePath": 1391
+      }
+    }
+  ],
+  "notes": [
+    "All financial values are in-game currency. The accounts are period snapshots.",
+    "Road sumNativePrefabMaintenance includes all loaded player-network segments; it is not a reconstruction of the road invoice.",
+    "The power graph covers the physical line segments. The cycle count does not establish that removal preserves electricity coverage.",
+    "The comparison is a same-city before and after trial without a parallel 75% control over the same interval."
+  ]
+}
