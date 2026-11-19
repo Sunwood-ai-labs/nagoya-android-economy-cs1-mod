@@ -1,0 +1,42 @@
+{
+  "checkpoint": {
+    "sha256": "074BB22266AF7B441857C6F8DBBA98069E67725915BE12EA5FD8CBF59F8C883E",
+    "gameTime": "2027-11-03T13:46:18",
+    "name": "NagoyaCitywide-ShowaGoodsAndPolice"
+  },
+  "coverage": {
+    "city": "NagoyaCitywide-Construction",
+    "rosterUtc": "2026-11-19T08:40:38.1966657Z",
+    "activeNativeZonedSites": 2807,
+    "nativeSiteGroupCount": 2807,
+    "plateauSourceIds": 738033,
+    "sourceCoverage": {
+      "noActiveRole": 280248,
+      "allRolesActive": 417425,
+      "someRolesActive": 8062,
+      "withoutClassifiedRoles": 32298
+    },
+    "roleMemberships": {
+      "uncovered": 301015,
+      "active": 440725
+    },
+    "writesToGame": false
+  },
+  "readback": {
+    "humansWithWorkplace": 1888,
+    "wardsWithBothKindsOfResidentsAndJobs": 16,
+    "cargoTrucksWithPath": 725,
+    "passengerCarsWithPath": 648,
+    "humanResidents": 5904,
+    "androidHomeMembers": 623,
+    "androidWorkMembers": 571,
+    "busesWithPath": 34,
+    "importedNativeRoads": 18604
+  },
+  "hashes": {
+    "native-zoning-audit.json": "947F575097E6C433AB4EB6BF775CFD6254A01AF19820344BF1AB571EFC2B790D",
+    "terminal-life.json": "6F604BF40AAB7C1C44A4CFF7CD4D2EFB8F67A13D1A2782A54B9042C2725B9211",
+    "terminal-roster.json": "C747802E0F1D34A494F2852EA454997A47F02A75770B73885128F4BA325DB3B1",
+    "native-zoning-members.tsv": "F44B9A0542D1DE7A187DF01C5499E321883E549A541B3B9026BE10A2844610C4"
+  }
+}

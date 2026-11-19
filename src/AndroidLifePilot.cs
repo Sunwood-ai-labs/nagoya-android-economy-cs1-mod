@@ -219,12 +219,16 @@ namespace NagoyaRoadDelivery
             localDeliveryAdmissions = new List<object>();
             var usedFactories = new HashSet<ushort>();
             var random = new Randomizer(5102026);
+            object preferWorkers;
+            var workers = config.TryGetValue("preferExistingWorkers", out preferWorkers) && (bool)preferWorkers
+                ? ConfirmedWorkersByFactory() : new Dictionary<ushort, List<uint>>();
             foreach (string ward in wards)
             {
                 for (int attempt = 0; attempt < perWard; attempt++)
                 {
                     Dictionary<string, int> counts;
-                    NativeAndroidDeliveries.LocalOpening opening = localDeliveries.FindLocalOpening(ward, FindVacantHomeUnit, usedFactories, out counts);
+                    NativeAndroidDeliveries.LocalOpening opening = localDeliveries.FindLocalOpening(ward, FindVacantHomeUnit,
+                        usedFactories, workers, out counts);
                     var record = new Dictionary<string, object> {{"ward",ward}, {"candidateCounts",counts}};
                     localDeliveryAdmissions.Add(record);
                     if (opening.Home == 0)
@@ -232,25 +236,47 @@ namespace NagoyaRoadDelivery
                         record["status"] = "no feasible opening";
                         break;
                     }
-                    Citizen.Gender gender = (cohort.Count & 1) == 0 ? Citizen.Gender.Male : Citizen.Gender.Female;
-                    uint id = CreateResident(opening.Home, opening.HomeUnit, opening.Factory, gender, ref random);
                     usedFactories.Add(opening.Factory);
+                    uint id = opening.Worker;
+                    if (id == 0)
+                    {
+                        Citizen.Gender gender = (cohort.Count & 1) == 0 ? Citizen.Gender.Male : Citizen.Gender.Female;
+                        id = CreateResident(opening.Home, opening.HomeUnit, opening.Factory, gender, ref random);
+                    }
                     if (id == 0)
                     {
                         record["status"] = "native registration refused";
                         continue;
                     }
                     localDeliveries.RegisterLocalOpening(id, opening, sim.m_currentGameTime);
-                    record["status"] = "admitted";
+                    record["status"] = opening.Worker == 0 ? "admitted" : "existing worker scheduled";
                     record["citizenId"] = id;
                     record["home"] = opening.Home;
-                    record["homeUnit"] = opening.HomeUnit;
+                    record["homeUnit"] = cohort[id].HomeUnit;
                     record["factory"] = opening.Factory;
                     record["shop"] = opening.Shop;
-                    record["homeToFactoryMeters"] = opening.HomeDistance;
+                    record["homeToFactoryMeters"] = Double.IsInfinity(opening.HomeDistance) ? null : (object)opening.HomeDistance;
                     record["factoryToShopMeters"] = opening.ShopDistance;
                 }
             }
+        }
+
+        private Dictionary<ushort, List<uint>> ConfirmedWorkersByFactory()
+        {
+            var workers = new Dictionary<ushort, List<uint>>();
+            CitizenManager citizens = CitizenManager.instance;
+            foreach (var member in cohort)
+            {
+                Citizen citizen = citizens.m_citizens.m_buffer[member.Key];
+                ushort workplace = citizen.m_workBuilding;
+                if ((citizen.m_flags & (Citizen.Flags.Created | Citizen.Flags.Dead | Citizen.Flags.Student)) != Citizen.Flags.Created ||
+                    workplace == 0 || citizen.m_homeBuilding != member.Value.Home ||
+                    !InWorkUnit(citizens, workplace, member.Key)) continue;
+                List<uint> members;
+                if (!workers.TryGetValue(workplace, out members)) workers.Add(workplace, members = new List<uint>());
+                members.Add(member.Key);
+            }
+            return workers;
         }
 
         private static uint FindVacantHomeUnit(ushort home)

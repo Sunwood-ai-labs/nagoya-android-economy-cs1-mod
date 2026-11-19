@@ -2,13 +2,16 @@
 
 同じ名古屋の街でアンドロイドの導入有無・台数・充電口数を変え、CS1の住民や店舗にどう影響するかを比較するMODです。PLATEAUの建物配置を実験の空間に使います。
 
-名古屋16区を対象にした建設セーブで、人4,391人とアンドロイド505体の入居、全区で両方の職場登録を確認しました。CS1に敷設した道路は1万8,604区間です。熱田区では工場から店舗への配送が1件成立し、CS1標準の在庫が工場で100減り、店舗で100増えました。同じセーブを約4日進める試験で、アンドロイドの増員条件による入居・職場登録数の違いも確認しました。
+全16区で、人とアンドロイドの入居とCS1標準の職場登録を確認しました。名古屋の道路データから敷設した道路は1万8,604区間です。工場と店舗の実際の在庫で確認したアンドロイド配送は、試験を通算して11区に到着しています。配送後に同じアンドロイドが自宅へ戻って充電するところまで追跡しました。
+
+同じセーブをゲーム内で96時間進めた試験では、アンドロイドを追加しない場合に人1,856人、133体が追加で入居した場合に人1,839人が職場に登録されていました。両条件で人の住民数にも差が出ました。
 
 - [PLATEAU AWARD 応募資料（PDF）](docs/submission/Android-Skyline-Nagoya2050.pdf)
 - [CS1の都市経済との接続と検証条件](docs/native-economy.md)
 - [CS1標準の住宅・就業・通勤を使った生活試験](docs/android-life.md)
 - [PLATEAU建物をCS1の住宅として割り当てた検証](docs/plateau-zoning.md)
 - [名古屋全域の建物用途とCS1への接続計画](docs/citywide-zoning.md)
+- [ゲームを進めた後も有効な区画とPLATEAU建物IDの照合](docs/evidence/native-active-plateau-zones-20261119.json)
 - [全域建設のデータと実機での適用手順](docs/native-city-construction.md)
 - [道路・上下水道・電力と入居・就業の実測](docs/evidence/native-network-expansion-20261119.json)
 - [工場から店舗への配送と在庫変化](docs/evidence/native-delivery-20261119.json)
@@ -20,6 +23,8 @@
 - [アンドロイドの採用・通勤・配送・帰宅を追った実測](docs/evidence/native-local-factory-hiring-20261119.json)
 - [6区での出入口修復とCS1の道路アクセス](docs/evidence/native-frontages-20261119.json)
 - [CS1の出入口で経路を選んだ配送と天白区の到着記録](docs/evidence/native-entrance-routing-20261119.json)
+- [昭和区で警察と一般商品を扱う商店5棟の稼働を確認](docs/evidence/native-showa-goods-and-police-20261119.json)
+- [配送未確認の5区を対象にした通勤と配車の試験](docs/evidence/native-commute-first-deliveries-20261119.json)
 - [同じセーブでの雇用比較](docs/evidence/native-employment-matched-20261119.json)
 - [168体の実ゲーム観測](docs/evidence/live-168-20261118.json)
 - [CS1標準の商品需要と在庫の観測](docs/evidence/native-goods-baseline-20261118.json)

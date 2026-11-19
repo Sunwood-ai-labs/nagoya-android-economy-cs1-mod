@@ -3,7 +3,8 @@ param(
     [Parameter(Mandatory)][string[]]$Ward,
     [Parameter(Mandatory)][string]$CheckpointName,
     [Parameter(Mandatory)][ValidatePattern('^[a-fA-F0-9]{64}$')][string]$CheckpointSha256,
-    [ValidateRange(1,3)][int]$LimitPerWard = 2
+    [ValidateRange(1,3)][int]$LimitPerWard = 2,
+    [switch]$PreferExistingWorkers
 )
 
 $ErrorActionPreference = 'Stop'
@@ -32,6 +33,7 @@ $request=@{
     caseId='local-delivery-'+[Guid]::NewGuid().ToString('N').Substring(0,12)
     localDeliveryWards=$Ward
     limitPerWard=$LimitPerWard
+    preferExistingWorkers=[bool]$PreferExistingWorkers
     expectedBuildIndex=$state.buildIndex
     expectedSegments=$state.network.segments
 }
