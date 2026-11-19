@@ -1,0 +1,449 @@
+{
+  "checkpoint": {
+    "sha256": "9F4DCFBDDA74FE71B31CCBAC78D973D20598F84242F34E06D0F4DC67A292BA60",
+    "name": "NagoyaCitywide-EmploymentTrial-MixedHouseholds220-Observed",
+    "parentPreserved": true,
+    "segments": 32718,
+    "gameTime": "2030-01-01T08:57:59",
+    "bytes": 15373629,
+    "buildIndex": 126124,
+    "parent": "NagoyaCitywide-EmploymentTrial-SharedHomesObserved"
+  },
+  "observationDllSha256": "A311349A5DAF32A4B2F45FDCE1D776C21081ECED85B0F1EED80F85FEA9CD0919",
+  "run": {
+    "caseId": "jan01-native-commute-trace-72h",
+    "durationHours": 72,
+    "start": "2030-01-01T09:05:28",
+    "end": "2030-01-04T09:06:53",
+    "startFrame": 55295666,
+    "endFrame": 55297422,
+    "additionalAndroids": 0,
+    "openingCreditRaw": 0
+  },
+  "terminal": {
+    "failedResidentsStillInCity": 605,
+    "arrivalsAmongResidentsStillInCity": 21,
+    "endMovingWithoutInstanceOrVehicle": 601,
+    "endWithTravelEntity": 81,
+    "endAndroidResidents": 755,
+    "endAndroidsWithNativeWorkplace": 717,
+    "failedResidentsWithoutAWorkArrival": 605,
+    "endPairsForResidentsWithFailure": {
+      "residents": 605,
+      "withBothGrowables": 545,
+      "medianStraightDistanceM": 2857.7,
+      "minStraightDistanceM": 218.7,
+      "maxStraightDistanceM": 7447.9
+    },
+    "endPairsForResidentsWithArrival": {
+      "residents": 21,
+      "withBothGrowables": 20,
+      "medianStraightDistanceM": 182.85,
+      "minStraightDistanceM": 27.7,
+      "maxStraightDistanceM": 7796.0
+    }
+  },
+  "callbacks": {
+    "releaseTraceActive": true,
+    "pathFailures": 1285,
+    "releasesAfterPathFailure": 1285,
+    "releasesWithoutPathFailure": 0,
+    "examples": [
+      {
+        "kind": "pathFailure",
+        "citizenId": 959126,
+        "instanceId": 33024,
+        "from": 31997,
+        "to": 38120,
+        "reportedTarget": 38120,
+        "path": 0,
+        "flags": "Created, CannotUseTaxi",
+        "frame": 55295720,
+        "callers": [
+          "NativeAndroidDeliveries.BeforePathFailure",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      },
+      {
+        "kind": "releaseAfterPathFailure",
+        "citizenId": 959126,
+        "instanceId": 33024,
+        "from": 31997,
+        "to": 38120,
+        "reportedTarget": 0,
+        "path": 0,
+        "flags": "Created, CannotUseTaxi",
+        "frame": 55295720,
+        "callers": [
+          "CitizenManager.CitizenManager.ReleaseCitizenInstance_Patch1",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      },
+      {
+        "kind": "pathFailure",
+        "citizenId": 959489,
+        "instanceId": 34894,
+        "from": 37235,
+        "to": 20770,
+        "reportedTarget": 20770,
+        "path": 0,
+        "flags": "Created, CannotUseTaxi",
+        "frame": 55295720,
+        "callers": [
+          "NativeAndroidDeliveries.BeforePathFailure",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      },
+      {
+        "kind": "releaseAfterPathFailure",
+        "citizenId": 959489,
+        "instanceId": 34894,
+        "from": 37235,
+        "to": 20770,
+        "reportedTarget": 0,
+        "path": 0,
+        "flags": "Created",
+        "frame": 55295720,
+        "callers": [
+          "CitizenManager.CitizenManager.ReleaseCitizenInstance_Patch1",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      },
+      {
+        "kind": "pathFailure",
+        "citizenId": 965714,
+        "instanceId": 44157,
+        "from": 18422,
+        "to": 2603,
+        "reportedTarget": 2603,
+        "path": 0,
+        "flags": "Created",
+        "frame": 55295722,
+        "callers": [
+          "NativeAndroidDeliveries.BeforePathFailure",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      },
+      {
+        "kind": "releaseAfterPathFailure",
+        "citizenId": 965714,
+        "instanceId": 44157,
+        "from": 18422,
+        "to": 2603,
+        "reportedTarget": 0,
+        "path": 0,
+        "flags": "Created",
+        "frame": 55295722,
+        "callers": [
+          "CitizenManager.CitizenManager.ReleaseCitizenInstance_Patch1",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      },
+      {
+        "kind": "pathFailure",
+        "citizenId": 963081,
+        "instanceId": 46319,
+        "from": 48372,
+        "to": 47928,
+        "reportedTarget": 47928,
+        "path": 0,
+        "flags": "Created",
+        "frame": 55295723,
+        "callers": [
+          "NativeAndroidDeliveries.BeforePathFailure",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      },
+      {
+        "kind": "releaseAfterPathFailure",
+        "citizenId": 963081,
+        "instanceId": 46319,
+        "from": 48372,
+        "to": 47928,
+        "reportedTarget": 0,
+        "path": 0,
+        "flags": "Created, CannotUseTaxi",
+        "frame": 55295723,
+        "callers": [
+          "CitizenManager.CitizenManager.ReleaseCitizenInstance_Patch1",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      },
+      {
+        "kind": "pathFailure",
+        "citizenId": 961304,
+        "instanceId": 57769,
+        "from": 41621,
+        "to": 17446,
+        "reportedTarget": 17446,
+        "path": 0,
+        "flags": "Created",
+        "frame": 55295726,
+        "callers": [
+          "NativeAndroidDeliveries.BeforePathFailure",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      },
+      {
+        "kind": "releaseAfterPathFailure",
+        "citizenId": 961304,
+        "instanceId": 57769,
+        "from": 41621,
+        "to": 17446,
+        "reportedTarget": 0,
+        "path": 0,
+        "flags": "Created",
+        "frame": 55295726,
+        "callers": [
+          "CitizenManager.CitizenManager.ReleaseCitizenInstance_Patch1",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      },
+      {
+        "kind": "pathFailure",
+        "citizenId": 956468,
+        "instanceId": 163,
+        "from": 19814,
+        "to": 17628,
+        "reportedTarget": 17628,
+        "path": 0,
+        "flags": "Created",
+        "frame": 55295728,
+        "callers": [
+          "NativeAndroidDeliveries.BeforePathFailure",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      },
+      {
+        "kind": "releaseAfterPathFailure",
+        "citizenId": 956468,
+        "instanceId": 163,
+        "from": 19814,
+        "to": 17628,
+        "reportedTarget": 0,
+        "path": 0,
+        "flags": "Created",
+        "frame": 55295728,
+        "callers": [
+          "CitizenManager.CitizenManager.ReleaseCitizenInstance_Patch1",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      },
+      {
+        "kind": "pathFailure",
+        "citizenId": 969098,
+        "instanceId": 3360,
+        "from": 35398,
+        "to": 18880,
+        "reportedTarget": 18880,
+        "path": 0,
+        "flags": "Created",
+        "frame": 55295728,
+        "callers": [
+          "NativeAndroidDeliveries.BeforePathFailure",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      },
+      {
+        "kind": "releaseAfterPathFailure",
+        "citizenId": 969098,
+        "instanceId": 3360,
+        "from": 35398,
+        "to": 18880,
+        "reportedTarget": 0,
+        "path": 0,
+        "flags": "Created",
+        "frame": 55295728,
+        "callers": [
+          "CitizenManager.CitizenManager.ReleaseCitizenInstance_Patch1",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      },
+      {
+        "kind": "pathFailure",
+        "citizenId": 975807,
+        "instanceId": 5634,
+        "from": 22692,
+        "to": 24561,
+        "reportedTarget": 24561,
+        "path": 0,
+        "flags": "Created, CannotUseTaxi",
+        "frame": 55295729,
+        "callers": [
+          "NativeAndroidDeliveries.BeforePathFailure",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      },
+      {
+        "kind": "releaseAfterPathFailure",
+        "citizenId": 975807,
+        "instanceId": 5634,
+        "from": 22692,
+        "to": 24561,
+        "reportedTarget": 0,
+        "path": 0,
+        "flags": "Created, CannotUseTaxi",
+        "frame": 55295729,
+        "callers": [
+          "CitizenManager.CitizenManager.ReleaseCitizenInstance_Patch1",
+          "HumanAI.HumanAI.PathfindFailure_Patch1",
+          "HumanAI.SimulationStep",
+          "CitizenManager.CitizenManager.SimulationStepImpl_Patch1",
+          "SimulationManagerBase`2.SimulationStep",
+          "CitizenManager.ISimulationManager.SimulationStep",
+          "SimulationManager.SimulationStep",
+          "SimulationManager.SimulationThread"
+        ]
+      }
+    ]
+  },
+  "sampleFailureRoutes": [
+    {
+      "citizenId": 959126,
+      "home": 31997,
+      "work": 38120,
+      "failureFrame": 55295720,
+      "straightDistanceM": 1139.4
+    },
+    {
+      "citizenId": 959489,
+      "home": 37235,
+      "work": 20770,
+      "failureFrame": 55295720,
+      "straightDistanceM": 2737.6
+    },
+    {
+      "citizenId": 965714,
+      "home": 18422,
+      "work": 2603,
+      "failureFrame": 55295722,
+      "straightDistanceM": 4312.3
+    },
+    {
+      "citizenId": 963081,
+      "home": 48372,
+      "work": 47928,
+      "failureFrame": 55295723,
+      "straightDistanceM": 3070.9
+    },
+    {
+      "citizenId": 961304,
+      "home": 41621,
+      "work": 17446,
+      "failureFrame": 55295726,
+      "straightDistanceM": null
+    },
+    {
+      "citizenId": 956468,
+      "home": 19814,
+      "work": 17628,
+      "failureFrame": 55295728,
+      "straightDistanceM": 4572.2
+    },
+    {
+      "citizenId": 969098,
+      "home": 35398,
+      "work": 18880,
+      "failureFrame": 55295728,
+      "straightDistanceM": 2917.7
+    },
+    {
+      "citizenId": 975807,
+      "home": 22692,
+      "work": 24561,
+      "failureFrame": 55295729,
+      "straightDistanceM": 4896.0
+    }
+  ],
+  "nativeReceiptSha256": "FF88A3ECF98789A98F5A6742B5AD51C1E5139BE403D7BFAEFFB088552915F17A"
+}

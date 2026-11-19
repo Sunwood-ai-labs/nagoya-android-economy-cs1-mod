@@ -902,8 +902,9 @@ namespace NagoyaRoadDelivery
             if (active != null) active.ObserveArrival(__state, __2);
         }
 
-        private static void BeforePathFailure(ref CitizenInstance __1)
+        private static void BeforePathFailure(ushort __0, ref CitizenInstance __1)
         {
+            AndroidLifePilot.ObserveCommutePathFailure(__0, __1);
             NativeAndroidDeliveries delivery = active;
             Trip trip;
             if (delivery == null || !delivery.trips.TryGetValue(__1.m_citizen, out trip) ||

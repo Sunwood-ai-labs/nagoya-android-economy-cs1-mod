@@ -31,7 +31,10 @@ namespace NagoyaRoadDelivery
         private readonly Dictionary<uint, object> visuals = new Dictionary<uint, object>();
         private readonly List<uint> releasedVisuals = new List<uint>();
         private readonly Queue<object> recentTravelRecoveries = new Queue<object>();
+        private readonly List<object> commuteInterruptionExamples = new List<object>();
         private int travelRecoveries;
+        private int commutePathFailures, commuteReleasesAfterPathFailure, commuteReleasesWithoutPathFailure;
+        private bool commuteReleaseTraceActive;
         private CitywideScene city;
         private string root, runId, caseId, error, visualError;
         private List<object> localDeliveryAdmissions;
@@ -55,6 +58,9 @@ namespace NagoyaRoadDelivery
             public int HomeSamples, WorkSamples, MovingSamples, ChargeStarts;
             public int CommutesStarted, ReturnsStarted, CommuteSamples;
             public int NativeWorkArrivals, NativeWorkArrivalFailures, TravelRecoveries;
+            public ushort CommuteInstance;
+            public bool CommutePathFailed;
+            public int NativeCommutePathFailures, NativeMovingCommuteReleases;
             public DateTime LastCommuteDay, LastReturnDay;
             public DateTime MissingTravelSince;
             public Citizen.Location TravelOrigin;
@@ -96,6 +102,7 @@ namespace NagoyaRoadDelivery
                 try
                 {
                     localDeliveries = new NativeAndroidDeliveries();
+                    if (trial != null) InstallCommuteReleaseTrace();
                     SimulationManager.instance.AddAction(delegate { RestoreSavedResidents(); });
                 }
                 catch (Exception ex) { Debug.LogException(ex); }
@@ -130,6 +137,76 @@ namespace NagoyaRoadDelivery
             NativeCityLedger.RemoveAndroid(__0);
             if (life.localDeliveries != null) life.localDeliveries.ForgetCitizen(__0);
             life.UpdateResidentIds();
+        }
+
+        private void InstallCommuteReleaseTrace()
+        {
+            if (lifecyclePatch == null) return;
+            try
+            {
+                MethodInfo release = typeof(CitizenManager).GetMethod("ReleaseCitizenInstance", new Type[] {typeof(ushort)});
+                if (release == null) throw new MissingMethodException("CitizenManager.ReleaseCitizenInstance");
+                MethodInfo prefix = typeof(AndroidLifePilot).GetMethod("BeforeCommuteInstanceRelease", BindingFlags.Static | BindingFlags.NonPublic);
+                lifecyclePatch.Patch(release, new HarmonyMethod(prefix), null, null, null);
+                commuteReleaseTraceActive = true;
+            }
+            catch (Exception ex) { Debug.LogException(ex); }
+        }
+
+        private static void BeforeCommuteInstanceRelease(ushort __0)
+        {
+            AndroidLifePilot life = active;
+            if (life == null || life.employmentTrial == null || !life.employmentTrial.Running || __0 == 0) return;
+            CitizenInstance movement = CitizenManager.instance.m_instances.m_buffer[__0];
+            life.ObserveCommuteInterruption(__0, movement, false);
+        }
+
+        internal static void ObserveCommutePathFailure(ushort instanceId, CitizenInstance movement)
+        {
+            AndroidLifePilot life = active;
+            if (life == null || life.employmentTrial == null || !life.employmentTrial.Running) return;
+            life.ObserveCommuteInterruption(instanceId, movement, true);
+        }
+
+        private void ObserveCommuteInterruption(ushort instanceId, CitizenInstance movement, bool pathFailure)
+        {
+            uint id = movement.m_citizen;
+            Resident member;
+            if (instanceId == 0 || id == 0 || !cohort.TryGetValue(id, out member) || member.CommuteInstance != instanceId) return;
+            Citizen citizen = CitizenManager.instance.m_citizens.m_buffer[id];
+            if (citizen.CurrentLocation != Citizen.Location.Moving || citizen.m_instance != instanceId ||
+                citizen.m_homeBuilding != member.TravelSource || citizen.m_workBuilding != member.TravelTarget) return;
+
+            int count;
+            string kind;
+            if (pathFailure)
+            {
+                member.CommutePathFailed = true;
+                member.NativeCommutePathFailures++;
+                count = ++commutePathFailures;
+                kind = "pathFailure";
+            }
+            else
+            {
+                member.CommuteInstance = 0;
+                member.NativeMovingCommuteReleases++;
+                count = member.CommutePathFailed ? ++commuteReleasesAfterPathFailure : ++commuteReleasesWithoutPathFailure;
+                kind = member.CommutePathFailed ? "releaseAfterPathFailure" : "releaseWithoutPathFailure";
+            }
+
+            if (count > 8) return;
+            var callers = new List<string>();
+            var trace = new System.Diagnostics.StackTrace(2, false);
+            for (int n = 0; n < trace.FrameCount && n < 16; n++)
+            {
+                MethodBase method = trace.GetFrame(n).GetMethod();
+                if (method != null) callers.Add((method.DeclaringType == null ? "" : method.DeclaringType.Name + ".") + method.Name);
+            }
+            commuteInterruptionExamples.Add(new Dictionary<string, object> {
+                {"kind",kind}, {"citizenId",id}, {"instanceId",instanceId}, {"from",member.TravelSource}, {"to",member.TravelTarget},
+                {"reportedTarget",movement.m_targetBuilding}, {"path",movement.m_path}, {"flags",movement.m_flags.ToString()},
+                {"frame",SimulationManager.instance.m_currentFrameIndex}, {"callers",callers.ToArray()}
+            });
         }
 
         private static bool KeepNativeSkin(ref CitizenInstance __instance, ref bool __result)
@@ -739,6 +816,7 @@ namespace NagoyaRoadDelivery
                     {"commutesStarted",member.CommutesStarted}, {"returnsStarted",member.ReturnsStarted},
                     {"commuteSamples",member.CommuteSamples},
                     {"nativeWorkArrivals",member.NativeWorkArrivals}, {"nativeWorkArrivalFailures",member.NativeWorkArrivalFailures},
+                    {"nativeCommutePathFailures",member.NativeCommutePathFailures}, {"nativeMovingCommuteReleases",member.NativeMovingCommuteReleases},
                     {"travelRecoveries",member.TravelRecoveries},
                     {"charging",charge}, {"chargeStarts",member.ChargeStarts}, {"battery",member.Battery},
                     {"walkedMeters",member.WalkedMeters}, {"visitBuilding",data.m_visitBuilding},
@@ -760,6 +838,11 @@ namespace NagoyaRoadDelivery
                 {"androidInTransit",inTransit},
                 {"androidMovingWithoutTravelEntity",withoutTravelEntity}, {"androidTravelRecoveries",travelRecoveries},
                 {"recentTravelRecoveries",recentTravelRecoveries.ToArray()},
+                {"nativeCommuteInterruptions",new Dictionary<string, object> {
+                    {"releaseTraceActive",commuteReleaseTraceActive}, {"pathFailures",commutePathFailures},
+                    {"releasesAfterPathFailure",commuteReleasesAfterPathFailure}, {"releasesWithoutPathFailure",commuteReleasesWithoutPathFailure},
+                    {"examples",commuteInterruptionExamples.ToArray()}
+                }},
                 {"workplaceReserveCharging",workplaceCharging},
                 {"androids",rows}
             };
@@ -953,6 +1036,9 @@ namespace NagoyaRoadDelivery
                         member.TravelSource = from;
                         member.TravelTarget = to;
                         member.MissingTravelSince = DateTime.MinValue;
+                        member.CommuteInstance = previous == Citizen.Location.Home && from == citizen.m_homeBuilding &&
+                            to == citizen.m_workBuilding ? citizen.m_instance : (ushort)0;
+                        member.CommutePathFailed = false;
                     }
                     return true;
                 }
