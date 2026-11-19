@@ -1,0 +1,1605 @@
+{
+  "status": "verified",
+  "checkpoints": {
+    "before": {
+      "name": "NagoyaCitywide-All16Wards-ServicesBaseline",
+      "sha256": "A7D9168B260E76C3B9C4CC385D07CAFB1A9B408EDEF393BD21E2C44B0F38BCF5",
+      "bytes": 13498451
+    },
+    "after": {
+      "name": "NagoyaCitywide-All16Wards-ServiceCapacity",
+      "sha256": "E95FAE154F30DD69E5DCB83AB6568F5422BE164914CAB6C4FA42DFBBB888A6D6",
+      "bytes": 13659605
+    }
+  },
+  "beforeGameTime": "2028-07-11T18:07:35",
+  "afterGameTime": "2028-07-22T20:06:13",
+  "limitedFunds": "Temporary exact-city sandbox for observation; original configuration restored.",
+  "placedFacilities": [
+    {
+      "site": {
+        "ward": "守山区",
+        "osm": "scenario-Death-守山区",
+        "name": "守山区の2050年補完拠点",
+        "target": [
+          2092.1040588235296,
+          2980.8501764705884
+        ],
+        "radius": 650,
+        "prefab": "Crematory",
+        "service": "HealthCare",
+        "width": 3,
+        "length": 3,
+        "priority": "Death",
+        "siteType": "2050 scenario site",
+        "roadId": 29072,
+        "roadNodes": [
+          29838,
+          6972
+        ],
+        "position": {
+          "x": 2129.444,
+          "z": 3111.107
+        },
+        "angleDegrees": 218.387,
+        "positionOffsetM": 135.5,
+        "waterM": 21.7,
+        "powerLineM": 21.7,
+        "poweredBuildingM": 48.24
+      },
+      "building": {
+        "id": 14767,
+        "prefab": "Crematory",
+        "displayName": "火葬場",
+        "blockedAsset": false,
+        "active": true,
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "service": "HealthCare",
+        "subService": "None",
+        "level": "Level2",
+        "width": 3,
+        "length": 3,
+        "angleDegrees": 218.387,
+        "problems": "",
+        "position": {
+          "x": 2129.444,
+          "y": 139.992,
+          "z": 3111.107
+        }
+      }
+    },
+    {
+      "site": {
+        "ward": "北区",
+        "osm": "scenario-Death-北区",
+        "name": "北区の2050年補完拠点",
+        "target": [
+          -94.0680625,
+          2624.515
+        ],
+        "radius": 650,
+        "prefab": "Crematory",
+        "service": "HealthCare",
+        "width": 3,
+        "length": 3,
+        "priority": "Death",
+        "siteType": "2050 scenario site",
+        "roadId": 30529,
+        "roadNodes": [
+          32446,
+          27944
+        ],
+        "position": {
+          "x": -120.05,
+          "z": 2633.12
+        },
+        "angleDegrees": 133.651,
+        "positionOffsetM": 27.37,
+        "waterM": 20.68,
+        "powerLineM": 20.68,
+        "poweredBuildingM": 58.47
+      },
+      "building": {
+        "id": 32893,
+        "prefab": "Crematory",
+        "displayName": "火葬場",
+        "blockedAsset": false,
+        "active": true,
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "service": "HealthCare",
+        "subService": "None",
+        "level": "Level2",
+        "width": 3,
+        "length": 3,
+        "angleDegrees": 133.651,
+        "problems": "",
+        "position": {
+          "x": -120.05,
+          "y": 140,
+          "z": 2633.12
+        }
+      }
+    },
+    {
+      "site": {
+        "ward": "天白区",
+        "osm": "scenario-Death-天白区",
+        "name": "天白区の2050年補完拠点",
+        "target": [
+          1858.7193333333335,
+          -836.1421666666666
+        ],
+        "radius": 650,
+        "prefab": "Crematory",
+        "service": "HealthCare",
+        "width": 3,
+        "length": 3,
+        "priority": "Death",
+        "siteType": "2050 scenario site",
+        "roadId": 5086,
+        "roadNodes": [
+          25924,
+          25862
+        ],
+        "position": {
+          "x": 1917.621,
+          "z": -790.434
+        },
+        "angleDegrees": 323.222,
+        "positionOffsetM": 74.56,
+        "waterM": 30.39,
+        "powerLineM": 30.39,
+        "poweredBuildingM": 32.85
+      },
+      "building": {
+        "id": 18652,
+        "prefab": "Crematory",
+        "displayName": "火葬場",
+        "blockedAsset": false,
+        "active": true,
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "service": "HealthCare",
+        "subService": "None",
+        "level": "Level2",
+        "width": 3,
+        "length": 3,
+        "angleDegrees": 323.222,
+        "problems": "",
+        "position": {
+          "x": 1917.621,
+          "y": 139.994,
+          "z": -790.434
+        }
+      }
+    },
+    {
+      "site": {
+        "ward": "緑区",
+        "osm": "scenario-Death-緑区",
+        "name": "緑区の2050年補完拠点",
+        "target": [
+          1397.384142857143,
+          -2553.337142857143
+        ],
+        "radius": 650,
+        "prefab": "Crematory",
+        "service": "HealthCare",
+        "width": 3,
+        "length": 3,
+        "priority": "Death",
+        "siteType": "2050 scenario site",
+        "roadId": 22641,
+        "roadNodes": [
+          1034,
+          6277
+        ],
+        "position": {
+          "x": 1523.016,
+          "z": -2477.03
+        },
+        "angleDegrees": 245.948,
+        "positionOffsetM": 146.99,
+        "waterM": 44.19,
+        "powerLineM": 44.19,
+        "poweredBuildingM": 36.41
+      },
+      "building": {
+        "id": 46295,
+        "prefab": "Crematory",
+        "displayName": "火葬場",
+        "blockedAsset": false,
+        "active": true,
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "service": "HealthCare",
+        "subService": "None",
+        "level": "Level2",
+        "width": 3,
+        "length": 3,
+        "angleDegrees": 245.948,
+        "problems": "",
+        "position": {
+          "x": 1523.016,
+          "y": 140,
+          "z": -2477.03
+        }
+      }
+    },
+    {
+      "site": {
+        "ward": "中川区",
+        "osm": "scenario-Death-中川区",
+        "name": "中川区の2050年補完拠点",
+        "target": [
+          -1717.7295000000001,
+          -184.73716666666667
+        ],
+        "radius": 650,
+        "prefab": "Crematory",
+        "service": "HealthCare",
+        "width": 3,
+        "length": 3,
+        "priority": "Death",
+        "siteType": "2050 scenario site",
+        "roadId": 24826,
+        "roadNodes": [
+          1180,
+          16886
+        ],
+        "position": {
+          "x": -1673.164,
+          "z": -229.339
+        },
+        "angleDegrees": 180.963,
+        "positionOffsetM": 63.05,
+        "waterM": 28.07,
+        "powerLineM": 28.07,
+        "poweredBuildingM": 31.59
+      },
+      "building": {
+        "id": 35869,
+        "prefab": "Crematory",
+        "displayName": "火葬場",
+        "blockedAsset": false,
+        "active": true,
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "service": "HealthCare",
+        "subService": "None",
+        "level": "Level2",
+        "width": 3,
+        "length": 3,
+        "angleDegrees": 180.963,
+        "problems": "",
+        "position": {
+          "x": -1673.164,
+          "y": 120.567,
+          "z": -229.339
+        }
+      }
+    },
+    {
+      "site": {
+        "ward": "名東区",
+        "osm": "scenario-Death-名東区",
+        "name": "名東区の2050年補完拠点",
+        "target": [
+          2617.3604,
+          758.1628000000001
+        ],
+        "radius": 650,
+        "prefab": "Crematory",
+        "service": "HealthCare",
+        "width": 3,
+        "length": 3,
+        "priority": "Death",
+        "siteType": "2050 scenario site",
+        "roadId": 1346,
+        "roadNodes": [
+          631,
+          31798
+        ],
+        "position": {
+          "x": 2535.215,
+          "z": 917.748
+        },
+        "angleDegrees": 216.102,
+        "positionOffsetM": 179.49,
+        "waterM": 21.16,
+        "powerLineM": 21.16,
+        "poweredBuildingM": 34.44
+      },
+      "building": {
+        "id": 26005,
+        "prefab": "Crematory",
+        "displayName": "火葬場",
+        "blockedAsset": false,
+        "active": true,
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "service": "HealthCare",
+        "subService": "None",
+        "level": "Level2",
+        "width": 3,
+        "length": 3,
+        "angleDegrees": 216.102,
+        "problems": "",
+        "position": {
+          "x": 2535.215,
+          "y": 139.988,
+          "z": 917.748
+        }
+      }
+    },
+    {
+      "site": {
+        "ward": "緑区",
+        "osm": "way/1281049891",
+        "name": "緑警察署東陵交番",
+        "target": [
+          1537.1247605705348,
+          -3051.080524275722
+        ],
+        "radius": 270,
+        "prefab": "Police Station",
+        "service": "PoliceDepartment",
+        "width": 4,
+        "length": 3,
+        "priority": "Crime",
+        "siteType": "real-site vicinity",
+        "roadId": 996,
+        "roadNodes": [
+          5038,
+          9311
+        ],
+        "position": {
+          "x": 1412.525,
+          "z": -3083.599
+        },
+        "angleDegrees": 321.358,
+        "positionOffsetM": 128.77,
+        "waterM": 41.64,
+        "powerLineM": 41.64,
+        "poweredBuildingM": 29.55
+      },
+      "building": {
+        "id": 34457,
+        "prefab": "Police Station",
+        "displayName": "警察署",
+        "blockedAsset": false,
+        "active": true,
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "service": "PoliceDepartment",
+        "subService": "None",
+        "level": "Level1",
+        "width": 4,
+        "length": 3,
+        "angleDegrees": 321.358,
+        "problems": "",
+        "position": {
+          "x": 1412.525,
+          "y": 139.984,
+          "z": -3083.599
+        }
+      }
+    },
+    {
+      "site": {
+        "ward": "中川区",
+        "osm": "node/1423948322",
+        "name": "中川警察署荒子交番",
+        "target": [
+          -2553.916904041903,
+          -466.2913695447738
+        ],
+        "radius": 270,
+        "prefab": "Police Station",
+        "service": "PoliceDepartment",
+        "width": 4,
+        "length": 3,
+        "priority": "Crime",
+        "siteType": "real-site vicinity",
+        "roadId": 27209,
+        "roadNodes": [
+          18213,
+          31047
+        ],
+        "position": {
+          "x": -2510.607,
+          "z": -296.021
+        },
+        "angleDegrees": 358.848,
+        "positionOffsetM": 175.69,
+        "waterM": 28.8,
+        "powerLineM": 28.8,
+        "poweredBuildingM": 58.47
+      },
+      "building": {
+        "id": 7369,
+        "prefab": "Police Station",
+        "displayName": "警察署",
+        "blockedAsset": false,
+        "active": true,
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "service": "PoliceDepartment",
+        "subService": "None",
+        "level": "Level1",
+        "width": 4,
+        "length": 3,
+        "angleDegrees": 358.848,
+        "problems": "",
+        "position": {
+          "x": -2510.607,
+          "y": 140,
+          "z": -296.021
+        }
+      }
+    },
+    {
+      "site": {
+        "ward": "港区",
+        "osm": "node/3508112800",
+        "name": "稲永駅前交番",
+        "target": [
+          -2042.8214566341503,
+          -2229.1607693151745
+        ],
+        "radius": 270,
+        "prefab": "Police Station",
+        "service": "PoliceDepartment",
+        "width": 4,
+        "length": 3,
+        "priority": "Crime",
+        "siteType": "real-site vicinity",
+        "roadId": 17805,
+        "roadNodes": [
+          4189,
+          7177
+        ],
+        "position": {
+          "x": -2016.661,
+          "z": -2237.323
+        },
+        "angleDegrees": 24.243,
+        "positionOffsetM": 27.4,
+        "waterM": 22.2,
+        "powerLineM": 22.2,
+        "poweredBuildingM": 48.54
+      },
+      "building": {
+        "id": 41009,
+        "prefab": "Police Station",
+        "displayName": "警察署",
+        "blockedAsset": false,
+        "active": true,
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "service": "PoliceDepartment",
+        "subService": "None",
+        "level": "Level1",
+        "width": 4,
+        "length": 3,
+        "angleDegrees": 24.243,
+        "problems": "",
+        "position": {
+          "x": -2016.661,
+          "y": 139.997,
+          "z": -2237.323
+        }
+      }
+    },
+    {
+      "site": {
+        "ward": "守山区",
+        "osm": "way/1098419204",
+        "name": "守山警察署吉根交番",
+        "target": [
+          2639.9165605361222,
+          3577.122713250728
+        ],
+        "radius": 270,
+        "prefab": "Police Station",
+        "service": "PoliceDepartment",
+        "width": 4,
+        "length": 3,
+        "priority": "Crime",
+        "siteType": "real-site vicinity",
+        "roadId": 20000,
+        "roadNodes": [
+          5735,
+          1226
+        ],
+        "position": {
+          "x": 2484.58,
+          "z": 3455.28
+        },
+        "angleDegrees": 50.456,
+        "positionOffsetM": 197.42,
+        "waterM": 23.71,
+        "powerLineM": 23.71,
+        "poweredBuildingM": 48.02
+      },
+      "building": {
+        "id": 29653,
+        "prefab": "Police Station",
+        "displayName": "警察署",
+        "blockedAsset": false,
+        "active": true,
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "service": "PoliceDepartment",
+        "subService": "None",
+        "level": "Level1",
+        "width": 4,
+        "length": 3,
+        "angleDegrees": 50.456,
+        "problems": "",
+        "position": {
+          "x": 2484.58,
+          "y": 140,
+          "z": 3455.28
+        }
+      }
+    },
+    {
+      "site": {
+        "ward": "西区",
+        "osm": "way/180824582",
+        "name": "西警察署小田井交番",
+        "target": [
+          -1444.2346766474584,
+          2853.0625073583697
+        ],
+        "radius": 270,
+        "prefab": "Police Station",
+        "service": "PoliceDepartment",
+        "width": 4,
+        "length": 3,
+        "priority": "Crime",
+        "siteType": "real-site vicinity",
+        "roadId": 24877,
+        "roadNodes": [
+          10281,
+          28424
+        ],
+        "position": {
+          "x": -1446.348,
+          "z": 2833.512
+        },
+        "angleDegrees": 327.519,
+        "positionOffsetM": 19.66,
+        "waterM": 27.44,
+        "powerLineM": 27.44,
+        "poweredBuildingM": 35.06
+      },
+      "building": {
+        "id": 14487,
+        "prefab": "Police Station",
+        "displayName": "警察署",
+        "blockedAsset": false,
+        "active": true,
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "service": "PoliceDepartment",
+        "subService": "None",
+        "level": "Level1",
+        "width": 4,
+        "length": 3,
+        "angleDegrees": 327.519,
+        "problems": "",
+        "position": {
+          "x": -1446.348,
+          "y": 139.999,
+          "z": 2833.512
+        }
+      }
+    },
+    {
+      "site": {
+        "ward": "天白区",
+        "osm": "way/1300787225",
+        "name": "天白警察署原交番",
+        "target": [
+          2264.175898451343,
+          -1067.5918511593243
+        ],
+        "radius": 270,
+        "prefab": "Police Station",
+        "service": "PoliceDepartment",
+        "width": 4,
+        "length": 3,
+        "priority": "Crime",
+        "siteType": "real-site vicinity",
+        "roadId": 34388,
+        "roadNodes": [
+          32554,
+          19620
+        ],
+        "position": {
+          "x": 2239.315,
+          "z": -1012.635
+        },
+        "angleDegrees": 24.644,
+        "positionOffsetM": 60.32,
+        "waterM": 44.45,
+        "powerLineM": 44.45,
+        "poweredBuildingM": 32.5
+      },
+      "building": {
+        "id": 3923,
+        "prefab": "Police Station",
+        "displayName": "警察署",
+        "blockedAsset": false,
+        "active": true,
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "service": "PoliceDepartment",
+        "subService": "None",
+        "level": "Level1",
+        "width": 4,
+        "length": 3,
+        "angleDegrees": 24.644,
+        "problems": "",
+        "position": {
+          "x": 2239.315,
+          "y": 140,
+          "z": -1012.635
+        }
+      }
+    },
+    {
+      "site": {
+        "ward": "北区",
+        "osm": "way/733873124",
+        "name": "北警察署光音寺交番",
+        "target": [
+          -623.7310201689443,
+          2498.2242551766694
+        ],
+        "radius": 270,
+        "prefab": "Police Station",
+        "service": "PoliceDepartment",
+        "width": 4,
+        "length": 3,
+        "priority": "Crime",
+        "siteType": "real-site vicinity",
+        "roadId": 31073,
+        "roadNodes": [
+          10189,
+          16011
+        ],
+        "position": {
+          "x": -771.85,
+          "z": 2711.951
+        },
+        "angleDegrees": 214.763,
+        "positionOffsetM": 260.04,
+        "waterM": 26.22,
+        "powerLineM": 26.22,
+        "poweredBuildingM": 53.91
+      },
+      "building": {
+        "id": 42686,
+        "prefab": "Police Station",
+        "displayName": "警察署",
+        "blockedAsset": false,
+        "active": true,
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "service": "PoliceDepartment",
+        "subService": "None",
+        "level": "Level1",
+        "width": 4,
+        "length": 3,
+        "angleDegrees": 214.763,
+        "problems": "",
+        "position": {
+          "x": -771.85,
+          "y": 139.986,
+          "z": 2711.951
+        }
+      }
+    }
+  ],
+  "facilityCounts": {
+    "Crematory": 6,
+    "Police Station": 7
+  },
+  "warningOutcomes": {
+    "Crime": {
+      "citywideActiveWarningsBefore": 218,
+      "citywideActiveWarningsAfter": 187,
+      "baselineBuildingOutcomes": {
+        "warning remains": 146,
+        "same active building warning cleared": 67,
+        "building abandoned": 5
+      }
+    },
+    "Death": {
+      "citywideActiveWarningsBefore": 62,
+      "citywideActiveWarningsAfter": 61,
+      "baselineBuildingOutcomes": {
+        "building abandoned": 13,
+        "warning remains": 46,
+        "same active building warning cleared": 3
+      }
+    }
+  },
+  "warningsByWardBefore": {
+    "Crime": {
+      "中川区": 34,
+      "南区": 11,
+      "港区": 27,
+      "中村区": 5,
+      "天白区": 17,
+      "緑区": 42,
+      "西区": 14,
+      "unassigned": 3,
+      "守山区": 18,
+      "熱田区": 6,
+      "北区": 12,
+      "瑞穂区": 10,
+      "昭和区": 3,
+      "東区": 3,
+      "名東区": 11,
+      "千種区": 2
+    },
+    "Death": {
+      "北区": 10,
+      "熱田区": 2,
+      "守山区": 11,
+      "天白区": 8,
+      "港区": 4,
+      "西区": 4,
+      "中川区": 4,
+      "東区": 2,
+      "昭和区": 3,
+      "緑区": 5,
+      "瑞穂区": 1,
+      "千種区": 2,
+      "中村区": 1,
+      "名東区": 3,
+      "南区": 2
+    }
+  },
+  "dispatchSamples": [
+    {
+      "sample": "1",
+      "nativeVehicleCount": 2046,
+      "scanned": 1024,
+      "dispatch": {
+        "Crime": 12,
+        "Death": 6
+      }
+    },
+    {
+      "sample": "2",
+      "nativeVehicleCount": 2037,
+      "scanned": 1024,
+      "dispatch": {
+        "Crime": 17,
+        "Death": 6
+      }
+    },
+    {
+      "sample": "3",
+      "nativeVehicleCount": 2084,
+      "scanned": 1024,
+      "dispatch": {
+        "Crime": 23,
+        "Death": 5
+      }
+    },
+    {
+      "sample": "end",
+      "nativeVehicleCount": 2074,
+      "scanned": 1024,
+      "dispatch": {
+        "Crime": 23,
+        "Death": 4
+      }
+    }
+  ],
+  "facilityIdsWithObservedPath": [
+    3923,
+    7369,
+    14487,
+    14767,
+    26005,
+    29653,
+    32893,
+    34457,
+    41009
+  ],
+  "dispatches": [
+    {
+      "sample": "1",
+      "facilityId": 41009,
+      "vehicleId": 470,
+      "targetId": 8872,
+      "nativePathId": 11123,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 2.135,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "1",
+      "facilityId": 29653,
+      "vehicleId": 624,
+      "targetId": 39939,
+      "nativePathId": 129822,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 7.135,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "1",
+      "facilityId": 34457,
+      "vehicleId": 813,
+      "targetId": 44669,
+      "nativePathId": 74952,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "1",
+      "facilityId": 26005,
+      "vehicleId": 924,
+      "targetId": 36279,
+      "nativePathId": 175443,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 7.516,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "1",
+      "facilityId": 34457,
+      "vehicleId": 1372,
+      "targetId": 9270,
+      "nativePathId": 212255,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8.69,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "1",
+      "facilityId": 7369,
+      "vehicleId": 1820,
+      "targetId": 6172,
+      "nativePathId": 145336,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 5.829,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "1",
+      "facilityId": 32893,
+      "vehicleId": 2478,
+      "targetId": 40102,
+      "nativePathId": 219192,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "building abandoned"
+    },
+    {
+      "sample": "1",
+      "facilityId": 34457,
+      "vehicleId": 4018,
+      "targetId": 4655,
+      "nativePathId": 83889,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 2.027,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "1",
+      "facilityId": 41009,
+      "vehicleId": 4365,
+      "targetId": 1935,
+      "nativePathId": 28671,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "1",
+      "facilityId": 34457,
+      "vehicleId": 4898,
+      "targetId": 14858,
+      "nativePathId": 155784,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 11.431,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "1",
+      "facilityId": 14767,
+      "vehicleId": 5304,
+      "targetId": 11781,
+      "nativePathId": 60077,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, Transition, LeftHandDrive",
+      "speed": 3.027,
+      "baselineTargetOutcome": "building abandoned"
+    },
+    {
+      "sample": "1",
+      "facilityId": 41009,
+      "vehicleId": 5413,
+      "targetId": 7620,
+      "nativePathId": 118829,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": null
+    },
+    {
+      "sample": "1",
+      "facilityId": 32893,
+      "vehicleId": 6079,
+      "targetId": 29967,
+      "nativePathId": 203158,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 6.188,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "1",
+      "facilityId": 26005,
+      "vehicleId": 6197,
+      "targetId": 32626,
+      "nativePathId": 15071,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 5.743,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "1",
+      "facilityId": 29653,
+      "vehicleId": 6551,
+      "targetId": 35443,
+      "nativePathId": 211441,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 4.558,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "1",
+      "facilityId": 41009,
+      "vehicleId": 7137,
+      "targetId": 38551,
+      "nativePathId": 95869,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "1",
+      "facilityId": 7369,
+      "vehicleId": 7383,
+      "targetId": 10613,
+      "nativePathId": 220242,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 4.059,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "1",
+      "facilityId": 32893,
+      "vehicleId": 8238,
+      "targetId": 38270,
+      "nativePathId": 78162,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 2.017,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "2",
+      "facilityId": 41009,
+      "vehicleId": 470,
+      "targetId": 8872,
+      "nativePathId": 127394,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "2",
+      "facilityId": 29653,
+      "vehicleId": 624,
+      "targetId": 39939,
+      "nativePathId": 164958,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 7.154,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "2",
+      "facilityId": 34457,
+      "vehicleId": 813,
+      "targetId": 44669,
+      "nativePathId": 204328,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 12.373,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "2",
+      "facilityId": 26005,
+      "vehicleId": 924,
+      "targetId": 36279,
+      "nativePathId": 38070,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 7.573,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "2",
+      "facilityId": 34457,
+      "vehicleId": 1372,
+      "targetId": 9270,
+      "nativePathId": 156913,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 7.692,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "2",
+      "facilityId": 7369,
+      "vehicleId": 2094,
+      "targetId": 48716,
+      "nativePathId": 75234,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 7.973,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "2",
+      "facilityId": 3923,
+      "vehicleId": 2391,
+      "targetId": 21564,
+      "nativePathId": 81690,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 4.027,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "2",
+      "facilityId": 32893,
+      "vehicleId": 2478,
+      "targetId": 40102,
+      "nativePathId": 41561,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 6.4,
+      "baselineTargetOutcome": "building abandoned"
+    },
+    {
+      "sample": "2",
+      "facilityId": 7369,
+      "vehicleId": 3156,
+      "targetId": 40215,
+      "nativePathId": 235409,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 5.66,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "2",
+      "facilityId": 34457,
+      "vehicleId": 4018,
+      "targetId": 4655,
+      "nativePathId": 57590,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 2.127,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "2",
+      "facilityId": 41009,
+      "vehicleId": 4365,
+      "targetId": 1935,
+      "nativePathId": 226599,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "2",
+      "facilityId": 7369,
+      "vehicleId": 4520,
+      "targetId": 8114,
+      "nativePathId": 23,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 7.176,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "2",
+      "facilityId": 34457,
+      "vehicleId": 4898,
+      "targetId": 14858,
+      "nativePathId": 174670,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 7.414,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "2",
+      "facilityId": 14767,
+      "vehicleId": 5304,
+      "targetId": 11781,
+      "nativePathId": 133569,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 7.229,
+      "baselineTargetOutcome": "building abandoned"
+    },
+    {
+      "sample": "2",
+      "facilityId": 41009,
+      "vehicleId": 5413,
+      "targetId": 7620,
+      "nativePathId": 101098,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 6.051,
+      "baselineTargetOutcome": null
+    },
+    {
+      "sample": "2",
+      "facilityId": 32893,
+      "vehicleId": 6079,
+      "targetId": 8690,
+      "nativePathId": 44854,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, Stopped, LeftHandDrive",
+      "speed": 0.002,
+      "baselineTargetOutcome": null
+    },
+    {
+      "sample": "2",
+      "facilityId": 26005,
+      "vehicleId": 6197,
+      "targetId": 32626,
+      "nativePathId": 240831,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "2",
+      "facilityId": 3923,
+      "vehicleId": 6542,
+      "targetId": 36290,
+      "nativePathId": 133921,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 6.767,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "2",
+      "facilityId": 29653,
+      "vehicleId": 6551,
+      "targetId": 35443,
+      "nativePathId": 233902,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 6.924,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "2",
+      "facilityId": 41009,
+      "vehicleId": 7137,
+      "targetId": 38551,
+      "nativePathId": 187258,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 6.573,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "2",
+      "facilityId": 7369,
+      "vehicleId": 7383,
+      "targetId": 10613,
+      "nativePathId": 71035,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 7.079,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "2",
+      "facilityId": 41009,
+      "vehicleId": 8076,
+      "targetId": 3421,
+      "nativePathId": 149365,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 7.597,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "2",
+      "facilityId": 32893,
+      "vehicleId": 8238,
+      "targetId": 46857,
+      "nativePathId": 109861,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 41009,
+      "vehicleId": 470,
+      "targetId": 8872,
+      "nativePathId": 114863,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 29653,
+      "vehicleId": 624,
+      "targetId": 39939,
+      "nativePathId": 206998,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 6.314,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 34457,
+      "vehicleId": 813,
+      "targetId": 44669,
+      "nativePathId": 146287,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "end",
+      "facilityId": 26005,
+      "vehicleId": 924,
+      "targetId": 36279,
+      "nativePathId": 214751,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 7.298,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 34457,
+      "vehicleId": 1069,
+      "targetId": 922,
+      "nativePathId": 153238,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 1.4,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 14487,
+      "vehicleId": 1173,
+      "targetId": 47421,
+      "nativePathId": 65206,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, Transition, LeftHandDrive",
+      "speed": 2.626,
+      "baselineTargetOutcome": null
+    },
+    {
+      "sample": "end",
+      "facilityId": 41009,
+      "vehicleId": 1178,
+      "targetId": 33284,
+      "nativePathId": 61130,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": null
+    },
+    {
+      "sample": "end",
+      "facilityId": 34457,
+      "vehicleId": 1372,
+      "targetId": 9270,
+      "nativePathId": 237445,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 7.162,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "3",
+      "facilityId": 32893,
+      "vehicleId": 1912,
+      "targetId": 28825,
+      "nativePathId": 70845,
+      "prefab": "Hearse",
+      "flags": "Created, TransferToSource, WaitingPath, LeftHandDrive",
+      "speed": 0,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 7369,
+      "vehicleId": 2094,
+      "targetId": 48716,
+      "nativePathId": 114920,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "end",
+      "facilityId": 3923,
+      "vehicleId": 2391,
+      "targetId": 21564,
+      "nativePathId": 47780,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 2.798,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "end",
+      "facilityId": 41009,
+      "vehicleId": 2470,
+      "targetId": 46559,
+      "nativePathId": 32989,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 3923,
+      "vehicleId": 2500,
+      "targetId": 15508,
+      "nativePathId": 170459,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 4.428,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 7369,
+      "vehicleId": 3156,
+      "targetId": 40215,
+      "nativePathId": 212744,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 7.1,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 34457,
+      "vehicleId": 4018,
+      "targetId": 4655,
+      "nativePathId": 136024,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 10.595,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 41009,
+      "vehicleId": 4365,
+      "targetId": 1935,
+      "nativePathId": 242067,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 7369,
+      "vehicleId": 4520,
+      "targetId": 8114,
+      "nativePathId": 16681,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 0,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "end",
+      "facilityId": 7369,
+      "vehicleId": 4689,
+      "targetId": 36463,
+      "nativePathId": 156381,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "end",
+      "facilityId": 34457,
+      "vehicleId": 4898,
+      "targetId": 14858,
+      "nativePathId": 95783,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 14767,
+      "vehicleId": 5304,
+      "targetId": 11781,
+      "nativePathId": 169911,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 7.234,
+      "baselineTargetOutcome": "building abandoned"
+    },
+    {
+      "sample": "end",
+      "facilityId": 41009,
+      "vehicleId": 5413,
+      "targetId": 7620,
+      "nativePathId": 116685,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": null
+    },
+    {
+      "sample": "end",
+      "facilityId": 29653,
+      "vehicleId": 6040,
+      "targetId": 29527,
+      "nativePathId": 76901,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 3.49,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 32893,
+      "vehicleId": 6079,
+      "targetId": 8690,
+      "nativePathId": 13363,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": null
+    },
+    {
+      "sample": "end",
+      "facilityId": 26005,
+      "vehicleId": 6197,
+      "targetId": 32626,
+      "nativePathId": 203391,
+      "prefab": "Hearse",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 3923,
+      "vehicleId": 6542,
+      "targetId": 36290,
+      "nativePathId": 73503,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 29653,
+      "vehicleId": 6551,
+      "targetId": 35443,
+      "nativePathId": 176727,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 4.416,
+      "baselineTargetOutcome": "warning remains"
+    },
+    {
+      "sample": "end",
+      "facilityId": 41009,
+      "vehicleId": 7137,
+      "targetId": 38551,
+      "nativePathId": 64507,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 8,
+      "baselineTargetOutcome": "same active building warning cleared"
+    },
+    {
+      "sample": "end",
+      "facilityId": 7369,
+      "vehicleId": 7383,
+      "targetId": 10613,
+      "nativePathId": 107997,
+      "prefab": "Police Car",
+      "flags": "Created, Spawned, TransferToSource, LeftHandDrive",
+      "speed": 4.127,
+      "baselineTargetOutcome": "warning remains"
+    }
+  ],
+  "dispatchScope": "At most 1,024 vehicles per snapshot. A path shows dispatch; warning disappearance is verified separately.",
+  "ordinaryZoningCoverageBefore": {
+    "city": "NagoyaCitywide-Construction",
+    "rosterUtc": "2026-11-19T11:08:34.4026182Z",
+    "activeNativeZonedSites": 4407,
+    "nativeSiteGroupCount": 4407,
+    "plateauSourceIds": 738033,
+    "sourceCoverage": {
+      "noActiveRole": 129231,
+      "allRolesActive": 569088,
+      "someRolesActive": 7416,
+      "withoutClassifiedRoles": 32298
+    },
+    "roleMemberships": {
+      "uncovered": 141749,
+      "active": 599991
+    },
+    "writesToGame": false
+  },
+  "ordinaryZoningCoverageAfter": {
+    "city": "NagoyaCitywide-Construction",
+    "rosterUtc": "2026-11-19T11:20:03.9778008Z",
+    "activeNativeZonedSites": 4391,
+    "nativeSiteGroupCount": 4391,
+    "plateauSourceIds": 738033,
+    "sourceCoverage": {
+      "noActiveRole": 133772,
+      "allRolesActive": 564456,
+      "someRolesActive": 7507,
+      "withoutClassifiedRoles": 32298
+    },
+    "roleMemberships": {
+      "uncovered": 146381,
+      "active": 595359
+    },
+    "writesToGame": false
+  },
+  "wardsWithHumanAndAndroidPopulationAndJobs": 16
+}
