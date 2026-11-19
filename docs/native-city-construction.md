@@ -20,3 +20,7 @@
 4. `tools/audit_native_zoning_gaps.py` で道路の追加が必要な街区を出力する。
 
 ゲーム側は `citywide-zoning-v3/enabled.txt` を置き、名前を指定した新規都市だけで平坦化を行う。道路を適用する前に新規都市を別名保存し、`stage_native_city_roads.ps1` を実行モードなしで事前検査する。同じ入力で `-Execute` を指定して適用し、道路を保存したあと `stage_native_city_zones.ps1` に実際の道路の実行IDとセーブ名を渡す。観測には `road-runtime.json`、`zone-runtime.json`、`native-city-roster.json` を使う。
+
+一般商品を扱う店舗を補う場合は、未建設か消失した一般商業区画だけを含む計画を作り、既存道路のセーブで `stage_native_city_zones.ps1 -SavedRoadNetwork -RequireGoodsShops` を使う。商業区画には、CS1が `Goods` を仕入れ品とするレベル1の建物を選ぶ。1×1の給油所への置き換わりを避けるため、この用途では2セル以上の店舗を使う。建物と用途指定が有効なPLATEAUグループは既設として扱い、配置先は道路に接する空きセルで照合する。
+
+千種区と昭和区で各6棟、中区で5棟、中村区で4棟を配置した。建設直前と直後を同じゲーム時刻で照合し、既存717棟の商業施設と道路網を確認した。候補28件のうち7件は、元の道路に必要な幅と奥行きの空き区画がなかった。稼働後には、4区すべてで一般商品を受け入れられる店舗を確認した。[配置した建物IDと稼働確認](evidence/native-goods-retail-repair-20261119.json)

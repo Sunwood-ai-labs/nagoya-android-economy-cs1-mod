@@ -1,0 +1,1250 @@
+{
+  "test": "Restore Goods-capable retail in CS1 from existing PLATEAU commercial plans",
+  "city": "NagoyaCitywide-Construction",
+  "beforeSave": {
+    "save": "NagoyaCitywide-BeforeGoodsRetailRepair.crp",
+    "sha256": "0a24953741659a3cc87abaa9ab025afb9f64d799caa84f19b4a2a72902fc5aa5",
+    "gameTime": "2027-06-21T23:22:28"
+  },
+  "resultSave": {
+    "save": "NagoyaCitywide-GoodsRetailRestored.crp",
+    "sha256": "4ad2b68635f745a714dec21282b4cdb32350795a5680c4b5bf3f44f2395f4f14",
+    "gameTime": "2027-08-11T03:42:06"
+  },
+  "assembly": {
+    "sha256": "941473322398b69866b67b0f3f9eeeef09b940dd93afe34b9368171f8d419264",
+    "mvid": "4e04ddf0-5993-4bb5-a74d-a152009ab1ea"
+  },
+  "plan": {
+    "name": "goods-retail-recovery-plan.tsv",
+    "sha256": "537d8c5cd6335ec2c158c91954de0452a1f4e4894057b98c75881567e48a5cbf",
+    "receipt": {
+      "path": "after-retail-zone-receipt.tsv",
+      "sha256": "bd448f08892bd807b753949ea65d47badb1a0839318b31fc297f20abba8d69a5"
+    }
+  },
+  "commandId": "3293b64169fc4b29a1caa0ec83979abd",
+  "placementTime": "2027-06-22T22:03:27",
+  "commercialFacilityCounts": {
+    "before": 717,
+    "after": 738,
+    "beforeIdsPreserved": 717
+  },
+  "attempted": {
+    "中区": 5,
+    "中村区": 7,
+    "千種区": 9,
+    "昭和区": 7
+  },
+  "created": {
+    "中区": 5,
+    "中村区": 4,
+    "千種区": 6,
+    "昭和区": 6
+  },
+  "unplaced": {
+    "extension_f823ddec7e19d6ec": "No free native zone cells on the source frontage",
+    "site_b6195def0eaf": "No free native zone cells on the source frontage",
+    "site_d95c749b44a5": "No free native zone cells on the source frontage",
+    "site_95a34664a8bb": "No free native zone cells on the source frontage",
+    "site_fc68775e8abd": "No free native zone cells on the source frontage",
+    "site_3e725a17b3c7": "No free native zone cells on the source frontage",
+    "site_b85ff7f3dab7": "No free native zone cells on the source frontage"
+  },
+  "placedSites": [
+    {
+      "building": 23173,
+      "buildIndex": 103338,
+      "ward": "中区",
+      "plannedGroup": "extension_cce418195eea18ee",
+      "roadId": 11261,
+      "zone": "CommercialLow",
+      "zoneCells": 4,
+      "prefab": "L1 2x2 Shop03",
+      "position": {
+        "x": -295.435,
+        "y": 140,
+        "z": 529.204
+      },
+      "recordedSource": {
+        "group": "extension_cce418195eea18ee",
+        "sourceRoad": "w1042819573:p0:e168049",
+        "requested": [
+          -298.421,
+          528.914
+        ],
+        "memberCount": 62,
+        "previousBuilding": 17992,
+        "sourcePlan": "extension-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 77.1
+      }
+    },
+    {
+      "building": 37601,
+      "buildIndex": 103339,
+      "ward": "中区",
+      "plannedGroup": "extension_09b760d785e2b026",
+      "roadId": 1865,
+      "zone": "CommercialLow",
+      "zoneCells": 4,
+      "prefab": "L1 2x2 Shop03",
+      "position": {
+        "x": -427.271,
+        "y": 140,
+        "z": 142.173
+      },
+      "recordedSource": {
+        "group": "extension_09b760d785e2b026",
+        "sourceRoad": "w425544438:p0:e125469",
+        "requested": [
+          -427.136,
+          139.176
+        ],
+        "memberCount": 59,
+        "previousBuilding": 13031,
+        "sourcePlan": "extension-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 152.1
+      }
+    },
+    {
+      "building": 46481,
+      "buildIndex": 103340,
+      "ward": "中区",
+      "plannedGroup": "site_a875b80ba60d",
+      "roadId": 9159,
+      "zone": "CommercialLow",
+      "zoneCells": 2,
+      "prefab": "L1 1x2 Shop04",
+      "position": {
+        "x": -148.017,
+        "y": 139.989,
+        "z": 873.979
+      },
+      "recordedSource": {
+        "group": "site_a875b80ba60d",
+        "sourceRoad": "w48208829:p0:e5653",
+        "requested": [
+          -141.33166,
+          882.524749
+        ],
+        "memberCount": 168,
+        "previousBuilding": 10789,
+        "sourcePlan": "native-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 211.3
+      }
+    },
+    {
+      "building": 2893,
+      "buildIndex": 103341,
+      "ward": "中区",
+      "plannedGroup": "extension_d6622146270a6a90",
+      "roadId": 34951,
+      "zone": "CommercialLow",
+      "zoneCells": 4,
+      "prefab": "L1 2x2 Shop03",
+      "position": {
+        "x": -281.76,
+        "y": 140,
+        "z": 388.359
+      },
+      "recordedSource": {
+        "group": "extension_d6622146270a6a90",
+        "sourceRoad": "w1042819573:p0:e168036",
+        "requested": [
+          -284.746,
+          388.067
+        ],
+        "memberCount": 37,
+        "previousBuilding": 16544,
+        "sourcePlan": "extension-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 218.6
+      }
+    },
+    {
+      "building": 18244,
+      "buildIndex": 103342,
+      "ward": "中区",
+      "plannedGroup": "site_329e75d1547d",
+      "roadId": 32115,
+      "zone": "CommercialLow",
+      "zoneCells": 2,
+      "prefab": "L1 1x2 Shop04",
+      "position": {
+        "x": -780.361,
+        "y": 140,
+        "z": 824.157
+      },
+      "recordedSource": {
+        "group": "site_329e75d1547d",
+        "sourceRoad": "w198539243:p0:e105683",
+        "requested": [
+          -775.825518,
+          832.542322
+        ],
+        "memberCount": 68,
+        "previousBuilding": 22276,
+        "sourcePlan": "native-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 394.5
+      }
+    },
+    {
+      "building": 45707,
+      "buildIndex": 103343,
+      "ward": "中村区",
+      "plannedGroup": "extension_1b4dad338cf9fd26",
+      "roadId": 31359,
+      "zone": "CommercialLow",
+      "zoneCells": 4,
+      "prefab": "L1 2x2 Shop03",
+      "position": {
+        "x": -2694.111,
+        "y": 139.993,
+        "z": 879.541
+      },
+      "recordedSource": {
+        "group": "extension_1b4dad338cf9fd26",
+        "sourceRoad": "w1250232280:p0:e188192",
+        "requested": [
+          -2694.135,
+          876.541
+        ],
+        "memberCount": 19,
+        "previousBuilding": 34902,
+        "sourcePlan": "extension-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 113.0
+      }
+    },
+    {
+      "building": 23012,
+      "buildIndex": 103344,
+      "ward": "中村区",
+      "plannedGroup": "site_b2728cfe2039",
+      "roadId": 28739,
+      "zone": "CommercialLow",
+      "zoneCells": 2,
+      "prefab": "L1 1x2 Shop04",
+      "position": {
+        "x": -2140.612,
+        "y": 140,
+        "z": 1245.426
+      },
+      "recordedSource": {
+        "group": "site_b2728cfe2039",
+        "sourceRoad": "w198748412:p0:e105755",
+        "requested": [
+          -2131.224072,
+          1205.367304
+        ],
+        "memberCount": 104,
+        "previousBuilding": 12053,
+        "sourcePlan": "native-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 126.8
+      }
+    },
+    {
+      "building": 13780,
+      "buildIndex": 103345,
+      "ward": "中村区",
+      "plannedGroup": "extension_36a56b373f0ad308",
+      "roadId": 35194,
+      "zone": "CommercialLow",
+      "zoneCells": 4,
+      "prefab": "L1 2x2 Shop03",
+      "position": {
+        "x": -2483.145,
+        "y": 139.995,
+        "z": 1197.825
+      },
+      "recordedSource": {
+        "group": "extension_36a56b373f0ad308",
+        "sourceRoad": "w388180909:p0:e122668",
+        "requested": [
+          -2483.101,
+          1200.825
+        ],
+        "memberCount": 12,
+        "previousBuilding": 8570,
+        "sourcePlan": "extension-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 194.6
+      }
+    },
+    {
+      "building": 8444,
+      "buildIndex": 103346,
+      "ward": "中村区",
+      "plannedGroup": "extension_ffbc71cfc2e32cdd",
+      "roadId": 18205,
+      "zone": "CommercialLow",
+      "zoneCells": 4,
+      "prefab": "L1 2x2 Shop03",
+      "position": {
+        "x": -1746.314,
+        "y": 139.99,
+        "z": 1067.851
+      },
+      "recordedSource": {
+        "group": "extension_ffbc71cfc2e32cdd",
+        "sourceRoad": "w388180902:p0:e122578",
+        "requested": [
+          -1743.314,
+          1067.826
+        ],
+        "memberCount": 127,
+        "previousBuilding": 14235,
+        "sourcePlan": "extension-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 292.4
+      }
+    },
+    {
+      "building": 15248,
+      "buildIndex": 103347,
+      "ward": "千種区",
+      "plannedGroup": "extension_66fa65c637364306",
+      "roadId": 25077,
+      "zone": "CommercialLow",
+      "zoneCells": 4,
+      "prefab": "L1 2x2 Shop03",
+      "position": {
+        "x": 517.225,
+        "y": 140,
+        "z": 1279.343
+      },
+      "recordedSource": {
+        "group": "extension_66fa65c637364306",
+        "sourceRoad": "w758633401:p0:e145704",
+        "requested": [
+          514.32,
+          1280.091
+        ],
+        "memberCount": 18,
+        "previousBuilding": 13725,
+        "sourcePlan": "extension-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 55.4
+      }
+    },
+    {
+      "building": 19641,
+      "buildIndex": 103348,
+      "ward": "千種区",
+      "plannedGroup": "extension_bb746e608dcd5b69",
+      "roadId": 27488,
+      "zone": "CommercialLow",
+      "zoneCells": 4,
+      "prefab": "L1 2x2 Shop03",
+      "position": {
+        "x": 458.763,
+        "y": 140,
+        "z": 1245.029
+      },
+      "recordedSource": {
+        "group": "extension_bb746e608dcd5b69",
+        "sourceRoad": "w758633401:p0:e145706",
+        "requested": [
+          461.667,
+          1244.275
+        ],
+        "memberCount": 89,
+        "previousBuilding": 19072,
+        "sourcePlan": "extension-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 83.9
+      }
+    },
+    {
+      "building": 21059,
+      "buildIndex": 103349,
+      "ward": "千種区",
+      "plannedGroup": "site_dbf45e004d92",
+      "roadId": 7803,
+      "zone": "CommercialLow",
+      "zoneCells": 2,
+      "prefab": "L1 1x2 Shop04",
+      "position": {
+        "x": 1656.747,
+        "y": 140,
+        "z": 392.68
+      },
+      "recordedSource": {
+        "group": "site_dbf45e004d92",
+        "sourceRoad": "w50894726:p0:e9311",
+        "requested": [
+          1687.402335,
+          406.315718
+        ],
+        "memberCount": 6,
+        "previousBuilding": 6900,
+        "sourcePlan": "native-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 171.3
+      }
+    },
+    {
+      "building": 40953,
+      "buildIndex": 103350,
+      "ward": "千種区",
+      "plannedGroup": "site_43ef875bc9bf",
+      "roadId": 15744,
+      "zone": "CommercialLow",
+      "zoneCells": 2,
+      "prefab": "L1 1x2 Shop04",
+      "position": {
+        "x": 1716.797,
+        "y": 140,
+        "z": 373.516
+      },
+      "recordedSource": {
+        "group": "site_43ef875bc9bf",
+        "sourceRoad": "w50894726:p0:e9312",
+        "requested": [
+          1715.076873,
+          375.376499
+        ],
+        "memberCount": 3,
+        "previousBuilding": 34116,
+        "sourcePlan": "native-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 185.6
+      }
+    },
+    {
+      "building": 46424,
+      "buildIndex": 103351,
+      "ward": "千種区",
+      "plannedGroup": "extension_f70f7817cb578a4d",
+      "roadId": 762,
+      "zone": "CommercialLow",
+      "zoneCells": 4,
+      "prefab": "L1 2x2 Shop03",
+      "position": {
+        "x": 1477.355,
+        "y": 140,
+        "z": 861.846
+      },
+      "recordedSource": {
+        "group": "extension_f70f7817cb578a4d",
+        "sourceRoad": "w306509937:p0:e115894",
+        "requested": [
+          1478.605,
+          859.073
+        ],
+        "memberCount": 14,
+        "previousBuilding": 9086,
+        "sourcePlan": "extension-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 436.3
+      }
+    },
+    {
+      "building": 38599,
+      "buildIndex": 103352,
+      "ward": "千種区",
+      "plannedGroup": "extension_787ad70014a6fe55",
+      "roadId": 34314,
+      "zone": "CommercialLow",
+      "zoneCells": 4,
+      "prefab": "L1 2x2 Shop03",
+      "position": {
+        "x": 1361.854,
+        "y": 140,
+        "z": 1111.247
+      },
+      "recordedSource": {
+        "group": "extension_787ad70014a6fe55",
+        "sourceRoad": "w1256552567:p0:e192678",
+        "requested": [
+          1364.013,
+          1109.163
+        ],
+        "memberCount": 35,
+        "previousBuilding": 17771,
+        "sourcePlan": "extension-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 483.6
+      }
+    },
+    {
+      "building": 4406,
+      "buildIndex": 103353,
+      "ward": "昭和区",
+      "plannedGroup": "site_994fb238f534",
+      "roadId": 23204,
+      "zone": "CommercialLow",
+      "zoneCells": 2,
+      "prefab": "L1 1x2 Shop04",
+      "position": {
+        "x": 1457.068,
+        "y": 139.987,
+        "z": -278.816
+      },
+      "recordedSource": {
+        "group": "site_994fb238f534",
+        "sourceRoad": "w121105843:p0:e33168",
+        "requested": [
+          1449.242557,
+          -273.268707
+        ],
+        "memberCount": 30,
+        "previousBuilding": 30833,
+        "sourcePlan": "native-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 27.0
+      }
+    },
+    {
+      "building": 10337,
+      "buildIndex": 103354,
+      "ward": "昭和区",
+      "plannedGroup": "extension_5cb6f9854ddc2517",
+      "roadId": 18627,
+      "zone": "CommercialLow",
+      "zoneCells": 4,
+      "prefab": "L1 2x2 Shop03",
+      "position": {
+        "x": -259.333,
+        "y": 140,
+        "z": -312.908
+      },
+      "recordedSource": {
+        "group": "extension_5cb6f9854ddc2517",
+        "sourceRoad": "w1250257954:p0:e188198",
+        "requested": [
+          -256.342,
+          -312.668
+        ],
+        "memberCount": 7,
+        "previousBuilding": 47655,
+        "sourcePlan": "extension-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 45.8
+      }
+    },
+    {
+      "building": 30217,
+      "buildIndex": 103355,
+      "ward": "昭和区",
+      "plannedGroup": "extension_b6536f39227d3788",
+      "roadId": 29854,
+      "zone": "CommercialLow",
+      "zoneCells": 4,
+      "prefab": "L1 2x2 Shop03",
+      "position": {
+        "x": -322.639,
+        "y": 139.984,
+        "z": 145.483
+      },
+      "recordedSource": {
+        "group": "extension_b6536f39227d3788",
+        "sourceRoad": "w425544438:p0:e125472",
+        "requested": [
+          -322.609,
+          142.483
+        ],
+        "memberCount": 12,
+        "previousBuilding": 29082,
+        "sourcePlan": "extension-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 60.2
+      }
+    },
+    {
+      "building": 13883,
+      "buildIndex": 103356,
+      "ward": "昭和区",
+      "plannedGroup": "extension_7c83504e47a717b0",
+      "roadId": 19550,
+      "zone": "CommercialLow",
+      "zoneCells": 4,
+      "prefab": "L1 2x2 Shop03",
+      "position": {
+        "x": -262.783,
+        "y": 139.984,
+        "z": -269.739
+      },
+      "recordedSource": {
+        "group": "extension_7c83504e47a717b0",
+        "sourceRoad": "w1378629379:p0:e207261",
+        "requested": [
+          -259.793,
+          -269.499
+        ],
+        "memberCount": 13,
+        "previousBuilding": 26219,
+        "sourcePlan": "extension-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 74.5
+      }
+    },
+    {
+      "building": 38424,
+      "buildIndex": 103357,
+      "ward": "昭和区",
+      "plannedGroup": "extension_64d435e58a48b716",
+      "roadId": 34667,
+      "zone": "CommercialLow",
+      "zoneCells": 4,
+      "prefab": "L1 2x2 Shop03",
+      "position": {
+        "x": -284.699,
+        "y": 140,
+        "z": 18.626
+      },
+      "recordedSource": {
+        "group": "extension_64d435e58a48b716",
+        "sourceRoad": "w29241976:p0:e440",
+        "requested": [
+          -281.709,
+          18.873
+        ],
+        "memberCount": 51,
+        "previousBuilding": 14758,
+        "sourcePlan": "extension-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 80.9
+      }
+    },
+    {
+      "building": 9976,
+      "buildIndex": 103358,
+      "ward": "昭和区",
+      "plannedGroup": "extension_d224d4278175c512",
+      "roadId": 7161,
+      "zone": "CommercialLow",
+      "zoneCells": 4,
+      "prefab": "L1 2x2 Shop03",
+      "position": {
+        "x": 677.026,
+        "y": 140,
+        "z": -195.031
+      },
+      "recordedSource": {
+        "group": "extension_d224d4278175c512",
+        "sourceRoad": "w122790410:p0:e34380",
+        "requested": [
+          674.2,
+          -194.026
+        ],
+        "memberCount": 10,
+        "previousBuilding": 15583,
+        "sourcePlan": "extension-zoning-requests.tsv",
+        "approxDistanceToFactoryWithAndroidInMeters": 275.0
+      }
+    }
+  ],
+  "simulationSamples": [
+    {
+      "source": {
+        "path": "retail-window-01/terminal-life.json",
+        "sha256": "401d7e050e209633408cbe0cde07c4e3ee51d10918c286e560e17d15d0cb43c0"
+      },
+      "runId": "20261119T071256728Z",
+      "gameTime": "2027-07-08T14:46:27",
+      "assemblyMvid": "4e04ddf0-5993-4bb5-a74d-a152009ab1ea",
+      "configuredTestFunds": "active_exact_city_sandbox",
+      "deliveriesByWard": {
+        "守山区": 2,
+        "中村区": 1,
+        "港区": 1,
+        "緑区": 1
+      },
+      "targetWardStockBuffers": {
+        "中区": {
+          "noGoodsBuffer": 22,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 22,
+            "Goods": 2
+          }
+        },
+        "中村区": {
+          "noGoodsBuffer": 26,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 1,
+          "incomingMaterials": {
+            "Petrol": 26,
+            "Goods": 1
+          }
+        },
+        "千種区": {
+          "noGoodsBuffer": 36,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 36,
+            "Goods": 2
+          }
+        },
+        "昭和区": {
+          "noGoodsBuffer": 22,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 1,
+          "incomingMaterials": {
+            "Petrol": 22,
+            "Goods": 1
+          }
+        }
+      }
+    },
+    {
+      "source": {
+        "path": "retail-window-02/terminal-life.json",
+        "sha256": "15bb0486cb86a96c54803809e46d7d97d299235b85c0fb40b724790ebf9f8867"
+      },
+      "runId": "20261119T071256728Z",
+      "gameTime": "2027-07-25T06:26:24",
+      "assemblyMvid": "4e04ddf0-5993-4bb5-a74d-a152009ab1ea",
+      "configuredTestFunds": "active_exact_city_sandbox",
+      "deliveriesByWard": {
+        "守山区": 5,
+        "中村区": 1,
+        "港区": 2,
+        "緑区": 3,
+        "中川区": 2
+      },
+      "targetWardStockBuffers": {
+        "中区": {
+          "noGoodsBuffer": 22,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 22,
+            "Goods": 2
+          }
+        },
+        "中村区": {
+          "noGoodsBuffer": 26,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 1,
+          "incomingMaterials": {
+            "Petrol": 26,
+            "Goods": 1
+          }
+        },
+        "千種区": {
+          "noGoodsBuffer": 36,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 36,
+            "Goods": 2
+          }
+        },
+        "昭和区": {
+          "noGoodsBuffer": 22,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 1,
+          "incomingMaterials": {
+            "Petrol": 22,
+            "Goods": 1
+          }
+        }
+      }
+    },
+    {
+      "source": {
+        "path": "retail-window-03/terminal-life.json",
+        "sha256": "b987118772f472b739a573c8c899a184b1d555bb89b53e2a333f9f4652144f4d"
+      },
+      "runId": "20261119T071256728Z",
+      "gameTime": "2027-08-09T13:24:17",
+      "assemblyMvid": "4e04ddf0-5993-4bb5-a74d-a152009ab1ea",
+      "configuredTestFunds": "active_exact_city_sandbox",
+      "deliveriesByWard": {
+        "守山区": 9,
+        "中村区": 1,
+        "港区": 3,
+        "緑区": 3,
+        "中川区": 3,
+        "中区": 1,
+        "西区": 1,
+        "南区": 1
+      },
+      "targetWardStockBuffers": {
+        "中区": {
+          "noGoodsBuffer": 22,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 22,
+            "Goods": 2
+          }
+        },
+        "中村区": {
+          "noGoodsBuffer": 26,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 1,
+          "incomingMaterials": {
+            "Petrol": 26,
+            "Goods": 1
+          }
+        },
+        "千種区": {
+          "noGoodsBuffer": 36,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 36,
+            "Goods": 2
+          }
+        },
+        "昭和区": {
+          "noGoodsBuffer": 21,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 1,
+          "incomingMaterials": {
+            "Petrol": 21,
+            "Goods": 1
+          }
+        }
+      }
+    }
+  ],
+  "deliveryEvents": [
+    {
+      "android": 249390,
+      "from": 49128,
+      "to": 25593,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 2070,
+      "factoryAfter": 1970,
+      "shopBefore": 862,
+      "nativeRequest": {
+        "frame": 54754949,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 962,
+      "gameTime": "2027-06-29T06:06:47"
+    },
+    {
+      "android": 245513,
+      "from": 2839,
+      "to": 19252,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 2193,
+      "factoryAfter": 2093,
+      "shopBefore": 8840,
+      "nativeRequest": {
+        "frame": 54756708,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 8940,
+      "gameTime": "2027-06-30T04:47:37"
+    },
+    {
+      "android": 7922,
+      "from": 11274,
+      "to": 23012,
+      "ward": "中村区",
+      "sourceWard": "中村区",
+      "stockAdded": 100,
+      "factoryBefore": 2211,
+      "factoryAfter": 2111,
+      "shopBefore": 12547,
+      "nativeRequest": null,
+      "shopAfter": 12647,
+      "gameTime": "2027-07-03T11:20:30"
+    },
+    {
+      "android": 693169,
+      "from": 13999,
+      "to": 3750,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 1950,
+      "factoryAfter": 1850,
+      "shopBefore": 12165,
+      "nativeRequest": {
+        "frame": 54759443,
+        "priority": 3,
+        "amount": 1
+      },
+      "shopAfter": 12265,
+      "gameTime": "2027-07-04T21:35:51"
+    },
+    {
+      "android": 564634,
+      "from": 12313,
+      "to": 37589,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 1375,
+      "factoryAfter": 1275,
+      "shopBefore": 11116,
+      "nativeRequest": {
+        "frame": 54756547,
+        "priority": 5,
+        "amount": 1
+      },
+      "shopAfter": 11216,
+      "gameTime": "2027-07-06T20:24:17"
+    },
+    {
+      "android": 202123,
+      "from": 7801,
+      "to": 42073,
+      "ward": "中川区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 2609,
+      "factoryAfter": 2509,
+      "shopBefore": 12277,
+      "nativeRequest": {
+        "frame": 54759131,
+        "priority": 2,
+        "amount": 1
+      },
+      "shopAfter": 12377,
+      "gameTime": "2027-07-10T11:57:41"
+    },
+    {
+      "android": 929840,
+      "from": 45555,
+      "to": 19252,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 2217,
+      "factoryAfter": 2117,
+      "shopBefore": 8619,
+      "nativeRequest": null,
+      "shopAfter": 8719,
+      "gameTime": "2027-07-12T08:48:28"
+    },
+    {
+      "android": 249390,
+      "from": 49128,
+      "to": 25593,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 2195,
+      "factoryAfter": 2095,
+      "shopBefore": 701,
+      "nativeRequest": {
+        "frame": 54764421,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 801,
+      "gameTime": "2027-07-15T12:57:59"
+    },
+    {
+      "android": 202073,
+      "from": 39612,
+      "to": 35332,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 2329,
+      "factoryAfter": 2229,
+      "shopBefore": 12540,
+      "nativeRequest": {
+        "frame": 54764472,
+        "priority": 2,
+        "amount": 1
+      },
+      "shopAfter": 12640,
+      "gameTime": "2027-07-16T03:59:23"
+    },
+    {
+      "android": 872567,
+      "from": 28184,
+      "to": 31778,
+      "ward": "中川区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 2820,
+      "factoryAfter": 2720,
+      "shopBefore": 9780,
+      "nativeRequest": {
+        "frame": 54766757,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 9880,
+      "gameTime": "2027-07-17T00:53:58"
+    },
+    {
+      "android": 261669,
+      "from": 22465,
+      "to": 24107,
+      "ward": "港区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 2488,
+      "factoryAfter": 2388,
+      "shopBefore": 9991,
+      "nativeRequest": {
+        "frame": 54761597,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 10091,
+      "gameTime": "2027-07-18T02:04:50"
+    },
+    {
+      "android": 245513,
+      "from": 2839,
+      "to": 19252,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 2406,
+      "factoryAfter": 2306,
+      "shopBefore": 8457,
+      "nativeRequest": {
+        "frame": 54769508,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 8557,
+      "gameTime": "2027-07-22T03:07:13"
+    },
+    {
+      "android": 564634,
+      "from": 12313,
+      "to": 37589,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 1427,
+      "factoryAfter": 1327,
+      "shopBefore": 10782,
+      "nativeRequest": {
+        "frame": 54766531,
+        "priority": 5,
+        "amount": 1
+      },
+      "shopAfter": 10882,
+      "gameTime": "2027-07-23T16:12:10"
+    },
+    {
+      "android": 929840,
+      "from": 45555,
+      "to": 19252,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 2315,
+      "factoryAfter": 2215,
+      "shopBefore": 8388,
+      "nativeRequest": {
+        "frame": 54773092,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 8488,
+      "gameTime": "2027-07-29T11:26:15"
+    },
+    {
+      "android": 210052,
+      "from": 31957,
+      "to": 18244,
+      "ward": "中区",
+      "sourceWard": "熱田区",
+      "stockAdded": 100,
+      "factoryBefore": 2038,
+      "factoryAfter": 1938,
+      "shopBefore": 13107,
+      "nativeRequest": null,
+      "shopAfter": 13207,
+      "gameTime": "2027-08-01T03:54:35"
+    },
+    {
+      "android": 245513,
+      "from": 2839,
+      "to": 19252,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 2431,
+      "factoryAfter": 2331,
+      "shopBefore": 8422,
+      "nativeRequest": {
+        "frame": 54777188,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 8522,
+      "gameTime": "2027-08-01T18:31:23"
+    },
+    {
+      "android": 771601,
+      "from": 6527,
+      "to": 46948,
+      "ward": "西区",
+      "sourceWard": "西区",
+      "stockAdded": 100,
+      "factoryBefore": 2051,
+      "factoryAfter": 1951,
+      "shopBefore": 9783,
+      "nativeRequest": {
+        "frame": 54769396,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 9883,
+      "gameTime": "2027-08-02T02:13:05"
+    },
+    {
+      "android": 202123,
+      "from": 7801,
+      "to": 42073,
+      "ward": "中川区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 2770,
+      "factoryAfter": 2670,
+      "shopBefore": 11812,
+      "nativeRequest": {
+        "frame": 54771931,
+        "priority": 3,
+        "amount": 1
+      },
+      "shopAfter": 11912,
+      "gameTime": "2027-08-02T02:13:05"
+    },
+    {
+      "android": 249390,
+      "from": 49128,
+      "to": 25593,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 2350,
+      "factoryAfter": 2250,
+      "shopBefore": 567,
+      "nativeRequest": {
+        "frame": 54775429,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 667,
+      "gameTime": "2027-08-03T06:29:06"
+    },
+    {
+      "android": 693169,
+      "from": 13999,
+      "to": 3750,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 2181,
+      "factoryAfter": 2081,
+      "shopBefore": 11585,
+      "nativeRequest": null,
+      "shopAfter": 11685,
+      "gameTime": "2027-08-04T12:11:57"
+    },
+    {
+      "android": 467443,
+      "from": 36020,
+      "to": 11971,
+      "ward": "南区",
+      "sourceWard": "南区",
+      "stockAdded": 100,
+      "factoryBefore": 2619,
+      "factoryAfter": 2519,
+      "shopBefore": 10385,
+      "nativeRequest": {
+        "frame": 54775358,
+        "priority": 6,
+        "amount": 1
+      },
+      "shopAfter": 10485,
+      "gameTime": "2027-08-07T22:00:45"
+    },
+    {
+      "android": 245513,
+      "from": 2839,
+      "to": 19252,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 2448,
+      "factoryAfter": 2348,
+      "shopBefore": 8331,
+      "nativeRequest": {
+        "frame": 54780260,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 8431,
+      "gameTime": "2027-08-09T09:14:43"
+    }
+  ],
+  "eventsAtAddedStores": [
+    {
+      "android": 7922,
+      "from": 11274,
+      "to": 23012,
+      "ward": "中村区",
+      "sourceWard": "中村区",
+      "stockAdded": 100,
+      "factoryBefore": 2211,
+      "factoryAfter": 2111,
+      "shopBefore": 12547,
+      "nativeRequest": null,
+      "shopAfter": 12647,
+      "gameTime": "2027-07-03T11:20:30",
+      "plannedGroup": "site_b2728cfe2039"
+    },
+    {
+      "android": 210052,
+      "from": 31957,
+      "to": 18244,
+      "ward": "中区",
+      "sourceWard": "熱田区",
+      "stockAdded": 100,
+      "factoryBefore": 2038,
+      "factoryAfter": 1938,
+      "shopBefore": 13107,
+      "nativeRequest": null,
+      "shopAfter": 13207,
+      "gameTime": "2027-08-01T03:54:35",
+      "plannedGroup": "site_329e75d1547d"
+    }
+  ],
+  "coveredWardsInNewRun": [
+    "中区",
+    "中川区",
+    "中村区",
+    "南区",
+    "守山区",
+    "港区",
+    "緑区",
+    "西区"
+  ],
+  "newCoveredWardsInNewRun": [
+    "中区",
+    "中村区"
+  ],
+  "coveredAcrossRecordedSessions": [
+    "中区",
+    "中川区",
+    "中村区",
+    "北区",
+    "南区",
+    "守山区",
+    "港区",
+    "熱田区",
+    "緑区",
+    "西区"
+  ],
+  "limitations": [
+    "Commercial facility read-back was taken before advancing the game after placement.",
+    "Consumer staffing and storefront survival can change after construction.",
+    "The run was observed with time-limited, exact-city test funds.",
+    "Ward coverage combines native sessions and does not alone confirm a complete citywide economy."
+  ]
+}

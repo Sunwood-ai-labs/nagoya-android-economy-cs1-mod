@@ -36,8 +36,9 @@ namespace NagoyaRoadDelivery
         private readonly List<Site> sites = new List<Site>();
         private readonly Dictionary<string, List<RoadReceipt>> roads = new Dictionary<string, List<RoadReceipt>>();
         private readonly Dictionary<ItemClass.Zone, List<BuildingInfo>> prefabs = new Dictionary<ItemClass.Zone, List<BuildingInfo>>();
+        private readonly HashSet<string> existingGroups = new HashSet<string>(StringComparer.Ordinal);
         private string runId, commandId, city, phase, failure;
-        private bool attempted;
+        private bool attempted, requireGoodsShops;
         private volatile bool stopped;
         private int busy, cursor, placed;
         private float nextUpdate, finishBy;
@@ -111,6 +112,8 @@ namespace NagoyaRoadDelivery
 
             string roadFile = Path.Combine(Root, roadCommand + "-roads.tsv");
             string planFile = Path.Combine(Root, FileToken((string)command["plan"]));
+            object goodsShops;
+            requireGoodsShops = command.TryGetValue("requireGoodsShops", out goodsShops) && (bool)goodsShops;
             CheckDigest(roadFile, (string)command["roadSha256"]);
             CheckDigest(planFile, (string)command["planSha256"]);
             using (StringReader lines = new StringReader(ReadFile(roadFile, 8 * 1024 * 1024)))
@@ -151,7 +154,7 @@ namespace NagoyaRoadDelivery
                     if (members <= 0 || members > 738178)
                         throw new InvalidDataException("Invalid building count for aggregate zoning site");
                     if (!prefabs.ContainsKey(zone))
-                        prefabs.Add(zone, SelectPrefabs(service));
+                        prefabs.Add(zone, SelectPrefabs(service, requireGoodsShops));
                     sites.Add(new Site {Group=row[1], RoadSource=row[2], Ward=row[7], Zone=zone, Members=members,
                         Requested=new Vector3(Coordinate(row[3]), 140, Coordinate(row[4]))});
                 }
@@ -174,9 +177,10 @@ namespace NagoyaRoadDelivery
             }
         }
 
-        private static List<BuildingInfo> SelectPrefabs(ItemClass.SubService service)
+        private static List<BuildingInfo> SelectPrefabs(ItemClass.SubService service, bool requireGoodsShops)
         {
             Dictionary<int, BuildingInfo> sizes = new Dictionary<int, BuildingInfo>();
+            bool commercial = service == ItemClass.SubService.CommercialLow || service == ItemClass.SubService.CommercialHigh;
             for (uint i = 0; i < PrefabCollection<BuildingInfo>.LoadedCount(); i++)
             {
                 BuildingInfo info = PrefabCollection<BuildingInfo>.GetLoaded(i);
@@ -184,6 +188,11 @@ namespace NagoyaRoadDelivery
                     info.m_class.m_level != ItemClass.Level.Level1 || info.name.StartsWith("Custom", StringComparison.Ordinal))
                     continue;
                 int width = info.GetWidth(), length = info.GetLength();
+                if (requireGoodsShops && commercial)
+                {
+                    CommercialBuildingAI ai = info.m_buildingAI as CommercialBuildingAI;
+                    if (ai == null || ai.m_incomingResource != TransferManager.TransferReason.Goods || width * length < 2) continue;
+                }
                 if (width > 0 && width <= 4 && length > 0 && length <= 4 && !sizes.ContainsKey(width * 5 + length))
                     sizes.Add(width * 5 + length, info);
             }
@@ -198,6 +207,14 @@ namespace NagoyaRoadDelivery
             {
                 if (stopped) return;
                 if (timeout) throw new TimeoutException("Timed out while assigning native zone parcels");
+                if (cursor == 0)
+                {
+                    NativeCityLedger.Road[] roads;
+                    NativeCityLedger.Lot[] lots;
+                    NativeCityLedger.Snapshot(out roads, out lots);
+                    foreach (NativeCityLedger.Lot lot in lots)
+                        if (NativeCityLedger.HasActiveZone(lot)) existingGroups.Add(lot.Group);
+                }
                 int end = Math.Min(cursor + 24, sites.Count);
                 for (; cursor < end; cursor++)
                 {
@@ -230,6 +247,8 @@ namespace NagoyaRoadDelivery
 
         private string Place(Site site)
         {
+            if (existingGroups.Contains(site.Group))
+                return "The source group already has a native building and zone";
             List<RoadReceipt> segmentIds;
             if (!roads.TryGetValue(site.RoadSource, out segmentIds))
                 return "No active compiled road for this source";

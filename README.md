@@ -16,6 +16,7 @@
 - [工場から店舗への配送、自宅への帰宅・充電の実測](docs/evidence/native-delivery-return-20261119.json)
 - [CS1標準の発注を使った配送と区別の実績](docs/evidence/native-goods-requests-20261119.json)
 - [店舗が扱う商品と、配送できた区の実測](docs/evidence/native-retail-stock-20261119.json)
+- [PLATEAUの商業区画に追加した店舗と配送記録](docs/evidence/native-goods-retail-repair-20261119.json)
 - [同じセーブでの雇用比較](docs/evidence/native-employment-matched-20261119.json)
 - [168体の実ゲーム観測](docs/evidence/live-168-20261118.json)
 - [CS1標準の商品需要と在庫の観測](docs/evidence/native-goods-baseline-20261118.json)

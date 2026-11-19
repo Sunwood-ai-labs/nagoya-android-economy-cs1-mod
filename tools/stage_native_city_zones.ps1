@@ -5,7 +5,8 @@ param(
     [Parameter(Mandatory)][string]$ExpectedCityName,
     [Parameter(Mandatory)][string]$CheckpointName,
     [string]$Bridge = 'http://127.0.0.1:32123',
-    [switch]$SavedRoadNetwork
+    [switch]$SavedRoadNetwork,
+    [switch]$RequireGoodsShops
 )
 
 $ErrorActionPreference = 'Stop'
@@ -54,6 +55,7 @@ $request = @{
     roadSha256 = (Get-FileHash -LiteralPath $roadReceipt.FullName).Hash
     plan = $file.Name
     planSha256 = (Get-FileHash -LiteralPath $file.FullName).Hash
+    requireGoodsShops = [bool]$RequireGoodsShops
 }
 $destination = Join-Path $root 'zone-command.json'
 $temporary = $destination + '.' + $request.commandId + '.tmp'
