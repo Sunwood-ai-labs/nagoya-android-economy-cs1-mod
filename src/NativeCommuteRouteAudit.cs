@@ -126,7 +126,23 @@ namespace NagoyaRoadDelivery
             PathUnit unit = PathManager.instance.m_pathUnits.m_buffer[id];
             bool ready = (unit.m_pathFindFlags & PathUnit.FLAG_READY) != 0;
             string result = ready ? "ready" : (unit.m_pathFindFlags & PathUnit.FLAG_FAILED) != 0 ? "failed" : "pending";
-            return new Dictionary<string, object> {{"result",result},{"lengthMeters",ready ? (object)unit.m_length : null}};
+            var report = new Dictionary<string, object> {{"result",result},{"lengthMeters",ready ? (object)unit.m_length : null}};
+            if (!ready) return report;
+            PathUnit[] units = PathManager.instance.m_pathUnits.m_buffer;
+            var segments = new List<ushort>();
+            for (int i = 0; i < 128 && id != 0 && id < units.Length; i++)
+            {
+                PathUnit part = units[id];
+                for (int position = 0; position < part.m_positionCount && position < PathUnit.MAX_POSITIONS; position++)
+                {
+                    ushort segment = part.GetPosition(position).m_segment;
+                    if (segment != 0 && (segments.Count == 0 || segments[segments.Count - 1] != segment)) segments.Add(segment);
+                }
+                id = part.m_nextPathUnit;
+            }
+            report["segments"] = segments.ToArray();
+            report["segmentListComplete"] = id == 0;
+            return report;
         }
 
         public void Dispose()

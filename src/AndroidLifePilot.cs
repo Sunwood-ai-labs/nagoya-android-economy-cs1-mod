@@ -604,6 +604,7 @@ namespace NagoyaRoadDelivery
             trial.Deadline = DateTime.UtcNow.AddSeconds(trial.NormalEconomy ? 300 : 90);
             caseId = trial.CaseId;
             trial.Baseline = Observe(trial.Start).Json;
+            if (trial.PedestrianLinks != null) trial.PedestrianLinkResult = NativePedestrianLink.CreateFirstValid(trial.PedestrianLinks);
             trial.OpeningCapacity = NativeCityRoster.AuditCapacity();
             int additional = Math.Min(NativeCityLedger.MaxResidents - cohort.Count, trial.AdditionalResidents);
             if (trial.ShareAndroidHouseholds || trial.ShareMixedHouseholds)

@@ -13,7 +13,8 @@ param(
     [switch]$ShareAndroidHouseholds,
     [switch]$ShareMixedHouseholds,
     [uint32[]]$CommuteAuditIds,
-    [switch]$TestLongWalkCommutes
+    [switch]$TestLongWalkCommutes,
+    [string]$PedestrianLinksFile
 )
 
 $ErrorActionPreference = 'Stop'
@@ -55,6 +56,13 @@ if ($PSBoundParameters.ContainsKey('CommuteAuditIds')) {
     $request.commuteAuditIds = $CommuteAuditIds
 }
 if ($TestLongWalkCommutes) { $request.testLongWalkCommutes = $true }
+if ($PedestrianLinksFile) {
+    $links = Get-Content -LiteralPath $PedestrianLinksFile -Raw | ConvertFrom-Json -NoEnumerate
+    if ($links.Count -lt 1 -or $links.Count -gt 24 -or @($links | Where-Object { $_.Count -ne 2 }).Count) {
+        throw 'Provide 1–24 pairs of existing road node IDs as a JSON array.'
+    }
+    $request.pedestrianLinks = $links
+}
 
 $destination = Join-Path $root 'native-employment-trial.json'
 $consumed = Join-Path $root "native-employment-$CaseId.request.json"

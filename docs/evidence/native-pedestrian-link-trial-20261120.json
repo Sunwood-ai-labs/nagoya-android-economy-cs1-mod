@@ -1,0 +1,367 @@
+{
+  "checkpoint": {
+    "sha256": "9F4DCFBDDA74FE71B31CCBAC78D973D20598F84242F34E06D0F4DC67A292BA60",
+    "name": "NagoyaCitywide-EmploymentTrial-MixedHouseholds220-Observed",
+    "parentPreserved": true,
+    "segments": 32718,
+    "gameTime": "2030-01-01T08:57:59",
+    "bytes": 15373629,
+    "buildIndex": 126124,
+    "parent": "NagoyaCitywide-EmploymentTrial-SharedHomesObserved"
+  },
+  "defaultConstructionPreflight": {
+    "caseId": "jan01-walkway-link-72h",
+    "dllSha256": "BEEBF6A8866DE613779FD94D902994579E4B0B4DA6B953D06E83A1AA35EA3B40",
+    "results": {
+      "ObjectCollision, TooManyObjects": 20,
+      "TooManyObjects": 4
+    },
+    "nativeReceiptSha256": "B78791FE8322CB051C9BA1E82B8B6A326F351B2C317007A4FDC7FEF51B1166CB"
+  },
+  "nodeCapacity": {
+    "stockConstructionLimit": 32256,
+    "nativeNodeBufferLength": 32768,
+    "nodesAtConstruction": 32699,
+    "gameAssemblySha256": "DF557994A03C93D8BB4A14F80B1FBCC0FB29D547658442445D078D069BCDD9FE"
+  },
+  "reserveCase": {
+    "caseId": "jan01-walkway-reserve-72h",
+    "checkpoint": {
+      "sha256": "9F4DCFBDDA74FE71B31CCBAC78D973D20598F84242F34E06D0F4DC67A292BA60",
+      "name": "NagoyaCitywide-EmploymentTrial-MixedHouseholds220-Observed",
+      "parentPreserved": true,
+      "segments": 32718,
+      "gameTime": "2030-01-01T08:57:59",
+      "bytes": 15373629,
+      "buildIndex": 126124,
+      "parent": "NagoyaCitywide-EmploymentTrial-SharedHomesObserved"
+    },
+    "testModSha256": "343CDBCD8E061F718C78B5B05F37272A663347F7432BA7F6943929629934C862",
+    "matchedWindow": {
+      "startFrame": 55295666,
+      "endFrame": 55297422,
+      "startTicks": "640290855288267276",
+      "endTicks": "640293448132017276",
+      "durationHours": 72
+    },
+    "construction": {
+      "usedReservedCapacity": true,
+      "nodeCountBefore": 32699,
+      "nodeBufferCapacity": 32768,
+      "result": {
+        "connected": true,
+        "attempts": [
+          {
+            "fromNode": 22948,
+            "toNode": 11953,
+            "lengthMeters": 184.9775,
+            "preflight": "None",
+            "estimatedCostRaw": 46000,
+            "built": "None",
+            "actualFirstNode": 22948,
+            "actualLastNode": 11953,
+            "segmentId": 30503,
+            "segmentsAdded": 2
+          }
+        ]
+      }
+    },
+    "target": {
+      "citizenId": 272270,
+      "controlRoute": {
+        "citizenId": 272270,
+        "frame": 55296303,
+        "from": 33828,
+        "to": 30040,
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      "treatmentRoute": {
+        "citizenId": 272270,
+        "frame": 55296303,
+        "from": 33828,
+        "to": 30040,
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      "controlEnd": {
+        "citizenId": 272270,
+        "homeBuilding": 33828,
+        "homeUnit": 363952,
+        "workBuilding": 30040,
+        "workUnitConfirmed": true,
+        "location": "Moving",
+        "movingSamples": 32,
+        "workSamples": 0,
+        "homeSamples": 6,
+        "commutesStarted": 3,
+        "returnsStarted": 0,
+        "commuteSamples": 3,
+        "nativeWorkArrivals": 0,
+        "nativeWorkArrivalFailures": 3,
+        "nativeCommutePathFailures": 3,
+        "nativeMovingCommuteReleases": 3,
+        "travelRecoveries": 2,
+        "charging": false,
+        "chargeStarts": 0,
+        "battery": 100,
+        "walkedMeters": 0,
+        "visitBuilding": 0,
+        "shopReturnsStarted": 0,
+        "shopReturnsArrived": 0,
+        "shopReturnSource": 0,
+        "shopReturnHome": 0,
+        "instanceId": 0,
+        "vehicleId": 0,
+        "pathId": 0,
+        "sourceBuilding": 0,
+        "targetBuilding": 0
+      },
+      "treatmentEnd": {
+        "citizenId": 272270,
+        "homeBuilding": 33828,
+        "homeUnit": 363952,
+        "workBuilding": 30040,
+        "workUnitConfirmed": true,
+        "location": "Moving",
+        "movingSamples": 32,
+        "workSamples": 0,
+        "homeSamples": 6,
+        "commutesStarted": 3,
+        "returnsStarted": 0,
+        "commuteSamples": 3,
+        "nativeWorkArrivals": 0,
+        "nativeWorkArrivalFailures": 3,
+        "nativeCommutePathFailures": 3,
+        "nativeMovingCommuteReleases": 3,
+        "travelRecoveries": 2,
+        "charging": false,
+        "chargeStarts": 0,
+        "battery": 100,
+        "walkedMeters": 0,
+        "visitBuilding": 0,
+        "shopReturnsStarted": 0,
+        "shopReturnsArrived": 0,
+        "shopReturnSource": 0,
+        "shopReturnHome": 0,
+        "instanceId": 0,
+        "vehicleId": 0,
+        "pathId": 0,
+        "sourceBuilding": 0,
+        "targetBuilding": 0
+      }
+    },
+    "populationComparison": {
+      "controlResidentsWithNativeWorkArrival": 21,
+      "treatmentResidentsWithNativeWorkArrival": 21
+    },
+    "nativeReceiptSha256": "724B4C114185F511AA0B61CB300FC8A83218CFE4495909B71571BB94AAA26EA8",
+    "controlReceiptSha256": "618E2CACF5D0D61674E541BF6283E69A48C426232291E8103E51184388D1B718"
+  },
+  "liveReadBack": {
+    "segments": [
+      {
+        "ok": true,
+        "id": 12139,
+        "prefab": "Pedestrian Pavement",
+        "service": "Beautification",
+        "subService": "BeautificationParks",
+        "flags": "Created, NameVisible1, NameVisible2",
+        "problems": "",
+        "startNodeId": 22948,
+        "endNodeId": 4582,
+        "start": {
+          "x": -2258.959,
+          "y": 140,
+          "z": 14.635
+        },
+        "end": {
+          "x": -2354.566,
+          "y": 140,
+          "z": 5.961
+        },
+        "prefabLaneCount": 1,
+        "actualLaneCount": 1,
+        "prefabLanes": [
+          {
+            "index": 0,
+            "laneType": "Pedestrian",
+            "vehicleType": "None",
+            "direction": "Both",
+            "finalDirection": "Both",
+            "stopType": "None",
+            "position": 0
+          }
+        ],
+        "actualLanes": [
+          {
+            "laneId": 149938,
+            "index": 0,
+            "nextLaneId": 0
+          }
+        ]
+      },
+      {
+        "ok": true,
+        "id": 30503,
+        "prefab": "Pedestrian Pavement",
+        "service": "Beautification",
+        "subService": "BeautificationParks",
+        "flags": "Created",
+        "problems": "",
+        "startNodeId": 4582,
+        "endNodeId": 11953,
+        "start": {
+          "x": -2354.566,
+          "y": 140,
+          "z": 5.961
+        },
+        "end": {
+          "x": -2443.18,
+          "y": 140,
+          "z": -2.078
+        },
+        "prefabLaneCount": 1,
+        "actualLaneCount": 1,
+        "prefabLanes": [
+          {
+            "index": 0,
+            "laneType": "Pedestrian",
+            "vehicleType": "None",
+            "direction": "Both",
+            "finalDirection": "Both",
+            "stopType": "None",
+            "position": 0
+          }
+        ],
+        "actualLanes": [
+          {
+            "laneId": 87790,
+            "index": 0,
+            "nextLaneId": 0
+          }
+        ]
+      }
+    ],
+    "anchors": [
+      {
+        "ok": true,
+        "id": 22948,
+        "prefab": "Basic Road",
+        "service": "Road",
+        "subService": "None",
+        "flags": "Created, Junction, Transition",
+        "problems": "",
+        "connectCount": 3,
+        "position": {
+          "x": -2258.959,
+          "y": 140,
+          "z": 14.635
+        },
+        "segments": [
+          {
+            "id": 178,
+            "prefab": "Basic Road",
+            "startNodeId": 30090,
+            "endNodeId": 22948
+          },
+          {
+            "id": 35544,
+            "prefab": "Basic Road",
+            "startNodeId": 22948,
+            "endNodeId": 13122
+          },
+          {
+            "id": 12139,
+            "prefab": "Pedestrian Pavement",
+            "startNodeId": 22948,
+            "endNodeId": 4582
+          }
+        ]
+      },
+      {
+        "ok": true,
+        "id": 11953,
+        "prefab": "Basic Road",
+        "service": "Road",
+        "subService": "None",
+        "flags": "Created, Junction, Transition",
+        "problems": "",
+        "connectCount": 3,
+        "position": {
+          "x": -2443.18,
+          "y": 140,
+          "z": -2.078
+        },
+        "segments": [
+          {
+            "id": 33818,
+            "prefab": "Basic Road",
+            "startNodeId": 8004,
+            "endNodeId": 11953
+          },
+          {
+            "id": 15946,
+            "prefab": "Basic Road",
+            "startNodeId": 11953,
+            "endNodeId": 20531
+          },
+          {
+            "id": 30503,
+            "prefab": "Pedestrian Pavement",
+            "startNodeId": 4582,
+            "endNodeId": 11953
+          }
+        ]
+      }
+    ]
+  },
+  "intent": "One isolated construction and native commute comparison. The original checkpoint was preserved.",
+  "savedTest": {
+    "name": "NagoyaCitywide-EmploymentTrial-PedestrianLink208m-Test",
+    "sha256": "2C39D76E2CF022727EC13687C52412F82CD155FD31114C875FE1B18886972276",
+    "bytes": 15376196,
+    "buildIndex": 126144,
+    "gameTime": "2030-01-04T08:58:47",
+    "nodes": 32700,
+    "segments": 32720,
+    "resume": "NagoyaCitywide-EmploymentTrial-MixedHouseholds220-Observed"
+  }
+}
