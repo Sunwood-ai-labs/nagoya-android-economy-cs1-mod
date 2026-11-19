@@ -1,0 +1,513 @@
+{
+  "testedCheckpoint": {
+    "name": "NagoyaCitywide-WasteBudgetTrial-AccessProbe",
+    "bytes": 15431845,
+    "sha256": "8E0D01AD6A2A7C11C50F5FF0FF5506BCD5DC14FF92AFB3E74BDF6784C1EE49B9"
+  },
+  "loadedModSha256": "C0443BF05348FF9BE5E2592EF52AECDF73F77395BADB343218050F627F49E7C7",
+  "observedFrom": "2029-12-02T06:59:30",
+  "observedUntil": "2029-12-03T08:35:28",
+  "cashStart": 15050.5,
+  "cashEnd": 4065.69,
+  "readOnlyAudit": true,
+  "simulationPausedAtEnd": true,
+  "networkSegments": 32718,
+  "startingProduction": 228224,
+  "endingProduction": 228640,
+  "capacity": 240000,
+  "originalWarnedBuildingSampleCount": 64,
+  "originalWarnedBuildingSamplePickups": 0,
+  "dispatches": [
+    {
+      "gameTime": "2029-12-02T08:00:22",
+      "vehicle": 10844,
+      "facility": 28215,
+      "offeredTarget": 25787,
+      "target": 25787,
+      "path": 29581,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-02T09:57:47",
+        "flags": 8,
+        "target": 25787,
+        "lengthMeters": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-02T10:39:30",
+        "target": 25787,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        24054,
+        6974,
+        0,
+        0
+      ],
+      "sourceRoadPrefab": "Medium Road",
+      "targetRoadPrefab": "Medium Road"
+    },
+    {
+      "gameTime": "2029-12-02T08:00:22",
+      "vehicle": 14842,
+      "facility": 16719,
+      "offeredTarget": 36855,
+      "target": 36855,
+      "path": 20444,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-02T10:05:26",
+        "flags": 8,
+        "target": 36855,
+        "lengthMeters": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-02T10:50:52",
+        "target": 36855,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        5240,
+        3976,
+        0,
+        3976
+      ],
+      "sourceRoadPrefab": "Medium Road",
+      "targetRoadPrefab": "Basic Road"
+    },
+    {
+      "gameTime": "2029-12-02T08:00:22",
+      "vehicle": 11956,
+      "facility": 6206,
+      "offeredTarget": 24267,
+      "target": 24267,
+      "path": 198006,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "ready",
+        "gameTime": "2029-12-02T09:57:47",
+        "flags": 4,
+        "target": 24267,
+        "lengthMeters": 3185.289
+      },
+      "firstSpawn": {
+        "gameTime": "2029-12-02T09:57:47",
+        "target": 24267,
+        "path": 198006,
+        "load": 0,
+        "spawned": true
+      },
+      "firstPickup": {
+        "building": 28354,
+        "pickup": {
+          "gameTime": "2029-12-02T09:57:47",
+          "vehicle": 11956,
+          "sourceFacility": 6206,
+          "garbageBefore": 60,
+          "garbageAfter": 0,
+          "truckLoadBefore": 0,
+          "truckLoadAfter": 60
+        }
+      },
+      "returned": null,
+      "released": null,
+      "pathRequestSegments": [
+        16450,
+        13267,
+        16450,
+        0
+      ],
+      "sourceRoadPrefab": "Basic Road",
+      "targetRoadPrefab": "Medium Road"
+    },
+    {
+      "gameTime": "2029-12-02T08:00:22",
+      "vehicle": 1502,
+      "facility": 45809,
+      "offeredTarget": 46295,
+      "target": 46295,
+      "path": 18582,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-02T10:12:31",
+        "flags": 8,
+        "target": 46295,
+        "lengthMeters": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-02T10:57:02",
+        "target": 46295,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        5326,
+        22641,
+        0,
+        0
+      ],
+      "sourceRoadPrefab": "Medium Road",
+      "targetRoadPrefab": "Medium Road"
+    },
+    {
+      "gameTime": "2029-12-02T18:20:53",
+      "vehicle": 3041,
+      "facility": 28215,
+      "offeredTarget": 2320,
+      "target": 2320,
+      "path": 225823,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-02T18:57:53",
+        "flags": 8,
+        "target": 2320,
+        "lengthMeters": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-02T19:37:45",
+        "target": 2320,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        24054,
+        12291,
+        0,
+        0
+      ],
+      "sourceRoadPrefab": "Medium Road",
+      "targetRoadPrefab": "Medium Road"
+    },
+    {
+      "gameTime": "2029-12-02T18:20:53",
+      "vehicle": 16214,
+      "facility": 16719,
+      "offeredTarget": 47369,
+      "target": 47369,
+      "path": 104271,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-02T18:51:52",
+        "flags": 8,
+        "target": 47369,
+        "lengthMeters": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-02T19:29:39",
+        "target": 47369,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        5240,
+        5058,
+        0,
+        5058
+      ],
+      "sourceRoadPrefab": "Medium Road",
+      "targetRoadPrefab": "Basic Road"
+    },
+    {
+      "gameTime": "2029-12-02T18:20:53",
+      "vehicle": 10166,
+      "facility": 45809,
+      "offeredTarget": 43945,
+      "target": 43945,
+      "path": 15119,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-02T18:39:42",
+        "flags": 8,
+        "target": 43945,
+        "lengthMeters": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-02T19:09:42",
+        "target": 43945,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        5326,
+        15938,
+        0,
+        0
+      ],
+      "sourceRoadPrefab": "Medium Road",
+      "targetRoadPrefab": "Medium Road"
+    },
+    {
+      "gameTime": "2029-12-02T18:20:53",
+      "vehicle": 8438,
+      "facility": 6206,
+      "offeredTarget": 11444,
+      "target": 11444,
+      "path": 219317,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-02T18:33:43",
+        "flags": 8,
+        "target": 11444,
+        "lengthMeters": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-02T19:09:42",
+        "target": 11444,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        16450,
+        2217,
+        16450,
+        0
+      ],
+      "sourceRoadPrefab": "Basic Road",
+      "targetRoadPrefab": "Medium Road"
+    },
+    {
+      "gameTime": "2029-12-03T04:49:51",
+      "vehicle": 91,
+      "facility": 28215,
+      "offeredTarget": 25787,
+      "target": 25787,
+      "path": 169397,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-03T05:24:28",
+        "flags": 8,
+        "target": 25787,
+        "lengthMeters": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-03T06:03:02",
+        "target": 25787,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        24054,
+        6974,
+        0,
+        0
+      ],
+      "sourceRoadPrefab": "Medium Road",
+      "targetRoadPrefab": "Medium Road"
+    },
+    {
+      "gameTime": "2029-12-03T04:49:51",
+      "vehicle": 7934,
+      "facility": 16719,
+      "offeredTarget": 36855,
+      "target": 36855,
+      "path": 26789,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-03T04:55:54",
+        "flags": 8,
+        "target": 36855,
+        "lengthMeters": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-03T05:40:49",
+        "target": 36855,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        5240,
+        3976,
+        0,
+        3976
+      ],
+      "sourceRoadPrefab": "Medium Road",
+      "targetRoadPrefab": "Basic Road"
+    },
+    {
+      "gameTime": "2029-12-03T04:49:51",
+      "vehicle": 15334,
+      "facility": 45809,
+      "offeredTarget": 7842,
+      "target": 7842,
+      "path": 181970,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-03T05:19:01",
+        "flags": 8,
+        "target": 7842,
+        "lengthMeters": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-03T05:57:33",
+        "target": 7842,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        5326,
+        5812,
+        0,
+        0
+      ],
+      "sourceRoadPrefab": "Medium Road",
+      "targetRoadPrefab": "Medium Road"
+    },
+    {
+      "gameTime": "2029-12-03T04:49:51",
+      "vehicle": 10252,
+      "facility": 6206,
+      "offeredTarget": 43864,
+      "target": 43864,
+      "path": 132528,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "ready",
+        "gameTime": "2029-12-03T05:07:46",
+        "flags": 4,
+        "target": 43864,
+        "lengthMeters": 7392.182
+      },
+      "firstSpawn": {
+        "gameTime": "2029-12-03T05:07:46",
+        "target": 43864,
+        "path": 132528,
+        "load": 0,
+        "spawned": true
+      },
+      "firstPickup": {
+        "building": 28354,
+        "pickup": {
+          "gameTime": "2029-12-03T05:07:46",
+          "vehicle": 10252,
+          "sourceFacility": 6206,
+          "garbageBefore": 5,
+          "garbageAfter": 0,
+          "truckLoadBefore": 0,
+          "truckLoadAfter": 5
+        }
+      },
+      "returned": null,
+      "released": null,
+      "pathRequestSegments": [
+        16450,
+        36042,
+        16450,
+        36042
+      ],
+      "sourceRoadPrefab": "Basic Road",
+      "targetRoadPrefab": "Basic Road"
+    }
+  ],
+  "plants": [
+    {
+      "id": 6206,
+      "accessRoad": 16450,
+      "roadPrefab": "Basic Road",
+      "started": 3,
+      "ready": 2,
+      "failed": 1,
+      "spawned": 2,
+      "pickups": 2,
+      "returned": 0,
+      "released": 1,
+      "vehiclesPresentAtEnd": 8
+    },
+    {
+      "id": 16719,
+      "accessRoad": 5240,
+      "roadPrefab": "Medium Road",
+      "started": 3,
+      "ready": 0,
+      "failed": 3,
+      "spawned": 0,
+      "pickups": 0,
+      "returned": 0,
+      "released": 3,
+      "vehiclesPresentAtEnd": 0
+    },
+    {
+      "id": 28215,
+      "accessRoad": 24054,
+      "roadPrefab": "Medium Road",
+      "started": 3,
+      "ready": 0,
+      "failed": 3,
+      "spawned": 0,
+      "pickups": 0,
+      "returned": 0,
+      "released": 3,
+      "vehiclesPresentAtEnd": 0
+    },
+    {
+      "id": 45809,
+      "accessRoad": 5326,
+      "roadPrefab": "Medium Road",
+      "started": 3,
+      "ready": 0,
+      "failed": 3,
+      "spawned": 0,
+      "pickups": 0,
+      "returned": 0,
+      "released": 3,
+      "vehiclesPresentAtEnd": 9
+    }
+  ],
+  "wardCountWithHumanAndAndroidHomesAndJobs": 16,
+  "nativeZonedSiteStatuses": {
+    "operational": 4996,
+    "underConstruction": 4,
+    "abandoned": 2115,
+    "inactive": 145
+  }
+}
