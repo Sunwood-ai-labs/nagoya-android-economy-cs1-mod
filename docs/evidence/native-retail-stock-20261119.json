@@ -1,0 +1,909 @@
+{
+  "test": "Native retail stock capacity and expanded Android goods routes",
+  "city": "NagoyaCitywide-Construction",
+  "runId": "20261119T070333195Z",
+  "assembly": {
+    "sha256": "3e32caa17a729679a1ab70a275377824f95636a2b66b1babbccb769fd714d971",
+    "mvid": "ea0f03dd-4a9e-41b0-bd6e-9f4d00735378"
+  },
+  "sourceSave": {
+    "save": "NagoyaCitywide-NativeGoodsRequests.crp",
+    "sha256": "d1797321f4ac5152dcc5540a4fd5694b60b9569f3c82cddd83c85d853ca6db2c",
+    "gameTime": "2027-05-18T23:38:43"
+  },
+  "endSave": {
+    "save": "NagoyaCitywide-BeforeGoodsRetailRepair.crp",
+    "sha256": "0a24953741659a3cc87abaa9ab025afb9f64d799caa84f19b4a2a72902fc5aa5",
+    "gameTime": "2027-06-21T23:22:28"
+  },
+  "sampledPeriods": [
+    {
+      "sample": "stock-window-01/terminal-life.json",
+      "sha256": "3740c875447753fb76a610c3f2431c4fd5d34362cbf2702e37f2106d255ee122",
+      "gameTime": "2027-06-03T17:15:02",
+      "deliveriesByWard": {
+        "守山区": 3,
+        "南区": 1,
+        "港区": 1,
+        "緑区": 1
+      },
+      "supplyAndRetailByWard": {
+        "瑞穂区": {
+          "noGoodsBuffer": 15,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 15,
+            "Goods": 2
+          }
+        },
+        "港区": {
+          "noGoodsBuffer": 46,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 3,
+          "incomingMaterials": {
+            "Petrol": 46,
+            "Goods": 3
+          }
+        },
+        "西区": {
+          "noGoodsBuffer": 33,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 5,
+          "incomingMaterials": {
+            "Petrol": 33,
+            "Goods": 5
+          }
+        },
+        "守山区": {
+          "noGoodsBuffer": 51,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 7,
+          "incomingMaterials": {
+            "Petrol": 51,
+            "Goods": 7
+          }
+        },
+        "緑区": {
+          "noGoodsBuffer": 46,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 12,
+          "incomingMaterials": {
+            "Petrol": 46,
+            "Goods": 12
+          }
+        },
+        "南区": {
+          "noGoodsBuffer": 16,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 16,
+            "Goods": 2
+          }
+        },
+        "北区": {
+          "noGoodsBuffer": 24,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 5,
+          "incomingMaterials": {
+            "Petrol": 24,
+            "Goods": 5
+          }
+        },
+        "千種区": {
+          "noGoodsBuffer": 37,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 37
+          }
+        },
+        "中川区": {
+          "noGoodsBuffer": 38,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 3,
+          "incomingMaterials": {
+            "Petrol": 38,
+            "Goods": 3
+          }
+        },
+        "昭和区": {
+          "noGoodsBuffer": 23,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 23
+          }
+        },
+        "中区": {
+          "noGoodsBuffer": 22,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 22
+          }
+        },
+        "中村区": {
+          "noGoodsBuffer": 28,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 28
+          }
+        },
+        "熱田区": {
+          "noGoodsBuffer": 13,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 13
+          }
+        },
+        "名東区": {
+          "noGoodsBuffer": 37,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 37,
+            "Goods": 2
+          }
+        },
+        "天白区": {
+          "noGoodsBuffer": 26,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 26,
+            "Goods": 2
+          }
+        },
+        "東区": {
+          "noGoodsBuffer": 15,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 1,
+          "incomingMaterials": {
+            "Petrol": 15,
+            "Goods": 1
+          }
+        },
+        "unassigned": {
+          "noGoodsBuffer": 1,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 1
+          }
+        }
+      },
+      "factoriesWithStockByWard": {
+        "港区": 95,
+        "南区": 32,
+        "緑区": 46,
+        "名東区": 28,
+        "西区": 43,
+        "千種区": 26,
+        "守山区": 50,
+        "中川区": 49,
+        "北区": 25,
+        "東区": 14,
+        "熱田区": 18,
+        "昭和区": 12,
+        "中村区": 25,
+        "瑞穂区": 9,
+        "unassigned": 4,
+        "天白区": 25,
+        "中区": 7
+      },
+      "funds": "active_exact_city_sandbox"
+    },
+    {
+      "sample": "stock-window-02/terminal-life.json",
+      "sha256": "7b834cc99d69dbd295d70ebd17e07b20bd069b4ed813664c53f26e6d890e1a85",
+      "gameTime": "2027-06-05T10:45:57",
+      "deliveriesByWard": {
+        "守山区": 3,
+        "南区": 1,
+        "港区": 2,
+        "緑区": 1,
+        "西区": 1
+      },
+      "supplyAndRetailByWard": {
+        "瑞穂区": {
+          "noGoodsBuffer": 15,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 15,
+            "Goods": 2
+          }
+        },
+        "港区": {
+          "noGoodsBuffer": 46,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 3,
+          "incomingMaterials": {
+            "Petrol": 46,
+            "Goods": 3
+          }
+        },
+        "西区": {
+          "noGoodsBuffer": 33,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 5,
+          "incomingMaterials": {
+            "Petrol": 33,
+            "Goods": 5
+          }
+        },
+        "守山区": {
+          "noGoodsBuffer": 51,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 7,
+          "incomingMaterials": {
+            "Petrol": 51,
+            "Goods": 7
+          }
+        },
+        "緑区": {
+          "noGoodsBuffer": 46,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 12,
+          "incomingMaterials": {
+            "Petrol": 46,
+            "Goods": 12
+          }
+        },
+        "南区": {
+          "noGoodsBuffer": 16,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 16,
+            "Goods": 2
+          }
+        },
+        "北区": {
+          "noGoodsBuffer": 24,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 5,
+          "incomingMaterials": {
+            "Petrol": 24,
+            "Goods": 5
+          }
+        },
+        "千種区": {
+          "noGoodsBuffer": 37,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 37
+          }
+        },
+        "中川区": {
+          "noGoodsBuffer": 38,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 3,
+          "incomingMaterials": {
+            "Petrol": 38,
+            "Goods": 3
+          }
+        },
+        "昭和区": {
+          "noGoodsBuffer": 23,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 23
+          }
+        },
+        "中区": {
+          "noGoodsBuffer": 22,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 22
+          }
+        },
+        "中村区": {
+          "noGoodsBuffer": 28,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 28
+          }
+        },
+        "熱田区": {
+          "noGoodsBuffer": 13,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 13
+          }
+        },
+        "名東区": {
+          "noGoodsBuffer": 37,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 37,
+            "Goods": 2
+          }
+        },
+        "天白区": {
+          "noGoodsBuffer": 26,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 26,
+            "Goods": 2
+          }
+        },
+        "東区": {
+          "noGoodsBuffer": 15,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 1,
+          "incomingMaterials": {
+            "Petrol": 15,
+            "Goods": 1
+          }
+        },
+        "unassigned": {
+          "noGoodsBuffer": 1,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 1
+          }
+        }
+      },
+      "factoriesWithStockByWard": {
+        "港区": 95,
+        "南区": 32,
+        "緑区": 46,
+        "名東区": 28,
+        "西区": 43,
+        "千種区": 26,
+        "守山区": 50,
+        "中川区": 49,
+        "北区": 25,
+        "東区": 14,
+        "熱田区": 18,
+        "昭和区": 12,
+        "中村区": 25,
+        "瑞穂区": 9,
+        "unassigned": 4,
+        "天白区": 25,
+        "中区": 7
+      },
+      "funds": "inactive"
+    },
+    {
+      "sample": "stock-window-03/terminal-life.json",
+      "sha256": "7fcd7162efdac3e97779a04ac84d3b1b75b7050737dd80f802e8e27a34080660",
+      "gameTime": "2027-06-20T18:36:55",
+      "deliveriesByWard": {
+        "守山区": 6,
+        "南区": 1,
+        "港区": 3,
+        "緑区": 2,
+        "西区": 2,
+        "中川区": 1
+      },
+      "supplyAndRetailByWard": {
+        "瑞穂区": {
+          "noGoodsBuffer": 15,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 15,
+            "Goods": 2
+          }
+        },
+        "港区": {
+          "noGoodsBuffer": 45,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 3,
+          "incomingMaterials": {
+            "Petrol": 45,
+            "Goods": 3
+          }
+        },
+        "西区": {
+          "noGoodsBuffer": 32,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 5,
+          "incomingMaterials": {
+            "Petrol": 32,
+            "Goods": 5
+          }
+        },
+        "守山区": {
+          "noGoodsBuffer": 50,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 7,
+          "incomingMaterials": {
+            "Petrol": 50,
+            "Goods": 7
+          }
+        },
+        "緑区": {
+          "noGoodsBuffer": 45,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 11,
+          "incomingMaterials": {
+            "Petrol": 45,
+            "Goods": 11
+          }
+        },
+        "南区": {
+          "noGoodsBuffer": 16,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 16,
+            "Goods": 2
+          }
+        },
+        "北区": {
+          "noGoodsBuffer": 24,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 5,
+          "incomingMaterials": {
+            "Petrol": 24,
+            "Goods": 5
+          }
+        },
+        "千種区": {
+          "noGoodsBuffer": 37,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 37
+          }
+        },
+        "中川区": {
+          "noGoodsBuffer": 37,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 3,
+          "incomingMaterials": {
+            "Petrol": 37,
+            "Goods": 3
+          }
+        },
+        "昭和区": {
+          "noGoodsBuffer": 23,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 23
+          }
+        },
+        "中区": {
+          "noGoodsBuffer": 22,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 22
+          }
+        },
+        "中村区": {
+          "noGoodsBuffer": 27,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 27
+          }
+        },
+        "熱田区": {
+          "noGoodsBuffer": 13,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 13
+          }
+        },
+        "名東区": {
+          "noGoodsBuffer": 37,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 37,
+            "Goods": 2
+          }
+        },
+        "天白区": {
+          "noGoodsBuffer": 25,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 2,
+          "incomingMaterials": {
+            "Petrol": 25,
+            "Goods": 2
+          }
+        },
+        "東区": {
+          "noGoodsBuffer": 15,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 1,
+          "incomingMaterials": {
+            "Petrol": 15,
+            "Goods": 1
+          }
+        },
+        "unassigned": {
+          "noGoodsBuffer": 1,
+          "full": 0,
+          "roomForPartialParcel": 0,
+          "roomForFullParcel": 0,
+          "incomingMaterials": {
+            "Petrol": 1
+          }
+        }
+      },
+      "factoriesWithStockByWard": {
+        "港区": 95,
+        "南区": 32,
+        "緑区": 46,
+        "名東区": 28,
+        "西区": 43,
+        "千種区": 26,
+        "守山区": 50,
+        "中川区": 49,
+        "北区": 25,
+        "東区": 14,
+        "熱田区": 18,
+        "昭和区": 12,
+        "中村区": 24,
+        "瑞穂区": 9,
+        "unassigned": 4,
+        "天白区": 25,
+        "中区": 7
+      },
+      "funds": "active_exact_city_sandbox"
+    }
+  ],
+  "transferEvents": [
+    {
+      "android": 245513,
+      "from": 2839,
+      "to": 19252,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 1767,
+      "factoryAfter": 1667,
+      "shopBefore": 9610,
+      "nativeRequest": null,
+      "shopAfter": 9710,
+      "gameTime": "2027-05-21T09:03:50"
+    },
+    {
+      "android": 364907,
+      "from": 15223,
+      "to": 33609,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 1657,
+      "factoryAfter": 1557,
+      "shopBefore": 11431,
+      "nativeRequest": null,
+      "shopAfter": 11531,
+      "gameTime": "2027-05-27T23:11:07"
+    },
+    {
+      "android": 249390,
+      "from": 49128,
+      "to": 25593,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 1868,
+      "factoryAfter": 1768,
+      "shopBefore": 1320,
+      "nativeRequest": null,
+      "shopAfter": 1420,
+      "gameTime": "2027-05-28T11:19:45"
+    },
+    {
+      "android": 467443,
+      "from": 36020,
+      "to": 11971,
+      "ward": "南区",
+      "sourceWard": "南区",
+      "stockAdded": 100,
+      "factoryBefore": 1917,
+      "factoryAfter": 1817,
+      "shopBefore": 11806,
+      "nativeRequest": null,
+      "shopAfter": 11906,
+      "gameTime": "2027-05-30T07:05:15"
+    },
+    {
+      "android": 693169,
+      "from": 13999,
+      "to": 3750,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 1685,
+      "factoryAfter": 1585,
+      "shopBefore": 12834,
+      "nativeRequest": {
+        "frame": 54739219,
+        "priority": 2,
+        "amount": 1
+      },
+      "shopAfter": 12934,
+      "gameTime": "2027-05-30T21:40:51"
+    },
+    {
+      "android": 202073,
+      "from": 39612,
+      "to": 35332,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 1890,
+      "factoryAfter": 1790,
+      "shopBefore": 13397,
+      "nativeRequest": null,
+      "shopAfter": 13497,
+      "gameTime": "2027-06-03T06:04:58"
+    },
+    {
+      "android": 771601,
+      "from": 6527,
+      "to": 46948,
+      "ward": "西区",
+      "sourceWard": "西区",
+      "stockAdded": 100,
+      "factoryBefore": 1593,
+      "factoryAfter": 1493,
+      "shopBefore": 10874,
+      "nativeRequest": null,
+      "shopAfter": 10974,
+      "gameTime": "2027-06-04T09:39:47"
+    },
+    {
+      "android": 261669,
+      "from": 22465,
+      "to": 24107,
+      "ward": "港区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 2140,
+      "factoryAfter": 2040,
+      "shopBefore": 10829,
+      "nativeRequest": {
+        "frame": 54736253,
+        "priority": 5,
+        "amount": 1
+      },
+      "shopAfter": 10929,
+      "gameTime": "2027-06-05T02:54:54"
+    },
+    {
+      "android": 693169,
+      "from": 13999,
+      "to": 3750,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 1714,
+      "factoryAfter": 1614,
+      "shopBefore": 12669,
+      "nativeRequest": {
+        "frame": 54744851,
+        "priority": 2,
+        "amount": 1
+      },
+      "shopAfter": 12769,
+      "gameTime": "2027-06-09T23:14:40"
+    },
+    {
+      "android": 249390,
+      "from": 49128,
+      "to": 25593,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 1967,
+      "factoryAfter": 1867,
+      "shopBefore": 1080,
+      "nativeRequest": {
+        "frame": 54744965,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 1180,
+      "gameTime": "2027-06-12T07:26:56"
+    },
+    {
+      "android": 202123,
+      "from": 7801,
+      "to": 42073,
+      "ward": "中川区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 2408,
+      "factoryAfter": 2308,
+      "shopBefore": 12782,
+      "nativeRequest": {
+        "frame": 54741979,
+        "priority": 1,
+        "amount": 1
+      },
+      "shopAfter": 12882,
+      "gameTime": "2027-06-16T09:10:07"
+    },
+    {
+      "android": 564634,
+      "from": 12313,
+      "to": 37589,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 1275,
+      "factoryAfter": 1175,
+      "shopBefore": 11538,
+      "nativeRequest": {
+        "frame": 54745027,
+        "priority": 4,
+        "amount": 1
+      },
+      "shopAfter": 11638,
+      "gameTime": "2027-06-16T19:51:03"
+    },
+    {
+      "android": 987114,
+      "from": 15436,
+      "to": 46948,
+      "ward": "西区",
+      "sourceWard": "北区",
+      "stockAdded": 100,
+      "factoryBefore": 2515,
+      "factoryAfter": 2415,
+      "shopBefore": 10644,
+      "nativeRequest": {
+        "frame": 54745076,
+        "priority": 6,
+        "amount": 1
+      },
+      "shopAfter": 10744,
+      "gameTime": "2027-06-19T13:08:04"
+    },
+    {
+      "android": 364936,
+      "from": 5753,
+      "to": 19252,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 2119,
+      "factoryAfter": 2019,
+      "shopBefore": 9038,
+      "nativeRequest": null,
+      "shopAfter": 9138,
+      "gameTime": "2027-06-19T21:01:03"
+    },
+    {
+      "android": 364907,
+      "from": 15223,
+      "to": 22426,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 1886,
+      "factoryAfter": 1786,
+      "shopBefore": 9315,
+      "nativeRequest": {
+        "frame": 54744948,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 9415,
+      "gameTime": "2027-06-20T11:13:43"
+    }
+  ],
+  "newWardObserved": {
+    "android": 202123,
+    "from": 7801,
+    "to": 42073,
+    "ward": "中川区",
+    "sourceWard": "中川区",
+    "stockAdded": 100,
+    "factoryBefore": 2408,
+    "factoryAfter": 2308,
+    "shopBefore": 12782,
+    "nativeRequest": {
+      "frame": 54741979,
+      "priority": 1,
+      "amount": 1
+    },
+    "shopAfter": 12882,
+    "gameTime": "2027-06-16T09:10:07"
+  },
+  "coveredAcrossRecordedSessions": [
+    "中川区",
+    "北区",
+    "南区",
+    "守山区",
+    "港区",
+    "熱田区",
+    "緑区",
+    "西区"
+  ],
+  "activeRetailWardsThatOnlyAcceptPetrolAtTerminalSample": {
+    "千種区": 37,
+    "昭和区": 23,
+    "中区": 22,
+    "中村区": 27,
+    "熱田区": 13
+  },
+  "confirmedNativeRoleSites": 2993,
+  "nativeTraffic": {
+    "passengerCars": 699,
+    "cargoTrucks": 715,
+    "buses": 27,
+    "otherVehicles": 48,
+    "roadVehiclesWithNativePath": 1439
+  },
+  "limitations": [
+    "Variable-size parcels and wider service distances were enabled together.",
+    "No parcel smaller than 100 was observed.",
+    "The Petrol result describes active shops at the sampled city time and does not indicate a full Goods buffer.",
+    "Exact-city test funds were scoped to the observation windows.",
+    "The receipt considers cumulative ward coverage from separately recorded native runs."
+  ]
+}
