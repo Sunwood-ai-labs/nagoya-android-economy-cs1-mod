@@ -1,9 +1,10 @@
-# Nagoya Android Economy for Cities: Skylines
+# Android Skyline | 名古屋2050
 
 同じ名古屋の街でアンドロイドの導入有無・台数・充電口数を変え、CS1の住民や店舗にどう影響するかを比較するMODです。PLATEAUの建物配置を実験の空間に使います。
 
 名古屋16区を対象にした建設セーブで、人4,391人とアンドロイド505体の入居、全区で両方の職場登録を確認しました。CS1に敷設した道路は1万8,604区間です。熱田区では工場から店舗への配送が1件成立し、CS1標準の在庫が工場で100減り、店舗で100増えました。同じセーブを約4日進める試験で、アンドロイドの増員条件による入居・職場登録数の違いも確認しました。
 
+- [PLATEAU AWARD 応募資料（PDF）](docs/submission/Android-Skyline-Nagoya2050.pdf)
 - [CS1の都市経済との接続と検証条件](docs/native-economy.md)
 - [CS1標準の住宅・就業・通勤を使った生活試験](docs/android-life.md)
 - [PLATEAU建物をCS1の住宅として割り当てた検証](docs/plateau-zoning.md)

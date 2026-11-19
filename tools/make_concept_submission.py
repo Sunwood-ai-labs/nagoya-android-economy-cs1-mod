@@ -15,6 +15,7 @@ from reportlab.pdfgen.canvas import Canvas
 
 
 W, H = 960, 540
+PROJECT_TITLE = "Android Skyline"
 NIGHT, INK = "#131D24", "#17222A"
 PAPER, LIGHT = "#F5F4EF", "#FCFCF9"
 MINT, SOFT_MINT = "#A9EFDB", "#DAEFE7"
@@ -33,7 +34,7 @@ class Deck:
         pdfmetrics.registerFont(TTFont("Japanese", str(fonts / "meiryo.ttc"), subfontIndex=0))
         pdfmetrics.registerFont(TTFont("Japanese Bold", str(fonts / "meiryob.ttc"), subfontIndex=0))
         self.canvas = Canvas(str(output), pagesize=(W, H), pageCompression=1)
-        self.canvas.setTitle("名古屋2050 | PLATEAU Android Economy")
+        self.canvas.setTitle(f"{PROJECT_TITLE} | 名古屋2050")
         self.canvas.setSubject("アンドロイドと人が暮らす、Cities: Skylinesの名古屋")
 
     def box(self, x, y, w, h, color):
@@ -71,7 +72,7 @@ class Deck:
         if sub:
             self.text(sub, 46, 90, 15, GRAY)
         self.box(44, 496, 872, 1, RULE)
-        self.text("PLATEAU ANDROID ECONOMY", 44, 508, 10, GRAY, latin=True)
+        self.text(PROJECT_TITLE, 44, 508, 10, GRAY, latin=True)
         self.text(f"{no:02d} / 04", 877, 508, 10, GRAY, latin=True)
 
     def page(self):
@@ -107,9 +108,9 @@ def render(args):
     deck.box(0, 0, W, H, NIGHT)
     deck.photo(photos / "01-nagoya.png", 429, 0, 531, 540, center=(.5, .51), crop=(630, 26, 1410, 1048))
     deck.box(42, 52, 41, 5, LIME)
-    deck.text("PLATEAU ANDROID ECONOMY", 42, 72, 16, MINT, latin=True)
-    deck.text("名古屋 2050", 40, 128, 29, MINT, True)
-    deck.lines(("隣人は、", "アンドロイド。"), 40, 182, 46, 67, color=LIGHT, bold=True, width=386)
+    deck.text(PROJECT_TITLE, 41, 73, 37, MINT, latin=True, width=380)
+    deck.text("名古屋2050", 41, 127, 23, MINT, True)
+    deck.lines(("隣人は、", "アンドロイド。"), 40, 183, 46, 67, color=LIGHT, bold=True, width=386)
     deck.lines(("人とアンドロイドが住み、働く街をつくる。", "Cities: Skylinesで試す、名古屋の未来。"),
                43, 347, 15, 29, color=SOFT_MINT, width=374)
     deck.text("PLATEAU AWARD 2026 一般部門", 43, 483, 13, LIGHT)
@@ -150,7 +151,7 @@ def render(args):
 
     deck.box(0, 0, W, H, NIGHT)
     deck.photo(photos / "04-plateau-housing.png", 558, 0, 402, 540, center=(.65, .5), crop=(522, 15, 1175, 875))
-    deck.text("PLATEAU ANDROID ECONOMY", 44, 45, 15, MINT, latin=True)
+    deck.text(PROJECT_TITLE, 44, 45, 17, MINT, latin=True)
     deck.lines(("あなたなら、", "どんな街にする？"), 43, 105, 44, 64, color=LIGHT, bold=True, width=505)
     deck.lines(("駅前に仕事を集めたら、誰がそこで働く？", "アンドロイドが増えたら、人の仕事はどう変わる？"),
                46, 257, 17, 35, color=SOFT_MINT, width=480)
