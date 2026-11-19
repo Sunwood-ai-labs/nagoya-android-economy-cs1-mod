@@ -1,0 +1,153 @@
+{
+  "dateJst": "2026-11-19",
+  "status": "inventory and native layout planning verified; live citywide application incomplete",
+  "inGame": {
+    "gameRenderRevision": "nagoya-city738033-flat140-roof-g-split-v11",
+    "nativeUnlockedTiles": 1,
+    "nativeRoadSegments": 1138,
+    "nativeRoadSegmentsInZoningSearch": 32,
+    "coverageByStatus": {
+      "native_road_nearby_cells_unverified": 196,
+      "native_tile_locked": 207131,
+      "no_native_zoning_road_in_search_radius": 9113,
+      "outside_original_scale_native_grid": 521593
+    }
+  },
+  "stockLimits": {
+    "buildingSlots": 49152,
+    "roadSegmentSlots": 36864,
+    "tileSizeM": 1920,
+    "gameplayPlanningTiles": 25
+  },
+  "source": {
+    "gmlFiles": 376,
+    "rawBuildingIds": 738178,
+    "activeModelSourceIds": 738033,
+    "modelRowsByUse": {
+      "agriculture": 741,
+      "apartments": 69242,
+      "civic": 1923,
+      "commercial": 18493,
+      "education_health": 23810,
+      "hospitality": 425,
+      "industrial": 25370,
+      "logistics": 20761,
+      "mixed_residential_commercial": 36005,
+      "office": 23106,
+      "other": 1585,
+      "residential": 447318,
+      "unknown": 67141,
+      "utility": 2113
+    },
+    "officialWardMatches": {
+      "中村区": 50709,
+      "西区": 50685,
+      "港区": 58003,
+      "緑区": 87365,
+      "unassigned": 1329,
+      "南区": 50249,
+      "中川区": 79716,
+      "天白区": 44545,
+      "瑞穂区": 35089,
+      "熱田区": 19166,
+      "昭和区": 31640,
+      "千種区": 39902,
+      "中区": 17242,
+      "東区": 17661,
+      "守山区": 63808,
+      "名東区": 41618,
+      "北区": 49306
+    },
+    "officialUseDistrictMatches": {
+      "10": 45109,
+      "9": 70208,
+      "12": 30912,
+      "11": 81780,
+      "1": 129478,
+      "6": 40215,
+      "2": 2390,
+      "5": 223589,
+      "outside_or_unmapped": 9050,
+      "4": 71679,
+      "7": 5038,
+      "13": 3231,
+      "3": 25353,
+      "ambiguous": 1
+    }
+  },
+  "roadPlan": {
+    "status": "connected source-road plan, native construction unverified",
+    "sourceRoadEdges": 235751,
+    "eligibleSurfaceRoadEdges": 175219,
+    "largestEligibleComponentNodes": 128624,
+    "plannedSourceRoadEdges": 7902,
+    "plannedConnectedSourceNodes": 7872,
+    "sourceRoadSectors": 262,
+    "connectedRoadSectors": 261,
+    "roadSectorSizeOriginalM": 1250,
+    "estimatedBackboneSegments": 11338,
+    "estimatedNativeSegments": 16000,
+    "geometryPartsUnderBridgeMinimum4M": 2355,
+    "junctionsWithMoreThanEightEdges": 0,
+    "reservedSegmentBudget": 16000,
+    "originalBoundsXZ": [
+      -8171.712625258841,
+      -15091.191394317211,
+      16137.76307653565,
+      9840.817895778104
+    ],
+    "projectedPlanBoundsXZ": [
+      -4384.471,
+      -4500.0,
+      4162.544,
+      4500.0
+    ],
+    "transform": {
+      "scale": 0.3609817361802207,
+      "originalCenterXZ": [
+        3983.025225638404,
+        -2625.1867492695537
+      ]
+    },
+    "plannedRoadClasses": {
+      "secondary": 922,
+      "primary": 3961,
+      "trunk": 1598,
+      "motorway": 301,
+      "tertiary": 386,
+      "motorway_link": 389,
+      "unclassified": 139,
+      "trunk_link": 87,
+      "service": 34,
+      "primary_link": 27,
+      "residential": 54,
+      "tertiary_link": 2,
+      "secondary_link": 2
+    },
+    "excludedEdgesByReason": {
+      "unsupported_or_restricted_road_type": 60439,
+      "loop_or_zero_length": 93
+    },
+    "writesToGame": false
+  },
+  "frontagePlan": {
+    "status": "building use aggregation and road frontage proposals; native placement unverified",
+    "blockSizeOriginalM": 500,
+    "maximumFrontageDistanceProjectedM": 160,
+    "groupRoles": 8124,
+    "groupsWithFrontageProposal": 2871,
+    "uniqueProposedNativeSites": 2228,
+    "sourceBuildingCoverage": {
+      "dataset_records": 738033,
+      "source_use": 640720,
+      "no_growable_role": 32298,
+      "district_inferred": 65015,
+      "no_frontage_proposal": 348197,
+      "all_roles_have_frontage_proposal": 385159,
+      "some_roles_have_frontage_proposal": 4677
+    },
+    "writesToGame": false
+  },
+  "gameWritesByThisRun": false,
+  "previousVerifiedNativePlateauBindings": 1
+}
