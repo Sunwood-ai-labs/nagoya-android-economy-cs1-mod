@@ -80,6 +80,7 @@ namespace NagoyaRoadDelivery
                 bool changeWaste = request.TryGetValue("garbageBudget", out wasteBudget);
                 bool startWatch = request.TryGetValue("wasteBuildingIds", out targets);
                 bool dispatchLocalWaste = request.TryGetValue("localWasteAssignments", out localWasteAssignments);
+                bool dispatchNearby = request.ContainsKey("nearbyWasteDispatch") && Convert.ToBoolean(request["nearbyWasteDispatch"]);
                 bool finishWatch = request.ContainsKey("finishWasteWatch") && Convert.ToBoolean(request["finishWasteWatch"]);
                 bool changeIntake = request.TryGetValue("waterIntake", out waterIntake);
                 bool sampleWater = request.ContainsKey("sampleWaterQuality") && Convert.ToBoolean(request["sampleWaterQuality"]);
@@ -90,6 +91,8 @@ namespace NagoyaRoadDelivery
                     throw new InvalidOperationException("Finish the existing observation before selecting new buildings");
                 if (dispatchLocalWaste && (!startWatch || changeWaste || changePower || changeIntake))
                     throw new InvalidOperationException("Local waste assignments need a separate collection trial");
+                if (dispatchNearby && (!startWatch || dispatchLocalWaste || changeWaste || changePower || changeIntake))
+                    throw new InvalidOperationException("Nearby waste dispatch needs a separate collection trial");
                 int powerDay = Budget(economy, electricity, false), powerNight = Budget(economy, electricity, true);
                 int wasteDay = Budget(economy, garbage, false), wasteNight = Budget(economy, garbage, true);
                 var services = new List<object>();
@@ -101,7 +104,7 @@ namespace NagoyaRoadDelivery
                         transport.Add(Account(economy, ItemClass.Service.PublicTransport, subService));
                 if (startWatch)
                 {
-                    wasteWatch = new NativeWasteObservation((List<object>)targets);
+                    wasteWatch = new NativeWasteObservation((List<object>)targets, dispatchNearby);
                     startedWatch = true;
                     if (dispatchLocalWaste) wasteWatch.DispatchLocal((List<object>)localWasteAssignments);
                 }

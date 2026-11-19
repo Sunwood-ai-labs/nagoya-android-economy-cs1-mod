@@ -10,6 +10,7 @@ param(
     [ValidateRange(50, 150)][int]$ExpectedGarbageNight,
     [ValidateCount(1, 64)][uint16[]]$WasteBuildingId,
     [string]$LocalWasteAssignments,
+    [switch]$NearbyWasteDispatch,
     [switch]$FinishWasteWatch,
     [switch]$SampleWaterQuality,
     [switch]$SampleHousingCapacity,
@@ -36,6 +37,9 @@ if (($waste -or $WasteBuildingId -or $FinishWasteWatch) -and $CheckpointName -cn
 }
 if ($LocalWasteAssignments -and (!$WasteBuildingId -or $power -or $waste -or $intake -or $FinishWasteWatch)) {
     throw 'Local dispatch requires a separate collection trial on the named waste checkpoint.'
+}
+if ($NearbyWasteDispatch -and (!$WasteBuildingId -or $LocalWasteAssignments -or $power -or $waste -or $intake -or $FinishWasteWatch)) {
+    throw 'Nearby dispatch requires a separate collection trial on the named waste checkpoint.'
 }
 if ($waste -and (!$PSBoundParameters.ContainsKey('ExpectedGarbageDay') -or !$PSBoundParameters.ContainsKey('ExpectedGarbageNight'))) {
     throw 'A garbage budget change requires both expected values.'
@@ -88,6 +92,9 @@ if ($waste) {
 }
 if ($WasteBuildingId) {
     $request.wasteBuildingIds = $WasteBuildingId
+}
+if ($NearbyWasteDispatch) {
+    $request.nearbyWasteDispatch = $true
 }
 if ($LocalWasteAssignments) {
     $request.localWasteAssignments = @(Get-Content -LiteralPath $LocalWasteAssignments -Raw | ConvertFrom-Json)

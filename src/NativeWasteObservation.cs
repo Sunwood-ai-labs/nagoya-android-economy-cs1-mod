@@ -22,10 +22,12 @@ namespace NagoyaRoadDelivery
         private readonly List<object> dispatchSamples = new List<object>();
         private readonly Dictionary<ushort, Dictionary<string, object>> activeDispatches =
             new Dictionary<ushort, Dictionary<string, object>>();
+        private readonly NativeWasteNearbyDispatch nearbyDispatch;
         private bool assigningLocalTrial;
+        private bool assigningNearby;
         private Harmony harmony;
 
-        public NativeWasteObservation(List<object> ids)
+        public NativeWasteObservation(List<object> ids, bool dispatchNearby)
         {
             if (ids.Count == 0 || ids.Count > 64) throw new InvalidDataException("Select between 1 and 64 waste collection targets");
             NativeBuilding[] buffer = BuildingManager.instance.m_buildings.m_buffer;
@@ -37,6 +39,7 @@ namespace NagoyaRoadDelivery
                     throw new InvalidDataException("Invalid waste collection building");
                 buildings.Add(id, buffer[id].m_buildIndex);
             }
+            if (dispatchNearby) nearbyDispatch = new NativeWasteNearbyDispatch(SimulationManager.instance.m_currentGameTime);
             Type[] arguments = {typeof(ushort), typeof(Vehicle).MakeByRefType(), typeof(Vehicle.Frame).MakeByRefType(),
                 typeof(ushort), typeof(NativeBuilding).MakeByRefType()};
             Type[] offerArguments = {typeof(TransferManager.TransferReason), typeof(TransferManager.TransferOffer)};
@@ -56,6 +59,8 @@ namespace NagoyaRoadDelivery
                 Install(typeof(CarAI), "TrySpawn", vehicleArguments, null, "ObserveSpawn");
                 Install(typeof(GarbageTruckAI), "ArriveAtSource", vehicleArguments, "ObserveReturn", null);
                 Install(typeof(GarbageTruckAI), "ReleaseVehicle", vehicleArguments, "ObserveRelease", null);
+                if (nearbyDispatch != null)
+                    Install(typeof(TransferManager), "SimulationStepImpl", new Type[] {typeof(int)}, null, "DispatchNearby");
                 current = this;
             }
             catch
@@ -80,6 +85,7 @@ namespace NagoyaRoadDelivery
         {
             NativeWasteObservation watch = current;
             if (watch == null || __0 != TransferManager.TransferReason.Garbage || !__1.Active || __1.Amount <= 0) return;
+            if (watch.nearbyDispatch != null) watch.nearbyDispatch.Observe(__1, true);
             ushort id = __1.Building;
             NativeBuilding[] buffer = BuildingManager.instance.m_buildings.m_buffer;
             if (id == 0 || id >= buffer.Length || buffer[id].Info == null ||
@@ -91,6 +97,7 @@ namespace NagoyaRoadDelivery
         {
             NativeWasteObservation watch = current;
             if (watch == null || __0 != TransferManager.TransferReason.Garbage || __1.Amount <= 0) return;
+            if (watch.nearbyDispatch != null) watch.nearbyDispatch.Observe(__1, false);
             ushort id = __1.Building;
             uint generation;
             if (watch.buildings.TryGetValue(id, out generation) &&
@@ -116,9 +123,10 @@ namespace NagoyaRoadDelivery
             var trace = new Dictionary<string, object> {
                 {"gameTime",SimulationManager.instance.m_currentGameTime.ToString("s")},
                 {"vehicle",__0}, {"facility",source}, {"offeredTarget",__3.Building}, {"target",__1.m_targetBuilding},
-                {"localTrial",watch.assigningLocalTrial},
+                {"localTrial",watch.assigningLocalTrial}, {"nearbyAssignment",watch.assigningNearby},
+                {"targetGeneration",BuildingManager.instance.m_buildings.m_buffer[__1.m_targetBuilding].m_buildIndex},
                 {"path",__1.m_path}, {"waitingForPath",(__1.m_flags & Vehicle.Flags.WaitingPath) != 0},
-                {"outboundPathResult",null}, {"firstSpawn",null}, {"firstPickup",null}, {"returned",null}, {"released",null}
+                {"outboundPathResult",null}, {"firstSpawn",null}, {"firstPickup",null}, {"assignedPickup",null}, {"returned",null}, {"released",null}
             };
             PathUnit[] paths = PathManager.instance.m_pathUnits.m_buffer;
             if (__1.m_path != 0 && __1.m_path < paths.Length)
@@ -208,8 +216,17 @@ namespace NagoyaRoadDelivery
             return new Dictionary<string, object> {
                 {"collectionRequests",CountsByBuilding(collectionRequests)}, {"facilityOffers",CountsByBuilding(facilityOffers)},
                 {"facilityAssignments",CountsByBuilding(facilityAssignments)}, {"truckStarts",CountsByBuilding(truckStarts)},
-                {"samples",dispatchSamples}
+                {"samples",dispatchSamples}, {"nearbyDispatch",nearbyDispatch == null ? null : nearbyDispatch.Snapshot()}
             };
+        }
+
+        private static void DispatchNearby()
+        {
+            NativeWasteObservation watch = current;
+            if (watch == null || watch.nearbyDispatch == null) return;
+            watch.assigningNearby = true;
+            try { watch.nearbyDispatch.Tick(); }
+            finally { watch.assigningNearby = false; }
         }
 
         internal bool IsWatching(ushort id, uint generation)
@@ -238,6 +255,7 @@ namespace NagoyaRoadDelivery
         {
             public bool TrackedBuilding;
             public Dictionary<string, object> Dispatch;
+            public bool AssignedDestination;
             public uint BuildIndex;
             public ushort Garbage;
             public ushort Load;
@@ -251,9 +269,11 @@ namespace NagoyaRoadDelivery
             uint index;
             bool tracked = watch.buildings.TryGetValue(__3, out index) && index == __4.m_buildIndex && !watch.pickups.ContainsKey(__3);
             Dictionary<string, object> dispatch = FindDispatch(__0, __1.m_sourceBuilding);
-            if (dispatch != null && dispatch["firstPickup"] != null) dispatch = null;
+            bool assigned = dispatch != null && dispatch["assignedPickup"] == null && (ushort)dispatch["target"] == __3 &&
+                (uint)dispatch["targetGeneration"] == __4.m_buildIndex;
+            if (dispatch != null && dispatch["firstPickup"] != null && !assigned) dispatch = null;
             if (!tracked && dispatch == null) return;
-            __state = new Pickup {TrackedBuilding = tracked, Dispatch = dispatch, BuildIndex = __4.m_buildIndex,
+            __state = new Pickup {TrackedBuilding = tracked, Dispatch = dispatch, AssignedDestination = assigned, BuildIndex = __4.m_buildIndex,
                 Garbage = __4.m_garbageBuffer, Load = __1.m_transferSize};
         }
 
@@ -270,7 +290,11 @@ namespace NagoyaRoadDelivery
             };
             if (__state.TrackedBuilding) watch.pickups[__3] = pickup;
             if (__state.Dispatch != null)
-                __state.Dispatch["firstPickup"] = new Dictionary<string, object> {{"building",__3}, {"pickup",pickup}};
+            {
+                var observation = new Dictionary<string, object> {{"building",__3}, {"pickup",pickup}};
+                if (__state.Dispatch["firstPickup"] == null) __state.Dispatch["firstPickup"] = observation;
+                if (__state.AssignedDestination) __state.Dispatch["assignedPickup"] = observation;
+            }
         }
 
         public List<object> Snapshot()
