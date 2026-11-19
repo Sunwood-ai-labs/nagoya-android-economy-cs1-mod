@@ -38,6 +38,7 @@ namespace NagoyaRoadDelivery
         private readonly Dictionary<ItemClass.Zone, List<BuildingInfo>> prefabs = new Dictionary<ItemClass.Zone, List<BuildingInfo>>();
         private readonly HashSet<string> existingGroups = new HashSet<string>(StringComparer.Ordinal);
         private string runId, commandId, city, phase, failure;
+        private NativeCityFrontages frontageRepair;
         private bool attempted, requireGoodsShops;
         private volatile bool stopped;
         private int busy, cursor, placed;
@@ -98,18 +99,32 @@ namespace NagoyaRoadDelivery
                 return;
             }
             bool timeout = Time.realtimeSinceStartup > finishBy;
-            SimulationManager.instance.AddAction(delegate { PlaceBatch(timeout); });
+            SimulationManager.instance.AddAction(delegate {
+                if (frontageRepair == null) PlaceBatch(timeout);
+                else RepairFrontages();
+            });
         }
 
         private void LoadCommand(Dictionary<string, object> command)
         {
             commandId = FileToken((string)command["commandId"]);
-            string roadCommand = FileToken((string)command["roadCommandId"]);
             if (city != (string)command["expectedCityName"] || !city.StartsWith("NagoyaCitywide-", StringComparison.Ordinal) ||
                 GameAreaManager.instance.m_areaCount != 25 ||
-                File.Exists(Path.Combine(Root, commandId + "-zones.tsv")))
+                File.Exists(Path.Combine(Root, commandId + "-zones.tsv")) ||
+                File.Exists(Path.Combine(Root, commandId + "-frontages.json")))
                 throw new InvalidDataException("The city or zoning command differs from the isolated construction run");
 
+            object repair;
+            if (command.TryGetValue("repairFrontages", out repair))
+            {
+                var data = (Dictionary<string, object>)repair;
+                var wards = ((List<object>)data["wards"]).ConvertAll(delegate(object ward) { return (string)ward; });
+                frontageRepair = new NativeCityFrontages(wards.ToArray(), Convert.ToInt32(data["limitPerWard"]),
+                    (bool)data["apply"], Convert.ToUInt32(data["expectedBuildIndex"]), Convert.ToInt32(data["expectedSegments"]));
+                return;
+            }
+
+            string roadCommand = FileToken((string)command["roadCommandId"]);
             string roadFile = Path.Combine(Root, roadCommand + "-roads.tsv");
             string planFile = Path.Combine(Root, FileToken((string)command["plan"]));
             object goodsShops;
@@ -163,6 +178,27 @@ namespace NagoyaRoadDelivery
                 throw new InvalidDataException("Empty aggregate zoning site plan");
         }
 
+        private void RepairFrontages()
+        {
+            try
+            {
+                if (stopped) return;
+                Dictionary<string, object> report = frontageRepair.Run();
+                Publish(commandId + "-frontages.json", JsonData.Stringify(report));
+                phase = (bool)report["complete"] ? "frontages_checked" : "frontages_interrupted";
+            }
+            catch (Exception error)
+            {
+                failure = error.GetBaseException().Message;
+                phase = "frontages_interrupted";
+            }
+            finally
+            {
+                Interlocked.Exchange<string>(ref readyStatus, Status());
+                Interlocked.Exchange(ref busy, 0);
+            }
+        }
+
         private static ItemClass.SubService ZoneService(ItemClass.Zone zone)
         {
             switch (zone)
@@ -185,7 +221,8 @@ namespace NagoyaRoadDelivery
             {
                 BuildingInfo info = PrefabCollection<BuildingInfo>.GetLoaded(i);
                 if (info == null || info.m_class.m_subService != service ||
-                    info.m_class.m_level != ItemClass.Level.Level1 || info.name.StartsWith("Custom", StringComparison.Ordinal))
+                    info.m_class.m_level != ItemClass.Level.Level1 || info.m_zoningMode != BuildingInfo.ZoningMode.Straight ||
+                    info.name.StartsWith("Custom", StringComparison.Ordinal))
                     continue;
                 int width = info.GetWidth(), length = info.GetLength();
                 if (requireGoodsShops && commercial)
@@ -321,10 +358,8 @@ namespace NagoyaRoadDelivery
         private static bool Available(ZoneManager manager, ZoneBlock block, int row, int width, int length,
             ItemClass.Zone use, out Vector3 center, out float angle)
         {
-            Vector3 across = new Vector3(Mathf.Cos(block.m_angle), 0, Mathf.Sin(block.m_angle)) * 8;
-            Vector3 along = new Vector3(across.z, 0, -across.x);
-            center = block.m_position + across * ((length - 1) * .5f - 3.5f) + along * (row + (width - 1) * .5f - 3.5f);
-            angle = block.m_angle;
+            center = NativeCityFrontages.Center(block, row, width, length);
+            angle = NativeCityFrontages.StraightAngle(block);
             for (int y = row; y < row + width; y++)
                 for (int x = 0; x < length; x++)
                 {
