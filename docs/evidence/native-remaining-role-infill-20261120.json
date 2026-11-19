@@ -1,0 +1,309 @@
+{
+  "source": "Cities: Skylines vacancy, zoning, native utility receipts and live city readbacks",
+  "baseline": {
+    "city": "NagoyaCitywide-Construction",
+    "rosterUtc": "2026-11-19T18:08:46.0710111Z",
+    "activeNativeZonedSites": 7200,
+    "nativeSiteGroupCount": 7200,
+    "plateauSourceIds": 738033,
+    "sourceCoverage": {
+      "allRolesActive": 695344,
+      "noActiveRole": 9631,
+      "someRolesActive": 760,
+      "withoutClassifiedRoles": 32298
+    },
+    "roleMemberships": {
+      "active": 731210,
+      "uncovered": 10530
+    },
+    "writesToGame": false
+  },
+  "firstPlacement": {
+    "commandId": "e61afb68105945ceba5e5ae7b7e8503a",
+    "built": 48,
+    "survey": {
+      "surveyed": 67015,
+      "nearBothUtilities": 39332,
+      "uncoveredRoleGroups": 574,
+      "consideredRoleGroups": 574,
+      "deferredReasons": {
+        "no compatible frontage": 477,
+        "missing nearby utilities": 47,
+        "surveyed cells already reserved": 2
+      },
+      "proposed": 48,
+      "deferred": 526,
+      "memberships": 4098,
+      "byWard": {
+        "守山区": 6,
+        "天白区": 5,
+        "南区": 3,
+        "千種区": 2,
+        "中川区": 6,
+        "東区": 3,
+        "昭和区": 1,
+        "名東区": 4,
+        "熱田区": 3,
+        "緑区": 1,
+        "西区": 3,
+        "港区": 9,
+        "中村区": 1,
+        "北区": 1
+      },
+      "byUse": {
+        "ResidentialLow": 8,
+        "Industrial": 10,
+        "ResidentialHigh": 6,
+        "CommercialLow": 9,
+        "CommercialHigh": 3,
+        "Office": 12
+      },
+      "byFootprint": {
+        "3x4": 6,
+        "4x4": 4,
+        "1x1": 10,
+        "2x3": 10,
+        "2x4": 1,
+        "1x3": 1,
+        "1x2": 11,
+        "2x2": 3,
+        "3x3": 1,
+        "3x2": 1
+      }
+    }
+  },
+  "utilityExtension": {
+    "commandId": "fac2ac5691d14fbabfbaf18db942002b",
+    "nativeSegmentsByType": {
+      "water": 30,
+      "power": 31
+    },
+    "verifiedAfterReload": 61,
+    "targetGroups": 33
+  },
+  "secondPlacement": {
+    "commandId": "6ab5f3f00b8144c99329f9bc03c40fca",
+    "built": 33,
+    "linkedToDesignedUtilityTargets": 24,
+    "survey": {
+      "surveyed": 66146,
+      "nearBothUtilities": 39280,
+      "uncoveredRoleGroups": 526,
+      "consideredRoleGroups": 526,
+      "deferredReasons": {
+        "no compatible frontage": 485,
+        "missing nearby utilities": 4,
+        "surveyed cells already reserved": 4
+      },
+      "proposed": 33,
+      "deferred": 493,
+      "memberships": 812,
+      "byWard": {
+        "北区": 11,
+        "天白区": 2,
+        "西区": 3,
+        "中区": 3,
+        "中川区": 4,
+        "守山区": 5,
+        "港区": 2,
+        "緑区": 2,
+        "瑞穂区": 1
+      },
+      "byUse": {
+        "ResidentialLow": 3,
+        "ResidentialHigh": 4,
+        "Office": 10,
+        "CommercialLow": 8,
+        "Industrial": 6,
+        "CommercialHigh": 2
+      },
+      "byFootprint": {
+        "2x4": 3,
+        "3x4": 3,
+        "4x4": 1,
+        "2x3": 5,
+        "2x2": 5,
+        "1x2": 9,
+        "1x1": 6,
+        "3x3": 1
+      }
+    }
+  },
+  "combinedPlacement": {
+    "built": 81,
+    "wards": 16,
+    "byUse": {
+      "ResidentialLow": 11,
+      "Industrial": 16,
+      "ResidentialHigh": 10,
+      "CommercialLow": 17,
+      "CommercialHigh": 5,
+      "Office": 22
+    }
+  },
+  "firstObservation": {
+    "gameTime": "2029-11-29T21:37:50",
+    "cash": 40854.81,
+    "nativeBuildingsFound": 81,
+    "buildingFlagsActive": 81,
+    "nativeBoundGroups": 81,
+    "activeByUse": {
+      "Residential": 21,
+      "Commercial": 22,
+      "Industrial": 16,
+      "Office": 22
+    },
+    "residentialBothServicesWithSameGeneration": 21,
+    "problems": {
+      "Electricity": 1
+    },
+    "newHousingAndroids": [
+      {
+        "id": 741823,
+        "home": 9353,
+        "nativeHousehold": 427426
+      },
+      {
+        "id": 753828,
+        "home": 9353,
+        "nativeHousehold": 427426
+      }
+    ],
+    "newEmploymentAndroids": [
+      {
+        "id": 189802,
+        "building": 42379
+      }
+    ],
+    "newHousingOrWorkArrival": 0,
+    "deliveries": 12,
+    "deliveryWards": {
+      "天白区": 3,
+      "中区": 1,
+      "中川区": 1,
+      "西区": 1,
+      "東区": 1,
+      "緑区": 3,
+      "守山区": 1,
+      "港区": 1
+    },
+    "deliveriesFromOrToNewBuildings": [],
+    "city": {
+      "nativeHumanResidents": 9716,
+      "humansWithWorkplace": 4329,
+      "androidHomeMembers": 570,
+      "androidWorkMembers": 540
+    },
+    "bothGroupsLiveAndWorkWards": 16
+  },
+  "coverageAtFirstObservation": {
+    "city": "NagoyaCitywide-Construction",
+    "rosterUtc": "2026-11-19T18:15:32.5708144Z",
+    "activeNativeZonedSites": 7254,
+    "nativeSiteGroupCount": 7254,
+    "plateauSourceIds": 738033,
+    "sourceCoverage": {
+      "noActiveRole": 8497,
+      "allRolesActive": 696759,
+      "someRolesActive": 479,
+      "withoutClassifiedRoles": 32298
+    },
+    "roleMemberships": {
+      "uncovered": 9110,
+      "active": 732630
+    },
+    "writesToGame": false
+  },
+  "final": {
+    "gameTime": "2029-12-02T04:03:31",
+    "cash": 16934.0,
+    "network": {
+      "nodes": 32699,
+      "segments": 32718,
+      "lanes": 157604
+    },
+    "repairReceipt": {
+      "source": "moriyama_factory_5715",
+      "ordinal": "0",
+      "nativeId": "30026",
+      "buildIndex": "125967",
+      "startNode": "17133",
+      "endNode": "16438",
+      "prefabTag": "power",
+      "error": ""
+    },
+    "factory": {
+      "id": 5715,
+      "prefab": "H1 2x2 Sweatshop03",
+      "displayName": "H1 2x2 Sweatshop03",
+      "active": true,
+      "abandoned": false,
+      "flags": "Created, Completed, Active",
+      "service": "Industrial",
+      "subService": "IndustrialGeneric",
+      "level": "Level1",
+      "width": 2,
+      "length": 2,
+      "angleDegrees": 315.258,
+      "problems": "",
+      "position": {
+        "x": 3896.742,
+        "y": 140,
+        "z": 4167.489
+      }
+    },
+    "activeNewLotsById": 81,
+    "activeNewGroups": 81,
+    "newActiveWarnings": {},
+    "newResidentialWithWaterAndSewer": 21,
+    "activeGroupLossSinceFirstObservation": 3,
+    "largestRolesLosingActiveCoverageSinceFirstObservation": [
+      [
+        "守山区:13:5:ResidentialLow",
+        651
+      ],
+      [
+        "守山区:15:6:ResidentialHigh",
+        178
+      ],
+      [
+        "緑区:7:-24:ResidentialLow",
+        85
+      ],
+      [
+        "守山区:13:4:ResidentialLow",
+        38
+      ]
+    ],
+    "bothGroupsLiveAndWorkWards": 16,
+    "cityPopulation": {
+      "nativeHumanResidents": 9726,
+      "humansWithWorkplace": 4383,
+      "androidHomeMembers": 570,
+      "androidWorkMembers": 539
+    },
+    "activePlateauCoverage": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T18:18:15.8756316Z",
+      "activeNativeZonedSites": 7255,
+      "nativeSiteGroupCount": 7255,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "noActiveRole": 9177,
+        "allRolesActive": 696085,
+        "someRolesActive": 473,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "uncovered": 9784,
+        "active": 731956
+      },
+      "writesToGame": false
+    }
+  },
+  "save": {
+    "bytes": 15403663,
+    "sha256": "A00B19C52B214831A19E0CDAA6CE3A4C0BEC8CBED513980218DB9099B3B225DC",
+    "name": "NagoyaCitywide-RemainingRoles-PowerRestored"
+  }
+}
