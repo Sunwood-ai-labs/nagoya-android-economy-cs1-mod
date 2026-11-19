@@ -149,14 +149,20 @@ namespace NagoyaRoadDelivery
                 catch (Exception ex) { Debug.LogException(ex); }
             }
             UpdateVisuals();
-            if (employmentTrial != null && attempted) return;
+            NativeEmploymentTrial trial = employmentTrial;
+            if (trial != null && attempted && (!trial.Running || DateTime.UtcNow < trial.Deadline)) return;
             if (Time.realtimeSinceStartup < nextSample || Interlocked.CompareExchange(ref queued, 1, 0) != 0) return;
             nextSample = Time.realtimeSinceStartup + 4;
             SimulationManager.instance.AddAction(delegate {
                 try
                 {
                     if (employmentTrial != null)
-                        StartEmploymentTrial();
+                    {
+                        if (employmentTrial.Running)
+                            ObserveEmploymentTrialFrame();
+                        else
+                            StartEmploymentTrial();
+                    }
                     else
                     {
                         CreateRequestedResidents();
@@ -413,10 +419,11 @@ namespace NagoyaRoadDelivery
             NativeEmploymentTrial trial = employmentTrial;
             if (!sim.SimulationPaused)
                 throw new InvalidOperationException("The employment trial must begin on a paused checkpoint");
+            trial.PrepareOpeningEconomy();
             trial.StartFrame = sim.m_currentFrameIndex;
             trial.Start = sim.FrameToTime(trial.StartFrame);
             trial.NextSample = trial.Start.AddHours(2);
-            trial.Deadline = DateTime.UtcNow.AddSeconds(90);
+            trial.Deadline = DateTime.UtcNow.AddSeconds(trial.OpeningCash.HasValue ? 300 : 90);
             caseId = trial.CaseId;
             trial.Baseline = Observe(trial.Start).Json;
             PopulateResidents(Math.Min(NativeCityLedger.MaxResidents, cohort.Count + trial.AdditionalResidents));
@@ -426,7 +433,7 @@ namespace NagoyaRoadDelivery
             Interlocked.Exchange<Sample>(ref sample, admitted);
             trial.Running = true;
             sim.ForcedSimulationPaused = false;
-            sim.SelectedSimulationSpeed = 1;
+            sim.SelectedSimulationSpeed = trial.Speed;
             sim.SimulationPaused = false;
         }
 
@@ -551,6 +558,8 @@ namespace NagoyaRoadDelivery
         {
             CitizenManager manager = CitizenManager.instance;
             bool clockRunning = !SimulationManager.instance.SimulationPaused;
+            NativeEmploymentTrial trial = employmentTrial;
+            bool fullLifeSimulation = trial == null || trial.OpeningCash.HasValue;
             if (localDeliveries != null && cohort.Count > 0) localDeliveries.BeginSample(now);
             double minutes = lastGameTime == DateTime.MinValue ? 0 : Math.Max(0, Math.Min(180, (now - lastGameTime).TotalMinutes));
             lastGameTime = now;
@@ -575,7 +584,7 @@ namespace NagoyaRoadDelivery
                 androidHomeMembers++;
                 if (data.CurrentLocation != Citizen.Location.Moving) member.ShopReturnHome = 0;
                 ObserveWalking(manager, (uint)i, data, member);
-                if (clockRunning && employmentTrial == null && localDeliveries != null && member.Battery >= 30 &&
+                if (clockRunning && fullLifeSimulation && localDeliveries != null && member.Battery >= 30 &&
                     (data.m_flags & Citizen.Flags.Student) == 0 && localDeliveries.HireForLocalDelivery((uint)i, ref people[i], now))
                 {
                     data = people[i];
@@ -583,7 +592,7 @@ namespace NagoyaRoadDelivery
                 }
                 bool jobMember = employed && InWorkUnit(manager, data.m_workBuilding, (uint)i);
                 if (jobMember) { androidEmployed++; androidWorkMembers++; }
-                if (clockRunning && employmentTrial == null && localDeliveries != null &&
+                if (clockRunning && fullLifeSimulation && localDeliveries != null &&
                     RecoverMissingTravel((uint)i, ref people[i], member, now, jobMember))
                     data = people[i];
                 bool delivering = clockRunning && jobMember && localDeliveries != null && member.Battery >= 30 &&

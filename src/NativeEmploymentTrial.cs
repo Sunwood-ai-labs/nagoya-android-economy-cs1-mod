@@ -20,7 +20,10 @@ namespace NagoyaRoadDelivery
     {
         private const string Request = "native-employment-trial.json";
         public string CaseId;
-        public int AdditionalResidents, Hours;
+        public int AdditionalResidents, Hours, Speed;
+        public int? OpeningCash;
+        public long OpeningCreditRaw;
+        public Dictionary<string, object> OpeningEconomy;
         public DateTime Start, End, NextSample, Deadline;
         public uint StartFrame, EndFrame;
         public string Baseline, AfterAdmission;
@@ -51,11 +54,15 @@ namespace NagoyaRoadDelivery
                     throw new InvalidOperationException(String.Format(CultureInfo.InvariantCulture,
                         "Employment checkpoint mismatch (actual: {0:s}, build {1}, network segments {2})",
                         actualTime, simulation.m_currentBuildIndex, NetManager.instance.m_segmentCount));
-                int hours = ReadInt(values, "durationHours", 1, 96);
+                bool funded = values.ContainsKey("openingCash");
+                int hours = ReadInt(values, "durationHours", 1, funded ? 720 : 96);
                 int additional = ReadInt(values, "additionalAndroids", 0, NativeCityLedger.MaxResidents);
+                int? openingCash = funded ? (int?)ReadInt(values, "openingCash", 100000, 5000000) : null;
                 File.Move(path, Path.Combine(root, "native-employment-" + id + ".request.json"));
                 simulation.SimulationPaused = true;
-                return new NativeEmploymentTrial { CaseId=id, AdditionalResidents=additional, Hours=hours };
+                return new NativeEmploymentTrial {
+                    CaseId=id, AdditionalResidents=additional, Hours=hours, OpeningCash=openingCash, Speed=funded ? 2 : 1
+                };
             }
             catch (Exception error)
             {
@@ -72,6 +79,45 @@ namespace NagoyaRoadDelivery
             return (int)raw;
         }
 
+        internal void PrepareOpeningEconomy()
+        {
+            if (!OpeningCash.HasValue) return;
+            EconomyManager economy = EconomyManager.instance;
+            long before = economy.InternalCashAmount;
+            long target = OpeningCash.Value * 100L;
+            long credit = target - before;
+            if (credit < 0 || credit > Int32.MaxValue)
+                throw new InvalidOperationException("Opening cash falls outside the applicable one-time grant");
+            OpeningEconomy = ReadEconomy();
+            if (credit > 0)
+                economy.AddResource(EconomyManager.Resource.RewardAmount, (int)credit,
+                    ItemClass.Service.None, ItemClass.SubService.None, ItemClass.Level.None);
+            if (economy.InternalCashAmount != target)
+                throw new InvalidOperationException("The game's opening cash did not reach the requested balance");
+            OpeningCreditRaw = credit;
+        }
+
+        private static Dictionary<string, object> ReadEconomy()
+        {
+            EconomyManager economy = EconomyManager.instance;
+            long taxAndTransit = 0, operatingExpenses = 0;
+            foreach (ItemClass.Service service in Enum.GetValues(typeof(ItemClass.Service)))
+            {
+                if (service == ItemClass.Service.None) continue;
+                long income, expenses;
+                economy.GetIncomeAndExpenses(service, ItemClass.SubService.None, ItemClass.Level.None, out income, out expenses);
+                if (service == ItemClass.Service.Residential || service == ItemClass.Service.Commercial ||
+                    service == ItemClass.Service.Industrial || service == ItemClass.Service.Office ||
+                    service == ItemClass.Service.PublicTransport) taxAndTransit += income;
+                operatingExpenses += expenses;
+            }
+            return new Dictionary<string, object> {
+                {"cashRaw",economy.InternalCashAmount}, {"taxAndTransitIncomeRaw",taxAndTransit},
+                {"operatingExpensesRaw",operatingExpenses},
+                {"loanExpensesRaw",economy.GetLoanExpenses()}, {"policyExpensesRaw",economy.GetPolicyExpenses()}
+            };
+        }
+
         internal void SaveResult(string terminalSample, string status)
         {
             Dictionary<string, object> result = new Dictionary<string, object> {
@@ -81,6 +127,11 @@ namespace NagoyaRoadDelivery
                 {"baseline",JsonData.Parse(Baseline)}, {"afterAdmission",JsonData.Parse(AfterAdmission)},
                 {"end",JsonData.Parse(terminalSample)}
             };
+            if (OpeningCash.HasValue)
+                result["economy"] = new Dictionary<string, object> {
+                    {"openingCashTargetRaw",OpeningCash.Value * 100L}, {"openingCreditRaw",OpeningCreditRaw},
+                    {"beforeOpeningCredit",OpeningEconomy}, {"end",ReadEconomy()}
+                };
             string path = Path.Combine(NativeCityRoadBuilder.Root, "native-employment-" + CaseId + ".json");
             string pending = path + ".tmp";
             File.WriteAllText(pending, JsonData.Stringify(result), new UTF8Encoding(false));

@@ -1,0 +1,471 @@
+{
+  "sourceCheckpoint": {
+    "name": "NagoyaCitywide-EmploymentTrial-Common",
+    "sha256": "0FB3341B5B1D5F9D36E0523902E6B6C9ED501E2105017332A4C249000C5D875A",
+    "bytes": 15461965,
+    "gameTime": "2029-05-31T16:46:23",
+    "buildIndex": 124791,
+    "segments": 32655,
+    "nodes": 32636
+  },
+  "sourceCheckpointVerifiedUnchanged": true,
+  "treatmentEndCheckpoint": {
+    "name": "NagoyaCitywide-EmploymentTrial-Added123-30Days",
+    "sha256": "D4AC16F8C3F8C3956725C75C01CF6FC7477BB9069C37EFC6FBE4BFF220C14B8E",
+    "bytes": 15463670,
+    "archiveVerified": true,
+    "reloaded": false
+  },
+  "archiveReceiptSha256": {
+    "control": "9366ACC8D8608ACDC2F522D043E5A441996D1D15F2B7E065C81D3F23B081A6DB",
+    "treatment": "BDA972B6F1266F3122E4BDDF0AE72521B12F6171E6FAFBFE8D04DEC3F07337A1"
+  },
+  "continuousCashOverrideEnabled": false,
+  "comparison": {
+    "startGameTime": "2029-05-31T16:52:21",
+    "endGameTime": "2029-06-30T16:54:06",
+    "window": {
+      "startTicks": "640105375413267276",
+      "endTicks": "640131296467954776",
+      "startFrame": 55170050,
+      "endFrame": 55187605,
+      "durationHours": 720
+    },
+    "control": {
+      "caseId": "funded-control-720h-v1",
+      "requestedExtraAndroids": 0,
+      "baseline": {
+        "nativeHumanResidents": 9066,
+        "humansWithWorkplace": 4247,
+        "androidHomeMembers": 421,
+        "androidWorkMembers": 409,
+        "androidIdentities": 421
+      },
+      "afterAdmission": {
+        "nativeHumanResidents": 9066,
+        "humansWithWorkplace": 4247,
+        "androidHomeMembers": 421,
+        "androidWorkMembers": 409,
+        "androidIdentities": 421
+      },
+      "end": {
+        "nativeHumanResidents": 9091,
+        "humansWithWorkplace": 4184,
+        "androidHomeMembers": 417,
+        "androidWorkMembers": 404,
+        "androidIdentities": 418
+      },
+      "newAndroidsAdmitted": 0,
+      "newAndroidsAtEnd": 0,
+      "newAndroidsWithWorkplace": 0,
+      "newAndroidsWithCommutePath": 0,
+      "newAndroidsWithWorkObservation": 0,
+      "newAndroidsWithNativeWorkArrival": 0,
+      "newAndroidsWithChargeObservation": 0,
+      "shopDeliveries": 0,
+      "shopDeliveriesByWard": {}
+    },
+    "treatment": {
+      "caseId": "funded-add-256-720h-v1",
+      "requestedExtraAndroids": 256,
+      "baseline": {
+        "nativeHumanResidents": 9066,
+        "humansWithWorkplace": 4247,
+        "androidHomeMembers": 421,
+        "androidWorkMembers": 409,
+        "androidIdentities": 421
+      },
+      "afterAdmission": {
+        "nativeHumanResidents": 9066,
+        "humansWithWorkplace": 4247,
+        "androidHomeMembers": 544,
+        "androidWorkMembers": 409,
+        "androidIdentities": 544
+      },
+      "end": {
+        "nativeHumanResidents": 9054,
+        "humansWithWorkplace": 4151,
+        "androidHomeMembers": 526,
+        "androidWorkMembers": 511,
+        "androidIdentities": 528
+      },
+      "newAndroidsAdmitted": 123,
+      "newAndroidsAtEnd": 117,
+      "newAndroidsWithWorkplace": 117,
+      "newAndroidsWithCommutePath": 116,
+      "newAndroidsWithWorkObservation": 26,
+      "newAndroidsWithNativeWorkArrival": 43,
+      "newAndroidsWithChargeObservation": 117,
+      "shopDeliveries": 0,
+      "shopDeliveriesByWard": {}
+    },
+    "endDifferenceTreatmentMinusControl": {
+      "nativeHumanResidents": -37,
+      "humansWithWorkplace": -33,
+      "androidHomeMembers": 109,
+      "androidWorkMembers": 107,
+      "androidIdentities": 110
+    },
+    "economy": {
+      "openingCashRaw": 200000000,
+      "oneTimeOpeningCreditRaw": 993652677,
+      "controlEnd": {
+        "cashRaw": 168302233,
+        "taxAndTransitIncomeRaw": 3144410,
+        "operatingExpensesRaw": 10663312,
+        "loanExpensesRaw": 0,
+        "policyExpensesRaw": 0
+      },
+      "treatmentEnd": {
+        "cashRaw": 168321475,
+        "taxAndTransitIncomeRaw": 3142295,
+        "operatingExpensesRaw": 10663312,
+        "loanExpensesRaw": 0,
+        "policyExpensesRaw": 0
+      },
+      "endDifferenceTreatmentMinusControl": {
+        "cashRaw": 19242,
+        "taxAndTransitIncomeRaw": -2115,
+        "operatingExpensesRaw": 0,
+        "loanExpensesRaw": 0,
+        "policyExpensesRaw": 0
+      }
+    }
+  },
+  "travelDiagnosticsSlottedControlThenTreatment": {
+    "withoutCitizenInstanceOrVehicle": [
+      303,
+      378
+    ],
+    "dispatchesStarted": [
+      72,
+      121
+    ],
+    "failedLegs": [
+      266,
+      411
+    ],
+    "expiredLegs": [
+      147,
+      266
+    ],
+    "deliveriesCompleted": [
+      0,
+      0
+    ],
+    "passengerCarsAtEnd": [
+      675,
+      688
+    ],
+    "wardsWithBothPopulationsAndJobs": [
+      16,
+      16
+    ]
+  },
+  "wardCountsControlThenTreatment": [
+    {
+      "ward": "港区",
+      "humanWorkers": [
+        367,
+        360
+      ],
+      "androidWorkers": [
+        48,
+        58
+      ],
+      "humanResidents": [
+        807,
+        778
+      ],
+      "androidResidents": [
+        22,
+        31
+      ]
+    },
+    {
+      "ward": "守山区",
+      "humanWorkers": [
+        283,
+        283
+      ],
+      "androidWorkers": [
+        42,
+        50
+      ],
+      "humanResidents": [
+        634,
+        628
+      ],
+      "androidResidents": [
+        39,
+        56
+      ]
+    },
+    {
+      "ward": "昭和区",
+      "humanWorkers": [
+        168,
+        171
+      ],
+      "androidWorkers": [
+        14,
+        15
+      ],
+      "humanResidents": [
+        250,
+        247
+      ],
+      "androidResidents": [
+        12,
+        13
+      ]
+    },
+    {
+      "ward": "瑞穂区",
+      "humanWorkers": [
+        139,
+        132
+      ],
+      "androidWorkers": [
+        8,
+        14
+      ],
+      "humanResidents": [
+        255,
+        267
+      ],
+      "androidResidents": [
+        18,
+        23
+      ]
+    },
+    {
+      "ward": "西区",
+      "humanWorkers": [
+        205,
+        211
+      ],
+      "androidWorkers": [
+        25,
+        28
+      ],
+      "humanResidents": [
+        505,
+        496
+      ],
+      "androidResidents": [
+        26,
+        27
+      ]
+    },
+    {
+      "ward": "千種区",
+      "humanWorkers": [
+        187,
+        187
+      ],
+      "androidWorkers": [
+        18,
+        26
+      ],
+      "humanResidents": [
+        370,
+        366
+      ],
+      "androidResidents": [
+        15,
+        21
+      ]
+    },
+    {
+      "ward": "中区",
+      "humanWorkers": [
+        133,
+        132
+      ],
+      "androidWorkers": [
+        3,
+        5
+      ],
+      "humanResidents": [
+        270,
+        258
+      ],
+      "androidResidents": [
+        11,
+        8
+      ]
+    },
+    {
+      "ward": "中川区",
+      "humanWorkers": [
+        350,
+        352
+      ],
+      "androidWorkers": [
+        31,
+        38
+      ],
+      "humanResidents": [
+        786,
+        789
+      ],
+      "androidResidents": [
+        40,
+        52
+      ]
+    },
+    {
+      "ward": "中村区",
+      "humanWorkers": [
+        181,
+        179
+      ],
+      "androidWorkers": [
+        18,
+        23
+      ],
+      "humanResidents": [
+        405,
+        400
+      ],
+      "androidResidents": [
+        13,
+        13
+      ]
+    },
+    {
+      "ward": "天白区",
+      "humanWorkers": [
+        225,
+        221
+      ],
+      "androidWorkers": [
+        27,
+        35
+      ],
+      "humanResidents": [
+        528,
+        533
+      ],
+      "androidResidents": [
+        33,
+        39
+      ]
+    },
+    {
+      "ward": "東区",
+      "humanWorkers": [
+        119,
+        114
+      ],
+      "androidWorkers": [
+        8,
+        10
+      ],
+      "humanResidents": [
+        155,
+        161
+      ],
+      "androidResidents": [
+        11,
+        13
+      ]
+    },
+    {
+      "ward": "南区",
+      "humanWorkers": [
+        209,
+        213
+      ],
+      "androidWorkers": [
+        17,
+        23
+      ],
+      "humanResidents": [
+        410,
+        413
+      ],
+      "androidResidents": [
+        27,
+        32
+      ]
+    },
+    {
+      "ward": "熱田区",
+      "humanWorkers": [
+        102,
+        100
+      ],
+      "androidWorkers": [
+        8,
+        11
+      ],
+      "humanResidents": [
+        228,
+        226
+      ],
+      "androidResidents": [
+        5,
+        7
+      ]
+    },
+    {
+      "ward": "北区",
+      "humanWorkers": [
+        197,
+        193
+      ],
+      "androidWorkers": [
+        20,
+        30
+      ],
+      "humanResidents": [
+        415,
+        425
+      ],
+      "androidResidents": [
+        14,
+        20
+      ]
+    },
+    {
+      "ward": "名東区",
+      "humanWorkers": [
+        200,
+        202
+      ],
+      "androidWorkers": [
+        24,
+        27
+      ],
+      "humanResidents": [
+        502,
+        498
+      ],
+      "androidResidents": [
+        12,
+        15
+      ]
+    },
+    {
+      "ward": "緑区",
+      "humanWorkers": [
+        369,
+        365
+      ],
+      "androidWorkers": [
+        49,
+        58
+      ],
+      "humanResidents": [
+        882,
+        864
+      ],
+      "androidResidents": [
+        34,
+        52
+      ]
+    }
+  ]
+}

@@ -26,6 +26,7 @@ def summarize(trial):
     old_ids = {row["citizenId"] for row in base["androids"]}
     new_ids = {row["citizenId"] for row in admitted["androids"]} - old_ids
     observed = [row for row in end["androids"] if row["citizenId"] in new_ids]
+    deliveries = end["nativeDeliveries"]
     return {
         "caseId": trial["caseId"],
         "requestedExtraAndroids": trial["requestedAdditionalAndroids"],
@@ -35,8 +36,10 @@ def summarize(trial):
         "newAndroidsWithWorkplace": sum(row["workUnitConfirmed"] for row in observed),
         "newAndroidsWithCommutePath": sum(row["commuteSamples"] > 0 for row in observed),
         "newAndroidsWithWorkObservation": sum(row["workSamples"] > 0 for row in observed),
+        "newAndroidsWithNativeWorkArrival": sum(row.get("nativeWorkArrivals", 0) > 0 for row in observed),
         "newAndroidsWithChargeObservation": sum(row["chargeStarts"] > 0 for row in observed),
-        "shopDeliveries": end["nativeDeliveries"]["delivered"],
+        "shopDeliveries": deliveries["delivered"],
+        "shopDeliveriesByWard": deliveries.get("deliveriesByWard", {}),
     }
 
 
@@ -54,13 +57,30 @@ def compare(control, treatment):
     a, b = summarize(control), summarize(treatment)
     if a["requestedExtraAndroids"] != 0 or a["newAndroidsAdmitted"] != 0 or b["newAndroidsAdmitted"] <= 0:
         raise ValueError("The requested change in Android admissions did not occur")
-    return {
+    result = {
         "startGameTime": baseline_a["gameTime"],
         "endGameTime": control["end"]["gameTime"],
         "window": {key: control[key] for key in window_keys},
         "control": a, "treatment": b,
         "endDifferenceTreatmentMinusControl": {key: b["end"][key] - a["end"][key] for key in a["end"]},
     }
+    economy_a, economy_b = control.get("economy"), treatment.get("economy")
+    if economy_a is not None or economy_b is not None:
+        if economy_a is None or economy_b is None:
+            raise ValueError("Both native cases must use the same opening reserve setup")
+        start_fields = ("openingCashTargetRaw", "openingCreditRaw", "beforeOpeningCredit")
+        if any(economy_a[key] != economy_b[key] for key in start_fields):
+            raise ValueError("The two cases did not share the same opening cash or operating budget")
+        result["economy"] = {
+            "openingCashRaw": economy_a["openingCashTargetRaw"],
+            "oneTimeOpeningCreditRaw": economy_a["openingCreditRaw"],
+            "controlEnd": economy_a["end"],
+            "treatmentEnd": economy_b["end"],
+            "endDifferenceTreatmentMinusControl": {
+                key: economy_b["end"][key] - value for key, value in economy_a["end"].items()
+            },
+        }
+    return result
 
 
 if __name__ == "__main__":
