@@ -15,6 +15,7 @@ namespace NagoyaRoadDelivery
         private const string Root = NativeCityRoadBuilder.Root;
         private const int MaxSites = 3000;
         private const int MaxFrontagesPerSite = 8;
+        private const float DefaultPlacementDistance = 48f;
         private static readonly CultureInfo Invariant = CultureInfo.InvariantCulture;
 
         private sealed class Site
@@ -51,6 +52,8 @@ namespace NagoyaRoadDelivery
         private volatile bool stopped;
         private int busy, cursor, placed;
         private float nextUpdate, finishBy;
+        private float placementDistance = DefaultPlacementDistance;
+        private DateTime lastSurveyWriteUtc;
         private string readyStatus;
 
         public void Start()
@@ -75,6 +78,7 @@ namespace NagoyaRoadDelivery
             string ready = Interlocked.Exchange<string>(ref readyStatus, null);
             if (ready != null)
                 Publish("zone-runtime.json", ready);
+            if (phase == "ready" && StartVacancySurvey()) return;
             if (!attempted)
             {
                 try
@@ -113,6 +117,55 @@ namespace NagoyaRoadDelivery
             });
         }
 
+        private bool StartVacancySurvey()
+        {
+            string path = Path.Combine(Root, "vacancy-command.json");
+            DateTime write = File.GetLastWriteTimeUtc(path);
+            if (write == lastSurveyWriteUtc) return false;
+            lastSurveyWriteUtc = write;
+            if (!File.Exists(path)) return false;
+            string id = null;
+            try
+            {
+                var command = (Dictionary<string, object>)JsonData.Parse(ReadFile(path, 4096));
+                if ((string)command["runId"] != runId) return false;
+                id = FileToken((string)command["commandId"]);
+                if ((string)command["expectedCityName"] != city || !city.StartsWith("NagoyaCitywide-", StringComparison.Ordinal))
+                    throw new InvalidDataException("The vacancy survey must target the loaded Nagoya city");
+                uint buildIndex = Convert.ToUInt32(command["expectedBuildIndex"]);
+                int segments = Convert.ToInt32(command["expectedSegments"]);
+                SimulationManager.instance.AddAction(delegate { SurveyVacancies(id, buildIndex, segments); });
+                return true;
+            }
+            catch (Exception error)
+            {
+                PublishVacancyResult(id, "rejected", null, error.GetBaseException().Message);
+                return false;
+            }
+        }
+
+        private void SurveyVacancies(string id, uint buildIndex, int segments)
+        {
+            try
+            {
+                if (stopped) return;
+                Dictionary<string, object> report = NativeCityVacantFrontages.Export(Root, id, buildIndex, segments);
+                PublishVacancyResult(id, "complete", report, null);
+            }
+            catch (Exception error)
+            {
+                PublishVacancyResult(id, "rejected", null, error.GetBaseException().Message);
+            }
+            finally { Interlocked.Exchange(ref busy, 0); }
+        }
+
+        private void PublishVacancyResult(string id, string result, Dictionary<string, object> report, string error)
+        {
+            Publish("vacancy-runtime.json", JsonData.Stringify(new Dictionary<string, object> {
+                {"runId", runId}, {"commandId", id}, {"city", city}, {"phase", result}, {"survey", report}, {"error", error}
+            }));
+        }
+
         private void LoadCommand(Dictionary<string, object> command)
         {
             commandId = FileToken((string)command["commandId"]);
@@ -137,6 +190,10 @@ namespace NagoyaRoadDelivery
             string planFile = Path.Combine(Root, FileToken((string)command["plan"]));
             object goodsShops;
             requireGoodsShops = command.TryGetValue("requireGoodsShops", out goodsShops) && (bool)goodsShops;
+            object distance;
+            if (command.TryGetValue("maxShiftMeters", out distance)) placementDistance = Convert.ToSingle(distance, Invariant);
+            if (Single.IsNaN(placementDistance) || placementDistance < .25f || placementDistance > DefaultPlacementDistance)
+                throw new InvalidDataException("Invalid maximum distance to a zoning frontage");
             CheckDigest(roadFile, (string)command["roadSha256"]);
             CheckDigest(planFile, (string)command["planSha256"]);
             using (StringReader lines = new StringReader(ReadFile(roadFile, 8 * 1024 * 1024)))
@@ -229,7 +286,7 @@ namespace NagoyaRoadDelivery
             }
         }
 
-        private static List<BuildingInfo> SelectPrefabs(ItemClass.SubService service, bool requireGoodsShops)
+        internal static List<BuildingInfo> SelectPrefabs(ItemClass.SubService service, bool requireGoodsShops)
         {
             Dictionary<int, BuildingInfo> sizes = new Dictionary<int, BuildingInfo>();
             bool commercial = service == ItemClass.SubService.CommercialLow || service == ItemClass.SubService.CommercialHigh;
@@ -344,7 +401,7 @@ namespace NagoyaRoadDelivery
         {
             NetManager net = NetManager.instance;
             BuildingInfo choice = null;
-            float best = 48f * 48f;
+            float best = placementDistance * placementDistance;
             foreach (RoadReceipt receipt in segments)
             {
                 NetSegment road = net.m_segments.m_buffer[receipt.Id];
@@ -386,17 +443,36 @@ namespace NagoyaRoadDelivery
         private static bool Available(ZoneManager manager, ZoneBlock block, int row, int width, int length,
             ItemClass.Zone use, out Vector3 center, out float angle)
         {
-            center = NativeCityFrontages.Center(block, row, width, length);
-            angle = NativeCityFrontages.StraightAngle(block);
+            center = Vector3.zero;
+            angle = 0;
+            ItemClass.Zone assigned;
+            return ReadVacantCells(block, row, width, length, out assigned) &&
+                (assigned == ItemClass.Zone.Unzoned || assigned == use) &&
+                FindSpace(manager, block, row, width, length, out center, out angle);
+        }
+
+        internal static bool ReadVacantCells(ZoneBlock block, int row, int width, int length, out ItemClass.Zone assigned)
+        {
+            assigned = ItemClass.Zone.Unzoned;
             for (int y = row; y < row + width; y++)
                 for (int x = 0; x < length; x++)
                 {
                     ulong flag = 1UL << (y * 8 + x);
                     ItemClass.Zone old = block.GetZone(x, y);
-                    if ((block.m_valid & flag) == 0 || ((block.m_shared | block.m_occupied1 | block.m_occupied2) & flag) != 0 ||
-                        (old != ItemClass.Zone.Unzoned && old != use))
+                    if ((block.m_valid & flag) == 0 || ((block.m_shared | block.m_occupied1 | block.m_occupied2) & flag) != 0)
                         return false;
+                    if (old == ItemClass.Zone.Unzoned) continue;
+                    if (assigned != ItemClass.Zone.Unzoned && assigned != old) return false;
+                    assigned = old;
                 }
+            return true;
+        }
+
+        internal static bool FindSpace(ZoneManager manager, ZoneBlock block, int row, int width, int length,
+            out Vector3 center, out float angle)
+        {
+            center = NativeCityFrontages.Center(block, row, width, length);
+            angle = NativeCityFrontages.StraightAngle(block);
             for (int direction = 0; direction < 4; direction++)
             {
                 int offset;

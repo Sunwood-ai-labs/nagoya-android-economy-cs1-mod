@@ -1,0 +1,602 @@
+{
+  "status": "verified in Cities: Skylines",
+  "runtime": "3c4c2d47-9234-46ca-9c3c-72b25e3b4d87",
+  "roadSegments": 20679,
+  "survey": {
+    "file": "c65e9de614ed427cb658c62a989e0a59-vacancies.tsv",
+    "buildIndex": 118070,
+    "segments": 30998,
+    "registeredRoads": 20679,
+    "blocks": 22124,
+    "records": 15217,
+    "zoneMaskOrder": [
+      "ResidentialLow",
+      "ResidentialHigh",
+      "CommercialLow",
+      "CommercialHigh",
+      "Industrial",
+      "Office"
+    ],
+    "milliseconds": 125,
+    "writesToCity": false
+  },
+  "planning": {
+    "surveyed": 15217,
+    "nearBothUtilities": 11113,
+    "uncoveredRoleGroups": 1813,
+    "deferredReasons": {
+      "no compatible frontage": 646,
+      "missing nearby utilities": 64,
+      "surveyed cells already reserved": 192
+    },
+    "proposed": 911,
+    "deferred": 902,
+    "memberships": 27726,
+    "byWard": {
+      "緑区": 76,
+      "中川区": 151,
+      "名東区": 31,
+      "港区": 98,
+      "熱田区": 26,
+      "北区": 50,
+      "千種区": 27,
+      "守山区": 97,
+      "南区": 52,
+      "西区": 55,
+      "中村区": 78,
+      "東区": 31,
+      "天白区": 51,
+      "瑞穂区": 35,
+      "中区": 37,
+      "昭和区": 16
+    },
+    "byUse": {
+      "ResidentialLow": 80,
+      "ResidentialHigh": 118,
+      "Industrial": 192,
+      "CommercialLow": 170,
+      "CommercialHigh": 55,
+      "Office": 296
+    }
+  },
+  "placement": {
+    "placedAtSurveyedPosition": 911,
+    "newBuildingsActive": 906,
+    "newBuildingWarnings": {
+      "Electricity": 7
+    },
+    "newAndroidHomes": 6,
+    "newAndroidJobs": 2,
+    "newBuildingDeliveryEndpoints": 0,
+    "activeNewByWard": {
+      "名東区": 31,
+      "港区": 98,
+      "守山区": 96,
+      "西区": 54,
+      "熱田区": 26,
+      "中村区": 77,
+      "緑区": 76,
+      "天白区": 51,
+      "中川区": 151,
+      "東区": 30,
+      "千種区": 27,
+      "北区": 49,
+      "南区": 52,
+      "瑞穂区": 35,
+      "昭和区": 16,
+      "中区": 37
+    },
+    "gameTimeBefore": "2029-01-25T08:07:09",
+    "gameTimeAfter": "2029-02-11T19:08:34"
+  },
+  "coverageBefore": {
+    "city": "NagoyaCitywide-Construction",
+    "rosterUtc": "2026-11-19T13:57:53.9849324Z",
+    "activeNativeZonedSites": 5953,
+    "nativeSiteGroupCount": 5953,
+    "plateauSourceIds": 738033,
+    "sourceCoverage": {
+      "allRolesActive": 659482,
+      "noActiveRole": 43126,
+      "someRolesActive": 3127,
+      "withoutClassifiedRoles": 32298
+    },
+    "roleMemberships": {
+      "active": 694139,
+      "uncovered": 47601
+    },
+    "writesToGame": false
+  },
+  "coverageAfterPlacement": {
+    "city": "NagoyaCitywide-Construction",
+    "rosterUtc": "2026-11-19T14:02:48.4365053Z",
+    "activeNativeZonedSites": 6855,
+    "nativeSiteGroupCount": 6855,
+    "plateauSourceIds": 738033,
+    "sourceCoverage": {
+      "allRolesActive": 686083,
+      "noActiveRole": 19018,
+      "someRolesActive": 634,
+      "withoutClassifiedRoles": 32298
+    },
+    "roleMemberships": {
+      "active": 721293,
+      "uncovered": 20447
+    },
+    "writesToGame": false
+  },
+  "wardsAfterPlacement": {
+    "中区": {
+      "activeSites": 235,
+      "humanResidents": 266,
+      "androidResidents": 9,
+      "humanWorkers": 134,
+      "androidWorkers": 5
+    },
+    "中川区": {
+      "activeSites": 717,
+      "humanResidents": 719,
+      "androidResidents": 36,
+      "humanWorkers": 355,
+      "androidWorkers": 31
+    },
+    "中村区": {
+      "activeSites": 383,
+      "humanResidents": 437,
+      "androidResidents": 13,
+      "humanWorkers": 184,
+      "androidWorkers": 19
+    },
+    "北区": {
+      "activeSites": 371,
+      "humanResidents": 379,
+      "androidResidents": 18,
+      "humanWorkers": 191,
+      "androidWorkers": 22
+    },
+    "千種区": {
+      "activeSites": 378,
+      "humanResidents": 425,
+      "androidResidents": 9,
+      "humanWorkers": 217,
+      "androidWorkers": 16
+    },
+    "南区": {
+      "activeSites": 384,
+      "humanResidents": 388,
+      "androidResidents": 25,
+      "humanWorkers": 211,
+      "androidWorkers": 19
+    },
+    "名東区": {
+      "activeSites": 416,
+      "humanResidents": 516,
+      "androidResidents": 15,
+      "humanWorkers": 235,
+      "androidWorkers": 26
+    },
+    "天白区": {
+      "activeSites": 469,
+      "humanResidents": 495,
+      "androidResidents": 33,
+      "humanWorkers": 254,
+      "androidWorkers": 26
+    },
+    "守山区": {
+      "activeSites": 609,
+      "humanResidents": 605,
+      "androidResidents": 41,
+      "humanWorkers": 281,
+      "androidWorkers": 40
+    },
+    "昭和区": {
+      "activeSites": 296,
+      "humanResidents": 300,
+      "androidResidents": 21,
+      "humanWorkers": 209,
+      "androidWorkers": 15
+    },
+    "東区": {
+      "activeSites": 211,
+      "humanResidents": 179,
+      "androidResidents": 11,
+      "humanWorkers": 123,
+      "androidWorkers": 7
+    },
+    "港区": {
+      "activeSites": 707,
+      "humanResidents": 628,
+      "androidResidents": 25,
+      "humanWorkers": 384,
+      "androidWorkers": 51
+    },
+    "熱田区": {
+      "activeSites": 210,
+      "humanResidents": 216,
+      "androidResidents": 6,
+      "humanWorkers": 118,
+      "androidWorkers": 9
+    },
+    "瑞穂区": {
+      "activeSites": 257,
+      "humanResidents": 277,
+      "androidResidents": 17,
+      "humanWorkers": 149,
+      "androidWorkers": 11
+    },
+    "緑区": {
+      "activeSites": 760,
+      "humanResidents": 809,
+      "androidResidents": 38,
+      "humanWorkers": 407,
+      "androidWorkers": 52
+    },
+    "西区": {
+      "activeSites": 427,
+      "humanResidents": 456,
+      "androidResidents": 25,
+      "humanWorkers": 210,
+      "androidWorkers": 24
+    }
+  },
+  "checkedDeliveries": [
+    {
+      "android": 713914,
+      "from": 45348,
+      "to": 44055,
+      "ward": "昭和区",
+      "sourceWard": "昭和区",
+      "stockAdded": 100,
+      "factoryBefore": 3760,
+      "factoryAccessStreet": 1310,
+      "shopAccessStreet": 1310,
+      "factoryAfter": 3660,
+      "shopBefore": 10954,
+      "nativeRequest": {
+        "frame": 55095013,
+        "priority": 6,
+        "amount": 1
+      },
+      "shopAfter": 11054,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "gameTime": "2029-01-25T15:25:48"
+    },
+    {
+      "android": 337942,
+      "from": 42162,
+      "to": 44611,
+      "ward": "天白区",
+      "sourceWard": "天白区",
+      "stockAdded": 100,
+      "factoryBefore": 6588,
+      "factoryAccessStreet": 4071,
+      "shopAccessStreet": 4157,
+      "factoryAfter": 6488,
+      "shopBefore": 10307,
+      "nativeRequest": {
+        "frame": 55093736,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 10407,
+      "localHire": true,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "gameTime": "2029-01-27T05:26:22"
+    },
+    {
+      "android": 420125,
+      "from": 32168,
+      "to": 6980,
+      "ward": "昭和区",
+      "sourceWard": "昭和区",
+      "stockAdded": 100,
+      "factoryBefore": 1690,
+      "factoryAccessStreet": 2844,
+      "shopAccessStreet": 2844,
+      "factoryAfter": 1590,
+      "shopBefore": 15600,
+      "nativeRequest": null,
+      "shopAfter": 15700,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "gameTime": "2029-01-27T10:13:59"
+    },
+    {
+      "android": 31206,
+      "from": 19877,
+      "to": 48368,
+      "ward": "中川区",
+      "sourceWard": "西区",
+      "stockAdded": 100,
+      "factoryBefore": 7483,
+      "factoryAccessStreet": 4178,
+      "shopAccessStreet": 6962,
+      "factoryAfter": 7383,
+      "shopBefore": 15787,
+      "nativeRequest": null,
+      "shopAfter": 15887,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "gameTime": "2029-01-27T16:06:50"
+    },
+    {
+      "android": 1034187,
+      "from": 45958,
+      "to": 35638,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 832,
+      "factoryAccessStreet": 17464,
+      "shopAccessStreet": 33561,
+      "factoryAfter": 732,
+      "shopBefore": 8391,
+      "nativeRequest": {
+        "frame": 55096761,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 8491,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "gameTime": "2029-01-30T07:06:36"
+    },
+    {
+      "android": 559795,
+      "from": 23119,
+      "to": 866,
+      "ward": "名東区",
+      "sourceWard": "名東区",
+      "stockAdded": 100,
+      "factoryBefore": 6222,
+      "factoryAccessStreet": 23981,
+      "shopAccessStreet": 1158,
+      "factoryAfter": 6122,
+      "shopBefore": 11447,
+      "nativeRequest": {
+        "frame": 55100164,
+        "priority": 4,
+        "amount": 1
+      },
+      "shopAfter": 11547,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "gameTime": "2029-02-03T14:36:37"
+    },
+    {
+      "android": 713914,
+      "from": 45348,
+      "to": 44055,
+      "ward": "昭和区",
+      "sourceWard": "昭和区",
+      "stockAdded": 100,
+      "factoryBefore": 4147,
+      "factoryAccessStreet": 1310,
+      "shopAccessStreet": 1310,
+      "factoryAfter": 4047,
+      "shopBefore": 10878,
+      "nativeRequest": {
+        "frame": 55100133,
+        "priority": 6,
+        "amount": 1
+      },
+      "shopAfter": 10978,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "gameTime": "2029-02-03T15:44:37"
+    },
+    {
+      "android": 420125,
+      "from": 32168,
+      "to": 6980,
+      "ward": "昭和区",
+      "sourceWard": "昭和区",
+      "stockAdded": 100,
+      "factoryBefore": 1660,
+      "factoryAccessStreet": 2844,
+      "shopAccessStreet": 2844,
+      "factoryAfter": 1560,
+      "shopBefore": 15462,
+      "nativeRequest": null,
+      "shopAfter": 15562,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "gameTime": "2029-02-06T05:50:58"
+    },
+    {
+      "android": 47900,
+      "from": 7232,
+      "to": 26714,
+      "ward": "昭和区",
+      "sourceWard": "昭和区",
+      "stockAdded": 100,
+      "factoryBefore": 3351,
+      "factoryAccessStreet": 17943,
+      "shopAccessStreet": 705,
+      "factoryAfter": 3251,
+      "shopBefore": 10685,
+      "nativeRequest": {
+        "frame": 55100299,
+        "priority": 6,
+        "amount": 1
+      },
+      "shopAfter": 10785,
+      "localHire": true,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "gameTime": "2029-02-06T07:21:21"
+    },
+    {
+      "android": 540647,
+      "from": 7163,
+      "to": 45769,
+      "ward": "南区",
+      "sourceWard": "南区",
+      "stockAdded": 100,
+      "factoryBefore": 1146,
+      "factoryAccessStreet": 29566,
+      "shopAccessStreet": 7354,
+      "factoryAfter": 1046,
+      "shopBefore": 11587,
+      "nativeRequest": {
+        "frame": 55100142,
+        "priority": 4,
+        "amount": 1
+      },
+      "shopAfter": 11687,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "gameTime": "2029-02-07T00:19:14"
+    },
+    {
+      "android": 713914,
+      "from": 45348,
+      "to": 44055,
+      "ward": "昭和区",
+      "sourceWard": "昭和区",
+      "stockAdded": 100,
+      "factoryBefore": 4210,
+      "factoryAccessStreet": 1310,
+      "shopAccessStreet": 1310,
+      "factoryAfter": 4110,
+      "shopBefore": 10886,
+      "nativeRequest": {
+        "frame": 55103205,
+        "priority": 6,
+        "amount": 1
+      },
+      "shopAfter": 10986,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "gameTime": "2029-02-08T09:30:49"
+    },
+    {
+      "android": 676794,
+      "from": 15562,
+      "to": 28659,
+      "ward": "瑞穂区",
+      "sourceWard": "瑞穂区",
+      "stockAdded": 100,
+      "factoryBefore": 3063,
+      "factoryAccessStreet": 9781,
+      "shopAccessStreet": 33681,
+      "factoryAfter": 2963,
+      "shopBefore": 1100,
+      "nativeRequest": {
+        "frame": 55103125,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 1200,
+      "localHire": true,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "gameTime": "2029-02-11T01:41:18"
+    }
+  ],
+  "powerRepair": {
+    "plan": "59567330081E58D49DE3696588763A5C430B58C30A0ABAB69528EB49699EE89F",
+    "linesAdded": 5,
+    "repaired": [
+      {
+        "id": 4555,
+        "problems": "NoWorkers"
+      },
+      {
+        "id": 22824,
+        "problems": ""
+      },
+      {
+        "id": 28667,
+        "problems": ""
+      },
+      {
+        "id": 37837,
+        "problems": ""
+      },
+      {
+        "id": 39905,
+        "problems": ""
+      },
+      {
+        "id": 46822,
+        "problems": "NoWorkers"
+      },
+      {
+        "id": 49111,
+        "problems": ""
+      }
+    ],
+    "powerWarningsInAddedBuildings": 0,
+    "coverage": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T14:07:49.3265618Z",
+      "activeNativeZonedSites": 6854,
+      "nativeSiteGroupCount": 6854,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "allRolesActive": 685130,
+        "noActiveRole": 19971,
+        "someRolesActive": 634,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "active": 720340,
+        "uncovered": 21400
+      },
+      "writesToGame": false
+    },
+    "totalHumans": 8811,
+    "totalAndroids": 439,
+    "checkpoint": {
+      "name": "NagoyaCitywide-SurveyedVacancies-PowerObserved",
+      "sha256": "934A8E8DA8ABB1E8BF28A872D237DB4A7138384370229F3B78D9B2250C30AA30",
+      "length": 14975014
+    },
+    "observedDays": [
+      "2029-02-11T19:08:34",
+      "2029-03-01T14:40:32"
+    ]
+  },
+  "checkpoints": {
+    "baseline": {
+      "name": "NagoyaCitywide-SurveyedVacancies-Baseline",
+      "sha256": "34D52ADB7D272138F656FE318DF29AC6E883139079F9FFBFE5E9868D8A374904",
+      "length": 14801616
+    },
+    "placed": {
+      "name": "NagoyaCitywide-SurveyedVacancies-Placed",
+      "sha256": "5B7AC470A42AF2DA0EBB90FAD8B9ED8496BACE36C65473B66F5B0D6B733D0536",
+      "length": 14910049
+    },
+    "observed": {
+      "name": "NagoyaCitywide-SurveyedVacancies-Observed",
+      "sha256": "A801494CC14C6B988B7B083DCD4ADE1B17EEF55496F9B813A78D8E35D1D01A81",
+      "length": 14914504
+    }
+  },
+  "fundsRestored": true
+}

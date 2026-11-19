@@ -5,6 +5,7 @@ param(
     [Parameter(Mandatory)][string]$ExpectedCityName,
     [Parameter(Mandatory)][string]$CheckpointName,
     [string]$Bridge = 'http://127.0.0.1:32123',
+    [ValidateRange(0.25,48)][double]$MaxShiftMeters = 48,
     [switch]$SavedRoadNetwork,
     [switch]$RequireGoodsShops
 )
@@ -56,6 +57,7 @@ $request = @{
     plan = $file.Name
     planSha256 = (Get-FileHash -LiteralPath $file.FullName).Hash
     requireGoodsShops = [bool]$RequireGoodsShops
+    maxShiftMeters = $MaxShiftMeters
 }
 $destination = Join-Path $root 'zone-command.json'
 $temporary = $destination + '.' + $request.commandId + '.tmp'
