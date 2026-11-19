@@ -72,7 +72,11 @@ def record(args):
         camera = None
         for delay in (2, 3):
             time.sleep(delay)
-            after = read_json(current)
+            try:
+                after = read_json(current)
+            except json.JSONDecodeError:
+                # The game can be replacing its camera snapshot during this read.
+                continue
             pose = after["camera"]
             if (after["revision"] == before["revision"] and abs(pose["currentSize"] - args.zoom) < .01
                     and math.dist(pose["currentPosition"],(args.x, 140 + args.lift, args.z)) < .04):

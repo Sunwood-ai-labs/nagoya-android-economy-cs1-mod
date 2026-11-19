@@ -1,0 +1,220 @@
+{
+  "scope": "CS1 stock bus line on imported Nagoya roads. Network, bus dispatch and one stop/departure were observed. Boarding remains unverified.",
+  "gtfs": {
+    "publisher": "Nagoya City Transportation Bureau",
+    "edition": "2026-03-28",
+    "source": "https://data.bodik.jp/dataset/231002_7109030000_bus-gtfs-jp/resource/125a1d12-7df6-489c-abde-911856e05d1b",
+    "sha256": "4684cfddf127281738efe5e3e602f931479c8dcccb7ff8cb012ea5315e9d4c61",
+    "license": "CC BY 4.0",
+    "changes": "Stops selected and snapped to CS1 geometry to form a fictional loop"
+  },
+  "standardEconomy": {
+    "gameTime": "2027-03-04T09:54:29",
+    "line": {
+      "id": 170,
+      "name": "名古屋2050 都心循環",
+      "transportType": "Bus",
+      "stops": 5,
+      "vehicles": 6,
+      "passengers": 0,
+      "totalLength": 6802.208
+    },
+    "depot": {
+      "id": 38786,
+      "prefab": "Bus Depot",
+      "vehiclesObservedLeaving": 6,
+      "warningAtObservation": "Electricity"
+    },
+    "stopEvidence": [
+      {
+        "gtfsId": "41200504",
+        "name": "名古屋駅",
+        "candidateRoadId": 29180,
+        "candidatePedestrianLanes": 2,
+        "candidateSnapM": 46.67,
+        "gameStop": {
+          "nodeId": 24159,
+          "position": {
+            "x": -1302.827,
+            "y": 139.7,
+            "z": 828.786
+          }
+        }
+      },
+      {
+        "gtfsId": "52310301",
+        "name": "広小路伏見",
+        "candidateRoadId": 29330,
+        "candidatePedestrianLanes": 2,
+        "candidateSnapM": 3.77,
+        "gameStop": {
+          "nodeId": 32721,
+          "position": {
+            "x": -974.285,
+            "y": 139.7,
+            "z": 847.236
+          }
+        }
+      },
+      {
+        "gtfsId": "52309301",
+        "name": "広小路栄",
+        "candidateRoadId": 7983,
+        "candidatePedestrianLanes": 2,
+        "candidateSnapM": 1.68,
+        "gameStop": {
+          "nodeId": 24147,
+          "position": {
+            "x": -659.131,
+            "y": 139.7,
+            "z": 868.755
+          }
+        }
+      },
+      {
+        "gtfsId": "05059501",
+        "name": "大須本町通",
+        "candidateRoadId": 1893,
+        "candidatePedestrianLanes": 2,
+        "candidateSnapM": 81.02,
+        "gameStop": {
+          "nodeId": 24143,
+          "position": {
+            "x": -773.484,
+            "y": 139.7,
+            "z": 575.511
+          }
+        }
+      },
+      {
+        "gtfsId": "21068501",
+        "name": "ささしまライブ",
+        "candidateRoadId": 34169,
+        "candidatePedestrianLanes": 2,
+        "candidateSnapM": 1.72,
+        "gameStop": {
+          "nodeId": 24131,
+          "position": {
+            "x": -1281.747,
+            "y": 139.7,
+            "z": 642.1
+          }
+        }
+      }
+    ],
+    "readyPaths": [
+      {
+        "segmentId": 8273,
+        "startNodeId": 24143,
+        "endNodeId": 24131,
+        "path": 201373,
+        "pathFindFlags": 4,
+        "pathLength": 1123.909
+      },
+      {
+        "segmentId": 18214,
+        "startNodeId": 32721,
+        "endNodeId": 24147,
+        "path": 34415,
+        "pathFindFlags": 4,
+        "pathLength": 334.955
+      },
+      {
+        "segmentId": 23271,
+        "startNodeId": 24159,
+        "endNodeId": 32721,
+        "path": 250561,
+        "pathFindFlags": 4,
+        "pathLength": 2798.981
+      },
+      {
+        "segmentId": 27232,
+        "startNodeId": 24131,
+        "endNodeId": 24159,
+        "path": 68141,
+        "pathFindFlags": 4,
+        "pathLength": 960.388
+      },
+      {
+        "segmentId": 27239,
+        "startNodeId": 24147,
+        "endNodeId": 24143,
+        "path": 12511,
+        "pathFindFlags": 4,
+        "pathLength": 1583.975
+      }
+    ],
+    "save": {
+      "name": "NagoyaCitywide-Construction-NativeBusLoop.crp",
+      "sha256": "2a78e15d7afe4bfc986c3fafaae53c62a3d901558c31881483ceccb0824e0fc5"
+    }
+  },
+  "temporarySandbox": {
+    "gameTime": "2027-03-14T09:05:20",
+    "city": "NagoyaCitywide-Construction",
+    "statusAtObservation": "active_exact_city_sandbox",
+    "buses": 12,
+    "passengers": 0,
+    "atSakae": {
+      "id": 3868,
+      "targetBuilding": 24143,
+      "flags": "Created, Spawned, TransferToTarget, Stopped, LeftHandDrive",
+      "position": {
+        "x": -659.482,
+        "y": 139.7,
+        "z": 873.008
+      }
+    },
+    "activeGrowablesWithin100MOfStops": [
+      {
+        "name": "名古屋駅",
+        "node": 24159,
+        "activeGrowablesWithin100M": {
+          "Residential": 1
+        }
+      },
+      {
+        "name": "広小路伏見",
+        "node": 32721,
+        "activeGrowablesWithin100M": {
+          "Residential": 4,
+          "Commercial": 2
+        }
+      },
+      {
+        "name": "広小路栄",
+        "node": 24147,
+        "activeGrowablesWithin100M": {
+          "Commercial": 4
+        }
+      },
+      {
+        "name": "大須本町通",
+        "node": 24143,
+        "activeGrowablesWithin100M": {
+          "Residential": 1,
+          "Office": 1
+        }
+      },
+      {
+        "name": "ささしまライブ",
+        "node": 24131,
+        "activeGrowablesWithin100M": {
+          "Industrial": 2,
+          "Residential": 1,
+          "Commercial": 1
+        }
+      }
+    ],
+    "inspectedGameCapture": {
+      "name": "native-bus-sakae-arterial.png",
+      "sha256": "77036bf2676ae86099c046f0a6fe038cdc1923299b5269a980c120f7108e8b61",
+      "vehicleId": 12737,
+      "gamePosition": {
+        "x": -79.125,
+        "y": 139.7,
+        "z": 910.798
+      }
+    }
+  }
+}
