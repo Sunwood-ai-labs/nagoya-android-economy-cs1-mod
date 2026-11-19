@@ -25,6 +25,8 @@ namespace NagoyaRoadDelivery
         private readonly Dictionary<uint, DateTime> retryAfter = new Dictionary<uint, DateTime>();
         private readonly Dictionary<uint, DateTime> failedRoutes = new Dictionary<uint, DateTime>();
         private readonly Dictionary<string, int> deliveredByWard = new Dictionary<string, int>(StringComparer.Ordinal);
+        private readonly Dictionary<string, int> stockedFactoriesByWard = new Dictionary<string, int>(StringComparer.Ordinal);
+        private readonly Dictionary<string, int> shopsWithSpaceByWard = new Dictionary<string, int>(StringComparer.Ordinal);
         private readonly Queue<uint> readyAtFactory = new Queue<uint>();
         private readonly Queue<uint> arrivedAtWork = new Queue<uint>();
         private readonly Queue<object> recent = new Queue<object>();
@@ -125,6 +127,8 @@ namespace NagoyaRoadDelivery
             factoryReach.Clear();
             stockedFactories = 0;
             shopsWithSpace = 0;
+            stockedFactoriesByWard.Clear();
+            shopsWithSpaceByWard.Clear();
             global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
             NativeCityLedger.Road[] roads;
             NativeCityLedger.Lot[] lots;
@@ -139,11 +143,16 @@ namespace NagoyaRoadDelivery
                 BuildingAI ai = ActiveAI(ref buildings[lot.Id]);
                 if (lot.Zone == ItemClass.Zone.Industrial)
                 {
-                    if (ai is IndustrialBuildingAI && Stock(ai, lot.Id, ref buildings[lot.Id]) >= ParcelSize) stockedFactories++;
+                    if (ai is IndustrialBuildingAI && Stock(ai, lot.Id, ref buildings[lot.Id]) >= ParcelSize)
+                    {
+                        stockedFactories++;
+                        AddWardCount(stockedFactoriesByWard, lot.Ward);
+                    }
                     continue;
                 }
                 if (!(ai is CommercialBuildingAI) || Space(ai, lot.Id, ref buildings[lot.Id]) < ParcelSize) continue;
                 shopsWithSpace++;
+                AddWardCount(shopsWithSpaceByWard, lot.Ward);
                 shops.Add(lot);
             }
         }
@@ -289,11 +298,15 @@ namespace NagoyaRoadDelivery
             Trip trip;
             if (!trips.TryGetValue(id, out trip))
             {
-                if (success && arrival.Target != 0 && AndroidLifePilot.IsAndroidCitizen(id))
+                if (arrival.Target != 0 && AndroidLifePilot.IsAndroidCitizen(id))
                 {
-                    Citizen citizen = CitizenManager.instance.m_citizens.m_buffer[id];
-                    if (citizen.CurrentLocation == Citizen.Location.Work && citizen.m_workBuilding == arrival.Target)
-                        arrivedAtWork.Enqueue(id);
+                    AndroidLifePilot.ObserveNativeHomeArrival(id, arrival.Target, success);
+                    if (success)
+                    {
+                        Citizen citizen = CitizenManager.instance.m_citizens.m_buffer[id];
+                        if (citizen.CurrentLocation == Citizen.Location.Work && citizen.m_workBuilding == arrival.Target)
+                            arrivedAtWork.Enqueue(id);
+                    }
                 }
                 return;
             }
@@ -403,14 +416,19 @@ namespace NagoyaRoadDelivery
             if (credit <= 0) return;
             delivered++;
             goods += credit;
-            int wardTotal;
-            deliveredByWard.TryGetValue(trip.TargetWard, out wardTotal);
-            deliveredByWard[trip.TargetWard] = wardTotal + 1;
+            AddWardCount(deliveredByWard, trip.TargetWard);
             if (recent.Count == 64) recent.Dequeue();
             recent.Enqueue(new Dictionary<string, object> {{"android",id}, {"from",trip.Supplier}, {"to",target},
                 {"ward",trip.TargetWard}, {"sourceWard",trip.SupplierWard}, {"stockAdded",credit}, {"factoryBefore",factoryBefore},
                 {"factoryAfter",Stock(source, trip.Supplier, ref buildings[trip.Supplier])}, {"shopBefore",shopBefore},
                 {"shopAfter",Stock(destination, target, ref buildings[target])}, {"gameTime",SimulationManager.instance.m_currentGameTime.ToString("s")}});
+        }
+
+        private static void AddWardCount(Dictionary<string, int> counts, string ward)
+        {
+            int count;
+            counts.TryGetValue(ward, out count);
+            counts[ward] = count + 1;
         }
 
         internal void EndTrip(uint id)
@@ -456,6 +474,7 @@ namespace NagoyaRoadDelivery
             }
             return new Dictionary<string, object> {{"active",trips.Count}, {"started",started}, {"delivered",delivered},
                 {"stockAdded",goods}, {"stockedFactories",stockedFactories}, {"shopsWithSpace",shopsWithSpace},
+                {"stockedFactoriesByWard",stockedFactoriesByWard}, {"shopsWithSpaceByWard",shopsWithSpaceByWard},
                 {"workersSeenAtFactory",workersSeenAtFactory}, {"pickupStarts",pickupStarts}, {"pickupArrivals",pickupArrivals},
                 {"failedLegs",failedLegs}, {"expiredLegs",expiredLegs}, {"deliveriesByWard",deliveredByWard},
                 {"noEligibleStreetCandidate",blockedByStreetReach},

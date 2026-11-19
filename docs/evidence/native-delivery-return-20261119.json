@@ -1,0 +1,367 @@
+{
+  "test": "Native goods delivery, arrival at home, and charging in Cities: Skylines",
+  "city": "NagoyaCitywide-Construction",
+  "runId": "20261119T063354074Z",
+  "recordedBuild": {
+    "sha256": "f6dff83882be5aa581e5dce422ccf48d09d25bc7af034600518e89b9a207fe41",
+    "mvid": "618bcc8d-7675-4529-bfa8-b4cb20832616"
+  },
+  "finance": "Exact-city experiment funds enabled during observations and restored afterward.",
+  "sourceSave": {
+    "name": "NagoyaCitywide-Delivery-Progress.crp",
+    "sha256": "c6ea4beba457ba016d5db51dcfcd3ad6468ac4f7a20374385dbac61defe2e1cb"
+  },
+  "resultSave": {
+    "name": "NagoyaCitywide-Delivery-Return-Charge.crp",
+    "sha256": "21e65319201b9b3ff3b7e76e8ef36b178a6e8201513ec3f3b365ed5a00c26f45",
+    "bytes": 12567334,
+    "gameTime": "2027-05-06T08:57:21"
+  },
+  "inSessionDeliveryEvents": [
+    {
+      "android": 245513,
+      "from": 2839,
+      "to": 19252,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 1682,
+      "factoryAfter": 1582,
+      "shopBefore": 9883,
+      "shopAfter": 9983,
+      "gameTime": "2027-04-30T11:42:33"
+    },
+    {
+      "android": 722309,
+      "from": 27634,
+      "to": 36559,
+      "ward": "西区",
+      "sourceWard": "西区",
+      "stockAdded": 100,
+      "factoryBefore": 903,
+      "factoryAfter": 803,
+      "shopBefore": 12145,
+      "shopAfter": 12245,
+      "gameTime": "2027-05-02T04:08:24"
+    }
+  ],
+  "sameSessionCycle": {
+    "delivery": {
+      "android": 245513,
+      "from": 2839,
+      "to": 19252,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 1682,
+      "factoryAfter": 1582,
+      "shopBefore": 9883,
+      "shopAfter": 9983,
+      "gameTime": "2027-04-30T11:42:33"
+    },
+    "returnJourney": {
+      "sample": "return-window-02/life-5.json",
+      "sha256": "ca7094b73bfec13ec92b7971f8aa6a11b8eca1cc99153f08c9a17b5ff8fdd83f",
+      "gameTime": "2027-05-01T22:05:27",
+      "citizenId": 245513,
+      "location": "Moving",
+      "homeBuilding": 37392,
+      "visitBuilding": 19252,
+      "shopReturnSource": 19252,
+      "shopReturnHome": 37392,
+      "shopReturnsStarted": 2,
+      "shopReturnsArrived": 1,
+      "chargeStarts": 0,
+      "charging": false,
+      "battery": 46.8495783805847,
+      "walkedMeters": 398.016834259033
+    },
+    "atHomeCharging": {
+      "sample": "return-window-02/terminal-life.json",
+      "sha256": "ead6124c387912dec97b8a5eb61b2cd549a5ca45c43707420916d841a9994409",
+      "gameTime": "2027-05-02T05:07:49",
+      "citizenId": 245513,
+      "location": "Home",
+      "homeBuilding": 37392,
+      "visitBuilding": 0,
+      "shopReturnSource": 19252,
+      "shopReturnHome": 0,
+      "shopReturnsStarted": 2,
+      "shopReturnsArrived": 2,
+      "chargeStarts": 1,
+      "charging": true,
+      "battery": 91.8495783805847,
+      "walkedMeters": 398.016834259033
+    },
+    "followingTrip": {
+      "android": 245513,
+      "from": 2839,
+      "target": 19252,
+      "destinationWard": "守山区",
+      "frame": 54726711,
+      "lastProgressFrame": 54727490,
+      "position": [
+        3992.409,
+        140,
+        3996.563
+      ]
+    }
+  },
+  "previousCouriers": [
+    {
+      "ward": "港区",
+      "moving": {
+        "sample": "return-window-01/terminal-life.json",
+        "sha256": "ea05f622aa96180a2ef86f024e3e40a1021747798c03efccb8a0394d0ffba5ca",
+        "gameTime": "2027-04-28T04:21:54",
+        "citizenId": 261669,
+        "location": "Moving",
+        "homeBuilding": 33327,
+        "visitBuilding": 24107,
+        "shopReturnSource": 24107,
+        "shopReturnHome": 33327,
+        "shopReturnsStarted": 1,
+        "shopReturnsArrived": 0,
+        "chargeStarts": 0,
+        "charging": false,
+        "battery": 13.0385582566261,
+        "walkedMeters": 285.556134700775
+      },
+      "charging": {
+        "sample": "return-window-02/life-2.json",
+        "sha256": "887b842fa1930e12b5395e559dbd046d7c5e14cf52adee380e9fae4f32de6cc5",
+        "gameTime": "2027-04-29T10:56:10",
+        "citizenId": 261669,
+        "location": "Home",
+        "homeBuilding": 33327,
+        "visitBuilding": 0,
+        "shopReturnSource": 24107,
+        "shopReturnHome": 0,
+        "shopReturnsStarted": 1,
+        "shopReturnsArrived": 1,
+        "chargeStarts": 1,
+        "charging": true,
+        "battery": 56.4987726330757,
+        "walkedMeters": 347.147559642792
+      },
+      "charged": {
+        "sample": "return-window-02/life-3.json",
+        "sha256": "665e73c27f6867afe8b2d6ffccee60f0913f8a28631e4119894d6d580264940f",
+        "gameTime": "2027-04-30T06:09:14",
+        "citizenId": 261669,
+        "location": "Home",
+        "homeBuilding": 33327,
+        "visitBuilding": 0,
+        "shopReturnSource": 24107,
+        "shopReturnHome": 0,
+        "shopReturnsStarted": 1,
+        "shopReturnsArrived": 1,
+        "chargeStarts": 1,
+        "charging": false,
+        "battery": 100,
+        "walkedMeters": 347.147559642792
+      }
+    },
+    {
+      "ward": "緑区",
+      "moving": {
+        "sample": "return-window-01/terminal-life.json",
+        "sha256": "ea05f622aa96180a2ef86f024e3e40a1021747798c03efccb8a0394d0ffba5ca",
+        "gameTime": "2027-04-28T04:21:54",
+        "citizenId": 564634,
+        "location": "Moving",
+        "homeBuilding": 14549,
+        "visitBuilding": 37589,
+        "shopReturnSource": 37589,
+        "shopReturnHome": 14549,
+        "shopReturnsStarted": 1,
+        "shopReturnsArrived": 0,
+        "chargeStarts": 0,
+        "charging": false,
+        "battery": 0,
+        "walkedMeters": 0
+      },
+      "charging": {
+        "sample": "return-window-02/life-2.json",
+        "sha256": "887b842fa1930e12b5395e559dbd046d7c5e14cf52adee380e9fae4f32de6cc5",
+        "gameTime": "2027-04-29T10:56:10",
+        "citizenId": 564634,
+        "location": "Home",
+        "homeBuilding": 14549,
+        "visitBuilding": 0,
+        "shopReturnSource": 37589,
+        "shopReturnHome": 0,
+        "shopReturnsStarted": 1,
+        "shopReturnsArrived": 1,
+        "chargeStarts": 1,
+        "charging": true,
+        "battery": 45,
+        "walkedMeters": 0
+      },
+      "charged": {
+        "sample": "return-window-02/life-3.json",
+        "sha256": "665e73c27f6867afe8b2d6ffccee60f0913f8a28631e4119894d6d580264940f",
+        "gameTime": "2027-04-30T06:09:14",
+        "citizenId": 564634,
+        "location": "Home",
+        "homeBuilding": 14549,
+        "visitBuilding": 0,
+        "shopReturnSource": 37589,
+        "shopReturnHome": 0,
+        "shopReturnsStarted": 1,
+        "shopReturnsArrived": 1,
+        "chargeStarts": 1,
+        "charging": true,
+        "battery": 100,
+        "walkedMeters": 0
+      }
+    }
+  ],
+  "unconfirmedArrival": {
+    "ward": "西区",
+    "observation": {
+      "sample": "return-window-01/life-3.json",
+      "sha256": "4060164a1259987147612c56380dd3cbc6579f744dbc402845bdcb15edc5ed09",
+      "gameTime": "2027-04-26T02:50:53",
+      "citizenId": 771601,
+      "location": "Home",
+      "homeBuilding": 2826,
+      "visitBuilding": 0,
+      "shopReturnSource": 46948,
+      "shopReturnHome": 2826,
+      "shopReturnsStarted": 1,
+      "shopReturnsArrived": 0,
+      "chargeStarts": 1,
+      "charging": true,
+      "battery": 45,
+      "walkedMeters": 0
+    },
+    "reason": "At home and charging with no corresponding native arrival event."
+  },
+  "endSample": {
+    "sample": "return-window-03/terminal-life.json",
+    "sha256": "959e50e92ca1914dd1cc25d634a4ffd476613af0e58647f72084f142ac8bf72f",
+    "gameTime": "2027-05-06T08:57:21",
+    "recordedShopReturnEvents": 51,
+    "deliveriesByWard": {
+      "守山区": 1,
+      "西区": 1
+    }
+  },
+  "capacitySample": {
+    "sample": "return-window-01/terminal-life.json",
+    "sha256": "ea05f622aa96180a2ef86f024e3e40a1021747798c03efccb8a0394d0ffba5ca",
+    "gameTime": "2027-04-28T04:21:54",
+    "minimumParcelSize": 100,
+    "stockedFactoriesByWard": {
+      "港区": 96,
+      "南区": 32,
+      "緑区": 50,
+      "名東区": 29,
+      "西区": 43,
+      "千種区": 26,
+      "守山区": 50,
+      "中川区": 49,
+      "北区": 26,
+      "東区": 15,
+      "熱田区": 18,
+      "昭和区": 12,
+      "中村区": 25,
+      "瑞穂区": 9,
+      "天白区": 25,
+      "中区": 7
+    },
+    "unassignedStockedFactories": 4,
+    "shopsWithSpaceByWard": {
+      "守山区": 7,
+      "熱田区": 4,
+      "緑区": 12,
+      "北区": 6,
+      "西区": 9,
+      "港区": 3,
+      "天白区": 2,
+      "名東区": 2,
+      "中村区": 2,
+      "中川区": 5,
+      "南区": 3,
+      "東区": 3,
+      "中区": 1,
+      "瑞穂区": 2
+    },
+    "wardsWithoutSpaceAtSample": [
+      "千種区",
+      "昭和区"
+    ]
+  },
+  "coverageAcrossRecordedSessions": [
+    "熱田区",
+    "港区",
+    "緑区",
+    "西区",
+    "守山区"
+  ],
+  "limitations": [
+    "Ward totals span native sessions.",
+    "Arrival traces and delivery counts describe an individual session.",
+    "Fiscal sustainability and deliveries in all 16 wards remain unverified."
+  ],
+  "guardedReplay": {
+    "startingSave": "NagoyaCitywide-Delivery-Return-Charge.crp",
+    "startingSaveSha256": "21e65319201b9b3ff3b7e76e8ef36b178a6e8201513ec3f3b365ed5a00c26f45",
+    "assemblySha256": "62ead46cac10144d4d2610d493667e7f2c6d2f9111843b3a5c8b7af9602ca14e",
+    "assemblyMvid": "452de5bc-9488-41ad-916e-c31e2d3a1f36",
+    "runId": "20261119T064543774Z",
+    "samples": [
+      {
+        "sample": "guard-window-01/before-life.json",
+        "sha256": "4cfaa0d2bb29920c92b45e38d919a0dfd761de9b8f1180880aa17f7b5b10b248",
+        "gameTime": "2027-05-06T16:45:59",
+        "registeredAndroids": 695,
+        "staleReturnMarkersOffRoute": 0,
+        "shopReturnArrivals": 0
+      },
+      {
+        "sample": "guard-window-01/life-1.json",
+        "sha256": "0ce5591d54cfb98a207ba6b278f5edc9bd1efff2366f14c0322c39078d53ec39",
+        "gameTime": "2027-05-07T12:14:34",
+        "registeredAndroids": 695,
+        "staleReturnMarkersOffRoute": 0,
+        "shopReturnArrivals": 0
+      },
+      {
+        "sample": "guard-window-01/life-2.json",
+        "sha256": "19335177398e8c649528a9c509ef3e55544be3d68198827b3c4cf7c79a9f41b2",
+        "gameTime": "2027-05-07T22:05:57",
+        "registeredAndroids": 695,
+        "staleReturnMarkersOffRoute": 0,
+        "shopReturnArrivals": 0
+      },
+      {
+        "sample": "guard-window-01/life-3.json",
+        "sha256": "cf0db98a6643b300e511012c783b2cf06a51478bf0cadd49b5c2f36caa589dec",
+        "gameTime": "2027-05-09T03:40:46",
+        "registeredAndroids": 695,
+        "staleReturnMarkersOffRoute": 0,
+        "shopReturnArrivals": 1
+      },
+      {
+        "sample": "guard-window-01/life-4.json",
+        "sha256": "d753013b5f844e830858f82377adb9204f909711787246c897b261627335a024",
+        "gameTime": "2027-05-09T23:23:50",
+        "registeredAndroids": 695,
+        "staleReturnMarkersOffRoute": 0,
+        "shopReturnArrivals": 1
+      },
+      {
+        "sample": "guard-window-01/life-5.json",
+        "sha256": "405f4ab964ad2f35f1de3e34606f02a70fdea507d5d13d398a9c52d1a2ffc41d",
+        "gameTime": "2027-05-10T19:07:27",
+        "registeredAndroids": 695,
+        "staleReturnMarkersOffRoute": 0,
+        "shopReturnArrivals": 2
+      }
+    ],
+    "deliveredDuringReplay": 0,
+    "scope": "Replay after reloading the archived save; six samples. The earlier West courier failure was not deliberately recreated."
+  }
+}

@@ -16,6 +16,7 @@ namespace NagoyaRoadDelivery
         private const int MembersPerUnit = 5;
         private const int PilotMaximumAndroids = 512;
         private const int MaximumUnitsPerBuilding = 2048;
+        private const double BatteryPerWalkingMeter = .025;
         private const string RenderPatchId = "sunwood.nagoya.android-residence-render";
         private static AndroidLifePilot renderer;
         private static AndroidLifePilot active;
@@ -43,6 +44,10 @@ namespace NagoyaRoadDelivery
             public ushort Home;
             public uint HomeUnit;
             public double Battery = 65;
+            public double WalkedMeters;
+            public ushort WalkingInstance, ShopReturnSource, ShopReturnHome;
+            public Vector3 WalkingPosition;
+            public int ShopReturnsStarted, ShopReturnsArrived;
             public int HomeSamples, WorkSamples, MovingSamples, ChargeStarts;
             public int CommutesStarted, ReturnsStarted, CommuteSamples;
             public DateTime LastCommuteDay, LastReturnDay;
@@ -398,12 +403,14 @@ namespace NagoyaRoadDelivery
                 }
                 if (!ConfirmHome(manager, (uint)i, data.m_homeBuilding, member)) continue;
                 androidHomeMembers++;
+                if (data.CurrentLocation != Citizen.Location.Moving) member.ShopReturnHome = 0;
+                ObserveWalking(manager, (uint)i, data, member);
                 bool jobMember = employed && InWorkUnit(manager, data.m_workBuilding, (uint)i);
                 if (jobMember) { androidEmployed++; androidWorkMembers++; }
                 bool delivering = clockRunning && jobMember && localDeliveries != null && member.Battery >= 30 &&
                     localDeliveries.Dispatch((uint)i, ref people[i], now);
-                if (delivering || (clockRunning && jobMember && (localDeliveries == null || !localDeliveries.IsDelivering((uint)i)) &&
-                    ScheduleShift((uint)i, ref people[i], member, now)))
+                if (delivering || (clockRunning && (localDeliveries == null || !localDeliveries.IsDelivering((uint)i)) &&
+                    ScheduleShift((uint)i, ref people[i], member, now, jobMember)))
                     data = people[i];
                 bool home = data.CurrentLocation == Citizen.Location.Home;
                 bool work = data.CurrentLocation == Citizen.Location.Work;
@@ -413,7 +420,7 @@ namespace NagoyaRoadDelivery
                 if (running) { moving++; member.MovingSamples++; }
                 // Reserve charging lets an employee with a flat battery leave an actual powered workplace.
                 bool atPoweredWork = work && jobMember && member.Battery < 45 && HasElectricity(data.m_workBuilding);
-                bool charge = (home && member.Battery < 100 && (data.m_flags & Citizen.Flags.NoElectricity) == 0) || atPoweredWork;
+                bool charge = (home && member.Battery < 100 && HasElectricity(data.m_homeBuilding)) || atPoweredWork;
                 if (atPoweredWork) workplaceCharging++;
                 if (charge) charging++;
                 if (charge && !member.Charging) member.ChargeStarts++;
@@ -421,10 +428,7 @@ namespace NagoyaRoadDelivery
                 if (charge) member.Battery = Math.Min(100, member.Battery + minutes * .25);
                 CitizenInstance instance = data.m_instance > 0 ? manager.m_instances.m_buffer[data.m_instance] : new CitizenInstance();
                 if (running && (instance.m_path != 0 || data.m_vehicle != 0))
-                {
                     inTransit++;
-                    member.Battery = Math.Max(0, member.Battery - minutes * .02);
-                }
                 NativeCityLedger.Record(new NativeCityLedger.Android {
                     Id=(uint)i, Home=member.Home, HomeUnit=member.HomeUnit, Battery=(float)member.Battery
                 });
@@ -438,6 +442,9 @@ namespace NagoyaRoadDelivery
                     {"commutesStarted",member.CommutesStarted}, {"returnsStarted",member.ReturnsStarted},
                     {"commuteSamples",member.CommuteSamples},
                     {"charging",charge}, {"chargeStarts",member.ChargeStarts}, {"battery",member.Battery},
+                    {"walkedMeters",member.WalkedMeters}, {"visitBuilding",data.m_visitBuilding},
+                    {"shopReturnsStarted",member.ShopReturnsStarted}, {"shopReturnsArrived",member.ShopReturnsArrived},
+                    {"shopReturnSource",member.ShopReturnSource}, {"shopReturnHome",member.ShopReturnHome},
                     {"instanceId",data.m_instance}, {"vehicleId",data.m_vehicle}, {"pathId",instance.m_path},
                     {"sourceBuilding",instance.m_sourceBuilding}, {"targetBuilding",instance.m_targetBuilding}
                 });
@@ -463,6 +470,30 @@ namespace NagoyaRoadDelivery
                     "\nアンドロイド　移動 " + inTransit + " / 充電 " + charging +
                     "\n店舗への配送　" + (localDeliveries == null ? "―" : localDeliveries.Delivered.ToString())
             };
+        }
+
+        private static void ObserveWalking(CitizenManager manager, uint id, Citizen citizen, Resident member)
+        {
+            if (citizen.CurrentLocation != Citizen.Location.Moving || citizen.m_vehicle != 0 || citizen.m_instance == 0)
+            {
+                member.WalkingInstance = 0;
+                return;
+            }
+            CitizenInstance instance = manager.m_instances.m_buffer[citizen.m_instance];
+            if (instance.m_citizen != id || (instance.m_flags & CitizenInstance.Flags.Character) == 0)
+            {
+                member.WalkingInstance = 0;
+                return;
+            }
+            Vector3 position = instance.m_frame0.m_position;
+            if (member.WalkingInstance == citizen.m_instance)
+            {
+                float meters = Vector3.Distance(member.WalkingPosition, position);
+                member.WalkedMeters += meters;
+                member.Battery = Math.Max(0, member.Battery - meters * BatteryPerWalkingMeter);
+            }
+            member.WalkingInstance = citizen.m_instance;
+            member.WalkingPosition = position;
         }
 
         private static bool HasElectricity(ushort id)
@@ -495,14 +526,16 @@ namespace NagoyaRoadDelivery
             return false;
         }
 
-        private static bool ScheduleShift(uint id, ref Citizen citizen, Resident member, DateTime gameTime)
+        private static bool ScheduleShift(uint id, ref Citizen citizen, Resident member, DateTime gameTime, bool hasJob)
         {
-            bool goingToWork = citizen.CurrentLocation == Citizen.Location.Home && gameTime.Hour >= 7 &&
+            bool goingToWork = hasJob && citizen.CurrentLocation == Citizen.Location.Home && gameTime.Hour >= 7 &&
                 gameTime.Hour < 16 && member.Battery >= 30 && member.LastCommuteDay != gameTime.Date;
-            bool goingHome = citizen.CurrentLocation == Citizen.Location.Work && gameTime.Hour >= 18 &&
+            bool atShop = citizen.CurrentLocation == Citizen.Location.Visit && IsCommercialVisit(citizen.m_visitBuilding);
+            bool goingHome = (atShop || (hasJob && citizen.CurrentLocation == Citizen.Location.Work && gameTime.Hour >= 18)) &&
                 member.LastReturnDay != gameTime.Date;
             if (!goingToWork && !goingHome) return false;
-            ushort from = goingToWork ? citizen.m_homeBuilding : citizen.m_workBuilding;
+            ushort currentSite = atShop ? citizen.m_visitBuilding : citizen.m_workBuilding;
+            ushort from = goingToWork ? citizen.m_homeBuilding : currentSite;
             ushort to = goingToWork ? citizen.m_workBuilding : citizen.m_homeBuilding;
             if (!TryStartNativeMovement(id, ref citizen, from, to)) return false;
             if (goingToWork)
@@ -514,8 +547,39 @@ namespace NagoyaRoadDelivery
             {
                 member.LastReturnDay = gameTime.Date;
                 member.ReturnsStarted++;
+                if (atShop)
+                {
+                    member.ShopReturnSource = from;
+                    member.ShopReturnHome = to;
+                    member.ShopReturnsStarted++;
+                }
             }
             return true;
+        }
+
+        private static bool IsCommercialVisit(ushort site)
+        {
+            if (site == 0) return false;
+            NativeBuilding building = BuildingManager.instance.m_buildings.m_buffer[site];
+            return (building.m_flags & (NativeBuilding.Flags.Created | NativeBuilding.Flags.Deleted)) == NativeBuilding.Flags.Created &&
+                building.Info != null && building.Info.m_class.m_service == ItemClass.Service.Commercial;
+        }
+
+        internal static void ObserveNativeHomeArrival(uint id, ushort target, bool success)
+        {
+            AndroidLifePilot life = active;
+            Resident member;
+            if (life == null || !life.cohort.TryGetValue(id, out member) || member.ShopReturnHome != target) return;
+            if (!success)
+            {
+                member.ShopReturnHome = 0;
+                return;
+            }
+            Citizen[] people = CitizenManager.instance.m_citizens.m_buffer;
+            if (people[id].CurrentLocation != Citizen.Location.Home || people[id].m_homeBuilding != target) return;
+            if (people[id].m_visitBuilding == member.ShopReturnSource) people[id].SetVisitplace(id, 0, 0);
+            member.ShopReturnHome = 0;
+            member.ShopReturnsArrived++;
         }
 
         internal static bool TryStartNativeMovement(uint id, ref Citizen citizen, ushort from, ushort to)
