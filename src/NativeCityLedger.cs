@@ -9,6 +9,7 @@ namespace NagoyaRoadDelivery
     public sealed class NativeCitySaveData : SerializableDataExtensionBase
     {
         private const string DataId = "sunwood.nagoya.native-city.v1";
+        private const string DeliveriesId = "sunwood.nagoya.android-deliveries.v1";
 
         public override void OnLoadData()
         {
@@ -18,6 +19,9 @@ namespace NagoyaRoadDelivery
                 NativeCityLedger.Load(null);
                 Debug.LogException(error);
             }
+            NativeAndroidDeliveries.LoadCheckpoint(null);
+            try { NativeAndroidDeliveries.LoadCheckpoint(serializableDataManager.LoadData(DeliveriesId)); }
+            catch (Exception error) { Debug.LogException(error); }
         }
 
         public override void OnSaveData()
@@ -25,6 +29,9 @@ namespace NagoyaRoadDelivery
             byte[] payload = NativeCityLedger.Save();
             if (payload != null)
                 serializableDataManager.SaveData(DataId, payload);
+            payload = NativeAndroidDeliveries.SaveCheckpoint();
+            if (payload != null)
+                serializableDataManager.SaveData(DeliveriesId, payload);
         }
     }
 

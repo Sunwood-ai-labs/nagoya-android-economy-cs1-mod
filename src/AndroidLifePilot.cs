@@ -93,7 +93,11 @@ namespace NagoyaRoadDelivery
             InstallLifecycleTracking();
             if (root == NativeCityRoadBuilder.Root)
             {
-                try { localDeliveries = new NativeAndroidDeliveries(); }
+                try
+                {
+                    localDeliveries = new NativeAndroidDeliveries();
+                    SimulationManager.instance.AddAction(delegate { RestoreSavedResidents(); });
+                }
                 catch (Exception ex) { Debug.LogException(ex); }
                 try { populationCard = new NativePopulationCard(); }
                 catch (Exception ex) { Debug.LogException(ex); }
@@ -511,6 +515,7 @@ namespace NagoyaRoadDelivery
 
         private void RestoreSavedResidents()
         {
+            if (restored) return;
             restored = true;
             if (root != NativeCityRoadBuilder.Root) return;
             CitizenManager manager = CitizenManager.instance;
@@ -533,6 +538,8 @@ namespace NagoyaRoadDelivery
                 caseId = "restored-native-residents";
                 UpdateResidentIds();
             }
+            if (localDeliveries != null)
+                localDeliveries.RestoreCheckpoint(SimulationManager.instance.m_metaData.m_CityName);
         }
 
         private void UpdateResidentIds()

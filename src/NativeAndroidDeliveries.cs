@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using HarmonyLib;
 using UnityEngine;
@@ -9,6 +10,8 @@ namespace NagoyaRoadDelivery
     internal sealed class NativeAndroidDeliveries : IDisposable
     {
         private const string PatchId = "sunwood.nagoya.android-goods-delivery";
+        private const uint CheckpointFormat = 0x3156444e;
+        private const int MaxCheckpointBytes = 512 * 1024;
         private const int ParcelSize = 100;
         private const uint RouteLossGrace = 512;
         private const uint StallGraceFrames = 8192;
@@ -24,6 +27,7 @@ namespace NagoyaRoadDelivery
         private const double LocalEmploymentStreetMeters = 700;
         private const int LocalHiresPerReceivingWard = 2;
         private static NativeAndroidDeliveries active;
+        private static Checkpoint pending;
         private Harmony harmony;
         private readonly Dictionary<uint, Trip> trips = new Dictionary<uint, Trip>();
         private readonly Dictionary<ushort, NativeCityLedger.Lot> sites = new Dictionary<ushort, NativeCityLedger.Lot>();
@@ -63,6 +67,7 @@ namespace NagoyaRoadDelivery
         private int started, delivered, goods, stockedFactories, shopsWithSpace, workersSeenAtFactory, failedLegs, expiredLegs;
         private int blockedByStreetReach, observedGoodsOffers;
         private int nativePathFailureCallbacks;
+        private int restoredTrips, droppedSavedTrips;
         internal int Delivered { get { return delivered; } }
 
         private sealed class Trip
@@ -74,7 +79,15 @@ namespace NagoyaRoadDelivery
             public int NativePathFailures;
             public GoodsRequest Demand;
             public Vector3 LastPosition;
-            public bool HasPosition, OnsitePriority, NativeRouteAccepted, RouteMissing;
+            public bool HasPosition, OnsitePriority, NativeRouteAccepted, RouteMissing, RestoredAfterLoad;
+        }
+
+        private sealed class Checkpoint
+        {
+            public string City;
+            public int Started, Delivered, Goods;
+            public readonly Dictionary<string, int> DeliveriesByWard = new Dictionary<string, int>(StringComparer.Ordinal);
+            public readonly Dictionary<uint, Trip> Trips = new Dictionary<uint, Trip>();
         }
 
         private struct GoodsRequest
@@ -152,6 +165,131 @@ namespace NagoyaRoadDelivery
                 throw;
             }
             active = this;
+        }
+
+        internal static byte[] SaveCheckpoint()
+        {
+            NativeAndroidDeliveries delivery = active;
+            if (delivery == null) return null;
+            string city = SimulationManager.instance.m_metaData.m_CityName;
+            if (city == null || !city.StartsWith("NagoyaCitywide-", StringComparison.Ordinal)) return null;
+            using (MemoryStream memory = new MemoryStream())
+            using (BinaryWriter writer = new BinaryWriter(memory))
+            {
+                writer.Write(CheckpointFormat);
+                writer.Write(city);
+                writer.Write(delivery.started);
+                writer.Write(delivery.delivered);
+                writer.Write(delivery.goods);
+                writer.Write(delivery.deliveredByWard.Count);
+                foreach (var ward in delivery.deliveredByWard)
+                {
+                    writer.Write(ward.Key);
+                    writer.Write(ward.Value);
+                }
+                writer.Write(delivery.trips.Count);
+                foreach (var entry in delivery.trips)
+                {
+                    Trip trip = entry.Value;
+                    writer.Write(entry.Key);
+                    writer.Write(trip.Supplier);
+                    writer.Write(trip.Target);
+                    writer.Write(trip.SupplierStreet);
+                    writer.Write(trip.TargetStreet);
+                    writer.Write(trip.SupplierGeneration);
+                    writer.Write(trip.TargetGeneration);
+                    writer.Write(trip.SupplierWard);
+                    writer.Write(trip.TargetWard);
+                    writer.Write(trip.Frame);
+                    writer.Write(trip.OnsitePriority);
+                    writer.Write(trip.NativeRouteAccepted);
+                }
+                writer.Flush();
+                if (memory.Length > MaxCheckpointBytes) throw new InvalidDataException("Android delivery checkpoint size");
+                return memory.ToArray();
+            }
+        }
+
+        internal static void LoadCheckpoint(byte[] payload)
+        {
+            pending = null;
+            if (payload == null || payload.Length == 0) return;
+            if (payload.Length > MaxCheckpointBytes) throw new InvalidDataException("Android delivery checkpoint size");
+            using (MemoryStream memory = new MemoryStream(payload, false))
+            using (BinaryReader reader = new BinaryReader(memory))
+            {
+                if (reader.ReadUInt32() != CheckpointFormat) throw new InvalidDataException("Android delivery checkpoint version");
+                Checkpoint saved = new Checkpoint {City=reader.ReadString(), Started=reader.ReadInt32(),
+                    Delivered=reader.ReadInt32(), Goods=reader.ReadInt32()};
+                int wards = reader.ReadInt32();
+                if (!saved.City.StartsWith("NagoyaCitywide-", StringComparison.Ordinal) || saved.City.Length > 150 ||
+                    saved.Delivered < 0 || saved.Started < saved.Delivered || saved.Goods < saved.Delivered ||
+                    saved.Goods > (long)saved.Delivered * ParcelSize || wards < 0 || wards > 32)
+                    throw new InvalidDataException("Android delivery checkpoint counters");
+                long counted = 0;
+                for (int i = 0; i < wards; i++)
+                {
+                    string ward = reader.ReadString();
+                    int count = reader.ReadInt32();
+                    if (ward.Length > 40 || count <= 0 || saved.DeliveriesByWard.ContainsKey(ward))
+                        throw new InvalidDataException("Android delivery checkpoint ward");
+                    saved.DeliveriesByWard.Add(ward, count);
+                    counted += count;
+                }
+                int trips = reader.ReadInt32();
+                if (counted != saved.Delivered || trips < 0 || trips > NativeCityLedger.MaxResidents ||
+                    trips > saved.Started - saved.Delivered)
+                    throw new InvalidDataException("Android delivery checkpoint trip count");
+                for (int i = 0; i < trips; i++)
+                {
+                    uint id = reader.ReadUInt32();
+                    Trip trip = new Trip {Supplier=reader.ReadUInt16(), Target=reader.ReadUInt16(),
+                        SupplierStreet=reader.ReadUInt16(), TargetStreet=reader.ReadUInt16(),
+                        SupplierGeneration=reader.ReadUInt32(), TargetGeneration=reader.ReadUInt32(),
+                        SupplierWard=reader.ReadString(), TargetWard=reader.ReadString(), Frame=reader.ReadUInt32(),
+                        OnsitePriority=reader.ReadBoolean(), NativeRouteAccepted=reader.ReadBoolean(), RestoredAfterLoad=true};
+                    if (id == 0 || saved.Trips.ContainsKey(id) || trip.Supplier == 0 || trip.Target == 0 ||
+                        trip.Supplier == trip.Target || trip.SupplierWard.Length > 40 || trip.TargetWard.Length > 40)
+                        throw new InvalidDataException("Android delivery checkpoint trip");
+                    saved.Trips.Add(id, trip);
+                }
+                if (memory.Position != memory.Length) throw new InvalidDataException("Trailing Android delivery checkpoint data");
+                pending = saved;
+            }
+        }
+
+        internal void RestoreCheckpoint(string city)
+        {
+            Checkpoint saved = pending;
+            pending = null;
+            if (saved == null || saved.City != city) return;
+            started = saved.Started;
+            delivered = saved.Delivered;
+            goods = saved.Goods;
+            foreach (var ward in saved.DeliveriesByWard) deliveredByWard.Add(ward.Key, ward.Value);
+            CitizenManager manager = CitizenManager.instance;
+            uint frame = SimulationManager.instance.m_currentFrameIndex;
+            foreach (var entry in saved.Trips)
+            {
+                uint id = entry.Key;
+                Trip trip = entry.Value;
+                if (!AndroidLifePilot.IsAndroidCitizen(id) || !trip.NativeRouteAccepted || !HasPlannedBuildings(trip) ||
+                    reservedShops.Contains(trip.Target) || reservedFactories.Contains(trip.Supplier))
+                {
+                    droppedSavedTrips++;
+                    continue;
+                }
+                Citizen citizen = manager.m_citizens.m_buffer[id];
+                if (citizen.m_visitBuilding != trip.Target ||
+                    (citizen.CurrentLocation != Citizen.Location.Moving && !IsAtDeliveryStore(citizen, trip.Target)))
+                {
+                    droppedSavedTrips++;
+                    continue;
+                }
+                trip.LastProgressFrame = frame;
+                ReserveTrip(id, trip);
+                restoredTrips++;
+            }
         }
 
         internal bool IsDelivering(uint id)
@@ -604,10 +742,7 @@ namespace NagoyaRoadDelivery
                 SupplierWard=supplier.Ward, TargetWard=target.Ward,
                 Frame=frame, LastProgressFrame=frame,
                 Demand=choice.Request, OnsitePriority=onsiteShipment};
-            trips.Add(id, trip);
-            reservedShops.Add(target.Id);
-            reservedFactories.Add(supplier.Id);
-            AddWardCount(activeDeliveriesByWard, target.Ward);
+            ReserveTrip(id, trip);
             if (!StartDelivery(id, ref citizen, supplier.Id, target.Id))
             {
                 if (trips.ContainsKey(id)) FailLeg(id, trip, 0, "native path rejected at departure", gameTime);
@@ -838,7 +973,10 @@ namespace NagoyaRoadDelivery
         private static bool HasPlannedBuildings(Trip trip)
         {
             global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
-            return buildings[trip.Supplier].m_buildIndex == trip.SupplierGeneration && buildings[trip.Target].m_buildIndex == trip.TargetGeneration;
+            return trip.Supplier < buildings.Length && trip.Target < buildings.Length &&
+                (buildings[trip.Supplier].m_flags & global::Building.Flags.Created) != 0 &&
+                (buildings[trip.Target].m_flags & global::Building.Flags.Created) != 0 &&
+                buildings[trip.Supplier].m_buildIndex == trip.SupplierGeneration && buildings[trip.Target].m_buildIndex == trip.TargetGeneration;
         }
 
         private static bool IsAtDeliveryStore(Citizen citizen, ushort target)
@@ -887,6 +1025,7 @@ namespace NagoyaRoadDelivery
                 {"shopAfter",Stock(destination, target, ref buildings[target])}, {"localHire",IsLocalHire(id, trip.Supplier)},
                 {"firstDeliveryAfterAdmission",plannedDelivery && !planned.ExistingWorker},
                 {"firstDeliveryFromExistingWorker",plannedDelivery && planned.ExistingWorker}, {"onsitePriority",trip.OnsitePriority},
+                {"departureFrame",trip.Frame}, {"restoredAfterLoad",trip.RestoredAfterLoad},
                 {"arrivalEvidence",arrivalEvidence},
                 {"gameTime",SimulationManager.instance.m_currentGameTime.ToString("s")}});
         }
@@ -915,6 +1054,14 @@ namespace NagoyaRoadDelivery
             else if (space == 0) inventory.Full++;
             else if (space < ParcelSize) inventory.BelowFullParcel++;
             else inventory.FullParcel++;
+        }
+
+        private void ReserveTrip(uint id, Trip trip)
+        {
+            trips.Add(id, trip);
+            reservedShops.Add(trip.Target);
+            reservedFactories.Add(trip.Supplier);
+            AddWardCount(activeDeliveriesByWard, trip.TargetWard);
         }
 
         internal void EndTrip(uint id)
@@ -985,6 +1132,7 @@ namespace NagoyaRoadDelivery
                     {"position",leg.HasPosition ? new float[] {leg.LastPosition.x, leg.LastPosition.y, leg.LastPosition.z} : null}});
             }
             return new Dictionary<string, object> {{"active",trips.Count}, {"started",started}, {"delivered",delivered},
+                {"restoredTrips",restoredTrips}, {"droppedSavedTrips",droppedSavedTrips},
                 {"stockAdded",goods}, {"stockedFactories",stockedFactories}, {"shopsWithSpace",shopsWithSpace},
                 {"onsitePriorityWards",new List<string>(onsitePriorityWards).ToArray()},
                 {"stockedFactoriesWithWorkerOnsite",new List<ushort>(stockedFactoriesWithWorkerOnsite).ToArray()},
