@@ -1,0 +1,3999 @@
+{
+  "startGameTime": "2029-08-27T00:09:20",
+  "endGameTime": "2029-09-26T00:11:06",
+  "window": {
+    "startTicks": "640180805608579776",
+    "endTicks": "640206726663267276",
+    "startFrame": 55221135,
+    "endFrame": 55238690,
+    "durationHours": 720
+  },
+  "control": {
+    "caseId": "serviced-no-grant-control-720h",
+    "requestedExtraAndroids": 0,
+    "baseline": {
+      "nativeHumanResidents": 9151,
+      "humansWithWorkplace": 4163,
+      "androidHomeMembers": 488,
+      "androidWorkMembers": 473,
+      "androidIdentities": 488
+    },
+    "afterAdmission": {
+      "nativeHumanResidents": 9151,
+      "humansWithWorkplace": 4163,
+      "androidHomeMembers": 488,
+      "androidWorkMembers": 473,
+      "androidIdentities": 488
+    },
+    "end": {
+      "nativeHumanResidents": 9216,
+      "humansWithWorkplace": 4169,
+      "androidHomeMembers": 481,
+      "androidWorkMembers": 463,
+      "androidIdentities": 482
+    },
+    "newAndroidsAdmitted": 0,
+    "newAndroidsAtEnd": 0,
+    "newAndroidsWithWorkplace": 0,
+    "newAndroidsWithCommutePath": 0,
+    "newAndroidsWithWorkObservation": 0,
+    "newAndroidsWithNativeWorkArrival": 0,
+    "newAndroidsWithChargeObservation": 0,
+    "shopDeliveries": 313,
+    "shopDeliveriesByWard": {
+      "千種区": 20,
+      "名東区": 8,
+      "昭和区": 22,
+      "守山区": 26,
+      "天白区": 52,
+      "緑区": 46,
+      "中区": 21,
+      "南区": 12,
+      "熱田区": 2,
+      "港区": 17,
+      "瑞穂区": 23,
+      "中村区": 8,
+      "中川区": 18,
+      "東区": 13,
+      "西区": 18,
+      "北区": 7
+    },
+    "shopDeliveriesDuringTrial": 58,
+    "shopDeliveriesDuringTrialByWard": {
+      "昭和区": 3,
+      "守山区": 4,
+      "天白区": 9,
+      "緑区": 12,
+      "中区": 6,
+      "南区": 1,
+      "港区": 2,
+      "瑞穂区": 7,
+      "中川区": 4,
+      "東区": 4,
+      "西区": 4,
+      "北区": 2
+    }
+  },
+  "treatment": {
+    "caseId": "serviced-no-grant-add-256-720h",
+    "requestedExtraAndroids": 256,
+    "baseline": {
+      "nativeHumanResidents": 9151,
+      "humansWithWorkplace": 4163,
+      "androidHomeMembers": 488,
+      "androidWorkMembers": 473,
+      "androidIdentities": 488
+    },
+    "afterAdmission": {
+      "nativeHumanResidents": 9151,
+      "humansWithWorkplace": 4163,
+      "androidHomeMembers": 538,
+      "androidWorkMembers": 473,
+      "androidIdentities": 538
+    },
+    "end": {
+      "nativeHumanResidents": 9272,
+      "humansWithWorkplace": 4174,
+      "androidHomeMembers": 528,
+      "androidWorkMembers": 511,
+      "androidIdentities": 528
+    },
+    "newAndroidsAdmitted": 50,
+    "newAndroidsAtEnd": 47,
+    "newAndroidsWithWorkplace": 47,
+    "newAndroidsWithCommutePath": 47,
+    "newAndroidsWithWorkObservation": 3,
+    "newAndroidsWithNativeWorkArrival": 5,
+    "newAndroidsWithChargeObservation": 47,
+    "shopDeliveries": 318,
+    "shopDeliveriesByWard": {
+      "千種区": 20,
+      "名東区": 9,
+      "昭和区": 23,
+      "守山区": 28,
+      "天白区": 52,
+      "緑区": 48,
+      "中区": 19,
+      "南区": 14,
+      "熱田区": 2,
+      "港区": 18,
+      "瑞穂区": 22,
+      "中村区": 8,
+      "中川区": 18,
+      "東区": 13,
+      "西区": 17,
+      "北区": 7
+    },
+    "shopDeliveriesDuringTrial": 63,
+    "shopDeliveriesDuringTrialByWard": {
+      "名東区": 1,
+      "昭和区": 4,
+      "守山区": 6,
+      "天白区": 9,
+      "緑区": 14,
+      "中区": 4,
+      "南区": 3,
+      "港区": 3,
+      "瑞穂区": 6,
+      "中川区": 4,
+      "東区": 4,
+      "西区": 3,
+      "北区": 2
+    }
+  },
+  "endDifferenceTreatmentMinusControl": {
+    "nativeHumanResidents": 56,
+    "humansWithWorkplace": 5,
+    "androidHomeMembers": 47,
+    "androidWorkMembers": 48,
+    "androidIdentities": 46
+  },
+  "economy": {
+    "openingCashRaw": 106240809,
+    "oneTimeOpeningCreditRaw": 0,
+    "controlEnd": {
+      "cashRaw": 73487761,
+      "taxAndTransitIncomeRaw": 2806639,
+      "operatingExpensesRaw": 10510624,
+      "loanExpensesRaw": 0,
+      "policyExpensesRaw": 0
+    },
+    "treatmentEnd": {
+      "cashRaw": 73800831,
+      "taxAndTransitIncomeRaw": 2944509,
+      "operatingExpensesRaw": 10510624,
+      "loanExpensesRaw": 0,
+      "policyExpensesRaw": 0
+    },
+    "endDifferenceTreatmentMinusControl": {
+      "cashRaw": 313070,
+      "taxAndTransitIncomeRaw": 137870,
+      "operatingExpensesRaw": 0,
+      "loanExpensesRaw": 0,
+      "policyExpensesRaw": 0
+    }
+  },
+  "checkpoint": {
+    "name": "NagoyaCitywide-EmploymentTrial-ServicedCity",
+    "sha256": "90674E22CA6343AF63D566A30CBBF3A99BDA06FCAC37E04A9F6C8D31AD35E14B",
+    "bytes": 15435047,
+    "gameTime": "2029-08-27T00:10:11",
+    "buildIndex": 125177,
+    "networkSegments": 32656
+  },
+  "treatmentSave": {
+    "name": "NagoyaCitywide-EmploymentTrial-ServicedAdded50-30Days",
+    "sha256": "5646C0B7B73D6DF481C04D7AFE5D4BC73AC665190DC552CDB8217961D4F3F8BC",
+    "bytes": 15570706
+  },
+  "initialVacantHouseholdsByWard": {
+    "unassigned": 2,
+    "中区": 3,
+    "中川区": 8,
+    "中村区": 1,
+    "北区": 1,
+    "千種区": 0,
+    "南区": 2,
+    "名東区": 6,
+    "天白区": 3,
+    "守山区": 7,
+    "昭和区": 1,
+    "東区": 0,
+    "港区": 4,
+    "熱田区": 0,
+    "瑞穂区": 1,
+    "緑区": 10,
+    "西区": 1
+  },
+  "householdsTakenByWard": {
+    "unassigned": 2,
+    "中区": 3,
+    "中川区": 8,
+    "中村区": 1,
+    "北区": 1,
+    "千種区": 0,
+    "南区": 2,
+    "名東区": 6,
+    "天白区": 3,
+    "守山区": 7,
+    "昭和区": 1,
+    "東区": 0,
+    "港区": 4,
+    "熱田区": 0,
+    "瑞穂区": 1,
+    "緑区": 10,
+    "西区": 1
+  },
+  "initialExistingVacantSites": 47,
+  "initialVacantHouseholds": 50,
+  "additionsInDistinctNativeBuildings": 47,
+  "additionalHouseholdsBeyondOnePerBuilding": 3,
+  "jobsAtOpeningByUse": {
+    "Industrial": {
+      "registeredSites": 1329,
+      "activeSites": 1299,
+      "nativeCapacity": 3102,
+      "workersInNativeWorkUnits": 2052,
+      "vacanciesFromNativeCapacity": 1050,
+      "sitesWithWorkerWarning": 1
+    },
+    "Commercial": {
+      "registeredSites": 1083,
+      "activeSites": 1003,
+      "nativeCapacity": 2167,
+      "workersInNativeWorkUnits": 1412,
+      "vacanciesFromNativeCapacity": 755,
+      "sitesWithWorkerWarning": 0
+    },
+    "Office": {
+      "registeredSites": 149,
+      "activeSites": 149,
+      "nativeCapacity": 298,
+      "workersInNativeWorkUnits": 149,
+      "vacanciesFromNativeCapacity": 149,
+      "sitesWithWorkerWarning": 0
+    }
+  },
+  "jobsAtControlEndByUse": {
+    "Industrial": {
+      "registeredSites": 1327,
+      "activeSites": 1295,
+      "nativeCapacity": 3094,
+      "workersInNativeWorkUnits": 2020,
+      "vacanciesFromNativeCapacity": 1074,
+      "sitesWithWorkerWarning": 0
+    },
+    "Commercial": {
+      "registeredSites": 1037,
+      "activeSites": 966,
+      "nativeCapacity": 2075,
+      "workersInNativeWorkUnits": 1343,
+      "vacanciesFromNativeCapacity": 732,
+      "sitesWithWorkerWarning": 1
+    },
+    "Office": {
+      "registeredSites": 149,
+      "activeSites": 149,
+      "nativeCapacity": 298,
+      "workersInNativeWorkUnits": 149,
+      "vacanciesFromNativeCapacity": 149,
+      "sitesWithWorkerWarning": 0
+    }
+  },
+  "jobsAtTreatmentEndByUse": {
+    "Industrial": {
+      "registeredSites": 1327,
+      "activeSites": 1297,
+      "nativeCapacity": 3094,
+      "workersInNativeWorkUnits": 2051,
+      "vacanciesFromNativeCapacity": 1043,
+      "sitesWithWorkerWarning": 0
+    },
+    "Commercial": {
+      "registeredSites": 1037,
+      "activeSites": 966,
+      "nativeCapacity": 2075,
+      "workersInNativeWorkUnits": 1356,
+      "vacanciesFromNativeCapacity": 719,
+      "sitesWithWorkerWarning": 0
+    },
+    "Office": {
+      "registeredSites": 149,
+      "activeSites": 149,
+      "nativeCapacity": 298,
+      "workersInNativeWorkUnits": 149,
+      "vacanciesFromNativeCapacity": 149,
+      "sitesWithWorkerWarning": 0
+    }
+  },
+  "urbanCapacityByWard": {
+    "before": {
+      "unassigned": {
+        "servicedResidentialSites": 16,
+        "vacantHouseholds": 2,
+        "sitesWithVacantHouseholds": 2,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 4,
+            "activeSites": 4,
+            "nativeCapacity": 8,
+            "workersInNativeWorkUnits": 5,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 1,
+            "activeSites": 1,
+            "nativeCapacity": 2,
+            "workersInNativeWorkUnits": 2,
+            "vacanciesFromNativeCapacity": 0,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "中区": {
+        "servicedResidentialSites": 81,
+        "vacantHouseholds": 3,
+        "sitesWithVacantHouseholds": 1,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 40,
+            "activeSites": 37,
+            "nativeCapacity": 80,
+            "workersInNativeWorkUnits": 49,
+            "vacanciesFromNativeCapacity": 31,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 42,
+            "activeSites": 42,
+            "nativeCapacity": 106,
+            "workersInNativeWorkUnits": 73,
+            "vacanciesFromNativeCapacity": 33,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 1,
+            "activeSites": 1,
+            "nativeCapacity": 2,
+            "workersInNativeWorkUnits": 1,
+            "vacanciesFromNativeCapacity": 1,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "中川区": {
+        "servicedResidentialSites": 285,
+        "vacantHouseholds": 8,
+        "sitesWithVacantHouseholds": 8,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 136,
+            "activeSites": 130,
+            "nativeCapacity": 312,
+            "workersInNativeWorkUnits": 199,
+            "vacanciesFromNativeCapacity": 113,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 117,
+            "activeSites": 108,
+            "nativeCapacity": 234,
+            "workersInNativeWorkUnits": 151,
+            "vacanciesFromNativeCapacity": 83,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 22,
+            "activeSites": 22,
+            "nativeCapacity": 44,
+            "workersInNativeWorkUnits": 22,
+            "vacanciesFromNativeCapacity": 22,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "中村区": {
+        "servicedResidentialSites": 136,
+        "vacantHouseholds": 1,
+        "sitesWithVacantHouseholds": 1,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 55,
+            "activeSites": 52,
+            "nativeCapacity": 110,
+            "workersInNativeWorkUnits": 76,
+            "vacanciesFromNativeCapacity": 34,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 72,
+            "activeSites": 70,
+            "nativeCapacity": 170,
+            "workersInNativeWorkUnits": 113,
+            "vacanciesFromNativeCapacity": 57,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 10,
+            "activeSites": 10,
+            "nativeCapacity": 20,
+            "workersInNativeWorkUnits": 10,
+            "vacanciesFromNativeCapacity": 10,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "北区": {
+        "servicedResidentialSites": 144,
+        "vacantHouseholds": 1,
+        "sitesWithVacantHouseholds": 1,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 71,
+            "activeSites": 71,
+            "nativeCapacity": 162,
+            "workersInNativeWorkUnits": 118,
+            "vacanciesFromNativeCapacity": 44,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 56,
+            "activeSites": 53,
+            "nativeCapacity": 112,
+            "workersInNativeWorkUnits": 82,
+            "vacanciesFromNativeCapacity": 30,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 13,
+            "activeSites": 13,
+            "nativeCapacity": 26,
+            "workersInNativeWorkUnits": 13,
+            "vacanciesFromNativeCapacity": 13,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "千種区": {
+        "servicedResidentialSites": 130,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 63,
+            "activeSites": 63,
+            "nativeCapacity": 150,
+            "workersInNativeWorkUnits": 108,
+            "vacanciesFromNativeCapacity": 42,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 72,
+            "activeSites": 68,
+            "nativeCapacity": 144,
+            "workersInNativeWorkUnits": 92,
+            "vacanciesFromNativeCapacity": 52,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 6,
+            "activeSites": 6,
+            "nativeCapacity": 12,
+            "workersInNativeWorkUnits": 6,
+            "vacanciesFromNativeCapacity": 6,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "南区": {
+        "servicedResidentialSites": 152,
+        "vacantHouseholds": 2,
+        "sitesWithVacantHouseholds": 1,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 81,
+            "activeSites": 78,
+            "nativeCapacity": 182,
+            "workersInNativeWorkUnits": 128,
+            "vacanciesFromNativeCapacity": 54,
+            "sitesWithWorkerWarning": 1
+          },
+          "Commercial": {
+            "registeredSites": 63,
+            "activeSites": 57,
+            "nativeCapacity": 126,
+            "workersInNativeWorkUnits": 80,
+            "vacanciesFromNativeCapacity": 46,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 11,
+            "activeSites": 11,
+            "nativeCapacity": 22,
+            "workersInNativeWorkUnits": 11,
+            "vacanciesFromNativeCapacity": 11,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "名東区": {
+        "servicedResidentialSites": 164,
+        "vacantHouseholds": 6,
+        "sitesWithVacantHouseholds": 6,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 72,
+            "activeSites": 69,
+            "nativeCapacity": 166,
+            "workersInNativeWorkUnits": 105,
+            "vacanciesFromNativeCapacity": 61,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 77,
+            "activeSites": 75,
+            "nativeCapacity": 154,
+            "workersInNativeWorkUnits": 95,
+            "vacanciesFromNativeCapacity": 59,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 4,
+            "activeSites": 4,
+            "nativeCapacity": 8,
+            "workersInNativeWorkUnits": 4,
+            "vacanciesFromNativeCapacity": 4,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "天白区": {
+        "servicedResidentialSites": 192,
+        "vacantHouseholds": 3,
+        "sitesWithVacantHouseholds": 3,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 73,
+            "activeSites": 70,
+            "nativeCapacity": 146,
+            "workersInNativeWorkUnits": 95,
+            "vacanciesFromNativeCapacity": 51,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 84,
+            "activeSites": 82,
+            "nativeCapacity": 204,
+            "workersInNativeWorkUnits": 136,
+            "vacanciesFromNativeCapacity": 68,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 3,
+            "activeSites": 3,
+            "nativeCapacity": 6,
+            "workersInNativeWorkUnits": 3,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "守山区": {
+        "servicedResidentialSites": 251,
+        "vacantHouseholds": 7,
+        "sitesWithVacantHouseholds": 7,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 88,
+            "activeSites": 80,
+            "nativeCapacity": 177,
+            "workersInNativeWorkUnits": 114,
+            "vacanciesFromNativeCapacity": 63,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 114,
+            "activeSites": 113,
+            "nativeCapacity": 262,
+            "workersInNativeWorkUnits": 174,
+            "vacanciesFromNativeCapacity": 88,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 15,
+            "activeSites": 15,
+            "nativeCapacity": 30,
+            "workersInNativeWorkUnits": 15,
+            "vacanciesFromNativeCapacity": 15,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "昭和区": {
+        "servicedResidentialSites": 95,
+        "vacantHouseholds": 1,
+        "sitesWithVacantHouseholds": 1,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 48,
+            "activeSites": 44,
+            "nativeCapacity": 96,
+            "workersInNativeWorkUnits": 61,
+            "vacanciesFromNativeCapacity": 35,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 55,
+            "activeSites": 53,
+            "nativeCapacity": 152,
+            "workersInNativeWorkUnits": 102,
+            "vacanciesFromNativeCapacity": 50,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 3,
+            "activeSites": 3,
+            "nativeCapacity": 6,
+            "workersInNativeWorkUnits": 3,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "東区": {
+        "servicedResidentialSites": 63,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 42,
+            "activeSites": 42,
+            "nativeCapacity": 100,
+            "workersInNativeWorkUnits": 69,
+            "vacanciesFromNativeCapacity": 31,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 36,
+            "activeSites": 33,
+            "nativeCapacity": 72,
+            "workersInNativeWorkUnits": 50,
+            "vacanciesFromNativeCapacity": 22,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 3,
+            "activeSites": 3,
+            "nativeCapacity": 6,
+            "workersInNativeWorkUnits": 3,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "港区": {
+        "servicedResidentialSites": 277,
+        "vacantHouseholds": 4,
+        "sitesWithVacantHouseholds": 4,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 184,
+            "activeSites": 180,
+            "nativeCapacity": 406,
+            "workersInNativeWorkUnits": 251,
+            "vacanciesFromNativeCapacity": 155,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 104,
+            "activeSites": 92,
+            "nativeCapacity": 208,
+            "workersInNativeWorkUnits": 128,
+            "vacanciesFromNativeCapacity": 80,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 19,
+            "activeSites": 19,
+            "nativeCapacity": 38,
+            "workersInNativeWorkUnits": 19,
+            "vacanciesFromNativeCapacity": 19,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "熱田区": {
+        "servicedResidentialSites": 77,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 34,
+            "activeSites": 32,
+            "nativeCapacity": 68,
+            "workersInNativeWorkUnits": 49,
+            "vacanciesFromNativeCapacity": 19,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 33,
+            "activeSites": 32,
+            "nativeCapacity": 74,
+            "workersInNativeWorkUnits": 48,
+            "vacanciesFromNativeCapacity": 26,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 8,
+            "activeSites": 8,
+            "nativeCapacity": 16,
+            "workersInNativeWorkUnits": 8,
+            "vacanciesFromNativeCapacity": 8,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "瑞穂区": {
+        "servicedResidentialSites": 98,
+        "vacantHouseholds": 1,
+        "sitesWithVacantHouseholds": 1,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 42,
+            "activeSites": 41,
+            "nativeCapacity": 84,
+            "workersInNativeWorkUnits": 52,
+            "vacanciesFromNativeCapacity": 32,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 46,
+            "activeSites": 46,
+            "nativeCapacity": 120,
+            "workersInNativeWorkUnits": 74,
+            "vacanciesFromNativeCapacity": 46,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 6,
+            "activeSites": 6,
+            "nativeCapacity": 12,
+            "workersInNativeWorkUnits": 6,
+            "vacanciesFromNativeCapacity": 6,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "緑区": {
+        "servicedResidentialSites": 302,
+        "vacantHouseholds": 10,
+        "sitesWithVacantHouseholds": 10,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 148,
+            "activeSites": 143,
+            "nativeCapacity": 346,
+            "workersInNativeWorkUnits": 229,
+            "vacanciesFromNativeCapacity": 117,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 117,
+            "activeSites": 106,
+            "nativeCapacity": 234,
+            "workersInNativeWorkUnits": 150,
+            "vacanciesFromNativeCapacity": 84,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 16,
+            "activeSites": 16,
+            "nativeCapacity": 32,
+            "workersInNativeWorkUnits": 16,
+            "vacanciesFromNativeCapacity": 16,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "西区": {
+        "servicedResidentialSites": 163,
+        "vacantHouseholds": 1,
+        "sitesWithVacantHouseholds": 1,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 60,
+            "activeSites": 54,
+            "nativeCapacity": 120,
+            "workersInNativeWorkUnits": 86,
+            "vacanciesFromNativeCapacity": 34,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 82,
+            "activeSites": 81,
+            "nativeCapacity": 182,
+            "workersInNativeWorkUnits": 120,
+            "vacanciesFromNativeCapacity": 62,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 9,
+            "activeSites": 9,
+            "nativeCapacity": 18,
+            "workersInNativeWorkUnits": 9,
+            "vacanciesFromNativeCapacity": 9,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      }
+    },
+    "afterAdmission": {
+      "unassigned": {
+        "servicedResidentialSites": 16,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 4,
+            "activeSites": 4,
+            "nativeCapacity": 8,
+            "workersInNativeWorkUnits": 5,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 1,
+            "activeSites": 1,
+            "nativeCapacity": 2,
+            "workersInNativeWorkUnits": 2,
+            "vacanciesFromNativeCapacity": 0,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "中区": {
+        "servicedResidentialSites": 81,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 40,
+            "activeSites": 37,
+            "nativeCapacity": 80,
+            "workersInNativeWorkUnits": 49,
+            "vacanciesFromNativeCapacity": 31,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 42,
+            "activeSites": 42,
+            "nativeCapacity": 106,
+            "workersInNativeWorkUnits": 73,
+            "vacanciesFromNativeCapacity": 33,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 1,
+            "activeSites": 1,
+            "nativeCapacity": 2,
+            "workersInNativeWorkUnits": 1,
+            "vacanciesFromNativeCapacity": 1,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "中川区": {
+        "servicedResidentialSites": 285,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 136,
+            "activeSites": 130,
+            "nativeCapacity": 312,
+            "workersInNativeWorkUnits": 199,
+            "vacanciesFromNativeCapacity": 113,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 117,
+            "activeSites": 108,
+            "nativeCapacity": 234,
+            "workersInNativeWorkUnits": 151,
+            "vacanciesFromNativeCapacity": 83,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 22,
+            "activeSites": 22,
+            "nativeCapacity": 44,
+            "workersInNativeWorkUnits": 22,
+            "vacanciesFromNativeCapacity": 22,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "中村区": {
+        "servicedResidentialSites": 136,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 55,
+            "activeSites": 52,
+            "nativeCapacity": 110,
+            "workersInNativeWorkUnits": 76,
+            "vacanciesFromNativeCapacity": 34,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 72,
+            "activeSites": 70,
+            "nativeCapacity": 170,
+            "workersInNativeWorkUnits": 113,
+            "vacanciesFromNativeCapacity": 57,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 10,
+            "activeSites": 10,
+            "nativeCapacity": 20,
+            "workersInNativeWorkUnits": 10,
+            "vacanciesFromNativeCapacity": 10,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "北区": {
+        "servicedResidentialSites": 144,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 71,
+            "activeSites": 71,
+            "nativeCapacity": 162,
+            "workersInNativeWorkUnits": 118,
+            "vacanciesFromNativeCapacity": 44,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 56,
+            "activeSites": 53,
+            "nativeCapacity": 112,
+            "workersInNativeWorkUnits": 82,
+            "vacanciesFromNativeCapacity": 30,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 13,
+            "activeSites": 13,
+            "nativeCapacity": 26,
+            "workersInNativeWorkUnits": 13,
+            "vacanciesFromNativeCapacity": 13,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "千種区": {
+        "servicedResidentialSites": 130,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 63,
+            "activeSites": 63,
+            "nativeCapacity": 150,
+            "workersInNativeWorkUnits": 108,
+            "vacanciesFromNativeCapacity": 42,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 72,
+            "activeSites": 68,
+            "nativeCapacity": 144,
+            "workersInNativeWorkUnits": 92,
+            "vacanciesFromNativeCapacity": 52,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 6,
+            "activeSites": 6,
+            "nativeCapacity": 12,
+            "workersInNativeWorkUnits": 6,
+            "vacanciesFromNativeCapacity": 6,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "南区": {
+        "servicedResidentialSites": 152,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 81,
+            "activeSites": 78,
+            "nativeCapacity": 182,
+            "workersInNativeWorkUnits": 128,
+            "vacanciesFromNativeCapacity": 54,
+            "sitesWithWorkerWarning": 1
+          },
+          "Commercial": {
+            "registeredSites": 63,
+            "activeSites": 57,
+            "nativeCapacity": 126,
+            "workersInNativeWorkUnits": 80,
+            "vacanciesFromNativeCapacity": 46,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 11,
+            "activeSites": 11,
+            "nativeCapacity": 22,
+            "workersInNativeWorkUnits": 11,
+            "vacanciesFromNativeCapacity": 11,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "名東区": {
+        "servicedResidentialSites": 164,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 72,
+            "activeSites": 69,
+            "nativeCapacity": 166,
+            "workersInNativeWorkUnits": 105,
+            "vacanciesFromNativeCapacity": 61,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 77,
+            "activeSites": 75,
+            "nativeCapacity": 154,
+            "workersInNativeWorkUnits": 95,
+            "vacanciesFromNativeCapacity": 59,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 4,
+            "activeSites": 4,
+            "nativeCapacity": 8,
+            "workersInNativeWorkUnits": 4,
+            "vacanciesFromNativeCapacity": 4,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "天白区": {
+        "servicedResidentialSites": 192,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 73,
+            "activeSites": 70,
+            "nativeCapacity": 146,
+            "workersInNativeWorkUnits": 95,
+            "vacanciesFromNativeCapacity": 51,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 84,
+            "activeSites": 82,
+            "nativeCapacity": 204,
+            "workersInNativeWorkUnits": 136,
+            "vacanciesFromNativeCapacity": 68,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 3,
+            "activeSites": 3,
+            "nativeCapacity": 6,
+            "workersInNativeWorkUnits": 3,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "守山区": {
+        "servicedResidentialSites": 251,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 88,
+            "activeSites": 80,
+            "nativeCapacity": 177,
+            "workersInNativeWorkUnits": 114,
+            "vacanciesFromNativeCapacity": 63,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 114,
+            "activeSites": 113,
+            "nativeCapacity": 262,
+            "workersInNativeWorkUnits": 174,
+            "vacanciesFromNativeCapacity": 88,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 15,
+            "activeSites": 15,
+            "nativeCapacity": 30,
+            "workersInNativeWorkUnits": 15,
+            "vacanciesFromNativeCapacity": 15,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "昭和区": {
+        "servicedResidentialSites": 95,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 48,
+            "activeSites": 44,
+            "nativeCapacity": 96,
+            "workersInNativeWorkUnits": 61,
+            "vacanciesFromNativeCapacity": 35,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 55,
+            "activeSites": 53,
+            "nativeCapacity": 152,
+            "workersInNativeWorkUnits": 102,
+            "vacanciesFromNativeCapacity": 50,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 3,
+            "activeSites": 3,
+            "nativeCapacity": 6,
+            "workersInNativeWorkUnits": 3,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "東区": {
+        "servicedResidentialSites": 63,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 42,
+            "activeSites": 42,
+            "nativeCapacity": 100,
+            "workersInNativeWorkUnits": 69,
+            "vacanciesFromNativeCapacity": 31,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 36,
+            "activeSites": 33,
+            "nativeCapacity": 72,
+            "workersInNativeWorkUnits": 50,
+            "vacanciesFromNativeCapacity": 22,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 3,
+            "activeSites": 3,
+            "nativeCapacity": 6,
+            "workersInNativeWorkUnits": 3,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "港区": {
+        "servicedResidentialSites": 277,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 184,
+            "activeSites": 180,
+            "nativeCapacity": 406,
+            "workersInNativeWorkUnits": 251,
+            "vacanciesFromNativeCapacity": 155,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 104,
+            "activeSites": 92,
+            "nativeCapacity": 208,
+            "workersInNativeWorkUnits": 128,
+            "vacanciesFromNativeCapacity": 80,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 19,
+            "activeSites": 19,
+            "nativeCapacity": 38,
+            "workersInNativeWorkUnits": 19,
+            "vacanciesFromNativeCapacity": 19,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "熱田区": {
+        "servicedResidentialSites": 77,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 34,
+            "activeSites": 32,
+            "nativeCapacity": 68,
+            "workersInNativeWorkUnits": 49,
+            "vacanciesFromNativeCapacity": 19,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 33,
+            "activeSites": 32,
+            "nativeCapacity": 74,
+            "workersInNativeWorkUnits": 48,
+            "vacanciesFromNativeCapacity": 26,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 8,
+            "activeSites": 8,
+            "nativeCapacity": 16,
+            "workersInNativeWorkUnits": 8,
+            "vacanciesFromNativeCapacity": 8,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "瑞穂区": {
+        "servicedResidentialSites": 98,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 42,
+            "activeSites": 41,
+            "nativeCapacity": 84,
+            "workersInNativeWorkUnits": 52,
+            "vacanciesFromNativeCapacity": 32,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 46,
+            "activeSites": 46,
+            "nativeCapacity": 120,
+            "workersInNativeWorkUnits": 74,
+            "vacanciesFromNativeCapacity": 46,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 6,
+            "activeSites": 6,
+            "nativeCapacity": 12,
+            "workersInNativeWorkUnits": 6,
+            "vacanciesFromNativeCapacity": 6,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "緑区": {
+        "servicedResidentialSites": 302,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 148,
+            "activeSites": 143,
+            "nativeCapacity": 346,
+            "workersInNativeWorkUnits": 229,
+            "vacanciesFromNativeCapacity": 117,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 117,
+            "activeSites": 106,
+            "nativeCapacity": 234,
+            "workersInNativeWorkUnits": 150,
+            "vacanciesFromNativeCapacity": 84,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 16,
+            "activeSites": 16,
+            "nativeCapacity": 32,
+            "workersInNativeWorkUnits": 16,
+            "vacanciesFromNativeCapacity": 16,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "西区": {
+        "servicedResidentialSites": 163,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 60,
+            "activeSites": 54,
+            "nativeCapacity": 120,
+            "workersInNativeWorkUnits": 86,
+            "vacanciesFromNativeCapacity": 34,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 82,
+            "activeSites": 81,
+            "nativeCapacity": 182,
+            "workersInNativeWorkUnits": 120,
+            "vacanciesFromNativeCapacity": 62,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 9,
+            "activeSites": 9,
+            "nativeCapacity": 18,
+            "workersInNativeWorkUnits": 9,
+            "vacanciesFromNativeCapacity": 9,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      }
+    },
+    "controlEnd": {
+      "unassigned": {
+        "servicedResidentialSites": 7,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 4,
+            "activeSites": 4,
+            "nativeCapacity": 8,
+            "workersInNativeWorkUnits": 5,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 1,
+            "activeSites": 1,
+            "nativeCapacity": 2,
+            "workersInNativeWorkUnits": 2,
+            "vacanciesFromNativeCapacity": 0,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "中区": {
+        "servicedResidentialSites": 78,
+        "vacantHouseholds": 1,
+        "sitesWithVacantHouseholds": 1,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 39,
+            "activeSites": 36,
+            "nativeCapacity": 78,
+            "workersInNativeWorkUnits": 46,
+            "vacanciesFromNativeCapacity": 32,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 42,
+            "activeSites": 42,
+            "nativeCapacity": 106,
+            "workersInNativeWorkUnits": 71,
+            "vacanciesFromNativeCapacity": 35,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 1,
+            "activeSites": 1,
+            "nativeCapacity": 2,
+            "workersInNativeWorkUnits": 1,
+            "vacanciesFromNativeCapacity": 1,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "中川区": {
+        "servicedResidentialSites": 275,
+        "vacantHouseholds": 4,
+        "sitesWithVacantHouseholds": 4,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 136,
+            "activeSites": 130,
+            "nativeCapacity": 312,
+            "workersInNativeWorkUnits": 196,
+            "vacanciesFromNativeCapacity": 116,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 112,
+            "activeSites": 103,
+            "nativeCapacity": 224,
+            "workersInNativeWorkUnits": 148,
+            "vacanciesFromNativeCapacity": 76,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 22,
+            "activeSites": 22,
+            "nativeCapacity": 44,
+            "workersInNativeWorkUnits": 22,
+            "vacanciesFromNativeCapacity": 22,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "中村区": {
+        "servicedResidentialSites": 137,
+        "vacantHouseholds": 1,
+        "sitesWithVacantHouseholds": 1,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 52,
+            "activeSites": 50,
+            "nativeCapacity": 104,
+            "workersInNativeWorkUnits": 67,
+            "vacanciesFromNativeCapacity": 37,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 71,
+            "activeSites": 69,
+            "nativeCapacity": 166,
+            "workersInNativeWorkUnits": 111,
+            "vacanciesFromNativeCapacity": 55,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 10,
+            "activeSites": 10,
+            "nativeCapacity": 20,
+            "workersInNativeWorkUnits": 10,
+            "vacanciesFromNativeCapacity": 10,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "北区": {
+        "servicedResidentialSites": 141,
+        "vacantHouseholds": 4,
+        "sitesWithVacantHouseholds": 3,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 71,
+            "activeSites": 71,
+            "nativeCapacity": 162,
+            "workersInNativeWorkUnits": 114,
+            "vacanciesFromNativeCapacity": 48,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 55,
+            "activeSites": 53,
+            "nativeCapacity": 110,
+            "workersInNativeWorkUnits": 81,
+            "vacanciesFromNativeCapacity": 29,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 13,
+            "activeSites": 13,
+            "nativeCapacity": 26,
+            "workersInNativeWorkUnits": 13,
+            "vacanciesFromNativeCapacity": 13,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "千種区": {
+        "servicedResidentialSites": 93,
+        "vacantHouseholds": 2,
+        "sitesWithVacantHouseholds": 2,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 63,
+            "activeSites": 63,
+            "nativeCapacity": 150,
+            "workersInNativeWorkUnits": 105,
+            "vacanciesFromNativeCapacity": 45,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 70,
+            "activeSites": 66,
+            "nativeCapacity": 140,
+            "workersInNativeWorkUnits": 87,
+            "vacanciesFromNativeCapacity": 53,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 6,
+            "activeSites": 6,
+            "nativeCapacity": 12,
+            "workersInNativeWorkUnits": 6,
+            "vacanciesFromNativeCapacity": 6,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "南区": {
+        "servicedResidentialSites": 150,
+        "vacantHouseholds": 2,
+        "sitesWithVacantHouseholds": 2,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 81,
+            "activeSites": 78,
+            "nativeCapacity": 182,
+            "workersInNativeWorkUnits": 129,
+            "vacanciesFromNativeCapacity": 53,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 59,
+            "activeSites": 52,
+            "nativeCapacity": 118,
+            "workersInNativeWorkUnits": 75,
+            "vacanciesFromNativeCapacity": 43,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 11,
+            "activeSites": 11,
+            "nativeCapacity": 22,
+            "workersInNativeWorkUnits": 11,
+            "vacanciesFromNativeCapacity": 11,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "名東区": {
+        "servicedResidentialSites": 33,
+        "vacantHouseholds": 3,
+        "sitesWithVacantHouseholds": 1,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 72,
+            "activeSites": 69,
+            "nativeCapacity": 166,
+            "workersInNativeWorkUnits": 111,
+            "vacanciesFromNativeCapacity": 55,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 76,
+            "activeSites": 69,
+            "nativeCapacity": 152,
+            "workersInNativeWorkUnits": 98,
+            "vacanciesFromNativeCapacity": 54,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 4,
+            "activeSites": 4,
+            "nativeCapacity": 8,
+            "workersInNativeWorkUnits": 4,
+            "vacanciesFromNativeCapacity": 4,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "天白区": {
+        "servicedResidentialSites": 57,
+        "vacantHouseholds": 4,
+        "sitesWithVacantHouseholds": 3,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 72,
+            "activeSites": 67,
+            "nativeCapacity": 144,
+            "workersInNativeWorkUnits": 89,
+            "vacanciesFromNativeCapacity": 55,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 84,
+            "activeSites": 82,
+            "nativeCapacity": 204,
+            "workersInNativeWorkUnits": 132,
+            "vacanciesFromNativeCapacity": 72,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 3,
+            "activeSites": 3,
+            "nativeCapacity": 6,
+            "workersInNativeWorkUnits": 3,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "守山区": {
+        "servicedResidentialSites": 125,
+        "vacantHouseholds": 14,
+        "sitesWithVacantHouseholds": 10,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 83,
+            "activeSites": 77,
+            "nativeCapacity": 167,
+            "workersInNativeWorkUnits": 109,
+            "vacanciesFromNativeCapacity": 58,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 113,
+            "activeSites": 112,
+            "nativeCapacity": 258,
+            "workersInNativeWorkUnits": 173,
+            "vacanciesFromNativeCapacity": 85,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 15,
+            "activeSites": 15,
+            "nativeCapacity": 30,
+            "workersInNativeWorkUnits": 15,
+            "vacanciesFromNativeCapacity": 15,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "昭和区": {
+        "servicedResidentialSites": 68,
+        "vacantHouseholds": 3,
+        "sitesWithVacantHouseholds": 3,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 47,
+            "activeSites": 44,
+            "nativeCapacity": 94,
+            "workersInNativeWorkUnits": 57,
+            "vacanciesFromNativeCapacity": 37,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 55,
+            "activeSites": 52,
+            "nativeCapacity": 152,
+            "workersInNativeWorkUnits": 97,
+            "vacanciesFromNativeCapacity": 55,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 3,
+            "activeSites": 3,
+            "nativeCapacity": 6,
+            "workersInNativeWorkUnits": 3,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "東区": {
+        "servicedResidentialSites": 63,
+        "vacantHouseholds": 3,
+        "sitesWithVacantHouseholds": 1,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 42,
+            "activeSites": 42,
+            "nativeCapacity": 100,
+            "workersInNativeWorkUnits": 68,
+            "vacanciesFromNativeCapacity": 32,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 35,
+            "activeSites": 33,
+            "nativeCapacity": 70,
+            "workersInNativeWorkUnits": 49,
+            "vacanciesFromNativeCapacity": 21,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 3,
+            "activeSites": 3,
+            "nativeCapacity": 6,
+            "workersInNativeWorkUnits": 3,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "港区": {
+        "servicedResidentialSites": 271,
+        "vacantHouseholds": 4,
+        "sitesWithVacantHouseholds": 4,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 184,
+            "activeSites": 179,
+            "nativeCapacity": 406,
+            "workersInNativeWorkUnits": 244,
+            "vacanciesFromNativeCapacity": 162,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 96,
+            "activeSites": 86,
+            "nativeCapacity": 192,
+            "workersInNativeWorkUnits": 120,
+            "vacanciesFromNativeCapacity": 72,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 19,
+            "activeSites": 19,
+            "nativeCapacity": 38,
+            "workersInNativeWorkUnits": 19,
+            "vacanciesFromNativeCapacity": 19,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "熱田区": {
+        "servicedResidentialSites": 77,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 32,
+            "activeSites": 31,
+            "nativeCapacity": 64,
+            "workersInNativeWorkUnits": 45,
+            "vacanciesFromNativeCapacity": 19,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 33,
+            "activeSites": 32,
+            "nativeCapacity": 74,
+            "workersInNativeWorkUnits": 45,
+            "vacanciesFromNativeCapacity": 29,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 8,
+            "activeSites": 8,
+            "nativeCapacity": 16,
+            "workersInNativeWorkUnits": 8,
+            "vacanciesFromNativeCapacity": 8,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "瑞穂区": {
+        "servicedResidentialSites": 59,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 40,
+            "activeSites": 39,
+            "nativeCapacity": 80,
+            "workersInNativeWorkUnits": 52,
+            "vacanciesFromNativeCapacity": 28,
+            "sitesWithWorkerWarning": 1
+          },
+          "Industrial": {
+            "registeredSites": 46,
+            "activeSites": 46,
+            "nativeCapacity": 120,
+            "workersInNativeWorkUnits": 72,
+            "vacanciesFromNativeCapacity": 48,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 6,
+            "activeSites": 6,
+            "nativeCapacity": 12,
+            "workersInNativeWorkUnits": 6,
+            "vacanciesFromNativeCapacity": 6,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "緑区": {
+        "servicedResidentialSites": 286,
+        "vacantHouseholds": 3,
+        "sitesWithVacantHouseholds": 2,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 148,
+            "activeSites": 143,
+            "nativeCapacity": 346,
+            "workersInNativeWorkUnits": 228,
+            "vacanciesFromNativeCapacity": 118,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 113,
+            "activeSites": 105,
+            "nativeCapacity": 226,
+            "workersInNativeWorkUnits": 146,
+            "vacanciesFromNativeCapacity": 80,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 16,
+            "activeSites": 16,
+            "nativeCapacity": 32,
+            "workersInNativeWorkUnits": 16,
+            "vacanciesFromNativeCapacity": 16,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "西区": {
+        "servicedResidentialSites": 135,
+        "vacantHouseholds": 3,
+        "sitesWithVacantHouseholds": 1,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 55,
+            "activeSites": 54,
+            "nativeCapacity": 110,
+            "workersInNativeWorkUnits": 72,
+            "vacanciesFromNativeCapacity": 38,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 82,
+            "activeSites": 81,
+            "nativeCapacity": 182,
+            "workersInNativeWorkUnits": 119,
+            "vacanciesFromNativeCapacity": 63,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 9,
+            "activeSites": 9,
+            "nativeCapacity": 18,
+            "workersInNativeWorkUnits": 9,
+            "vacanciesFromNativeCapacity": 9,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      }
+    },
+    "treatmentEnd": {
+      "unassigned": {
+        "servicedResidentialSites": 15,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 4,
+            "activeSites": 4,
+            "nativeCapacity": 8,
+            "workersInNativeWorkUnits": 5,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 1,
+            "activeSites": 1,
+            "nativeCapacity": 2,
+            "workersInNativeWorkUnits": 2,
+            "vacanciesFromNativeCapacity": 0,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "中区": {
+        "servicedResidentialSites": 79,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 39,
+            "activeSites": 36,
+            "nativeCapacity": 78,
+            "workersInNativeWorkUnits": 47,
+            "vacanciesFromNativeCapacity": 31,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 42,
+            "activeSites": 42,
+            "nativeCapacity": 106,
+            "workersInNativeWorkUnits": 72,
+            "vacanciesFromNativeCapacity": 34,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 1,
+            "activeSites": 1,
+            "nativeCapacity": 2,
+            "workersInNativeWorkUnits": 1,
+            "vacanciesFromNativeCapacity": 1,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "中川区": {
+        "servicedResidentialSites": 277,
+        "vacantHouseholds": 5,
+        "sitesWithVacantHouseholds": 5,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 136,
+            "activeSites": 130,
+            "nativeCapacity": 312,
+            "workersInNativeWorkUnits": 199,
+            "vacanciesFromNativeCapacity": 113,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 112,
+            "activeSites": 103,
+            "nativeCapacity": 224,
+            "workersInNativeWorkUnits": 152,
+            "vacanciesFromNativeCapacity": 72,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 22,
+            "activeSites": 22,
+            "nativeCapacity": 44,
+            "workersInNativeWorkUnits": 22,
+            "vacanciesFromNativeCapacity": 22,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "中村区": {
+        "servicedResidentialSites": 136,
+        "vacantHouseholds": 1,
+        "sitesWithVacantHouseholds": 1,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 52,
+            "activeSites": 50,
+            "nativeCapacity": 104,
+            "workersInNativeWorkUnits": 69,
+            "vacanciesFromNativeCapacity": 35,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 71,
+            "activeSites": 69,
+            "nativeCapacity": 166,
+            "workersInNativeWorkUnits": 109,
+            "vacanciesFromNativeCapacity": 57,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 10,
+            "activeSites": 10,
+            "nativeCapacity": 20,
+            "workersInNativeWorkUnits": 10,
+            "vacanciesFromNativeCapacity": 10,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "北区": {
+        "servicedResidentialSites": 142,
+        "vacantHouseholds": 4,
+        "sitesWithVacantHouseholds": 3,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 71,
+            "activeSites": 71,
+            "nativeCapacity": 162,
+            "workersInNativeWorkUnits": 121,
+            "vacanciesFromNativeCapacity": 41,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 55,
+            "activeSites": 53,
+            "nativeCapacity": 110,
+            "workersInNativeWorkUnits": 79,
+            "vacanciesFromNativeCapacity": 31,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 13,
+            "activeSites": 13,
+            "nativeCapacity": 26,
+            "workersInNativeWorkUnits": 13,
+            "vacanciesFromNativeCapacity": 13,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "千種区": {
+        "servicedResidentialSites": 134,
+        "vacantHouseholds": 3,
+        "sitesWithVacantHouseholds": 3,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 63,
+            "activeSites": 63,
+            "nativeCapacity": 150,
+            "workersInNativeWorkUnits": 106,
+            "vacanciesFromNativeCapacity": 44,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 70,
+            "activeSites": 66,
+            "nativeCapacity": 140,
+            "workersInNativeWorkUnits": 93,
+            "vacanciesFromNativeCapacity": 47,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 6,
+            "activeSites": 6,
+            "nativeCapacity": 12,
+            "workersInNativeWorkUnits": 6,
+            "vacanciesFromNativeCapacity": 6,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "南区": {
+        "servicedResidentialSites": 148,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 81,
+            "activeSites": 78,
+            "nativeCapacity": 182,
+            "workersInNativeWorkUnits": 128,
+            "vacanciesFromNativeCapacity": 54,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 59,
+            "activeSites": 52,
+            "nativeCapacity": 118,
+            "workersInNativeWorkUnits": 75,
+            "vacanciesFromNativeCapacity": 43,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 11,
+            "activeSites": 11,
+            "nativeCapacity": 22,
+            "workersInNativeWorkUnits": 11,
+            "vacanciesFromNativeCapacity": 11,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "名東区": {
+        "servicedResidentialSites": 164,
+        "vacantHouseholds": 4,
+        "sitesWithVacantHouseholds": 4,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 72,
+            "activeSites": 69,
+            "nativeCapacity": 166,
+            "workersInNativeWorkUnits": 108,
+            "vacanciesFromNativeCapacity": 58,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 76,
+            "activeSites": 69,
+            "nativeCapacity": 152,
+            "workersInNativeWorkUnits": 94,
+            "vacanciesFromNativeCapacity": 58,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 4,
+            "activeSites": 4,
+            "nativeCapacity": 8,
+            "workersInNativeWorkUnits": 4,
+            "vacanciesFromNativeCapacity": 4,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "天白区": {
+        "servicedResidentialSites": 188,
+        "vacantHouseholds": 3,
+        "sitesWithVacantHouseholds": 2,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 72,
+            "activeSites": 67,
+            "nativeCapacity": 144,
+            "workersInNativeWorkUnits": 92,
+            "vacanciesFromNativeCapacity": 52,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 84,
+            "activeSites": 82,
+            "nativeCapacity": 204,
+            "workersInNativeWorkUnits": 137,
+            "vacanciesFromNativeCapacity": 67,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 3,
+            "activeSites": 3,
+            "nativeCapacity": 6,
+            "workersInNativeWorkUnits": 3,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "守山区": {
+        "servicedResidentialSites": 251,
+        "vacantHouseholds": 19,
+        "sitesWithVacantHouseholds": 14,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 83,
+            "activeSites": 77,
+            "nativeCapacity": 167,
+            "workersInNativeWorkUnits": 107,
+            "vacanciesFromNativeCapacity": 60,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 113,
+            "activeSites": 112,
+            "nativeCapacity": 258,
+            "workersInNativeWorkUnits": 167,
+            "vacanciesFromNativeCapacity": 91,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 15,
+            "activeSites": 15,
+            "nativeCapacity": 30,
+            "workersInNativeWorkUnits": 15,
+            "vacanciesFromNativeCapacity": 15,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "昭和区": {
+        "servicedResidentialSites": 93,
+        "vacantHouseholds": 3,
+        "sitesWithVacantHouseholds": 3,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 47,
+            "activeSites": 44,
+            "nativeCapacity": 94,
+            "workersInNativeWorkUnits": 60,
+            "vacanciesFromNativeCapacity": 34,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 55,
+            "activeSites": 53,
+            "nativeCapacity": 152,
+            "workersInNativeWorkUnits": 101,
+            "vacanciesFromNativeCapacity": 51,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 3,
+            "activeSites": 3,
+            "nativeCapacity": 6,
+            "workersInNativeWorkUnits": 3,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "東区": {
+        "servicedResidentialSites": 63,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 42,
+            "activeSites": 42,
+            "nativeCapacity": 100,
+            "workersInNativeWorkUnits": 70,
+            "vacanciesFromNativeCapacity": 30,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 35,
+            "activeSites": 33,
+            "nativeCapacity": 70,
+            "workersInNativeWorkUnits": 51,
+            "vacanciesFromNativeCapacity": 19,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 3,
+            "activeSites": 3,
+            "nativeCapacity": 6,
+            "workersInNativeWorkUnits": 3,
+            "vacanciesFromNativeCapacity": 3,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "港区": {
+        "servicedResidentialSites": 274,
+        "vacantHouseholds": 5,
+        "sitesWithVacantHouseholds": 5,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 184,
+            "activeSites": 180,
+            "nativeCapacity": 406,
+            "workersInNativeWorkUnits": 246,
+            "vacanciesFromNativeCapacity": 160,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 96,
+            "activeSites": 86,
+            "nativeCapacity": 192,
+            "workersInNativeWorkUnits": 119,
+            "vacanciesFromNativeCapacity": 73,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 19,
+            "activeSites": 19,
+            "nativeCapacity": 38,
+            "workersInNativeWorkUnits": 19,
+            "vacanciesFromNativeCapacity": 19,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "熱田区": {
+        "servicedResidentialSites": 77,
+        "vacantHouseholds": 1,
+        "sitesWithVacantHouseholds": 1,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 32,
+            "activeSites": 31,
+            "nativeCapacity": 64,
+            "workersInNativeWorkUnits": 47,
+            "vacanciesFromNativeCapacity": 17,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 33,
+            "activeSites": 32,
+            "nativeCapacity": 74,
+            "workersInNativeWorkUnits": 52,
+            "vacanciesFromNativeCapacity": 22,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 8,
+            "activeSites": 8,
+            "nativeCapacity": 16,
+            "workersInNativeWorkUnits": 8,
+            "vacanciesFromNativeCapacity": 8,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "瑞穂区": {
+        "servicedResidentialSites": 91,
+        "vacantHouseholds": 1,
+        "sitesWithVacantHouseholds": 1,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 40,
+            "activeSites": 39,
+            "nativeCapacity": 80,
+            "workersInNativeWorkUnits": 51,
+            "vacanciesFromNativeCapacity": 29,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 46,
+            "activeSites": 46,
+            "nativeCapacity": 120,
+            "workersInNativeWorkUnits": 75,
+            "vacanciesFromNativeCapacity": 45,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 6,
+            "activeSites": 6,
+            "nativeCapacity": 12,
+            "workersInNativeWorkUnits": 6,
+            "vacanciesFromNativeCapacity": 6,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "緑区": {
+        "servicedResidentialSites": 308,
+        "vacantHouseholds": 8,
+        "sitesWithVacantHouseholds": 7,
+        "workByUse": {
+          "Industrial": {
+            "registeredSites": 148,
+            "activeSites": 143,
+            "nativeCapacity": 346,
+            "workersInNativeWorkUnits": 234,
+            "vacanciesFromNativeCapacity": 112,
+            "sitesWithWorkerWarning": 0
+          },
+          "Commercial": {
+            "registeredSites": 113,
+            "activeSites": 105,
+            "nativeCapacity": 226,
+            "workersInNativeWorkUnits": 142,
+            "vacanciesFromNativeCapacity": 84,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 16,
+            "activeSites": 16,
+            "nativeCapacity": 32,
+            "workersInNativeWorkUnits": 16,
+            "vacanciesFromNativeCapacity": 16,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      },
+      "西区": {
+        "servicedResidentialSites": 160,
+        "vacantHouseholds": 0,
+        "sitesWithVacantHouseholds": 0,
+        "workByUse": {
+          "Commercial": {
+            "registeredSites": 55,
+            "activeSites": 54,
+            "nativeCapacity": 110,
+            "workersInNativeWorkUnits": 76,
+            "vacanciesFromNativeCapacity": 34,
+            "sitesWithWorkerWarning": 0
+          },
+          "Industrial": {
+            "registeredSites": 82,
+            "activeSites": 81,
+            "nativeCapacity": 182,
+            "workersInNativeWorkUnits": 121,
+            "vacanciesFromNativeCapacity": 61,
+            "sitesWithWorkerWarning": 0
+          },
+          "Office": {
+            "registeredSites": 9,
+            "activeSites": 9,
+            "nativeCapacity": 18,
+            "workersInNativeWorkUnits": 9,
+            "vacanciesFromNativeCapacity": 9,
+            "sitesWithWorkerWarning": 0
+          }
+        }
+      }
+    }
+  },
+  "newResidents": [
+    {
+      "citizenId": 12037,
+      "homeBuilding": 42395,
+      "homeUnit": 452565,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 12828,
+      "homeBuilding": 14022,
+      "homeUnit": 187239,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 63643,
+      "homeBuilding": 6892,
+      "homeUnit": 395517,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 71121,
+      "homeBuilding": 37636,
+      "homeUnit": 271310,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 71816,
+      "homeBuilding": 35020,
+      "homeUnit": 385779,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 77392,
+      "homeBuilding": 12732,
+      "homeUnit": 200018,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 108561,
+      "homeBuilding": 1745,
+      "homeUnit": 141125,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 136561,
+      "homeBuilding": 18776,
+      "homeUnit": 206338,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 184293,
+      "homeBuilding": 46283,
+      "homeUnit": 519609,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 187613,
+      "homeBuilding": 32172,
+      "homeUnit": 356967,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 213528,
+      "homeBuilding": 3805,
+      "homeUnit": 398005,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 244002,
+      "homeBuilding": 17996,
+      "homeUnit": 195272,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 265523,
+      "homeBuilding": 4984,
+      "homeUnit": 93075,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 269830,
+      "homeBuilding": 31419,
+      "homeUnit": 294799,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 334967,
+      "homeBuilding": 24976,
+      "homeUnit": 269539,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 371210,
+      "homeBuilding": 14836,
+      "homeUnit": 271702,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 384826,
+      "homeBuilding": 13811,
+      "homeUnit": 148087,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 389571,
+      "homeBuilding": 34424,
+      "homeUnit": 367669,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 415408,
+      "homeBuilding": 4736,
+      "homeUnit": 152758,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 419926,
+      "homeBuilding": 36760,
+      "homeUnit": 394314,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 445668,
+      "homeBuilding": 15752,
+      "homeUnit": 299476,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 463166,
+      "homeBuilding": 8026,
+      "homeUnit": 14704,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 465977,
+      "homeBuilding": 24812,
+      "homeUnit": 267910,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 467204,
+      "homeBuilding": 19814,
+      "homeUnit": 329219,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 468680,
+      "homeBuilding": 21422,
+      "homeUnit": 239398,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 471993,
+      "homeBuilding": 20519,
+      "homeUnit": 220902,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 505798,
+      "homeBuilding": 5357,
+      "homeUnit": 60113,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 532809,
+      "homeBuilding": 30632,
+      "homeUnit": 342470,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 534196,
+      "homeBuilding": 21933,
+      "homeUnit": 236881,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 536424,
+      "homeBuilding": 6892,
+      "homeUnit": 402777,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 560128,
+      "homeBuilding": 16309,
+      "homeUnit": 174210,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 560444,
+      "homeBuilding": 13732,
+      "homeUnit": 345599,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 562907,
+      "homeBuilding": 23525,
+      "homeUnit": 253492,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 575013,
+      "homeBuilding": 46188,
+      "homeUnit": 277373,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 601567,
+      "homeBuilding": 19486,
+      "homeUnit": 210261,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 610057,
+      "homeBuilding": 46188,
+      "homeUnit": 503364,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 616584,
+      "homeBuilding": 21691,
+      "homeUnit": 130392,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 630669,
+      "homeBuilding": 43042,
+      "homeUnit": 313098,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 660148,
+      "homeBuilding": 10385,
+      "homeUnit": 114803,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 688197,
+      "homeBuilding": 5349,
+      "homeUnit": 58946,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 713902,
+      "homeBuilding": 34956,
+      "homeUnit": 100007,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 717541,
+      "homeBuilding": 4788,
+      "homeUnit": 324127,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 723104,
+      "homeBuilding": 26826,
+      "homeUnit": 287323,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 771914,
+      "homeBuilding": 6892,
+      "homeUnit": 280110,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 797207,
+      "homeBuilding": 6090,
+      "homeUnit": 461643,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 807658,
+      "homeBuilding": 30014,
+      "homeUnit": 323213,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 904903,
+      "homeBuilding": 26054,
+      "homeUnit": 280980,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 917001,
+      "homeBuilding": 17341,
+      "homeUnit": 188538,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 1000955,
+      "homeBuilding": 33412,
+      "homeUnit": 269655,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    },
+    {
+      "citizenId": 1034095,
+      "homeBuilding": 3233,
+      "homeUnit": 521795,
+      "workBuilding": 0,
+      "workUnitConfirmed": false,
+      "location": "Home",
+      "movingSamples": 0,
+      "workSamples": 0,
+      "homeSamples": 1,
+      "commutesStarted": 0,
+      "returnsStarted": 0,
+      "commuteSamples": 0,
+      "nativeWorkArrivals": 0,
+      "nativeWorkArrivalFailures": 0,
+      "travelRecoveries": 0,
+      "charging": true,
+      "chargeStarts": 1,
+      "battery": 65,
+      "walkedMeters": 0,
+      "visitBuilding": 0,
+      "shopReturnsStarted": 0,
+      "shopReturnsArrived": 0,
+      "shopReturnSource": 0,
+      "shopReturnHome": 0,
+      "instanceId": 0,
+      "vehicleId": 0,
+      "pathId": 0,
+      "sourceBuilding": 0,
+      "targetBuilding": 0
+    }
+  ],
+  "newResidentDeliveriesInRetainedReceipts": [
+    {
+      "android": 532809,
+      "from": 2711,
+      "to": 23060,
+      "ward": "名東区",
+      "sourceWard": "名東区",
+      "stockAdded": 100,
+      "factoryBefore": 3804,
+      "factoryAccessStreet": 878,
+      "shopAccessStreet": 14241,
+      "factoryAfter": 3704,
+      "shopBefore": 5369,
+      "nativeRequest": {
+        "frame": 55227000,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 5469,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55227195,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-09-07T02:54:50"
+    },
+    {
+      "android": 688197,
+      "from": 14618,
+      "to": 17796,
+      "ward": "緑区",
+      "sourceWard": "天白区",
+      "stockAdded": 100,
+      "factoryBefore": 2737,
+      "factoryAccessStreet": 12648,
+      "shopAccessStreet": 34441,
+      "factoryAfter": 2637,
+      "shopBefore": 8226,
+      "nativeRequest": null,
+      "shopAfter": 8326,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55230769,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-09-19T04:56:06"
+    }
+  ]
+}

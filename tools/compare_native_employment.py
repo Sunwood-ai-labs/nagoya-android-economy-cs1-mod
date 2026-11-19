@@ -27,6 +27,9 @@ def summarize(trial):
     new_ids = {row["citizenId"] for row in admitted["androids"]} - old_ids
     observed = [row for row in end["androids"] if row["citizenId"] in new_ids]
     deliveries = end["nativeDeliveries"]
+    opening_deliveries = base["nativeDeliveries"]
+    opening_wards = opening_deliveries.get("deliveriesByWard", {})
+    deliveries_by_ward = deliveries.get("deliveriesByWard", {})
     return {
         "caseId": trial["caseId"],
         "requestedExtraAndroids": trial["requestedAdditionalAndroids"],
@@ -39,7 +42,12 @@ def summarize(trial):
         "newAndroidsWithNativeWorkArrival": sum(row.get("nativeWorkArrivals", 0) > 0 for row in observed),
         "newAndroidsWithChargeObservation": sum(row["chargeStarts"] > 0 for row in observed),
         "shopDeliveries": deliveries["delivered"],
-        "shopDeliveriesByWard": deliveries.get("deliveriesByWard", {}),
+        "shopDeliveriesByWard": deliveries_by_ward,
+        "shopDeliveriesDuringTrial": deliveries["delivered"] - opening_deliveries["delivered"],
+        "shopDeliveriesDuringTrialByWard": {
+            ward: count - opening_wards.get(ward, 0) for ward, count in deliveries_by_ward.items()
+            if count > opening_wards.get(ward, 0)
+        },
     }
 
 

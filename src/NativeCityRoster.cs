@@ -16,6 +16,114 @@ namespace NagoyaRoadDelivery
             public int HumanCommutes, AndroidCommutes;
         }
 
+        private sealed class Capacity
+        {
+            public int ReadyHomes, EmptyHouseholds, HomesWithVacancy;
+            public readonly Dictionary<string, JobCapacity> Jobs = new Dictionary<string, JobCapacity>(StringComparer.Ordinal);
+        }
+
+        private sealed class JobCapacity
+        {
+            public int Buildings, Active, Positions, Workers, Vacancies, NoWorkerWarning;
+        }
+
+        internal static object AuditCapacity()
+        {
+            NativeCityLedger.Road[] roads;
+            NativeCityLedger.Lot[] lots;
+            NativeCityLedger.Snapshot(out roads, out lots);
+            global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
+            CitizenManager citizens = CitizenManager.instance;
+            CitizenUnit[] units = citizens.m_units.m_buffer;
+            var wards = new SortedDictionary<string, Capacity>(StringComparer.Ordinal);
+            foreach (NativeCityLedger.Lot lot in lots)
+            {
+                if (!NativeCityLedger.HasActiveZone(lot)) continue;
+                global::Building building = buildings[lot.Id];
+                if (building.Info == null || (building.m_flags & (global::Building.Flags.Deleted | global::Building.Flags.Abandoned)) != 0)
+                    continue;
+                ItemClass.Service service = building.Info.GetService();
+                bool home = service == ItemClass.Service.Residential;
+                if (home && !AndroidLifePilot.HasResidentialUtilities(lot.Id, building)) continue;
+                PrivateBuildingAI employer = building.Info.m_buildingAI as PrivateBuildingAI;
+                if (!home && (employer == null || (service != ItemClass.Service.Office && service != ItemClass.Service.Commercial &&
+                    service != ItemClass.Service.Industrial))) continue;
+                Capacity ward;
+                if (!wards.TryGetValue(lot.Ward, out ward))
+                {
+                    ward = new Capacity();
+                    wards.Add(lot.Ward, ward);
+                }
+                int seats = 0;
+                uint next = building.m_citizenUnits;
+                for (int step = 0; step < 2048 && next != 0 && next < units.Length; step++)
+                {
+                    CitizenUnit unit = units[next];
+                    next = unit.m_nextUnit;
+                    if (unit.m_building != lot.Id) continue;
+                    if (home)
+                    {
+                        if ((unit.m_flags & CitizenUnit.Flags.Home) != 0 && AndroidLifePilot.Empty(unit)) seats++;
+                        continue;
+                    }
+                    if ((unit.m_flags & CitizenUnit.Flags.Work) == 0) continue;
+                    for (int slot = 0; slot < 5; slot++)
+                    {
+                        uint id = unit.GetCitizen(slot);
+                        if (id == 0 || id >= citizens.m_citizens.m_buffer.Length) continue;
+                        Citizen person = citizens.m_citizens.m_buffer[id];
+                        if ((person.m_flags & (Citizen.Flags.Created | Citizen.Flags.Dead | Citizen.Flags.Student)) == Citizen.Flags.Created &&
+                            person.m_workBuilding == lot.Id) seats++;
+                    }
+                }
+                if (home)
+                {
+                    ward.ReadyHomes++;
+                    ward.EmptyHouseholds += seats;
+                    if (seats > 0) ward.HomesWithVacancy++;
+                    continue;
+                }
+                string key = service.ToString();
+                JobCapacity jobs;
+                if (!ward.Jobs.TryGetValue(key, out jobs))
+                {
+                    jobs = new JobCapacity();
+                    ward.Jobs.Add(key, jobs);
+                }
+                int low, first, second, high;
+                employer.CalculateWorkplaceCount((ItemClass.Level)building.m_level, new ColossalFramework.Math.Randomizer(lot.Id),
+                    building.Width, building.Length, out low, out first, out second, out high);
+                int positions = low + first + second + high;
+                jobs.Buildings++;
+                if ((building.m_flags & global::Building.Flags.Active) != 0) jobs.Active++;
+                jobs.Positions += positions;
+                jobs.Workers += seats;
+                jobs.Vacancies += Math.Max(0, positions - seats);
+                if (!(building.m_problems & (Notification.Problem1.NoWorkers | Notification.Problem1.NoEducatedWorkers)).IsNone)
+                    jobs.NoWorkerWarning++;
+            }
+            var report = new Dictionary<string, object>(StringComparer.Ordinal);
+            foreach (var item in wards)
+            {
+                Capacity ward = item.Value;
+                var jobs = new Dictionary<string, object>(StringComparer.Ordinal);
+                foreach (var entry in ward.Jobs)
+                {
+                    JobCapacity use = entry.Value;
+                    jobs.Add(entry.Key, new Dictionary<string, object> {
+                        {"registeredSites",use.Buildings}, {"activeSites",use.Active}, {"nativeCapacity",use.Positions},
+                        {"workersInNativeWorkUnits",use.Workers}, {"vacanciesFromNativeCapacity",use.Vacancies},
+                        {"sitesWithWorkerWarning",use.NoWorkerWarning}
+                    });
+                }
+                report.Add(item.Key, new Dictionary<string, object> {
+                    {"servicedResidentialSites",ward.ReadyHomes}, {"vacantHouseholds",ward.EmptyHouseholds},
+                    {"sitesWithVacantHouseholds",ward.HomesWithVacancy}, {"workByUse",jobs}
+                });
+            }
+            return report;
+        }
+
         private readonly string runId = Guid.NewGuid().ToString("N");
         private float nextRead;
         private int queued;

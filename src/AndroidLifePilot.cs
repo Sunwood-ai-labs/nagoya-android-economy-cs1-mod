@@ -388,27 +388,33 @@ namespace NagoyaRoadDelivery
             NativeBuilding[] buildings = BuildingManager.instance.m_buildings.m_buffer;
             Randomizer random = new Randomizer(5102026);
             List<uint> added = new List<uint>();
-            foreach (int i in HomeOrder(buildings.Length))
+            bool citywide = root == NativeCityRoadBuilder.Root;
+            int passes = citywide ? 2 : 1;
+            for (int pass = 0; pass < passes && added.Count < requested; pass++)
             {
-                if (added.Count >= requested) break;
-                NativeBuilding building = buildings[i];
-                BuildingInfo info = building.Info;
-                if ((building.m_flags & (NativeBuilding.Flags.Created | NativeBuilding.Flags.Abandoned)) != NativeBuilding.Flags.Created ||
-                    info == null || info.m_class.m_service != ItemClass.Service.Residential) continue;
-                uint unitId = building.m_citizenUnits;
-                for (int u = 0; unitId != 0 && unitId < citizens.m_units.m_buffer.Length && u < MaximumUnitsPerBuilding && added.Count < requested; u++)
+                foreach (int i in HomeOrder(buildings.Length))
                 {
-                    CitizenUnit unit = citizens.m_units.m_buffer[unitId];
-                    if ((unit.m_flags & CitizenUnit.Flags.Home) != 0 && unit.m_building == i && Empty(unit))
+                    if (added.Count >= requested) break;
+                    NativeBuilding building = buildings[i];
+                    BuildingInfo info = building.Info;
+                    if ((building.m_flags & (NativeBuilding.Flags.Created | NativeBuilding.Flags.Abandoned)) != NativeBuilding.Flags.Created ||
+                        info == null || info.m_class.m_service != ItemClass.Service.Residential ||
+                        (citywide && !HasResidentialUtilities((ushort)i, building))) continue;
+                    uint unitId = building.m_citizenUnits;
+                    for (int u = 0; unitId != 0 && unitId < citizens.m_units.m_buffer.Length && u < MaximumUnitsPerBuilding && added.Count < requested; u++)
                     {
-                        Citizen.Gender gender = (added.Count & 1) == 0 ? Citizen.Gender.Male : Citizen.Gender.Female;
-                        uint citizenId = CreateResident((ushort)i, unitId, 0, gender, ref random);
-                        if (citizenId == 0)
-                            throw new InvalidOperationException("CS1 refused the vacant household seat");
-                        added.Add(citizenId);
-                        if (root == NativeCityRoadBuilder.Root) break;
+                        CitizenUnit unit = citizens.m_units.m_buffer[unitId];
+                        if ((unit.m_flags & CitizenUnit.Flags.Home) != 0 && unit.m_building == i && Empty(unit))
+                        {
+                            Citizen.Gender gender = (added.Count & 1) == 0 ? Citizen.Gender.Male : Citizen.Gender.Female;
+                            uint citizenId = CreateResident((ushort)i, unitId, 0, gender, ref random);
+                            if (citizenId == 0)
+                                throw new InvalidOperationException("CS1 refused the vacant household seat");
+                            added.Add(citizenId);
+                            if (citywide && pass == 0) break;
+                        }
+                        unitId = unit.m_nextUnit;
                     }
-                    unitId = unit.m_nextUnit;
                 }
             }
             if (added.Count < requested) error = "Vacant residential units limited the experiment to " + cohort.Count;
@@ -427,11 +433,13 @@ namespace NagoyaRoadDelivery
             trial.StartFrame = sim.m_currentFrameIndex;
             trial.Start = sim.FrameToTime(trial.StartFrame);
             trial.NextSample = trial.Start.AddHours(2);
-            trial.Deadline = DateTime.UtcNow.AddSeconds(trial.OpeningCash.HasValue ? 300 : 90);
+            trial.Deadline = DateTime.UtcNow.AddSeconds(trial.NormalEconomy ? 300 : 90);
             caseId = trial.CaseId;
             trial.Baseline = Observe(trial.Start).Json;
+            trial.OpeningCapacity = NativeCityRoster.AuditCapacity();
             PopulateResidents(Math.Min(NativeCityLedger.MaxResidents, cohort.Count + trial.AdditionalResidents));
             UpdateResidentIds();
+            trial.AfterAdmissionCapacity = NativeCityRoster.AuditCapacity();
             Sample admitted = Observe(trial.Start);
             trial.AfterAdmission = admitted.Json;
             Interlocked.Exchange<Sample>(ref sample, admitted);
@@ -566,7 +574,7 @@ namespace NagoyaRoadDelivery
             CitizenManager manager = CitizenManager.instance;
             bool clockRunning = !SimulationManager.instance.SimulationPaused;
             NativeEmploymentTrial trial = employmentTrial;
-            bool fullLifeSimulation = trial == null || trial.OpeningCash.HasValue;
+            bool fullLifeSimulation = trial == null || trial.NormalEconomy;
             if (localDeliveries != null && cohort.Count > 0) localDeliveries.BeginSample(now);
             double minutes = lastGameTime == DateTime.MinValue ? 0 : Math.Max(0, Math.Min(180, (now - lastGameTime).TotalMinutes));
             lastGameTime = now;
@@ -740,6 +748,17 @@ namespace NagoyaRoadDelivery
                 (building.m_problems & (Notification.Problem1.Electricity | Notification.Problem1.ElectricityNotConnected)).IsNone;
         }
 
+        internal static bool HasResidentialUtilities(ushort id, NativeBuilding building)
+        {
+            if ((building.m_flags & (NativeBuilding.Flags.Abandoned | NativeBuilding.Flags.Deleted)) != 0 ||
+                !HasElectricity(id) || !(building.m_problems & Notification.Problem1.DirtyWater).IsNone)
+                return false;
+            bool water, sewage;
+            byte pollution;
+            WaterManager.instance.CheckWater(building.m_position, out water, out sewage, out pollution);
+            return water && sewage;
+        }
+
         private bool ConfirmHome(CitizenManager manager, uint id, ushort home, Resident member)
         {
             CitizenUnit[] units = manager.m_units.m_buffer;
@@ -886,7 +905,7 @@ namespace NagoyaRoadDelivery
             return false;
         }
 
-        private static bool Empty(CitizenUnit unit)
+        internal static bool Empty(CitizenUnit unit)
         {
             for (int i = 0; i < MembersPerUnit; i++) if (unit.GetCitizen(i) != 0) return false;
             return true;
