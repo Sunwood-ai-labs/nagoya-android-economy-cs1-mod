@@ -1,0 +1,290 @@
+{
+  "status": "verified",
+  "scope": "One early and one delayed observation from the same zoned save. Reload advanced the game before early placement. Endpoint game times may differ.",
+  "sourceSave": {
+    "name": "NagoyaCitywide-SecondLocalStreets-Zoned",
+    "sha256": "73D582A7D8EA367C773BC53E112BA3B49B325450CA0F63CBDFEFDE11BB337FD5",
+    "bytes": 14179066
+  },
+  "saves": {
+    "connected": {
+      "name": "NagoyaCitywide-SecondLocalStreets-UtilityFirstConnected",
+      "sha256": "BD5190582BA202A2E6911A5FBDC52E489A29FABF94061A79C0CBDABB2D039B09",
+      "bytes": 14252754
+    },
+    "observed": {
+      "name": "NagoyaCitywide-SecondLocalStreets-UtilityFirstObserved",
+      "sha256": "4122E45CCB3626ECF4BB637018C715237303D1F7423DFC30106B7AEB6C82E465",
+      "bytes": 14257801
+    }
+  },
+  "planSha256": "0E005B1000C0874B98318F335DA705D2CB8247584A3A5465F0891A0D50557F7C",
+  "placementReceiptSha256": "CCDDAC4E3B4BA1B53F8E240E506ECE105959EC8C33143C94B41810C4E97E974B",
+  "sameNativeUtilityPlanSegments": {
+    "Water": {
+      "new": 136,
+      "total": 3933
+    },
+    "Electricity": {
+      "new": 136,
+      "total": 3929
+    }
+  },
+  "sameNewParcelCohort": 272,
+  "provisionTimeEarly": "2028-07-26T19:51:11",
+  "provisionTimeDelayed": "2028-08-03T21:21:17",
+  "hoursEarlier": 193.5,
+  "hoursBetweenObservedEndpoints": 8.12,
+  "earlyRetainedNativeGroupsAfterLoad": 4651,
+  "earlyNewGroupsAlreadyMissingAfterLoad": 2,
+  "earlyUtilities": {
+    "observedGameTime": "2028-08-13T22:34:49",
+    "newGroupsStillValid": 167,
+    "newGroupsActive": 167,
+    "newlyPlacedBuildingsByWard": {
+      "中区": 7,
+      "中川区": 26,
+      "中村区": 9,
+      "北区": 6,
+      "千種区": 4,
+      "南区": 14,
+      "名東区": 16,
+      "天白区": 6,
+      "守山区": 10,
+      "昭和区": 11,
+      "東区": 5,
+      "港区": 22,
+      "熱田区": 9,
+      "瑞穂区": 4,
+      "緑区": 11,
+      "西区": 7
+    },
+    "warningsInNewActiveParcels": {
+      "Electricity": 7
+    },
+    "activeCS1Parcels": 4520,
+    "sourceCoverage": {
+      "noActiveRole": 126546,
+      "allRolesActive": 571138,
+      "someRolesActive": 8051,
+      "withoutClassifiedRoles": 32298
+    },
+    "wardsWithHumanAndAndroidPopulationAndJobs": 16,
+    "coexistence": {
+      "nativeHumanResidents": 6979,
+      "humansWithWorkplace": 3671,
+      "androidHomeMembers": 462,
+      "androidWorkMembers": 454
+    },
+    "nativeTraffic": {
+      "passengerCars": 846,
+      "cargoTrucks": 701,
+      "buses": 30,
+      "roadVehiclesWithNativePath": 1571
+    }
+  },
+  "delayedUtilities": {
+    "observedGameTime": "2028-08-13T14:27:19",
+    "newGroupsStillValid": 175,
+    "newGroupsActive": 175,
+    "newlyPlacedBuildingsByWard": {
+      "中区": 7,
+      "中川区": 27,
+      "中村区": 9,
+      "北区": 6,
+      "千種区": 5,
+      "南区": 15,
+      "名東区": 18,
+      "天白区": 6,
+      "守山区": 11,
+      "昭和区": 11,
+      "東区": 5,
+      "港区": 23,
+      "熱田区": 8,
+      "瑞穂区": 4,
+      "緑区": 13,
+      "西区": 7
+    },
+    "warningsInNewActiveParcels": {
+      "Electricity": 6,
+      "Crime": 1
+    },
+    "activeCS1Parcels": 4528,
+    "sourceCoverage": {
+      "allRolesActive": 574622,
+      "noActiveRole": 123302,
+      "someRolesActive": 7811,
+      "withoutClassifiedRoles": 32298
+    },
+    "wardsWithHumanAndAndroidPopulationAndJobs": 16,
+    "coexistence": {
+      "nativeHumanResidents": 6916,
+      "humansWithWorkplace": 3619,
+      "androidHomeMembers": 460,
+      "androidWorkMembers": 452
+    },
+    "nativeTraffic": {
+      "passengerCars": 866,
+      "cargoTrucks": 684,
+      "buses": 28,
+      "roadVehiclesWithNativePath": 1574
+    }
+  },
+  "matchedCohortAttrition": {
+    "status": "paired cohort diagnostic",
+    "retentionOutcomes": {
+      "lostBoth": 94,
+      "retainedBoth": 164,
+      "retainedEarlyOnly": 3,
+      "retainedDelayedOnly": 11
+    },
+    "byInitialZonedCells": {
+      "1": {
+        "lostBoth": 22,
+        "retainedBoth": 66,
+        "retainedDelayedOnly": 2
+      },
+      "4": {
+        "lostBoth": 56,
+        "retainedEarlyOnly": 3,
+        "retainedBoth": 77,
+        "retainedDelayedOnly": 7
+      },
+      "2": {
+        "retainedBoth": 21,
+        "lostBoth": 16,
+        "retainedDelayedOnly": 2
+      }
+    },
+    "byRole": {
+      "ResidentialLow": {
+        "lostBoth": 28,
+        "retainedBoth": 41,
+        "retainedEarlyOnly": 1,
+        "retainedDelayedOnly": 5
+      },
+      "ResidentialHigh": {
+        "retainedBoth": 51,
+        "lostBoth": 15,
+        "retainedDelayedOnly": 3
+      },
+      "CommercialLow": {
+        "lostBoth": 21,
+        "retainedBoth": 21,
+        "retainedDelayedOnly": 2
+      },
+      "Industrial": {
+        "retainedEarlyOnly": 1,
+        "retainedBoth": 27,
+        "lostBoth": 18
+      },
+      "Office": {
+        "retainedBoth": 20,
+        "retainedDelayedOnly": 1,
+        "lostBoth": 11,
+        "retainedEarlyOnly": 1
+      },
+      "CommercialHigh": {
+        "retainedBoth": 4,
+        "lostBoth": 1
+      }
+    },
+    "byPrefab": {
+      "L1 1x1 Detached": {
+        "lostBoth": 6,
+        "retainedBoth": 11,
+        "retainedDelayedOnly": 1
+      },
+      "L1 2x2 Detached01": {
+        "lostBoth": 10,
+        "retainedEarlyOnly": 1,
+        "retainedBoth": 16,
+        "retainedDelayedOnly": 2
+      },
+      "1738898898.AC Hab V3b_Data": {
+        "retainedBoth": 6,
+        "lostBoth": 9,
+        "retainedDelayedOnly": 1
+      },
+      "415352487.Venturo CF45_Data": {
+        "retainedDelayedOnly": 1,
+        "retainedBoth": 8,
+        "lostBoth": 3
+      },
+      "H1 1x1 Tenement": {
+        "retainedBoth": 30,
+        "lostBoth": 5,
+        "retainedDelayedOnly": 1
+      },
+      "H1 2x2 Tenement05": {
+        "lostBoth": 10,
+        "retainedBoth": 21,
+        "retainedDelayedOnly": 2
+      },
+      "L1 2x2 Shop03": {
+        "lostBoth": 13,
+        "retainedBoth": 14,
+        "retainedDelayedOnly": 2
+      },
+      "H1 2x2 Sweatshop03": {
+        "retainedEarlyOnly": 1,
+        "lostBoth": 14,
+        "retainedBoth": 12
+      },
+      "H1 1x1 Facility01": {
+        "retainedBoth": 15,
+        "lostBoth": 4
+      },
+      "H1 2x2 Office03": {
+        "retainedBoth": 12,
+        "retainedDelayedOnly": 1,
+        "lostBoth": 9,
+        "retainedEarlyOnly": 1
+      },
+      "L3 1x1 Shop": {
+        "lostBoth": 6,
+        "retainedBoth": 3
+      },
+      "L1 1x2 Shop04": {
+        "retainedBoth": 4,
+        "lostBoth": 2
+      },
+      "H1 1x1 Office": {
+        "retainedBoth": 6,
+        "lostBoth": 1
+      },
+      "H1 2x2 Shop01": {
+        "retainedBoth": 2
+      },
+      "H1 1x2 Office13": {
+        "lostBoth": 1,
+        "retainedBoth": 2
+      },
+      "1628176597.wy-JP-ComplexBuilding-SK_Data": {
+        "lostBoth": 1,
+        "retainedBoth": 1
+      },
+      "H1 1x1 Shop07": {
+        "retainedBoth": 1
+      }
+    }
+  },
+  "lostParcelSiteAudit": {
+    "early": {
+      "lostGroups": 105,
+      "liveBuildingsNearFormerLocation": {
+        "noGrowableWithin16m": 104,
+        "anyGrowableWithin16m": 1
+      },
+      "exactCenterReplacementCandidates": []
+    },
+    "delayed": {
+      "lostGroups": 97,
+      "liveBuildingsNearFormerLocation": {
+        "noGrowableWithin16m": 96,
+        "anyGrowableWithin16m": 1
+      },
+      "exactCenterReplacementCandidates": []
+    }
+  }
+}
