@@ -7,9 +7,8 @@ namespace NagoyaRoadDelivery
     internal static class NativeCityLotRebinding
     {
         private const float PositionTolerance = .15f;
-        private const NativeBuilding.Flags Usable = NativeBuilding.Flags.Created | NativeBuilding.Flags.Active;
         private const NativeBuilding.Flags Unusable = NativeBuilding.Flags.Deleted | NativeBuilding.Flags.Abandoned |
-            NativeBuilding.Flags.Collapsed;
+            NativeBuilding.Flags.Collapsed | NativeBuilding.Flags.BurnedDown;
 
         private struct Match
         {
@@ -86,7 +85,7 @@ namespace NagoyaRoadDelivery
             for (int i = 1; i < buildings.Length; i++)
             {
                 NativeBuilding building = buildings[i];
-                if ((building.m_flags & (Usable | Unusable)) != Usable) continue;
+                if ((building.m_flags & (NativeBuilding.Flags.Created | Unusable)) != NativeBuilding.Flags.Created) continue;
                 BuildingInfo info = building.Info;
                 if (info == null || info.m_zoningMode != BuildingInfo.ZoningMode.Straight) continue;
                 Vector3 position = building.m_position;

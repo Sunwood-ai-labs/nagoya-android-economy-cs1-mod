@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using UnityEngine;
+using NativeBuilding = global::Building;
 
 namespace NagoyaRoadDelivery
 {
@@ -185,6 +186,12 @@ namespace NagoyaRoadDelivery
             SortedDictionary<string, Ward> wards = new SortedDictionary<string, Ward>(StringComparer.Ordinal);
             HashSet<ushort> activeSites = new HashSet<ushort>();
             HashSet<string> activeGroups = new HashSet<string>(StringComparer.Ordinal);
+            HashSet<string> operationalGroups = new HashSet<string>(StringComparer.Ordinal);
+            NativeBuilding[] buildings = BuildingManager.instance.m_buildings.m_buffer;
+            const NativeBuilding.Flags operating = NativeBuilding.Flags.Completed | NativeBuilding.Flags.Active;
+            const NativeBuilding.Flags unusable = NativeBuilding.Flags.Deleted | NativeBuilding.Flags.Abandoned |
+                NativeBuilding.Flags.Collapsed | NativeBuilding.Flags.BurnedDown;
+            int operationalLots = 0, abandonedLots = 0, constructionLots = 0, inactiveLots = 0;
             int missingLots = 0;
             foreach (NativeCityLedger.Lot lot in lots)
             {
@@ -195,6 +202,15 @@ namespace NagoyaRoadDelivery
                 }
                 activeSites.Add(lot.Id);
                 activeGroups.Add(lot.Group);
+                NativeBuilding.Flags flags = buildings[lot.Id].m_flags;
+                if ((flags & (operating | unusable)) == operating)
+                {
+                    operationalLots++;
+                    operationalGroups.Add(lot.Group);
+                }
+                else if ((flags & NativeBuilding.Flags.Abandoned) != 0) abandonedLots++;
+                else if ((flags & (NativeBuilding.Flags.Completed | unusable)) == 0) constructionLots++;
+                else inactiveLots++;
                 Ward row;
                 string label = String.IsNullOrEmpty(lot.Ward) ? "unassigned" : lot.Ward;
                 if (!wards.TryGetValue(label, out row))
@@ -224,11 +240,18 @@ namespace NagoyaRoadDelivery
             }
             List<string> groupIds = new List<string>(activeGroups);
             groupIds.Sort(StringComparer.Ordinal);
+            List<string> operationalGroupIds = new List<string>(operationalGroups);
+            operationalGroupIds.Sort(StringComparer.Ordinal);
             return JsonData.Stringify(new Dictionary<string, object> {
                 {"runId",runId}, {"city",SimulationManager.instance.m_metaData.m_CityName},
                 {"savedRoadReferences",roads.Length}, {"activeNativeRoads",activeRoads},
                 {"savedParcelReferences",lots.Length}, {"activeNativeZonedSites",activeSites.Count},
                 {"activeNativeSiteGroups",groupIds},
+                {"operationalNativeZonedSites",operationalLots}, {"operationalNativeSiteGroups",operationalGroupIds},
+                {"nativeZonedSiteStatuses",new Dictionary<string, int> {
+                    {"operational",operationalLots}, {"underConstruction",constructionLots},
+                    {"abandoned",abandonedLots}, {"inactive",inactiveLots}
+                }},
                 {"invalidOrLostNativeSites",missingLots}, {"wardsWithHumanAndAndroidPopulationAndJobs",workingWards},
                 {"reboundNativeLotsSinceLoad",reboundLots}, {"recentLotRebindings",recentLotRebindings},
                 {"nativeTraffic",CountTraffic()},

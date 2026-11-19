@@ -1,0 +1,172 @@
+{
+  "source": "Cities: Skylines native zoning ledger and BuildingManager readbacks after installing and loading the mod, followed by save reload",
+  "modSha256": "C9AFECE54EC8C8A9904DA6D506E79B29F2163942E7BB265F8FDC54F07BBE6B43",
+  "network": {
+    "nodes": 32699,
+    "segments": 32718,
+    "lanes": 157604
+  },
+  "registeredSitesBefore": 7255,
+  "registeredSitesAfter": 7260,
+  "gameSiteStatusesAfter": {
+    "operational": 4997,
+    "underConstruction": 5,
+    "abandoned": 2114,
+    "inactive": 144
+  },
+  "gameSiteStatusesAfterSaveReload": {
+    "operational": 4997,
+    "underConstruction": 5,
+    "abandoned": 2114,
+    "inactive": 144
+  },
+  "newBindings": [
+    {
+      "group": "site_0a8e601f8689",
+      "roadId": 23444,
+      "zoneBlock": 11376,
+      "previousBuildingId": 8316,
+      "previousBuildIndex": 58132,
+      "buildingId": 13132,
+      "buildIndex": 125969,
+      "nativePosition": {
+        "x": 980.119,
+        "y": 140,
+        "z": 1943.088
+      },
+      "nativeUse": "ResidentialLow",
+      "nativeFlags": "Created, ZonesUpdated",
+      "retainedBySaveWithoutRebinding": true
+    },
+    {
+      "group": "site_1875773eb5f9",
+      "roadId": 6150,
+      "zoneBlock": 39668,
+      "previousBuildingId": 21833,
+      "previousBuildIndex": 115125,
+      "buildingId": 26635,
+      "buildIndex": 125977,
+      "nativePosition": {
+        "x": -72.875,
+        "y": 140,
+        "z": -3247.85
+      },
+      "nativeUse": "ResidentialLow",
+      "nativeFlags": "Created, ZonesUpdated",
+      "retainedBySaveWithoutRebinding": true
+    },
+    {
+      "group": "site_8c9d5c584ea1",
+      "roadId": 28228,
+      "zoneBlock": 47051,
+      "previousBuildingId": 18013,
+      "previousBuildIndex": 59277,
+      "buildingId": 22262,
+      "buildIndex": 125973,
+      "nativePosition": {
+        "x": 1411.376,
+        "y": 140,
+        "z": 2084.589
+      },
+      "nativeUse": "ResidentialHigh",
+      "nativeFlags": "Created, HighDensity",
+      "retainedBySaveWithoutRebinding": true
+    },
+    {
+      "group": "extension_70d99ad7fa43c8b2",
+      "roadId": 30757,
+      "zoneBlock": 10819,
+      "previousBuildingId": 19924,
+      "previousBuildIndex": 78453,
+      "buildingId": 45773,
+      "buildIndex": 125961,
+      "nativePosition": {
+        "x": 1739.293,
+        "y": 140,
+        "z": -1208.909
+      },
+      "nativeUse": "ResidentialHigh",
+      "nativeFlags": "Created, ZonesUpdated",
+      "retainedBySaveWithoutRebinding": true
+    },
+    {
+      "group": "extension_2aed8e2d0163a590",
+      "roadId": 5533,
+      "zoneBlock": 43581,
+      "previousBuildingId": 12664,
+      "previousBuildIndex": 123067,
+      "buildingId": 44902,
+      "buildIndex": 125964,
+      "nativePosition": {
+        "x": 670.229,
+        "y": 140,
+        "z": -440.151
+      },
+      "nativeUse": "ResidentialLow",
+      "nativeFlags": "Created, ZonesUpdated",
+      "retainedBySaveWithoutRebinding": true
+    }
+  ],
+  "plateauRegisteredCoverageBefore": {
+    "city": "NagoyaCitywide-Construction",
+    "rosterUtc": "2026-11-19T18:23:38.6857775Z",
+    "activeNativeZonedSites": 7255,
+    "nativeSiteGroupCount": 7255,
+    "plateauSourceIds": 738033,
+    "sourceCoverage": {
+      "noActiveRole": 9177,
+      "allRolesActive": 696085,
+      "someRolesActive": 473,
+      "withoutClassifiedRoles": 32298
+    },
+    "roleMemberships": {
+      "uncovered": 9784,
+      "active": 731956
+    },
+    "writesToGame": false
+  },
+  "plateauRegisteredCoverageAfter": {
+    "city": "NagoyaCitywide-Construction",
+    "rosterUtc": "2026-11-19T18:29:13.5120622Z",
+    "activeNativeZonedSites": 7260,
+    "nativeSiteGroupCount": 7260,
+    "plateauSourceIds": 738033,
+    "sourceCoverage": {
+      "noActiveRole": 7838,
+      "allRolesActive": 697499,
+      "someRolesActive": 398,
+      "withoutClassifiedRoles": 32298
+    },
+    "roleMemberships": {
+      "uncovered": 8370,
+      "active": 733370
+    },
+    "writesToGame": false
+  },
+  "plateauOperationalCoverageAfter": {
+    "city": "NagoyaCitywide-Construction",
+    "rosterUtc": "2026-11-19T18:29:13.5120622Z",
+    "operationalNativeZonedSites": 4997,
+    "nativeSiteGroupCount": 4997,
+    "plateauSourceIds": 738033,
+    "sourceCoverage": {
+      "noActiveRole": 116058,
+      "allRolesActive": 574439,
+      "someRolesActive": 15238,
+      "withoutClassifiedRoles": 32298
+    },
+    "roleMemberships": {
+      "uncovered": 133356,
+      "active": 608384
+    },
+    "writesToGame": false,
+    "coverageBasis": "completed active native buildings"
+  },
+  "wardsWithBothPopulationsAndJobsAfterSaveReload": 16,
+  "cashAfterSaveReload": 16043.03,
+  "save": {
+    "bytes": 15407085,
+    "name": "NagoyaCitywide-ConstructionRebinding-Verified",
+    "sha256": "1BE1BD0E5B5AA869B8EEB5B6627E25A624EFE75E8D975D1C2941590BF9634736"
+  }
+}
