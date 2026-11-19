@@ -1,0 +1,232 @@
+{
+  "baseline": {
+    "name": "NagoyaCitywide-WasteBudgetTrial-NearbyDispatchBaseline",
+    "sha256": "9E5B7CB6FD18D82F82990A396D45062CDB98DD611B4236445A9573CCF7EC01B6",
+    "bytes": 15487445,
+    "parent": "NagoyaCitywide-WasteBudgetTrial-LocalDispatchExtended"
+  },
+  "stockOnlySave": {
+    "name": "NagoyaCitywide-WasteBudgetTrial-StockDispatchControl",
+    "sha256": "F14CD2CECCB5BC7ABD14BAC4F0D920CD74ACF3D6A08715FE24EA93F17C1666D9",
+    "bytes": 15339211,
+    "parent": "NagoyaCitywide-WasteBudgetTrial-NearbyDispatchBaseline",
+    "baselineAndTreatmentPreserved": true
+  },
+  "nearbyDispatchSave": {
+    "name": "NagoyaCitywide-WasteBudgetTrial-NearbyDispatchObserved",
+    "sha256": "F2E8ED7D48207852636A5EA491F35ADB0242167C030353F0864096F60EE44998",
+    "bytes": 15411565,
+    "parent": "NagoyaCitywide-WasteBudgetTrial-NearbyDispatchBaseline",
+    "parentPreserved": true,
+    "priorPreserved": true
+  },
+  "comparison": {
+    "openingBuildIndex": 126010,
+    "networkSegments": 32718,
+    "dayAndNightGarbageBudget": 150,
+    "identicalOpeningCityWarningIds": true,
+    "identicalWatchedIdsAndGenerations": true,
+    "openingClockOffsetSeconds": 855,
+    "closingClockOffsetSeconds": -1360,
+    "stockOpeningBalanceMinusNearby": -331.08,
+    "initialBufferDifferenceStockMinusNearby": 30,
+    "bufferDifferences": [
+      {
+        "id": 12921,
+        "generation": 58732,
+        "nearby": 4000,
+        "stockOnly": 4002
+      },
+      {
+        "id": 13598,
+        "generation": 58724,
+        "nearby": 3908,
+        "stockOnly": 3910
+      },
+      {
+        "id": 10455,
+        "generation": 58067,
+        "nearby": 3418,
+        "stockOnly": 3420
+      },
+      {
+        "id": 8859,
+        "generation": 58049,
+        "nearby": 5060,
+        "stockOnly": 5062
+      },
+      {
+        "id": 13422,
+        "generation": 107851,
+        "nearby": 4402,
+        "stockOnly": 4406
+      },
+      {
+        "id": 13350,
+        "generation": 117660,
+        "nearby": 3876,
+        "stockOnly": 3879
+      },
+      {
+        "id": 8707,
+        "generation": 96288,
+        "nearby": 4684,
+        "stockOnly": 4686
+      },
+      {
+        "id": 10108,
+        "generation": 104879,
+        "nearby": 5099,
+        "stockOnly": 5102
+      },
+      {
+        "id": 10267,
+        "generation": 112750,
+        "nearby": 3254,
+        "stockOnly": 3257
+      },
+      {
+        "id": 12819,
+        "generation": 59012,
+        "nearby": 4452,
+        "stockOnly": 4454
+      },
+      {
+        "id": 12213,
+        "generation": 118002,
+        "nearby": 3126,
+        "stockOnly": 3131
+      }
+    ]
+  },
+  "stockOnly": {
+    "openingGameTime": "2029-12-08T13:11:38",
+    "middleGameTime": "2029-12-13T16:54:15",
+    "endingGameTime": "2029-12-18T08:58:09",
+    "elapsedSeconds": 848791,
+    "openingCash": 208641.05,
+    "endingCash": 104178.62,
+    "endingNetWeekly": -74741.31,
+    "cityWarnings": {
+      "opening": 1278.0,
+      "ending": 1269.0,
+      "services": [
+        {
+          "service": "Residential",
+          "opening": 790,
+          "ending": 786,
+          "remaining": 749,
+          "endingOperating": 3140
+        },
+        {
+          "service": "Industrial",
+          "opening": 478,
+          "ending": 471,
+          "remaining": 470,
+          "endingOperating": 1362
+        },
+        {
+          "service": "Commercial",
+          "opening": 10,
+          "ending": 12,
+          "remaining": 10,
+          "endingOperating": 931
+        },
+        {
+          "service": "Office",
+          "opening": 0,
+          "ending": 0,
+          "remaining": 1,
+          "endingOperating": 172
+        }
+      ]
+    },
+    "watched": {
+      "buildings": 64,
+      "openingWarnings": 57,
+      "middleWarnings": 53,
+      "endingWarnings": 49,
+      "firstPickups": 4,
+      "pickupIds": [
+        29711,
+        39448,
+        40678,
+        45906
+      ]
+    },
+    "capturedStockTruckStarts": 94
+  },
+  "withNearbyDispatch": {
+    "openingGameTime": "2029-12-08T12:57:23",
+    "middleGameTime": "2029-12-13T15:42:09",
+    "endingGameTime": "2029-12-18T09:20:49",
+    "elapsedSeconds": 851006,
+    "openingCash": 208972.13,
+    "endingCash": 103932.62,
+    "endingNetWeekly": -74803.04,
+    "cityWarnings": {
+      "opening": 1278.0,
+      "ending": 1260.0,
+      "services": [
+        {
+          "service": "Residential",
+          "opening": 790,
+          "ending": 781,
+          "remaining": 745,
+          "endingOperating": 3137
+        },
+        {
+          "service": "Industrial",
+          "opening": 478,
+          "ending": 467,
+          "remaining": 466,
+          "endingOperating": 1361
+        },
+        {
+          "service": "Commercial",
+          "opening": 10,
+          "ending": 12,
+          "remaining": 10,
+          "endingOperating": 931
+        },
+        {
+          "service": "Office",
+          "opening": 0,
+          "ending": 0,
+          "remaining": 1,
+          "endingOperating": 172
+        }
+      ]
+    },
+    "watched": {
+      "buildings": 64,
+      "openingWarnings": 57,
+      "middleWarnings": 50,
+      "endingWarnings": 47,
+      "firstPickups": 13,
+      "pickupIds": [
+        1766,
+        8707,
+        10108,
+        12921,
+        19781,
+        20389,
+        22620,
+        30086,
+        39448,
+        40678,
+        45381,
+        45906,
+        47771
+      ]
+    },
+    "capturedStockTruckStarts": 98
+  },
+  "observed": {
+    "watchedPickupDifference": 9,
+    "watchedPickupOverlap": 3,
+    "finalCityWarningDifference": -9.0,
+    "finalWatchedWarningDifference": -2
+  },
+  "decision": "Keep opt-in after one comparison. Initial buffer, balance and sampling times differ slightly."
+}
