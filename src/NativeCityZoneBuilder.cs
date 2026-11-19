@@ -14,17 +14,25 @@ namespace NagoyaRoadDelivery
     {
         private const string Root = NativeCityRoadBuilder.Root;
         private const int MaxSites = 3000;
+        private const int MaxFrontagesPerSite = 8;
         private static readonly CultureInfo Invariant = CultureInfo.InvariantCulture;
 
         private sealed class Site
         {
-            public string Group, Ward, RoadSource, Error;
+            public string Group, Ward, Error;
+            public Frontage[] Frontages;
             public int Members, Row, Width, Length;
             public ItemClass.Zone Zone;
-            public Vector3 Requested, Position;
+            public Vector3 Position;
             public float Angle;
             public ushort Road, Block, Building;
             public uint Generation;
+        }
+
+        private struct Frontage
+        {
+            public string RoadSource;
+            public Vector3 Position;
         }
 
         private struct RoadReceipt
@@ -160,7 +168,8 @@ namespace NagoyaRoadDelivery
                 while ((line = lines.ReadLine()) != null)
                 {
                     string[] row = line.Split('\t');
-                    if (row.Length != 8 || row[0] != "S" || row[1].Length > 140 || !siteKeys.Add(row[1]) ||
+                    if (row.Length < 8 || (row.Length - 8) % 3 != 0 || (row.Length - 8) / 3 >= MaxFrontagesPerSite ||
+                        row[0] != "S" || row[1].Length > 140 || !siteKeys.Add(row[1]) ||
                         sites.Count >= MaxSites || row[7].Length > 40)
                         throw new InvalidDataException("Invalid aggregate zoning site row");
                     ItemClass.Zone zone = (ItemClass.Zone)Enum.Parse(typeof(ItemClass.Zone), row[5]);
@@ -170,8 +179,15 @@ namespace NagoyaRoadDelivery
                         throw new InvalidDataException("Invalid building count for aggregate zoning site");
                     if (!prefabs.ContainsKey(zone))
                         prefabs.Add(zone, SelectPrefabs(service, requireGoodsShops));
-                    sites.Add(new Site {Group=row[1], RoadSource=row[2], Ward=row[7], Zone=zone, Members=members,
-                        Requested=new Vector3(Coordinate(row[3]), 140, Coordinate(row[4]))});
+                    Frontage[] frontages = new Frontage[1 + (row.Length - 8) / 3];
+                    for (int i = 0; i < frontages.Length; i++)
+                    {
+                        int start = i == 0 ? 2 : 8 + (i - 1) * 3;
+                        if (row[start].Length == 0) throw new InvalidDataException("Empty zoning frontage road source");
+                        frontages[i] = new Frontage {RoadSource=row[start],
+                            Position=new Vector3(Coordinate(row[start + 1]), 140, Coordinate(row[start + 2]))};
+                    }
+                    sites.Add(new Site {Group=row[1], Frontages=frontages, Ward=row[7], Zone=zone, Members=members});
                 }
             }
             if (sites.Count == 0)
@@ -286,50 +302,19 @@ namespace NagoyaRoadDelivery
         {
             if (existingGroups.Contains(site.Group))
                 return "The source group already has a native building and zone";
-            List<RoadReceipt> segmentIds;
-            if (!roads.TryGetValue(site.RoadSource, out segmentIds))
-                return "No active compiled road for this source";
-            NetManager net = NetManager.instance;
             ZoneManager zoning = ZoneManager.instance;
             BuildingInfo choice = null;
-            float best = 48f * 48f;
-            foreach (RoadReceipt receipt in segmentIds)
+            bool hasRoadReceipt = false;
+            foreach (Frontage frontage in site.Frontages)
             {
-                NetSegment road = net.m_segments.m_buffer[receipt.Id];
-                if ((road.m_flags & NetSegment.Flags.Created) == 0 || road.m_buildIndex != receipt.Generation ||
-                    road.Info == null || (road.Info.name != "Basic Road" && road.Info.name != "Medium Road"))
-                    continue;
-                ushort[] blocks = {road.m_blockStartLeft, road.m_blockStartRight, road.m_blockEndLeft, road.m_blockEndRight};
-                foreach (ushort id in blocks)
-                {
-                    if (id == 0) continue;
-                    ZoneBlock block = zoning.m_blocks.m_buffer[id];
-                    foreach (BuildingInfo prefab in prefabs[site.Zone])
-                    {
-                        int width = prefab.GetWidth(), length = prefab.GetLength();
-                        for (int row = 0; row + width <= block.RowCount; row++)
-                        {
-                            Vector3 center;
-                            float angle;
-                            if (!Available(zoning, block, row, width, length, site.Zone, out center, out angle))
-                                continue;
-                            float distance = (center - site.Requested).sqrMagnitude;
-                            if (distance >= best) continue;
-                            best = distance;
-                            choice = prefab;
-                            site.Block = id;
-                            site.Road = receipt.Id;
-                            site.Row = row;
-                            site.Width = width;
-                            site.Length = length;
-                            site.Position = center;
-                            site.Angle = angle;
-                        }
-                    }
-                }
+                List<RoadReceipt> segments;
+                if (!roads.TryGetValue(frontage.RoadSource, out segments)) continue;
+                hasRoadReceipt = true;
+                choice = FindPlacement(site, zoning, segments, frontage.Position);
+                if (choice != null) break;
             }
             if (choice == null)
-                return "No free native zone cells on the source frontage";
+                return hasRoadReceipt ? "No free native zone cells on the source frontage" : "No active compiled road for this source";
             BuildingManager buildings = BuildingManager.instance;
             SimulationManager sim = SimulationManager.instance;
             Randomizer random = sim.m_randomizer;
@@ -353,6 +338,49 @@ namespace NagoyaRoadDelivery
                 Row=site.Row, Width=site.Width, Length=site.Length
             });
             return null;
+        }
+
+        private BuildingInfo FindPlacement(Site site, ZoneManager zoning, List<RoadReceipt> segments, Vector3 requested)
+        {
+            NetManager net = NetManager.instance;
+            BuildingInfo choice = null;
+            float best = 48f * 48f;
+            foreach (RoadReceipt receipt in segments)
+            {
+                NetSegment road = net.m_segments.m_buffer[receipt.Id];
+                if ((road.m_flags & NetSegment.Flags.Created) == 0 || road.m_buildIndex != receipt.Generation ||
+                    road.Info == null || (road.Info.name != "Basic Road" && road.Info.name != "Medium Road"))
+                    continue;
+                ushort[] blocks = {road.m_blockStartLeft, road.m_blockStartRight, road.m_blockEndLeft, road.m_blockEndRight};
+                foreach (ushort id in blocks)
+                {
+                    if (id == 0) continue;
+                    ZoneBlock block = zoning.m_blocks.m_buffer[id];
+                    foreach (BuildingInfo prefab in prefabs[site.Zone])
+                    {
+                        int width = prefab.GetWidth(), length = prefab.GetLength();
+                        for (int row = 0; row + width <= block.RowCount; row++)
+                        {
+                            Vector3 center;
+                            float angle;
+                            if (!Available(zoning, block, row, width, length, site.Zone, out center, out angle))
+                                continue;
+                            float distance = (center - requested).sqrMagnitude;
+                            if (distance >= best) continue;
+                            best = distance;
+                            choice = prefab;
+                            site.Block = id;
+                            site.Road = receipt.Id;
+                            site.Row = row;
+                            site.Width = width;
+                            site.Length = length;
+                            site.Position = center;
+                            site.Angle = angle;
+                        }
+                    }
+                }
+            }
+            return choice;
         }
 
         private static bool Available(ZoneManager manager, ZoneBlock block, int row, int width, int length,
