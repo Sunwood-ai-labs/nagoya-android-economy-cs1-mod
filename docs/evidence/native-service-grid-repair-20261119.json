@@ -1,0 +1,335 @@
+{
+  "scope": "Native CS1 facility repairs with temporary city-scoped experiment funds while time advanced",
+  "sourceSave": {
+    "name": "NagoyaCitywide-Construction-BeforeEnergyRepair",
+    "sha256": "338bf7ba2097b2d6d255f36ee404e8e4e66dac1cd2a6e6a435e617731b3611bf"
+  },
+  "resultSave": {
+    "name": "NagoyaCitywide-Construction-ServiceGridRepaired",
+    "sha256": "5a66494c5416925a5edfc99cca3779e59f57b8ee3fe3f315a2deb0c991abbc7f"
+  },
+  "before": {
+    "gameTime": "2027-03-14T09:05:20",
+    "facilities": [
+      {
+        "id": 43566,
+        "prefab": "Nuclear Power Plant",
+        "active": true,
+        "problems": "Garbage, RoadNotConnected",
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "position": {
+          "x": -1405.748,
+          "y": 140,
+          "z": -3017.014
+        }
+      },
+      {
+        "id": 45276,
+        "prefab": "Eco Advanced Inland Water Treatment Plant 01",
+        "active": true,
+        "problems": "RoadNotConnected",
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "position": {
+          "x": -1252.188,
+          "y": 140,
+          "z": -3174.374
+        }
+      },
+      {
+        "id": 38786,
+        "prefab": "Bus Depot",
+        "active": true,
+        "problems": "Electricity",
+        "flags": "Created, RateReduced, Completed, Active",
+        "position": {
+          "x": -633.713,
+          "y": 140,
+          "z": 1445.009
+        }
+      }
+    ],
+    "alerts": {
+      "Water": 0,
+      "Electricity": 26,
+      "ElectricityNotConnected": 395,
+      "RoadNotConnected": 132,
+      "NoWorkers": 484,
+      "Abandoned": 223,
+      "Garbage": 1
+    },
+    "powerLineTopology": {
+      "segments": 3791,
+      "physicalComponents": 1
+    },
+    "wasteFacilities": 0
+  },
+  "work": {
+    "entrancePosition": "Local CS1 1.21.1-f9 Building.CalculateSidewalkPosition uses (-sin(angle), +cos(angle))",
+    "frontages": [
+      {
+        "buildingId": 43566,
+        "entrance": {
+          "x": -1407.7082664517393,
+          "z": -2977.0620619313886
+        },
+        "roads": [
+          {
+            "id": 10925,
+            "service": "Road",
+            "prefab": "Basic Road",
+            "startNodeId": 19592,
+            "endNodeId": 32621,
+            "start": {
+              "x": -1470.477,
+              "y": 140,
+              "z": -3092.283
+            },
+            "end": {
+              "x": -1480.063,
+              "y": 140,
+              "z": -2971.601
+            }
+          },
+          {
+            "id": 13858,
+            "service": "Road",
+            "prefab": "Basic Road",
+            "startNodeId": 32621,
+            "endNodeId": 25948,
+            "start": {
+              "x": -1480.063,
+              "y": 140,
+              "z": -2971.601
+            },
+            "end": {
+              "x": -1408.149,
+              "y": 140,
+              "z": -2968.073
+            }
+          }
+        ]
+      },
+      {
+        "buildingId": 45276,
+        "entrance": {
+          "x": -1249.4360460397077,
+          "z": -3214.279222081833
+        },
+        "roads": [
+          {
+            "id": 32776,
+            "service": "Road",
+            "prefab": "Basic Road",
+            "startNodeId": 25625,
+            "endNodeId": 30911,
+            "start": {
+              "x": -1304.644,
+              "y": 140,
+              "z": -3104.058
+            },
+            "end": {
+              "x": -1300.694,
+              "y": 140,
+              "z": -3226.835
+            }
+          },
+          {
+            "id": 17096,
+            "service": "Road",
+            "prefab": "Basic Road",
+            "startNodeId": 30911,
+            "endNodeId": 347,
+            "start": {
+              "x": -1300.694,
+              "y": 140,
+              "z": -3226.835
+            },
+            "end": {
+              "x": -1248.817,
+              "y": 140,
+              "z": -3223.258
+            }
+          }
+        ]
+      }
+    ],
+    "provisionalRearSpursRemoved": [
+      30046,
+      35355
+    ],
+    "connectedPowerBranches": [
+      {
+        "id": 3851,
+        "service": "Electricity",
+        "prefab": "Power Line",
+        "startNodeId": 1169,
+        "endNodeId": 23893,
+        "start": {
+          "x": -1443.92,
+          "y": 140,
+          "z": -3095.374
+        },
+        "end": {
+          "x": -1451,
+          "y": 140,
+          "z": -3058
+        }
+      },
+      {
+        "id": 27144,
+        "service": "Electricity",
+        "prefab": "Power Line",
+        "startNodeId": 28585,
+        "endNodeId": 23452,
+        "start": {
+          "x": -639.084,
+          "y": 140,
+          "z": 1400.316
+        },
+        "end": {
+          "x": -639.5,
+          "y": 140,
+          "z": 1414
+        }
+      }
+    ]
+  },
+  "after": {
+    "gameTime": "2027-03-31T03:39:28",
+    "facilities": [
+      {
+        "id": 43566,
+        "prefab": "Nuclear Power Plant",
+        "active": true,
+        "problems": "Garbage",
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "position": {
+          "x": -1405.748,
+          "y": 140,
+          "z": -3017.014
+        }
+      },
+      {
+        "id": 45276,
+        "prefab": "Eco Advanced Inland Water Treatment Plant 01",
+        "active": true,
+        "problems": "",
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "position": {
+          "x": -1252.188,
+          "y": 140,
+          "z": -3174.374
+        }
+      },
+      {
+        "id": 38786,
+        "prefab": "Bus Depot",
+        "active": true,
+        "problems": "",
+        "flags": "Created, Completed, Active",
+        "position": {
+          "x": -633.713,
+          "y": 140,
+          "z": 1445.009
+        }
+      },
+      {
+        "id": 18773,
+        "prefab": "Wind Turbine",
+        "active": true,
+        "problems": "",
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "position": {
+          "x": -698,
+          "y": 140,
+          "z": 1437
+        }
+      }
+    ],
+    "alerts": {
+      "Water": 0,
+      "Electricity": 24,
+      "ElectricityNotConnected": 391,
+      "RoadNotConnected": 130,
+      "NoWorkers": 536,
+      "Abandoned": 476,
+      "Garbage": 1
+    },
+    "wasteFacilities": [
+      {
+        "id": 6206,
+        "prefab": "Combustion Plant",
+        "active": true,
+        "problems": "",
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "position": {
+          "x": -122.17,
+          "y": 140,
+          "z": 1437.684
+        }
+      },
+      {
+        "id": 16719,
+        "prefab": "Combustion Plant",
+        "active": true,
+        "problems": "",
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "position": {
+          "x": -1496.04,
+          "y": 140,
+          "z": -3127.267
+        }
+      },
+      {
+        "id": 28215,
+        "prefab": "Combustion Plant",
+        "active": false,
+        "problems": "",
+        "flags": "Created, Completed, ZonesUpdated",
+        "position": {
+          "x": -2706.429,
+          "y": 139.998,
+          "z": -231.282
+        }
+      },
+      {
+        "id": 45809,
+        "prefab": "Combustion Plant",
+        "active": true,
+        "problems": "",
+        "flags": "Created, Completed, Active, ZonesUpdated",
+        "position": {
+          "x": 2574.821,
+          "y": 140,
+          "z": 1331.672
+        }
+      }
+    ],
+    "roadComponents": 1,
+    "cityConnectedToOutside": true,
+    "busLine": {
+      "id": 170,
+      "vehiclesBeforeLocalTurbine": 0,
+      "vehiclesAfterLocalTurbine": 7,
+      "passengers": 0,
+      "busIdsWithPathFromRepairedDepot": [
+        1335,
+        2849,
+        2909,
+        2927,
+        5662,
+        10820,
+        14221
+      ]
+    },
+    "inspectedGameCapture": {
+      "name": "native-depot-wind-grid.png",
+      "sha256": "fe4cd782095e5fe12eb943454ea9e82625421d863252eef8d1e1f16613e85a0b",
+      "visible": [
+        "CS1 wind turbine",
+        "native bus"
+      ],
+      "simulationDate": "2027-03-31"
+    }
+  }
+}

@@ -67,7 +67,7 @@ def make_sites(roads, utilities, existing):
             dx, dz = (b[0]-a[0])/length, (b[1]-a[1])/length
             for side in (-1, 1):
                 nx, nz = dz * side, -dx * side
-                offset = needed + (17 if tag == "arterial" else 11)
+                offset = 4 * depth + (19 if tag == "arterial" else 11)
                 point = (px + nx * offset, pz + nz * offset)
                 if max(map(abs, point)) >= 4670 or closest(point, crossing_roads) < offset - 4:
                     continue
@@ -77,7 +77,8 @@ def make_sites(roads, utilities, existing):
                 separation = min(math.dist(point, location) - radius for location, radius in occupied)
                 if separation < needed + 5:
                     continue
-                angle = math.degrees(math.atan2(nx, nz)) % 360
+                # CS1's front is (-sin(angle), +cos(angle)).
+                angle = math.degrees(math.atan2(nx, -nz)) % 360
                 candidates.append((math.dist(target, point), point, angle, network_distance, separation))
         if not candidates:
             raise ValueError(f"Could not find unobstructed native frontage for {prefab} near {target}")

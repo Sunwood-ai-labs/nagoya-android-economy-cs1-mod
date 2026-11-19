@@ -93,7 +93,7 @@ def near_rooms(road, target, occupied, obstruction, utility, needed):
                 continue
             if any(center.distance(tree.geometries[tree.nearest(center)]) > 65 for tree in utility):
                 continue
-            angle = math.degrees(math.atan2(nx, nz)) % 360
+            angle = math.degrees(math.atan2(nx, -nz)) % 360
             yield (center.distance(target), center, angle)
 
 
