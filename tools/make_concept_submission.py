@@ -28,6 +28,20 @@ def read(path):
     return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
+def employment_comparison(path):
+    trial = read(path)
+    control, addition = trial["control"], trial["treatment"]
+    admitted = addition["newAndroidsAdmitted"]
+    if (control["baseline"] != addition["baseline"]
+            or control["newAndroidsAdmitted"] != 0
+            or not trial["finance"]["sameOnBothRuns"]
+            or trial["window"]["durationHours"] <= 0
+            or admitted <= 0
+            or addition["afterAdmission"]["androidHomeMembers"] - addition["baseline"]["androidHomeMembers"] != admitted):
+        raise ValueError("Employment comparison requires a common baseline and verified admissions")
+    return (trial["window"]["durationHours"], admitted, control["end"], addition["end"])
+
+
 class Deck:
     def __init__(self, output):
         fonts = Path(os.environ["WINDIR"]) / "Fonts"
@@ -179,9 +193,24 @@ def render(args):
     deck.photo(photos / "04-plateau-housing.png", 558, 0, 402, 540, center=(.65, .5), crop=(522, 15, 1175, 875))
     deck.text(PROJECT_TITLE, 44, 45, 17, MINT, latin=True)
     deck.lines(("あなたなら、", "どんな街にする？"), 43, 105, 44, 64, color=LIGHT, bold=True, width=505)
-    deck.lines(("駅前に仕事を集めたら、誰がそこで働く？", "アンドロイドが増えたら、人の仕事はどう変わる？"),
-               46, 257, 17, 35, color=SOFT_MINT, width=480)
-    deck.text("街づくりゲームの中で、2050年の選択を試す。", 46, 350, 16, LIME, True, width=480)
+    if args.employment:
+        hours, admitted, control, addition = employment_comparison(args.employment)
+        deck.text("アンドロイドが増えたら、誰がどこで働く？", 46, 233, 16, SOFT_MINT, width=480)
+        deck.box(46, 264, 486, 96, "#23363D")
+        deck.text(f"同じ街を{hours}時間動かして比較", 59, 271, 12, MINT, True, width=450)
+        deck.text("人の職場登録数", 59, 296, 14, LIGHT, True, width=155)
+        deck.text(f'{control["humansWithWorkplace"]:,} 人', 225, 293, 20, LIGHT, True, width=128)
+        deck.text(f'{addition["humansWithWorkplace"]:,} 人', 382, 293, 20, LIME, True, width=132)
+        deck.text("追加なし", 225, 327, 12, SOFT_MINT, width=128)
+        deck.text(f"{admitted}体が追加で入居", 382, 327, 12, SOFT_MINT, width=135)
+        deck.lines((f'人の住民数も、追加なしの {control["nativeHumanResidents"]:,}人に対して '
+                    f'{addition["nativeHumanResidents"]:,}人でした。',
+                    "雇用への影響を調べる、ゲーム内での最初の比較です。"),
+                   46, 371, 12, 19, color=SOFT_MINT, width=480)
+    else:
+        deck.lines(("駅前に仕事を集めたら、誰がそこで働く？", "アンドロイドが増えたら、人の仕事はどう変わる？"),
+                   46, 257, 17, 35, color=SOFT_MINT, width=480)
+        deck.text("街づくりゲームの中で、2050年の選択を試す。", 46, 350, 16, LIME, True, width=480)
     deck.box(46, 415, 485, 1, "#49646C")
     deck.link("3D都市モデル　国土交通省 Project PLATEAU・名古屋市 2022年度", PLATEAU, 46, 433)
     deck.link("道路データ　© OpenStreetMap contributors", OSM, 46, 454)
@@ -200,4 +229,5 @@ if __name__ == "__main__":
     parser.add_argument("--delivery", type=Path)
     parser.add_argument("--delivery-coverage", type=Path)
     parser.add_argument("--return-evidence", type=Path)
+    parser.add_argument("--employment", type=Path)
     render(parser.parse_args())
