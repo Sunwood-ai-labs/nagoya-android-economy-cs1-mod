@@ -5,6 +5,7 @@ param(
     [Parameter(Mandatory)][string]$CheckpointName,
     [string]$Bridge = 'http://127.0.0.1:32123',
     [switch]$Infrastructure,
+    [switch]$Extend,
     [switch]$Execute
 )
 
@@ -13,6 +14,9 @@ $root = 'H:/CS1-PLATEAU/nagoya-station/citywide-zoning-v3'
 $file = Get-Item -LiteralPath $Plan
 if ($file.Extension -ne '.tsv' -or $file.Directory.FullName -cne (Get-Item -LiteralPath $root).FullName) {
     throw 'Use a compiled TSV in the isolated citywide staging directory.'
+}
+if ($Extend -and !(Select-String -LiteralPath $file.FullName -Pattern '^A\t' -Quiet)) {
+    throw 'A network extension requires a plan with existing native junction receipts.'
 }
 
 $channel = if ($Infrastructure) { 'utility' } else { 'road' }
@@ -25,13 +29,17 @@ if ($runtime.phase -cne $expectedPhase -or $runtime.loadedCity -cne $ExpectedCit
     $ExpectedCityName -notlike 'NagoyaCitywide-*' -or $area.areaCount -ne 25 -or
     $summary.network.nodes -ne $runtime.baselineNodes -or
     $summary.network.segments -ne $runtime.baselineSegments -or
-    ($Execute -and $hash -cne $runtime.planSha256)) {
+    ($Extend -and !$summary.simulation.paused) -or ($Execute -and $hash -cne $runtime.planSha256)) {
     throw 'The isolated NagoyaCitywide city, network snapshot and 25 open tiles must match.'
 }
 
 $checkpoint = @((Invoke-RestMethod "$Bridge/state/saves" -TimeoutSec 5).saves |
     Where-Object name -eq $CheckpointName)
-$checkpointPattern = if ($Infrastructure) { 'NagoyaCitywide-*-Connected' } else { 'NagoyaCitywide-*-Baseline' }
+$checkpointPattern = if ($Infrastructure -and $Extend) { 'NagoyaCitywide-*-Expanded-Zoning' } elseif ($Infrastructure) {
+    'NagoyaCitywide-*-Connected'
+} elseif ($Extend) {
+    'NagoyaCitywide-*-BeforeRoadExtension'
+} else { 'NagoyaCitywide-*-Baseline' }
 if ($CheckpointName -notlike $checkpointPattern -or
     $checkpoint.Count -ne 1 -or $checkpoint[0].length -lt 500000) {
     throw 'The separate native construction baseline must exist before executing.'

@@ -38,7 +38,8 @@ namespace NagoyaRoadDelivery
             pollution=p.m_grassPollutionColorOffset;field=p.m_grassFieldColorOffset;fertility=p.m_grassFertilityColorOffset;forest=p.m_grassForestColorOffset;
             p.m_useGrassDecorations=false;
             p.m_grassPollutionColorOffset=Vector3.zero;p.m_grassFieldColorOffset=Vector3.zero;p.m_grassFertilityColorOffset=Vector3.zero;p.m_grassForestColorOffset=Vector3.zero;
-            LoadConcrete(p);
+            try { LoadConcrete(p); }
+            catch { Clear(); throw; }
         }
         private static void LoadConcrete(TerrainProperties p)
         {

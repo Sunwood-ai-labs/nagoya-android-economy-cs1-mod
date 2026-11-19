@@ -1,0 +1,160 @@
+"""Plan local OSM approaches to Nagoya zoning groups still without road frontage."""
+
+import argparse
+import heapq
+import json
+import math
+from collections import Counter, defaultdict
+from pathlib import Path
+
+from plan_plateau_native_blocks import ZONING_ROADS
+from plan_zoning_frontage_extension import index_points, read_tsv, within
+
+
+def road_anchors(compiled, receipt, source_edges, project):
+    nodes, edges = {}, []
+    with compiled.open(encoding="utf-8-sig") as source:
+        for line in source:
+            part, key, *fields = line.rstrip("\n").split("\t")
+            if part == "N":
+                nodes[key] = tuple(map(float, fields))
+            else:
+                a, b = fields[:2]
+                if fields[-1] == "0":
+                    a, b = b, a
+                edges.append((key, a, b))
+    anchors = {}
+    seen_roads = set()
+    for row in read_tsv(receipt):
+        if not int(row["nativeId"]):
+            continue
+        edge_id, a, b = edges[int(row["ordinal"])]
+        if row["source"] != edge_id:
+            raise ValueError("Compiled road source and native receipt differ")
+        seen_roads.add(edge_id)
+        edge = source_edges.get(edge_id)
+        if edge is None or row["prefabTag"] not in {"basic", "arterial"}:
+            continue
+        for native, key in ((int(row["startNode"]), a), (int(row["endNode"]), b)):
+            x, z, y = nodes[key]
+            if abs(y) > .4:
+                continue
+            for field, point in (("fromNode", edge["points"][0]), ("toNode", edge["points"][-1])):
+                distance = math.dist((x, z), project(point))
+                original = edge[field]
+                if distance <= 4 and distance < anchors.get(original, {}).get("distanceM", math.inf):
+                    anchors[original] = {"nodeId": native, "pose": [x, z, y], "distanceM": distance,
+                                         "receiptSegment": int(row["nativeId"]), "receiptBuildIndex": int(row["buildIndex"])}
+    if not anchors:
+        raise ValueError("No original street junctions match the constructed road receipt")
+    return anchors, seen_roads
+
+
+def local_routes(edges, anchors, existing, project):
+    adjacency = defaultdict(list)
+    streets, midpoints = [], []
+    for edge in edges.values():
+        if edge["id"] in existing or edge["kind"] not in ZONING_ROADS or not edge["pedestrianAllowed"] or \
+                edge["layer"] != "0" or edge["bridge"] != "no" or edge["tunnel"] != "no":
+            continue
+        a, b = [project(p) for p in (edge["points"][0], edge["points"][-1])]
+        if max(map(abs, (*a, *b))) >= 4680 or a == b:
+            continue
+        start, end = edge["fromNode"], edge["toNode"]
+        number = len(streets)
+        distance = math.dist(a, b)
+        streets.append((edge, start, end, max(1, math.ceil(distance / 80))))
+        midpoints.append(tuple((left + right) / 2 for left, right in zip(a, b)))
+        adjacency[start].append((end, number, distance))
+        adjacency[end].append((start, number, distance))
+    cost = dict.fromkeys(anchors, 0.)
+    queue = [(0., node) for node in anchors]
+    heapq.heapify(queue)
+    previous = {}
+    for _ in range(len(streets) * 2 + len(anchors)):
+        if not queue:
+            break
+        distance, current = heapq.heappop(queue)
+        if distance != cost[current]:
+            continue
+        for neighbor, street, length in adjacency[current]:
+            candidate = distance + length
+            if candidate < cost.get(neighbor, math.inf):
+                cost[neighbor] = candidate
+                previous[neighbor] = (current, street)
+                heapq.heappush(queue, (candidate, neighbor))
+    if queue:
+        raise ValueError("Local road route search exceeded the static graph budget")
+    return streets, midpoints, cost, previous
+
+
+def run(args):
+    def project(p):
+        return (p["x"] - args.center_x) * args.scale, (p["z"] - args.center_z) * args.scale
+
+    original = json.loads(args.source.read_text(encoding="utf-8-sig"))
+    edges = {e["id"]: e for e in original["edges"]}
+    anchors, existing = road_anchors(args.compiled, args.receipt, edges, project)
+    streets, midpoints, access, previous = local_routes(edges, anchors, existing, project)
+    index = index_points(midpoints)
+    applied = {r["group"] for r in read_tsv(args.built) if int(r["buildingId"]) > 0}
+    fulfilled = {r["roleGroup"] for r in read_tsv(args.links) if r["site"] in applied}
+    selected, roots, plans, wards = {}, set(), [], Counter()
+    budget = args.budget
+    for row in read_tsv(args.gaps):
+        if row["group"] in fulfilled or not row["projected_centroid_x"]:
+            continue
+        center = float(row["projected_centroid_x"]), float(row["projected_centroid_z"])
+        options = []
+        for d2, number in within(index, midpoints, center, args.radius):
+            _, a, b, _ = streets[number]
+            endpoint = min((a, b), key=lambda node: access.get(node, math.inf))
+            distance = access.get(endpoint, math.inf)
+            if math.isfinite(distance):
+                options.append((math.sqrt(d2) + distance * .15, number, endpoint))
+        for _, street, current in sorted(options)[:8]:
+            path = [street]
+            for _ in range(len(previous) + 1):
+                if current in anchors:
+                    break
+                current, approach = previous[current]
+                path.append(approach)
+            additions = set(path) - selected.keys()
+            cost = sum(streets[number][3] for number in additions)
+            if cost > budget:
+                continue
+            budget -= cost
+            for number in additions:
+                edge = streets[number][0]
+                selected[number] = {"source": edge["id"], "fromNode": edge["fromNode"], "toNode": edge["toNode"],
+                                    "kind": edge["kind"], "pointsXZ": [project(p) for p in edge["points"]]}
+            roots.add(current)
+            plans.append({"group": row["group"], "ward": row["ward"], "sourceMemberships": int(row["model_id_count"]),
+                          "targetSource": streets[street][0]["id"], "anchor": current})
+            wards[row["ward"]] += 1
+            break
+    report = {"writesToGame": False, "roadSourceEdges": len(selected), "estimatedSegments": args.budget - budget,
+              "existingJunctionMatches": len(anchors), "plannedRoleGroups": len(plans), "wards": wards,
+              "sourceRoleMemberships": sum(p["sourceMemberships"] for p in plans)}
+    args.output.write_text(json.dumps({"summary": report, "anchors": {k: anchors[k] for k in sorted(roots)},
+                                      "streets": [selected[k] for k in sorted(selected)], "groups": plans},
+                                     ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(report, ensure_ascii=False))
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    for name in ("source", "compiled", "receipt", "built", "links", "gaps", "output"):
+        parser.add_argument("--" + name, required=True, type=Path)
+    for name in ("center-x", "center-z", "scale"):
+        parser.add_argument("--" + name, required=True, type=float)
+    parser.add_argument("--budget", type=int, default=5500)
+    parser.add_argument("--radius", type=float, default=105)
+    args = parser.parse_args()
+    if not 0 < args.scale <= 1 or not 0 < args.budget <= 7000 or not 0 < args.radius <= 160:
+        parser.error("Scale, street budget and frontage radius must fit the construction plan")
+    run(args)
+
+
+if __name__ == "__main__":
+    main()

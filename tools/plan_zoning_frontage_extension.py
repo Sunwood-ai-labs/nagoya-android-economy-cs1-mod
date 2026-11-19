@@ -46,8 +46,8 @@ def frontage_slots(plan, receipt):
     with plan.open(encoding="utf-8-sig") as source:
         for line in source:
             part, name, *fields = line.rstrip("\n").split("\t")
-            if part == "N":
-                nodes[name] = tuple(map(float, fields))
+            if part in {"N", "A"}:
+                nodes[name] = tuple(map(float, fields[:3]))
                 continue
             ordinal += 1
             a, b, road, *_ = fields
@@ -67,7 +67,7 @@ def frontage_slots(plan, receipt):
     return slots
 
 
-def plan_extension(missing, roads, receipt, growables, output, radius, limit):
+def plan_extension(missing, roads, receipt, growables, output, radius, limit, exclude_buildings):
     slots = frontage_slots(roads, receipt)
     occupied = json.loads(growables.read_text(encoding="utf-8-sig"))
     if not occupied["ok"] or occupied["returned"] != occupied["total"]:
@@ -79,6 +79,9 @@ def plan_extension(missing, roads, receipt, growables, output, radius, limit):
     coords = [(x, z) for x, z, _ in slots]
     index = index_points(coords)
     consumed = {i for point in occupied_points for _, i in within(index, coords, point, 22)}
+    occupied_ids = {int(lot["id"]) for lot in occupied["growables"]}
+    already_active = {row["group"] for source in exclude_buildings for row in read_tsv(source)
+                      if int(row["buildingId"]) in occupied_ids}
     with (output / "extension-zoning-requests.tsv").open("w", encoding="utf-8", newline="") as requests, \
          (output / "extension-zoning-groups.tsv").open("w", encoding="utf-8", newline="") as links:
         emit = csv.writer(requests, delimiter="\t", lineterminator="\n")
@@ -88,6 +91,11 @@ def plan_extension(missing, roads, receipt, growables, output, radius, limit):
         for row in read_tsv(missing):
             if tally["proposed"] >= limit:
                 break
+            group = row["group"]
+            site = f"extension_{hashlib.sha256(group.encode('utf-8')).hexdigest()[:16]}"
+            if site in already_active:
+                tally["already_active"] += 1
+                continue
             if not row["projected_centroid_x"] or not row["projected_centroid_z"]:
                 tally["missing_centroid"] += 1
                 continue
@@ -99,8 +107,6 @@ def plan_extension(missing, roads, receipt, growables, output, radius, limit):
                 continue
             d2, choice = best
             x, z, road = slots[choice]
-            group = row["group"]
-            site = f"extension_{hashlib.sha256(group.encode('utf-8')).hexdigest()[:16]}"
             count = int(row["model_id_count"])
             emit.writerow(("S", site, road, f"{x:.3f}", f"{z:.3f}", row["use"], count, row["ward"]))
             link.writerow((group, site, count, f"{math.sqrt(d2):.3f}"))
@@ -117,6 +123,7 @@ def main():
         parser.add_argument(f"--{argument}", type=Path, required=True)
     parser.add_argument("--radius", type=float, default=160)
     parser.add_argument("--limit", type=int, default=2700)
+    parser.add_argument("--exclude-buildings", type=Path, action="append", default=[])
     args = parser.parse_args()
     if not 0 < args.radius <= 160 or not 0 < args.limit <= 3000:
         parser.error("Use a positive radius up to 160m and at most 3,000 sites per run")

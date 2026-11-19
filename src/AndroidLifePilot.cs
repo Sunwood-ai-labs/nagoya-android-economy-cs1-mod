@@ -14,7 +14,7 @@ namespace NagoyaRoadDelivery
     public sealed class AndroidLifePilot : MonoBehaviour
     {
         private const int MembersPerUnit = 5;
-        private const int MaximumAndroids = 512;
+        private const int PilotMaximumAndroids = 512;
         private const int MaximumUnitsPerBuilding = 2048;
         private const string RenderPatchId = "sunwood.nagoya.android-residence-render";
         private static AndroidLifePilot renderer;
@@ -26,6 +26,7 @@ namespace NagoyaRoadDelivery
         private readonly Dictionary<uint, Resident> cohort = new Dictionary<uint, Resident>();
         private volatile uint[] residents = new uint[0];
         private readonly Dictionary<uint, object> visuals = new Dictionary<uint, object>();
+        private readonly List<uint> releasedVisuals = new List<uint>();
         private CitywideScene city;
         private string root, runId, caseId, error, visualError;
         private bool attempted;
@@ -160,7 +161,8 @@ namespace NagoyaRoadDelivery
                 attempted = true;
                 caseId = (string)config["caseId"];
                 double count = (double)config["androidResidents"];
-                if (caseId.Length < 1 || caseId.Length > 60 || count != Math.Floor(count) || count < 0 || count > MaximumAndroids)
+                int limit = root == NativeCityRoadBuilder.Root ? NativeCityLedger.MaxResidents : PilotMaximumAndroids;
+                if (caseId.Length < 1 || caseId.Length > 60 || count != Math.Floor(count) || count < 0 || count > limit)
                     throw new InvalidDataException("Scenario case or cohort size");
                 int requested = Math.Max(0, (int)count - cohort.Count);
                 CitizenManager citizens = CitizenManager.instance;
@@ -461,21 +463,28 @@ namespace NagoyaRoadDelivery
             if (renderer != this) return;
             CitizenManager manager = CitizenManager.instance;
             uint[] current = residents;
+            releasedVisuals.Clear();
             foreach (KeyValuePair<uint, object> prior in visuals)
                 if (Array.BinarySearch(current, prior.Key) < 0)
-                    city.PoseResidentAndroid(prior.Value, false, Vector3.zero);
+                    releasedVisuals.Add(prior.Key);
+            foreach (uint id in releasedVisuals)
+            {
+                city.ReleaseResidentAndroid(visuals[id]);
+                visuals.Remove(id);
+            }
             foreach (uint id in current)
             {
-                object visual;
-                if (!visuals.TryGetValue(id, out visual))
-                {
-                    visual = city.CreateResidentAndroid((int)id);
-                    visuals.Add(id, visual);
-                }
                 Citizen data = manager.m_citizens.m_buffer[id];
                 ushort iid = data.m_instance;
                 CitizenInstance instance = iid == 0 ? new CitizenInstance() : manager.m_instances.m_buffer[iid];
                 bool visible = iid != 0 && instance.m_citizen == id && (instance.m_flags & CitizenInstance.Flags.Character) != 0;
+                object visual;
+                if (!visuals.TryGetValue(id, out visual))
+                {
+                    if (!visible) continue;
+                    visual = city.CreateResidentAndroid((int)id);
+                    visuals.Add(id, visual);
+                }
                 city.PoseResidentAndroid(visual, visible, instance.GetLastFramePosition());
             }
         }

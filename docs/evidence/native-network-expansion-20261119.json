@@ -1,0 +1,186 @@
+{
+  "observation": "CS1 game readback and native construction receipts",
+  "gameTime": "2027-02-19T22:02:09",
+  "populationUtc": "2026-11-19T03:55:15.3756254Z",
+  "save": {
+    "name": "NagoyaCitywide-Construction-Expanded-Society",
+    "sha256": "68a8773900760da9b70721dc9ab41eae2131c33e90507c596c641940de676c34"
+  },
+  "receipts": {
+    "0fbd95d7a3294db2a549b2f6af0a372d-roads": {
+      "submitted": 4927,
+      "created": 4927
+    },
+    "6326b350bb7b4f36a2e781b5c9d34890-zones": {
+      "submitted": 2000,
+      "created": 1820
+    },
+    "a202089708094fb8977d3d6766eb1d9c-utilities": {
+      "submitted": 1562,
+      "created": 1562
+    }
+  },
+  "roads": {
+    "activeImported": 18604,
+    "components": 1,
+    "disconnectedLocalComponents": 0,
+    "cityConnectedToOutside": true
+  },
+  "utilitySegments": {
+    "water": 781,
+    "power": 781,
+    "allWorldSegments": 28474
+  },
+  "zoning": {
+    "city": "NagoyaCitywide-Construction",
+    "rosterUtc": "2026-11-19T03:55:11.2767487Z",
+    "activeNativeZonedSites": 4034,
+    "nativeSiteGroupCount": 4034,
+    "plateauSourceIds": 738033,
+    "sourceCoverage": {
+      "allRolesActive": 535741,
+      "noActiveRole": 161144,
+      "someRolesActive": 8850,
+      "withoutClassifiedRoles": 32298
+    },
+    "roleMemberships": {
+      "active": 564447,
+      "uncovered": 177293
+    },
+    "writesToGame": false
+  },
+  "population": {
+    "caseId": "nagoya-expanded-streets-512",
+    "androidIdentities": 512,
+    "humanResidents": 4391,
+    "humanWorkplaceMembers": 1893,
+    "androidHomeMembers": 505,
+    "androidWorkplaceMembers": 389,
+    "wardsWithHumanAndAndroidPopulationAndJobs": 16
+  },
+  "nativeTraffic": {
+    "passengerCars": 1062,
+    "cargoTrucks": 673,
+    "buses": 10,
+    "otherVehicles": 40,
+    "roadVehiclesWithNativePath": 1740
+  },
+  "alertsBeforeUtilityExtensionAndAfterContinuedSimulation": {
+    "before": {
+      "Water": 69,
+      "WaterNotConnected": 0,
+      "Electricity": 37,
+      "ElectricityNotConnected": 195,
+      "RoadNotConnected": 132,
+      "NoWorkers": 496,
+      "Abandoned": 4
+    },
+    "after": {
+      "Water": 0,
+      "WaterNotConnected": 0,
+      "Electricity": 4,
+      "ElectricityNotConnected": 255,
+      "RoadNotConnected": 132,
+      "NoWorkers": 492,
+      "Abandoned": 215
+    }
+  },
+  "wards": {
+    "中区": {
+      "humanResidents": 123,
+      "humanWorkers": 60,
+      "androidResidents": 15,
+      "androidWorkers": 8
+    },
+    "中川区": {
+      "humanResidents": 345,
+      "humanWorkers": 165,
+      "androidResidents": 54,
+      "androidWorkers": 35
+    },
+    "中村区": {
+      "humanResidents": 290,
+      "humanWorkers": 110,
+      "androidResidents": 10,
+      "androidWorkers": 19
+    },
+    "北区": {
+      "humanResidents": 221,
+      "humanWorkers": 106,
+      "androidResidents": 20,
+      "androidWorkers": 19
+    },
+    "千種区": {
+      "humanResidents": 329,
+      "humanWorkers": 119,
+      "androidResidents": 6,
+      "androidWorkers": 20
+    },
+    "南区": {
+      "humanResidents": 240,
+      "humanWorkers": 98,
+      "androidResidents": 24,
+      "androidWorkers": 23
+    },
+    "名東区": {
+      "humanResidents": 313,
+      "humanWorkers": 121,
+      "androidResidents": 27,
+      "androidWorkers": 29
+    },
+    "天白区": {
+      "humanResidents": 289,
+      "humanWorkers": 113,
+      "androidResidents": 41,
+      "androidWorkers": 21
+    },
+    "守山区": {
+      "humanResidents": 320,
+      "humanWorkers": 173,
+      "androidResidents": 61,
+      "androidWorkers": 49
+    },
+    "昭和区": {
+      "humanResidents": 179,
+      "humanWorkers": 70,
+      "androidResidents": 16,
+      "androidWorkers": 12
+    },
+    "東区": {
+      "humanResidents": 120,
+      "humanWorkers": 58,
+      "androidResidents": 26,
+      "androidWorkers": 7
+    },
+    "港区": {
+      "humanResidents": 295,
+      "humanWorkers": 241,
+      "androidResidents": 57,
+      "androidWorkers": 55
+    },
+    "熱田区": {
+      "humanResidents": 125,
+      "humanWorkers": 51,
+      "androidResidents": 13,
+      "androidWorkers": 7
+    },
+    "瑞穂区": {
+      "humanResidents": 175,
+      "humanWorkers": 64,
+      "androidResidents": 20,
+      "androidWorkers": 3
+    },
+    "緑区": {
+      "humanResidents": 417,
+      "humanWorkers": 161,
+      "androidResidents": 70,
+      "androidWorkers": 65
+    },
+    "西区": {
+      "humanResidents": 294,
+      "humanWorkers": 141,
+      "androidResidents": 27,
+      "androidWorkers": 17
+    }
+  }
+}

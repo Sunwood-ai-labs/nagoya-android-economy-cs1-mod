@@ -66,6 +66,7 @@ namespace NagoyaRoadDelivery
                 }
             SortedDictionary<string, Ward> wards = new SortedDictionary<string, Ward>(StringComparer.Ordinal);
             HashSet<ushort> activeSites = new HashSet<ushort>();
+            HashSet<string> activeGroups = new HashSet<string>(StringComparer.Ordinal);
             int missingLots = 0;
             foreach (NativeCityLedger.Lot lot in lots)
             {
@@ -75,6 +76,7 @@ namespace NagoyaRoadDelivery
                     continue;
                 }
                 activeSites.Add(lot.Id);
+                activeGroups.Add(lot.Group);
                 Ward row;
                 string label = String.IsNullOrEmpty(lot.Ward) ? "unassigned" : lot.Ward;
                 if (!wards.TryGetValue(label, out row))
@@ -102,10 +104,13 @@ namespace NagoyaRoadDelivery
                     {"humanCommutesOnNativePath", row.HumanCommutes}, {"androidCommutesOnNativePath", row.AndroidCommutes}
                 });
             }
+            List<string> groupIds = new List<string>(activeGroups);
+            groupIds.Sort(StringComparer.Ordinal);
             return JsonData.Stringify(new Dictionary<string, object> {
                 {"runId",runId}, {"city",SimulationManager.instance.m_metaData.m_CityName},
                 {"savedRoadReferences",roads.Length}, {"activeNativeRoads",activeRoads},
                 {"savedParcelReferences",lots.Length}, {"activeNativeZonedSites",activeSites.Count},
+                {"activeNativeSiteGroups",groupIds},
                 {"invalidOrLostNativeSites",missingLots}, {"wardsWithHumanAndAndroidPopulationAndJobs",workingWards},
                 {"nativeTraffic",CountTraffic()},
                 {"wards",byWard}, {"utc",DateTime.UtcNow.ToString("o",CultureInfo.InvariantCulture)}

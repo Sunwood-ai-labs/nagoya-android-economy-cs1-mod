@@ -167,13 +167,14 @@ class OutputEdge:
 class DisjointSet:
     """Union-find with a representative coordinate and layer profiles."""
 
-    def __init__(self, nodes: list[Node], edges: list[RawEdge]) -> None:
+    def __init__(self, nodes: list[Node], edges: list[RawEdge], pinned: set[int] | None = None) -> None:
         count = len(nodes)
         self.parent = list(range(count))
         self.size = [1] * count
         self.x = [node.x for node in nodes]
         self.z = [node.z for node in nodes]
         self.identity = [node.identity for node in nodes]
+        self.pinned = pinned or set()
         self.source_ids = [
             {node.source_id} if node.source_id is not None else set()
             for node in nodes
@@ -214,6 +215,8 @@ class DisjointSet:
         left, right = self.find(left), self.find(right)
         if left == right:
             return False
+        if left in self.pinned and right in self.pinned:
+            return False
         # A short edge may only contract into a node that already represents
         # the same physical layer.  Source junction nodes can intentionally
         # carry several profiles (a bridge/tunnel transition), which keeps the
@@ -230,8 +233,8 @@ class DisjointSet:
         # stable ID.  Keeping an existing anchor coordinate limits drift.
         left_anchor = bool(self.source_ids[left])
         right_anchor = bool(self.source_ids[right])
-        if (not left_anchor, -len(self.incident[left]), left) > (
-            not right_anchor,
+        if (left not in self.pinned, not left_anchor, -len(self.incident[left]), left) > (
+            right not in self.pinned, not right_anchor,
             -len(self.incident[right]),
             right,
         ):
@@ -417,9 +420,9 @@ def _recompute_degree(dsu: DisjointSet, edges: list[RawEdge]) -> dict[int, int]:
 
 
 def _contract_short_links(
-    nodes: list[Node], raw_edges: list[RawEdge]
+    nodes: list[Node], raw_edges: list[RawEdge], pinned: set[int] | None = None,
 ) -> tuple[DisjointSet, Counter, list[tuple[RawEdge, str]]]:
-    dsu = DisjointSet(nodes, raw_edges)
+    dsu = DisjointSet(nodes, raw_edges, pinned)
     stats = Counter()
     # At most three bounded passes: the first contracts original short spans;
     # later passes catch a short span exposed by a representative move.

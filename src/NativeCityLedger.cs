@@ -32,8 +32,8 @@ namespace NagoyaRoadDelivery
     {
         private const uint Format = 0x3259474e; // NGY2
         private const int MaxRoads = 34000;
-        private const int MaxParcels = 6000;
-        private const int MaxResidents = 512;
+        private const int MaxParcels = 12000;
+        internal const int MaxResidents = 4096;
         private const int MaxBytes = 6 * 1024 * 1024;
         private static readonly object Gate = new object();
         private static string city;

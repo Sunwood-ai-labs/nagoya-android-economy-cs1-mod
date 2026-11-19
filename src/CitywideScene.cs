@@ -131,6 +131,8 @@ namespace NagoyaRoadDelivery
             {
                 scene = new GameObject("Nagoya native resident androids");
                 scene.transform.parent = transform;
+                try { UrbanTerrainAppearance.Install(); }
+                catch (Exception failure) { Debug.LogException(failure); }
                 try
                 {
                     LoadAndroid();
@@ -265,6 +267,13 @@ namespace NagoyaRoadDelivery
             return actor;
         }
 
+        internal void ReleaseResidentAndroid(object visual)
+        {
+            Actor actor = (Actor)visual;
+            actors.Remove(actor);
+            Destroy(actor.Root);
+        }
+
         internal void PoseResidentAndroid(object visual,bool visible,Vector3 position)
         {
             Actor actor=(Actor)visual;
@@ -380,7 +389,7 @@ namespace NagoyaRoadDelivery
                 roadMaterial.color=new Color(gain,gain,gain,1);appearanceSignature=signature;appearanceError="";
             } catch(Exception e) {lastAppearanceAttempt=attempt;appearanceError=e.Message;}
         }
-        public void Update(){if(NativeConstruction)return;ApplyAndroidAppearance();ApplyAppearance();if(simulation!=null&&error.Length==0){SimulationManager s=Singleton<SimulationManager>.instance;float dt=s.SimulationPaused?0:Time.deltaTime*Mathf.Clamp(s.FinalSimulationSpeed,0,3);try{simulation.Step(dt);}catch(Exception e){Fail(e);}}if(runId.Length>0&&Time.realtimeSinceStartup>=nextState){nextState=Time.realtimeSinceStartup+2;WriteState();}}
+        public void Update(){if(NativeConstruction){UrbanTerrainAppearance.Refresh();return;}ApplyAndroidAppearance();ApplyAppearance();if(simulation!=null&&error.Length==0){SimulationManager s=Singleton<SimulationManager>.instance;float dt=s.SimulationPaused?0:Time.deltaTime*Mathf.Clamp(s.FinalSimulationSpeed,0,3);try{simulation.Step(dt);}catch(Exception e){Fail(e);}}if(runId.Length>0&&Time.realtimeSinceStartup>=nextState){nextState=Time.realtimeSinceStartup+2;WriteState();}}
         private void Fail(Exception e){phase="error";error=e.ToString();Debug.LogException(e);WriteState();}
         private void WriteState(){try{Dictionary<string,object> m=new Dictionary<string,object>{{"utc",DateTime.UtcNow.ToString("o")},{"runId",runId},{"phase",phase},{"error",error},{"roadChunksLoaded",loadedChunks},{"roadChunksExpected",expectedChunks},{"roadTriangles",roadTriangles},{ "roadMaterialGain",roadMaterial!=null?roadMaterial.color.r:0f},{"appearanceError",appearanceError},{"appearanceSignature",appearanceSignature},{"surfacePlacementVersion","route-owned width, travel side and supported grades v3"},{"nativeRoadsCreated",0},{ "networkName",networkName},{"routingGraphSHA256",activeGraphHash},{"entranceBuildingTargets",buildingTargets},{"entranceHubCount",entranceHubs.Count},{"implementation","actual OSM source geometry; MOD-owned roads, routing and actor rules"},{"humanVisualSource",humanSource},{"humanWalkVersion","continuous deformation v2"},{"removedHumanAccessoryTriangles",removedHumanAccessoryTriangles},{"actorObjects",actors.Count},{"chargers",chargers.Count},{"assemblyMvid",GetType().Assembly.ManifestModule.ModuleVersionId.ToString()}};if(simulation!=null){
                 m["simulation"]=JsonData.Parse(simulation.StateJson());
@@ -400,6 +409,6 @@ namespace NagoyaRoadDelivery
             GUIStyle style=new GUIStyle(GUI.skin.label);style.fontSize=14;style.wordWrap=true;
             GUI.Label(new Rect(box.x+10,box.y+8,box.width-20,box.height-16),cityHud,style);
         }
-        public void OnDestroy(){if(scene!=null)Destroy(scene);foreach(Mesh m in ownedMeshes)if(m!=null)Destroy(m);foreach(Material m in ownedMaterials)if(m!=null)Destroy(m);foreach(Texture2D t in ownedTextures)if(t!=null)Destroy(t);}
+        public void OnDestroy(){if(NativeConstruction)UrbanTerrainAppearance.Clear();if(scene!=null)Destroy(scene);foreach(Mesh m in ownedMeshes)if(m!=null)Destroy(m);foreach(Material m in ownedMaterials)if(m!=null)Destroy(m);foreach(Texture2D t in ownedTextures)if(t!=null)Destroy(t);}
     }
 }

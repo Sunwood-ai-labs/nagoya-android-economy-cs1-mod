@@ -36,8 +36,10 @@ namespace NagoyaRoadDelivery
         private sealed class Junction
         {
             public Vector3 Position;
-            public ushort NativeId;
+            public ushort NativeId, AnchorNode, AnchorSegment;
+            public uint AnchorGeneration;
             public int Degree;
+            public NetInfo UtilityPrefab;
         }
 
         private sealed class Road
@@ -219,16 +221,34 @@ namespace NagoyaRoadDelivery
                 throw new InvalidOperationException("Loaded city's name or native network differs from the staged snapshot");
             if (GameAreaManager.instance.m_areaCount != 25)
                 throw new InvalidOperationException("The isolated construction save needs all 25 tiles unlocked");
-            if (startNodes + junctions.Count >= net.m_nodes.m_buffer.Length - 1 ||
+            int anchorCount = 0;
+            foreach (Junction junction in junctions.Values)
+                if (junction.AnchorNode != 0) anchorCount++;
+            if (startNodes + junctions.Count - anchorCount >= net.m_nodes.m_buffer.Length - 1 ||
                 startSegments + roads.Count >= net.m_segments.m_buffer.Length - 1)
                 throw new InvalidOperationException("The native road or junction budget would be exceeded");
             // Validate every junction before touching the save.
+            HashSet<ushort> anchorIds = new HashSet<ushort>();
             foreach (Junction junction in junctions.Values)
             {
                 float ground = TerrainManager.instance.SampleRawHeightSmoothWithWater(junction.Position, false, 0f);
                 if (Mathf.Abs(ground - 140f) > .5f)
                     throw new InvalidOperationException("Road plan requires the verified flat 140m terrain");
                 if (!groundAdjusted) junction.Position.y += ground;
+                if (junction.AnchorNode == 0) continue;
+                if (!anchorIds.Add(junction.AnchorNode) || junction.AnchorNode >= net.m_nodes.m_buffer.Length ||
+                    junction.AnchorSegment >= net.m_segments.m_buffer.Length)
+                    throw new InvalidOperationException("Invalid or duplicate existing road junction");
+                NetNode actual = net.m_nodes.m_buffer[junction.AnchorNode];
+                NetSegment receipt = net.m_segments.m_buffer[junction.AnchorSegment];
+                bool matchingNetwork = Infrastructure ? actual.Info == junction.UtilityPrefab && receipt.Info == junction.UtilityPrefab :
+                    actual.Info != null && actual.Info.m_class.m_service == ItemClass.Service.Road;
+                if ((actual.m_flags & NetNode.Flags.Created) == 0 || (receipt.m_flags & NetSegment.Flags.Created) == 0 ||
+                    receipt.m_buildIndex != junction.AnchorGeneration || (receipt.m_startNode != junction.AnchorNode && receipt.m_endNode != junction.AnchorNode) ||
+                    !matchingNetwork ||
+                    (actual.m_position - junction.Position).sqrMagnitude > .01f || actual.CountSegments() + junction.Degree > 8)
+                    throw new InvalidOperationException("Existing road junction no longer matches its native construction receipt: " + junction.AnchorNode);
+                junction.NativeId = junction.AnchorNode;
             }
             groundAdjusted = true;
         }
@@ -313,11 +333,21 @@ namespace NagoyaRoadDelivery
                     string[] row = line.Split('\t');
                     try
                     {
-                        if (row[0] == "N" && row.Length == 5 && roads.Count == 0)
+                        bool anchor = row[0] == "A" && row.Length == 8;
+                        if (roads.Count == 0 && ((row[0] == "N" && row.Length == 5) || anchor))
                         {
-                            junctions.Add(Token(row[1]), new Junction {
+                            Junction junction = new Junction {
                                 Position = new Vector3(Measure(row[2], 4790f), Measure(row[4], 32f), Measure(row[3], 4790f))
-                            });
+                            };
+                            if (anchor)
+                            {
+                                junction.AnchorNode = UInt16.Parse(row[5], Invariant);
+                                junction.AnchorSegment = UInt16.Parse(row[6], Invariant);
+                                junction.AnchorGeneration = UInt32.Parse(row[7], Invariant);
+                                if (junction.AnchorNode == 0 || junction.AnchorSegment == 0 || junction.AnchorGeneration == 0)
+                                    throw new InvalidDataException("Existing junction requires a complete native receipt");
+                            }
+                            junctions.Add(Token(row[1]), junction);
                             continue;
                         }
                         if (row[0] != "E" || row.Length != 7 || (row[6] != "0" && row[6] != "1") ||
@@ -345,6 +375,14 @@ namespace NagoyaRoadDelivery
                                 throw new InvalidDataException("Required CS1 road prefab is unavailable: " + row[4]);
                             prefabs.Add(row[4], prefab);
                         }
+                        if (Infrastructure)
+                        {
+                            if ((from.UtilityPrefab != null && from.UtilityPrefab != prefab) ||
+                                (to.UtilityPrefab != null && to.UtilityPrefab != prefab))
+                                throw new InvalidDataException("Water pipes and power lines cannot share a junction");
+                            from.UtilityPrefab = prefab;
+                            to.UtilityPrefab = prefab;
+                        }
                         roads.Add(new Road { Source = Token(row[1]), Tag = row[4], Prefab = prefab,
                             Start = row[6] == "1" ? from : to, End = row[6] == "1" ? to : from });
                     }
@@ -355,6 +393,30 @@ namespace NagoyaRoadDelivery
             }
             if (roads.Count == 0)
                 throw new InvalidDataException("Empty road plan");
+            CheckAnchoredComponents();
+        }
+
+        private void CheckAnchoredComponents()
+        {
+            var adjacent = new Dictionary<Junction, List<Junction>>();
+            var passed = new HashSet<Junction>();
+            var queue = new Queue<Junction>();
+            foreach (Junction junction in junctions.Values)
+            {
+                adjacent.Add(junction, new List<Junction>());
+                if (junction.AnchorNode != 0) { passed.Add(junction); queue.Enqueue(junction); }
+            }
+            if (queue.Count == 0) return;
+            foreach (Road road in roads)
+            {
+                adjacent[road.Start].Add(road.End);
+                adjacent[road.End].Add(road.Start);
+            }
+            while (queue.Count > 0)
+                foreach (Junction next in adjacent[queue.Dequeue()])
+                    if (passed.Add(next)) queue.Enqueue(next);
+            if (passed.Count != junctions.Count)
+                throw new InvalidDataException("Road extension contains a component without an existing native junction");
         }
 
         private static Dictionary<string, object> ReadCommand(string path)

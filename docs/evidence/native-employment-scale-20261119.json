@@ -1,0 +1,69 @@
+{
+  "scope": "Single CS1 save and a before/after observation. No matched control run.",
+  "gameBuild": "1.21.1-f9",
+  "assemblySha256": "609554438ede588fcefa89bdb15a43b3e359f9045b04812b0ce5a4ac813607df",
+  "sourceSave": "NagoyaCitywide-Construction-Expanded-Society",
+  "caseId": "nagoya-employment-scale-1536",
+  "runId": "20261119T041008822Z",
+  "targetPopulation": 1536,
+  "status": "limited",
+  "scenarioMessage": "Vacant residential units limited the experiment to 656",
+  "samples": {
+    "before": {
+      "gameTime": "2027-02-21T09:38:57",
+      "humanResidents": 4329,
+      "humanWorkplaces": 2092,
+      "androidResidents": 495,
+      "androidWorkplaces": 407,
+      "deliveries": 0
+    },
+    "afterAddingWhilePaused": {
+      "gameTime": "2027-02-21T09:38:57",
+      "humanResidents": 4329,
+      "humanWorkplaces": 2092,
+      "androidResidents": 647,
+      "androidWorkplaces": 407,
+      "deliveries": 0
+    },
+    "afterResuming": {
+      "gameTime": "2027-02-26T03:52:13",
+      "humanResidents": 3852,
+      "humanWorkplaces": 1936,
+      "androidResidents": 578,
+      "androidWorkplaces": 409,
+      "deliveries": 0
+    }
+  },
+  "newlyHoused": {
+    "added": 152,
+    "remained": 110,
+    "workplace": 14,
+    "activeCommutePathObserved": 7,
+    "workplaceArrivalObserved": 0,
+    "chargingStartObserved": 110
+  },
+  "buildingWarnings": {
+    "before": {
+      "noWorkers": 492,
+      "roadNotConnected": 132,
+      "electricityNotConnected": 272
+    },
+    "after": {
+      "noWorkers": 486,
+      "roadNotConnected": 132,
+      "electricityNotConnected": 324
+    }
+  },
+  "wardsWithHumanAndAndroidPopulationAndJobs": 16,
+  "nativeTraffic": {
+    "passengerCars": 997,
+    "cargoTrucks": 647,
+    "buses": 13,
+    "otherVehicles": 22,
+    "roadVehiclesWithNativePath": 1655
+  },
+  "checkpoint": {
+    "name": "NagoyaCitywide-Construction-NativeEmployment1536Trial",
+    "sha256": "c464250ad7ed3e339675c784b91d6a7e5f21a91cf6033d1b4a7bae4d576a3fc9"
+  }
+}
