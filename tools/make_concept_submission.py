@@ -72,7 +72,7 @@ class Deck:
             self.text(sub, 46, 90, 15, GRAY)
         self.box(44, 496, 872, 1, RULE)
         self.text("PLATEAU ANDROID ECONOMY", 44, 508, 10, GRAY, latin=True)
-        self.text(f"{no:02d} / 06", 877, 508, 10, GRAY, latin=True)
+        self.text(f"{no:02d} / 04", 877, 508, 10, GRAY, latin=True)
 
     def page(self):
         self.canvas.showPage()
@@ -89,17 +89,19 @@ def render(args):
     runs = read(args.evidence)
     photos = args.prior
     fresh = args.raw / "cs1-nagoya-live.jpg"
-    if wards["wardsWithHumanAndAndroidPopulationAndJobs"] != 16 or android["androidHomeMembers"] <= 0:
+    if (wards["wardsWithHumanAndAndroidPopulationAndJobs"] != 16
+            or android["androidHomeMembers"] <= 0
+            or runs["androidsWithObservedWorkArrival"] <= 0
+            or runs["androidsWithObservedChargeStart"] <= 0):
         raise ValueError("Current capabilities require evidence across all 16 wards")
-    delivery_caption = ("工場と店舗をつなぐ配送を試作中。", "実際に届き、店舗の在庫が動くかを確かめる。")
+    delivery_caption = ("工場と店を結ぶ配送は試作中。",)
     if args.delivery:
         delivery = read(args.delivery)
         sent, received = delivery["sender"], delivery["receiver"]
         amount = delivery["confirmedGoodsTransferred"]
         if not amount > 0 or sent["stockBefore"] - sent["stockAfter"] != amount or received["stockAfter"] - received["stockBefore"] != amount:
             raise ValueError("Delivery must change both real stock buffers by the same amount")
-        delivery_caption = (f'{delivery["ward"]}で、工場から店舗への配送を1件確認。',
-                            "どの工場と店舗をつなぐか、街区ごとに試す。")
+        delivery_caption = (f'{delivery["ward"]}では、工場から店への', "配送を1件確認。")
     deck = Deck(args.output)
 
     deck.box(0, 0, W, H, NIGHT)
@@ -132,70 +134,32 @@ def render(args):
         deck.lines(body, x, 424, 15, 23, color=GRAY)
     deck.page()
 
-    deck.header(3, "名古屋16区が、舞台になる。", "知っている街並みに、住む場所と働く場所を重ねる。")
-    deck.photo(fresh, 44, 130, 602, 330, center=(.46, .48))
-    deck.box(44, 433, 243, 27, NIGHT)
-    deck.text("CS1ゲーム画面・全域版の一部", 55, 440, 11, LIGHT)
-    deck.box(664, 130, 252, 330, NIGHT)
-    for y, label, value, detail in (
-        (153, "まちの形", "738,033", "表示カタログのPLATEAU建物ID"),
-        (248, "つながる道路", f'{wards["activeNativeRoads"]:,}', "CS1に敷設・読込した道路区間"),
-        (343, "暮らしの場所", f'{wards["activeNativeZonedSites"]:,}', "稼働時の有効な用途付き建物"),
-    ):
-        deck.text(label, 682, y, 13, MINT, True)
-        deck.text(value, 682, y + 20, 32, LIGHT, latin=True)
-        deck.text(detail, 683, y + 58, 11, SOFT_MINT)
-    deck.text("PLATEAUの建物を、街区ごとにCS1の住宅・店舗・工業・オフィスにつなぐ。", 45, 468, 14, GRAY)
-    deck.page()
-
-    deck.header(4, "暮らしが、仕事につながる。", "同じ街を動かし、住民の所属先と移動を確認した。")
-    deck.box(44, 130, 872, 136, NIGHT)
-    deck.text("アンドロイド", 65, 150, 15, MINT, True)
-    deck.text(f'{android["androidHomeMembers"]:,}', 64, 179, 53, LIGHT, latin=True)
-    deck.text("体が入居", 174, 214, 19, SOFT_MINT)
-    deck.text(f'{android["androidWorkMembers"]:,}', 363, 179, 53, LIGHT, latin=True)
-    deck.text("体が職場に登録", 472, 214, 19, SOFT_MINT)
-    deck.text("16", 716, 179, 54, LIME, latin=True)
-    deck.text("区で共存", 787, 214, 19, SOFT_MINT)
-    traffic = wards["nativeTraffic"]
-    for x, title, value, desc in (
-        (44, "通勤", str(runs["androidsWithConfirmedCommute"]), "経路を確認した個体"),
-        (338, "充電", str(runs["androidsWithObservedChargeStart"]), "充電開始を確認した個体"),
-        (632, "交通", f'{traffic["passengerCars"] + traffic["cargoTrucks"] + traffic["buses"]:,}', "乗用車・トラック・バスの台数"),
-    ):
-        deck.box(x, 286, 284, 125, SOFT_MINT)
-        deck.text(title, x + 15, 298, 14, GRAY, True)
-        deck.text(value, x + 14, 320, 37, INK, latin=True)
-        deck.text(desc, x + 15, 373, 13, INK)
-    deck.text(f'人の住民 {android["nativeHumanResidents"]:,}人も同じ都市に入居。就業と入居を全16区で確認。', 45, 430, 14, INK)
-    deck.text("2026年11月19日のCS1実測。通勤・充電は別の観測区間の累計、入居・職場・交通は観測時点。", 45, 461, 11, GRAY)
-    deck.page()
-
-    deck.header(5, "街を変えたら、暮らしはどう変わる？", "同じ名古屋を使って、違う街のつくり方を試す。")
-    deck.photo(photos / "04-plateau-housing.png", 44, 126, 405, 329, center=(.51, .43), crop=(521, 145, 1172, 775))
-    deck.box(44, 429, 252, 26, NIGHT)
-    deck.text("名古屋駅周辺・PLATEAUモデルの先行デモ", 54, 436, 10, LIGHT)
-    for y, title, body in (
-        (132, "住宅を増やしてみる", ("新しい住民を迎えると、どの区に", "人とアンドロイドが集まるだろう。")),
-        (245, "職場の配置を変えてみる", ("駅の周りに仕事を集めると、", "通勤の距離や人の就業はどう変わるか。")),
-        (358, "配送のルートを考える", delivery_caption),
-    ):
-        deck.box(470, y, 446, 2, RULE)
-        deck.text(title, 471, y + 13, 22, INK, True)
-        deck.lines(body, 472, y + 48, 15, 23, color=GRAY, width=444)
+    deck.header(3, "この街は、名古屋からできている。", "PLATEAUの建物と実際の道路をもとに、名古屋16区をゲームの舞台に。")
+    deck.photo(fresh, 44, 132, 585, 325, center=(.46, .48))
+    deck.box(44, 430, 223, 27, NIGHT)
+    deck.text("CS1ゲーム画面・全域版の一部", 55, 437, 11, LIGHT)
+    deck.box(649, 132, 267, 325, NIGHT)
+    deck.text("ゲームで確かめたこと", 669, 154, 20, MINT, True, width=227)
+    deck.lines(("全16区で、人も", "アンドロイドも", "住み、働く。"), 669, 207, 25, 35,
+               color=LIGHT, bold=True, width=228)
+    deck.box(669, 334, 227, 1, "#49646C")
+    deck.lines(delivery_caption, 670, 352, 13, 21, color=SOFT_MINT, width=227)
+    deck.text("住む家、働く職場、商品が届く店。PLATEAUの建物が、暮らしの場所になる。",
+              45, 469, 13, GRAY)
     deck.page()
 
     deck.box(0, 0, W, H, NIGHT)
-    deck.photo(photos / "04-plateau-housing.png", 568, 0, 392, 540, center=(.65, .5), crop=(522, 15, 1175, 875))
-    deck.text("PLATEAU ANDROID ECONOMY", 44, 53, 16, MINT, latin=True)
-    deck.lines(("あなたなら、", "どんな共存の街を", "つくる？"), 43, 120, 44, 62, color=LIGHT, bold=True, width=518)
-    deck.lines(("街づくりゲームの中で、2050年の選択を試す。", "まちづくりのワークショップでも、", "知っている場所から将来を話し始められる。"),
-               46, 324, 15, 25, color=SOFT_MINT, width=501)
-    deck.box(46, 421, 485, 1, "#49646C")
-    deck.link("3D都市モデル　国土交通省 Project PLATEAU・名古屋市 2022年度", PLATEAU, 46, 439)
-    deck.link("道路データ　© OpenStreetMap contributors", OSM, 46, 460)
-    deck.text("Cities: Skylines の独自MOD / CS1ゲーム画面", 46, 482, 11, SOFT_MINT)
-    deck.text("06 / 06", 477, 510, 10, MINT, latin=True)
+    deck.photo(photos / "04-plateau-housing.png", 558, 0, 402, 540, center=(.65, .5), crop=(522, 15, 1175, 875))
+    deck.text("PLATEAU ANDROID ECONOMY", 44, 45, 15, MINT, latin=True)
+    deck.lines(("あなたなら、", "どんな街にする？"), 43, 105, 44, 64, color=LIGHT, bold=True, width=505)
+    deck.lines(("駅前に仕事を集めたら、誰がそこで働く？", "アンドロイドが増えたら、人の仕事はどう変わる？"),
+               46, 257, 17, 35, color=SOFT_MINT, width=480)
+    deck.text("街づくりゲームの中で、2050年の選択を試す。", 46, 350, 16, LIME, True, width=480)
+    deck.box(46, 415, 485, 1, "#49646C")
+    deck.link("3D都市モデル　国土交通省 Project PLATEAU・名古屋市 2022年度", PLATEAU, 46, 433)
+    deck.link("道路データ　© OpenStreetMap contributors", OSM, 46, 454)
+    deck.text("Cities: Skylines の独自MOD / CS1ゲーム画面", 46, 477, 11, SOFT_MINT)
+    deck.text("04 / 04", 477, 510, 10, MINT, latin=True)
     deck.box(706, 501, 227, 26, NIGHT)
     deck.text("CS1ゲーム画面・名古屋駅周辺の先行デモ", 714, 507, 10, LIGHT)
     deck.page()
