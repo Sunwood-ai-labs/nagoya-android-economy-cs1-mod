@@ -22,6 +22,7 @@ namespace NagoyaRoadDelivery
         private readonly List<object> dispatchSamples = new List<object>();
         private readonly Dictionary<ushort, Dictionary<string, object>> activeDispatches =
             new Dictionary<ushort, Dictionary<string, object>>();
+        private bool assigningLocalTrial;
         private Harmony harmony;
 
         public NativeWasteObservation(List<object> ids)
@@ -115,6 +116,7 @@ namespace NagoyaRoadDelivery
             var trace = new Dictionary<string, object> {
                 {"gameTime",SimulationManager.instance.m_currentGameTime.ToString("s")},
                 {"vehicle",__0}, {"facility",source}, {"offeredTarget",__3.Building}, {"target",__1.m_targetBuilding},
+                {"localTrial",watch.assigningLocalTrial},
                 {"path",__1.m_path}, {"waitingForPath",(__1.m_flags & Vehicle.Flags.WaitingPath) != 0},
                 {"outboundPathResult",null}, {"firstSpawn",null}, {"firstPickup",null}, {"returned",null}, {"released",null}
             };
@@ -208,6 +210,20 @@ namespace NagoyaRoadDelivery
                 {"facilityAssignments",CountsByBuilding(facilityAssignments)}, {"truckStarts",CountsByBuilding(truckStarts)},
                 {"samples",dispatchSamples}
             };
+        }
+
+        internal bool IsWatching(ushort id, uint generation)
+        {
+            uint recorded;
+            return buildings.TryGetValue(id, out recorded) && recorded == generation;
+        }
+
+        internal void DispatchLocal(List<object> assignments)
+        {
+            var trial = new NativeWasteLocalTrial(assignments, this);
+            assigningLocalTrial = true;
+            try { trial.Dispatch(); }
+            finally { assigningLocalTrial = false; }
         }
 
         private static Dictionary<string, object> CountsByBuilding(Dictionary<ushort, int> counts)

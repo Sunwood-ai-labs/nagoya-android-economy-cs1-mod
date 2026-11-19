@@ -75,10 +75,11 @@ namespace NagoyaRoadDelivery
                 economy = EconomyManager.instance;
                 string file = id + "-finance.json";
                 if (File.Exists(Path.Combine(Root, file))) throw new IOException("Finance receipt already exists");
-                object powerBudget, wasteBudget, targets, waterIntake;
+                object powerBudget, wasteBudget, targets, waterIntake, localWasteAssignments;
                 bool changePower = request.TryGetValue("electricityBudget", out powerBudget);
                 bool changeWaste = request.TryGetValue("garbageBudget", out wasteBudget);
                 bool startWatch = request.TryGetValue("wasteBuildingIds", out targets);
+                bool dispatchLocalWaste = request.TryGetValue("localWasteAssignments", out localWasteAssignments);
                 bool finishWatch = request.ContainsKey("finishWasteWatch") && Convert.ToBoolean(request["finishWasteWatch"]);
                 bool changeIntake = request.TryGetValue("waterIntake", out waterIntake);
                 bool sampleWater = request.ContainsKey("sampleWaterQuality") && Convert.ToBoolean(request["sampleWaterQuality"]);
@@ -87,6 +88,8 @@ namespace NagoyaRoadDelivery
                     throw new InvalidDataException("Select one city operation per trial");
                 if (startWatch && (wasteWatch != null || finishWatch))
                     throw new InvalidOperationException("Finish the existing observation before selecting new buildings");
+                if (dispatchLocalWaste && (!startWatch || changeWaste || changePower || changeIntake))
+                    throw new InvalidOperationException("Local waste assignments need a separate collection trial");
                 int powerDay = Budget(economy, electricity, false), powerNight = Budget(economy, electricity, true);
                 int wasteDay = Budget(economy, garbage, false), wasteNight = Budget(economy, garbage, true);
                 var services = new List<object>();
@@ -100,6 +103,7 @@ namespace NagoyaRoadDelivery
                 {
                     wasteWatch = new NativeWasteObservation((List<object>)targets);
                     startedWatch = true;
+                    if (dispatchLocalWaste) wasteWatch.DispatchLocal((List<object>)localWasteAssignments);
                 }
                 if (changePower || changeWaste)
                 {
@@ -119,7 +123,7 @@ namespace NagoyaRoadDelivery
                     {"gameTime",simulation.m_currentGameTime.ToString("s")}, {"internalCash",economy.InternalCashAmount},
                     {"lastCash",economy.LastCashAmount}, {"lastCashDelta",economy.LastCashDelta},
                     {"loanExpenses",economy.GetLoanExpenses()}, {"policyExpenses",economy.GetPolicyExpenses()},
-                    {"services",services}, {"publicTransport",transport}, {"writesToCity",changed || changeIntake},
+                    {"services",services}, {"publicTransport",transport}, {"writesToCity",changed || changeIntake || dispatchLocalWaste},
                     {"waterQuality",sampleWater || changeIntake ? NativeWaterQuality.Capture() : null},
                     {"housingCapacityByWard",sampleHousing ? NativeCityRoster.AuditCapacity() : null},
                     {"networkMaintenance", NetworkMaintenanceSnapshot()},

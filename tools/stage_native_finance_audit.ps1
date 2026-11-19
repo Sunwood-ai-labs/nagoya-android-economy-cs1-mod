@@ -9,6 +9,7 @@ param(
     [ValidateRange(50, 150)][int]$ExpectedGarbageDay,
     [ValidateRange(50, 150)][int]$ExpectedGarbageNight,
     [ValidateCount(1, 64)][uint16[]]$WasteBuildingId,
+    [string]$LocalWasteAssignments,
     [switch]$FinishWasteWatch,
     [switch]$SampleWaterQuality,
     [switch]$SampleHousingCapacity,
@@ -32,6 +33,9 @@ if ($power -and ($CheckpointName -cnotlike 'NagoyaCitywide-PowerBudgetTrial-*' -
 }
 if (($waste -or $WasteBuildingId -or $FinishWasteWatch) -and $CheckpointName -cnotlike 'NagoyaCitywide-WasteBudgetTrial-*') {
     throw 'A garbage budget change or collection watch requires the named waste trial checkpoint.'
+}
+if ($LocalWasteAssignments -and (!$WasteBuildingId -or $power -or $waste -or $intake -or $FinishWasteWatch)) {
+    throw 'Local dispatch requires a separate collection trial on the named waste checkpoint.'
 }
 if ($waste -and (!$PSBoundParameters.ContainsKey('ExpectedGarbageDay') -or !$PSBoundParameters.ContainsKey('ExpectedGarbageNight'))) {
     throw 'A garbage budget change requires both expected values.'
@@ -84,6 +88,12 @@ if ($waste) {
 }
 if ($WasteBuildingId) {
     $request.wasteBuildingIds = $WasteBuildingId
+}
+if ($LocalWasteAssignments) {
+    $request.localWasteAssignments = @(Get-Content -LiteralPath $LocalWasteAssignments -Raw | ConvertFrom-Json)
+    if ($request.localWasteAssignments.Count -notin 1..6) {
+        throw 'A local dispatch trial requires one to six identified assignments.'
+    }
 }
 if ($FinishWasteWatch) {
     $request.finishWasteWatch = $true
