@@ -116,7 +116,7 @@ namespace NagoyaRoadDelivery
             AndroidLifePilot life = active;
             if (life == null || !life.cohort.Remove(__0)) return;
             NativeCityLedger.RemoveAndroid(__0);
-            if (life.localDeliveries != null) life.localDeliveries.EndTrip(__0);
+            if (life.localDeliveries != null) life.localDeliveries.ForgetCitizen(__0);
             life.UpdateResidentIds();
         }
 
@@ -405,6 +405,12 @@ namespace NagoyaRoadDelivery
                 androidHomeMembers++;
                 if (data.CurrentLocation != Citizen.Location.Moving) member.ShopReturnHome = 0;
                 ObserveWalking(manager, (uint)i, data, member);
+                if (clockRunning && employmentTrial == null && localDeliveries != null && member.Battery >= 30 &&
+                    (data.m_flags & Citizen.Flags.Student) == 0 && localDeliveries.HireForLocalDelivery((uint)i, ref people[i], now))
+                {
+                    data = people[i];
+                    employed = true;
+                }
                 bool jobMember = employed && InWorkUnit(manager, data.m_workBuilding, (uint)i);
                 if (jobMember) { androidEmployed++; androidWorkMembers++; }
                 bool delivering = clockRunning && jobMember && localDeliveries != null && member.Battery >= 30 &&

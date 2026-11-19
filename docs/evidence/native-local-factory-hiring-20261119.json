@@ -1,0 +1,213 @@
+{
+  "test": "Local native factory employment and Android deliveries in CS1",
+  "city": "NagoyaCitywide-Construction",
+  "sourceSave": {
+    "name": "NagoyaCitywide-GoodsRetailRestored",
+    "sha256": "4ad2b68635f745a714dec21282b4cdb32350795a5680c4b5bf3f44f2395f4f14"
+  },
+  "resultSave": {
+    "name": "NagoyaCitywide-LocalFactoryJobCycle",
+    "sha256": "6a7d207e8f0b1beb2eb4cd40ab4a32125d1fef6e5c5cd86b9b5b52076f77818b",
+    "gameTime": "2027-08-27T20:42:01"
+  },
+  "testedAssemblySha256": "c07fe199f4c8554cd66aa9fa4684a23b6b04fcd60144bcd0427291a9f56f91e6",
+  "observations": {
+    "original": {
+      "sample": "hiring-window-01/terminal-life.json",
+      "sampleSha256": "a3d1bd0cc055ad6a5e1a3fac6f8316d9a3ec8d2f802959133e06ecdf0bbbc37f",
+      "runId": "20261119T072804727Z",
+      "assemblyMvid": "9ef044af-fed8-4f8e-8459-275ce082ac32",
+      "gameTime": "2027-08-26T16:41:01",
+      "delivered": 6,
+      "deliveriesByWard": {
+        "守山区": 3,
+        "緑区": 1,
+        "南区": 1,
+        "西区": 1
+      },
+      "localHires": 0,
+      "localHiringRejections": null
+    },
+    "gateObservation": {
+      "sample": "hiring-audit-01/terminal-life.json",
+      "sampleSha256": "a0c6374447ceb8a8e63dc187c1593678efa7d53fb7306090771a3a37354c794f",
+      "runId": "20261119T073530768Z",
+      "assemblyMvid": "604e4e5a-97a1-4b2b-9159-d710d141b128",
+      "gameTime": "2027-08-27T16:20:53",
+      "delivered": 8,
+      "deliveriesByWard": {
+        "守山区": 2,
+        "緑区": 1,
+        "北区": 1,
+        "南区": 1,
+        "港区": 1,
+        "西区": 1,
+        "中川区": 1
+      },
+      "localHires": 0,
+      "localHiringRejections": {
+        "no reachable shop in an unserved and unreserved ward": 295,
+        "home missing from valid street lots": 144,
+        "no vacant factory job": 72,
+        "no walkable route to a nearby factory": 46
+      }
+    },
+    "pedestrianLane": {
+      "sample": "hiring-pedestrian-01/terminal-life.json",
+      "sampleSha256": "12d9115fac53ef6823269712e4c8d025b9af2c927c9f769bcb353327d25a601a",
+      "runId": "20261119T074203846Z",
+      "assemblyMvid": "e4004ac5-a2bd-4779-ae28-8cbdd5f7a3f2",
+      "gameTime": "2027-08-27T17:18:09",
+      "delivered": 11,
+      "deliveriesByWard": {
+        "守山区": 3,
+        "緑区": 1,
+        "港区": 2,
+        "南区": 1,
+        "北区": 1,
+        "中川区": 2,
+        "西区": 1
+      },
+      "localHires": 1,
+      "localHiringRejections": {
+        "no suitable receiving shop on connected streets": 450,
+        "no vacant factory job": 253,
+        "no walkable route to a nearby factory": 104,
+        "no stocked factory within home radius": 3
+      }
+    }
+  },
+  "hiredResident": {
+    "android": 660154,
+    "home": 14990,
+    "homeStreet": 14619,
+    "homeStreetSource": "native zoning receipt",
+    "factory": 24295,
+    "factoryWard": "港区",
+    "candidateShop": 24107,
+    "shopWard": "港区",
+    "vacanciesBefore": 1,
+    "streetMetersFromHome": 258.85960483551,
+    "gameTime": "2027-08-14T12:39:11"
+  },
+  "journey": {
+    "before": {
+      "sample": "hiring-pedestrian-01/before-life.json",
+      "sampleSha256": "0098b758c1a965e2145161d8197374ead0baecbd2592414a177e57141e6b7a70",
+      "gameTime": "2027-08-11T09:15:27",
+      "resident": {
+        "citizenId": 660154,
+        "homeBuilding": 14990,
+        "workBuilding": 0,
+        "workUnitConfirmed": false,
+        "location": "Home",
+        "battery": 100,
+        "walkedMeters": 0,
+        "pathId": 0,
+        "sourceBuilding": 0,
+        "targetBuilding": 0,
+        "shopReturnsStarted": 0,
+        "shopReturnsArrived": 0,
+        "chargeStarts": 0,
+        "charging": false
+      }
+    },
+    "commuting": {
+      "sample": "hiring-pedestrian-01/life-1.json",
+      "sampleSha256": "18a1d36769e70f063f005e0c044ebb2fadba2c4f69bdf100ca4cb664050fb8c9",
+      "gameTime": "2027-08-14T12:39:11",
+      "resident": {
+        "citizenId": 660154,
+        "homeBuilding": 14990,
+        "workBuilding": 24295,
+        "workUnitConfirmed": true,
+        "location": "Moving",
+        "battery": 100,
+        "walkedMeters": 0,
+        "pathId": 171064,
+        "sourceBuilding": 14990,
+        "targetBuilding": 24295,
+        "shopReturnsStarted": 0,
+        "shopReturnsArrived": 0,
+        "chargeStarts": 0,
+        "charging": false
+      }
+    },
+    "delivering": {
+      "sample": "hiring-pedestrian-01/life-3.json",
+      "sampleSha256": "d657532c4f0135fc48fbf6f766acf73939979daf1a4af4f0ec54d56ac6e885c5",
+      "gameTime": "2027-08-21T02:33:31",
+      "resident": {
+        "citizenId": 660154,
+        "homeBuilding": 14990,
+        "workBuilding": 24295,
+        "workUnitConfirmed": true,
+        "location": "Moving",
+        "battery": 93.4145557403564,
+        "walkedMeters": 263.417770385742,
+        "pathId": 76606,
+        "sourceBuilding": 24295,
+        "targetBuilding": 24107,
+        "shopReturnsStarted": 0,
+        "shopReturnsArrived": 0,
+        "chargeStarts": 0,
+        "charging": false
+      }
+    },
+    "returnedAndWorkingAgain": {
+      "sample": "hiring-pedestrian-01/life-4.json",
+      "sampleSha256": "d6430e532e52c6c6bb78561b5a133f6fb29972037acc99bf0f914da83570025d",
+      "gameTime": "2027-08-24T09:13:05",
+      "resident": {
+        "citizenId": 660154,
+        "homeBuilding": 14990,
+        "workBuilding": 24295,
+        "workUnitConfirmed": true,
+        "location": "Moving",
+        "battery": 93.4145557403564,
+        "walkedMeters": 263.417770385742,
+        "pathId": 53953,
+        "sourceBuilding": 14990,
+        "targetBuilding": 24295,
+        "shopReturnsStarted": 1,
+        "shopReturnsArrived": 1,
+        "chargeStarts": 0,
+        "charging": false
+      }
+    }
+  },
+  "confirmedTransfer": {
+    "android": 660154,
+    "from": 24295,
+    "to": 24107,
+    "ward": "港区",
+    "sourceWard": "港区",
+    "stockAdded": 100,
+    "factoryBefore": 3013,
+    "factoryAfter": 2913,
+    "shopBefore": 9322,
+    "nativeRequest": null,
+    "shopAfter": 9422,
+    "localHire": true,
+    "gameTime": "2027-08-21T07:11:29"
+  },
+  "coveredAcrossRecordedSessions": [
+    "中区",
+    "中川区",
+    "中村区",
+    "北区",
+    "南区",
+    "守山区",
+    "港区",
+    "熱田区",
+    "緑区",
+    "西区"
+  ],
+  "limits": [
+    "The observed hire came from a tracked residential lot.",
+    "Rejected job searches are counts of attempts, not unique residents.",
+    "The test population and run windows are insufficient to estimate citywide human employment effects.",
+    "No additional ward delivered in these runs. This courier reached home and started working again, with no charging event observed for this specific cycle.",
+    "Exact-city sandbox funds were temporarily enabled during observation windows."
+  ]
+}

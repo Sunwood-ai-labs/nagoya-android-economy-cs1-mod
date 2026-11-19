@@ -18,11 +18,15 @@ namespace NagoyaRoadDelivery
         private const uint GoodsOfferWindowFrames = 256;
         private const double RecentDemandBonusMeters = 150;
         private const double ExistingDeliveryPenaltyMeters = 120;
+        private const float LocalEmploymentRadiusMeters = 400;
+        private const double LocalEmploymentStreetMeters = 700;
+        private const int LocalHiresPerReceivingWard = 2;
         private static NativeAndroidDeliveries active;
         private Harmony harmony;
         private readonly Dictionary<uint, Trip> trips = new Dictionary<uint, Trip>();
         private readonly Dictionary<ushort, NativeCityLedger.Lot> sites = new Dictionary<ushort, NativeCityLedger.Lot>();
         private readonly List<NativeCityLedger.Lot> shops = new List<NativeCityLedger.Lot>();
+        private readonly List<NativeCityLedger.Lot> factories = new List<NativeCityLedger.Lot>();
         private readonly Dictionary<ushort, NativeCityLedger.Road> accessRoads = new Dictionary<ushort, NativeCityLedger.Road>();
         private readonly Dictionary<ushort, NativeDeliveryStreetReach> factoryReach = new Dictionary<ushort, NativeDeliveryStreetReach>();
         private readonly HashSet<ushort> reservedShops = new HashSet<ushort>();
@@ -37,10 +41,14 @@ namespace NagoyaRoadDelivery
         private readonly Dictionary<ushort, GoodsRequest> goodsRequests = new Dictionary<ushort, GoodsRequest>();
         private readonly Dictionary<string, int> activeDeliveriesByWard = new Dictionary<string, int>(StringComparer.Ordinal);
         private readonly Dictionary<string, int> requestingShopsByWard = new Dictionary<string, int>(StringComparer.Ordinal);
+        private readonly Dictionary<string, int> hiredForWard = new Dictionary<string, int>(StringComparer.Ordinal);
+        private readonly Dictionary<string, int> hiringRejections = new Dictionary<string, int>(StringComparer.Ordinal);
+        private readonly Dictionary<uint, ushort> factoryHires = new Dictionary<uint, ushort>();
         private readonly Queue<uint> readyAtFactory = new Queue<uint>();
         private readonly Queue<uint> arrivedAtWork = new Queue<uint>();
         private readonly Queue<object> recent = new Queue<object>();
         private readonly Queue<object> failures = new Queue<object>();
+        private readonly List<object> localHires = new List<object>();
         private int pickupStarts, pickupArrivals, started, delivered, goods, stockedFactories, shopsWithSpace, workersSeenAtFactory, failedLegs, expiredLegs;
         private int blockedByStreetReach, observedGoodsOffers;
         internal int Delivered { get { return delivered; } }
@@ -60,6 +68,12 @@ namespace NagoyaRoadDelivery
         {
             public uint Frame, BuildIndex;
             public int Priority, Amount;
+        }
+
+        private struct DeliveryChoice
+        {
+            public NativeCityLedger.Lot Shop;
+            public GoodsRequest Request;
         }
 
         private sealed class ShopInventory
@@ -151,6 +165,7 @@ namespace NagoyaRoadDelivery
             foreach (uint id in elapsedRetries) retryAfter.Remove(id);
             sites.Clear();
             shops.Clear();
+            factories.Clear();
             accessRoads.Clear();
             factoryReach.Clear();
             stockedFactories = 0;
@@ -178,6 +193,7 @@ namespace NagoyaRoadDelivery
                     {
                         stockedFactories++;
                         AddWardCount(stockedFactoriesByWard, lot.Ward);
+                        if (accessRoads.ContainsKey(lot.Road)) factories.Add(lot);
                     }
                     continue;
                 }
@@ -195,6 +211,120 @@ namespace NagoyaRoadDelivery
                 if (TryGetGoodsRequest(lot, frame, out request)) AddWardCount(requestingShopsByWard, lot.Ward);
                 shops.Add(lot);
             }
+        }
+
+        internal bool HireForLocalDelivery(uint id, ref Citizen citizen, DateTime gameTime)
+        {
+            if (gameTime.Hour < 7 || gameTime.Hour >= 16 || citizen.m_workBuilding != 0 ||
+                citizen.CurrentLocation != Citizen.Location.Home || citizen.m_vehicle != 0 || factoryHires.ContainsKey(id)) return false;
+            Citizen.AgeGroup age = Citizen.GetAgeGroup(citizen.Age);
+            if (age != Citizen.AgeGroup.Young && age != Citizen.AgeGroup.Adult) return RejectHire("age " + age);
+            global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
+            ushort home = citizen.m_homeBuilding;
+            ushort homeStreet;
+            Vector3 homePosition;
+            bool trackedHome = TryGetTrackedStreet(home, out homeStreet);
+            if (trackedHome) homePosition = buildings[home].m_position;
+            else if (!TryResolveHomeStreet(id, ref citizen, ref buildings[home], out homePosition, out homeStreet))
+                return RejectHire("no pedestrian lane at home");
+            NativeCityLedger.Lot selectedFactory = new NativeCityLedger.Lot();
+            NativeCityLedger.Lot selectedShop = new NativeCityLedger.Lot();
+            double shortest = LocalEmploymentStreetMeters;
+            int vacancies = 0;
+            bool nearbyFactory = false, streetAccess = false, shopAccess = false;
+            foreach (NativeCityLedger.Lot factory in factories)
+            {
+                if ((buildings[factory.Id].m_position - homePosition).sqrMagnitude > LocalEmploymentRadiusMeters * LocalEmploymentRadiusMeters)
+                    continue;
+                nearbyFactory = true;
+                NativeDeliveryStreetReach reach = StreetReach(factory, buildings[factory.Id].m_position);
+                double walk = reach.DistanceTo(homeStreet, homePosition);
+                if (walk >= shortest) continue;
+                streetAccess = true;
+                DeliveryChoice goods = SelectShop(factory, reach, gameTime, true);
+                if (goods.Shop.Id == 0) continue;
+                shopAccess = true;
+                IndustrialBuildingAI ai = ActiveAI(ref buildings[factory.Id]) as IndustrialBuildingAI;
+                if (ai == null) continue;
+                int available = VacantWorkplaces(factory.Id, ai, ref buildings[factory.Id]);
+                if (available <= 0) continue;
+                selectedFactory = factory;
+                selectedShop = goods.Shop;
+                shortest = walk;
+                vacancies = available;
+            }
+            if (selectedFactory.Id == 0)
+            {
+                if (!nearbyFactory) return RejectHire("no stocked factory within home radius");
+                if (!streetAccess) return RejectHire("no walkable route to a nearby factory");
+                if (!shopAccess) return RejectHire("no suitable receiving shop on connected streets");
+                return RejectHire("no vacant factory job");
+            }
+            citizen.SetWorkplace(id, selectedFactory.Id, 0);
+            if (citizen.m_workBuilding != selectedFactory.Id) return RejectHire("native work unit refused");
+            factoryHires.Add(id, selectedFactory.Id);
+            AddWardCount(hiredForWard, selectedShop.Ward);
+            localHires.Add(new Dictionary<string, object> {{"android",id}, {"home",home}, {"homeStreet",homeStreet},
+                {"homeStreetSource",trackedHome ? "native zoning receipt" : "native pedestrian lane"}, {"factory",selectedFactory.Id},
+                {"factoryWard",selectedFactory.Ward}, {"candidateShop",selectedShop.Id}, {"shopWard",selectedShop.Ward},
+                {"vacanciesBefore",vacancies}, {"streetMetersFromHome",shortest}, {"gameTime",gameTime.ToString("s")}});
+            return true;
+        }
+
+        private bool TryGetTrackedStreet(ushort building, out ushort street)
+        {
+            NativeCityLedger.Lot lot;
+            street = 0;
+            if (!sites.TryGetValue(building, out lot) || !accessRoads.ContainsKey(lot.Road)) return false;
+            street = lot.Road;
+            return true;
+        }
+
+        private static bool TryResolveHomeStreet(uint id, ref Citizen citizen, ref global::Building home,
+            out Vector3 entrance, out ushort street)
+        {
+            entrance = Vector3.zero;
+            street = 0;
+            BuildingAI homeAI = ActiveAI(ref home);
+            CitizenInfo resident = citizen.GetCitizenInfo(id);
+            if (homeAI == null || resident == null) return false;
+            Vector3 target;
+            Vector2 direction;
+            CitizenInstance.Flags flags;
+            var random = new ColossalFramework.Math.Randomizer(id);
+            homeAI.CalculateUnspawnPosition(citizen.m_homeBuilding, ref home, ref random, resident, 0,
+                out entrance, out target, out direction, out flags);
+            PathUnit.Position path;
+            if (!PathManager.FindPathPosition(entrance, ItemClass.Service.Road, NetInfo.LaneType.Pedestrian,
+                    VehicleInfo.VehicleType.None, VehicleInfo.VehicleCategory.None, false, false, 40, false, true, out path))
+                return false;
+            street = path.m_segment;
+            return street != 0;
+        }
+
+        private bool RejectHire(string reason)
+        {
+            AddWardCount(hiringRejections, reason);
+            return false;
+        }
+
+        private static int VacantWorkplaces(ushort id, IndustrialBuildingAI ai, ref global::Building building)
+        {
+            int low, first, second, high;
+            ai.CalculateWorkplaceCount((ItemClass.Level)building.m_level, new ColossalFramework.Math.Randomizer(id),
+                building.Width, building.Length, out low, out first, out second, out high);
+            int vacancies = low + first + second + high;
+            CitizenUnit[] units = CitizenManager.instance.m_units.m_buffer;
+            uint unit = building.m_citizenUnits;
+            for (int i = 0; i < 2048 && unit > 0 && unit < units.Length; i++)
+            {
+                CitizenUnit data = units[unit];
+                unit = data.m_nextUnit;
+                if ((data.m_flags & CitizenUnit.Flags.Work) == 0) continue;
+                for (int slot = 0; slot < 5; slot++)
+                    if (data.GetCitizen(slot) != 0) vacancies--;
+            }
+            return vacancies;
         }
 
         internal bool Dispatch(uint id, ref Citizen citizen, DateTime gameTime)
@@ -217,12 +347,7 @@ namespace NagoyaRoadDelivery
             ushort from = atHome ? citizen.m_homeBuilding : supplier.Id;
             if (atHome && ((buildings[from].m_position - source).sqrMagnitude > MaximumFactoryDistanceFromHome * MaximumFactoryDistanceFromHome ||
                 IsRouteCoolingDown(from, supplier.Id, gameTime))) return false;
-            NativeDeliveryStreetReach reach;
-            if (!factoryReach.TryGetValue(supplier.Id, out reach))
-            {
-                reach = new NativeDeliveryStreetReach(supplier.Road, source, StreetRadiusMeters);
-                factoryReach.Add(supplier.Id, reach);
-            }
+            NativeDeliveryStreetReach reach = StreetReach(supplier, source);
             NativeCityLedger.Lot home;
             if (atHome && sites.TryGetValue(from, out home) && accessRoads.ContainsKey(home.Road) &&
                 reach.DistanceTo(home.Road, buildings[from].m_position) > StreetRadiusMeters)
@@ -230,10 +355,50 @@ namespace NagoyaRoadDelivery
                 blockedByStreetReach++;
                 return false;
             }
-            NativeCityLedger.Lot target = new NativeCityLedger.Lot();
-            GoodsRequest targetRequest = new GoodsRequest();
+            DeliveryChoice choice = SelectShop(supplier, reach, gameTime, false);
+            NativeCityLedger.Lot target = choice.Shop;
+            if (target.Id == 0)
+            {
+                blockedByStreetReach++;
+                return false;
+            }
+            uint frame = SimulationManager.instance.m_currentFrameIndex;
+            Trip trip = new Trip {Supplier=supplier.Id, Target=target.Id, From=from,
+                SupplierGeneration=buildings[supplier.Id].m_buildIndex, TargetGeneration=buildings[target.Id].m_buildIndex,
+                SupplierWard=supplier.Ward, TargetWard=target.Ward,
+                Frame=frame, LastRouteFrame=frame, LastProgressFrame=frame,
+                Collecting=atHome, Demand=choice.Request};
+            trips.Add(id, trip);
+            reservedShops.Add(target.Id);
+            reservedFactories.Add(supplier.Id);
+            AddWardCount(activeDeliveriesByWard, target.Ward);
+            if (!StartLeg(id, ref citizen, from, atHome ? supplier.Id : target.Id, !atHome))
+            {
+                if (trips.ContainsKey(id)) FailLeg(id, trip, 0, "native path rejected at departure", gameTime);
+                return false;
+            }
+            if (atHome) pickupStarts++; else started++;
+            return true;
+        }
+
+        private NativeDeliveryStreetReach StreetReach(NativeCityLedger.Lot supplier, Vector3 position)
+        {
+            NativeDeliveryStreetReach reach;
+            if (!factoryReach.TryGetValue(supplier.Id, out reach))
+            {
+                reach = new NativeDeliveryStreetReach(supplier.Road, position, StreetRadiusMeters);
+                factoryReach.Add(supplier.Id, reach);
+            }
+            return reach;
+        }
+
+        private DeliveryChoice SelectShop(NativeCityLedger.Lot supplier, NativeDeliveryStreetReach reach, DateTime gameTime, bool forNewHire)
+        {
+            DeliveryChoice choice = new DeliveryChoice();
             double best = double.PositiveInfinity;
             uint frame = SimulationManager.instance.m_currentFrameIndex;
+            global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
+            Vector3 source = buildings[supplier.Id].m_position;
             foreach (NativeCityLedger.Lot shop in shops)
             {
                 float distance = (buildings[shop.Id].m_position - source).sqrMagnitude;
@@ -252,35 +417,22 @@ namespace NagoyaRoadDelivery
                 deliveredByWard.TryGetValue(shop.Ward, out deliveredHere);
                 int inFlightHere;
                 activeDeliveriesByWard.TryGetValue(shop.Ward, out inFlightHere);
+                if (forNewHire)
+                {
+                    int hires;
+                    hiredForWard.TryGetValue(shop.Ward, out hires);
+                    if (deliveredHere + inFlightHere >= LocalHiresPerReceivingWard || hires >= LocalHiresPerReceivingWard) continue;
+                }
                 double score = distanceAlongStreets + Math.Min(3, deliveredHere + inFlightHere) * ExistingDeliveryPenaltyMeters +
                     (ParcelSize - Math.Min(ParcelSize, space));
+                if (deliveredHere + inFlightHere != 0) score += StreetRadiusMeters;
                 if (hasRequest) score -= RecentDemandBonusMeters;
                 if (score >= best) continue;
-                target = shop;
-                targetRequest = hasRequest ? request : new GoodsRequest();
+                choice.Shop = shop;
+                choice.Request = hasRequest ? request : new GoodsRequest();
                 best = score;
             }
-            if (target.Id == 0)
-            {
-                blockedByStreetReach++;
-                return false;
-            }
-            Trip trip = new Trip {Supplier=supplier.Id, Target=target.Id, From=from,
-                SupplierGeneration=buildings[supplier.Id].m_buildIndex, TargetGeneration=buildings[target.Id].m_buildIndex,
-                SupplierWard=supplier.Ward, TargetWard=target.Ward,
-                Frame=frame, LastRouteFrame=frame, LastProgressFrame=frame,
-                Collecting=atHome, Demand=targetRequest};
-            trips.Add(id, trip);
-            reservedShops.Add(target.Id);
-            reservedFactories.Add(supplier.Id);
-            AddWardCount(activeDeliveriesByWard, target.Ward);
-            if (!StartLeg(id, ref citizen, from, atHome ? supplier.Id : target.Id, !atHome))
-            {
-                if (trips.ContainsKey(id)) FailLeg(id, trip, 0, "native path rejected at departure", gameTime);
-                return false;
-            }
-            if (atHome) pickupStarts++; else started++;
-            return true;
+            return choice;
         }
 
         private static uint RouteKey(ushort from, ushort to)
@@ -493,7 +645,14 @@ namespace NagoyaRoadDelivery
             recent.Enqueue(new Dictionary<string, object> {{"android",id}, {"from",trip.Supplier}, {"to",target},
                 {"ward",trip.TargetWard}, {"sourceWard",trip.SupplierWard}, {"stockAdded",credit}, {"factoryBefore",factoryBefore},
                 {"factoryAfter",Stock(source, trip.Supplier, ref buildings[trip.Supplier])}, {"shopBefore",shopBefore}, {"nativeRequest",RequestSnapshot(trip.Demand)},
-                {"shopAfter",Stock(destination, target, ref buildings[target])}, {"gameTime",SimulationManager.instance.m_currentGameTime.ToString("s")}});
+                {"shopAfter",Stock(destination, target, ref buildings[target])}, {"localHire",IsLocalHire(id, trip.Supplier)},
+                {"gameTime",SimulationManager.instance.m_currentGameTime.ToString("s")}});
+        }
+
+        private bool IsLocalHire(uint id, ushort supplier)
+        {
+            ushort factory;
+            return factoryHires.TryGetValue(id, out factory) && factory == supplier;
         }
 
         private static void AddWardCount(Dictionary<string, int> counts, string ward)
@@ -526,6 +685,12 @@ namespace NagoyaRoadDelivery
             int remaining = activeDeliveriesByWard[trip.TargetWard] - 1;
             if (remaining == 0) activeDeliveriesByWard.Remove(trip.TargetWard);
             else activeDeliveriesByWard[trip.TargetWard] = remaining;
+        }
+
+        internal void ForgetCitizen(uint id)
+        {
+            EndTrip(id);
+            factoryHires.Remove(id);
         }
 
         private static BuildingAI ActiveAI(ref global::Building building)
@@ -578,6 +743,7 @@ namespace NagoyaRoadDelivery
                 {"stockAdded",goods}, {"stockedFactories",stockedFactories}, {"shopsWithSpace",shopsWithSpace},
                 {"stockedFactoriesByWard",stockedFactoriesByWard}, {"activeShopsByWard",activeShopsByWard}, {"shopsWithSpaceByWard",shopsWithSpaceByWard},
                 {"shopInventoryByWard",shopInventory},
+                {"localHires",localHires.ToArray()}, {"localHiresByReceivingWard",hiredForWard}, {"localHiringRejections",hiringRejections},
                 {"observedGoodsOffers",observedGoodsOffers}, {"requestingShopsByWard",requestingShopsByWard}, {"activeDeliveriesByWard",activeDeliveriesByWard},
                 {"workersSeenAtFactory",workersSeenAtFactory}, {"pickupStarts",pickupStarts}, {"pickupArrivals",pickupArrivals},
                 {"failedLegs",failedLegs}, {"expiredLegs",expiredLegs}, {"deliveriesByWard",deliveredByWard},
