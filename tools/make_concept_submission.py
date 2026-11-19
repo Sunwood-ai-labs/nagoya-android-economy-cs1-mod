@@ -103,6 +103,32 @@ def render(args):
         if not amount > 0 or sent["stockBefore"] - sent["stockAfter"] != amount or received["stockAfter"] - received["stockBefore"] != amount:
             raise ValueError("Delivery must change both real stock buffers by the same amount")
         delivery_caption = (f'{delivery["ward"]}では、工場から店への', "配送を1件確認。")
+    if args.delivery_coverage:
+        coverage = read(args.delivery_coverage)
+        wards_delivered = set(coverage["coveredAcrossRecordedSessions"])
+        events = coverage["deliveryEvents"]
+        if not 0 < len(wards_delivered) <= 16 or not events or any(
+            event["ward"] not in wards_delivered or not event["stockAdded"] > 0
+            or event["factoryBefore"] - event["factoryAfter"] != event["stockAdded"]
+            or event["shopAfter"] - event["shopBefore"] != event["stockAdded"]
+            for event in events
+        ):
+            raise ValueError("Coverage must agree with real goods transfers")
+        delivery_caption = (
+            f"{len(wards_delivered)}区で、工場から店への",
+            "アンドロイド配送を確認。",
+        )
+    if args.return_evidence:
+        evidence = read(args.return_evidence)["sameSessionCycle"]
+        moving, charging = evidence["returnJourney"], evidence["atHomeCharging"]
+        if (moving["citizenId"] != evidence["delivery"]["android"]
+                or moving["citizenId"] != charging["citizenId"]
+                or moving["shopReturnSource"] != evidence["delivery"]["to"]
+                or charging["shopReturnsArrived"] <= moving["shopReturnsArrived"]
+                or charging["location"] != "Home" or not charging["charging"]
+                or charging["battery"] <= moving["battery"]):
+            raise ValueError("Return and charging must be observed for the same courier")
+        delivery_caption += ("配送後の帰宅・充電も確認。",)
     deck = Deck(args.output)
 
     deck.box(0, 0, W, H, NIGHT)
@@ -172,4 +198,6 @@ if __name__ == "__main__":
     for key in ("raw", "prior", "evidence", "output"):
         parser.add_argument("--" + key, required=True, type=Path)
     parser.add_argument("--delivery", type=Path)
+    parser.add_argument("--delivery-coverage", type=Path)
+    parser.add_argument("--return-evidence", type=Path)
     render(parser.parse_args())
