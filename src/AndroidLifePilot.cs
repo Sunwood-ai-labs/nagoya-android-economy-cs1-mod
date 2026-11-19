@@ -20,6 +20,7 @@ namespace NagoyaRoadDelivery
         private static AndroidLifePilot renderer;
         private static AndroidLifePilot active;
         private Harmony renderPatch;
+        private Harmony lifecyclePatch;
         private readonly Dictionary<uint, Resident> cohort = new Dictionary<uint, Resident>();
         private volatile uint[] residents = new uint[0];
         private readonly Dictionary<uint, object> visuals = new Dictionary<uint, object>();
@@ -71,6 +72,34 @@ namespace NagoyaRoadDelivery
                 visualError = ex.GetBaseException().Message;
                 Debug.LogException(ex);
             }
+            InstallLifecycleTracking();
+        }
+
+        private void InstallLifecycleTracking()
+        {
+            try
+            {
+                MethodInfo release = typeof(CitizenManager).GetMethod("ReleaseCitizenImplementation",
+                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null,
+                    new Type[] {typeof(uint), typeof(Citizen).MakeByRefType()}, null);
+                if (release == null) throw new MissingMethodException("CitizenManager.ReleaseCitizenImplementation");
+                MethodInfo released = typeof(AndroidLifePilot).GetMethod("OnCitizenReleased", BindingFlags.Static | BindingFlags.NonPublic);
+                lifecyclePatch = new Harmony(RenderPatchId + ".lifecycle");
+                lifecyclePatch.Patch(release, null, new HarmonyMethod(released), null, null);
+            }
+            catch (Exception ex)
+            {
+                lifecyclePatch = null;
+                Debug.LogException(ex);
+            }
+        }
+
+        private static void OnCitizenReleased(uint __0)
+        {
+            AndroidLifePilot life = active;
+            if (life == null || !life.cohort.Remove(__0)) return;
+            NativeCityLedger.RemoveAndroid(__0);
+            life.UpdateResidentIds();
         }
 
         private static bool KeepNativeSkin(ref CitizenInstance __instance, ref bool __result)
@@ -112,17 +141,17 @@ namespace NagoyaRoadDelivery
             if (attempted) return;
             string request = Path.Combine(root, "android-life-scenario.json");
             if (!File.Exists(request)) return;
-            attempted = true;
             try
             {
                 if (new FileInfo(request).Length > 4096) throw new InvalidDataException("Scenario file limit");
                 Dictionary<string, object> config = (Dictionary<string, object>)JsonData.Parse(File.ReadAllText(request));
-                if ((string)config["runId"] != runId) throw new InvalidDataException("Scenario belongs to a different game run");
+                if ((string)config["runId"] != runId) return;
+                attempted = true;
                 caseId = (string)config["caseId"];
                 double count = (double)config["androidResidents"];
                 if (caseId.Length < 1 || caseId.Length > 60 || count != Math.Floor(count) || count < 0 || count > MaximumAndroids)
                     throw new InvalidDataException("Scenario case or cohort size");
-                int requested = (int)count;
+                int requested = Math.Max(0, (int)count - cohort.Count);
                 CitizenManager citizens = CitizenManager.instance;
                 NativeBuilding[] buildings = BuildingManager.instance.m_buildings.m_buffer;
                 Randomizer random = new Randomizer(5102026);
@@ -161,9 +190,9 @@ namespace NagoyaRoadDelivery
                         unitId = unit.m_nextUnit;
                     }
                 }
-                if (added.Count < requested) error = "Vacant residential units limited the experiment to " + added.Count;
+                if (added.Count < requested) error = "Vacant residential units limited the experiment to " + cohort.Count;
             }
-            catch (Exception ex) { error = ex.GetBaseException().Message; }
+            catch (Exception ex) { attempted = true; error = ex.GetBaseException().Message; }
             finally
             {
                 UpdateResidentIds();
@@ -226,7 +255,6 @@ namespace NagoyaRoadDelivery
             }
             if (cohort.Count > 0)
             {
-                attempted = true;
                 caseId = "restored-native-residents";
                 UpdateResidentIds();
             }
@@ -263,13 +291,13 @@ namespace NagoyaRoadDelivery
                     data.m_homeBuilding == 0) continue;
                 bool employed = data.m_workBuilding != 0 && (data.m_flags & Citizen.Flags.Student) == 0;
                 Resident member;
-                if (!cohort.TryGetValue((uint)i, out member) || member.Home != data.m_homeBuilding ||
-                    !Contains(manager.m_units.m_buffer[member.HomeUnit], (uint)i))
+                if (!cohort.TryGetValue((uint)i, out member))
                 {
                     humans++;
                     if (employed) humanEmployed++;
                     continue;
                 }
+                if (!ConfirmHome(manager, (uint)i, data.m_homeBuilding, member)) continue;
                 androidHomeMembers++;
                 bool jobMember = employed && InWorkUnit(manager, data.m_workBuilding, (uint)i);
                 if (jobMember) { androidEmployed++; androidWorkMembers++; }
@@ -305,7 +333,8 @@ namespace NagoyaRoadDelivery
             }
             Dictionary<string, object> report = new Dictionary<string, object> {
                 {"utc",DateTime.UtcNow.ToString("o")}, {"gameTime",now.ToString("s")}, {"runId",runId}, {"caseId",caseId},
-                {"status",error == null ? (attempted ? "running" : "baseline") : "limited"}, {"error",error},
+                {"status",error == null ? (caseId != null ? "running" : "baseline") : "limited"}, {"error",error},
+                {"nativeReleaseHookActive",lifecyclePatch != null}, {"androidIdentities",cohort.Count},
                 {"androidRenderHookActive",renderer == this}, {"visualError",visualError},
                 {"nativeHumanResidents",humans}, {"humansWithWorkplace",humanEmployed}, {"androidHomeMembers",androidHomeMembers},
                 {"androidWorkMembers",androidWorkMembers}, {"androidAtHome",atHome}, {"androidAtWork",atWork}, {"androidMoving",moving},
@@ -316,6 +345,28 @@ namespace NagoyaRoadDelivery
                 Hud = "ANDROID RESIDENCE / CS1\nHumans with jobs " + humanEmployed + " | Androids with jobs " + androidEmployed +
                     "\nAndroid residents " + androidHomeMembers + " | Home " + atHome + " | Moving " + moving + " | At work " + atWork
             };
+        }
+
+        private bool ConfirmHome(CitizenManager manager, uint id, ushort home, Resident member)
+        {
+            CitizenUnit[] units = manager.m_units.m_buffer;
+            if (member.Home == home && member.HomeUnit < units.Length && Contains(units[member.HomeUnit], id)) return true;
+            if (lifecyclePatch == null) return false;
+            NativeBuilding[] buildings = BuildingManager.instance.m_buildings.m_buffer;
+            if (home == 0 || home >= buildings.Length) return false;
+            uint unitId = buildings[home].m_citizenUnits;
+            for (int step = 0; unitId != 0 && unitId < units.Length && step < MaximumUnitsPerBuilding; step++)
+            {
+                CitizenUnit candidate = units[unitId];
+                if (candidate.m_building == home && (candidate.m_flags & CitizenUnit.Flags.Home) != 0 && Contains(candidate, id))
+                {
+                    member.Home = home;
+                    member.HomeUnit = unitId;
+                    return true;
+                }
+                unitId = candidate.m_nextUnit;
+            }
+            return false;
         }
 
         private static bool ScheduleShift(uint id, ref Citizen citizen, Resident member, DateTime gameTime)
@@ -369,7 +420,11 @@ namespace NagoyaRoadDelivery
         {
             if (renderer != this) return;
             CitizenManager manager = CitizenManager.instance;
-            foreach (uint id in residents)
+            uint[] current = residents;
+            foreach (KeyValuePair<uint, object> prior in visuals)
+                if (Array.BinarySearch(current, prior.Key) < 0)
+                    city.PoseResidentAndroid(prior.Value, false, Vector3.zero);
+            foreach (uint id in current)
             {
                 object visual;
                 if (!visuals.TryGetValue(id, out visual))
@@ -406,6 +461,7 @@ namespace NagoyaRoadDelivery
             if (active == this) active = null;
             if (renderer == this) renderer = null;
             if (renderPatch != null) renderPatch.UnpatchAll(RenderPatchId);
+            if (lifecyclePatch != null) lifecyclePatch.UnpatchAll(RenderPatchId + ".lifecycle");
         }
     }
 }
