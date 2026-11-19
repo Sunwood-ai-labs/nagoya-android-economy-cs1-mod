@@ -15,6 +15,7 @@ param(
     [uint32[]]$CommuteAuditIds,
     [switch]$TestLongWalkCommutes,
     [switch]$AuditWardWorkTrips,
+    [switch]$ExportPedestrianTopology,
     [string]$PedestrianLinksFile,
     [string]$PedestrianLegsFile,
     [switch]$LoadCheckpointFromMenu,
@@ -63,6 +64,7 @@ if ($PSBoundParameters.ContainsKey('CommuteAuditIds')) {
 }
 if ($TestLongWalkCommutes) { $request.testLongWalkCommutes = $true }
 if ($AuditWardWorkTrips) { $request.auditWardWorkTrips = $true }
+if ($ExportPedestrianTopology) { $request.exportPedestrianTopology = $true }
 if ($LinkWithRoadSidewalks -and !$PedestrianLinksFile) { throw 'Specify anchors in PedestrianLinksFile.' }
 if ($LinkWithRoadSidewalks) { $request.linkWithRoadSidewalks = $true }
 if ($LinkWithinRoadSegments -and !$LinkWithRoadSidewalks) { throw 'Segment anchors require LinkWithRoadSidewalks.' }
@@ -88,7 +90,9 @@ if ($PedestrianLegsFile) {
 $destination = Join-Path $root 'native-employment-trial.json'
 $consumed = Join-Path $root "native-employment-$CaseId.request.json"
 $result = Join-Path $root "native-employment-$CaseId.json"
-if ((Test-Path -LiteralPath $destination) -or (Test-Path -LiteralPath $consumed) -or (Test-Path -LiteralPath $result)) {
+$walkTopology = Join-Path $root "native-employment-$CaseId-walk-network.tsv"
+if ((Test-Path -LiteralPath $destination) -or (Test-Path -LiteralPath $consumed) -or (Test-Path -LiteralPath $result) -or
+    ($ExportPedestrianTopology -and ((Test-Path -LiteralPath $walkTopology) -or (Test-Path -LiteralPath "$walkTopology.tmp")))) {
     throw 'A trial is pending or this case ID has already been used.'
 }
 $temporary = "$destination.$CaseId.tmp"

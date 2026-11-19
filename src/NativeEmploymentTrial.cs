@@ -30,6 +30,7 @@ namespace NagoyaRoadDelivery
         public object PedestrianLinkResult;
         public bool LinkWithRoadSidewalks;
         public bool TestLongWalkCommutes;
+        public bool ExportPedestrianTopology;
         public NativeCommuteRouteAudit CommuteAudit;
         public NativePedestrianLegAudit PedestrianLegAudit;
         public NativeWardWorkTrips WardWorkTrips;
@@ -97,6 +98,8 @@ namespace NagoyaRoadDelivery
                     throw new FormatException("Specify the citizens participating in the long walk trial");
                 object wardAudit;
                 bool auditWardWorkTrips = values.TryGetValue("auditWardWorkTrips", out wardAudit) && (bool)wardAudit;
+                object walkNetwork;
+                bool exportPedestrianTopology = values.TryGetValue("exportPedestrianTopology", out walkNetwork) && (bool)walkNetwork;
                 File.Move(path, Path.Combine(root, "native-employment-" + id + ".request.json"));
                 simulation.SimulationPaused = true;
                 return new NativeEmploymentTrial {
@@ -104,7 +107,8 @@ namespace NagoyaRoadDelivery
                     NormalEconomy=normalEconomy, Speed=normalEconomy ? 2 : 1, ShareAndroidHouseholds=shareAndroidHouseholds,
                     ShareMixedHouseholds=shareMixedHouseholds, CommuteAuditIds=commuteAuditIds, TestLongWalkCommutes=testLongWalk,
                     PedestrianLinks=pedestrianLinks, PedestrianLegs=pedestrianLegs, LinkWithRoadSidewalks=linkWithRoadSidewalks,
-                    WardWorkTrips=auditWardWorkTrips ? new NativeWardWorkTrips() : null
+                    WardWorkTrips=auditWardWorkTrips ? new NativeWardWorkTrips() : null,
+                    ExportPedestrianTopology=exportPedestrianTopology
                 };
             }
             catch (Exception error)
@@ -282,6 +286,7 @@ namespace NagoyaRoadDelivery
             if (PedestrianLinkResult != null) result["pedestrianLink"] = PedestrianLinkResult;
             if (PedestrianLegAudit != null) result["pedestrianLegAudit"] = PedestrianLegAudit.Finish();
             if (WardWorkTrips != null) result["wardWorkTrips"] = WardWorkTrips.Report();
+            if (ExportPedestrianTopology) result["pedestrianTopology"] = NativePedestrianTopology.Write(CaseId);
             string path = Path.Combine(NativeCityRoadBuilder.Root, "native-employment-" + CaseId + ".json");
             string pending = path + ".tmp";
             File.WriteAllText(pending, JsonData.Stringify(result), new UTF8Encoding(false));

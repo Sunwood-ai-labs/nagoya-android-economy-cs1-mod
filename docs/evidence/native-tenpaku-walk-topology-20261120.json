@@ -1,0 +1,1822 @@
+{
+  "checkpoint": {
+    "sha256": "9F4DCFBDDA74FE71B31CCBAC78D973D20598F84242F34E06D0F4DC67A292BA60",
+    "name": "NagoyaCitywide-EmploymentTrial-MixedHouseholds220-Observed",
+    "parentPreserved": true,
+    "segments": 32718,
+    "gameTime": "2030-01-01T08:57:59",
+    "bytes": 15373629,
+    "buildIndex": 126124,
+    "parent": "NagoyaCitywide-EmploymentTrial-SharedHomesObserved"
+  },
+  "modSha256": "9B43090CCAED8D206B8A2846EC3FBC5600384F604846B5CDE36468CA0C328045",
+  "matchedWindow": {
+    "startFrame": 55295666,
+    "endFrame": 55297422,
+    "startTicks": "640290855288267276",
+    "endTicks": "640293448132017276",
+    "durationHours": 72
+  },
+  "topology": {
+    "snapshot": "native-employment-jan01-tenpaku-walk-network-72h-walk-network.tsv",
+    "sha256": "202e958977c4145d4ed13900ffbf9a97007f39f69baad890054bf7ed0b6c04ed",
+    "totalSegments": 23066,
+    "sidewalkSegments": 19238,
+    "pedestrianComponents": 184,
+    "vehicleRoadComponents": 1
+  },
+  "routeClassification": [
+    {
+      "stock": "failed",
+      "pedestrian": "failed",
+      "graph": "separateWalkComponents",
+      "count": 25
+    },
+    {
+      "stock": "failed",
+      "pedestrian": "failed",
+      "graph": "sharedWalkComponent",
+      "count": 3
+    },
+    {
+      "stock": "ready",
+      "pedestrian": "ready",
+      "graph": "sharedWalkComponent",
+      "count": 10
+    }
+  ],
+  "tenpaku": {
+    "receiptSha256": "62BBB91CF01CBFB80F8DD438C0B928A00E63EABC7C1AC412F62C384C92F23868",
+    "probes": {
+      "allowLongWalk": false,
+      "probes": [
+        {
+          "citizenId": 987088,
+          "frame": 55295764,
+          "from": 31020,
+          "to": 31106,
+          "homeWard": "昭和区",
+          "workWard": "天白区",
+          "start": [
+            603.0895,
+            140,
+            -220.0215
+          ],
+          "end": [
+            1776.655,
+            139.9844,
+            -1781.645
+          ],
+          "startSidewalkSegment": 639,
+          "endSidewalkSegment": 21060,
+          "stock": {
+            "result": "failed",
+            "lengthMeters": null
+          },
+          "pedestrian": {
+            "result": "failed",
+            "lengthMeters": null
+          },
+          "walkingPathAssigned": false
+        },
+        {
+          "citizenId": 44348,
+          "frame": 55296205,
+          "from": 14780,
+          "to": 18845,
+          "homeWard": "瑞穂区",
+          "workWard": "天白区",
+          "start": [
+            335.7813,
+            139.9883,
+            -1059.882
+          ],
+          "end": [
+            1738.546,
+            140,
+            -940.9229
+          ],
+          "startSidewalkSegment": 34210,
+          "endSidewalkSegment": 10463,
+          "stock": {
+            "result": "failed",
+            "lengthMeters": null
+          },
+          "pedestrian": {
+            "result": "failed",
+            "lengthMeters": null
+          },
+          "walkingPathAssigned": false
+        },
+        {
+          "citizenId": 108529,
+          "frame": 55296303,
+          "from": 43714,
+          "to": 14983,
+          "homeWard": "名東区",
+          "workWard": "天白区",
+          "start": [
+            3169.031,
+            140,
+            1398.323
+          ],
+          "end": [
+            1907.593,
+            139.9931,
+            -1387.204
+          ],
+          "startSidewalkSegment": 3480,
+          "endSidewalkSegment": 19057,
+          "stock": {
+            "result": "failed",
+            "lengthMeters": null
+          },
+          "pedestrian": {
+            "result": "failed",
+            "lengthMeters": null
+          },
+          "walkingPathAssigned": false
+        }
+      ],
+      "unobservedCitizens": []
+    },
+    "walkingLegs": [
+      {
+        "fromSegment": 34210,
+        "toSegment": 10463,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 10463,
+        "toSegment": 34210,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 3480,
+        "toSegment": 19057,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 19057,
+        "toSegment": 3480,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 34210,
+        "toSegment": 2964,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 2.550333,
+          "segments": [
+            34210,
+            2964
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 2964,
+        "toSegment": 34210,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 10.91874,
+          "segments": [
+            2964,
+            34210
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 34210,
+        "toSegment": 19579,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 6.737242,
+          "segments": [
+            34210,
+            19579
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 19579,
+        "toSegment": 34210,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 16.00319,
+          "segments": [
+            19579,
+            34210
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 10463,
+        "toSegment": 21427,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 3.909294,
+          "segments": [
+            10463,
+            21427
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 21427,
+        "toSegment": 10463,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 8.748369,
+          "segments": [
+            21427,
+            10463
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 10463,
+        "toSegment": 18962,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 233.4192,
+          "segments": [
+            10463,
+            21427,
+            2023,
+            27020,
+            18099,
+            2759,
+            7916,
+            5547,
+            34941,
+            28298,
+            36316,
+            18962
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 18962,
+        "toSegment": 10463,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 238.9953,
+          "segments": [
+            18962,
+            36316,
+            28298,
+            34941,
+            5547,
+            7916,
+            2759,
+            18099,
+            27020,
+            2023,
+            21427,
+            10463
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 3480,
+        "toSegment": 15638,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 1.430783,
+          "segments": [
+            3480,
+            15638
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 15638,
+        "toSegment": 3480,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 18.7916,
+          "segments": [
+            15638,
+            3480
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 3480,
+        "toSegment": 7838,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 2.671419,
+          "segments": [
+            3480,
+            7838
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 7838,
+        "toSegment": 3480,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 18.64487,
+          "segments": [
+            7838,
+            3480
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 19057,
+        "toSegment": 17268,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 6.689986,
+          "segments": [
+            19057,
+            17268
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 17268,
+        "toSegment": 19057,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 5.445486,
+          "segments": [
+            17268,
+            19057
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 19057,
+        "toSegment": 33417,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 5.802353,
+          "segments": [
+            19057,
+            33417
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 33417,
+        "toSegment": 19057,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 5.488285,
+          "segments": [
+            33417,
+            19057
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 19057,
+        "toSegment": 850,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 850,
+        "toSegment": 19057,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 10463,
+        "toSegment": 29149,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 253.6329,
+          "segments": [
+            10463,
+            21427,
+            2023,
+            27020,
+            18099,
+            2759,
+            7916,
+            5547,
+            34941,
+            28298,
+            36316,
+            18962,
+            29149
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 29149,
+        "toSegment": 10463,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 250.272,
+          "segments": [
+            29149,
+            18962,
+            36316,
+            28298,
+            34941,
+            5547,
+            7916,
+            2759,
+            18099,
+            27020,
+            2023,
+            21427,
+            10463
+          ],
+          "segmentListComplete": true
+        }
+      }
+    ],
+    "separatedWalkComponents": [
+      {
+        "citizenId": 987088,
+        "homeWard": "昭和区",
+        "workWard": "天白区",
+        "startSegment": 639,
+        "endSegment": 21060,
+        "stockResult": "failed",
+        "walkResult": "failed",
+        "walkComponents": [
+          15,
+          51
+        ],
+        "walkComponentNodes": [
+          371,
+          1006
+        ],
+        "sameRoadComponent": true,
+        "topology": "separateWalkComponents",
+        "shortGroundLinkCandidates": [
+          {
+            "fromNode": 7434,
+            "toNode": 20830,
+            "gapMeters": 179.88,
+            "fromMeters": 1264.45,
+            "toMeters": 885.5,
+            "routeMeters": 2329.82
+          },
+          {
+            "fromNode": 7434,
+            "toNode": 25439,
+            "gapMeters": 191.94,
+            "fromMeters": 1264.45,
+            "toMeters": 873.43,
+            "routeMeters": 2329.82
+          },
+          {
+            "fromNode": 7434,
+            "toNode": 25142,
+            "gapMeters": 162.9,
+            "fromMeters": 1264.45,
+            "toMeters": 902.49,
+            "routeMeters": 2329.84
+          },
+          {
+            "fromNode": 7434,
+            "toNode": 4892,
+            "gapMeters": 143.2,
+            "fromMeters": 1264.45,
+            "toMeters": 922.24,
+            "routeMeters": 2329.89
+          },
+          {
+            "fromNode": 7434,
+            "toNode": 12007,
+            "gapMeters": 122.72,
+            "fromMeters": 1264.45,
+            "toMeters": 942.76,
+            "routeMeters": 2329.93
+          },
+          {
+            "fromNode": 31853,
+            "toNode": 31366,
+            "gapMeters": 179.05,
+            "fromMeters": 1183.05,
+            "toMeters": 972.33,
+            "routeMeters": 2334.43
+          },
+          {
+            "fromNode": 12895,
+            "toNode": 25439,
+            "gapMeters": 197.21,
+            "fromMeters": 1264.38,
+            "toMeters": 873.43,
+            "routeMeters": 2335.02
+          },
+          {
+            "fromNode": 12895,
+            "toNode": 20830,
+            "gapMeters": 185.15,
+            "fromMeters": 1264.38,
+            "toMeters": 885.5,
+            "routeMeters": 2335.03
+          },
+          {
+            "fromNode": 12895,
+            "toNode": 25142,
+            "gapMeters": 168.17,
+            "fromMeters": 1264.38,
+            "toMeters": 902.49,
+            "routeMeters": 2335.04
+          },
+          {
+            "fromNode": 12895,
+            "toNode": 4892,
+            "gapMeters": 148.47,
+            "fromMeters": 1264.38,
+            "toMeters": 922.24,
+            "routeMeters": 2335.08
+          },
+          {
+            "fromNode": 12895,
+            "toNode": 12007,
+            "gapMeters": 127.99,
+            "fromMeters": 1264.38,
+            "toMeters": 942.76,
+            "routeMeters": 2335.12
+          },
+          {
+            "fromNode": 31853,
+            "toNode": 16071,
+            "gapMeters": 192.86,
+            "fromMeters": 1183.05,
+            "toMeters": 961.23,
+            "routeMeters": 2337.14
+          }
+        ]
+      },
+      {
+        "citizenId": 44348,
+        "homeWard": "瑞穂区",
+        "workWard": "天白区",
+        "startSegment": 34210,
+        "endSegment": 10463,
+        "stockResult": "failed",
+        "walkResult": "failed",
+        "walkComponents": [
+          2,
+          5
+        ],
+        "walkComponentNodes": [
+          5456,
+          30
+        ],
+        "sameRoadComponent": true,
+        "topology": "separateWalkComponents",
+        "shortGroundLinkCandidates": []
+      },
+      {
+        "citizenId": 108529,
+        "homeWard": "名東区",
+        "workWard": "天白区",
+        "startSegment": 3480,
+        "endSegment": 19057,
+        "stockResult": "failed",
+        "walkResult": "failed",
+        "walkComponents": [
+          2,
+          240
+        ],
+        "walkComponentNodes": [
+          5456,
+          374
+        ],
+        "sameRoadComponent": true,
+        "topology": "separateWalkComponents",
+        "shortGroundLinkCandidates": []
+      }
+    ]
+  },
+  "shortRoad": {
+    "receiptSha256": "739A4984B76E84B79AFAF61FBD8F7D914D9705B092A47B13CB3495A4D95431FA",
+    "control": {
+      "route": {
+        "citizenId": 272270,
+        "frame": 55296303,
+        "from": 33828,
+        "to": 30040,
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      "end": {
+        "citizenId": 272270,
+        "homeBuilding": 33828,
+        "workBuilding": 30040,
+        "location": "Moving",
+        "nativeWorkArrivals": 0
+      },
+      "observation": {
+        "androidsWithWorkArrival": 21,
+        "androidResidents": 753,
+        "androidWorkRegistrations": 715,
+        "humanWorkRegistrations": 4340,
+        "completedDeliveries": 8
+      }
+    },
+    "caseId": "jan01-short-walk-gap-road-72h",
+    "construction": {
+      "usedReservedCapacity": true,
+      "nodeCountBefore": 32699,
+      "nodeBufferCapacity": 32768,
+      "result": {
+        "connected": false,
+        "prefab": "Basic Road",
+        "attempts": [
+          {
+            "fromNode": 30081,
+            "toNode": 22373,
+            "lengthMeters": 98.73769,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              18313,
+              28289,
+              35534
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 20710,
+            "lengthMeters": 97.93315,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              14675,
+              18313,
+              28289,
+              35534
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 8977,
+            "lengthMeters": 93.45916,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              14675,
+              15328,
+              18313,
+              28289,
+              32096
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 24777,
+            "lengthMeters": 94.93352,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              14675,
+              15328,
+              32096
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 4099,
+            "bend": [
+              -2513.117,
+              -105.97
+            ],
+            "lengthMeters": 99.7803,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              14675,
+              15328,
+              18313,
+              32096
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 5377,
+            "toNode": 6354,
+            "bend": [
+              -2201.869,
+              149.439
+            ],
+            "lengthMeters": 70.60139,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 36000,
+            "overlappingSegments": [
+              1231,
+              7323,
+              7816,
+              10350,
+              10941,
+              12477,
+              23507,
+              30809,
+              30844,
+              33397,
+              34451,
+              35324,
+              35541
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 5377,
+            "toNode": 4387,
+            "bend": [
+              -2207.155,
+              148.253
+            ],
+            "preflight": "invalidBend"
+          },
+          {
+            "fromNode": 5377,
+            "toNode": 13041,
+            "bend": [
+              -2206.29,
+              149.557
+            ],
+            "preflight": "invalidBend"
+          },
+          {
+            "fromNode": 28684,
+            "toNode": 13041,
+            "bend": [
+              -2208.065,
+              154.868
+            ],
+            "preflight": "invalidBend"
+          },
+          {
+            "fromNode": 28684,
+            "toNode": 4387,
+            "bend": [
+              -2208.912,
+              153.772
+            ],
+            "preflight": "invalidBend"
+          },
+          {
+            "fromNode": 31914,
+            "toNode": 13041,
+            "bend": [
+              -2205.416,
+              147.098
+            ],
+            "lengthMeters": 69.10925,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 36000,
+            "overlappingSegments": [
+              1231,
+              8716,
+              10350,
+              10941,
+              23507,
+              30809,
+              30844,
+              33397,
+              34451,
+              35324,
+              35541
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 31914,
+            "toNode": 4387,
+            "bend": [
+              -2206.285,
+              145.722
+            ],
+            "lengthMeters": 64.60609,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 32000,
+            "overlappingSegments": [
+              1231,
+              8716,
+              10350,
+              10941,
+              23507,
+              30809,
+              30844,
+              33397,
+              34451,
+              35324,
+              35541
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 22373,
+            "bend": [
+              -2499.18,
+              -103.001
+            ],
+            "lengthMeters": 98.73769,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              18313,
+              28289,
+              35534
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 22373,
+            "bend": [
+              -2518.262,
+              -108.991
+            ],
+            "lengthMeters": 98.73769,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              14675,
+              18313,
+              28289
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 20710,
+            "bend": [
+              -2521.185,
+              -111.205
+            ],
+            "lengthMeters": 97.93315,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              14675,
+              18313,
+              28289,
+              35534
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 20710,
+            "bend": [
+              -2502.578,
+              -103.874
+            ],
+            "lengthMeters": 97.93315,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              14675,
+              18313,
+              28289,
+              35534
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 22373,
+            "bend": [
+              -2489.639,
+              -100.005
+            ],
+            "lengthMeters": 98.73769,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              18313,
+              28289,
+              35534
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 20710,
+            "bend": [
+              -2530.489,
+              -114.87
+            ],
+            "lengthMeters": 97.93315,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              14675,
+              18313,
+              28289,
+              35534
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 20710,
+            "bend": [
+              -2493.274,
+              -100.209
+            ],
+            "lengthMeters": 97.93315,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              14675,
+              18313,
+              28289,
+              35534
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 8977,
+            "bend": [
+              -2524.415,
+              -116.294
+            ],
+            "lengthMeters": 93.45916,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              14675,
+              15328,
+              18313,
+              28289,
+              32096
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 8977,
+            "bend": [
+              -2506.683,
+              -107.043
+            ],
+            "lengthMeters": 93.45916,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              14675,
+              15328,
+              18313,
+              28289,
+              32096
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 20710,
+            "bend": [
+              -2541.654,
+              -119.269
+            ],
+            "lengthMeters": 97.93315,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              14675,
+              18313,
+              28289
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 8977,
+            "bend": [
+              -2533.281,
+              -120.92
+            ],
+            "lengthMeters": 93.45916,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              14675,
+              15328,
+              18313,
+              28289,
+              32096
+            ],
+            "overlappingBuildings": []
+          },
+          {
+            "fromNode": 30081,
+            "toNode": 8977,
+            "bend": [
+              -2497.817,
+              -102.417
+            ],
+            "lengthMeters": 93.45916,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 48000,
+            "overlappingSegments": [
+              5054,
+              13446,
+              14675,
+              15328,
+              18313,
+              28289,
+              32096
+            ],
+            "overlappingBuildings": []
+          }
+        ]
+      }
+    },
+    "target": {
+      "route": {
+        "citizenId": 272270,
+        "frame": 55296303,
+        "from": 33828,
+        "to": 30040,
+        "homeWard": "中川区",
+        "workWard": "中川区",
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      "end": {
+        "citizenId": 272270,
+        "homeBuilding": 33828,
+        "workBuilding": 30040,
+        "location": "Moving",
+        "nativeWorkArrivals": 0
+      }
+    },
+    "independentPedestrianLegs": [
+      {
+        "fromSegment": 6471,
+        "toSegment": 33818,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 33818,
+        "toSegment": 6471,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 6471,
+        "toSegment": 33593,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 475.4893,
+          "segments": [
+            6471,
+            23523,
+            28858,
+            13191,
+            8720,
+            9209,
+            26423,
+            34050,
+            7549,
+            14951,
+            21852,
+            11930,
+            33763,
+            2187,
+            18218,
+            15241,
+            9215,
+            16419,
+            2294,
+            17643,
+            1970,
+            8380,
+            35228,
+            19018,
+            9009,
+            20543,
+            11400,
+            3940,
+            11805,
+            22671,
+            269,
+            6019,
+            29550,
+            33335,
+            25450,
+            23561,
+            11893,
+            7708,
+            9607,
+            6414,
+            31068,
+            33593
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 33593,
+        "toSegment": 6471,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 484.4788,
+          "segments": [
+            33593,
+            31068,
+            6414,
+            9607,
+            7708,
+            11893,
+            23561,
+            25450,
+            33335,
+            29550,
+            6019,
+            269,
+            22671,
+            11805,
+            3940,
+            11400,
+            20543,
+            9009,
+            19018,
+            35228,
+            8380,
+            1970,
+            17643,
+            2294,
+            16419,
+            9215,
+            15241,
+            18218,
+            2187,
+            33763,
+            11930,
+            21852,
+            14951,
+            7549,
+            34050,
+            26423,
+            9209,
+            8720,
+            13191,
+            28858,
+            23523,
+            6471
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 35534,
+        "toSegment": 33818,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 97.09592,
+          "segments": [
+            35534,
+            8936,
+            8796,
+            11642,
+            20755,
+            9963,
+            22514,
+            33475,
+            298,
+            34439,
+            15946,
+            33818
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 33818,
+        "toSegment": 35534,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 97.8772,
+          "segments": [
+            33818,
+            15946,
+            34439,
+            298,
+            33475,
+            22514,
+            9963,
+            20755,
+            11642,
+            8796,
+            8936,
+            35534
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 28289,
+        "toSegment": 33818,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 107.5474,
+          "segments": [
+            28289,
+            35534,
+            8936,
+            8796,
+            11642,
+            20755,
+            9963,
+            22514,
+            33475,
+            298,
+            34439,
+            15946,
+            33818
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 33818,
+        "toSegment": 28289,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 104.7183,
+          "segments": [
+            33818,
+            15946,
+            34439,
+            298,
+            33475,
+            22514,
+            9963,
+            20755,
+            11642,
+            8796,
+            8936,
+            35534,
+            28289
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 33593,
+        "toSegment": 35534,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 35534,
+        "toSegment": 33593,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      }
+    ],
+    "observation": {
+      "androidsWithWorkArrival": 20,
+      "androidResidents": 754,
+      "androidWorkRegistrations": 716,
+      "humanWorkRegistrations": 4341,
+      "completedDeliveries": 8
+    }
+  },
+  "busPathChecks": {
+    "stateBefore": {
+      "ok": true,
+      "gameTime": "2030-01-04T09:02:12",
+      "buildIndex": 126139,
+      "simulation": {
+        "paused": true,
+        "selectedSpeed": 2,
+        "forcedPaused": false,
+        "loadingComplete": true,
+        "finalSpeed": 0
+      },
+      "network": {
+        "nodes": 32699,
+        "segments": 32718,
+        "lanes": 157604
+      },
+      "citizens": {
+        "count": 12128
+      },
+      "demand": {
+        "residential": 2,
+        "commercial": 0,
+        "workplace": 0
+      }
+    },
+    "existingLine": {
+      "id": 170,
+      "name": "名古屋2050 都心循環",
+      "transportType": "Bus",
+      "vehicleType": "Car",
+      "vehicleReason": "Bus",
+      "citizenReason": "None",
+      "defaultVehicleDistance": 600,
+      "defaultVehicleIndex": 28,
+      "defaultVehicleName": "Bus",
+      "lineVehiclePrefab": "Bus",
+      "flags": "Created, Complete, CompleteSet, CustomName",
+      "budget": 100,
+      "ticketPrice": 100,
+      "averageInterval": 6,
+      "buildingId": 0,
+      "firstVehicleId": 15390,
+      "targetVehicles": 12,
+      "stops": 5,
+      "vehicles": 12,
+      "passengers": 0,
+      "totalLength": 6841.42,
+      "color": "#44A999",
+      "stopNodes": [
+        {
+          "nodeId": 24159,
+          "position": {
+            "x": -1302.827,
+            "y": 139.7,
+            "z": 828.786
+          }
+        },
+        {
+          "nodeId": 32721,
+          "position": {
+            "x": -974.285,
+            "y": 139.7,
+            "z": 847.236
+          }
+        },
+        {
+          "nodeId": 24147,
+          "position": {
+            "x": -659.131,
+            "y": 139.7,
+            "z": 868.755
+          }
+        },
+        {
+          "nodeId": 24143,
+          "position": {
+            "x": -773.484,
+            "y": 139.7,
+            "z": 575.511
+          }
+        },
+        {
+          "nodeId": 24131,
+          "position": {
+            "x": -1281.747,
+            "y": 139.7,
+            "z": 642.1
+          }
+        }
+      ]
+    },
+    "afterLineIds": [
+      170
+    ],
+    "temporaryLines": [
+      {
+        "request": {
+          "color": "#DF985A",
+          "transportType": "Bus",
+          "closeLoop": true,
+          "name": "名古屋2050 天白通勤試験線",
+          "stops": [
+            {
+              "z": 1378.335,
+              "x": 3172.917
+            },
+            {
+              "z": -235.5425,
+              "x": 611.6765
+            },
+            {
+              "z": -1054.104,
+              "x": 351.218
+            },
+            {
+              "z": -1798.0345,
+              "x": 1774.1835
+            },
+            {
+              "z": -1371.6405,
+              "x": 1911.5795
+            },
+            {
+              "z": -945.2035,
+              "x": 1754.063
+            }
+          ],
+          "fixedPlatform": false
+        },
+        "lineId": 189,
+        "receiptSha256": "5A44B750243D5477DE838A696784BB87A15E8011F0AAA03C690AE9930619863E",
+        "stops": [
+          {
+            "nodeId": 9932,
+            "flags": "Created, Junction, Untouchable",
+            "problems": "LineNotConnected",
+            "transportLine": 189,
+            "connectCount": 0,
+            "position": {
+              "x": 3172.917,
+              "y": 140,
+              "z": 1378.335
+            },
+            "segments": [
+              10801,
+              6892
+            ]
+          },
+          {
+            "nodeId": 9726,
+            "flags": "Created, Junction, Untouchable, Fixed",
+            "problems": "LineNotConnected",
+            "transportLine": 189,
+            "connectCount": 0,
+            "position": {
+              "x": 612.385,
+              "y": 139.7,
+              "z": -246.003
+            },
+            "segments": [
+              10801,
+              16447
+            ]
+          },
+          {
+            "nodeId": 31549,
+            "flags": "Created, Junction, Untouchable, Fixed",
+            "problems": "",
+            "transportLine": 189,
+            "connectCount": 0,
+            "position": {
+              "x": 340.346,
+              "y": 139.7,
+              "z": -1051.503
+            },
+            "segments": [
+              16447,
+              5769
+            ]
+          },
+          {
+            "nodeId": 31469,
+            "flags": "Created, Junction, Untouchable, Fixed",
+            "problems": "LineNotConnected",
+            "transportLine": 189,
+            "connectCount": 0,
+            "position": {
+              "x": 1773.042,
+              "y": 139.7,
+              "z": -1787.609
+            },
+            "segments": [
+              5769,
+              27841
+            ]
+          },
+          {
+            "nodeId": 31069,
+            "flags": "Created, Junction, Untouchable, Fixed",
+            "problems": "LineNotConnected",
+            "transportLine": 189,
+            "connectCount": 0,
+            "position": {
+              "x": 1908.09,
+              "y": 139.7,
+              "z": -1381.541
+            },
+            "segments": [
+              27841,
+              411
+            ]
+          },
+          {
+            "nodeId": 9701,
+            "flags": "Created, Junction, Untouchable, Fixed",
+            "problems": "LineNotConnected",
+            "transportLine": 189,
+            "connectCount": 0,
+            "position": {
+              "x": 1744.502,
+              "y": 139.7,
+              "z": -940.859
+            },
+            "segments": [
+              411,
+              6892
+            ]
+          }
+        ],
+        "legs": [
+          {
+            "fromStop": 1,
+            "toStop": 2,
+            "firstRoadSegment": 3480,
+            "result": "failed",
+            "readyLengthMeters": null
+          },
+          {
+            "fromStop": 2,
+            "toStop": 3,
+            "firstRoadSegment": 639,
+            "result": "ready",
+            "readyLengthMeters": 7805.915
+          },
+          {
+            "fromStop": 3,
+            "toStop": 4,
+            "firstRoadSegment": 34210,
+            "result": "ready",
+            "readyLengthMeters": 9180.873
+          },
+          {
+            "fromStop": 4,
+            "toStop": 5,
+            "firstRoadSegment": 21060,
+            "result": "failed",
+            "readyLengthMeters": null
+          },
+          {
+            "fromStop": 5,
+            "toStop": 6,
+            "firstRoadSegment": 19057,
+            "result": "ready",
+            "readyLengthMeters": 2733.198
+          },
+          {
+            "fromStop": 6,
+            "toStop": 1,
+            "firstRoadSegment": 10463,
+            "result": "failed",
+            "readyLengthMeters": null
+          }
+        ]
+      },
+      {
+        "request": {
+          "fixedPlatform": false,
+          "transportType": "Bus",
+          "closeLoop": true,
+          "stops": [
+            {
+              "x": -2266.81,
+              "z": -70.282
+            },
+            {
+              "x": -2443.518,
+              "z": 2.3505
+            }
+          ],
+          "name": "名古屋2050 中川通勤試験線",
+          "color": "#4CADCE"
+        },
+        "lineId": 164,
+        "receiptSha256": "7CEED144F82EE60329481961316FB131B1A45FB379C461139534AF02903A4025",
+        "stops": [
+          {
+            "nodeId": 21252,
+            "flags": "Created, Junction, Untouchable",
+            "problems": "LineNotConnected",
+            "transportLine": 164,
+            "connectCount": 0,
+            "position": {
+              "x": -2266.81,
+              "y": 140,
+              "z": -70.282
+            },
+            "segments": [
+              17801,
+              17795
+            ]
+          },
+          {
+            "nodeId": 9701,
+            "flags": "Created, Junction, Untouchable",
+            "problems": "LineNotConnected",
+            "transportLine": 164,
+            "connectCount": 0,
+            "position": {
+              "x": -2443.518,
+              "y": 140,
+              "z": 2.351
+            },
+            "segments": [
+              17801,
+              17795
+            ]
+          }
+        ],
+        "legs": [
+          {
+            "fromStop": 1,
+            "toStop": 2,
+            "firstRoadSegment": 6471,
+            "result": "failed",
+            "readyLengthMeters": null
+          },
+          {
+            "fromStop": 2,
+            "toStop": 1,
+            "firstRoadSegment": 33818,
+            "result": "failed",
+            "readyLengthMeters": null
+          }
+        ]
+      },
+      {
+        "request": {
+          "closeLoop": true,
+          "fixedPlatform": true,
+          "transportType": "Bus",
+          "name": "名古屋2050 瑞穂・天白通勤試験線",
+          "stops": [
+            {
+              "z": -1051.503,
+              "x": 340.346
+            },
+            {
+              "z": -1787.609,
+              "x": 1773.042
+            }
+          ],
+          "color": "#DF985A"
+        },
+        "lineId": 197,
+        "receiptSha256": "2B499CF378B52B415825AD008236F472E5CA1631A161F9A1077ECA2A4B2A9FF8",
+        "stops": [
+          {
+            "nodeId": 1456,
+            "flags": "Created, Junction, Untouchable, Fixed",
+            "problems": "LineNotConnected",
+            "transportLine": 197,
+            "connectCount": 0,
+            "position": {
+              "x": 340.346,
+              "y": 140,
+              "z": -1051.503
+            },
+            "segments": [
+              23938,
+              17795
+            ]
+          },
+          {
+            "nodeId": 9701,
+            "flags": "Created, Junction, Untouchable, Fixed",
+            "problems": "LineNotConnected",
+            "transportLine": 197,
+            "connectCount": 0,
+            "position": {
+              "x": 1773.042,
+              "y": 140,
+              "z": -1787.609
+            },
+            "segments": [
+              23938,
+              17795
+            ]
+          }
+        ],
+        "legs": [
+          {
+            "fromStop": 1,
+            "toStop": 2,
+            "firstRoadSegment": 34210,
+            "result": "ready",
+            "readyLengthMeters": 9180.873
+          },
+          {
+            "fromStop": 2,
+            "toStop": 1,
+            "firstRoadSegment": 21060,
+            "result": "failed",
+            "readyLengthMeters": null
+          }
+        ]
+      }
+    ],
+    "observedRiderTrips": false,
+    "note": "Live game path requests in an unsaved trial state. Incomplete lines were removed."
+  }
+}
