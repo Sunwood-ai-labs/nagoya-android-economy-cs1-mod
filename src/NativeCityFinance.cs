@@ -310,7 +310,9 @@ namespace NagoyaRoadDelivery
                 {"productionPerWeek", citywide.GetGarbageAccumulation()},
                 {"processingCapacityPerWeek", citywide.GetIncinerationCapacity()},
                 {"landfillCapacity", citywide.GetGarbageCapacity()}, {"landfillAmount", citywide.GetGarbageAmount()},
-                {"monitoredBuildings", wasteWatch == null ? null : wasteWatch.Snapshot()}
+                {"fleet", NativeWasteObservation.FleetSnapshot()},
+                {"monitoredBuildings", wasteWatch == null ? null : wasteWatch.Snapshot()},
+                {"dispatchObservation", wasteWatch == null ? null : wasteWatch.DispatchSnapshot()}
             };
         }
 
