@@ -16,7 +16,13 @@ namespace NagoyaRoadDelivery
         private const int RequiredLaneHeadroom = 128;
         [ThreadStatic] private static bool allowReservedCapacity;
 
-        internal static object CreateFirstValid(ushort[][] candidates, bool roadWithSidewalks)
+        internal struct Candidate
+        {
+            internal ushort From, To;
+            internal Vector2? Bend;
+        }
+
+        internal static object CreateFirstValid(Candidate[] candidates, bool roadWithSidewalks)
         {
             NetManager net = NetManager.instance;
             bool useReserve = !net.CheckLimits() && HasHeadroom(net);
@@ -53,16 +59,16 @@ namespace NagoyaRoadDelivery
                 net.m_lanes.m_buffer.Length - net.m_laneCount >= RequiredLaneHeadroom;
         }
 
-        private static object BuildFirstValid(NetManager net, ushort[][] candidates, bool roadWithSidewalks)
+        private static object BuildFirstValid(NetManager net, Candidate[] candidates, bool roadWithSidewalks)
         {
             string prefab = roadWithSidewalks ? "Basic Road" : "Pedestrian Pavement";
             NetInfo link = PrefabCollection<NetInfo>.FindLoaded(prefab);
             if (link == null) throw new InvalidOperationException("The connection prefab is unavailable: " + prefab);
             var attempts = new List<object>(candidates.Length);
             var buffer = new FastList<NetTool.NodePosition>();
-            foreach (ushort[] pair in candidates)
+            foreach (Candidate candidate in candidates)
             {
-                ushort from = pair[0], to = pair[1];
+                ushort from = candidate.From, to = candidate.To;
                 var entry = new Dictionary<string, object> {{"fromNode",from},{"toNode",to}};
                 attempts.Add(entry);
                 if (from >= net.m_nodes.m_buffer.Length || to >= net.m_nodes.m_buffer.Length) continue;
@@ -74,10 +80,25 @@ namespace NagoyaRoadDelivery
                     entry["preflight"] = "invalidGroundRoadAnchors";
                     continue;
                 }
-                Vector3 direction = delta.normalized;
-                NetTool.ControlPoint start = Point(from, first.m_position, direction);
-                NetTool.ControlPoint end = Point(to, last.m_position, direction);
-                NetTool.ControlPoint middle = Point(0, (first.m_position + last.m_position) * .5f, direction);
+                Vector3 middlePosition = (first.m_position + last.m_position) * .5f;
+                if (candidate.Bend.HasValue)
+                {
+                    Vector2 bend = candidate.Bend.Value;
+                    middlePosition.x = bend.x;
+                    middlePosition.z = bend.y;
+                    entry["bend"] = new float[] { bend.x, bend.y };
+                }
+                Vector3 startLeg = middlePosition - first.m_position;
+                Vector3 endLeg = last.m_position - middlePosition;
+                if (startLeg.sqrMagnitude < 36f || endLeg.sqrMagnitude < 36f ||
+                    Vector3.Dot(startLeg, endLeg) <= 0f || startLeg.magnitude + endLeg.magnitude > 325f)
+                {
+                    entry["preflight"] = "invalidBend";
+                    continue;
+                }
+                NetTool.ControlPoint start = Point(from, first.m_position, startLeg.normalized);
+                NetTool.ControlPoint end = Point(to, last.m_position, endLeg.normalized);
+                NetTool.ControlPoint middle = Point(0, middlePosition, delta.normalized);
                 ushort firstNode, lastNode, segment;
                 int cost, production;
                 entry["lengthMeters"] = delta.magnitude;

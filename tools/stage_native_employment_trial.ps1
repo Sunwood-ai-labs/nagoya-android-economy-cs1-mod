@@ -64,8 +64,10 @@ if ($LinkWithRoadSidewalks -and !$PedestrianLinksFile) { throw 'Specify anchors 
 if ($LinkWithRoadSidewalks) { $request.linkWithRoadSidewalks = $true }
 if ($PedestrianLinksFile) {
     $links = Get-Content -LiteralPath $PedestrianLinksFile -Raw | ConvertFrom-Json -NoEnumerate
-    if ($links.Count -lt 1 -or $links.Count -gt 24 -or @($links | Where-Object { $_.Count -ne 2 }).Count) {
-        throw 'Provide 1–24 pairs of existing road node IDs as a JSON array.'
+    if ($links.Count -lt 1 -or $links.Count -gt 24 -or @($links | Where-Object {
+        $_.Count -ne 2 -and !($LinkWithRoadSidewalks -and $_.Count -eq 4)
+    }).Count) {
+        throw 'Provide 1–24 road node pairs. A road with sidewalks may also have a bend defined by X and Z.'
     }
     $request.pedestrianLinks = $links
 }

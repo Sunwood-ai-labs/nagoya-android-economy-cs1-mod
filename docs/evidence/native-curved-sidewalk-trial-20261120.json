@@ -1,0 +1,1376 @@
+{
+  "caseId": "jan01-curved-road-sidewalk-link-72h",
+  "construction": {
+    "usedReservedCapacity": true,
+    "nodeCountBefore": 32699,
+    "nodeBufferCapacity": 32768,
+    "result": {
+      "connected": false,
+      "prefab": "Basic Road",
+      "attempts": [
+        {
+          "fromNode": 23992,
+          "toNode": 17459,
+          "bend": [
+            -2362.351,
+            62.318
+          ],
+          "lengthMeters": 189.8211,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 92000,
+          "overlappingSegments": [
+            10650,
+            22784,
+            24935,
+            31803
+          ],
+          "overlappingBuildings": [
+            42182
+          ]
+        },
+        {
+          "fromNode": 23992,
+          "toNode": 1646,
+          "bend": [
+            -2370.946,
+            36.67
+          ],
+          "lengthMeters": 198.0159,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 104000,
+          "overlappingSegments": [
+            4722,
+            10359,
+            10650,
+            16798
+          ],
+          "overlappingBuildings": []
+        },
+        {
+          "fromNode": 23992,
+          "toNode": 4271,
+          "bend": [
+            -2371.083,
+            40.993
+          ],
+          "lengthMeters": 201.4435,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 104000,
+          "overlappingSegments": [
+            4722,
+            10359,
+            10650
+          ],
+          "overlappingBuildings": []
+        },
+        {
+          "fromNode": 30962,
+          "toNode": 11959,
+          "bend": [
+            -2369.594,
+            25.135
+          ],
+          "lengthMeters": 200.931,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 104000,
+          "overlappingSegments": [
+            4722,
+            6849,
+            9354,
+            10359,
+            10650,
+            16798,
+            24935
+          ],
+          "overlappingBuildings": []
+        },
+        {
+          "fromNode": 30962,
+          "toNode": 1646,
+          "bend": [
+            -2369.753,
+            29.249
+          ],
+          "lengthMeters": 204.5311,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 104000,
+          "overlappingSegments": [
+            4722,
+            6849,
+            9354,
+            10359,
+            10650,
+            16798
+          ],
+          "overlappingBuildings": []
+        },
+        {
+          "fromNode": 30962,
+          "toNode": 24556,
+          "bend": [
+            -2365.434,
+            33.185
+          ],
+          "lengthMeters": 198.5958,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 104000,
+          "overlappingSegments": [
+            180,
+            6849,
+            9354,
+            10359,
+            10650,
+            24935
+          ],
+          "overlappingBuildings": []
+        },
+        {
+          "fromNode": 24346,
+          "toNode": 6006,
+          "bend": [
+            -2348.555,
+            -29.705
+          ],
+          "lengthMeters": 200.1418,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 104000,
+          "overlappingSegments": [
+            298,
+            7549,
+            14951,
+            15946,
+            30550,
+            33475,
+            34439
+          ],
+          "overlappingBuildings": [
+            9893
+          ]
+        },
+        {
+          "fromNode": 16914,
+          "toNode": 30133,
+          "bend": [
+            -2385.31,
+            93.363
+          ],
+          "lengthMeters": 196.9583,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 100000,
+          "overlappingSegments": [
+            8551,
+            15584,
+            30393,
+            33086
+          ],
+          "overlappingBuildings": [
+            24094,
+            29698
+          ]
+        },
+        {
+          "fromNode": 8417,
+          "toNode": 11953,
+          "bend": [
+            -2371.312,
+            -26.594
+          ],
+          "lengthMeters": 195.3421,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 96000,
+          "overlappingSegments": [
+            13191,
+            15946,
+            28858,
+            34439
+          ],
+          "overlappingBuildings": [
+            31064
+          ]
+        },
+        {
+          "fromNode": 8417,
+          "toNode": 8004,
+          "bend": [
+            -2371.241,
+            -21.409
+          ],
+          "lengthMeters": 200.6141,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 104000,
+          "overlappingSegments": [
+            13191,
+            15946,
+            28858,
+            33818
+          ],
+          "overlappingBuildings": [
+            31064
+          ]
+        },
+        {
+          "fromNode": 13122,
+          "toNode": 1646,
+          "bend": [
+            -2372.053,
+            44.126
+          ],
+          "lengthMeters": 193.5429,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 96000,
+          "overlappingSegments": [
+            4722,
+            10359,
+            10650,
+            16798
+          ],
+          "overlappingBuildings": [
+            43053
+          ]
+        },
+        {
+          "fromNode": 30090,
+          "toNode": 30133,
+          "bend": [
+            -2338.885,
+            56.667
+          ],
+          "lengthMeters": 216.7949,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 112000,
+          "overlappingSegments": [
+            8551,
+            15584,
+            30393,
+            33086
+          ],
+          "overlappingBuildings": [
+            43053
+          ]
+        },
+        {
+          "fromNode": 16914,
+          "toNode": 9605,
+          "bend": [
+            -2383.233,
+            115.955
+          ],
+          "lengthMeters": 203.6129,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 104000,
+          "overlappingSegments": [
+            8551,
+            12646,
+            30393,
+            33086
+          ],
+          "overlappingBuildings": [
+            29698
+          ]
+        },
+        {
+          "fromNode": 22948,
+          "toNode": 4271,
+          "bend": [
+            -2373.144,
+            54.325
+          ],
+          "lengthMeters": 193.2624,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 96000,
+          "overlappingSegments": [
+            14,
+            4722,
+            10359,
+            10650
+          ],
+          "overlappingBuildings": [
+            43053
+          ]
+        },
+        {
+          "fromNode": 13122,
+          "toNode": 4271,
+          "bend": [
+            -2372.14,
+            48.485
+          ],
+          "lengthMeters": 196.3686,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 100000,
+          "overlappingSegments": [
+            4722,
+            10359,
+            10650
+          ],
+          "overlappingBuildings": [
+            43053
+          ]
+        },
+        {
+          "fromNode": 14460,
+          "toNode": 30133,
+          "bend": [
+            -2354.987,
+            31.742
+          ],
+          "lengthMeters": 205.1402,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 104000,
+          "overlappingSegments": [
+            1020,
+            8551,
+            15584,
+            30393,
+            33086,
+            33201
+          ],
+          "overlappingBuildings": [
+            29698,
+            43053
+          ]
+        },
+        {
+          "fromNode": 13122,
+          "toNode": 24556,
+          "bend": [
+            -2372.161,
+            36.722
+          ],
+          "lengthMeters": 189.6454,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 96000,
+          "overlappingSegments": [
+            10359,
+            10650,
+            24935
+          ],
+          "overlappingBuildings": [
+            43053
+          ]
+        },
+        {
+          "fromNode": 22948,
+          "toNode": 24556,
+          "bend": [
+            -2373.243,
+            42.458
+          ],
+          "lengthMeters": 187.9498,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 96000,
+          "overlappingSegments": [
+            10359,
+            10650,
+            24935
+          ],
+          "overlappingBuildings": [
+            43053
+          ]
+        },
+        {
+          "fromNode": 22948,
+          "toNode": 11959,
+          "bend": [
+            -2377.208,
+            13.985
+          ],
+          "lengthMeters": 188.9732,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 96000,
+          "overlappingSegments": [
+            4722,
+            10359,
+            10650,
+            24935
+          ],
+          "overlappingBuildings": [
+            43053
+          ]
+        },
+        {
+          "fromNode": 11612,
+          "toNode": 11959,
+          "bend": [
+            -2369.533,
+            17.082
+          ],
+          "lengthMeters": 206.041,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 104000,
+          "overlappingSegments": [
+            4722,
+            6849,
+            9354,
+            10359,
+            10650,
+            16798,
+            24935
+          ],
+          "overlappingBuildings": []
+        },
+        {
+          "fromNode": 11612,
+          "toNode": 17459,
+          "bend": [
+            -2347.137,
+            59.252
+          ],
+          "lengthMeters": 198.322,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 104000,
+          "overlappingSegments": [
+            6849,
+            9354,
+            10650,
+            22784,
+            24935,
+            31803
+          ],
+          "overlappingBuildings": [
+            42182
+          ]
+        },
+        {
+          "fromNode": 16914,
+          "toNode": 13210,
+          "bend": [
+            -2380.187,
+            110.803
+          ],
+          "lengthMeters": 192.5751,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 96000,
+          "overlappingSegments": [
+            14,
+            12646,
+            16519,
+            22223
+          ],
+          "overlappingBuildings": [
+            23283,
+            29698
+          ]
+        },
+        {
+          "fromNode": 8417,
+          "toNode": 17459,
+          "bend": [
+            -2371.207,
+            -11.428
+          ],
+          "lengthMeters": 211.4446,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 104000,
+          "overlappingSegments": [
+            180,
+            13191,
+            22784,
+            28858,
+            31803
+          ],
+          "overlappingBuildings": [
+            42182
+          ]
+        },
+        {
+          "fromNode": 30090,
+          "toNode": 6006,
+          "bend": [
+            -2364.808,
+            -24.44
+          ],
+          "lengthMeters": 190.6624,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 96000,
+          "overlappingSegments": [
+            298,
+            15946,
+            30550,
+            33475
+          ],
+          "overlappingBuildings": [
+            31064,
+            43053
+          ]
+        }
+      ]
+    }
+  },
+  "target": {
+    "route": {
+      "citizenId": 272270,
+      "frame": 55296303,
+      "from": 33828,
+      "to": 30040,
+      "start": [
+        -2260.547,
+        140,
+        -79.05749
+      ],
+      "end": [
+        -2451.529,
+        139.9891,
+        2.181764
+      ],
+      "startSidewalkSegment": 6471,
+      "endSidewalkSegment": 33818,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "walkingPathAssigned": false
+    },
+    "end": {
+      "citizenId": 272270,
+      "homeBuilding": 33828,
+      "workBuilding": 30040,
+      "location": "Moving",
+      "nativeWorkArrivals": 0
+    }
+  },
+  "independentPedestrianLegs": [
+    {
+      "fromSegment": 6471,
+      "toSegment": 33818,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 33818,
+      "toSegment": 6471,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 6471,
+      "toSegment": 35544,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 62.62581,
+        "segments": [
+          6471,
+          6849,
+          9354,
+          2305,
+          27174,
+          35544
+        ],
+        "segmentListComplete": true
+      }
+    },
+    {
+      "fromSegment": 33818,
+      "toSegment": 15946,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 4.621291,
+        "segments": [
+          33818,
+          15946
+        ],
+        "segmentListComplete": true
+      }
+    }
+  ],
+  "observation": {
+    "androidsWithWorkArrival": 22,
+    "androidResidents": 753,
+    "androidWorkRegistrations": 715,
+    "humanWorkRegistrations": 4344,
+    "completedDeliveries": 8
+  },
+  "rawReceiptSha256": "70C26C26465E7FEBD01296394466F1AAEA0DEBFC380BB2C1F515B180CF298887",
+  "checkpoint": {
+    "sha256": "9F4DCFBDDA74FE71B31CCBAC78D973D20598F84242F34E06D0F4DC67A292BA60",
+    "name": "NagoyaCitywide-EmploymentTrial-MixedHouseholds220-Observed",
+    "parentPreserved": true,
+    "segments": 32718,
+    "gameTime": "2030-01-01T08:57:59",
+    "bytes": 15373629,
+    "buildIndex": 126124,
+    "parent": "NagoyaCitywide-EmploymentTrial-SharedHomesObserved"
+  },
+  "modSha256": "122CA3EAE6F9D094C01486770255F3F8BF585E412F7134EFDAB174490CADE3FA",
+  "control": {
+    "caseId": "jan01-native-commute-route-audit-72h",
+    "target": {
+      "route": {
+        "citizenId": 272270,
+        "frame": 55296303,
+        "from": 33828,
+        "to": 30040,
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      "end": {
+        "citizenId": 272270,
+        "homeBuilding": 33828,
+        "workBuilding": 30040,
+        "location": "Moving",
+        "nativeWorkArrivals": 0
+      }
+    },
+    "observation": {
+      "androidsWithWorkArrival": 21,
+      "androidResidents": 753,
+      "androidWorkRegistrations": 715,
+      "humanWorkRegistrations": 4340,
+      "completedDeliveries": 8
+    },
+    "receiptSha256": "618E2CACF5D0D61674E541BF6283E69A48C426232291E8103E51184388D1B718"
+  },
+  "window": {
+    "startFrame": 55295666,
+    "endFrame": 55297422,
+    "startTicks": "640290855288267276",
+    "endTicks": "640293448132017276",
+    "durationHours": 72
+  },
+  "candidatePlanning": {
+    "evaluated": 1273,
+    "liveNodesRead": 87,
+    "buildingsNear": 836,
+    "selectedCount": 24,
+    "tried": 24,
+    "constructionCheck": "Native engine accepted no curved candidate."
+  },
+  "collisionSummary": {
+    "road": 24,
+    "roadEndpointWithin20m": 24,
+    "building": 18,
+    "power": 3
+  },
+  "overlapNearAnchors": [
+    {
+      "nodes": [
+        23992,
+        17459
+      ],
+      "roadsWithin20mOfEnd": [
+        10650,
+        24935
+      ]
+    },
+    {
+      "nodes": [
+        23992,
+        1646
+      ],
+      "roadsWithin20mOfEnd": [
+        4722,
+        10359,
+        10650,
+        16798
+      ]
+    },
+    {
+      "nodes": [
+        23992,
+        4271
+      ],
+      "roadsWithin20mOfEnd": [
+        4722,
+        10359,
+        10650
+      ]
+    },
+    {
+      "nodes": [
+        30962,
+        11959
+      ],
+      "roadsWithin20mOfEnd": [
+        4722,
+        6849,
+        9354,
+        10359,
+        10650,
+        16798,
+        24935
+      ]
+    },
+    {
+      "nodes": [
+        30962,
+        1646
+      ],
+      "roadsWithin20mOfEnd": [
+        4722,
+        6849,
+        9354,
+        10359,
+        10650,
+        16798
+      ]
+    },
+    {
+      "nodes": [
+        30962,
+        24556
+      ],
+      "roadsWithin20mOfEnd": [
+        180,
+        6849,
+        9354,
+        10359,
+        10650,
+        24935
+      ]
+    },
+    {
+      "nodes": [
+        24346,
+        6006
+      ],
+      "roadsWithin20mOfEnd": [
+        298,
+        7549,
+        14951,
+        15946,
+        30550,
+        33475,
+        34439
+      ]
+    },
+    {
+      "nodes": [
+        16914,
+        30133
+      ],
+      "roadsWithin20mOfEnd": [
+        8551,
+        15584,
+        30393,
+        33086
+      ]
+    },
+    {
+      "nodes": [
+        8417,
+        11953
+      ],
+      "roadsWithin20mOfEnd": [
+        13191,
+        15946,
+        28858,
+        34439
+      ]
+    },
+    {
+      "nodes": [
+        8417,
+        8004
+      ],
+      "roadsWithin20mOfEnd": [
+        13191,
+        15946,
+        28858,
+        33818
+      ]
+    },
+    {
+      "nodes": [
+        13122,
+        1646
+      ],
+      "roadsWithin20mOfEnd": [
+        4722,
+        10359,
+        10650,
+        16798
+      ]
+    },
+    {
+      "nodes": [
+        30090,
+        30133
+      ],
+      "roadsWithin20mOfEnd": [
+        8551,
+        15584,
+        30393,
+        33086
+      ]
+    },
+    {
+      "nodes": [
+        16914,
+        9605
+      ],
+      "roadsWithin20mOfEnd": [
+        8551,
+        12646,
+        30393,
+        33086
+      ]
+    },
+    {
+      "nodes": [
+        22948,
+        4271
+      ],
+      "roadsWithin20mOfEnd": [
+        14,
+        4722,
+        10359,
+        10650
+      ]
+    },
+    {
+      "nodes": [
+        13122,
+        4271
+      ],
+      "roadsWithin20mOfEnd": [
+        4722,
+        10359,
+        10650
+      ]
+    },
+    {
+      "nodes": [
+        14460,
+        30133
+      ],
+      "roadsWithin20mOfEnd": [
+        1020,
+        8551,
+        15584,
+        30393,
+        33086,
+        33201
+      ]
+    },
+    {
+      "nodes": [
+        13122,
+        24556
+      ],
+      "roadsWithin20mOfEnd": [
+        10359,
+        10650,
+        24935
+      ]
+    },
+    {
+      "nodes": [
+        22948,
+        24556
+      ],
+      "roadsWithin20mOfEnd": [
+        10359,
+        10650,
+        24935
+      ]
+    },
+    {
+      "nodes": [
+        22948,
+        11959
+      ],
+      "roadsWithin20mOfEnd": [
+        4722,
+        10359,
+        10650,
+        24935
+      ]
+    },
+    {
+      "nodes": [
+        11612,
+        11959
+      ],
+      "roadsWithin20mOfEnd": [
+        4722,
+        6849,
+        9354,
+        10359,
+        10650,
+        16798,
+        24935
+      ]
+    },
+    {
+      "nodes": [
+        11612,
+        17459
+      ],
+      "roadsWithin20mOfEnd": [
+        6849,
+        9354,
+        10650,
+        24935
+      ]
+    },
+    {
+      "nodes": [
+        16914,
+        13210
+      ],
+      "roadsWithin20mOfEnd": [
+        14,
+        12646,
+        16519,
+        22223
+      ]
+    },
+    {
+      "nodes": [
+        8417,
+        17459
+      ],
+      "roadsWithin20mOfEnd": [
+        180,
+        13191,
+        28858
+      ]
+    },
+    {
+      "nodes": [
+        30090,
+        6006
+      ],
+      "roadsWithin20mOfEnd": [
+        298,
+        15946,
+        30550,
+        33475
+      ]
+    }
+  ],
+  "segmentPrefabReadback": {
+    "14": {
+      "prefab": "Basic Road",
+      "startNode": 6694,
+      "endNode": 21466
+    },
+    "180": {
+      "prefab": "Basic Road",
+      "startNode": 17459,
+      "endNode": 8004
+    },
+    "298": {
+      "prefab": "Basic Road",
+      "startNode": 6006,
+      "endNode": 7354
+    },
+    "1020": {
+      "prefab": "Basic Road",
+      "startNode": 16914,
+      "endNode": 14460
+    },
+    "4722": {
+      "prefab": "Basic Road",
+      "startNode": 4271,
+      "endNode": 1646
+    },
+    "6849": {
+      "prefab": "Basic Road",
+      "startNode": 20500,
+      "endNode": 11612
+    },
+    "7549": {
+      "prefab": "Medium Road",
+      "startNode": 24346,
+      "endNode": 29171
+    },
+    "8551": {
+      "prefab": "Medium Road",
+      "startNode": 9605,
+      "endNode": 32096
+    },
+    "9354": {
+      "prefab": "Basic Road",
+      "startNode": 30962,
+      "endNode": 20500
+    },
+    "10359": {
+      "prefab": "Basic Road",
+      "startNode": 11959,
+      "endNode": 24556
+    },
+    "10650": {
+      "prefab": "Basic Road",
+      "startNode": 1646,
+      "endNode": 11959
+    },
+    "12646": {
+      "prefab": "Medium Road",
+      "startNode": 32096,
+      "endNode": 12213
+    },
+    "13191": {
+      "prefab": "Basic Road",
+      "startNode": 14898,
+      "endNode": 26942
+    },
+    "14951": {
+      "prefab": "Basic Road",
+      "startNode": 24346,
+      "endNode": 27196
+    },
+    "15584": {
+      "prefab": "Medium Road",
+      "startNode": 13805,
+      "endNode": 9605
+    },
+    "15946": {
+      "prefab": "Basic Road",
+      "startNode": 11953,
+      "endNode": 20531
+    },
+    "16519": {
+      "prefab": "Basic Road",
+      "startNode": 12213,
+      "endNode": 13210
+    },
+    "16798": {
+      "prefab": "Basic Road",
+      "startNode": 21466,
+      "endNode": 4271
+    },
+    "22223": {
+      "prefab": "Basic Road",
+      "startNode": 13210,
+      "endNode": 6694
+    },
+    "22784": {
+      "prefab": "Power Line",
+      "startNode": 10127,
+      "endNode": 20295
+    },
+    "24935": {
+      "prefab": "Basic Road",
+      "startNode": 24556,
+      "endNode": 17459
+    },
+    "28858": {
+      "prefab": "Basic Road",
+      "startNode": 8417,
+      "endNode": 14898
+    },
+    "30393": {
+      "prefab": "Basic Road",
+      "startNode": 13805,
+      "endNode": 30133
+    },
+    "30550": {
+      "prefab": "Basic Road",
+      "startNode": 7354,
+      "endNode": 32148
+    },
+    "31803": {
+      "prefab": "Power Line",
+      "startNode": 20295,
+      "endNode": 31967
+    },
+    "33086": {
+      "prefab": "Medium Road",
+      "startNode": 12637,
+      "endNode": 13805
+    },
+    "33201": {
+      "prefab": "Basic Road",
+      "startNode": 16914,
+      "endNode": 7651
+    },
+    "33475": {
+      "prefab": "Basic Road",
+      "startNode": 29899,
+      "endNode": 7354
+    },
+    "33818": {
+      "prefab": "Basic Road",
+      "startNode": 8004,
+      "endNode": 11953
+    },
+    "34439": {
+      "prefab": "Basic Road",
+      "startNode": 20531,
+      "endNode": 6006
+    }
+  },
+  "junctionGeometryCandidates": {
+    "audit": "geometryCandidatesOnly",
+    "nativeNodesAssessed": 87,
+    "maxLateralDeviation": 0.55,
+    "verifiedGraphConnectivityAfterMerge": false,
+    "requiresBuiltFrontagesAndUtilitiesCheck": true,
+    "matches": [
+      {
+        "node": 16318,
+        "ends": [
+          23435,
+          11898
+        ],
+        "segments": [
+          18218,
+          15241
+        ],
+        "xZ": [
+          -2295.587,
+          -247.49
+        ],
+        "shortestSegment": 7.29,
+        "replacementChord": 29.65,
+        "nodeOffset": 0.0,
+        "requiresFrontagePreservation": true
+      },
+      {
+        "node": 8004,
+        "ends": [
+          17459,
+          11953
+        ],
+        "segments": [
+          180,
+          33818
+        ],
+        "xZ": [
+          -2443.856,
+          6.779
+        ],
+        "shortestSegment": 8.88,
+        "replacementChord": 25.98,
+        "nodeOffset": 0.001,
+        "requiresFrontagePreservation": true
+      },
+      {
+        "node": 11953,
+        "ends": [
+          8004,
+          20531
+        ],
+        "segments": [
+          33818,
+          15946
+        ],
+        "xZ": [
+          -2443.18,
+          -2.078
+        ],
+        "shortestSegment": 8.88,
+        "replacementChord": 18.07,
+        "nodeOffset": 0.001,
+        "requiresFrontagePreservation": true
+      },
+      {
+        "node": 17459,
+        "ends": [
+          24556,
+          8004
+        ],
+        "segments": [
+          24935,
+          180
+        ],
+        "xZ": [
+          -2445.16,
+          23.826
+        ],
+        "shortestSegment": 10.04,
+        "replacementChord": 27.14,
+        "nodeOffset": 0.001,
+        "requiresFrontagePreservation": true
+      },
+      {
+        "node": 20894,
+        "ends": [
+          24813,
+          21087
+        ],
+        "segments": [
+          8936,
+          8796
+        ],
+        "xZ": [
+          -2509.254,
+          -51.936
+        ],
+        "shortestSegment": 5.41,
+        "replacementChord": 23.26,
+        "nodeOffset": 0.001,
+        "requiresFrontagePreservation": true
+      },
+      {
+        "node": 23435,
+        "ends": [
+          5779,
+          16318
+        ],
+        "segments": [
+          2187,
+          18218
+        ],
+        "xZ": [
+          -2295.864,
+          -240.205
+        ],
+        "shortestSegment": 7.29,
+        "replacementChord": 21.99,
+        "nodeOffset": 0.001,
+        "requiresFrontagePreservation": true
+      },
+      {
+        "node": 8417,
+        "ends": [
+          13222,
+          14898
+        ],
+        "segments": [
+          23523,
+          28858
+        ],
+        "xZ": [
+          -2275.738,
+          -102.685
+        ],
+        "shortestSegment": 6.0,
+        "replacementChord": 25.31,
+        "nodeOffset": 0.015,
+        "requiresFrontagePreservation": true
+      },
+      {
+        "node": 26942,
+        "ends": [
+          14898,
+          6610
+        ],
+        "segments": [
+          13191,
+          8720
+        ],
+        "xZ": [
+          -2277.858,
+          -116.982
+        ],
+        "shortestSegment": 8.58,
+        "replacementChord": 18.36,
+        "nodeOffset": 0.085,
+        "requiresFrontagePreservation": true
+      },
+      {
+        "node": 6060,
+        "ends": [
+          4870,
+          29171
+        ],
+        "segments": [
+          26423,
+          34050
+        ],
+        "xZ": [
+          -2280.007,
+          -141.467
+        ],
+        "shortestSegment": 10.44,
+        "replacementChord": 27.7,
+        "nodeOffset": 0.093,
+        "requiresFrontagePreservation": true
+      },
+      {
+        "node": 5377,
+        "ends": [
+          28684,
+          31914
+        ],
+        "segments": [
+          10350,
+          10941
+        ],
+        "xZ": [
+          -2233.751,
+          114.032
+        ],
+        "shortestSegment": 6.2,
+        "replacementChord": 19.99,
+        "nodeOffset": 0.113,
+        "requiresFrontagePreservation": true
+      },
+      {
+        "node": 30962,
+        "ends": [
+          20500,
+          23992
+        ],
+        "segments": [
+          9354,
+          2305
+        ],
+        "xZ": [
+          -2260.3,
+          -36.755
+        ],
+        "shortestSegment": 6.25,
+        "replacementChord": 24.47,
+        "nodeOffset": 0.159,
+        "requiresFrontagePreservation": true
+      },
+      {
+        "node": 20946,
+        "ends": [
+          31914,
+          15932
+        ],
+        "segments": [
+          7323,
+          2381
+        ],
+        "xZ": [
+          -2229.361,
+          98.065
+        ],
+        "shortestSegment": 10.37,
+        "replacementChord": 22.28,
+        "nodeOffset": 0.202,
+        "requiresFrontagePreservation": true
+      },
+      {
+        "node": 4271,
+        "ends": [
+          21466,
+          1646
+        ],
+        "segments": [
+          16798,
+          4722
+        ],
+        "xZ": [
+          -2448.3,
+          53.369
+        ],
+        "shortestSegment": 7.33,
+        "replacementChord": 22.72,
+        "nodeOffset": 0.542,
+        "requiresFrontagePreservation": true
+      }
+    ]
+  }
+}

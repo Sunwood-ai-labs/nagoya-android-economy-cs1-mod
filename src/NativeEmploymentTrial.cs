@@ -25,7 +25,7 @@ namespace NagoyaRoadDelivery
         public bool NormalEconomy;
         public bool ShareAndroidHouseholds, ShareMixedHouseholds;
         public uint[] CommuteAuditIds;
-        public ushort[][] PedestrianLinks;
+        public NativePedestrianLink.Candidate[] PedestrianLinks;
         public ushort[][] PedestrianLegs;
         public object PedestrianLinkResult;
         public bool LinkWithRoadSidewalks;
@@ -81,10 +81,10 @@ namespace NagoyaRoadDelivery
                     throw new FormatException("Select one household sharing mode with additional Android residents");
                 int? openingCash = funded ? (int?)ReadInt(values, "openingCash", 100000, 5000000) : null;
                 uint[] commuteAuditIds = ReadCommuteAuditIds(values);
-                ushort[][] pedestrianLinks = ReadPairs(values, "pedestrianLinks", NativePedestrianLink.MaxCandidates, false);
-                ushort[][] pedestrianLegs = ReadPairs(values, "pedestrianLegs", NativePedestrianLegAudit.MaxLegs, true);
                 object linkWithRoad;
                 bool linkWithRoadSidewalks = values.TryGetValue("linkWithRoadSidewalks", out linkWithRoad) && (bool)linkWithRoad;
+                NativePedestrianLink.Candidate[] pedestrianLinks = ReadLinks(values, linkWithRoadSidewalks);
+                ushort[][] pedestrianLegs = ReadLegs(values);
                 if (linkWithRoadSidewalks && pedestrianLinks == null)
                     throw new FormatException("Specify anchors for the road with sidewalks");
                 object longWalk;
@@ -107,29 +107,55 @@ namespace NagoyaRoadDelivery
             }
         }
 
-        private static ushort[][] ReadPairs(Dictionary<string, object> values, string key, int maximum, bool allowSameId)
+        private static NativePedestrianLink.Candidate[] ReadLinks(Dictionary<string, object> values, bool allowBend)
         {
             object value;
-            if (!values.TryGetValue(key, out value)) return null;
+            if (!values.TryGetValue("pedestrianLinks", out value)) return null;
             var candidates = (List<object>)value;
-            if (candidates.Count == 0 || candidates.Count > maximum)
-                throw new FormatException("Invalid pair count: " + key);
+            if (candidates.Count == 0 || candidates.Count > NativePedestrianLink.MaxCandidates)
+                throw new FormatException("Invalid native link candidate count");
+            var links = new List<NativePedestrianLink.Candidate>(candidates.Count);
+            foreach (List<object> candidate in candidates)
+            {
+                bool curved = allowBend && candidate.Count == 4;
+                if (candidate.Count != 2 && !curved) throw new FormatException("Expected two node IDs and an optional road bend");
+                ushort from = ReadNetworkId(candidate[0]), to = ReadNetworkId(candidate[1]);
+                if (from == to) throw new FormatException("Expected distinct road nodes");
+                var link = new NativePedestrianLink.Candidate {From=from, To=to};
+                if (curved)
+                {
+                    double x = (double)candidate[2], z = (double)candidate[3];
+                    if (!(Math.Abs(x) <= 8640 && Math.Abs(z) <= 8640))
+                        throw new FormatException("The road bend is outside the map");
+                    link.Bend = new Vector2((float)x, (float)z);
+                }
+                links.Add(link);
+            }
+            return links.ToArray();
+        }
+
+        private static ushort[][] ReadLegs(Dictionary<string, object> values)
+        {
+            object value;
+            if (!values.TryGetValue("pedestrianLegs", out value)) return null;
+            var candidates = (List<object>)value;
+            if (candidates.Count == 0 || candidates.Count > NativePedestrianLegAudit.MaxLegs)
+                throw new FormatException("Invalid native pedestrian leg count");
             var pairs = new List<ushort[]>(candidates.Count);
             foreach (List<object> candidate in candidates)
             {
-                if (candidate.Count != 2) throw new FormatException("Expected two IDs: " + key);
-                var pair = new ushort[2];
-                for (int i = 0; i < pair.Length; i++)
-                {
-                    double id = (double)candidate[i];
-                    if (id < 1 || id > ushort.MaxValue || Math.Floor(id) != id)
-                        throw new FormatException("Invalid native ID: " + key);
-                    pair[i] = (ushort)id;
-                }
-                if (!allowSameId && pair[0] == pair[1]) throw new FormatException("Expected distinct IDs: " + key);
-                pairs.Add(pair);
+                if (candidate.Count != 2) throw new FormatException("Expected two segment IDs");
+                pairs.Add(new ushort[] { ReadNetworkId(candidate[0]), ReadNetworkId(candidate[1]) });
             }
             return pairs.ToArray();
+        }
+
+        private static ushort ReadNetworkId(object value)
+        {
+            double id = (double)value;
+            if (id < 1 || id > ushort.MaxValue || Math.Floor(id) != id)
+                throw new FormatException("Invalid native network ID");
+            return (ushort)id;
         }
 
         private static uint[] ReadCommuteAuditIds(Dictionary<string, object> values)
