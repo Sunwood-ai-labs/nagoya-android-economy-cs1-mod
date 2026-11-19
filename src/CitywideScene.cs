@@ -16,6 +16,7 @@ namespace NagoyaRoadDelivery
     {
         private const string Root=@"H:\CS1-PLATEAU\nagoya-station\citywide-live-v1";
         internal bool NativeConstruction;
+        internal NativeEmploymentTrial EmploymentTrial;
         private RoutingGraph graph;
         private SurfaceMetadata surfaceMetadata;
         private GradeProfile gradeProfile;
@@ -137,7 +138,7 @@ namespace NagoyaRoadDelivery
                 {
                     LoadAndroid();
                     string nativeRun = DateTime.UtcNow.ToString("yyyyMMddTHHmmssfffZ");
-                    scene.AddComponent<AndroidLifePilot>().Initialize(this, NativeCityRoadBuilder.Root, nativeRun);
+                    scene.AddComponent<AndroidLifePilot>().Initialize(this, NativeCityRoadBuilder.Root, nativeRun, EmploymentTrial);
                 }
                 catch (Exception failure) { Debug.LogException(failure); }
                 return;
@@ -169,7 +170,7 @@ namespace NagoyaRoadDelivery
                 if(networkName=="nagoya-citywide-building-service-v1") ValidateBuildingService(plans);
                 foreach(RegionPlan p in plans){Point2 point=graph.GetNodePosition(p.Hub);GameObject charger=new GameObject("Blender city charger "+p.Id);charger.transform.parent=scene.transform;Vector3 pos=Position(point,p.Id*2+1,140,true);HubVisual custom;if(entranceHubs.TryGetValue(p.Id,out custom)){charger.transform.position=custom.Terminal;charger.transform.rotation=Quaternion.Euler(0,custom.Yaw,0);}else charger.transform.position=pos+new Vector3(1.2f,0,0);MakeMesh("Terminal",charger.transform,chargerMesh,chargerMaterial,Vector3.zero);chargers[p.Id]=charger;}
                 simulation=new CitywideSimulation(graph,plans.ToArray(),this,androidsPerRegion);
-                scene.AddComponent<AndroidLifePilot>().Initialize(this,Root,runId);
+                scene.AddComponent<AndroidLifePilot>().Initialize(this,Root,runId,null);
                 scene.AddComponent<PlateauZoning>().Initialize(Root,runId);
                 phase="running";WriteState();
             }

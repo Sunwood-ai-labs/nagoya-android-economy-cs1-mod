@@ -1,0 +1,119 @@
+{
+  "scope": "One matched in-game comparison on CS1 1.21.1-f9. Employment here is assignment to a workplace, and the population includes residents who are not of working age.",
+  "sourceSave": {
+    "name": "NagoyaCitywide-Construction-ServiceGridRepaired",
+    "sha256": "5a66494c5416925a5edfc99cca3779e59f57b8ee3fe3f315a2deb0c991abbc7f"
+  },
+  "testedMod": {
+    "assemblyMvid": "45a32eae-6726-467c-8389-e728bbca5eeb",
+    "sha256": "625f9eed98b3a4c03958e5c8f4e28440de37cf6323608056731641401189caa8"
+  },
+  "finance": {
+    "sameOnBothRuns": true,
+    "mode": "Exact-city experimental funds",
+    "configurationRestoredAfterObservation": true
+  },
+  "startGameTime": "2027-03-31T03:40:17",
+  "endGameTime": "2027-04-04T03:41:20",
+  "window": {
+    "startTicks": "639420612171079776",
+    "endTicks": "639424068803892276",
+    "startFrame": 54706295,
+    "endFrame": 54708636,
+    "durationHours": 96
+  },
+  "control": {
+    "caseId": "control-96h-v1",
+    "requestedExtraAndroids": 0,
+    "baseline": {
+      "nativeHumanResidents": 3905,
+      "humansWithWorkplace": 1819,
+      "androidHomeMembers": 566,
+      "androidWorkMembers": 462,
+      "androidIdentities": 566
+    },
+    "afterAdmission": {
+      "nativeHumanResidents": 3905,
+      "humansWithWorkplace": 1819,
+      "androidHomeMembers": 566,
+      "androidWorkMembers": 462,
+      "androidIdentities": 566
+    },
+    "end": {
+      "nativeHumanResidents": 4175,
+      "humansWithWorkplace": 1856,
+      "androidHomeMembers": 566,
+      "androidWorkMembers": 465,
+      "androidIdentities": 566
+    },
+    "newAndroidsAdmitted": 0,
+    "newAndroidsAtEnd": 0,
+    "newAndroidsWithWorkplace": 0,
+    "newAndroidsWithCommutePath": 0,
+    "newAndroidsWithWorkObservation": 0,
+    "newAndroidsWithChargeObservation": 0,
+    "shopDeliveries": 0
+  },
+  "treatment": {
+    "caseId": "add-256-96h-v1",
+    "requestedExtraAndroids": 256,
+    "baseline": {
+      "nativeHumanResidents": 3905,
+      "humansWithWorkplace": 1819,
+      "androidHomeMembers": 566,
+      "androidWorkMembers": 462,
+      "androidIdentities": 566
+    },
+    "afterAdmission": {
+      "nativeHumanResidents": 3905,
+      "humansWithWorkplace": 1819,
+      "androidHomeMembers": 699,
+      "androidWorkMembers": 462,
+      "androidIdentities": 699
+    },
+    "end": {
+      "nativeHumanResidents": 3930,
+      "humansWithWorkplace": 1839,
+      "androidHomeMembers": 699,
+      "androidWorkMembers": 480,
+      "androidIdentities": 699
+    },
+    "newAndroidsAdmitted": 133,
+    "newAndroidsAtEnd": 133,
+    "newAndroidsWithWorkplace": 8,
+    "newAndroidsWithCommutePath": 6,
+    "newAndroidsWithWorkObservation": 0,
+    "newAndroidsWithChargeObservation": 133,
+    "shopDeliveries": 0
+  },
+  "endDifferenceTreatmentMinusControl": {
+    "nativeHumanResidents": -245,
+    "humansWithWorkplace": -17,
+    "androidHomeMembers": 133,
+    "androidWorkMembers": 15,
+    "androidIdentities": 133
+  },
+  "nativeEvidence": {
+    "control": {
+      "modRunId": "20261119T051633256Z",
+      "terminalSampleUtc": "2026-11-19T05:17:58.3071612Z",
+      "rawSha256": "b414748759475bd64794825c1da895c19018014f98829cf73b07db62ccd91d14",
+      "wardCountWithBothKindsOfResidentsAndJobs": 16
+    },
+    "treatment": {
+      "modRunId": "20261119T052205546Z",
+      "terminalSampleUtc": "2026-11-19T05:23:37.8929598Z",
+      "rawSha256": "879bfff0b802fb3ba7e3a2d98a33507d01b030fadf00d42ffcd1501b79bebb24",
+      "wardCountWithBothKindsOfResidentsAndJobs": 16
+    }
+  },
+  "verifiedGameCapture": {
+    "name": "treatment-frozen-cs1.jpg",
+    "sha256": "c5636b83fcc4e1157a743f6807c119853cb816a820d080d1d63f4673a00a65a5",
+    "showsTreatmentJobAndResidencyCounts": true
+  },
+  "treatmentSave": {
+    "name": "NagoyaCitywide-Construction-Employment256Trial",
+    "sha256": "6e5118292565e5f97db299fdc83c7255ef61b3e6e31a8e82c53c3f40cef07b40"
+  }
+}

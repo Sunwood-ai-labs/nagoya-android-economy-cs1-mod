@@ -30,10 +30,13 @@ namespace NagoyaAndroidDemo
                 host.AddComponent<NagoyaRoadDelivery.DistrictController>().Mode = mode.ToString();
                 host.AddComponent<NagoyaRoadDelivery.HumanDistrictController>().Mode = mode.ToString();
             }
-            host.AddComponent<NagoyaRoadDelivery.CitywideScene>().NativeConstruction = construction;
+            NagoyaRoadDelivery.CitywideScene scene = host.AddComponent<NagoyaRoadDelivery.CitywideScene>();
+            scene.NativeConstruction = construction;
             if (construction)
             {
                 NagoyaRoadDelivery.NativeCityLedger.Enter(city);
+                if (mode == LoadMode.LoadGame)
+                    scene.EmploymentTrial = NagoyaRoadDelivery.NativeEmploymentTrial.Prepare(city);
                 host.AddComponent<NagoyaRoadDelivery.NativeCityModelAlignment>();
                 host.AddComponent<NagoyaRoadDelivery.NativeCityRoster>();
                 host.AddComponent<NagoyaRoadDelivery.NativeCityRoadBuilder>().Infrastructure = true;

@@ -22,6 +22,7 @@ namespace NagoyaRoadDelivery
         private Harmony renderPatch;
         private Harmony lifecyclePatch;
         private NativeAndroidDeliveries localDeliveries;
+        private volatile NativeEmploymentTrial employmentTrial;
         private NativePopulationCard populationCard;
         private readonly Dictionary<uint, Resident> cohort = new Dictionary<uint, Resident>();
         private volatile uint[] residents = new uint[0];
@@ -29,7 +30,7 @@ namespace NagoyaRoadDelivery
         private readonly List<uint> releasedVisuals = new List<uint>();
         private CitywideScene city;
         private string root, runId, caseId, error, visualError;
-        private bool attempted;
+        private volatile bool attempted;
         private bool restored;
         private float nextSample;
         private DateTime lastGameTime;
@@ -53,11 +54,12 @@ namespace NagoyaRoadDelivery
             public string Json, Hud, PopulationText;
         }
 
-        internal void Initialize(CitywideScene host, string data, string id)
+        internal void Initialize(CitywideScene host, string data, string id, NativeEmploymentTrial trial)
         {
             city = host;
             root = data;
             runId = id;
+            employmentTrial = trial;
             active = this;
             try
             {
@@ -134,15 +136,25 @@ namespace NagoyaRoadDelivery
                 catch (Exception ex) { Debug.LogException(ex); }
             }
             UpdateVisuals();
+            if (employmentTrial != null && attempted) return;
             if (Time.realtimeSinceStartup < nextSample || Interlocked.CompareExchange(ref queued, 1, 0) != 0) return;
             nextSample = Time.realtimeSinceStartup + 4;
             SimulationManager.instance.AddAction(delegate {
                 try
                 {
-                    CreateRequestedResidents();
-                    Interlocked.Exchange<Sample>(ref sample, Observe());
+                    if (employmentTrial != null)
+                        StartEmploymentTrial();
+                    else
+                    {
+                        CreateRequestedResidents();
+                        Interlocked.Exchange<Sample>(ref sample, Observe());
+                    }
                 }
-                catch (Exception ex) { Debug.LogException(ex); }
+                catch (Exception ex)
+                {
+                    employmentTrial = null;
+                    Debug.LogException(ex);
+                }
                 finally { Interlocked.Exchange(ref queued, 0); }
             });
         }
@@ -164,51 +176,119 @@ namespace NagoyaRoadDelivery
                 int limit = root == NativeCityRoadBuilder.Root ? NativeCityLedger.MaxResidents : PilotMaximumAndroids;
                 if (caseId.Length < 1 || caseId.Length > 60 || count != Math.Floor(count) || count < 0 || count > limit)
                     throw new InvalidDataException("Scenario case or cohort size");
-                int requested = Math.Max(0, (int)count - cohort.Count);
-                CitizenManager citizens = CitizenManager.instance;
-                NativeBuilding[] buildings = BuildingManager.instance.m_buildings.m_buffer;
-                Randomizer random = new Randomizer(5102026);
-                List<uint> added = new List<uint>();
-                foreach (int i in HomeOrder(buildings.Length))
-                {
-                    if (added.Count >= requested) break;
-                    NativeBuilding building = buildings[i];
-                    BuildingInfo info = building.Info;
-                    if ((building.m_flags & (NativeBuilding.Flags.Created | NativeBuilding.Flags.Abandoned)) != NativeBuilding.Flags.Created ||
-                        info == null || info.m_class.m_service != ItemClass.Service.Residential) continue;
-                    uint unitId = building.m_citizenUnits;
-                    for (int u = 0; unitId != 0 && unitId < citizens.m_units.m_buffer.Length && u < MaximumUnitsPerBuilding && added.Count < requested; u++)
-                    {
-                        CitizenUnit unit = citizens.m_units.m_buffer[unitId];
-                        if ((unit.m_flags & CitizenUnit.Flags.Home) != 0 && unit.m_building == i && Empty(unit))
-                        {
-                            uint citizenId;
-                            Citizen.Gender gender = (added.Count & 1) == 0 ? Citizen.Gender.Male : Citizen.Gender.Female;
-                            if (!citizens.CreateCitizen(out citizenId, 120, 0, ref random, gender))
-                                throw new InvalidOperationException("CS1 could not create a resident");
-                            citizens.m_citizens.m_buffer[citizenId].SetHome(citizenId, (ushort)i, unitId);
-                            if (citizens.m_citizens.m_buffer[citizenId].m_homeBuilding != i || !Contains(citizens.m_units.m_buffer[unitId], citizenId))
-                            {
-                                citizens.ReleaseCitizen(citizenId);
-                                throw new InvalidOperationException("CS1 refused the vacant household seat");
-                            }
-                            citizens.m_citizens.m_buffer[citizenId].CurrentLocation = Citizen.Location.Home;
-                            cohort.Add(citizenId, new Resident { Home = (ushort)i, HomeUnit = unitId });
-                            added.Add(citizenId);
-                            NativeCityLedger.Record(new NativeCityLedger.Android {
-                                Id=citizenId, Home=(ushort)i, HomeUnit=unitId, Battery=65
-                            });
-                            if (root == NativeCityRoadBuilder.Root) break;
-                        }
-                        unitId = unit.m_nextUnit;
-                    }
-                }
-                if (added.Count < requested) error = "Vacant residential units limited the experiment to " + cohort.Count;
+                PopulateResidents((int)count);
             }
             catch (Exception ex) { attempted = true; error = ex.GetBaseException().Message; }
             finally
             {
                 UpdateResidentIds();
+            }
+        }
+
+        private void PopulateResidents(int target)
+        {
+            int requested = Math.Max(0, target - cohort.Count);
+            CitizenManager citizens = CitizenManager.instance;
+            NativeBuilding[] buildings = BuildingManager.instance.m_buildings.m_buffer;
+            Randomizer random = new Randomizer(5102026);
+            List<uint> added = new List<uint>();
+            foreach (int i in HomeOrder(buildings.Length))
+            {
+                if (added.Count >= requested) break;
+                NativeBuilding building = buildings[i];
+                BuildingInfo info = building.Info;
+                if ((building.m_flags & (NativeBuilding.Flags.Created | NativeBuilding.Flags.Abandoned)) != NativeBuilding.Flags.Created ||
+                    info == null || info.m_class.m_service != ItemClass.Service.Residential) continue;
+                uint unitId = building.m_citizenUnits;
+                for (int u = 0; unitId != 0 && unitId < citizens.m_units.m_buffer.Length && u < MaximumUnitsPerBuilding && added.Count < requested; u++)
+                {
+                    CitizenUnit unit = citizens.m_units.m_buffer[unitId];
+                    if ((unit.m_flags & CitizenUnit.Flags.Home) != 0 && unit.m_building == i && Empty(unit))
+                    {
+                        uint citizenId;
+                        Citizen.Gender gender = (added.Count & 1) == 0 ? Citizen.Gender.Male : Citizen.Gender.Female;
+                        if (!citizens.CreateCitizen(out citizenId, 120, 0, ref random, gender))
+                            throw new InvalidOperationException("CS1 could not create a resident");
+                        citizens.m_citizens.m_buffer[citizenId].SetHome(citizenId, (ushort)i, unitId);
+                        if (citizens.m_citizens.m_buffer[citizenId].m_homeBuilding != i || !Contains(citizens.m_units.m_buffer[unitId], citizenId))
+                        {
+                            citizens.ReleaseCitizen(citizenId);
+                            throw new InvalidOperationException("CS1 refused the vacant household seat");
+                        }
+                        citizens.m_citizens.m_buffer[citizenId].CurrentLocation = Citizen.Location.Home;
+                        cohort.Add(citizenId, new Resident { Home = (ushort)i, HomeUnit = unitId });
+                        added.Add(citizenId);
+                        NativeCityLedger.Record(new NativeCityLedger.Android {
+                            Id=citizenId, Home=(ushort)i, HomeUnit=unitId, Battery=65
+                        });
+                        if (root == NativeCityRoadBuilder.Root) break;
+                    }
+                    unitId = unit.m_nextUnit;
+                }
+            }
+            if (added.Count < requested) error = "Vacant residential units limited the experiment to " + cohort.Count;
+        }
+
+        private void StartEmploymentTrial()
+        {
+            if (attempted) return;
+            attempted = true;
+            RestoreSavedResidents();
+            SimulationManager sim = SimulationManager.instance;
+            NativeEmploymentTrial trial = employmentTrial;
+            if (!sim.SimulationPaused)
+                throw new InvalidOperationException("The employment trial must begin on a paused checkpoint");
+            trial.StartFrame = sim.m_currentFrameIndex;
+            trial.Start = sim.FrameToTime(trial.StartFrame);
+            trial.NextSample = trial.Start.AddHours(2);
+            trial.Deadline = DateTime.UtcNow.AddSeconds(90);
+            caseId = trial.CaseId;
+            trial.Baseline = Observe(trial.Start).Json;
+            PopulateResidents(Math.Min(NativeCityLedger.MaxResidents, cohort.Count + trial.AdditionalResidents));
+            UpdateResidentIds();
+            Sample admitted = Observe(trial.Start);
+            trial.AfterAdmission = admitted.Json;
+            Interlocked.Exchange<Sample>(ref sample, admitted);
+            trial.Running = true;
+            sim.ForcedSimulationPaused = false;
+            sim.SelectedSimulationSpeed = 1;
+            sim.SimulationPaused = false;
+        }
+
+        internal static void ObserveEmploymentTrialFrame()
+        {
+            AndroidLifePilot life = active;
+            if (life == null || life.employmentTrial == null || !life.employmentTrial.Running)
+                return;
+            NativeEmploymentTrial trial = life.employmentTrial;
+            SimulationManager sim = SimulationManager.instance;
+            DateTime time = sim.FrameToTime(sim.m_currentFrameIndex);
+            try
+            {
+                bool expired = DateTime.UtcNow >= trial.Deadline;
+                if (!expired && time < trial.NextSample && time < trial.Start.AddHours(trial.Hours))
+                    return;
+                if (expired || time >= trial.Start.AddHours(trial.Hours))
+                {
+                    trial.Running = false;
+                    sim.SimulationPaused = true;
+                    trial.End = time;
+                    trial.EndFrame = sim.m_currentFrameIndex;
+                    Sample terminal = life.Observe(time);
+                    trial.SaveResult(terminal.Json, expired ? "timeout" : "completed");
+                    Interlocked.Exchange<Sample>(ref life.sample, terminal);
+                    life.employmentTrial = null;
+                    return;
+                }
+                trial.NextSample = time.AddHours(2);
+                Interlocked.Exchange<Sample>(ref life.sample, life.Observe(time));
+            }
+            catch (Exception issue)
+            {
+                trial.Running = false;
+                sim.SimulationPaused = true;
+                life.employmentTrial = null;
+                Debug.LogException(issue);
             }
         }
 
@@ -289,8 +369,12 @@ namespace NagoyaRoadDelivery
 
         private Sample Observe()
         {
+            return Observe(SimulationManager.instance.m_currentGameTime);
+        }
+
+        private Sample Observe(DateTime now)
+        {
             CitizenManager manager = CitizenManager.instance;
-            DateTime now = SimulationManager.instance.m_currentGameTime;
             bool clockRunning = !SimulationManager.instance.SimulationPaused;
             if (localDeliveries != null && cohort.Count > 0) localDeliveries.BeginSample();
             double minutes = lastGameTime == DateTime.MinValue ? 0 : Math.Max(0, Math.Min(180, (now - lastGameTime).TotalMinutes));
