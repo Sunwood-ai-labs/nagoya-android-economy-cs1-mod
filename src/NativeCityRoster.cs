@@ -120,6 +120,7 @@ namespace NagoyaRoadDelivery
         private static Dictionary<string, object> CountTraffic()
         {
             int cars = 0, trucks = 0, buses = 0, other = 0, withPath = 0;
+            var policeVehicles = new List<object>();
             Vehicle[] vehicles = VehicleManager.instance.m_vehicles.m_buffer;
             Vehicle.Flags required = Vehicle.Flags.Created | Vehicle.Flags.Spawned;
             for (int i = 1; i < vehicles.Length; i++)
@@ -130,11 +131,20 @@ namespace NagoyaRoadDelivery
                 if (ai is PassengerCarAI) cars++;
                 else if (ai is CargoTruckAI) trucks++;
                 else if (ai is BusAI) buses++;
-                else { other++; continue; }
+                else
+                {
+                    other++;
+                    if (ai is PoliceCarAI && vehicle.m_path != 0)
+                        policeVehicles.Add(new Dictionary<string, object> {
+                            {"vehicleId",i}, {"station",vehicle.m_sourceBuilding}, {"destination",vehicle.m_targetBuilding},
+                            {"pathId",vehicle.m_path}, {"position",new float[] {vehicle.m_frame0.m_position.x, vehicle.m_frame0.m_position.z}}
+                        });
+                    continue;
+                }
                 if (vehicle.m_path != 0) withPath++;
             }
             return new Dictionary<string, object> {{"passengerCars",cars}, {"cargoTrucks",trucks},
-                {"buses",buses}, {"otherVehicles",other}, {"roadVehiclesWithNativePath",withPath}};
+                {"buses",buses}, {"otherVehicles",other}, {"roadVehiclesWithNativePath",withPath}, {"policeVehiclesWithNativePath",policeVehicles}};
         }
 
         private static void ObserveLot(NativeCityLedger.Lot lot, Ward ward, HashSet<ushort> activeSites)

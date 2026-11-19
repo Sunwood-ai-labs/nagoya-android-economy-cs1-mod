@@ -1,0 +1,951 @@
+{
+  "test": "Native police activation and restoration of Goods retailers in Showa Ward",
+  "city": "NagoyaCitywide-Construction",
+  "runId": "20261119T083503063Z",
+  "startingSave": {
+    "name": "NagoyaCitywide-ShowaPoliceTrial",
+    "sha256": "7595E171C569802909BFB0AF2D6F89B0DBEE299208B971E02762AF78F333DC76",
+    "bytes": 12515179,
+    "gameTime": "2027-10-01T10:06:28"
+  },
+  "resultSave": {
+    "name": "NagoyaCitywide-ShowaGoodsAndPolice",
+    "sha256": "074BB22266AF7B441857C6F8DBBA98069E67725915BE12EA5FD8CBF59F8C883E",
+    "bytes": 12601774,
+    "gameTime": "2027-11-03T13:46:18",
+    "buildIndex": 104222,
+    "nativeSegments": 28485,
+    "paused": true
+  },
+  "assemblySha256": "78f8ab70e857cf6656b803884baf8183bdc6f587e0be66e6c97f1de1c023b931",
+  "policeWindow": {
+    "startedAt": "2027-10-01T13:41:37",
+    "lastLifeSampleAt": "2027-10-18T01:48:51",
+    "deliveriesByWardAtEnd": {
+      "港区": 2,
+      "中村区": 1,
+      "天白区": 1
+    },
+    "showaRetailAtEnd": {
+      "noGoodsBuffer": 19,
+      "full": 0,
+      "roomForPartialParcel": 0,
+      "roomForFullParcel": 0,
+      "incomingMaterials": {
+        "Petrol": 19
+      }
+    },
+    "terminalLifeSha256": "f720de82cc8b2a1dfd56778ebe3c43e13711bc42f0a02099d70fa22850aff9ed"
+  },
+  "policeStation": {
+    "id": 8693,
+    "prefab": "Police Station",
+    "displayName": "警察署",
+    "blockedAsset": false,
+    "active": true,
+    "flags": "Created, Completed, Active, ZonesUpdated",
+    "service": "PoliceDepartment",
+    "subService": "None",
+    "level": "Level1",
+    "width": 4,
+    "length": 3,
+    "angleDegrees": 319.147,
+    "problems": "",
+    "position": {
+      "x": 1598.447,
+      "y": 139.994,
+      "z": -280.847
+    }
+  },
+  "abandonedShop": {
+    "id": 4406,
+    "prefab": "L1 1x2 Shop04",
+    "displayName": "L1 1x2 Shop04",
+    "blockedAsset": false,
+    "active": false,
+    "flags": "Created, Completed, Abandoned",
+    "service": "Commercial",
+    "subService": "CommercialLow",
+    "level": "Level1",
+    "width": 1,
+    "length": 2,
+    "angleDegrees": 21.185,
+    "problems": "Crime, FatalProblem",
+    "position": {
+      "x": 1457.068,
+      "y": 139.987,
+      "z": -278.816
+    }
+  },
+  "policeVehiclesWithNativePaths": [
+    {
+      "utc": "2026-11-19T08:36:29.4943449Z",
+      "vehicles": []
+    },
+    {
+      "utc": "2026-11-19T08:36:37.5077977Z",
+      "vehicles": [
+        {
+          "vehicleId": 4011,
+          "station": 8693,
+          "destination": 16503,
+          "pathId": 100866,
+          "position": [
+            1447.527,
+            -264.7932
+          ]
+        },
+        {
+          "vehicleId": 5017,
+          "station": 8693,
+          "destination": 16719,
+          "pathId": 170556,
+          "position": [
+            1542.128,
+            -222.8033
+          ]
+        },
+        {
+          "vehicleId": 6563,
+          "station": 8693,
+          "destination": 15414,
+          "pathId": 20755,
+          "position": [
+            1608.373,
+            -263.2989
+          ]
+        },
+        {
+          "vehicleId": 8980,
+          "station": 8693,
+          "destination": 13947,
+          "pathId": 81528,
+          "position": [
+            1130.929,
+            -295.6168
+          ]
+        },
+        {
+          "vehicleId": 11648,
+          "station": 8693,
+          "destination": 13122,
+          "pathId": 55199,
+          "position": [
+            1251.247,
+            -394.1538
+          ]
+        },
+        {
+          "vehicleId": 12409,
+          "station": 8693,
+          "destination": 14188,
+          "pathId": 4674,
+          "position": [
+            1385.924,
+            -299.3886
+          ]
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-19T08:36:45.5107144Z",
+      "vehicles": [
+        {
+          "vehicleId": 2855,
+          "station": 8693,
+          "destination": 13552,
+          "pathId": 122718,
+          "position": [
+            1203.953,
+            -349.4206
+          ]
+        },
+        {
+          "vehicleId": 4011,
+          "station": 8693,
+          "destination": 16503,
+          "pathId": 238256,
+          "position": [
+            737.5374,
+            214.4213
+          ]
+        },
+        {
+          "vehicleId": 5017,
+          "station": 8693,
+          "destination": 16719,
+          "pathId": 29001,
+          "position": [
+            841.879,
+            93.97184
+          ]
+        },
+        {
+          "vehicleId": 6563,
+          "station": 8693,
+          "destination": 15414,
+          "pathId": 35146,
+          "position": [
+            915.03,
+            -89.30161
+          ]
+        },
+        {
+          "vehicleId": 8980,
+          "station": 8693,
+          "destination": 13947,
+          "pathId": 131496,
+          "position": [
+            393.6039,
+            480.3206
+          ]
+        },
+        {
+          "vehicleId": 11648,
+          "station": 8693,
+          "destination": 13122,
+          "pathId": 39068,
+          "position": [
+            440.4909,
+            459.3652
+          ]
+        },
+        {
+          "vehicleId": 12409,
+          "station": 8693,
+          "destination": 14188,
+          "pathId": 219762,
+          "position": [
+            716.1692,
+            232.3174
+          ]
+        },
+        {
+          "vehicleId": 15574,
+          "station": 8693,
+          "destination": 14867,
+          "pathId": 162869,
+          "position": [
+            1375.499,
+            -354.6813
+          ]
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-19T08:37:01.5266937Z",
+      "vehicles": [
+        {
+          "vehicleId": 383,
+          "station": 8693,
+          "destination": 16369,
+          "pathId": 65982,
+          "position": [
+            409.5229,
+            476.7931
+          ]
+        },
+        {
+          "vehicleId": 2855,
+          "station": 8693,
+          "destination": 13552,
+          "pathId": 35225,
+          "position": [
+            1109.952,
+            -282.0585
+          ]
+        },
+        {
+          "vehicleId": 4011,
+          "station": 8693,
+          "destination": 16503,
+          "pathId": 70682,
+          "position": [
+            -826.2981,
+            837.0545
+          ]
+        },
+        {
+          "vehicleId": 5017,
+          "station": 8693,
+          "destination": 16719,
+          "pathId": 96273,
+          "position": [
+            -744.9644,
+            843.5201
+          ]
+        },
+        {
+          "vehicleId": 6563,
+          "station": 8693,
+          "destination": 15414,
+          "pathId": 196681,
+          "position": [
+            -676.5197,
+            849.0256
+          ]
+        },
+        {
+          "vehicleId": 8980,
+          "station": 8693,
+          "destination": 13947,
+          "pathId": 89141,
+          "position": [
+            -519.6271,
+            878.3298
+          ]
+        },
+        {
+          "vehicleId": 11648,
+          "station": 8693,
+          "destination": 13122,
+          "pathId": 164265,
+          "position": [
+            -893.2723,
+            831.7307
+          ]
+        },
+        {
+          "vehicleId": 12409,
+          "station": 8693,
+          "destination": 14188,
+          "pathId": 25408,
+          "position": [
+            -893.7992,
+            834.6982
+          ]
+        },
+        {
+          "vehicleId": 13122,
+          "station": 8693,
+          "destination": 17315,
+          "pathId": 156635,
+          "position": [
+            317.0176,
+            476.0747
+          ]
+        },
+        {
+          "vehicleId": 15574,
+          "station": 8693,
+          "destination": 14867,
+          "pathId": 4596,
+          "position": [
+            -188.912,
+            876.192
+          ]
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-19T08:37:09.5479750Z",
+      "vehicles": [
+        {
+          "vehicleId": 383,
+          "station": 8693,
+          "destination": 16369,
+          "pathId": 126530,
+          "position": [
+            -527.2505,
+            861.5972
+          ]
+        },
+        {
+          "vehicleId": 2855,
+          "station": 8693,
+          "destination": 13552,
+          "pathId": 125807,
+          "position": [
+            1217.142,
+            -742.1256
+          ]
+        },
+        {
+          "vehicleId": 4011,
+          "station": 8693,
+          "destination": 16503,
+          "pathId": 41763,
+          "position": [
+            -1175.804,
+            990.5271
+          ]
+        },
+        {
+          "vehicleId": 4320,
+          "station": 8693,
+          "destination": 13751,
+          "pathId": 243893,
+          "position": [
+            1391.768,
+            -288.0467
+          ]
+        },
+        {
+          "vehicleId": 5017,
+          "station": 8693,
+          "destination": 16719,
+          "pathId": 79302,
+          "position": [
+            -1302.785,
+            815.1754
+          ]
+        },
+        {
+          "vehicleId": 6563,
+          "station": 8693,
+          "destination": 15414,
+          "pathId": 47241,
+          "position": [
+            -1136.949,
+            682.3035
+          ]
+        },
+        {
+          "vehicleId": 8980,
+          "station": 8693,
+          "destination": 13947,
+          "pathId": 247189,
+          "position": [
+            424.6101,
+            866.4591
+          ]
+        },
+        {
+          "vehicleId": 12409,
+          "station": 8693,
+          "destination": 14188,
+          "pathId": 62247,
+          "position": [
+            -177.4157,
+            904.4952
+          ]
+        },
+        {
+          "vehicleId": 13122,
+          "station": 8693,
+          "destination": 17315,
+          "pathId": 9281,
+          "position": [
+            -632.3831,
+            853.1164
+          ]
+        },
+        {
+          "vehicleId": 15574,
+          "station": 8693,
+          "destination": 14867,
+          "pathId": 196409,
+          "position": [
+            -894.7015,
+            831.6169
+          ]
+        }
+      ]
+    }
+  ],
+  "localHiringAttempt": {
+    "caseId": "local-delivery-b6a5534ba9bf",
+    "buildIndex": 104098,
+    "openings": [
+      {
+        "ward": "昭和区",
+        "candidateCounts": {
+          "shopsWithNativeAccess": 0,
+          "factoriesWithStockAndRoad": 478,
+          "vacantConnectedHomes": 10,
+          "factoriesWithinShopRadius": 0,
+          "factoriesWithReachableShop": 0,
+          "factoriesWithVacancy": 0
+        },
+        "status": "no feasible opening"
+      },
+      {
+        "ward": "瑞穂区",
+        "candidateCounts": {
+          "shopsWithNativeAccess": 2,
+          "factoriesWithStockAndRoad": 478,
+          "vacantConnectedHomes": 10,
+          "factoriesWithinShopRadius": 56,
+          "factoriesWithReachableShop": 4,
+          "factoriesWithVacancy": 0
+        },
+        "status": "no feasible opening"
+      },
+      {
+        "ward": "千種区",
+        "candidateCounts": {
+          "shopsWithNativeAccess": 2,
+          "factoriesWithStockAndRoad": 478,
+          "vacantConnectedHomes": 10,
+          "factoriesWithinShopRadius": 40,
+          "factoriesWithReachableShop": 9,
+          "factoriesWithVacancy": 0
+        },
+        "status": "no feasible opening"
+      },
+      {
+        "ward": "東区",
+        "candidateCounts": {
+          "shopsWithNativeAccess": 1,
+          "factoriesWithStockAndRoad": 478,
+          "vacantConnectedHomes": 10,
+          "factoriesWithinShopRadius": 35,
+          "factoriesWithReachableShop": 2,
+          "factoriesWithVacancy": 0
+        },
+        "status": "no feasible opening"
+      },
+      {
+        "ward": "名東区",
+        "candidateCounts": {
+          "shopsWithNativeAccess": 2,
+          "factoriesWithStockAndRoad": 478,
+          "vacantConnectedHomes": 10,
+          "factoriesWithinShopRadius": 45,
+          "factoriesWithReachableShop": 13,
+          "factoriesWithVacancy": 0
+        },
+        "status": "no feasible opening"
+      }
+    ]
+  },
+  "goodsShopPlacements": [
+    {
+      "group": "extension_5cb6f9854ddc2517",
+      "ward": "昭和区",
+      "zone": "CommercialLow",
+      "modelMembers": "7",
+      "buildingId": "43569",
+      "buildIndex": "104098",
+      "roadId": "18627",
+      "zoneBlock": "16607",
+      "zoneCells": "4",
+      "error": ""
+    },
+    {
+      "group": "extension_b6536f39227d3788",
+      "ward": "昭和区",
+      "zone": "CommercialLow",
+      "modelMembers": "12",
+      "buildingId": "27624",
+      "buildIndex": "104099",
+      "roadId": "29854",
+      "zoneBlock": "32258",
+      "zoneCells": "4",
+      "error": ""
+    },
+    {
+      "group": "extension_7c83504e47a717b0",
+      "ward": "昭和区",
+      "zone": "CommercialLow",
+      "modelMembers": "13",
+      "buildingId": "9632",
+      "buildIndex": "104100",
+      "roadId": "19550",
+      "zoneBlock": "32755",
+      "zoneCells": "4",
+      "error": ""
+    },
+    {
+      "group": "extension_64d435e58a48b716",
+      "ward": "昭和区",
+      "zone": "CommercialLow",
+      "modelMembers": "51",
+      "buildingId": "29173",
+      "buildIndex": "104101",
+      "roadId": "34667",
+      "zoneBlock": "10364",
+      "zoneCells": "4",
+      "error": ""
+    },
+    {
+      "group": "site_b85ff7f3dab7",
+      "ward": "昭和区",
+      "zone": "CommercialLow",
+      "modelMembers": "163",
+      "buildingId": "0",
+      "buildIndex": "0",
+      "roadId": "0",
+      "zoneBlock": "0",
+      "zoneCells": "0",
+      "error": "No free native zone cells on the source frontage"
+    },
+    {
+      "group": "extension_d224d4278175c512",
+      "ward": "昭和区",
+      "zone": "CommercialLow",
+      "modelMembers": "10",
+      "buildingId": "12114",
+      "buildIndex": "104102",
+      "roadId": "7161",
+      "zoneBlock": "33410",
+      "zoneCells": "4",
+      "error": ""
+    }
+  ],
+  "shopsConfirmedActive": [
+    {
+      "id": 9632,
+      "prefab": "L1 2x2 Shop03",
+      "displayName": "L1 2x2 Shop03",
+      "blockedAsset": false,
+      "active": true,
+      "flags": "Created, Completed, Active",
+      "service": "Commercial",
+      "subService": "CommercialLow",
+      "level": "Level1",
+      "width": 2,
+      "length": 2,
+      "angleDegrees": -85.426,
+      "problems": "",
+      "position": {
+        "x": -262.783,
+        "y": 139.999,
+        "z": -269.739
+      }
+    },
+    {
+      "id": 12114,
+      "prefab": "L1 2x2 Shop03",
+      "displayName": "L1 2x2 Shop03",
+      "blockedAsset": false,
+      "active": true,
+      "flags": "Created, Completed, Active",
+      "service": "Commercial",
+      "subService": "CommercialLow",
+      "level": "Level1",
+      "width": 2,
+      "length": 2,
+      "angleDegrees": 430.425,
+      "problems": "",
+      "position": {
+        "x": 677.026,
+        "y": 140,
+        "z": -195.031
+      }
+    },
+    {
+      "id": 27624,
+      "prefab": "L1 2x2 Shop03",
+      "displayName": "L1 2x2 Shop03",
+      "blockedAsset": false,
+      "active": true,
+      "flags": "Created, Completed, Active",
+      "service": "Commercial",
+      "subService": "CommercialLow",
+      "level": "Level1",
+      "width": 2,
+      "length": 2,
+      "angleDegrees": 180.566,
+      "problems": "",
+      "position": {
+        "x": -322.639,
+        "y": 139.99,
+        "z": 145.483
+      }
+    },
+    {
+      "id": 29173,
+      "prefab": "L1 2x2 Shop03",
+      "displayName": "L1 2x2 Shop03",
+      "blockedAsset": false,
+      "active": true,
+      "flags": "Created, Completed, Active",
+      "service": "Commercial",
+      "subService": "CommercialLow",
+      "level": "Level1",
+      "width": 2,
+      "length": 2,
+      "angleDegrees": -85.275,
+      "problems": "",
+      "position": {
+        "x": -284.699,
+        "y": 139.997,
+        "z": 18.626
+      }
+    },
+    {
+      "id": 43569,
+      "prefab": "L1 2x2 Shop03",
+      "displayName": "L1 2x2 Shop03",
+      "blockedAsset": false,
+      "active": true,
+      "flags": "Created, Completed, Active",
+      "service": "Commercial",
+      "subService": "CommercialLow",
+      "level": "Level1",
+      "width": 2,
+      "length": 2,
+      "angleDegrees": -85.426,
+      "problems": "",
+      "position": {
+        "x": -259.333,
+        "y": 140,
+        "z": -312.908
+      }
+    }
+  ],
+  "goodsWindow": {
+    "startedAt": "2027-10-18T01:48:51",
+    "lastLifeSampleAt": "2027-11-03T13:46:18",
+    "deliveriesByWardAtEnd": {
+      "港区": 6,
+      "中村区": 2,
+      "天白区": 1,
+      "守山区": 1,
+      "南区": 1,
+      "中川区": 2,
+      "緑区": 1
+    },
+    "showaRetailAtEnd": {
+      "noGoodsBuffer": 18,
+      "full": 0,
+      "roomForPartialParcel": 0,
+      "roomForFullParcel": 5,
+      "incomingMaterials": {
+        "Petrol": 18,
+        "Goods": 5
+      }
+    },
+    "terminalLifeSha256": "6f604bf40aab7c1c44a4cff7cd4d2efb8f67a13d1a2782a54b9042c2725b9211"
+  },
+  "deliveryEventsAfterShopPlacement": [
+    {
+      "android": 775915,
+      "from": 39677,
+      "to": 21129,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 3874,
+      "factoryAccessStreet": 18618,
+      "shopAccessStreet": 33994,
+      "factoryAfter": 3774,
+      "shopBefore": 402,
+      "nativeRequest": {
+        "frame": 54819950,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 502,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "gameTime": "2027-10-18T09:29:10"
+    },
+    {
+      "android": 660154,
+      "from": 24295,
+      "to": 24107,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 3358,
+      "factoryAccessStreet": 34614,
+      "shopAccessStreet": 20782,
+      "factoryAfter": 3258,
+      "shopBefore": 8585,
+      "nativeRequest": {
+        "frame": 54819965,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 8685,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "gameTime": "2027-10-18T10:09:42"
+    },
+    {
+      "android": 693169,
+      "from": 13999,
+      "to": 3750,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 2508,
+      "factoryAccessStreet": 24020,
+      "shopAccessStreet": 659,
+      "factoryAfter": 2408,
+      "shopBefore": 10508,
+      "nativeRequest": {
+        "frame": 54822675,
+        "priority": 6,
+        "amount": 1
+      },
+      "shopAfter": 10608,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "gameTime": "2027-10-20T21:36:21"
+    },
+    {
+      "android": 467443,
+      "from": 36020,
+      "to": 11971,
+      "ward": "南区",
+      "sourceWard": "南区",
+      "stockAdded": 100,
+      "factoryBefore": 3149,
+      "factoryAccessStreet": 21549,
+      "shopAccessStreet": 3252,
+      "factoryAfter": 3049,
+      "shopBefore": 9103,
+      "nativeRequest": {
+        "frame": 54819902,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 9203,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "gameTime": "2027-10-21T17:36:18"
+    },
+    {
+      "android": 15998,
+      "from": 18618,
+      "to": 31778,
+      "ward": "中川区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 3789,
+      "factoryAccessStreet": 22497,
+      "shopAccessStreet": 5940,
+      "factoryAfter": 3689,
+      "shopBefore": 15691,
+      "nativeRequest": null,
+      "shopAfter": 15791,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "gameTime": "2027-10-26T08:40:24"
+    },
+    {
+      "android": 660154,
+      "from": 24295,
+      "to": 24107,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 3398,
+      "factoryAccessStreet": 34614,
+      "shopAccessStreet": 20782,
+      "factoryAfter": 3298,
+      "shopBefore": 8454,
+      "nativeRequest": {
+        "frame": 54826365,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 8554,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "gameTime": "2027-10-29T13:12:25"
+    },
+    {
+      "android": 12510,
+      "from": 42292,
+      "to": 23012,
+      "ward": "中村区",
+      "sourceWard": "中村区",
+      "stockAdded": 100,
+      "factoryBefore": 4035,
+      "factoryAccessStreet": 10556,
+      "shopAccessStreet": 28739,
+      "factoryAfter": 3935,
+      "shopBefore": 10214,
+      "nativeRequest": {
+        "frame": 54822775,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 10314,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "gameTime": "2027-10-31T15:07:08"
+    },
+    {
+      "android": 202123,
+      "from": 7801,
+      "to": 42073,
+      "ward": "中川区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 3533,
+      "factoryAccessStreet": 11655,
+      "shopAccessStreet": 33806,
+      "factoryAfter": 3433,
+      "shopBefore": 9688,
+      "nativeRequest": {
+        "frame": 54822619,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 9788,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "gameTime": "2027-11-01T06:08:59"
+    },
+    {
+      "android": 693169,
+      "from": 13999,
+      "to": 3750,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 2560,
+      "factoryAccessStreet": 24020,
+      "shopAccessStreet": 659,
+      "factoryAfter": 2460,
+      "shopBefore": 10361,
+      "nativeRequest": {
+        "frame": 54829331,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 10461,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "gameTime": "2027-11-01T07:19:16"
+    },
+    {
+      "android": 773402,
+      "from": 10714,
+      "to": 18397,
+      "ward": "緑区",
+      "sourceWard": "天白区",
+      "stockAdded": 100,
+      "factoryBefore": 3614,
+      "factoryAccessStreet": 12700,
+      "shopAccessStreet": 15680,
+      "factoryAfter": 3514,
+      "shopBefore": 9344,
+      "nativeRequest": null,
+      "shopAfter": 9444,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "gameTime": "2027-11-03T13:16:11"
+    }
+  ],
+  "coveredAcrossRecordedSessions": [
+    "中区",
+    "中川区",
+    "中村区",
+    "北区",
+    "南区",
+    "天白区",
+    "守山区",
+    "港区",
+    "熱田区",
+    "緑区",
+    "西区"
+  ],
+  "stillUnverifiedWards": [
+    "千種区",
+    "名東区",
+    "昭和区",
+    "東区",
+    "瑞穂区"
+  ],
+  "limits": [
+    "The police vehicles used native CS1 paths. The previously abandoned store did not reopen.",
+    "Restoring the Goods buffer did not establish Android delivery to the five remaining wards.",
+    "Both observations used the same temporary city-scoped experimental finance setting; original bytes were restored."
+  ]
+}

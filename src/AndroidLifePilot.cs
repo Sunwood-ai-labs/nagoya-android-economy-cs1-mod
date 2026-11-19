@@ -31,6 +31,7 @@ namespace NagoyaRoadDelivery
         private readonly List<uint> releasedVisuals = new List<uint>();
         private CitywideScene city;
         private string root, runId, caseId, error, visualError;
+        private List<object> localDeliveryAdmissions;
         private volatile bool attempted;
         private bool restored;
         private float nextSample;
@@ -177,9 +178,16 @@ namespace NagoyaRoadDelivery
                 if ((string)config["runId"] != runId) return;
                 attempted = true;
                 caseId = (string)config["caseId"];
+                if (caseId.Length < 1 || caseId.Length > 60) throw new InvalidDataException("Scenario case name");
+                object wards;
+                if (config.TryGetValue("localDeliveryWards", out wards))
+                {
+                    AdmitLocalDeliveryResidents((List<object>)wards, config);
+                    return;
+                }
                 double count = (double)config["androidResidents"];
                 int limit = root == NativeCityRoadBuilder.Root ? NativeCityLedger.MaxResidents : PilotMaximumAndroids;
-                if (caseId.Length < 1 || caseId.Length > 60 || count != Math.Floor(count) || count < 0 || count > limit)
+                if (count != Math.Floor(count) || count < 0 || count > limit)
                     throw new InvalidDataException("Scenario case or cohort size");
                 PopulateResidents((int)count);
             }
@@ -188,6 +196,103 @@ namespace NagoyaRoadDelivery
             {
                 UpdateResidentIds();
             }
+        }
+
+        private void AdmitLocalDeliveryResidents(List<object> values, Dictionary<string, object> config)
+        {
+            SimulationManager sim = SimulationManager.instance;
+            int perWard = Convert.ToInt32(config["limitPerWard"]);
+            if (localDeliveries == null || !sim.SimulationPaused || perWard < 1 || perWard > 3 ||
+                sim.m_currentBuildIndex != Convert.ToUInt32(config["expectedBuildIndex"]) ||
+                NetManager.instance.m_segmentCount != Convert.ToInt32(config["expectedSegments"]))
+                throw new InvalidDataException("The paused local hiring checkpoint changed");
+            var wards = new HashSet<string>(StringComparer.Ordinal);
+            foreach (object value in values)
+            {
+                string ward = (string)value;
+                if (ward.Length < 2 || ward.Length > 12 || !ward.EndsWith("区", StringComparison.Ordinal) || !wards.Add(ward))
+                    throw new InvalidDataException("Invalid delivery ward");
+            }
+            if (wards.Count == 0 || wards.Count > 16 || cohort.Count + wards.Count * perWard > NativeCityLedger.MaxResidents)
+                throw new InvalidDataException("Local hiring request is outside the district or population limits");
+            localDeliveries.BeginSample(sim.m_currentGameTime);
+            localDeliveryAdmissions = new List<object>();
+            var usedFactories = new HashSet<ushort>();
+            var random = new Randomizer(5102026);
+            foreach (string ward in wards)
+            {
+                for (int attempt = 0; attempt < perWard; attempt++)
+                {
+                    Dictionary<string, int> counts;
+                    NativeAndroidDeliveries.LocalOpening opening = localDeliveries.FindLocalOpening(ward, FindVacantHomeUnit, usedFactories, out counts);
+                    var record = new Dictionary<string, object> {{"ward",ward}, {"candidateCounts",counts}};
+                    localDeliveryAdmissions.Add(record);
+                    if (opening.Home == 0)
+                    {
+                        record["status"] = "no feasible opening";
+                        break;
+                    }
+                    Citizen.Gender gender = (cohort.Count & 1) == 0 ? Citizen.Gender.Male : Citizen.Gender.Female;
+                    uint id = CreateResident(opening.Home, opening.HomeUnit, opening.Factory, gender, ref random);
+                    usedFactories.Add(opening.Factory);
+                    if (id == 0)
+                    {
+                        record["status"] = "native registration refused";
+                        continue;
+                    }
+                    localDeliveries.RegisterLocalOpening(id, opening, sim.m_currentGameTime);
+                    record["status"] = "admitted";
+                    record["citizenId"] = id;
+                    record["home"] = opening.Home;
+                    record["homeUnit"] = opening.HomeUnit;
+                    record["factory"] = opening.Factory;
+                    record["shop"] = opening.Shop;
+                    record["homeToFactoryMeters"] = opening.HomeDistance;
+                    record["factoryToShopMeters"] = opening.ShopDistance;
+                }
+            }
+        }
+
+        private static uint FindVacantHomeUnit(ushort home)
+        {
+            if (!HasElectricity(home)) return 0;
+            CitizenUnit[] units = CitizenManager.instance.m_units.m_buffer;
+            uint unit = BuildingManager.instance.m_buildings.m_buffer[home].m_citizenUnits;
+            for (int i = 0; i < MaximumUnitsPerBuilding && unit != 0 && unit < units.Length; i++)
+            {
+                CitizenUnit row = units[unit];
+                if ((row.m_flags & CitizenUnit.Flags.Home) != 0 && row.m_building == home && Empty(row)) return unit;
+                unit = row.m_nextUnit;
+            }
+            return 0;
+        }
+
+        private uint CreateResident(ushort home, uint unit, ushort workplace, Citizen.Gender gender, ref Randomizer random)
+        {
+            CitizenManager citizens = CitizenManager.instance;
+            uint id;
+            if (!citizens.CreateCitizen(out id, 120, 0, ref random, gender))
+                throw new InvalidOperationException("CS1 could not create a resident");
+            Citizen[] people = citizens.m_citizens.m_buffer;
+            people[id].SetHome(id, home, unit);
+            if (people[id].m_homeBuilding != home || !Contains(citizens.m_units.m_buffer[unit], id))
+            {
+                citizens.ReleaseCitizen(id);
+                return 0;
+            }
+            if (workplace != 0)
+            {
+                people[id].SetWorkplace(id, workplace, 0);
+                if (people[id].m_workBuilding != workplace || !InWorkUnit(citizens, workplace, id))
+                {
+                    citizens.ReleaseCitizen(id);
+                    return 0;
+                }
+            }
+            people[id].CurrentLocation = Citizen.Location.Home;
+            cohort.Add(id, new Resident {Home=home, HomeUnit=unit, Battery=65});
+            NativeCityLedger.Record(new NativeCityLedger.Android {Id=id, Home=home, HomeUnit=unit, Battery=65});
+            return id;
         }
 
         private void PopulateResidents(int target)
@@ -210,22 +315,11 @@ namespace NagoyaRoadDelivery
                     CitizenUnit unit = citizens.m_units.m_buffer[unitId];
                     if ((unit.m_flags & CitizenUnit.Flags.Home) != 0 && unit.m_building == i && Empty(unit))
                     {
-                        uint citizenId;
                         Citizen.Gender gender = (added.Count & 1) == 0 ? Citizen.Gender.Male : Citizen.Gender.Female;
-                        if (!citizens.CreateCitizen(out citizenId, 120, 0, ref random, gender))
-                            throw new InvalidOperationException("CS1 could not create a resident");
-                        citizens.m_citizens.m_buffer[citizenId].SetHome(citizenId, (ushort)i, unitId);
-                        if (citizens.m_citizens.m_buffer[citizenId].m_homeBuilding != i || !Contains(citizens.m_units.m_buffer[unitId], citizenId))
-                        {
-                            citizens.ReleaseCitizen(citizenId);
+                        uint citizenId = CreateResident((ushort)i, unitId, 0, gender, ref random);
+                        if (citizenId == 0)
                             throw new InvalidOperationException("CS1 refused the vacant household seat");
-                        }
-                        citizens.m_citizens.m_buffer[citizenId].CurrentLocation = Citizen.Location.Home;
-                        cohort.Add(citizenId, new Resident { Home = (ushort)i, HomeUnit = unitId });
                         added.Add(citizenId);
-                        NativeCityLedger.Record(new NativeCityLedger.Android {
-                            Id=citizenId, Home=(ushort)i, HomeUnit=unitId, Battery=65
-                        });
                         if (root == NativeCityRoadBuilder.Root) break;
                     }
                     unitId = unit.m_nextUnit;
@@ -460,6 +554,7 @@ namespace NagoyaRoadDelivery
                 {"status",error == null ? (caseId != null ? "running" : "baseline") : "limited"}, {"error",error},
                 {"nativeReleaseHookActive",lifecyclePatch != null}, {"androidIdentities",cohort.Count},
                 {"nativeDeliveries",localDeliveries == null ? null : localDeliveries.Snapshot()},
+                {"localDeliveryAdmissions",localDeliveryAdmissions},
                 {"androidRenderHookActive",renderer == this}, {"visualError",visualError},
                 {"nativeHumanResidents",humans}, {"humansWithWorkplace",humanEmployed}, {"androidHomeMembers",androidHomeMembers},
                 {"androidWorkMembers",androidWorkMembers}, {"androidAtHome",atHome}, {"androidAtWork",atWork}, {"androidMoving",moving},
