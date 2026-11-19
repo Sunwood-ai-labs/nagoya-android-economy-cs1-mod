@@ -36,6 +36,8 @@ namespace NagoyaAndroidDemo
                 NagoyaRoadDelivery.NativeCityLedger.Enter(city);
                 host.AddComponent<NagoyaRoadDelivery.NativeCityModelAlignment>();
                 host.AddComponent<NagoyaRoadDelivery.NativeCityRoster>();
+                host.AddComponent<NagoyaRoadDelivery.NativeCityRoadBuilder>().Infrastructure = true;
+                host.AddComponent<NagoyaRoadDelivery.NativeWaterConnections>();
             }
             host.AddComponent<NagoyaRoadDelivery.NativeCityFlatStart>().NewGame = mode == LoadMode.NewGame;
             host.AddComponent<NagoyaRoadDelivery.NativeCityRoadBuilder>();

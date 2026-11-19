@@ -26,8 +26,12 @@ namespace NagoyaRoadDelivery
             {"highway_elevated", "Highway Elevated"}, {"highway_bridge", "Highway Bridge"},
             {"highway_tunnel", "Highway Tunnel"}, {"highway_slope", "Highway Slope"},
             {"arterial_elevated", "Medium Road Elevated"}, {"arterial_bridge", "Medium Road Bridge"},
-            {"arterial_tunnel", "Medium Road Tunnel"}, {"arterial_slope", "Medium Road Slope"}
+            {"arterial_tunnel", "Medium Road Tunnel"}, {"arterial_slope", "Medium Road Slope"},
+            {"water", "Water Pipe"}, {"power", "Power Line"}
         };
+        internal bool Infrastructure;
+        private string Channel { get { return Infrastructure ? "utility" : "road"; } }
+        private string ReceiptSuffix { get { return Infrastructure ? "-utilities.tsv" : "-roads.tsv"; } }
 
         private sealed class Junction
         {
@@ -69,14 +73,14 @@ namespace NagoyaRoadDelivery
             loadedCity = SimulationManager.instance.m_metaData.m_CityName;
             startNodes = NetManager.instance.m_nodeCount;
             startSegments = NetManager.instance.m_segmentCount;
-            Write("road-runtime.json", Status());
+            Write(Channel + "-runtime.json", Status());
         }
 
         public void Update()
         {
             string report = Interlocked.Exchange<string>(ref readyReport, null);
             if (report != null)
-                Write("road-runtime.json", report);
+                Write(Channel + "-runtime.json", report);
             if (Time.realtimeSinceStartup < nextRequest ||
                 Interlocked.CompareExchange(ref queued, 1, 0) != 0)
                 return;
@@ -84,7 +88,7 @@ namespace NagoyaRoadDelivery
             nextRequest = Time.realtimeSinceStartup + .12f;
             if (!attempted || phase == "preflight_passed")
             {
-                string path = Path.Combine(Root, "road-command.json");
+                string path = Path.Combine(Root, Channel + "-command.json");
                 DateTime write = File.GetLastWriteTimeUtc(path);
                 if (write == lastRequestWriteUtc || !File.Exists(path))
                 {
@@ -101,7 +105,7 @@ namespace NagoyaRoadDelivery
                         return;
                     }
                     string nextCommand = Token((string)cmd["commandId"]);
-                    if (File.Exists(Path.Combine(Root, nextCommand + "-roads.tsv")))
+                    if (File.Exists(Path.Combine(Root, nextCommand + ReceiptSuffix)))
                         throw new InvalidOperationException("Command ID already has a road receipt");
                     if (attempted)
                     {
@@ -133,7 +137,7 @@ namespace NagoyaRoadDelivery
                     attempted = true;
                     phase = "rejected";
                     error = failure.GetBaseException().Message;
-                    Write("road-runtime.json", Status());
+                    Write(Channel + "-runtime.json", Status());
                 }
             }
 
@@ -174,10 +178,11 @@ namespace NagoyaRoadDelivery
                     if (road.NativeId != 0)
                     {
                         created++;
-                        NativeCityLedger.Record(new NativeCityLedger.Road {
-                            Source=road.Source, Tag=road.Tag, Id=road.NativeId, BuildIndex=road.BuildIndex,
-                            Start=road.Start.NativeId, End=road.End.NativeId
-                        });
+                        if (!Infrastructure)
+                            NativeCityLedger.Record(new NativeCityLedger.Road {
+                                Source=road.Source, Tag=road.Tag, Id=road.NativeId, BuildIndex=road.BuildIndex,
+                                Start=road.Start.NativeId, End=road.End.NativeId
+                            });
                     }
                 }
                 if (cursor == roads.Count)
@@ -318,6 +323,8 @@ namespace NagoyaRoadDelivery
                         if (row[0] != "E" || row.Length != 7 || (row[6] != "0" && row[6] != "1") ||
                             roads.Count >= MaxRoads)
                             throw new InvalidDataException("Invalid road row");
+                        if (Infrastructure != (row[4] == "water" || row[4] == "power"))
+                            throw new InvalidDataException("Prefab does not belong to this construction channel");
                         string a = Token(row[2]), b = Token(row[3]);
                         string pair = String.CompareOrdinal(a, b) < 0 ? a + "|" + b : b + "|" + a;
                         Junction from = junctions[a], to = junctions[b];
@@ -390,7 +397,7 @@ namespace NagoyaRoadDelivery
                     .Append(road.BuildIndex).Append('\t').Append(road.Start.NativeId).Append('\t').Append(road.End.NativeId)
                     .Append('\t').Append(road.Tag).Append('\t').Append(road.Error).Append('\n');
             }
-            Write(commandId + "-roads.tsv", lines.ToString());
+            Write(commandId + ReceiptSuffix, lines.ToString());
         }
 
         private string Status()
@@ -400,6 +407,7 @@ namespace NagoyaRoadDelivery
                 {"requestedRoads", roads.Count}, {"requestedJunctions", junctions.Count}, {"processedRoads", cursor},
                 {"createdRoads", created}, {"baselineNodes", startNodes}, {"baselineSegments", startSegments},
                 {"nativeNodes", endNodes}, {"nativeSegments", endSegments}, {"error", error},
+                {"channel", Channel},
                 {"loadedCity", loadedCity}, {"mvid", typeof(NativeCityRoadBuilder).Assembly.ManifestModule.ModuleVersionId.ToString()},
                 {"utc", DateTime.UtcNow.ToString("o", Invariant)}
             });

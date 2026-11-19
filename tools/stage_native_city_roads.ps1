@@ -4,6 +4,7 @@ param(
     [Parameter(Mandatory)][string]$ExpectedCityName,
     [Parameter(Mandatory)][string]$CheckpointName,
     [string]$Bridge = 'http://127.0.0.1:32123',
+    [switch]$Infrastructure,
     [switch]$Execute
 )
 
@@ -14,7 +15,8 @@ if ($file.Extension -ne '.tsv' -or $file.Directory.FullName -cne (Get-Item -Lite
     throw 'Use a compiled TSV in the isolated citywide staging directory.'
 }
 
-$runtime = Get-Content -LiteralPath (Join-Path $root 'road-runtime.json') -Raw | ConvertFrom-Json
+$channel = if ($Infrastructure) { 'utility' } else { 'road' }
+$runtime = Get-Content -LiteralPath (Join-Path $root "$channel-runtime.json") -Raw | ConvertFrom-Json
 $expectedPhase = if ($Execute) { 'preflight_passed' } else { 'ready' }
 $hash = (Get-FileHash -LiteralPath $file.FullName).Hash
 $summary = Invoke-RestMethod "$Bridge/state/summary" -TimeoutSec 5
@@ -29,7 +31,8 @@ if ($runtime.phase -cne $expectedPhase -or $runtime.loadedCity -cne $ExpectedCit
 
 $checkpoint = @((Invoke-RestMethod "$Bridge/state/saves" -TimeoutSec 5).saves |
     Where-Object name -eq $CheckpointName)
-if ($CheckpointName -notlike 'NagoyaCitywide-*-Baseline' -or
+$checkpointPattern = if ($Infrastructure) { 'NagoyaCitywide-*-Connected' } else { 'NagoyaCitywide-*-Baseline' }
+if ($CheckpointName -notlike $checkpointPattern -or
     $checkpoint.Count -ne 1 -or $checkpoint[0].length -lt 500000) {
     throw 'The separate native construction baseline must exist before executing.'
 }
@@ -44,7 +47,7 @@ $request = @{
     sha256 = $hash
     execute = [bool]$Execute
 }
-$destination = Join-Path $root 'road-command.json'
+$destination = Join-Path $root "$channel-command.json"
 $temporary = $destination + '.' + $request.commandId + '.tmp'
 [IO.File]::WriteAllText($temporary, ($request | ConvertTo-Json -Compress), [Text.UTF8Encoding]::new($false))
 if (Test-Path -LiteralPath $destination) {
