@@ -9,8 +9,8 @@ using UnityEngine;
 
 namespace NagoyaRoadDelivery
 {
-    // Initialization is restricted to a newly created city with an explicitly
-    // configured construction name. Loading an existing save never flattens it.
+    // Initialization is restricted to the configured construction city.
+    // Loading a save only opens tiles on terrain that is already flat.
     public sealed class NativeCityFlatStart : MonoBehaviour
     {
         private const string Root = NativeCityRoadBuilder.Root;
@@ -20,7 +20,7 @@ namespace NagoyaRoadDelivery
         public void Start()
         {
             string request = Path.Combine(Root, "flat-start-city.txt");
-            if (!NewGame || !File.Exists(request) || new FileInfo(request).Length > 150)
+            if (!File.Exists(request) || new FileInfo(request).Length > 150)
             {
                 enabled = false;
                 return;
@@ -34,10 +34,16 @@ namespace NagoyaRoadDelivery
             }
             try
             {
-                int samples, waterSources;
-                PrepareTerrain(out samples, out waterSources);
+                int samples, waterSources = 0;
+                if (NewGame) PrepareTerrain(out samples, out waterSources);
+                else samples = VerifyTerrain();
                 SimulationManager.instance.AddAction(delegate {
-                    try { OpenTiles(expected, samples, waterSources); }
+                    try
+                    {
+                        if (GameAreaManager.instance.m_areaCount < 25)
+                            UnlockManager.instance.UnlockAllProgressionMilestones();
+                        OpenTiles(expected, samples, waterSources);
+                    }
                     catch (Exception error)
                     {
                         Report(expected, "error", error.GetBaseException().Message, samples, waterSources, 0);
@@ -82,14 +88,19 @@ namespace NagoyaRoadDelivery
                 flat[i + 1] = (byte)(encoded >> 8);
             }
             terrain.SetHeightMap16(flat);
-            int uneven = 0;
-            foreach (ushort height in terrain.RawHeights)
-                if (height != encoded) uneven++;
-            if (uneven != 0)
-                throw new InvalidOperationException("The new terrain did not read back at 140m");
-
-            samples = terrain.RawHeights.Length;
+            samples = VerifyTerrain();
             waterSources = ClearWater(terrain.WaterSimulation);
+        }
+
+        private static int VerifyTerrain()
+        {
+            ushort[] raw = TerrainManager.instance.RawHeights;
+            if (raw == null || raw.Length != 1081 * 1081)
+                throw new InvalidDataException("Unexpected native terrain span");
+            foreach (ushort height in raw)
+                if (height != 8960)
+                    throw new InvalidOperationException("The saved construction terrain is not 140m");
+            return raw.Length;
         }
 
         private void OpenTiles(string city, int samples, int waterSources)
