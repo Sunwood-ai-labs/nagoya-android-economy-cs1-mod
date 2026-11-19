@@ -1,0 +1,152 @@
+{
+  "city": "NagoyaCitywide-Construction",
+  "source": "Cities: Skylines native tax-rate readback, EconomyManager, resident units, delivery callbacks and hashed saves",
+  "openingSave": {
+    "sha256": "883B9B84FD31343D4BA8EAD99AAB786099EA87CBF382BA6E32992C2AAF2560FB",
+    "bytes": 15271670,
+    "name": "NagoyaCitywide-HousingExpansion-Verified"
+  },
+  "openingCash": 227863.56,
+  "roadAndElectricityWeeklyExpenseAtOpening": 70590.56,
+  "openingNetworkSegments": 32656,
+  "artificialFunding": false,
+  "control": {
+    "taxRatePercent": 9,
+    "window": {
+      "start": "2029-11-12T10:07:21",
+      "end": "2029-11-22T11:07:49",
+      "gameReadback": "2029-11-22T10:58:59"
+    },
+    "cash": 120321.66,
+    "weekly": {
+      "taxByUse": {
+        "Residential": 13428.34,
+        "Commercial": 11334.71,
+        "Industrial": 5036.14,
+        "Office": 414.8
+      },
+      "transitIncome": 3.0,
+      "income": 30216.99,
+      "expenses": 105106.24,
+      "net": -74889.25
+    },
+    "demand": {
+      "residential": 2,
+      "commercial": 0,
+      "workplace": 0
+    },
+    "population": {
+      "nativeHumanResidents": 9598,
+      "humansWithWorkplace": 4333,
+      "androidHomeMembers": 573,
+      "androidWorkMembers": 544
+    },
+    "activeZonedSites": 7200,
+    "wardsWithBothPopulationAndJobs": 16,
+    "vehicles": {
+      "passengerCars": 623,
+      "cargoTrucks": 704,
+      "buses": 33
+    },
+    "deliveryReceiptsByWard": {
+      "緑区": 6,
+      "名東区": 2,
+      "東区": 1,
+      "中区": 1,
+      "西区": 1,
+      "中川区": 1,
+      "港区": 1,
+      "天白区": 2,
+      "瑞穂区": 3,
+      "南区": 1,
+      "昭和区": 1
+    },
+    "deliveredStock": 2000,
+    "waterConsumptionPerWeek": 274064,
+    "waterSupplyPerWeek": 480000,
+    "dirtyWaterWarnings": 0,
+    "electricityWarnings": 10,
+    "taxWarnings": 0,
+    "save": {
+      "bytes": 15301736,
+      "sha256": "F92DE7A6D33CC3A1927391815B1F85CAE61207E722ADAA67D45D3EF1C8643345",
+      "name": "NagoyaCitywide-TaxTrial-09-Observed"
+    }
+  },
+  "treatment": {
+    "taxRatePercent": 12,
+    "window": {
+      "start": "2029-11-12T10:02:22",
+      "end": "2029-11-22T11:24:20",
+      "gameReadback": "2029-11-22T11:24:20"
+    },
+    "cash": 134302.7,
+    "weekly": {
+      "taxByUse": {
+        "Residential": 17811.61,
+        "Commercial": 14991.31,
+        "Industrial": 6558.63,
+        "Office": 560.3
+      },
+      "transitIncome": 3.0,
+      "income": 39924.85,
+      "expenses": 105106.24,
+      "net": -65181.39
+    },
+    "demand": {
+      "residential": 0,
+      "commercial": -2,
+      "workplace": -4
+    },
+    "population": {
+      "nativeHumanResidents": 9530,
+      "humansWithWorkplace": 4256,
+      "androidHomeMembers": 572,
+      "androidWorkMembers": 542
+    },
+    "activeZonedSites": 7200,
+    "wardsWithBothPopulationAndJobs": 16,
+    "vehicles": {
+      "passengerCars": 604,
+      "cargoTrucks": 690,
+      "buses": 29
+    },
+    "deliveryReceiptsByWard": {
+      "緑区": 6,
+      "名東区": 1,
+      "東区": 1,
+      "中区": 1,
+      "西区": 1,
+      "中川区": 1,
+      "港区": 1,
+      "天白区": 2,
+      "瑞穂区": 2,
+      "南区": 1
+    },
+    "deliveredStock": 1700,
+    "waterConsumptionPerWeek": 273408,
+    "waterSupplyPerWeek": 480000,
+    "dirtyWaterWarnings": 0,
+    "electricityWarnings": 10,
+    "taxWarnings": 0,
+    "save": {
+      "bytes": 15222470,
+      "name": "NagoyaCitywide-TaxTrial-12-Observed",
+      "sha256": "D239EB7DB017D178A471C54E662731D7441E3FD92BA638FC4654920E0C2B6CE9"
+    }
+  },
+  "difference12Minus9": {
+    "weeklyNet": 9707.86,
+    "endingCash": 13981.04,
+    "population": {
+      "nativeHumanResidents": -68,
+      "humansWithWorkplace": -77,
+      "androidHomeMembers": -1,
+      "androidWorkMembers": -2
+    }
+  },
+  "limits": [
+    "The 9% case starts after a reload; the 12% case starts directly from the same paused city state.",
+    "This is one pair of runs of about ten in-game days, with a small difference in observation times."
+  ]
+}
