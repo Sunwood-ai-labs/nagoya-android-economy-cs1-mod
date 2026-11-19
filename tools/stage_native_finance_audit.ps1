@@ -2,10 +2,18 @@
 param(
     [Parameter(Mandatory)][ValidatePattern('^NagoyaCitywide-[\w.-]+$')][string]$CheckpointName,
     [Parameter(Mandatory)][ValidatePattern('^[a-fA-F0-9]{64}$')][string]$CheckpointSha256,
+    [ValidateRange(50, 150)][int]$ElectricityBudgetPercent,
+    [ValidateRange(50, 150)][int]$ExpectedElectricityDay,
+    [ValidateRange(50, 150)][int]$ExpectedElectricityNight,
     [string]$Bridge = 'http://127.0.0.1:32123'
 )
 
 $ErrorActionPreference = 'Stop'
+$change = $PSBoundParameters.ContainsKey('ElectricityBudgetPercent')
+if ($change -and ($CheckpointName -cnotlike 'NagoyaCitywide-PowerBudgetTrial-*' -or
+    !$PSBoundParameters.ContainsKey('ExpectedElectricityDay') -or !$PSBoundParameters.ContainsKey('ExpectedElectricityNight'))) {
+    throw 'An electricity budget change requires the named trial checkpoint and both expected values.'
+}
 $root = 'H:/CS1-PLATEAU/nagoya-station/citywide-zoning-v3'
 $finance = Get-Content -LiteralPath (Join-Path $root 'finance-runtime.json') -Raw | ConvertFrom-Json
 $live = Invoke-RestMethod "$Bridge/state/summary" -TimeoutSec 6
@@ -31,6 +39,13 @@ $request = @{
     cityName = $finance.cityName
     buildIndex = $live.buildIndex
     segments = $live.network.segments
+}
+if ($change) {
+    $request.electricityBudget = @{
+        percent = $ElectricityBudgetPercent
+        expectedDay = $ExpectedElectricityDay
+        expectedNight = $ExpectedElectricityNight
+    }
 }
 $temporary = "$destination.$($request.commandId).tmp"
 [IO.File]::WriteAllText($temporary, ($request | ConvertTo-Json -Compress), [Text.UTF8Encoding]::new($false))

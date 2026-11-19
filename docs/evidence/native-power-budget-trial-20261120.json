@@ -1,0 +1,104 @@
+{
+  "sourceCheckpoint": {
+    "name": "NagoyaCitywide-NewStoresExistingWorkers-Arrival",
+    "sha256": "574A12F06ACB239D47A65A2C532B7635B94B730B6BB133BFD107A0BFFA338D39",
+    "verifiedUnchanged": true
+  },
+  "trialStartSave": {
+    "name": "NagoyaCitywide-PowerBudgetTrial-Baseline",
+    "sha256": "0D6EDD290BB1EAA71DA2FD60D52832178C991BB24992F6BBE562B3DF91C83297",
+    "length": 15537906
+  },
+  "trialEndSave": {
+    "name": "NagoyaCitywide-PowerBudgetTrial-75",
+    "sha256": "A7A0D43403A572519695E1B5A3EE48D4C55768C5DEA10F9CDA6E26B41BF1FC6F",
+    "length": 15532572,
+    "archiveVerified": true,
+    "reloaded": false
+  },
+  "gameNetwork": {
+    "nodes": 32636,
+    "segments": 32655
+  },
+  "change": {
+    "receiptSha256": "4AA96AF415FC4C43332E4CC56D465F7BDAAFA44D8E187977226130D904D883B8",
+    "day": 75,
+    "night": 75,
+    "commandWritesToCity": true
+  },
+  "elapsedSimulatedSeconds": 1042458.0,
+  "samples": [
+    {
+      "gameTime": "2029-05-07T00:50:40",
+      "buildIndex": 124699,
+      "lastCashDelta": -70958.29,
+      "electricityExpenses": 29574.88,
+      "electricity": {
+        "previousDayBudgetPercent": 100,
+        "previousNightBudgetPercent": 100,
+        "dayBudgetPercent": 100,
+        "nightBudgetPercent": 100,
+        "capacityKW": 669696,
+        "consumptionKW": 244064,
+        "existingBuildingsByUse": {
+          "Office": 1795,
+          "Industrial": 1505,
+          "Residential": 3509,
+          "Commercial": 1699
+        },
+        "activeBuildingsByUse": {
+          "Office": 178,
+          "Industrial": 1402,
+          "Residential": 3342,
+          "Commercial": 1203
+        },
+        "buildingsWithElectricityProblemByUse": {
+          "Industrial": 6,
+          "Residential": 1,
+          "Office": 2,
+          "Commercial": 1
+        }
+      }
+    },
+    {
+      "gameTime": "2029-05-19T02:24:58",
+      "buildIndex": 124742,
+      "lastCashDelta": -69316.18,
+      "electricityExpenses": 27554.88,
+      "electricity": {
+        "previousDayBudgetPercent": 75,
+        "previousNightBudgetPercent": 75,
+        "dayBudgetPercent": 75,
+        "nightBudgetPercent": 75,
+        "capacityKW": 393248,
+        "consumptionKW": 239088,
+        "existingBuildingsByUse": {
+          "Office": 1795,
+          "Industrial": 1505,
+          "Residential": 3509,
+          "Commercial": 1699
+        },
+        "activeBuildingsByUse": {
+          "Office": 178,
+          "Industrial": 1401,
+          "Residential": 3331,
+          "Commercial": 1192
+        },
+        "buildingsWithElectricityProblemByUse": {
+          "Industrial": 6,
+          "Residential": 1,
+          "Office": 2,
+          "Commercial": 1
+        }
+      }
+    }
+  ],
+  "civicReadbackDuringTrial": {
+    "nativeFacilities": 32,
+    "activeFacilities": 32,
+    "withoutReportedProblems": 13,
+    "withGarbageWarnings": 17,
+    "wards": 16,
+    "linkedPlateauSourceIds": 397.0
+  }
+}
