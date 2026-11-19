@@ -14,7 +14,10 @@ param(
     [switch]$ShareMixedHouseholds,
     [uint32[]]$CommuteAuditIds,
     [switch]$TestLongWalkCommutes,
-    [string]$PedestrianLinksFile
+    [string]$PedestrianLinksFile,
+    [string]$PedestrianLegsFile,
+    [switch]$LoadCheckpointFromMenu,
+    [switch]$LinkWithRoadSidewalks
 )
 
 $ErrorActionPreference = 'Stop'
@@ -27,7 +30,8 @@ if (($ShareAndroidHouseholds -and $ShareMixedHouseholds) -or (($ShareAndroidHous
 $data = "$env:LOCALAPPDATA/Colossal Order/Cities_Skylines"
 $save = Join-Path $data "Saves/$CheckpointName.crp"
 $resume = Get-Content -LiteralPath (Join-Path $data 'continue_game.json') -Raw | ConvertFrom-Json
-if ($resume.title -cne $CheckpointName -or (Get-FileHash -LiteralPath $save).Hash -ne $CheckpointSha256) {
+if ((!$LoadCheckpointFromMenu -and $resume.title -cne $CheckpointName) -or
+    (Get-FileHash -LiteralPath $save).Hash -ne $CheckpointSha256) {
     throw 'The game must resume the verified employment trial checkpoint.'
 }
 
@@ -56,12 +60,21 @@ if ($PSBoundParameters.ContainsKey('CommuteAuditIds')) {
     $request.commuteAuditIds = $CommuteAuditIds
 }
 if ($TestLongWalkCommutes) { $request.testLongWalkCommutes = $true }
+if ($LinkWithRoadSidewalks -and !$PedestrianLinksFile) { throw 'Specify anchors in PedestrianLinksFile.' }
+if ($LinkWithRoadSidewalks) { $request.linkWithRoadSidewalks = $true }
 if ($PedestrianLinksFile) {
     $links = Get-Content -LiteralPath $PedestrianLinksFile -Raw | ConvertFrom-Json -NoEnumerate
     if ($links.Count -lt 1 -or $links.Count -gt 24 -or @($links | Where-Object { $_.Count -ne 2 }).Count) {
         throw 'Provide 1–24 pairs of existing road node IDs as a JSON array.'
     }
     $request.pedestrianLinks = $links
+}
+if ($PedestrianLegsFile) {
+    $legs = Get-Content -LiteralPath $PedestrianLegsFile -Raw | ConvertFrom-Json -NoEnumerate
+    if ($legs.Count -lt 1 -or $legs.Count -gt 24 -or @($legs | Where-Object { $_.Count -ne 2 }).Count) {
+        throw 'Provide 1–24 pairs of existing road segment IDs as a JSON array.'
+    }
+    $request.pedestrianLegs = $legs
 }
 
 $destination = Join-Path $root 'native-employment-trial.json'

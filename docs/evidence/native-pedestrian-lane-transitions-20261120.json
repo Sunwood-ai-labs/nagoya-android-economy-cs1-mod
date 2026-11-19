@@ -1,0 +1,254 @@
+{
+  "caseId": "jan04-pedestrian-lane-transitions",
+  "gameTime": "2030-01-04T09:06:53",
+  "save": {
+    "name": "NagoyaCitywide-EmploymentTrial-PedestrianLink208m-Test",
+    "sha256": "2C39D76E2CF022727EC13687C52412F82CD155FD31114C875FE1B18886972276",
+    "bytes": 15376196,
+    "buildIndex": 126144,
+    "gameTime": "2030-01-04T08:58:47",
+    "nodes": 32700,
+    "segments": 32720,
+    "resume": "NagoyaCitywide-EmploymentTrial-MixedHouseholds220-Observed"
+  },
+  "modSha256": "830A7ED6FBFC2594A8B49B5D74EDC101606ED9494DF4E40C725D0D5BD6474E98",
+  "nativeReceiptSha256": "5E606EFBF649ABA4233F201942EC7D4921A5E7BEA0ED27FE852E7626CFEA0E79",
+  "legs": [
+    {
+      "fromSegment": 6471,
+      "toSegment": 6471,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 0.01,
+        "segments": [
+          6471
+        ],
+        "segmentListComplete": true
+      }
+    },
+    {
+      "fromSegment": 33818,
+      "toSegment": 33818,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 0.01,
+        "segments": [
+          33818
+        ],
+        "segmentListComplete": true
+      }
+    },
+    {
+      "fromSegment": 12139,
+      "toSegment": 12139,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 0.01,
+        "segments": [
+          12139
+        ],
+        "segmentListComplete": true
+      }
+    },
+    {
+      "fromSegment": 30503,
+      "toSegment": 30503,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 0.01,
+        "segments": [
+          30503
+        ],
+        "segmentListComplete": true
+      }
+    },
+    {
+      "fromSegment": 6471,
+      "toSegment": 35544,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 59.3702,
+        "segments": [
+          6471,
+          6849,
+          9354,
+          2305,
+          27174,
+          35544
+        ],
+        "segmentListComplete": true
+      }
+    },
+    {
+      "fromSegment": 35544,
+      "toSegment": 6471,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 68.53903,
+        "segments": [
+          35544,
+          27174,
+          2305,
+          9354,
+          6849,
+          6471
+        ],
+        "segmentListComplete": true
+      }
+    },
+    {
+      "fromSegment": 35544,
+      "toSegment": 12139,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 12139,
+      "toSegment": 35544,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 178,
+      "toSegment": 12139,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 12139,
+      "toSegment": 178,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 12139,
+      "toSegment": 30503,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 39.65574,
+        "segments": [
+          12139,
+          30503
+        ],
+        "segmentListComplete": true
+      }
+    },
+    {
+      "fromSegment": 30503,
+      "toSegment": 12139,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 42.8251,
+        "segments": [
+          30503,
+          12139
+        ],
+        "segmentListComplete": true
+      }
+    },
+    {
+      "fromSegment": 30503,
+      "toSegment": 33818,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 33818,
+      "toSegment": 30503,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 30503,
+      "toSegment": 15946,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 15946,
+      "toSegment": 30503,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 6471,
+      "toSegment": 33818,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 33818,
+      "toSegment": 6471,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 6471,
+      "toSegment": 12139,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 12139,
+      "toSegment": 6471,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 6471,
+      "toSegment": 30503,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 30503,
+      "toSegment": 6471,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 12139,
+      "toSegment": 33818,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    },
+    {
+      "fromSegment": 33818,
+      "toSegment": 12139,
+      "path": {
+        "result": "failed",
+        "lengthMeters": null
+      }
+    }
+  ]
+}

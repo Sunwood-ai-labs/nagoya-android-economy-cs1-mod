@@ -16,7 +16,7 @@ namespace NagoyaRoadDelivery
         private const int RequiredLaneHeadroom = 128;
         [ThreadStatic] private static bool allowReservedCapacity;
 
-        internal static object CreateFirstValid(ushort[][] candidates)
+        internal static object CreateFirstValid(ushort[][] candidates, bool roadWithSidewalks)
         {
             NetManager net = NetManager.instance;
             bool useReserve = !net.CheckLimits() && HasHeadroom(net);
@@ -31,7 +31,7 @@ namespace NagoyaRoadDelivery
                 }
                 return new Dictionary<string, object> {
                     {"usedReservedCapacity",useReserve}, {"nodeCountBefore",net.m_nodeCount},
-                    {"nodeBufferCapacity",net.m_nodes.m_buffer.Length}, {"result",BuildFirstValid(net,candidates)}
+                    {"nodeBufferCapacity",net.m_nodes.m_buffer.Length}, {"result",BuildFirstValid(net,candidates,roadWithSidewalks)}
                 };
             }
             finally
@@ -53,9 +53,10 @@ namespace NagoyaRoadDelivery
                 net.m_lanes.m_buffer.Length - net.m_laneCount >= RequiredLaneHeadroom;
         }
 
-        private static object BuildFirstValid(NetManager net, ushort[][] candidates)
+        private static object BuildFirstValid(NetManager net, ushort[][] candidates, bool roadWithSidewalks)
         {
-            NetInfo pavement = PrefabCollection<NetInfo>.FindLoaded("Pedestrian Pavement");
+            string prefab = roadWithSidewalks ? "Basic Road" : "Pedestrian Pavement";
+            NetInfo pavement = PrefabCollection<NetInfo>.FindLoaded(prefab);
             if (pavement == null) throw new InvalidOperationException("The pedestrian pavement prefab is unavailable");
             var attempts = new List<object>(candidates.Length);
             var buffer = new FastList<NetTool.NodePosition>();
@@ -99,10 +100,10 @@ namespace NagoyaRoadDelivery
                 entry["segmentsAdded"] = net.m_segmentCount - before;
                 return new Dictionary<string, object> {
                     {"connected",errors == ToolBase.ToolErrors.None && firstNode == from && lastNode == to && net.m_segmentCount > before},
-                    {"attempts",attempts}
+                    {"prefab",prefab}, {"attempts",attempts}
                 };
             }
-            return new Dictionary<string, object> {{"connected",false},{"attempts",attempts}};
+            return new Dictionary<string, object> {{"connected",false},{"prefab",prefab},{"attempts",attempts}};
         }
 
         private static bool RoadAnchor(NetNode node)

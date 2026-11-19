@@ -26,9 +26,12 @@ namespace NagoyaRoadDelivery
         public bool ShareAndroidHouseholds, ShareMixedHouseholds;
         public uint[] CommuteAuditIds;
         public ushort[][] PedestrianLinks;
+        public ushort[][] PedestrianLegs;
         public object PedestrianLinkResult;
+        public bool LinkWithRoadSidewalks;
         public bool TestLongWalkCommutes;
         public NativeCommuteRouteAudit CommuteAudit;
+        public NativePedestrianLegAudit PedestrianLegAudit;
         public List<Dictionary<string, object>> SharedHouseholdAdmissions;
         public long OpeningCreditRaw;
         public Dictionary<string, object> OpeningEconomy;
@@ -78,7 +81,12 @@ namespace NagoyaRoadDelivery
                     throw new FormatException("Select one household sharing mode with additional Android residents");
                 int? openingCash = funded ? (int?)ReadInt(values, "openingCash", 100000, 5000000) : null;
                 uint[] commuteAuditIds = ReadCommuteAuditIds(values);
-                ushort[][] pedestrianLinks = ReadPedestrianLinks(values);
+                ushort[][] pedestrianLinks = ReadPairs(values, "pedestrianLinks", NativePedestrianLink.MaxCandidates, false);
+                ushort[][] pedestrianLegs = ReadPairs(values, "pedestrianLegs", NativePedestrianLegAudit.MaxLegs, true);
+                object linkWithRoad;
+                bool linkWithRoadSidewalks = values.TryGetValue("linkWithRoadSidewalks", out linkWithRoad) && (bool)linkWithRoad;
+                if (linkWithRoadSidewalks && pedestrianLinks == null)
+                    throw new FormatException("Specify anchors for the road with sidewalks");
                 object longWalk;
                 bool testLongWalk = values.TryGetValue("testLongWalkCommutes", out longWalk) && (bool)longWalk;
                 if (testLongWalk && commuteAuditIds == null)
@@ -89,7 +97,7 @@ namespace NagoyaRoadDelivery
                     CaseId=id, AdditionalResidents=additional, Hours=hours, OpeningCash=openingCash,
                     NormalEconomy=normalEconomy, Speed=normalEconomy ? 2 : 1, ShareAndroidHouseholds=shareAndroidHouseholds,
                     ShareMixedHouseholds=shareMixedHouseholds, CommuteAuditIds=commuteAuditIds, TestLongWalkCommutes=testLongWalk,
-                    PedestrianLinks=pedestrianLinks
+                    PedestrianLinks=pedestrianLinks, PedestrianLegs=pedestrianLegs, LinkWithRoadSidewalks=linkWithRoadSidewalks
                 };
             }
             catch (Exception error)
@@ -99,26 +107,26 @@ namespace NagoyaRoadDelivery
             }
         }
 
-        private static ushort[][] ReadPedestrianLinks(Dictionary<string, object> values)
+        private static ushort[][] ReadPairs(Dictionary<string, object> values, string key, int maximum, bool allowSameId)
         {
             object value;
-            if (!values.TryGetValue("pedestrianLinks", out value)) return null;
+            if (!values.TryGetValue(key, out value)) return null;
             var candidates = (List<object>)value;
-            if (candidates.Count == 0 || candidates.Count > NativePedestrianLink.MaxCandidates)
-                throw new FormatException("Invalid count of pedestrian link candidates");
+            if (candidates.Count == 0 || candidates.Count > maximum)
+                throw new FormatException("Invalid pair count: " + key);
             var pairs = new List<ushort[]>(candidates.Count);
             foreach (List<object> candidate in candidates)
             {
-                if (candidate.Count != 2) throw new FormatException("A pedestrian link needs exactly two node IDs");
+                if (candidate.Count != 2) throw new FormatException("Expected two IDs: " + key);
                 var pair = new ushort[2];
                 for (int i = 0; i < pair.Length; i++)
                 {
                     double id = (double)candidate[i];
                     if (id < 1 || id > ushort.MaxValue || Math.Floor(id) != id)
-                        throw new FormatException("Invalid pedestrian link node ID");
+                        throw new FormatException("Invalid native ID: " + key);
                     pair[i] = (ushort)id;
                 }
-                if (pair[0] == pair[1]) throw new FormatException("A pedestrian link must connect different nodes");
+                if (!allowSameId && pair[0] == pair[1]) throw new FormatException("Expected distinct IDs: " + key);
                 pairs.Add(pair);
             }
             return pairs.ToArray();
@@ -223,10 +231,17 @@ namespace NagoyaRoadDelivery
             if (ShareMixedHouseholds) result["sharedHouseholdMode"] = "existingMixedHousehold";
             if (CommuteAudit != null) result["commuteRouteAudit"] = CommuteAudit.Finish();
             if (PedestrianLinkResult != null) result["pedestrianLink"] = PedestrianLinkResult;
+            if (PedestrianLegAudit != null) result["pedestrianLegAudit"] = PedestrianLegAudit.Finish();
             string path = Path.Combine(NativeCityRoadBuilder.Root, "native-employment-" + CaseId + ".json");
             string pending = path + ".tmp";
             File.WriteAllText(pending, JsonData.Stringify(result), new UTF8Encoding(false));
             File.Move(pending, path);
+        }
+
+        internal void DisposeAudits()
+        {
+            if (CommuteAudit != null) CommuteAudit.Dispose();
+            if (PedestrianLegAudit != null) PedestrianLegAudit.Dispose();
         }
     }
 }

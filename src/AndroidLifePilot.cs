@@ -252,7 +252,8 @@ namespace NagoyaRoadDelivery
                 }
                 catch (Exception ex)
                 {
-                    if (employmentTrial != null && employmentTrial.CommuteAudit != null) employmentTrial.CommuteAudit.Dispose();
+                    NativeEmploymentTrial failed = employmentTrial;
+                    if (failed != null) failed.DisposeAudits();
                     employmentTrial = null;
                     Debug.LogException(ex);
                 }
@@ -604,7 +605,9 @@ namespace NagoyaRoadDelivery
             trial.Deadline = DateTime.UtcNow.AddSeconds(trial.NormalEconomy ? 300 : 90);
             caseId = trial.CaseId;
             trial.Baseline = Observe(trial.Start).Json;
-            if (trial.PedestrianLinks != null) trial.PedestrianLinkResult = NativePedestrianLink.CreateFirstValid(trial.PedestrianLinks);
+            if (trial.PedestrianLinks != null)
+                trial.PedestrianLinkResult = NativePedestrianLink.CreateFirstValid(trial.PedestrianLinks, trial.LinkWithRoadSidewalks);
+            if (trial.PedestrianLegs != null) trial.PedestrianLegAudit = new NativePedestrianLegAudit(trial.PedestrianLegs);
             trial.OpeningCapacity = NativeCityRoster.AuditCapacity();
             int additional = Math.Min(NativeCityLedger.MaxResidents - cohort.Count, trial.AdditionalResidents);
             if (trial.ShareAndroidHouseholds || trial.ShareMixedHouseholds)
@@ -655,7 +658,7 @@ namespace NagoyaRoadDelivery
             {
                 trial.Running = false;
                 sim.SimulationPaused = true;
-                if (trial.CommuteAudit != null) trial.CommuteAudit.Dispose();
+                trial.DisposeAudits();
                 life.employmentTrial = null;
                 Debug.LogException(issue);
             }
@@ -1151,7 +1154,8 @@ namespace NagoyaRoadDelivery
 
         public void OnDestroy()
         {
-            if (employmentTrial != null && employmentTrial.CommuteAudit != null) employmentTrial.CommuteAudit.Dispose();
+            NativeEmploymentTrial pendingTrial = employmentTrial;
+            if (pendingTrial != null) pendingTrial.DisposeAudits();
             if (active == this) active = null;
             if (renderer == this) renderer = null;
             if (renderPatch != null) renderPatch.UnpatchAll(RenderPatchId);

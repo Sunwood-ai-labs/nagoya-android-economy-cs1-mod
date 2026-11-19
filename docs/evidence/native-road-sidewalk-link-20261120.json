@@ -1,0 +1,958 @@
+{
+  "checkpoint": {
+    "sha256": "9F4DCFBDDA74FE71B31CCBAC78D973D20598F84242F34E06D0F4DC67A292BA60",
+    "name": "NagoyaCitywide-EmploymentTrial-MixedHouseholds220-Observed",
+    "parentPreserved": true,
+    "segments": 32718,
+    "gameTime": "2030-01-01T08:57:59",
+    "bytes": 15373629,
+    "buildIndex": 126124,
+    "parent": "NagoyaCitywide-EmploymentTrial-SharedHomesObserved"
+  },
+  "modSha256": "DCA15FEDA34514F75B0AAC6621BB900B423988E54BDEE564116BECB037D30F3F",
+  "matchedWindow": {
+    "startFrame": 55295666,
+    "endFrame": 55297422,
+    "startTicks": "640290855288267276",
+    "endTicks": "640293448132017276",
+    "durationHours": 72
+  },
+  "control": {
+    "caseId": "jan01-native-commute-route-audit-72h",
+    "target": {
+      "route": {
+        "citizenId": 272270,
+        "frame": 55296303,
+        "from": 33828,
+        "to": 30040,
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      "end": {
+        "citizenId": 272270,
+        "homeBuilding": 33828,
+        "workBuilding": 30040,
+        "location": "Moving",
+        "nativeWorkArrivals": 0
+      }
+    },
+    "observation": {
+      "androidsWithWorkArrival": 21,
+      "androidResidents": 753,
+      "androidWorkRegistrations": 715,
+      "humanWorkRegistrations": 4340,
+      "completedDeliveries": 8
+    },
+    "receiptSha256": "618E2CACF5D0D61674E541BF6283E69A48C426232291E8103E51184388D1B718"
+  },
+  "initialRoadTrial": {
+    "caseId": "jan01-road-sidewalk-link-72h",
+    "construction": {
+      "usedReservedCapacity": true,
+      "nodeCountBefore": 32699,
+      "nodeBufferCapacity": 32768,
+      "result": {
+        "connected": false,
+        "prefab": "Basic Road",
+        "attempts": [
+          {
+            "fromNode": 22948,
+            "toNode": 11953,
+            "lengthMeters": 184.9775,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 22948,
+            "toNode": 17459,
+            "lengthMeters": 186.4276,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 30090,
+            "toNode": 17459,
+            "lengthMeters": 187.2631,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 96000
+          },
+          {
+            "fromNode": 13122,
+            "toNode": 17459,
+            "lengthMeters": 187.3576,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 96000
+          },
+          {
+            "fromNode": 11612,
+            "toNode": 32148,
+            "lengthMeters": 171.8489,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 88000
+          },
+          {
+            "fromNode": 13222,
+            "toNode": 32148,
+            "lengthMeters": 172.5538,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 88000
+          },
+          {
+            "fromNode": 30962,
+            "toNode": 32148,
+            "lengthMeters": 173.3199,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 88000
+          },
+          {
+            "fromNode": 23992,
+            "toNode": 32148,
+            "lengthMeters": 173.6745,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 88000
+          },
+          {
+            "fromNode": 8417,
+            "toNode": 32148,
+            "lengthMeters": 173.9371,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 88000
+          },
+          {
+            "fromNode": 13122,
+            "toNode": 32148,
+            "lengthMeters": 176.5942,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 88000
+          },
+          {
+            "fromNode": 26942,
+            "toNode": 32148,
+            "lengthMeters": 178.5808,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 88000
+          },
+          {
+            "fromNode": 22948,
+            "toNode": 32148,
+            "lengthMeters": 179.9622,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 23992,
+            "toNode": 6006,
+            "lengthMeters": 181.9639,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 11612,
+            "toNode": 6006,
+            "lengthMeters": 182.7187,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 30962,
+            "toNode": 6006,
+            "lengthMeters": 182.8996,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 13122,
+            "toNode": 20531,
+            "lengthMeters": 183.5022,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 23992,
+            "toNode": 11953,
+            "lengthMeters": 183.7928,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 13122,
+            "toNode": 8004,
+            "lengthMeters": 184.6566,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 13222,
+            "toNode": 6006,
+            "lengthMeters": 185.0443,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 4870,
+            "toNode": 32148,
+            "lengthMeters": 185.263,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 22948,
+            "toNode": 6006,
+            "lengthMeters": 185.7518,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 30962,
+            "toNode": 11953,
+            "lengthMeters": 186.1385,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 30090,
+            "toNode": 32148,
+            "lengthMeters": 186.3085,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 8417,
+            "toNode": 6006,
+            "lengthMeters": 187.3281,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 96000
+          }
+        ]
+      }
+    },
+    "target": {
+      "route": {
+        "citizenId": 272270,
+        "frame": 55296303,
+        "from": 33828,
+        "to": 30040,
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      "end": {
+        "citizenId": 272270,
+        "homeBuilding": 33828,
+        "workBuilding": 30040,
+        "location": "Moving",
+        "nativeWorkArrivals": 0
+      }
+    },
+    "independentPedestrianLegs": [
+      {
+        "fromSegment": 6471,
+        "toSegment": 33818,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 33818,
+        "toSegment": 6471,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 6471,
+        "toSegment": 35544,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 62.62581,
+          "segments": [
+            6471,
+            6849,
+            9354,
+            2305,
+            27174,
+            35544
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 33818,
+        "toSegment": 15946,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 4.621291,
+          "segments": [
+            33818,
+            15946
+          ],
+          "segmentListComplete": true
+        }
+      }
+    ],
+    "observation": {
+      "androidsWithWorkArrival": 21,
+      "androidResidents": 755,
+      "androidWorkRegistrations": 717,
+      "humanWorkRegistrations": 4348,
+      "completedDeliveries": 8
+    },
+    "receiptSha256": "F620B5B1F7A43DD1784D95065D13A66E5D280634462E780520E9E4B22209E25B"
+  },
+  "rankedRoadTrial": {
+    "caseId": "jan01-ranked-road-sidewalk-link-72h",
+    "construction": {
+      "usedReservedCapacity": true,
+      "nodeCountBefore": 32699,
+      "nodeBufferCapacity": 32768,
+      "result": {
+        "connected": false,
+        "prefab": "Basic Road",
+        "attempts": [
+          {
+            "fromNode": 20500,
+            "toNode": 32148,
+            "lengthMeters": 173.4266,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 88000
+          },
+          {
+            "fromNode": 14898,
+            "toNode": 32148,
+            "lengthMeters": 174.8197,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 88000
+          },
+          {
+            "fromNode": 23992,
+            "toNode": 20531,
+            "lengthMeters": 182.5027,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 20500,
+            "toNode": 6006,
+            "lengthMeters": 183.4252,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 13122,
+            "toNode": 6006,
+            "lengthMeters": 183.4995,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 13122,
+            "toNode": 11953,
+            "lengthMeters": 183.8676,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 30962,
+            "toNode": 20531,
+            "lengthMeters": 183.9602,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 11612,
+            "toNode": 20531,
+            "lengthMeters": 184.334,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 20500,
+            "toNode": 20531,
+            "lengthMeters": 184.6612,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 16914,
+            "toNode": 1646,
+            "lengthMeters": 184.758,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 16914,
+            "toNode": 11959,
+            "lengthMeters": 184.8703,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 16914,
+            "toNode": 4271,
+            "lengthMeters": 184.9257,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 22948,
+            "toNode": 8004,
+            "lengthMeters": 185.0638,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 14460,
+            "toNode": 11959,
+            "lengthMeters": 185.2855,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 22948,
+            "toNode": 20531,
+            "lengthMeters": 185.3378,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 14460,
+            "toNode": 24556,
+            "lengthMeters": 185.3876,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 16914,
+            "toNode": 24556,
+            "lengthMeters": 185.4625,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 23992,
+            "toNode": 8004,
+            "lengthMeters": 185.4661,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 14460,
+            "toNode": 1646,
+            "lengthMeters": 185.8152,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 14460,
+            "toNode": 17459,
+            "lengthMeters": 185.994,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 6610,
+            "toNode": 32148,
+            "lengthMeters": 183.1066,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 14460,
+            "toNode": 4271,
+            "lengthMeters": 186.6507,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 16914,
+            "toNode": 17459,
+            "lengthMeters": 186.9817,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          },
+          {
+            "fromNode": 20500,
+            "toNode": 11953,
+            "lengthMeters": 187.1363,
+            "preflight": "ObjectCollision",
+            "estimatedCostRaw": 92000
+          }
+        ]
+      }
+    },
+    "target": {
+      "route": {
+        "citizenId": 272270,
+        "frame": 55296303,
+        "from": 33828,
+        "to": 30040,
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      "end": {
+        "citizenId": 272270,
+        "homeBuilding": 33828,
+        "workBuilding": 30040,
+        "location": "Moving",
+        "nativeWorkArrivals": 0
+      }
+    },
+    "independentPedestrianLegs": [
+      {
+        "fromSegment": 6471,
+        "toSegment": 33818,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 33818,
+        "toSegment": 6471,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 6471,
+        "toSegment": 35544,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 62.62581,
+          "segments": [
+            6471,
+            6849,
+            9354,
+            2305,
+            27174,
+            35544
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 33818,
+        "toSegment": 15946,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 4.621291,
+          "segments": [
+            33818,
+            15946
+          ],
+          "segmentListComplete": true
+        }
+      }
+    ],
+    "observation": {
+      "androidsWithWorkArrival": 21,
+      "androidResidents": 755,
+      "androidWorkRegistrations": 717,
+      "humanWorkRegistrations": 4342,
+      "completedDeliveries": 8
+    },
+    "receiptSha256": "37238B39A915B61137DFB46E08D8C51D0B675B6B3D10846D4E14F803AFD6CF34",
+    "candidateSelection": {
+      "nodesRead": 43,
+      "groups": [
+        [
+          4870,
+          6060,
+          6610,
+          7651,
+          8417,
+          11612,
+          13122,
+          13222,
+          14460,
+          14898,
+          15932,
+          16914,
+          20500,
+          20946,
+          22948,
+          23992,
+          26942,
+          29171,
+          30090,
+          30962
+        ],
+        [
+          1646,
+          4271,
+          6006,
+          6694,
+          7354,
+          8004,
+          8432,
+          11953,
+          11959,
+          12213,
+          13210,
+          14709,
+          17459,
+          20531,
+          20894,
+          21087,
+          21466,
+          22373,
+          24556,
+          24813,
+          26841,
+          29899,
+          32148
+        ]
+      ],
+      "commonNodes": [],
+      "candidateCount": 194,
+      "candidates": [
+        {
+          "fromNode": 20500,
+          "toNode": 32148,
+          "distance": 173.427,
+          "knownCrossings": 0,
+          "overlapCosine": 0.15441,
+          "ends": [
+            2,
+            1
+          ],
+          "rank": 173.427
+        },
+        {
+          "fromNode": 14898,
+          "toNode": 32148,
+          "distance": 174.82,
+          "knownCrossings": 0,
+          "overlapCosine": 0.16387,
+          "ends": [
+            2,
+            1
+          ],
+          "rank": 174.82
+        },
+        {
+          "fromNode": 23992,
+          "toNode": 20531,
+          "distance": 182.503,
+          "knownCrossings": 0,
+          "overlapCosine": 0.11592,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 182.503
+        },
+        {
+          "fromNode": 20500,
+          "toNode": 6006,
+          "distance": 183.425,
+          "knownCrossings": 0,
+          "overlapCosine": 0.21932,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 183.425
+        },
+        {
+          "fromNode": 13122,
+          "toNode": 6006,
+          "distance": 183.5,
+          "knownCrossings": 0,
+          "overlapCosine": 0.13299,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 183.5
+        },
+        {
+          "fromNode": 13122,
+          "toNode": 11953,
+          "distance": 183.868,
+          "knownCrossings": 0,
+          "overlapCosine": 0.06473,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 183.868
+        },
+        {
+          "fromNode": 30962,
+          "toNode": 20531,
+          "distance": 183.96,
+          "knownCrossings": 0,
+          "overlapCosine": 0.21371,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 183.96
+        },
+        {
+          "fromNode": 11612,
+          "toNode": 20531,
+          "distance": 184.334,
+          "knownCrossings": 0,
+          "overlapCosine": 0.31746,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 184.334
+        },
+        {
+          "fromNode": 20500,
+          "toNode": 20531,
+          "distance": 184.661,
+          "knownCrossings": 0,
+          "overlapCosine": 0.24651,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 184.661
+        },
+        {
+          "fromNode": 16914,
+          "toNode": 1646,
+          "distance": 184.758,
+          "knownCrossings": 0,
+          "overlapCosine": 0.0029,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 184.758
+        },
+        {
+          "fromNode": 16914,
+          "toNode": 11959,
+          "distance": 184.87,
+          "knownCrossings": 0,
+          "overlapCosine": 0.03497,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 184.87
+        },
+        {
+          "fromNode": 16914,
+          "toNode": 4271,
+          "distance": 184.926,
+          "knownCrossings": 0,
+          "overlapCosine": 0.04268,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 184.926
+        },
+        {
+          "fromNode": 22948,
+          "toNode": 8004,
+          "distance": 185.064,
+          "knownCrossings": 0,
+          "overlapCosine": 0.06734,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 185.064
+        },
+        {
+          "fromNode": 14460,
+          "toNode": 11959,
+          "distance": 185.285,
+          "knownCrossings": 0,
+          "overlapCosine": 0.07027,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 185.285
+        },
+        {
+          "fromNode": 22948,
+          "toNode": 20531,
+          "distance": 185.338,
+          "knownCrossings": 0,
+          "overlapCosine": 0.16424,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 185.338
+        },
+        {
+          "fromNode": 14460,
+          "toNode": 24556,
+          "distance": 185.387,
+          "knownCrossings": 0,
+          "overlapCosine": 0.04145,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 185.387
+        },
+        {
+          "fromNode": 16914,
+          "toNode": 24556,
+          "distance": 185.462,
+          "knownCrossings": 0,
+          "overlapCosine": 0.12493,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 185.462
+        },
+        {
+          "fromNode": 23992,
+          "toNode": 8004,
+          "distance": 185.466,
+          "knownCrossings": 0,
+          "overlapCosine": 0.21146,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 185.466
+        },
+        {
+          "fromNode": 14460,
+          "toNode": 1646,
+          "distance": 185.815,
+          "knownCrossings": 0,
+          "overlapCosine": 0.10775,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 185.815
+        },
+        {
+          "fromNode": 14460,
+          "toNode": 17459,
+          "distance": 185.994,
+          "knownCrossings": 0,
+          "overlapCosine": 0.08729,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 185.994
+        },
+        {
+          "fromNode": 6610,
+          "toNode": 32148,
+          "distance": 183.107,
+          "knownCrossings": 0,
+          "overlapCosine": 0.4837,
+          "ends": [
+            2,
+            1
+          ],
+          "rank": 186.645
+        },
+        {
+          "fromNode": 14460,
+          "toNode": 4271,
+          "distance": 186.651,
+          "knownCrossings": 0,
+          "overlapCosine": 0.14652,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 186.651
+        },
+        {
+          "fromNode": 16914,
+          "toNode": 17459,
+          "distance": 186.982,
+          "knownCrossings": 0,
+          "overlapCosine": 0.17752,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 186.982
+        },
+        {
+          "fromNode": 20500,
+          "toNode": 11953,
+          "distance": 187.136,
+          "knownCrossings": 0,
+          "overlapCosine": 0.29219,
+          "ends": [
+            2,
+            2
+          ],
+          "rank": 187.136
+        }
+      ]
+    }
+  }
+}

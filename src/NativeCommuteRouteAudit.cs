@@ -120,7 +120,7 @@ namespace NagoyaRoadDelivery
             };
         }
 
-        private static object Describe(uint id, string unqueuedReason)
+        internal static object Describe(uint id, string unqueuedReason)
         {
             if (id == 0) return new Dictionary<string, object> {{"result",unqueuedReason}};
             PathUnit unit = PathManager.instance.m_pathUnits.m_buffer[id];
