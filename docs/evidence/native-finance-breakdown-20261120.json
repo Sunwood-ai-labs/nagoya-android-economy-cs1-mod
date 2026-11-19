@@ -1,0 +1,107 @@
+{
+  "checkpoint": {
+    "name": "NagoyaCitywide-NewStoresExistingWorkers-Arrival",
+    "sha256": "574A12F06ACB239D47A65A2C532B7635B94B730B6BB133BFD107A0BFFA338D39",
+    "verifiedUnchanged": true
+  },
+  "gameTime": "2029-05-03T06:15:11",
+  "cityNetwork": {
+    "nodes": 32636,
+    "segments": 32655,
+    "buildIndex": 124682
+  },
+  "sources": [
+    "Game EconomyManager API",
+    "Game economy overview",
+    "Game electricity info view",
+    "Game bankruptcy alert"
+  ],
+  "nativeFinanceReceiptSha256": "40D10B296FFE7FAE380EF08C6BB8D1DFD181B037A9DFE059BFF930AD3E4E7EA4",
+  "writesToCity": false,
+  "internalCashRaw": -764871720,
+  "gameCurrency": {
+    "totalIncome": 34924.5,
+    "totalExpenses": 105773.12,
+    "net": -70848.62,
+    "roadExpenses": 43843.68,
+    "electricityExpenses": 29574.88,
+    "roadAndElectricityExpensePercent": 69.4,
+    "loanExpenses": 0,
+    "policyExpenses": 0,
+    "offeredBailout": 50000
+  },
+  "electricityMW": {
+    "consumption": 240,
+    "generation": 671
+  },
+  "services": [
+    {
+      "service": "Residential",
+      "income": 1265922,
+      "expenses": 0
+    },
+    {
+      "service": "Commercial",
+      "income": 1637555,
+      "expenses": 0
+    },
+    {
+      "service": "Industrial",
+      "income": 536880,
+      "expenses": 0
+    },
+    {
+      "service": "Office",
+      "income": 51893,
+      "expenses": 0
+    },
+    {
+      "service": "Road",
+      "income": 0,
+      "expenses": 4384368
+    },
+    {
+      "service": "Electricity",
+      "income": 0,
+      "expenses": 2957488
+    },
+    {
+      "service": "Water",
+      "income": 0,
+      "expenses": 758976
+    },
+    {
+      "service": "Garbage",
+      "income": 0,
+      "expenses": 576000
+    },
+    {
+      "service": "HealthCare",
+      "income": 0,
+      "expenses": 752000
+    },
+    {
+      "service": "PoliceDepartment",
+      "income": 0,
+      "expenses": 528000
+    },
+    {
+      "service": "Education",
+      "income": 0,
+      "expenses": 256000
+    },
+    {
+      "service": "FireDepartment",
+      "income": 0,
+      "expenses": 280000
+    },
+    {
+      "service": "PublicTransport",
+      "income": 200,
+      "expenses": 84480
+    }
+  ],
+  "startedWithBankruptcyAlert": true,
+  "acceptedBailout": false,
+  "taxRatePercent": 9
+}
