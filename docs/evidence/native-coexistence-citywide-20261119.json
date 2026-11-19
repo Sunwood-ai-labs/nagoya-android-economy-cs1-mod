@@ -1,0 +1,139 @@
+{
+  "utc": "2026-11-19T03:03:02.0980533Z",
+  "gameTime": "2027-01-05T01:20:43",
+  "runId": "20261119T030027242Z",
+  "caseId": "restored-native-residents",
+  "nativeHumanResidents": 2636,
+  "humansWithWorkplace": 1621,
+  "androidIdentities": 419,
+  "androidHomeMembers": 411,
+  "androidWorkMembers": 344,
+  "androidAtWork": 5,
+  "nativeRoads": 13677,
+  "activeNativeZonedSites": 2983,
+  "wardsWithResidentsAndWorkplacesOfBothKinds": 16,
+  "androidsWithConfirmedCommute": 265,
+  "androidsWithObservedWorkArrival": 17,
+  "androidsWithObservedChargeStart": 236,
+  "nativeDeliveries": {
+    "active": 0,
+    "started": 0,
+    "delivered": 0,
+    "stockAdded": 0,
+    "recent": []
+  },
+  "byWard": {
+    "中区": {
+      "activeSites": 109,
+      "humanResidents": 88,
+      "humanWorkers": 58,
+      "androidResidents": 6,
+      "androidWorkers": 7
+    },
+    "中川区": {
+      "activeSites": 248,
+      "humanResidents": 181,
+      "humanWorkers": 143,
+      "androidResidents": 55,
+      "androidWorkers": 31
+    },
+    "中村区": {
+      "activeSites": 187,
+      "humanResidents": 210,
+      "humanWorkers": 100,
+      "androidResidents": 11,
+      "androidWorkers": 16
+    },
+    "北区": {
+      "activeSites": 137,
+      "humanResidents": 147,
+      "humanWorkers": 71,
+      "androidResidents": 13,
+      "androidWorkers": 17
+    },
+    "千種区": {
+      "activeSites": 231,
+      "humanResidents": 267,
+      "humanWorkers": 114,
+      "androidResidents": 10,
+      "androidWorkers": 17
+    },
+    "南区": {
+      "activeSites": 146,
+      "humanResidents": 138,
+      "humanWorkers": 76,
+      "androidResidents": 14,
+      "androidWorkers": 20
+    },
+    "名東区": {
+      "activeSites": 195,
+      "humanResidents": 179,
+      "humanWorkers": 93,
+      "androidResidents": 24,
+      "androidWorkers": 24
+    },
+    "天白区": {
+      "activeSites": 185,
+      "humanResidents": 136,
+      "humanWorkers": 89,
+      "androidResidents": 37,
+      "androidWorkers": 20
+    },
+    "守山区": {
+      "activeSites": 294,
+      "humanResidents": 223,
+      "humanWorkers": 157,
+      "androidResidents": 52,
+      "androidWorkers": 38
+    },
+    "昭和区": {
+      "activeSites": 125,
+      "humanResidents": 128,
+      "humanWorkers": 61,
+      "androidResidents": 9,
+      "androidWorkers": 12
+    },
+    "東区": {
+      "activeSites": 77,
+      "humanResidents": 64,
+      "humanWorkers": 40,
+      "androidResidents": 13,
+      "androidWorkers": 7
+    },
+    "港区": {
+      "activeSites": 355,
+      "humanResidents": 176,
+      "humanWorkers": 231,
+      "androidResidents": 50,
+      "androidWorkers": 50
+    },
+    "熱田区": {
+      "activeSites": 83,
+      "humanResidents": 82,
+      "humanWorkers": 50,
+      "androidResidents": 10,
+      "androidWorkers": 7
+    },
+    "瑞穂区": {
+      "activeSites": 90,
+      "humanResidents": 99,
+      "humanWorkers": 48,
+      "androidResidents": 14,
+      "androidWorkers": 3
+    },
+    "緑区": {
+      "activeSites": 285,
+      "humanResidents": 209,
+      "humanWorkers": 115,
+      "androidResidents": 66,
+      "androidWorkers": 58
+    },
+    "西区": {
+      "activeSites": 218,
+      "humanResidents": 202,
+      "humanWorkers": 131,
+      "androidResidents": 17,
+      "androidWorkers": 15
+    }
+  }
+}

@@ -107,8 +107,29 @@ namespace NagoyaRoadDelivery
                 {"savedRoadReferences",roads.Length}, {"activeNativeRoads",activeRoads},
                 {"savedParcelReferences",lots.Length}, {"activeNativeZonedSites",activeSites.Count},
                 {"invalidOrLostNativeSites",missingLots}, {"wardsWithHumanAndAndroidPopulationAndJobs",workingWards},
+                {"nativeTraffic",CountTraffic()},
                 {"wards",byWard}, {"utc",DateTime.UtcNow.ToString("o",CultureInfo.InvariantCulture)}
             });
+        }
+
+        private static Dictionary<string, object> CountTraffic()
+        {
+            int cars = 0, trucks = 0, buses = 0, other = 0, withPath = 0;
+            Vehicle[] vehicles = VehicleManager.instance.m_vehicles.m_buffer;
+            Vehicle.Flags required = Vehicle.Flags.Created | Vehicle.Flags.Spawned;
+            for (int i = 1; i < vehicles.Length; i++)
+            {
+                Vehicle vehicle = vehicles[i];
+                if ((vehicle.m_flags & required) != required || vehicle.m_leadingVehicle != 0 || vehicle.Info == null) continue;
+                VehicleAI ai = vehicle.Info.m_vehicleAI;
+                if (ai is PassengerCarAI) cars++;
+                else if (ai is CargoTruckAI) trucks++;
+                else if (ai is BusAI) buses++;
+                else { other++; continue; }
+                if (vehicle.m_path != 0) withPath++;
+            }
+            return new Dictionary<string, object> {{"passengerCars",cars}, {"cargoTrucks",trucks},
+                {"buses",buses}, {"otherVehicles",other}, {"roadVehiclesWithNativePath",withPath}};
         }
 
         private static void ObserveLot(NativeCityLedger.Lot lot, Ward ward, HashSet<ushort> activeSites)

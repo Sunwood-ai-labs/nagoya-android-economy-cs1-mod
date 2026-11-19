@@ -21,6 +21,8 @@ namespace NagoyaRoadDelivery
         private static AndroidLifePilot active;
         private Harmony renderPatch;
         private Harmony lifecyclePatch;
+        private NativeAndroidDeliveries localDeliveries;
+        private NativePopulationCard populationCard;
         private readonly Dictionary<uint, Resident> cohort = new Dictionary<uint, Resident>();
         private volatile uint[] residents = new uint[0];
         private readonly Dictionary<uint, object> visuals = new Dictionary<uint, object>();
@@ -47,7 +49,7 @@ namespace NagoyaRoadDelivery
 
         private sealed class Sample
         {
-            public string Json, Hud;
+            public string Json, Hud, PopulationText;
         }
 
         internal void Initialize(CitywideScene host, string data, string id)
@@ -73,6 +75,13 @@ namespace NagoyaRoadDelivery
                 Debug.LogException(ex);
             }
             InstallLifecycleTracking();
+            if (root == NativeCityRoadBuilder.Root)
+            {
+                try { localDeliveries = new NativeAndroidDeliveries(); }
+                catch (Exception ex) { Debug.LogException(ex); }
+                try { populationCard = new NativePopulationCard(); }
+                catch (Exception ex) { Debug.LogException(ex); }
+            }
         }
 
         private void InstallLifecycleTracking()
@@ -99,6 +108,7 @@ namespace NagoyaRoadDelivery
             AndroidLifePilot life = active;
             if (life == null || !life.cohort.Remove(__0)) return;
             NativeCityLedger.RemoveAndroid(__0);
+            if (life.localDeliveries != null) life.localDeliveries.EndTrip(__0);
             life.UpdateResidentIds();
         }
 
@@ -118,6 +128,7 @@ namespace NagoyaRoadDelivery
             if (ready != null)
             {
                 hud = ready.Hud;
+                if (populationCard != null) populationCard.Text = ready.PopulationText;
                 try { WriteSnapshot(ready.Json); }
                 catch (Exception ex) { Debug.LogException(ex); }
             }
@@ -278,10 +289,12 @@ namespace NagoyaRoadDelivery
         {
             CitizenManager manager = CitizenManager.instance;
             DateTime now = SimulationManager.instance.m_currentGameTime;
+            bool clockRunning = !SimulationManager.instance.SimulationPaused;
+            if (localDeliveries != null && cohort.Count > 0) localDeliveries.BeginSample(now);
             double minutes = lastGameTime == DateTime.MinValue ? 0 : Math.Max(0, Math.Min(180, (now - lastGameTime).TotalMinutes));
             lastGameTime = now;
             int humans = 0, humanEmployed = 0, androidEmployed = 0, atHome = 0, atWork = 0, moving = 0;
-            int androidHomeMembers = 0, androidWorkMembers = 0;
+            int androidHomeMembers = 0, androidWorkMembers = 0, charging = 0;
             List<object> rows = new List<object>();
             Citizen[] people = manager.m_citizens.m_buffer;
             for (int i = 1; i < people.Length; i++)
@@ -301,7 +314,9 @@ namespace NagoyaRoadDelivery
                 androidHomeMembers++;
                 bool jobMember = employed && InWorkUnit(manager, data.m_workBuilding, (uint)i);
                 if (jobMember) { androidEmployed++; androidWorkMembers++; }
-                if (jobMember && ScheduleShift((uint)i, ref people[i], member, now))
+                bool delivering = clockRunning && jobMember && localDeliveries != null && now.Hour >= 8 && now.Hour < 17 && member.Battery >= 50 &&
+                    localDeliveries.Dispatch((uint)i, ref people[i], now);
+                if (delivering || (clockRunning && jobMember && ScheduleShift((uint)i, ref people[i], member, now)))
                     data = people[i];
                 bool home = data.CurrentLocation == Citizen.Location.Home;
                 bool work = data.CurrentLocation == Citizen.Location.Work;
@@ -310,6 +325,7 @@ namespace NagoyaRoadDelivery
                 if (work) { atWork++; member.WorkSamples++; }
                 if (running) { moving++; member.MovingSamples++; }
                 bool charge = home && member.Battery < 100 && (data.m_flags & Citizen.Flags.NoElectricity) == 0;
+                if (charge) charging++;
                 if (charge && !member.Charging) member.ChargeStarts++;
                 member.Charging = charge;
                 if (charge) member.Battery = Math.Min(100, member.Battery + minutes * .25);
@@ -335,6 +351,7 @@ namespace NagoyaRoadDelivery
                 {"utc",DateTime.UtcNow.ToString("o")}, {"gameTime",now.ToString("s")}, {"runId",runId}, {"caseId",caseId},
                 {"status",error == null ? (caseId != null ? "running" : "baseline") : "limited"}, {"error",error},
                 {"nativeReleaseHookActive",lifecyclePatch != null}, {"androidIdentities",cohort.Count},
+                {"nativeDeliveries",localDeliveries == null ? null : localDeliveries.Snapshot()},
                 {"androidRenderHookActive",renderer == this}, {"visualError",visualError},
                 {"nativeHumanResidents",humans}, {"humansWithWorkplace",humanEmployed}, {"androidHomeMembers",androidHomeMembers},
                 {"androidWorkMembers",androidWorkMembers}, {"androidAtHome",atHome}, {"androidAtWork",atWork}, {"androidMoving",moving},
@@ -343,7 +360,11 @@ namespace NagoyaRoadDelivery
             return new Sample {
                 Json = JsonData.Stringify(report),
                 Hud = "ANDROID RESIDENCE / CS1\nHumans with jobs " + humanEmployed + " | Androids with jobs " + androidEmployed +
-                    "\nAndroid residents " + androidHomeMembers + " | Home " + atHome + " | Moving " + moving + " | At work " + atWork
+                    "\nAndroid residents " + androidHomeMembers + " | Home " + atHome + " | Moving " + moving + " | At work " + atWork,
+                PopulationText = "入居　人 " + humans + " / アンドロイド " + androidHomeMembers +
+                    "\n就業　人 " + humanEmployed + " / アンドロイド " + androidEmployed +
+                    "\nアンドロイド　移動 " + moving + " / 充電 " + charging +
+                    "\n店舗への配送　" + (localDeliveries == null ? "―" : localDeliveries.Delivered.ToString())
             };
         }
 
@@ -462,6 +483,8 @@ namespace NagoyaRoadDelivery
             if (renderer == this) renderer = null;
             if (renderPatch != null) renderPatch.UnpatchAll(RenderPatchId);
             if (lifecyclePatch != null) lifecyclePatch.UnpatchAll(RenderPatchId + ".lifecycle");
+            if (localDeliveries != null) localDeliveries.Dispose();
+            if (populationCard != null) populationCard.Dispose();
         }
     }
 }
