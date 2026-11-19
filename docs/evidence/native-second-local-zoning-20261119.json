@@ -1,0 +1,153 @@
+{
+  "status": "verified",
+  "sourceSave": {
+    "name": "NagoyaCitywide-SecondLocalStreets-Roads",
+    "sha256": "ADADCBE50DFFFD9B15C17DE1EDA79461C69E7AB4A551D1E13FCC690D1E5A54DE",
+    "bytes": 14086266,
+    "verifiedPedestrianSampleCount": 16
+  },
+  "planSha256": "6E02914A1766B31EA230B353F91F5ABA0E1E7442ADEB24DD9DE9854533002F6F",
+  "roadReceiptSha256": "0374ED52C9349AF8F1692EA856F8D22A70624FA0532B0D84CB6D92312C24C07C",
+  "placementReceiptSha256": "DB5737560783190A24A3C5DDF4B0E3133477902A703665E674B10D899C04B0B1",
+  "checkpoints": {
+    "zoned": {
+      "name": "NagoyaCitywide-SecondLocalStreets-Zoned",
+      "sha256": "73D582A7D8EA367C773BC53E112BA3B49B325450CA0F63CBDFEFDE11BB337FD5",
+      "bytes": 14179066
+    },
+    "observed": {
+      "name": "NagoyaCitywide-SecondLocalStreets-Observed",
+      "sha256": "7D589643EF04029D932DB0CDFD889D6D0661119FD7AAC147A036A82DF394CE70",
+      "bytes": 14257948
+    }
+  },
+  "startGameTime": "2028-07-23T18:28:57",
+  "endGameTime": "2028-08-03T21:21:17",
+  "fundsScope": "Exact-city sandbox temporarily enabled for observation and the prior configuration restored.",
+  "requestedSites": 312,
+  "placedSites": 272,
+  "placedByWard": {
+    "中区": 10,
+    "中川区": 42,
+    "中村区": 18,
+    "北区": 8,
+    "千種区": 5,
+    "南区": 29,
+    "名東区": 25,
+    "天白区": 9,
+    "守山区": 15,
+    "昭和区": 17,
+    "東区": 5,
+    "港区": 34,
+    "熱田区": 17,
+    "瑞穂区": 6,
+    "緑区": 23,
+    "西区": 9
+  },
+  "placedByZone": {
+    "CommercialHigh": 5,
+    "CommercialLow": 44,
+    "Industrial": 46,
+    "Office": 33,
+    "ResidentialHigh": 69,
+    "ResidentialLow": 75
+  },
+  "rejectedByNativeReason": {
+    "No free native zone cells on the source frontage": 40
+  },
+  "retainedNewSites": 270,
+  "retainedNewSitesByWard": {
+    "中区": 10,
+    "中川区": 42,
+    "中村区": 18,
+    "北区": 7,
+    "千種区": 5,
+    "南区": 29,
+    "名東区": 25,
+    "天白区": 9,
+    "守山区": 15,
+    "昭和区": 17,
+    "東区": 5,
+    "港区": 34,
+    "熱田区": 17,
+    "瑞穂区": 5,
+    "緑区": 23,
+    "西区": 9
+  },
+  "retainedNewSitesOperating": 270,
+  "retainedNewSitesWarnings": {
+    "Water": 116,
+    "Electricity": 65
+  },
+  "priorSitesLostDuringObservation": 18,
+  "ordinaryZoningCoverage": {
+    "before": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T11:40:33.5583757Z",
+      "activeNativeZonedSites": 4388,
+      "nativeSiteGroupCount": 4388,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "noActiveRole": 134535,
+        "allRolesActive": 563778,
+        "someRolesActive": 7422,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "uncovered": 147144,
+        "active": 594596
+      },
+      "writesToGame": false
+    },
+    "immediate": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T11:40:57.5792310Z",
+      "activeNativeZonedSites": 4660,
+      "nativeSiteGroupCount": 4660,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "allRolesActive": 595801,
+        "noActiveRole": 102711,
+        "someRolesActive": 7223,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "active": 628001,
+        "uncovered": 113739
+      },
+      "writesToGame": false
+    },
+    "final": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T11:42:23.2655015Z",
+      "activeNativeZonedSites": 4640,
+      "nativeSiteGroupCount": 4640,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "allRolesActive": 592698,
+        "noActiveRole": 105717,
+        "someRolesActive": 7320,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "active": 624705,
+        "uncovered": 117035
+      },
+      "writesToGame": false
+    }
+  },
+  "coexistence": {
+    "nativeHumanResidents": 6875,
+    "humansWithWorkplace": 3595,
+    "androidHomeMembers": 464,
+    "androidWorkMembers": 455,
+    "androidMoving": 375
+  },
+  "wardsWithHumanAndAndroidPopulationAndJobs": 16,
+  "nativeTraffic": {
+    "passengerCars": 856,
+    "cargoTrucks": 670,
+    "buses": 29,
+    "roadVehiclesWithNativePath": 1553
+  }
+}

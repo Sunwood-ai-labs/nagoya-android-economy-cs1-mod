@@ -1,0 +1,84 @@
+{
+  "status": "verified",
+  "planSha256": "0E005B1000C0874B98318F335DA705D2CB8247584A3A5465F0891A0D50557F7C",
+  "receiptSha256": "875149EF99ACE92F7D3C64F3976F689F6A5A3B924249222857F4E7269139A62E",
+  "sourceSave": {
+    "name": "NagoyaCitywide-SecondLocalStreets-Observed",
+    "sha256": "7D589643EF04029D932DB0CDFD889D6D0661119FD7AAC147A036A82DF394CE70",
+    "bytes": 14257948
+  },
+  "observedSave": {
+    "name": "NagoyaCitywide-SecondLocalStreets-UtilitiesObserved",
+    "sha256": "09A55AB2DA6591F784795AC12CE91C4E7BF1E31C1D8D64BBEB3BB1FBD01849FB",
+    "bytes": 14272046
+  },
+  "networks": {
+    "Water": {
+      "newVerifiedSegments": 136,
+      "before": 3797,
+      "after": 3933
+    },
+    "Electricity": {
+      "newVerifiedSegments": 136,
+      "before": 3793,
+      "after": 3929
+    }
+  },
+  "beforeBuildingsTracked": 124,
+  "matchedActiveBuildingsAfter": 40,
+  "sameBuildingWarnings": {
+    "Water": {
+      "beforeTargets": 116,
+      "sameActiveBuildingAfter": 39,
+      "clearedOnSameActiveBuilding": 39,
+      "remainedOnSameActiveBuilding": 0,
+      "afterTargetsWithWarning": 0
+    },
+    "Electricity": {
+      "beforeTargets": 65,
+      "sameActiveBuildingAfter": 19,
+      "clearedOnSameActiveBuilding": 14,
+      "remainedOnSameActiveBuilding": 5,
+      "afterTargetsWithWarning": 6
+    }
+  },
+  "startGameTime": "2028-08-04T03:13:23",
+  "endGameTime": "2028-08-13T14:27:19",
+  "fundsRestored": true,
+  "nativeRoads": 20079,
+  "wardsWithHumanAndAndroidPopulationAndJobs": 16,
+  "ordinaryZoningCoverage": {
+    "city": "NagoyaCitywide-Construction",
+    "rosterUtc": "2026-11-19T11:47:06.8970497Z",
+    "activeNativeZonedSites": 4528,
+    "nativeSiteGroupCount": 4528,
+    "plateauSourceIds": 738033,
+    "sourceCoverage": {
+      "allRolesActive": 574622,
+      "noActiveRole": 123302,
+      "someRolesActive": 7811,
+      "withoutClassifiedRoles": 32298
+    },
+    "roleMemberships": {
+      "active": 606412,
+      "uncovered": 135328
+    },
+    "writesToGame": false
+  },
+  "coexistence": {
+    "nativeHumanResidents": 6916,
+    "humansWithWorkplace": 3619,
+    "androidHomeMembers": 460,
+    "androidWorkMembers": 452
+  },
+  "buildingRetention": {
+    "warnedBuildingStates": {
+      "absent": 84,
+      "active_same_building": 40
+    },
+    "newRegisteredGroupsStillActive": 175,
+    "newRegisteredGroupsLost": 95,
+    "earlierGroupsLost": 17,
+    "netLostGroups": 112
+  }
+}
