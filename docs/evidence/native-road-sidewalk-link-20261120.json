@@ -954,5 +954,100 @@
         }
       ]
     }
+  },
+  "crossingCandidateGeometry": {
+    "method": "Intersection of straight XZ chords from the live network read-back. This is geometric overlap, not the native collision object list.",
+    "nativeStockSegmentsScanned": {
+      "Electricity": 4214,
+      "PublicTransport": 1035,
+      "Beautification": 207
+    },
+    "trials": {
+      "road-pairs.json": {
+        "candidateCount": 24,
+        "intersectionsByService": {
+          "Electricity": 21,
+          "PublicTransport": 24,
+          "Beautification": 0
+        },
+        "intersectedSegmentIds": [
+          51,
+          5319,
+          17687,
+          18500,
+          19739,
+          22784,
+          31803,
+          34122
+        ]
+      },
+      "ranked-road-pairs.json": {
+        "candidateCount": 24,
+        "intersectionsByService": {
+          "Electricity": 22,
+          "PublicTransport": 24,
+          "Beautification": 0
+        },
+        "intersectedSegmentIds": [
+          51,
+          17687,
+          18500,
+          19739,
+          22784,
+          31803,
+          34122
+        ]
+      }
+    },
+    "nativeAircraftLinks": [
+      {
+        "id": 17687,
+        "prefab": "Airplane Path",
+        "flags": "Created, Original",
+        "startNodeId": 15308,
+        "endNodeId": 21187,
+        "start": {
+          "x": -2354.85,
+          "y": 137.729,
+          "z": 15.984
+        },
+        "end": {
+          "x": -2293.442,
+          "y": 134.11,
+          "z": 83.978
+        }
+      },
+      {
+        "id": 19739,
+        "prefab": "Airplane Path",
+        "flags": "Created, Original, Invert, NameVisible1, NameVisible2",
+        "startNodeId": 15308,
+        "endNodeId": 27533,
+        "start": {
+          "x": -2354.85,
+          "y": 137.729,
+          "z": 15.984
+        },
+        "end": {
+          "x": -2417.001,
+          "y": 140,
+          "z": -51.455
+        }
+      }
+    ],
+    "aircraftLinkNodesAndPositionsMatchBeforeNagoyaRoadImport": true,
+    "capture": {
+      "source": "CS1 game capture",
+      "sha256": "5459cb2b29dcb982c9c07107d766eb83eece8dcb0144d77705fd1ef6254a8ab9",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "lookPosition": [
+        -2356,
+        141,
+        -38
+      ]
+    }
   }
 }

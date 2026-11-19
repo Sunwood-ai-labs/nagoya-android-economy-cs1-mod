@@ -56,7 +56,7 @@ def record(args):
     before = read_json(current)
     if not before["revision"] or not before["count"]:
         raise RuntimeError("Nagoya is still loading")
-    goal = {"lookX": args.x, "lookZ": args.z, "lookLift": args.lift,
+    goal = {"focus": "true", "lookX": args.x, "lookZ": args.z, "lookLift": args.lift,
             "zoom": args.zoom, "height": 0, "angleX": args.yaw, "angleY": args.pitch}
     original = command.read_bytes()
     edited = original.decode("utf-8-sig")
