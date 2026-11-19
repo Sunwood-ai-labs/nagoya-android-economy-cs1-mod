@@ -386,14 +386,14 @@ namespace CitywideRouting
             if (edge < 0 || edge >= _edges.Length) throw new ArgumentOutOfRangeException("edge");
         }
 
-        private struct HeapItem
+        internal struct HeapItem
         {
             public int Node;
             public double Priority;
             public HeapItem(int node, double priority) { Node = node; Priority = priority; }
         }
 
-        private sealed class MinHeap
+        internal sealed class MinHeap
         {
             private readonly List<HeapItem> _items = new List<HeapItem>();
             public int Count { get { return _items.Count; } }

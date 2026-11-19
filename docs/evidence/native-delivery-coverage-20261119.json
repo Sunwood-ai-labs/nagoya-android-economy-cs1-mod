@@ -1,0 +1,628 @@
+{
+  "test": "CS1 native delivery scheduling and actual stock transfer on Nagoya 2050",
+  "city": "NagoyaCitywide-Construction",
+  "sourceSave": "NagoyaCitywide-Construction-Employment256Trial",
+  "sourceSaveSha256": "6e5118292565e5f97db299fdc83c7255ef61b3e6e31a8e82c53c3f40cef07b40",
+  "finance": "Opt-in exact-city experiment funds, restored after each observation.",
+  "scope": "Sequential game observations from the same save; windows differ and this is not a matched experiment.",
+  "builds": {
+    "buildingDistance": {
+      "assemblySha256": "dbb446254b1cbba24b4390bce7c62d95ec23e083991294736c9e4ad3a43a1b8a",
+      "assemblyMvid": "a3c2e02f-97a6-48bf-aae8-ebad1758b3d2",
+      "samples": [
+        {
+          "sampleFile": "game-delivery-window-01/before-life.json",
+          "sha256": "1b3cc3e17a2655836cd3a94429bbb4aeceb786c6e93b309a5cddb270f0b89e90",
+          "gameTime": "2027-04-04T07:44:15",
+          "androidInTransit": 82,
+          "androidAtWork": 1,
+          "nativeDeliveries": {
+            "active": 6,
+            "started": 0,
+            "delivered": 0,
+            "stockAdded": 0,
+            "stockedFactories": 520,
+            "shopsWithSpace": 62,
+            "workersSeenAtFactory": 0,
+            "pickupStarts": 6,
+            "pickupArrivals": 0,
+            "failedLegs": 0,
+            "expiredLegs": 0,
+            "deliveriesByWard": {},
+            "recentFailures": [],
+            "recent": []
+          }
+        },
+        {
+          "sampleFile": "game-delivery-window-01/life-4.json",
+          "sha256": "ddb838568782ca7086499059d0aaf42c218084bc57dd9eff0691c8b7fd60079f",
+          "gameTime": "2027-04-07T09:45:43",
+          "androidInTransit": 87,
+          "androidAtWork": 2,
+          "nativeDeliveries": {
+            "active": 2,
+            "started": 2,
+            "delivered": 0,
+            "stockAdded": 0,
+            "stockedFactories": 520,
+            "shopsWithSpace": 61,
+            "workersSeenAtFactory": 1,
+            "pickupStarts": 14,
+            "pickupArrivals": 1,
+            "failedLegs": 13,
+            "expiredLegs": 3,
+            "deliveriesByWard": {},
+            "recentFailures": [
+              {
+                "android": 589895,
+                "collecting": true,
+                "from": 19468,
+                "target": 26235,
+                "pathId": 0,
+                "expectedTarget": 26235,
+                "reason": "native arrival failed"
+              },
+              {
+                "android": 618795,
+                "collecting": true,
+                "from": 39197,
+                "target": 22842,
+                "pathId": 0,
+                "expectedTarget": 22842,
+                "reason": "native arrival failed"
+              },
+              {
+                "android": 688193,
+                "collecting": true,
+                "from": 48303,
+                "target": 23605,
+                "pathId": 0,
+                "expectedTarget": 23605,
+                "reason": "native arrival failed"
+              },
+              {
+                "android": 796172,
+                "collecting": true,
+                "from": 31490,
+                "target": 7171,
+                "pathId": 0,
+                "expectedTarget": 7171,
+                "reason": "native arrival failed"
+              },
+              {
+                "android": 727029,
+                "collecting": true,
+                "from": 19124,
+                "target": 43311,
+                "pathId": 0,
+                "expectedTarget": 43311,
+                "reason": "native arrival failed"
+              },
+              {
+                "android": 559795,
+                "collecting": true,
+                "from": 35596,
+                "target": 23119,
+                "pathId": 0,
+                "expectedTarget": 23119,
+                "reason": "route expired"
+              },
+              {
+                "android": 596103,
+                "collecting": false,
+                "from": 9394,
+                "target": 5132,
+                "pathId": 0,
+                "expectedTarget": 5132,
+                "reason": "native arrival failed"
+              },
+              {
+                "android": 771601,
+                "collecting": true,
+                "from": 2826,
+                "target": 6527,
+                "pathId": 0,
+                "expectedTarget": 6527,
+                "reason": "route expired"
+              },
+              {
+                "android": 559795,
+                "collecting": false,
+                "from": 23119,
+                "target": 21254,
+                "pathId": 0,
+                "expectedTarget": 21254,
+                "reason": "native arrival failed"
+              },
+              {
+                "android": 956089,
+                "collecting": true,
+                "from": 40587,
+                "target": 7829,
+                "pathId": 0,
+                "expectedTarget": 7829,
+                "reason": "native arrival failed"
+              },
+              {
+                "android": 885656,
+                "collecting": true,
+                "from": 3233,
+                "target": 5755,
+                "pathId": 0,
+                "expectedTarget": 5755,
+                "reason": "native arrival failed"
+              },
+              {
+                "android": 364907,
+                "collecting": true,
+                "from": 48974,
+                "target": 15223,
+                "pathId": 0,
+                "expectedTarget": 15223,
+                "reason": "route expired"
+              }
+            ],
+            "recent": []
+          }
+        }
+      ]
+    },
+    "nativeStreetDistance": {
+      "assemblySha256": "b8d4284fbd2995995186b583cf9efcf98233dec7259ca621ba0f87afa10c1f8b",
+      "assemblyMvid": "03767ffa-d335-491c-b02b-0580c324ffc2",
+      "samples": [
+        {
+          "sampleFile": "street-reach-window-01/before-life.json",
+          "sha256": "747f7a8657b53f6b8ad5603f27880625e23294051be90f819ae051cab98cbf06",
+          "gameTime": "2027-04-04T07:43:33",
+          "androidInTransit": 82,
+          "androidAtWork": 1,
+          "nativeDeliveries": {
+            "active": 1,
+            "started": 0,
+            "delivered": 0,
+            "stockAdded": 0,
+            "stockedFactories": 520,
+            "shopsWithSpace": 62,
+            "workersSeenAtFactory": 0,
+            "pickupStarts": 1,
+            "pickupArrivals": 0,
+            "failedLegs": 0,
+            "expiredLegs": 0,
+            "deliveriesByWard": {},
+            "noEligibleStreetCandidate": 6,
+            "recentFailures": [],
+            "recent": []
+          }
+        },
+        {
+          "sampleFile": "street-reach-window-01/life-4.json",
+          "sha256": "ec825ac9078f91e25951bab726b5bcdb733f47f17a0a3cc148838c57ddb11663",
+          "gameTime": "2027-04-07T06:11:37",
+          "androidInTransit": 39,
+          "androidAtWork": 0,
+          "nativeDeliveries": {
+            "active": 4,
+            "started": 2,
+            "delivered": 0,
+            "stockAdded": 0,
+            "stockedFactories": 520,
+            "shopsWithSpace": 61,
+            "workersSeenAtFactory": 9,
+            "pickupStarts": 3,
+            "pickupArrivals": 0,
+            "failedLegs": 1,
+            "expiredLegs": 1,
+            "deliveriesByWard": {},
+            "noEligibleStreetCandidate": 20,
+            "recentFailures": [
+              {
+                "android": 771601,
+                "collecting": true,
+                "from": 2826,
+                "target": 6527,
+                "pathId": 0,
+                "expectedTarget": 6527,
+                "reason": "route expired"
+              }
+            ],
+            "recent": []
+          }
+        },
+        {
+          "sampleFile": "street-reach-window-02/terminal-life.json",
+          "sha256": "5f882b08cb6fe2740dedf568d0294c0bd22ebfbae0a03e5f119371aecb6acaba",
+          "gameTime": "2027-04-10T21:06:21",
+          "androidInTransit": 44,
+          "androidAtWork": 0,
+          "nativeDeliveries": {
+            "active": 2,
+            "started": 5,
+            "delivered": 0,
+            "stockAdded": 0,
+            "stockedFactories": 519,
+            "shopsWithSpace": 61,
+            "workersSeenAtFactory": 13,
+            "pickupStarts": 4,
+            "pickupArrivals": 0,
+            "failedLegs": 7,
+            "expiredLegs": 6,
+            "deliveriesByWard": {},
+            "noEligibleStreetCandidate": 28,
+            "recentFailures": [
+              {
+                "android": 771601,
+                "collecting": true,
+                "from": 2826,
+                "target": 6527,
+                "pathId": 0,
+                "expectedTarget": 6527,
+                "reason": "route expired"
+              },
+              {
+                "android": 364907,
+                "collecting": true,
+                "from": 48974,
+                "target": 15223,
+                "pathId": 0,
+                "expectedTarget": 15223,
+                "reason": "route expired"
+              },
+              {
+                "android": 63556,
+                "collecting": true,
+                "from": 23255,
+                "target": 16237,
+                "pathId": 0,
+                "expectedTarget": 16237,
+                "reason": "native arrival failed"
+              },
+              {
+                "android": 564634,
+                "collecting": true,
+                "from": 14549,
+                "target": 12313,
+                "pathId": 0,
+                "expectedTarget": 12313,
+                "reason": "route expired"
+              },
+              {
+                "android": 929840,
+                "collecting": false,
+                "from": 45555,
+                "target": 19252,
+                "pathId": 0,
+                "expectedTarget": 19252,
+                "reason": "route expired"
+              },
+              {
+                "android": 987114,
+                "collecting": false,
+                "from": 15436,
+                "target": 46948,
+                "pathId": 0,
+                "expectedTarget": 46948,
+                "reason": "route expired"
+              },
+              {
+                "android": 261669,
+                "collecting": false,
+                "from": 22465,
+                "target": 24107,
+                "pathId": 0,
+                "expectedTarget": 24107,
+                "reason": "route expired"
+              }
+            ],
+            "recent": []
+          }
+        }
+      ]
+    },
+    "motionAware": {
+      "assemblySha256": "1c6d345b2fbdfa6bf7c331b0f8bb19ef3048437f8bbdbb305644c0f539bef9a0",
+      "assemblyMvid": "46d9c359-c12c-4f88-95fe-1ff8cd178913",
+      "runId": "20261119T061653394Z",
+      "gameTime": "2027-04-24T01:12:23",
+      "districtsWithDelivery": 3,
+      "deliveriesByWard": {
+        "港区": 1,
+        "緑区": 1,
+        "西区": 1
+      },
+      "nativeArrivalsAndStockChanges": [
+        {
+          "android": 261669,
+          "from": 22465,
+          "to": 24107,
+          "ward": "港区",
+          "sourceWard": "中川区",
+          "stockAdded": 100,
+          "factoryBefore": 1580,
+          "factoryAfter": 1480,
+          "shopBefore": 11952,
+          "shopAfter": 12052,
+          "gameTime": "2027-04-12T10:09:29"
+        },
+        {
+          "android": 564634,
+          "from": 12313,
+          "to": 37589,
+          "ward": "緑区",
+          "sourceWard": "緑区",
+          "stockAdded": 100,
+          "factoryBefore": 635,
+          "factoryAfter": 535,
+          "shopBefore": 13029,
+          "shopAfter": 13129,
+          "gameTime": "2027-04-17T18:37:57"
+        },
+        {
+          "android": 771601,
+          "from": 6527,
+          "to": 46948,
+          "ward": "西区",
+          "sourceWard": "西区",
+          "stockAdded": 100,
+          "factoryBefore": 1223,
+          "factoryAfter": 1123,
+          "shopBefore": 11698,
+          "shopAfter": 11798,
+          "gameTime": "2027-04-20T07:39:53"
+        }
+      ],
+      "totalStockUnits": 300,
+      "progressSamples": [
+        {
+          "file": "motion-aware-window-01/terminal-life.json",
+          "sha256": "80a17733248513a53dbd22abb82eb741f8bc27b5322968f9b9b49e6c233b7cdf",
+          "gameTime": "2027-04-07T15:01:09",
+          "pickupArrivals": 0,
+          "shopLegsStarted": 0,
+          "deliveries": 0
+        },
+        {
+          "file": "motion-aware-window-02/terminal-life.json",
+          "sha256": "d52dc3c0b046b80ad211b66734b46aa4cd86286932614a17b800ab2b2167e44b",
+          "gameTime": "2027-04-10T18:55:57",
+          "pickupArrivals": 1,
+          "shopLegsStarted": 3,
+          "deliveries": 0
+        },
+        {
+          "file": "motion-aware-window-03/terminal-life.json",
+          "sha256": "368b1b2fcbaf114b9143ce32e68fc41b5061bd0339882a0023cbf41b05edb016",
+          "gameTime": "2027-04-14T01:21:54",
+          "pickupArrivals": 1,
+          "shopLegsStarted": 3,
+          "deliveries": 1
+        },
+        {
+          "file": "motion-aware-window-04/terminal-life.json",
+          "sha256": "b46dfeefa5850cf9d00cbbeb2f994fc97c9427f9b53f013a00ed8e0629cc14cd",
+          "gameTime": "2027-04-17T09:07:51",
+          "pickupArrivals": 2,
+          "shopLegsStarted": 4,
+          "deliveries": 1
+        },
+        {
+          "file": "motion-aware-window-05/terminal-life.json",
+          "sha256": "7c02e9e02d4eaba2e9019e49111294c7175576aa098213e97f5a8e043cf8624f",
+          "gameTime": "2027-04-20T16:17:21",
+          "pickupArrivals": 3,
+          "shopLegsStarted": 5,
+          "deliveries": 3
+        },
+        {
+          "file": "motion-aware-window-06/terminal-life.json",
+          "sha256": "ea8991a610f10ad3b71c320f7f6a616949a348a2604d9f264f93a8d6daac47d2",
+          "gameTime": "2027-04-24T01:12:23",
+          "pickupArrivals": 3,
+          "shopLegsStarted": 5,
+          "deliveries": 3
+        }
+      ],
+      "observedMotionAfterPreviousDeadline": {
+        "departure": {
+          "android": 771601,
+          "from": 2826,
+          "target": 6527,
+          "destinationWard": "西区",
+          "frame": 54708736,
+          "lastProgressFrame": 54708736,
+          "position": [
+            -645.3886,
+            140.5469,
+            2744.472
+          ]
+        },
+        "later": {
+          "android": 771601,
+          "from": 2826,
+          "target": 6527,
+          "destinationWard": "西区",
+          "frame": 54708736,
+          "lastProgressFrame": 54710668,
+          "position": [
+            -863.0522,
+            140,
+            2615.731
+          ]
+        }
+      },
+      "save": {
+        "name": "NagoyaCitywide-Delivery-Progress",
+        "sha256": "C6EA4BEBA457BA016D5DB51DCFCD3AD6468AC4F7A20374385DBAC61DEFE2E1CB",
+        "length": 12580613,
+        "sourceHash": "6E5118292565E5F97DB299FDC83C7255EF61B3E6E31A8E82C53C3F40CEF07B40"
+      },
+      "archivePath": "motion-aware-window-06/NagoyaCitywide-Delivery-Progress.crp"
+    }
+  },
+  "earlierHeatWardSuccess": "native-delivery-20261119.json",
+  "failedStreetPairs": [
+    {
+      "liveFrontageSegments": [
+        {
+          "id": 36016,
+          "prefab": "Medium Road",
+          "pedestrianLanes": 2,
+          "receiptSha256": "591ac68bc05b7a1a6e4012893481a86cad7d68a43023992a26528af21fc575a9"
+        },
+        {
+          "id": 20455,
+          "prefab": "Basic Road",
+          "pedestrianLanes": 2,
+          "receiptSha256": "5889fd9fa1daca705117e3e10c29ec1b27ddba30cf3f530e46e8fd31dfd778ce"
+        }
+      ],
+      "segmentsOnShortestConstructionReceiptChain": 168
+    },
+    {
+      "liveFrontageSegments": [
+        {
+          "id": 23981,
+          "prefab": "Medium Road",
+          "pedestrianLanes": 2,
+          "receiptSha256": "c169c9e280c90409805851e2a5946be0fc98d837a1a543ffa279431cefa16b11"
+        },
+        {
+          "id": 19100,
+          "prefab": "Basic Road",
+          "pedestrianLanes": 2,
+          "receiptSha256": "18c4ed62fd76861c0738558fb0c24d938ff8a1e44c8ff536f42f720e9e5114d4"
+        }
+      ],
+      "segmentsOnShortestConstructionReceiptChain": 399
+    }
+  ],
+  "routeLifetime": {
+    "observation": "Timed-out couriers retained a native route or vehicle in the same terminal sample.",
+    "terminalCouriers": [
+      {
+        "android": 929840,
+        "collecting": false,
+        "from": 45555,
+        "target": 19252,
+        "pathId": 0,
+        "expectedTarget": 19252,
+        "reason": "route expired",
+        "terminalPathId": 75572,
+        "terminalVehicleId": 0,
+        "terminalInstanceId": 60484
+      },
+      {
+        "android": 987114,
+        "collecting": false,
+        "from": 15436,
+        "target": 46948,
+        "pathId": 0,
+        "expectedTarget": 46948,
+        "reason": "route expired",
+        "terminalPathId": 108251,
+        "terminalVehicleId": 7666,
+        "terminalInstanceId": 12512
+      },
+      {
+        "android": 261669,
+        "collecting": false,
+        "from": 22465,
+        "target": 24107,
+        "pathId": 0,
+        "expectedTarget": 24107,
+        "reason": "route expired",
+        "terminalPathId": 144782,
+        "terminalVehicleId": 0,
+        "terminalInstanceId": 44584
+      }
+    ]
+  },
+  "offlinePotential": {
+    "scope": "Offline estimates from native construction receipts and earlier active zoned buildings. Four endpoint positions spot-validated in live CS1. Estimates use centerlines and omit store stock, current lane turn restrictions and unresolved native paths.",
+    "artifactSha256": "ebb87758cab8eb7d3e0351cd2d258e61fca743e4916331a5628005314ba05de3",
+    "importedRoads": 18604,
+    "districtsWithCandidateShops": 16,
+    "wards": {
+      "中区": {
+        "activeFactoriesWithAssignedAndroids": 3,
+        "assignedAndroidWorkers": 3,
+        "commercialBuildingsWithinLocalStreetReach": 19
+      },
+      "中川区": {
+        "activeFactoriesWithAssignedAndroids": 20,
+        "assignedAndroidWorkers": 22,
+        "commercialBuildingsWithinLocalStreetReach": 43
+      },
+      "中村区": {
+        "activeFactoriesWithAssignedAndroids": 14,
+        "assignedAndroidWorkers": 16,
+        "commercialBuildingsWithinLocalStreetReach": 32
+      },
+      "北区": {
+        "activeFactoriesWithAssignedAndroids": 9,
+        "assignedAndroidWorkers": 11,
+        "commercialBuildingsWithinLocalStreetReach": 22
+      },
+      "千種区": {
+        "activeFactoriesWithAssignedAndroids": 9,
+        "assignedAndroidWorkers": 10,
+        "commercialBuildingsWithinLocalStreetReach": 34
+      },
+      "南区": {
+        "activeFactoriesWithAssignedAndroids": 13,
+        "assignedAndroidWorkers": 17,
+        "commercialBuildingsWithinLocalStreetReach": 14
+      },
+      "名東区": {
+        "activeFactoriesWithAssignedAndroids": 17,
+        "assignedAndroidWorkers": 23,
+        "commercialBuildingsWithinLocalStreetReach": 37
+      },
+      "天白区": {
+        "activeFactoriesWithAssignedAndroids": 11,
+        "assignedAndroidWorkers": 12,
+        "commercialBuildingsWithinLocalStreetReach": 29
+      },
+      "守山区": {
+        "activeFactoriesWithAssignedAndroids": 25,
+        "assignedAndroidWorkers": 32,
+        "commercialBuildingsWithinLocalStreetReach": 56
+      },
+      "昭和区": {
+        "activeFactoriesWithAssignedAndroids": 5,
+        "assignedAndroidWorkers": 7,
+        "commercialBuildingsWithinLocalStreetReach": 18
+      },
+      "東区": {
+        "activeFactoriesWithAssignedAndroids": 4,
+        "assignedAndroidWorkers": 5,
+        "commercialBuildingsWithinLocalStreetReach": 16
+      },
+      "港区": {
+        "activeFactoriesWithAssignedAndroids": 42,
+        "assignedAndroidWorkers": 46,
+        "commercialBuildingsWithinLocalStreetReach": 50
+      },
+      "熱田区": {
+        "activeFactoriesWithAssignedAndroids": 5,
+        "assignedAndroidWorkers": 5,
+        "commercialBuildingsWithinLocalStreetReach": 12
+      },
+      "瑞穂区": {
+        "activeFactoriesWithAssignedAndroids": 0,
+        "assignedAndroidWorkers": 0,
+        "commercialBuildingsWithinLocalStreetReach": 4
+      },
+      "緑区": {
+        "activeFactoriesWithAssignedAndroids": 31,
+        "assignedAndroidWorkers": 37,
+        "commercialBuildingsWithinLocalStreetReach": 59
+      },
+      "西区": {
+        "activeFactoriesWithAssignedAndroids": 10,
+        "assignedAndroidWorkers": 10,
+        "commercialBuildingsWithinLocalStreetReach": 38
+      }
+    }
+  }
+}
