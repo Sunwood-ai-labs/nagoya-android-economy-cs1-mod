@@ -118,6 +118,16 @@ namespace NagoyaRoadDelivery
             }
         }
 
+        internal static void RemoveRoad(Road road)
+        {
+            lock (Gate)
+            {
+                Road recorded;
+                if (Roads.TryGetValue(road.Id, out recorded) && recorded.BuildIndex == road.BuildIndex)
+                    Roads.Remove(road.Id);
+            }
+        }
+
         internal static void Record(Lot lot)
         {
             lock (Gate)

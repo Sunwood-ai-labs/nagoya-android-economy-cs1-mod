@@ -83,7 +83,10 @@ namespace NagoyaRoadDelivery
                 uint[] commuteAuditIds = ReadCommuteAuditIds(values);
                 object linkWithRoad;
                 bool linkWithRoadSidewalks = values.TryGetValue("linkWithRoadSidewalks", out linkWithRoad) && (bool)linkWithRoad;
-                NativePedestrianLink.Candidate[] pedestrianLinks = ReadLinks(values, linkWithRoadSidewalks);
+                object segmentAnchoring;
+                bool useSegments = values.TryGetValue("linkWithinRoadSegments", out segmentAnchoring) && (bool)segmentAnchoring;
+                if (useSegments && !linkWithRoadSidewalks) throw new FormatException("Segment anchors require a road with sidewalks");
+                NativePedestrianLink.Candidate[] pedestrianLinks = ReadLinks(values, linkWithRoadSidewalks, useSegments);
                 ushort[][] pedestrianLegs = ReadLegs(values);
                 if (linkWithRoadSidewalks && pedestrianLinks == null)
                     throw new FormatException("Specify anchors for the road with sidewalks");
@@ -107,7 +110,7 @@ namespace NagoyaRoadDelivery
             }
         }
 
-        private static NativePedestrianLink.Candidate[] ReadLinks(Dictionary<string, object> values, bool allowBend)
+        private static NativePedestrianLink.Candidate[] ReadLinks(Dictionary<string, object> values, bool allowBend, bool segmentAnchors)
         {
             object value;
             if (!values.TryGetValue("pedestrianLinks", out value)) return null;
@@ -115,16 +118,22 @@ namespace NagoyaRoadDelivery
             if (candidates.Count == 0 || candidates.Count > NativePedestrianLink.MaxCandidates)
                 throw new FormatException("Invalid native link candidate count");
             var links = new List<NativePedestrianLink.Candidate>(candidates.Count);
+            int fields = segmentAnchors ? 4 : 2;
             foreach (List<object> candidate in candidates)
             {
-                bool curved = allowBend && candidate.Count == 4;
-                if (candidate.Count != 2 && !curved) throw new FormatException("Expected two node IDs and an optional road bend");
+                bool curved = allowBend && candidate.Count == fields + 2;
+                if (candidate.Count != fields && !curved) throw new FormatException("Unexpected road link fields");
                 ushort from = ReadNetworkId(candidate[0]), to = ReadNetworkId(candidate[1]);
                 if (from == to) throw new FormatException("Expected distinct road nodes");
                 var link = new NativePedestrianLink.Candidate {From=from, To=to};
+                if (segmentAnchors)
+                {
+                    link.FromFraction = ReadSegmentFraction(candidate[2]);
+                    link.ToFraction = ReadSegmentFraction(candidate[3]);
+                }
                 if (curved)
                 {
-                    double x = (double)candidate[2], z = (double)candidate[3];
+                    double x = (double)candidate[fields], z = (double)candidate[fields + 1];
                     if (!(Math.Abs(x) <= 8640 && Math.Abs(z) <= 8640))
                         throw new FormatException("The road bend is outside the map");
                     link.Bend = new Vector2((float)x, (float)z);
@@ -132,6 +141,13 @@ namespace NagoyaRoadDelivery
                 links.Add(link);
             }
             return links.ToArray();
+        }
+
+        private static float ReadSegmentFraction(object value)
+        {
+            double fraction = (double)value;
+            if (!(fraction >= .2 && fraction <= .8)) throw new FormatException("Segment anchor requires a position from 0.2 to 0.8");
+            return (float)fraction;
         }
 
         private static ushort[][] ReadLegs(Dictionary<string, object> values)

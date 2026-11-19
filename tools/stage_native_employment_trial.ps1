@@ -17,7 +17,8 @@ param(
     [string]$PedestrianLinksFile,
     [string]$PedestrianLegsFile,
     [switch]$LoadCheckpointFromMenu,
-    [switch]$LinkWithRoadSidewalks
+    [switch]$LinkWithRoadSidewalks,
+    [switch]$LinkWithinRoadSegments
 )
 
 $ErrorActionPreference = 'Stop'
@@ -62,12 +63,15 @@ if ($PSBoundParameters.ContainsKey('CommuteAuditIds')) {
 if ($TestLongWalkCommutes) { $request.testLongWalkCommutes = $true }
 if ($LinkWithRoadSidewalks -and !$PedestrianLinksFile) { throw 'Specify anchors in PedestrianLinksFile.' }
 if ($LinkWithRoadSidewalks) { $request.linkWithRoadSidewalks = $true }
+if ($LinkWithinRoadSegments -and !$LinkWithRoadSidewalks) { throw 'Segment anchors require LinkWithRoadSidewalks.' }
+if ($LinkWithinRoadSegments) { $request.linkWithinRoadSegments = $true }
 if ($PedestrianLinksFile) {
     $links = Get-Content -LiteralPath $PedestrianLinksFile -Raw | ConvertFrom-Json -NoEnumerate
+    $fields = if ($LinkWithinRoadSegments) { 4 } else { 2 }
     if ($links.Count -lt 1 -or $links.Count -gt 24 -or @($links | Where-Object {
-        $_.Count -ne 2 -and !($LinkWithRoadSidewalks -and $_.Count -eq 4)
+        $_.Count -ne $fields -and !($LinkWithRoadSidewalks -and $_.Count -eq ($fields + 2))
     }).Count) {
-        throw 'Provide 1–24 road node pairs. A road with sidewalks may also have a bend defined by X and Z.'
+        throw 'Provide 1–24 anchor pairs. Include both fractions for segment anchors, and optionally a bend for a road with sidewalks.'
     }
     $request.pedestrianLinks = $links
 }

@@ -1,0 +1,398 @@
+{
+  "checkpoint": {
+    "sha256": "9F4DCFBDDA74FE71B31CCBAC78D973D20598F84242F34E06D0F4DC67A292BA60",
+    "name": "NagoyaCitywide-EmploymentTrial-MixedHouseholds220-Observed",
+    "parentPreserved": true,
+    "segments": 32718,
+    "gameTime": "2030-01-01T08:57:59",
+    "bytes": 15373629,
+    "buildIndex": 126124,
+    "parent": "NagoyaCitywide-EmploymentTrial-SharedHomesObserved"
+  },
+  "testedModSha256": "686749E8386192AB9F637C636A56223024BDC905BD97A50DD3926F8AEE4C99E4",
+  "matchedWindow": {
+    "startFrame": 55295666,
+    "endFrame": 55297422,
+    "startTicks": "640290855288267276",
+    "endTicks": "640293448132017276",
+    "durationHours": 72
+  },
+  "control": {
+    "caseId": "jan01-native-commute-route-audit-72h",
+    "target": {
+      "route": {
+        "citizenId": 272270,
+        "frame": 55296303,
+        "from": 33828,
+        "to": 30040,
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      "end": {
+        "citizenId": 272270,
+        "homeBuilding": 33828,
+        "workBuilding": 30040,
+        "location": "Moving",
+        "nativeWorkArrivals": 0
+      }
+    },
+    "observation": {
+      "androidsWithWorkArrival": 21,
+      "androidResidents": 753,
+      "androidWorkRegistrations": 715,
+      "humanWorkRegistrations": 4340,
+      "completedDeliveries": 8
+    },
+    "receiptSha256": "618E2CACF5D0D61674E541BF6283E69A48C426232291E8103E51184388D1B718"
+  },
+  "trial": {
+    "caseId": "jan01-segment-anchor-road-72h",
+    "construction": {
+      "usedReservedCapacity": true,
+      "nodeCountBefore": 32699,
+      "nodeBufferCapacity": 32768,
+      "result": {
+        "connected": false,
+        "prefab": "Basic Road",
+        "attempts": [
+          {
+            "fromSegment": 8696,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          },
+          {
+            "fromSegment": 178,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          },
+          {
+            "fromSegment": 8696,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.55
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          },
+          {
+            "fromSegment": 8696,
+            "toSegment": 8796,
+            "fractions": [
+              0.55,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          },
+          {
+            "fromSegment": 8696,
+            "toSegment": 8796,
+            "fractions": [
+              0.45,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          },
+          {
+            "fromSegment": 8696,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.45
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          },
+          {
+            "fromSegment": 178,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.55
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          },
+          {
+            "fromSegment": 178,
+            "toSegment": 8796,
+            "fractions": [
+              0.55,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          },
+          {
+            "fromSegment": 8696,
+            "toSegment": 8796,
+            "fractions": [
+              0.55,
+              0.55
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          },
+          {
+            "fromSegment": 178,
+            "toSegment": 8796,
+            "fractions": [
+              0.45,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          },
+          {
+            "fromSegment": 8696,
+            "toSegment": 8796,
+            "fractions": [
+              0.45,
+              0.55
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          },
+          {
+            "fromSegment": 178,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.45
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          },
+          {
+            "fromSegment": 8696,
+            "toSegment": 8796,
+            "fractions": [
+              0.55,
+              0.45
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          },
+          {
+            "fromSegment": 178,
+            "toSegment": 8796,
+            "fractions": [
+              0.55,
+              0.55
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          },
+          {
+            "fromSegment": 178,
+            "toSegment": 8796,
+            "fractions": [
+              0.45,
+              0.55
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          },
+          {
+            "fromSegment": 178,
+            "toSegment": 8796,
+            "fractions": [
+              0.55,
+              0.45
+            ],
+            "preflight": "invalidGroundRoadAnchors"
+          }
+        ]
+      }
+    },
+    "target": {
+      "route": {
+        "citizenId": 272270,
+        "frame": 55296303,
+        "from": 33828,
+        "to": 30040,
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      "end": {
+        "citizenId": 272270,
+        "homeBuilding": 33828,
+        "workBuilding": 30040,
+        "location": "Moving",
+        "nativeWorkArrivals": 0
+      }
+    },
+    "independentPedestrianLegs": [
+      {
+        "fromSegment": 6471,
+        "toSegment": 33818,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 33818,
+        "toSegment": 6471,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 6471,
+        "toSegment": 35544,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 62.62581,
+          "segments": [
+            6471,
+            6849,
+            9354,
+            2305,
+            27174,
+            35544
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 33818,
+        "toSegment": 15946,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 4.621291,
+          "segments": [
+            33818,
+            15946
+          ],
+          "segmentListComplete": true
+        }
+      }
+    ],
+    "observation": {
+      "androidsWithWorkArrival": 21,
+      "androidResidents": 756,
+      "androidWorkRegistrations": 718,
+      "humanWorkRegistrations": 4348,
+      "completedDeliveries": 8
+    },
+    "receiptSha256": "5CF2D61390D18BB16F8DBBAB0B54C89926B6B67409E99575940ADA32C2B7810E",
+    "requestSha256": "CCBCFB993F3CD09E380FAB33205ECE7C497A752C90FCCAEB453F3D5EF8AD8A00",
+    "preflightCounts": {
+      "invalidGroundRoadAnchors": 16
+    }
+  },
+  "terminalNetwork": {
+    "nodes": 32699,
+    "segments": 32718,
+    "lanes": 157604
+  },
+  "frontageScreen": {
+    "siteCount": 13,
+    "nativeBuildingPositionsScanned": 13539,
+    "zoneReceiptFiles": 25,
+    "noFlagAtThisScreen": [
+      20894,
+      26942
+    ],
+    "receiptSha256": "F91873F0C04E2AD766705303AB2862E10CCCFE0AD9011846C3486BEBFC0663C0"
+  },
+  "limitation": "The tested mod grouped multiple anchor checks under one preflight code. It did not reach stock NetTool placement. There was no new connection or verified improvement to the target commute.",
+  "diagnosticTrial": {
+    "caseId": "jan01-segment-anchor-diagnostics-72h",
+    "modSha256": "8AD2F479145F37D125DE22D942531E58C41C21AA661535BD381E2E93CBC32A9D",
+    "receiptSha256": "94CE8EC328AC4FC5F95C85FFC4049C51528EF184C30A3F751E4FD62ACDD64A71",
+    "decisions": {
+      "178": {
+        "count": 8,
+        "fromAnchorError": "occupiedZoneBlock",
+        "toSegment": 8796,
+        "toAnchorError": null
+      },
+      "8696": {
+        "count": 8,
+        "fromAnchorError": "occupiedZoneBlock",
+        "toSegment": 8796,
+        "toAnchorError": null
+      }
+    },
+    "target": {
+      "route": {
+        "citizenId": 272270,
+        "frame": 55296303,
+        "from": 33828,
+        "to": 30040,
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      "end": {
+        "citizenId": 272270,
+        "homeBuilding": 33828,
+        "workBuilding": 30040,
+        "location": "Moving",
+        "nativeWorkArrivals": 0
+      }
+    },
+    "observation": {
+      "androidsWithWorkArrival": 21,
+      "androidResidents": 756,
+      "androidWorkRegistrations": 718,
+      "humanWorkRegistrations": 4348,
+      "completedDeliveries": 8
+    }
+  }
+}
