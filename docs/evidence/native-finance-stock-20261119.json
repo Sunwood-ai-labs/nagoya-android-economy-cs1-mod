@@ -1,0 +1,21 @@
+{
+  "checkpoint": {
+    "name": "NagoyaCitywide-NewStoresExistingWorkers-Arrival",
+    "sha256": "574A12F06ACB239D47A65A2C532B7635B94B730B6BB133BFD107A0BFFA338D39",
+    "length": 15484671
+  },
+  "stockTaxRatePercent": 9,
+  "startedAt": "2029-05-03T01:43:34",
+  "stoppedAt": "2029-05-03T06:19:06",
+  "elapsedSimulatedSeconds": 16532,
+  "gameReportedForcedPause": true,
+  "recheckGameTime": "2029-05-03T06:19:06",
+  "nativeCashRaw": -764869825,
+  "fundsOverrideActive": false,
+  "cityNetwork": {
+    "nodes": 32636,
+    "segments": 32655,
+    "lanes": 157604
+  },
+  "modifiedGameBudget": false
+}

@@ -39,6 +39,7 @@ namespace NagoyaAndroidDemo
                     scene.EmploymentTrial = NagoyaRoadDelivery.NativeEmploymentTrial.Prepare(city);
                 host.AddComponent<NagoyaRoadDelivery.NativeCityModelAlignment>();
                 host.AddComponent<NagoyaRoadDelivery.NativeCityRoster>();
+                host.AddComponent<NagoyaRoadDelivery.NativeCityFinance>();
                 host.AddComponent<NagoyaRoadDelivery.NativeCityRoadBuilder>().Infrastructure = true;
                 host.AddComponent<NagoyaRoadDelivery.NativeWaterConnections>();
             }
