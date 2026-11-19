@@ -1,0 +1,1177 @@
+{
+  "caseId": "jan01-native-commute-route-audit-72h",
+  "checkpoint": {
+    "sha256": "9F4DCFBDDA74FE71B31CCBAC78D973D20598F84242F34E06D0F4DC67A292BA60",
+    "name": "NagoyaCitywide-EmploymentTrial-MixedHouseholds220-Observed",
+    "parentPreserved": true,
+    "segments": 32718,
+    "gameTime": "2030-01-01T08:57:59",
+    "bytes": 15373629,
+    "buildIndex": 126124,
+    "parent": "NagoyaCitywide-EmploymentTrial-SharedHomesObserved"
+  },
+  "modSha256": "E683F281F5E502AA51F6A046800A41D3CCE1B3B75EC044E1982DE3A48E275A4F",
+  "timeFrame": {
+    "startFrame": 55295666,
+    "endFrame": 55297422,
+    "startTicks": "640290855288267276",
+    "endTicks": "640293448132017276",
+    "durationHours": 72
+  },
+  "requested": 48,
+  "captured": 37,
+  "unobserved": 11,
+  "comparisonsByStockAndWalking": {
+    "failed/failed": 27,
+    "ready/ready": 10
+  },
+  "comparisonsByPriorCohort": {
+    "previousFailureCallback": {
+      "failed/failed": 8
+    },
+    "previousWorkArrival": {
+      "ready/ready": 10,
+      "unobserved": 11
+    },
+    "previousFailureDistanceSample": {
+      "failed/failed": 19
+    }
+  },
+  "trackCleanup": "Owned path references are released at the end of the audit.",
+  "unobservedCitizens": [
+    143971,
+    359406,
+    415412,
+    463166,
+    532812,
+    565858,
+    591251,
+    883482,
+    916932,
+    917119,
+    994695
+  ],
+  "routes": [
+    {
+      "citizenId": 956468,
+      "frame": 55295715,
+      "from": 19814,
+      "to": 17628,
+      "start": [
+        2610.509,
+        139.9844,
+        523.9521
+      ],
+      "end": [
+        -1856.01,
+        127.8422,
+        -442.2151
+      ],
+      "startSidewalkSegment": 9506,
+      "endSidewalkSegment": 9798,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureCallback",
+      "horizontalEntranceDistanceM": 4569.8,
+      "sameEndpointsAsPriorRecordedFailure": true,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 959126,
+      "frame": 55295715,
+      "from": 31997,
+      "to": 38120,
+      "start": [
+        -1050.086,
+        140,
+        -22.88908
+      ],
+      "end": [
+        -2103.444,
+        139.9865,
+        391.9652
+      ],
+      "startSidewalkSegment": 35714,
+      "endSidewalkSegment": 3557,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureCallback",
+      "horizontalEntranceDistanceM": 1132.1,
+      "sameEndpointsAsPriorRecordedFailure": true,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 959489,
+      "frame": 55295715,
+      "from": 37235,
+      "to": 20770,
+      "start": [
+        2083.336,
+        139.9977,
+        709.3204
+      ],
+      "end": [
+        -111.6012,
+        140,
+        -923.3326
+      ],
+      "startSidewalkSegment": 32840,
+      "endSidewalkSegment": 25712,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureCallback",
+      "horizontalEntranceDistanceM": 2735.6,
+      "sameEndpointsAsPriorRecordedFailure": true,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 961304,
+      "frame": 55295715,
+      "from": 41621,
+      "to": 17446,
+      "start": [
+        -297.0079,
+        139.9898,
+        -3316.064
+      ],
+      "end": [
+        2238.861,
+        140,
+        -410.9804
+      ],
+      "startSidewalkSegment": 28726,
+      "endSidewalkSegment": 14822,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureCallback",
+      "horizontalEntranceDistanceM": 3856.2,
+      "sameEndpointsAsPriorRecordedFailure": true,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 963081,
+      "frame": 55295715,
+      "from": 48372,
+      "to": 47928,
+      "start": [
+        2462.257,
+        139.9859,
+        2668.052
+      ],
+      "end": [
+        -444.4607,
+        139.9864,
+        1680.007
+      ],
+      "startSidewalkSegment": 36511,
+      "endSidewalkSegment": 30951,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureCallback",
+      "horizontalEntranceDistanceM": 3070.1,
+      "sameEndpointsAsPriorRecordedFailure": true,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 965714,
+      "frame": 55295715,
+      "from": 18422,
+      "to": 2603,
+      "start": [
+        2924.962,
+        139.9964,
+        1505.843
+      ],
+      "end": [
+        2588.825,
+        140,
+        -2793.649
+      ],
+      "startSidewalkSegment": 22170,
+      "endSidewalkSegment": 497,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureCallback",
+      "horizontalEntranceDistanceM": 4312.6,
+      "sameEndpointsAsPriorRecordedFailure": true,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 969098,
+      "frame": 55295715,
+      "from": 35398,
+      "to": 18880,
+      "start": [
+        2042.914,
+        139.9935,
+        -1863.667
+      ],
+      "end": [
+        -677.0089,
+        140,
+        -2901.17
+      ],
+      "startSidewalkSegment": 9622,
+      "endSidewalkSegment": 17557,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureCallback",
+      "horizontalEntranceDistanceM": 2911.1,
+      "sameEndpointsAsPriorRecordedFailure": true,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 975807,
+      "frame": 55295715,
+      "from": 22692,
+      "to": 24561,
+      "start": [
+        -466.3375,
+        139.9954,
+        1734.091
+      ],
+      "end": [
+        1557.852,
+        139.9991,
+        -2732.985
+      ],
+      "startSidewalkSegment": 11892,
+      "endSidewalkSegment": 29775,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureCallback",
+      "horizontalEntranceDistanceM": 4904.3,
+      "sameEndpointsAsPriorRecordedFailure": true,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 2443,
+      "frame": 55295764,
+      "from": 21762,
+      "to": 23671,
+      "start": [
+        2659.852,
+        139.9993,
+        -2334.979
+      ],
+      "end": [
+        2700.927,
+        139.9967,
+        -2318.781
+      ],
+      "startSidewalkSegment": 31713,
+      "endSidewalkSegment": 27329,
+      "stock": {
+        "result": "ready",
+        "lengthMeters": 304.3978
+      },
+      "pedestrian": {
+        "result": "ready",
+        "lengthMeters": 58.20385
+      },
+      "priorGroup": "previousWorkArrival",
+      "horizontalEntranceDistanceM": 44.2,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 1
+    },
+    {
+      "citizenId": 86118,
+      "frame": 55295764,
+      "from": 15964,
+      "to": 33409,
+      "start": [
+        -1527.734,
+        140,
+        345.8881
+      ],
+      "end": [
+        -1506.638,
+        140,
+        344.2691
+      ],
+      "startSidewalkSegment": 23564,
+      "endSidewalkSegment": 8738,
+      "stock": {
+        "result": "ready",
+        "lengthMeters": 100.0032
+      },
+      "pedestrian": {
+        "result": "ready",
+        "lengthMeters": 20.5605
+      },
+      "priorGroup": "previousWorkArrival",
+      "horizontalEntranceDistanceM": 21.2,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 1
+    },
+    {
+      "citizenId": 156527,
+      "frame": 55295813,
+      "from": 48660,
+      "to": 22553,
+      "start": [
+        1843.578,
+        139.9988,
+        2215.318
+      ],
+      "end": [
+        1873.381,
+        140,
+        2065.16
+      ],
+      "startSidewalkSegment": 15948,
+      "endSidewalkSegment": 9359,
+      "stock": {
+        "result": "ready",
+        "lengthMeters": 660.7252
+      },
+      "pedestrian": {
+        "result": "ready",
+        "lengthMeters": 149.3111
+      },
+      "priorGroup": "previousWorkArrival",
+      "horizontalEntranceDistanceM": 153.1,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 1
+    },
+    {
+      "citizenId": 39563,
+      "frame": 55296205,
+      "from": 11426,
+      "to": 12281,
+      "start": [
+        442.8683,
+        140,
+        -1608.922
+      ],
+      "end": [
+        387.4393,
+        140,
+        -2474.6
+      ],
+      "startSidewalkSegment": 5727,
+      "endSidewalkSegment": 8618,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 867.5,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 44348,
+      "frame": 55296205,
+      "from": 14780,
+      "to": 18845,
+      "start": [
+        335.7813,
+        139.9883,
+        -1059.882
+      ],
+      "end": [
+        1738.546,
+        140,
+        -940.9229
+      ],
+      "startSidewalkSegment": 34210,
+      "endSidewalkSegment": 10463,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 1407.8,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 955683,
+      "frame": 55296205,
+      "from": 26880,
+      "to": 14696,
+      "start": [
+        -249.1895,
+        140,
+        910.8071
+      ],
+      "end": [
+        -306.106,
+        140,
+        906.4258
+      ],
+      "startSidewalkSegment": 12912,
+      "endSidewalkSegment": 6118,
+      "stock": {
+        "result": "ready",
+        "lengthMeters": 227.5781
+      },
+      "pedestrian": {
+        "result": "ready",
+        "lengthMeters": 50.78049
+      },
+      "priorGroup": "previousWorkArrival",
+      "horizontalEntranceDistanceM": 57.1,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 1
+    },
+    {
+      "citizenId": 77392,
+      "frame": 55296303,
+      "from": 39908,
+      "to": 4457,
+      "start": [
+        -3349.99,
+        140,
+        -1442.57
+      ],
+      "end": [
+        1184.421,
+        140,
+        -2156.339
+      ],
+      "startSidewalkSegment": 30824,
+      "endSidewalkSegment": 3633,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 4590.2,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 108529,
+      "frame": 55296303,
+      "from": 43714,
+      "to": 14983,
+      "start": [
+        3169.031,
+        140,
+        1398.323
+      ],
+      "end": [
+        1907.593,
+        139.9931,
+        -1387.204
+      ],
+      "startSidewalkSegment": 3480,
+      "endSidewalkSegment": 19057,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 3057.8,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 263994,
+      "frame": 55296303,
+      "from": 47942,
+      "to": 46468,
+      "start": [
+        635.6106,
+        140,
+        -1994.817
+      ],
+      "end": [
+        -1771.859,
+        131.0313,
+        -1801.12
+      ],
+      "startSidewalkSegment": 12400,
+      "endSidewalkSegment": 22133,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 2415.2,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 272270,
+      "frame": 55296303,
+      "from": 33828,
+      "to": 30040,
+      "start": [
+        -2260.547,
+        140,
+        -79.05749
+      ],
+      "end": [
+        -2451.529,
+        139.9891,
+        2.181764
+      ],
+      "startSidewalkSegment": 6471,
+      "endSidewalkSegment": 33818,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 207.5,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 289197,
+      "frame": 55296303,
+      "from": 20918,
+      "to": 29947,
+      "start": [
+        -448.0037,
+        140,
+        1206.494
+      ],
+      "end": [
+        2875.592,
+        139.9844,
+        1842.401
+      ],
+      "startSidewalkSegment": 8892,
+      "endSidewalkSegment": 16184,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 3383.9,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 389569,
+      "frame": 55296303,
+      "from": 23892,
+      "to": 46183,
+      "start": [
+        978.1334,
+        140,
+        -2145.813
+      ],
+      "end": [
+        657.2552,
+        140,
+        -229.1122
+      ],
+      "startSidewalkSegment": 724,
+      "endSidewalkSegment": 29506,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 1943.4,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 420131,
+      "frame": 55296303,
+      "from": 13841,
+      "to": 31285,
+      "start": [
+        739.0074,
+        140,
+        1856.305
+      ],
+      "end": [
+        127.3063,
+        140,
+        -943.981
+      ],
+      "startSidewalkSegment": 21264,
+      "endSidewalkSegment": 3611,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 2866.3,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 463203,
+      "frame": 55296303,
+      "from": 260,
+      "to": 9384,
+      "start": [
+        1325.017,
+        140,
+        -372.0254
+      ],
+      "end": [
+        2829.736,
+        140,
+        1123.403
+      ],
+      "startSidewalkSegment": 34662,
+      "endSidewalkSegment": 9704,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 2121.4,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 525503,
+      "frame": 55296303,
+      "from": 36878,
+      "to": 46126,
+      "start": [
+        113.1668,
+        140,
+        312.9233
+      ],
+      "end": [
+        1922.754,
+        140,
+        -3169.967
+      ],
+      "startSidewalkSegment": 15359,
+      "endSidewalkSegment": 35437,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 3924.9,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 596970,
+      "frame": 55296303,
+      "from": 320,
+      "to": 20181,
+      "start": [
+        -802.7033,
+        139.9988,
+        172.622
+      ],
+      "end": [
+        3471.422,
+        140,
+        3906.097
+      ],
+      "startSidewalkSegment": 1012,
+      "endSidewalkSegment": 8362,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 5675.1,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 693169,
+      "frame": 55296303,
+      "from": 45708,
+      "to": 13999,
+      "start": [
+        -789.9742,
+        140,
+        2643.456
+      ],
+      "end": [
+        -3995.104,
+        139.9998,
+        -1343.104
+      ],
+      "startSidewalkSegment": 8091,
+      "endSidewalkSegment": 24020,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 5115.2,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 695642,
+      "frame": 55296303,
+      "from": 13773,
+      "to": 28391,
+      "start": [
+        -224.3269,
+        140,
+        -1423.706
+      ],
+      "end": [
+        1509.86,
+        139.985,
+        528.1697
+      ],
+      "startSidewalkSegment": 4085,
+      "endSidewalkSegment": 20617,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 2611.0,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 755646,
+      "frame": 55296303,
+      "from": 10575,
+      "to": 46383,
+      "start": [
+        -1567.244,
+        139.9954,
+        645.7673
+      ],
+      "end": [
+        -3210.691,
+        139.9863,
+        -2563.9
+      ],
+      "startSidewalkSegment": 19827,
+      "endSidewalkSegment": 27297,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 3606.0,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 817778,
+      "frame": 55296303,
+      "from": 2087,
+      "to": 10459,
+      "start": [
+        1123.099,
+        139.9983,
+        1969.718
+      ],
+      "end": [
+        -2616.317,
+        139.9878,
+        -4485.009
+      ],
+      "startSidewalkSegment": 2472,
+      "endSidewalkSegment": 430,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 7459.7,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 886964,
+      "frame": 55296303,
+      "from": 10846,
+      "to": 7420,
+      "start": [
+        -2706.08,
+        139.986,
+        454.9593
+      ],
+      "end": [
+        -3723.719,
+        139.9844,
+        778.768
+      ],
+      "startSidewalkSegment": 5247,
+      "endSidewalkSegment": 29629,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 1067.9,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 940536,
+      "frame": 55296303,
+      "from": 2514,
+      "to": 48117,
+      "start": [
+        1251.274,
+        139.9956,
+        1448.391
+      ],
+      "end": [
+        -2895.724,
+        140,
+        749.6635
+      ],
+      "startSidewalkSegment": 2459,
+      "endSidewalkSegment": 18905,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 4205.5,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 955977,
+      "frame": 55296303,
+      "from": 27279,
+      "to": 22556,
+      "start": [
+        1788.296,
+        139.9924,
+        1099.775
+      ],
+      "end": [
+        2948.889,
+        140,
+        -107.4344
+      ],
+      "startSidewalkSegment": 31454,
+      "endSidewalkSegment": 28143,
+      "stock": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "pedestrian": {
+        "result": "failed",
+        "lengthMeters": null
+      },
+      "priorGroup": "previousFailureDistanceSample",
+      "horizontalEntranceDistanceM": 1674.6,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 0
+    },
+    {
+      "citizenId": 590045,
+      "frame": 55296352,
+      "from": 45402,
+      "to": 8107,
+      "start": [
+        2852.802,
+        139.996,
+        1760.759
+      ],
+      "end": [
+        2851.267,
+        139.9863,
+        1685.009
+      ],
+      "startSidewalkSegment": 28308,
+      "endSidewalkSegment": 34669,
+      "stock": {
+        "result": "ready",
+        "lengthMeters": 484.169
+      },
+      "pedestrian": {
+        "result": "ready",
+        "lengthMeters": 115.5337
+      },
+      "priorGroup": "previousWorkArrival",
+      "horizontalEntranceDistanceM": 75.8,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 1
+    },
+    {
+      "citizenId": 676794,
+      "frame": 55296352,
+      "from": 1387,
+      "to": 15562,
+      "start": [
+        -94.29642,
+        139.9889,
+        -1257.491
+      ],
+      "end": [
+        -59.62025,
+        139.9997,
+        -1212.224
+      ],
+      "startSidewalkSegment": 32827,
+      "endSidewalkSegment": 9781,
+      "stock": {
+        "result": "ready",
+        "lengthMeters": 421.2341
+      },
+      "pedestrian": {
+        "result": "ready",
+        "lengthMeters": 90.22327
+      },
+      "priorGroup": "previousWorkArrival",
+      "horizontalEntranceDistanceM": 57.0,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 1
+    },
+    {
+      "citizenId": 536424,
+      "frame": 55296401,
+      "from": 6892,
+      "to": 9251,
+      "start": [
+        -332.9825,
+        140,
+        501.9738
+      ],
+      "end": [
+        -322.7382,
+        140,
+        396.4072
+      ],
+      "startSidewalkSegment": 10909,
+      "endSidewalkSegment": 34951,
+      "stock": {
+        "result": "ready",
+        "lengthMeters": 425.5709
+      },
+      "pedestrian": {
+        "result": "ready",
+        "lengthMeters": 103.6182
+      },
+      "priorGroup": "previousWorkArrival",
+      "horizontalEntranceDistanceM": 106.1,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 1
+    },
+    {
+      "citizenId": 20100,
+      "frame": 55297381,
+      "from": 3307,
+      "to": 39190,
+      "start": [
+        -1174.386,
+        139.9974,
+        1373.416
+      ],
+      "end": [
+        -1139.935,
+        140,
+        1392.708
+      ],
+      "startSidewalkSegment": 20330,
+      "endSidewalkSegment": 31980,
+      "stock": {
+        "result": "ready",
+        "lengthMeters": 282.9727
+      },
+      "pedestrian": {
+        "result": "ready",
+        "lengthMeters": 59.05302
+      },
+      "priorGroup": "previousWorkArrival",
+      "horizontalEntranceDistanceM": 39.5,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 1
+    },
+    {
+      "citizenId": 416888,
+      "frame": 55297381,
+      "from": 20918,
+      "to": 33262,
+      "start": [
+        -448.0037,
+        140,
+        1206.494
+      ],
+      "end": [
+        -468.9283,
+        140,
+        1269.89
+      ],
+      "startSidewalkSegment": 8892,
+      "endSidewalkSegment": 17676,
+      "stock": {
+        "result": "ready",
+        "lengthMeters": 314.5997
+      },
+      "pedestrian": {
+        "result": "ready",
+        "lengthMeters": 68.63338
+      },
+      "priorGroup": "previousWorkArrival",
+      "horizontalEntranceDistanceM": 66.8,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 1
+    },
+    {
+      "citizenId": 559795,
+      "frame": 55297381,
+      "from": 35596,
+      "to": 23119,
+      "start": [
+        2672.48,
+        140,
+        543.1816
+      ],
+      "end": [
+        2587.926,
+        140,
+        511.242
+      ],
+      "startSidewalkSegment": 7327,
+      "endSidewalkSegment": 23981,
+      "stock": {
+        "result": "ready",
+        "lengthMeters": 471.4179
+      },
+      "pedestrian": {
+        "result": "ready",
+        "lengthMeters": 107.1895
+      },
+      "priorGroup": "previousWorkArrival",
+      "horizontalEntranceDistanceM": 90.4,
+      "sameEndpointsAsPriorRecordedFailure": null,
+      "nativeWorkArrivalCountInTrial": 1
+    }
+  ],
+  "nativeReceiptSha256": "618E2CACF5D0D61674E541BF6283E69A48C426232291E8103E51184388D1B718",
+  "priorTraceSha256": "FF88A3ECF98789A98F5A6742B5AD51C1E5139BE403D7BFAEFFB088552915F17A",
+  "engineWalkLimit": {
+    "gameBuild": "1.21.1-f9-steam-win",
+    "assemblySha256": "DF557994A03C93D8BB4A14F80B1FBCC0FB29D547658442445D078D069BCDD9FE",
+    "method": "PathFind.ProcessItemPedBicycle",
+    "methodIlSha256": "372A6A6F111CF347207DD6579A8B46348D1045D643D36C28250EF0DD55AB90E6",
+    "pedestrianLaneType": 2,
+    "methodDistanceLimitM": 1000,
+    "stablePathBypassesThisBranch": true
+  }
+}

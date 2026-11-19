@@ -11,7 +11,9 @@ param(
     [ValidateRange(100000, 5000000)][int]$OpeningCash = 2000000,
     [switch]$KeepOpeningCash,
     [switch]$ShareAndroidHouseholds,
-    [switch]$ShareMixedHouseholds
+    [switch]$ShareMixedHouseholds,
+    [uint32[]]$CommuteAuditIds,
+    [switch]$TestLongWalkCommutes
 )
 
 $ErrorActionPreference = 'Stop'
@@ -42,6 +44,17 @@ if ($KeepOpeningCash) { $request.keepOpeningCash = $true }
 else { $request.openingCash = $OpeningCash }
 if ($ShareAndroidHouseholds) { $request.shareAndroidHouseholds = $true }
 if ($ShareMixedHouseholds) { $request.shareMixedHouseholds = $true }
+if ($TestLongWalkCommutes -and -not $PSBoundParameters.ContainsKey('CommuteAuditIds')) {
+    throw 'Specify the citizens participating in the long walk trial.'
+}
+if ($PSBoundParameters.ContainsKey('CommuteAuditIds')) {
+    if ($CommuteAuditIds.Count -lt 1 -or $CommuteAuditIds.Count -gt 48 -or 0 -in $CommuteAuditIds -or
+        ($CommuteAuditIds | Sort-Object -Unique).Count -ne $CommuteAuditIds.Count) {
+        throw 'Select 1–48 unique native citizen IDs for the route audit.'
+    }
+    $request.commuteAuditIds = $CommuteAuditIds
+}
+if ($TestLongWalkCommutes) { $request.testLongWalkCommutes = $true }
 
 $destination = Join-Path $root 'native-employment-trial.json'
 $consumed = Join-Path $root "native-employment-$CaseId.request.json"

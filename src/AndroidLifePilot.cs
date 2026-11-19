@@ -252,6 +252,7 @@ namespace NagoyaRoadDelivery
                 }
                 catch (Exception ex)
                 {
+                    if (employmentTrial != null && employmentTrial.CommuteAudit != null) employmentTrial.CommuteAudit.Dispose();
                     employmentTrial = null;
                     Debug.LogException(ex);
                 }
@@ -612,6 +613,8 @@ namespace NagoyaRoadDelivery
             trial.AfterAdmissionCapacity = NativeCityRoster.AuditCapacity();
             Sample admitted = Observe(trial.Start);
             trial.AfterAdmission = admitted.Json;
+            if (trial.CommuteAuditIds != null)
+                trial.CommuteAudit = new NativeCommuteRouteAudit(trial.CommuteAuditIds, trial.TestLongWalkCommutes);
             Interlocked.Exchange<Sample>(ref sample, admitted);
             trial.Running = true;
             sim.ForcedSimulationPaused = false;
@@ -651,6 +654,7 @@ namespace NagoyaRoadDelivery
             {
                 trial.Running = false;
                 sim.SimulationPaused = true;
+                if (trial.CommuteAudit != null) trial.CommuteAudit.Dispose();
                 life.employmentTrial = null;
                 Debug.LogException(issue);
             }
@@ -1021,7 +1025,7 @@ namespace NagoyaRoadDelivery
             HumanAI ai = info == null ? null : info.GetAI() as HumanAI;
             if (ai == null) return false;
             Citizen.Location previous = citizen.CurrentLocation;
-            if (!ai.StartMoving(id, ref citizen, from, to)) return false;
+            if (!NativeCommuteRouteAudit.StartMovement(ai, id, ref citizen, from, to)) return false;
             CitizenInstance[] instances = CitizenManager.instance.m_instances.m_buffer;
             if (citizen.m_instance != 0 && citizen.m_instance < instances.Length)
             {
@@ -1146,6 +1150,7 @@ namespace NagoyaRoadDelivery
 
         public void OnDestroy()
         {
+            if (employmentTrial != null && employmentTrial.CommuteAudit != null) employmentTrial.CommuteAudit.Dispose();
             if (active == this) active = null;
             if (renderer == this) renderer = null;
             if (renderPatch != null) renderPatch.UnpatchAll(RenderPatchId);
