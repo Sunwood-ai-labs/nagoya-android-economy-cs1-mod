@@ -54,6 +54,11 @@ namespace NagoyaRoadDelivery
         private readonly Queue<uint> arrivedAtWork = new Queue<uint>();
         private readonly Queue<object> recent = new Queue<object>();
         private readonly Queue<object> failures = new Queue<object>();
+        private readonly Queue<object> onsiteDispatches = new Queue<object>();
+        private readonly HashSet<string> onsitePriorityWards = new HashSet<string>(StringComparer.Ordinal);
+        private readonly Dictionary<string, int> onsiteStartsByWard = new Dictionary<string, int>(StringComparer.Ordinal);
+        private readonly Dictionary<string, int> onsiteDeliveriesByWard = new Dictionary<string, int>(StringComparer.Ordinal);
+        private readonly HashSet<ushort> stockedFactoriesWithWorkerOnsite = new HashSet<ushort>();
         private readonly List<object> localHires = new List<object>();
         private int pickupStarts, pickupArrivals, started, delivered, goods, stockedFactories, shopsWithSpace, workersSeenAtFactory, failedLegs, expiredLegs;
         private int blockedByStreetReach, observedGoodsOffers;
@@ -67,7 +72,7 @@ namespace NagoyaRoadDelivery
             public uint Frame, LastRouteFrame, LastProgressFrame;
             public GoodsRequest Demand;
             public Vector3 LastPosition;
-            public bool Collecting, HasPosition;
+            public bool Collecting, HasPosition, OnsitePriority;
         }
 
         private struct GoodsRequest
@@ -271,7 +276,7 @@ namespace NagoyaRoadDelivery
                 double walk = reach.DistanceTo(homeStreet, homePosition);
                 if (walk >= shortest) continue;
                 streetAccess = true;
-                DeliveryChoice goods = SelectShop(factory, reach, gameTime, true, 0, false);
+                DeliveryChoice goods = SelectShop(factory, reach, gameTime, true, 0, false, false);
                 if (goods.Shop.Id == 0) continue;
                 shopAccess = true;
                 IndustrialBuildingAI ai = ActiveAI(ref buildings[factory.Id]) as IndustrialBuildingAI;
@@ -456,11 +461,18 @@ namespace NagoyaRoadDelivery
             return vacancies;
         }
 
+        internal void PrioritizeOnsiteDeliveries(IEnumerable<string> wards)
+        {
+            onsitePriorityWards.UnionWith(wards);
+        }
+
         internal bool Dispatch(uint id, ref Citizen citizen, DateTime gameTime)
         {
-            if (gameTime.Hour < 7 || gameTime.Hour >= 17) return false;
             bool atWork = citizen.CurrentLocation == Citizen.Location.Work;
             bool atHome = citizen.CurrentLocation == Citizen.Location.Home;
+            bool normalHours = gameTime.Hour >= 7 && gameTime.Hour < 17;
+            bool priorityAtWork = atWork && onsitePriorityWards.Count != 0;
+            if (!normalHours && !priorityAtWork) return false;
             NativeCityLedger.Lot supplier;
             DateTime next;
             if ((!atWork && !atHome) || trips.ContainsKey(id) ||
@@ -494,8 +506,15 @@ namespace NagoyaRoadDelivery
                 else firstShopByResident.Remove(id);
             }
             bool scheduledShipment = firstShop != 0 && scheduled.ExistingWorker;
-            NativeDeliveryStreetReach reach = StreetReach(supplier, source, scheduledShipment);
-            DeliveryChoice choice = SelectShop(supplier, reach, gameTime, false, firstShop, scheduledShipment);
+            DeliveryChoice choice = new DeliveryChoice();
+            if (priorityAtWork)
+            {
+                stockedFactoriesWithWorkerOnsite.Add(supplier.Id);
+                choice = SelectShop(supplier, StreetReach(supplier, source, true), gameTime, false, 0, true, true);
+            }
+            bool onsiteShipment = choice.Shop.Id != 0;
+            if (!onsiteShipment && normalHours)
+                choice = SelectShop(supplier, StreetReach(supplier, source, scheduledShipment), gameTime, false, firstShop, scheduledShipment, false);
             NativeCityLedger.Lot target = choice.Shop;
             if (target.Id == 0)
             {
@@ -508,7 +527,7 @@ namespace NagoyaRoadDelivery
                 SupplierGeneration=buildings[supplier.Id].m_buildIndex, TargetGeneration=buildings[target.Id].m_buildIndex,
                 SupplierWard=supplier.Ward, TargetWard=target.Ward,
                 Frame=frame, LastRouteFrame=frame, LastProgressFrame=frame,
-                Collecting=atHome, Demand=choice.Request};
+                Collecting=atHome, Demand=choice.Request, OnsitePriority=onsiteShipment};
             trips.Add(id, trip);
             reservedShops.Add(target.Id);
             reservedFactories.Add(supplier.Id);
@@ -519,6 +538,14 @@ namespace NagoyaRoadDelivery
                 return false;
             }
             if (atHome) pickupStarts++; else started++;
+            if (onsiteShipment)
+            {
+                AddWardCount(onsiteStartsByWard, target.Ward);
+                if (onsiteDispatches.Count == 48) onsiteDispatches.Dequeue();
+                onsiteDispatches.Enqueue(new Dictionary<string, object> {{"android",id}, {"factory",supplier.Id},
+                    {"shop",target.Id}, {"ward",target.Ward}, {"pathId",CurrentPath(CitizenManager.instance,id)},
+                    {"gameTime",gameTime.ToString("s")}});
+            }
             return true;
         }
 
@@ -536,7 +563,7 @@ namespace NagoyaRoadDelivery
         }
 
         private DeliveryChoice SelectShop(NativeCityLedger.Lot supplier, NativeDeliveryStreetReach reach, DateTime gameTime,
-            bool forNewHire, ushort firstShop, bool scheduled)
+            bool forNewHire, ushort firstShop, bool scheduled, bool onsiteOnly)
         {
             DeliveryChoice choice = new DeliveryChoice();
             double best = double.PositiveInfinity;
@@ -548,6 +575,8 @@ namespace NagoyaRoadDelivery
             foreach (NativeCityLedger.Lot shop in shops)
             {
                 if (firstShop != 0 && shop.Id != firstShop) continue;
+                if (onsiteOnly && (!onsitePriorityWards.Contains(shop.Ward) || deliveredByWard.ContainsKey(shop.Ward) ||
+                    activeDeliveriesByWard.ContainsKey(shop.Ward))) continue;
                 float distance = (buildings[shop.Id].m_position - source).sqrMagnitude;
                 ushort street;
                 if (reservedShops.Contains(shop.Id) || distance < 12 * 12 || distance > straightLimit * straightLimit ||
@@ -794,6 +823,7 @@ namespace NagoyaRoadDelivery
             delivered++;
             goods += credit;
             AddWardCount(deliveredByWard, trip.TargetWard);
+            if (trip.OnsitePriority) AddWardCount(onsiteDeliveriesByWard, trip.TargetWard);
             if (recent.Count == 64) recent.Dequeue();
             recent.Enqueue(new Dictionary<string, object> {{"android",id}, {"from",trip.Supplier}, {"to",target},
                 {"ward",trip.TargetWard}, {"sourceWard",trip.SupplierWard}, {"stockAdded",credit}, {"factoryBefore",factoryBefore},
@@ -801,7 +831,7 @@ namespace NagoyaRoadDelivery
                 {"factoryAfter",Stock(source, trip.Supplier, ref buildings[trip.Supplier])}, {"shopBefore",shopBefore}, {"nativeRequest",RequestSnapshot(trip.Demand)},
                 {"shopAfter",Stock(destination, target, ref buildings[target])}, {"localHire",IsLocalHire(id, trip.Supplier)},
                 {"firstDeliveryAfterAdmission",plannedDelivery && !planned.ExistingWorker},
-                {"firstDeliveryFromExistingWorker",plannedDelivery && planned.ExistingWorker},
+                {"firstDeliveryFromExistingWorker",plannedDelivery && planned.ExistingWorker}, {"onsitePriority",trip.OnsitePriority},
                 {"gameTime",SimulationManager.instance.m_currentGameTime.ToString("s")}});
         }
 
@@ -893,12 +923,17 @@ namespace NagoyaRoadDelivery
                 Trip leg = live.Value;
                 inFlight.Add(new Dictionary<string, object> {{"android",live.Key}, {"from",leg.From},
                     {"target",leg.Collecting ? leg.Supplier : leg.Target}, {"deliveryBuilding",leg.Target}, {"destinationWard",leg.TargetWard},
+                    {"onsitePriority",leg.OnsitePriority},
                     {"factoryAccessStreet",leg.SupplierStreet}, {"shopAccessStreet",leg.TargetStreet},
                     {"frame",leg.Frame}, {"lastProgressFrame",leg.LastProgressFrame}, {"nativeRequest",RequestSnapshot(leg.Demand)},
                     {"position",leg.HasPosition ? new float[] {leg.LastPosition.x, leg.LastPosition.y, leg.LastPosition.z} : null}});
             }
             return new Dictionary<string, object> {{"active",trips.Count}, {"started",started}, {"delivered",delivered},
                 {"stockAdded",goods}, {"stockedFactories",stockedFactories}, {"shopsWithSpace",shopsWithSpace},
+                {"onsitePriorityWards",new List<string>(onsitePriorityWards).ToArray()},
+                {"stockedFactoriesWithWorkerOnsite",new List<ushort>(stockedFactoriesWithWorkerOnsite).ToArray()},
+                {"onsiteStartsByWard",onsiteStartsByWard}, {"onsiteDeliveriesByWard",onsiteDeliveriesByWard},
+                {"recentOnsiteDispatches",onsiteDispatches.ToArray()},
                 {"stockedFactoriesByWard",stockedFactoriesByWard}, {"activeShopsByWard",activeShopsByWard}, {"shopsWithSpaceByWard",shopsWithSpaceByWard},
                 {"shopInventoryByWard",shopInventory},
                 {"nativeAccessRoadDiffersFromLedgerByWard",differentEntranceRoadsByWard},

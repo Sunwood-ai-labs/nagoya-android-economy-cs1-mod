@@ -220,7 +220,16 @@ namespace NagoyaRoadDelivery
                 if (ward.Length < 2 || ward.Length > 12 || !ward.EndsWith("区", StringComparison.Ordinal) || !wards.Add(ward))
                     throw new InvalidDataException("Invalid delivery ward");
             }
-            if (wards.Count == 0 || wards.Count > 16 || cohort.Count + wards.Count * perWard > NativeCityLedger.MaxResidents)
+            if (wards.Count == 0 || wards.Count > 16)
+                throw new InvalidDataException("Local delivery request is outside the district limit");
+            object onsite;
+            if (config.TryGetValue("dispatchAtWork", out onsite) && (bool)onsite)
+            {
+                localDeliveries.BeginSample(sim.m_currentGameTime);
+                localDeliveries.PrioritizeOnsiteDeliveries(wards);
+                return;
+            }
+            if (cohort.Count + wards.Count * perWard > NativeCityLedger.MaxResidents)
                 throw new InvalidDataException("Local hiring request is outside the district or population limits");
             localDeliveries.BeginSample(sim.m_currentGameTime);
             localDeliveryAdmissions = new List<object>();

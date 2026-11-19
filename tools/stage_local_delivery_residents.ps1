@@ -4,10 +4,12 @@ param(
     [Parameter(Mandatory)][string]$CheckpointName,
     [Parameter(Mandatory)][ValidatePattern('^[a-fA-F0-9]{64}$')][string]$CheckpointSha256,
     [ValidateRange(1,3)][int]$LimitPerWard = 2,
-    [switch]$PreferExistingWorkers
+    [switch]$PreferExistingWorkers,
+    [switch]$DispatchAtWork
 )
 
 $ErrorActionPreference = 'Stop'
+if ($DispatchAtWork -and $PreferExistingWorkers) { throw 'Choose live dispatch at work or fixed worker assignments.' }
 $root = 'H:/CS1-PLATEAU/nagoya-station/citywide-zoning-v3'
 $bridge = 'http://127.0.0.1:32123'
 $roster = Get-Content -Raw -LiteralPath "$root/native-city-roster.json" | ConvertFrom-Json
@@ -34,6 +36,7 @@ $request=@{
     localDeliveryWards=$Ward
     limitPerWard=$LimitPerWard
     preferExistingWorkers=[bool]$PreferExistingWorkers
+    dispatchAtWork=[bool]$DispatchAtWork
     expectedBuildIndex=$state.buildIndex
     expectedSegments=$state.network.segments
 }
