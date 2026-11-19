@@ -1,0 +1,162 @@
+{
+  "status": "verified",
+  "sourceSave": {
+    "name": "NagoyaCitywide-SecondLocalStreets-UtilityFirstObserved",
+    "sha256": "4122E45CCB3626ECF4BB637018C715237303D1F7423DFC30106B7AEB6C82E465",
+    "bytes": 14257801
+  },
+  "checkpoints": {
+    "placed": {
+      "name": "NagoyaCitywide-ParcelRecovery-Placed",
+      "sha256": "65CD8D52149A75635CC378FBE404EC2DB320443D5EE64A1CF36C2BA0C3DF5A04",
+      "bytes": 14267763
+    },
+    "observed": {
+      "name": "NagoyaCitywide-ParcelRecovery-Observed",
+      "sha256": "F3A5EDEA4446D470D4389E482E5338BA02A92A8EA87ECB6DFD1F146F41566D14",
+      "bytes": 14081117
+    }
+  },
+  "roadInventorySha256": "709FA079BFDAB7C1E4631590BEDDF5D8B8D6E3F27CF8681878B073C5D18F989A",
+  "planSha256": "8AD978823C284B03BB1996C9DD5888FE4085E6E46318A8F2C094808B7A5516F6",
+  "placementReceiptSha256": "AE3370F268351841AF7C6F14EA44AF3E223E707F9A0C8AD0D167DA8EA37D05EE",
+  "candidates": {
+    "eligible": 134,
+    "proposed": 128,
+    "candidatesByWard": {
+      "南区": 15,
+      "緑区": 11,
+      "中川区": 17,
+      "西区": 2,
+      "港区": 18,
+      "中村区": 9,
+      "名東区": 9,
+      "守山区": 10,
+      "昭和区": 7,
+      "千種区": 3,
+      "東区": 3,
+      "瑞穂区": 3,
+      "中区": 4,
+      "北区": 3,
+      "天白区": 6,
+      "熱田区": 8
+    },
+    "previouslyPlaced": 88,
+    "deferred": {
+      "no_new_served_frontage": 6
+    },
+    "writesToGame": false
+  },
+  "buildingPlacements": 79,
+  "placementsByWard": {
+    "南区": 11,
+    "緑区": 9,
+    "中川区": 9,
+    "西区": 2,
+    "港区": 10,
+    "中村区": 7,
+    "昭和区": 6,
+    "東区": 1,
+    "千種区": 1,
+    "中区": 4,
+    "熱田区": 8,
+    "天白区": 3,
+    "北区": 2,
+    "守山区": 2,
+    "瑞穂区": 1,
+    "名東区": 3
+  },
+  "placementsPreviouslyLost": 66,
+  "placementsPreviouslyRejected": 13,
+  "nativeRejections": {
+    "No free native zone cells on the source frontage": 49
+  },
+  "observationHours": 429.37,
+  "startGameTime": "2028-08-13T22:34:49",
+  "endGameTime": "2028-08-31T19:57:15",
+  "fundsRestored": true,
+  "newRetained": 79,
+  "newRetainedByWard": {
+    "中村区": 7,
+    "熱田区": 8,
+    "瑞穂区": 1,
+    "南区": 11,
+    "昭和区": 6,
+    "港区": 10,
+    "中川区": 9,
+    "中区": 4,
+    "緑区": 9,
+    "天白区": 3,
+    "千種区": 1,
+    "西区": 2,
+    "名東区": 3,
+    "守山区": 2,
+    "北区": 2,
+    "東区": 1
+  },
+  "newRetainedPreviouslyLost": 66,
+  "newRetainedPreviouslyRejected": 13,
+  "newActive": 79,
+  "newWarnings": {
+    "Electricity": 2
+  },
+  "oldGroupsLost": 28,
+  "ordinaryZoningCoverage": {
+    "before": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T11:57:35.4541946Z",
+      "activeNativeZonedSites": 4520,
+      "nativeSiteGroupCount": 4520,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "noActiveRole": 126546,
+        "allRolesActive": 571138,
+        "someRolesActive": 8051,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "uncovered": 138666,
+        "active": 603074
+      },
+      "writesToGame": false
+    },
+    "immediate": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T12:00:07.6263507Z",
+      "activeNativeZonedSites": 4599,
+      "nativeSiteGroupCount": 4599,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "noActiveRole": 117281,
+        "allRolesActive": 580887,
+        "someRolesActive": 7567,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "uncovered": 128758,
+        "active": 612982
+      },
+      "writesToGame": false
+    },
+    "after": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T12:01:33.4689653Z",
+      "activeNativeZonedSites": 4571,
+      "nativeSiteGroupCount": 4571,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "noActiveRole": 123474,
+        "allRolesActive": 574544,
+        "someRolesActive": 7717,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "uncovered": 135124,
+        "active": 606616
+      },
+      "writesToGame": false
+    }
+  },
+  "nativeRoads": 20079,
+  "wardsWithHumanAndAndroidPopulationAndJobs": 16
+}
