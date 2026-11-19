@@ -1,0 +1,660 @@
+{
+  "test": "Goods delivery using native building access roads in CS1",
+  "city": "NagoyaCitywide-Construction",
+  "startingSave": {
+    "name": "NagoyaCitywide-FrontageRepair6Wards",
+    "sha256": "fc542bc6830a4ad99ca7c5ef1cc46af084b63636559c6d2d901ba4890a7e326e"
+  },
+  "resultSave": {
+    "name": "NagoyaCitywide-NativeEntranceRoutes",
+    "sha256": "2173d3898c63ce8ebfb98e72799145a7f83f63de4d8c9ddd2620a2cf43add656",
+    "gameTime": "2027-10-01T10:06:28"
+  },
+  "assembly": {
+    "sha256": "7a6a1d134a72f6fa6fffe442514a58f8e335374d24ba5e702ed2ceb036b8a349",
+    "mvid": "a263f623-77ec-4d09-90d2-4d77ef2ccba8"
+  },
+  "samples": [
+    {
+      "file": "native-entrance-window-01/before-life.json",
+      "sha256": "4a0578e65018c57abffbc90fbd5219e7b2f83063ca014c4d4af939308b95d709",
+      "gameTime": "2027-08-29T18:05:16",
+      "runId": "20261119T081208788Z",
+      "nativeEntranceDiffersFromRecordedRoad": {
+        "名東区": 18,
+        "港区": 22,
+        "中川区": 24,
+        "北区": 14,
+        "千種区": 18,
+        "守山区": 39,
+        "中村区": 21,
+        "熱田区": 7,
+        "西区": 14,
+        "緑区": 41,
+        "南区": 13,
+        "天白区": 13,
+        "昭和区": 7,
+        "東区": 8,
+        "中区": 3,
+        "unassigned": 2,
+        "瑞穂区": 2
+      },
+      "nativeEntranceHasNoSidewalk": {
+        "名東区": 5,
+        "西区": 2,
+        "千種区": 8,
+        "守山区": 16,
+        "港区": 9,
+        "北区": 3,
+        "中川区": 4,
+        "天白区": 1,
+        "南区": 4,
+        "緑区": 5,
+        "中村区": 1,
+        "unassigned": 1,
+        "熱田区": 1,
+        "東区": 2,
+        "昭和区": 1
+      },
+      "deliveriesByWard": {},
+      "localHires": 2,
+      "delivered": 0
+    },
+    {
+      "file": "native-entrance-window-01/terminal-life.json",
+      "sha256": "dc5db7716c598e7dc1f1393a1842368da2b6a4190a1648bfa40b2e103240781b",
+      "gameTime": "2027-09-14T01:01:25",
+      "runId": "20261119T081208788Z",
+      "nativeEntranceDiffersFromRecordedRoad": {
+        "名東区": 18,
+        "港区": 22,
+        "中川区": 24,
+        "北区": 14,
+        "千種区": 18,
+        "守山区": 39,
+        "中村区": 21,
+        "熱田区": 7,
+        "西区": 14,
+        "緑区": 41,
+        "南区": 13,
+        "天白区": 13,
+        "昭和区": 7,
+        "東区": 8,
+        "中区": 3,
+        "unassigned": 2,
+        "瑞穂区": 2
+      },
+      "nativeEntranceHasNoSidewalk": {
+        "名東区": 5,
+        "西区": 2,
+        "千種区": 8,
+        "守山区": 14,
+        "港区": 9,
+        "北区": 3,
+        "中川区": 3,
+        "天白区": 1,
+        "南区": 4,
+        "緑区": 5,
+        "中村区": 1,
+        "unassigned": 1,
+        "熱田区": 1,
+        "東区": 2,
+        "昭和区": 1
+      },
+      "deliveriesByWard": {
+        "港区": 3,
+        "緑区": 1,
+        "守山区": 1,
+        "天白区": 1
+      },
+      "localHires": 3,
+      "delivered": 6
+    },
+    {
+      "file": "native-entrance-window-02/terminal-life.json",
+      "sha256": "77524726b78780f5fdcd3c0d5d3ec0fcb1a3b2f2637bfd91dba2e815cc0c3fb3",
+      "gameTime": "2027-10-01T00:47:47",
+      "runId": "20261119T081208788Z",
+      "nativeEntranceDiffersFromRecordedRoad": {
+        "名東区": 18,
+        "港区": 22,
+        "中川区": 24,
+        "北区": 14,
+        "千種区": 18,
+        "守山区": 39,
+        "中村区": 21,
+        "熱田区": 7,
+        "西区": 14,
+        "緑区": 39,
+        "南区": 12,
+        "天白区": 13,
+        "昭和区": 7,
+        "東区": 8,
+        "中区": 3,
+        "unassigned": 2,
+        "瑞穂区": 1
+      },
+      "nativeEntranceHasNoSidewalk": {
+        "名東区": 5,
+        "西区": 2,
+        "千種区": 8,
+        "守山区": 13,
+        "港区": 9,
+        "北区": 3,
+        "中川区": 3,
+        "天白区": 1,
+        "南区": 4,
+        "緑区": 5,
+        "中村区": 1,
+        "unassigned": 1,
+        "熱田区": 1,
+        "東区": 2,
+        "昭和区": 1
+      },
+      "deliveriesByWard": {
+        "港区": 6,
+        "緑区": 3,
+        "守山区": 3,
+        "天白区": 2,
+        "南区": 1,
+        "中村区": 1,
+        "中川区": 2
+      },
+      "localHires": 3,
+      "delivered": 18
+    }
+  ],
+  "newWardsThisRun": [
+    "天白区"
+  ],
+  "coveredAcrossRecordedSessions": [
+    "中区",
+    "中川区",
+    "中村区",
+    "北区",
+    "南区",
+    "天白区",
+    "守山区",
+    "港区",
+    "熱田区",
+    "緑区",
+    "西区"
+  ],
+  "stillUnverifiedWards": [
+    "千種区",
+    "名東区",
+    "昭和区",
+    "東区",
+    "瑞穂区"
+  ],
+  "tenpaku": {
+    "nativeHire": {
+      "android": 773402,
+      "home": 8604,
+      "homeStreet": 32518,
+      "homeStreetSource": "native building access",
+      "factory": 10714,
+      "factoryWard": "天白区",
+      "candidateShop": 33873,
+      "shopWard": "天白区",
+      "vacanciesBefore": 1,
+      "streetMetersFromHome": 309.600249767303,
+      "gameTime": "2027-08-29T08:12:21"
+    },
+    "paths": [
+      {
+        "file": "native-entrance-window-01/before-life.json",
+        "sha256": "4a0578e65018c57abffbc90fbd5219e7b2f83063ca014c4d4af939308b95d709",
+        "gameTime": "2027-08-29T18:05:16",
+        "nativeLeg": {
+          "android": 773402,
+          "from": 8604,
+          "target": 10714,
+          "deliveryBuilding": 33873,
+          "destinationWard": "天白区",
+          "factoryAccessStreet": 12700,
+          "shopAccessStreet": 30640,
+          "frame": 54794763,
+          "lastProgressFrame": 54795004,
+          "nativeRequest": null,
+          "position": [
+            2475.813,
+            140,
+            -949.8979
+          ]
+        }
+      },
+      {
+        "file": "native-entrance-window-01/life-2.json",
+        "sha256": "74ef793d30757bef53ac575efa9892eaa3a8a065bbd58273d1e31b98c28860b5",
+        "gameTime": "2027-09-04T08:02:53",
+        "nativeLeg": {
+          "android": 773402,
+          "from": 10714,
+          "target": 33873,
+          "deliveryBuilding": 33873,
+          "destinationWard": "天白区",
+          "factoryAccessStreet": 12700,
+          "shopAccessStreet": 30640,
+          "frame": 54796461,
+          "lastProgressFrame": 54798270,
+          "nativeRequest": null,
+          "position": [
+            2536.042,
+            139.7,
+            -950.9326
+          ]
+        }
+      },
+      {
+        "file": "native-entrance-window-01/life-3.json",
+        "sha256": "e15ee2bf587cc3637c2c70bb246e935a180eb1070147262f0e624bed9fc9d2d5",
+        "gameTime": "2027-09-07T10:12:49",
+        "nativeLeg": {
+          "android": 773402,
+          "from": 10714,
+          "target": 33873,
+          "deliveryBuilding": 33873,
+          "destinationWard": "天白区",
+          "factoryAccessStreet": 12700,
+          "shopAccessStreet": 30640,
+          "frame": 54796461,
+          "lastProgressFrame": 54800074,
+          "nativeRequest": null,
+          "position": [
+            2939.402,
+            139.7012,
+            -1464.607
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "android": 773402,
+      "from": 10714,
+      "to": 33873,
+      "ward": "天白区",
+      "sourceWard": "天白区",
+      "stockAdded": 100,
+      "factoryBefore": 3207,
+      "factoryAccessStreet": 12700,
+      "shopAccessStreet": 30640,
+      "factoryAfter": 3107,
+      "shopBefore": 5649,
+      "nativeRequest": null,
+      "shopAfter": 5749,
+      "localHire": true,
+      "gameTime": "2027-09-07T19:59:41"
+    }
+  },
+  "deliveryEvents": [
+    {
+      "android": 261669,
+      "from": 22465,
+      "to": 24107,
+      "ward": "港区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 2875,
+      "factoryAccessStreet": 35163,
+      "shopAccessStreet": 20782,
+      "factoryAfter": 2775,
+      "shopBefore": 9140,
+      "nativeRequest": {
+        "frame": 54794621,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 9240,
+      "localHire": false,
+      "gameTime": "2027-09-03T03:20:15"
+    },
+    {
+      "android": 597442,
+      "from": 9696,
+      "to": 25465,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 3061,
+      "factoryAccessStreet": 17038,
+      "shopAccessStreet": 23696,
+      "factoryAfter": 2961,
+      "shopBefore": 8657,
+      "nativeRequest": null,
+      "shopAfter": 8757,
+      "localHire": true,
+      "gameTime": "2027-09-03T15:09:19"
+    },
+    {
+      "android": 249390,
+      "from": 49128,
+      "to": 25593,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 2526,
+      "factoryAccessStreet": 4458,
+      "shopAccessStreet": 21173,
+      "factoryAfter": 2426,
+      "shopBefore": 419,
+      "nativeRequest": {
+        "frame": 54796421,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 519,
+      "localHire": false,
+      "gameTime": "2027-09-04T12:09:24"
+    },
+    {
+      "android": 693169,
+      "from": 13999,
+      "to": 3750,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 2393,
+      "factoryAccessStreet": 24020,
+      "shopAccessStreet": 659,
+      "factoryAfter": 2293,
+      "shopBefore": 11028,
+      "nativeRequest": {
+        "frame": 54797075,
+        "priority": 5,
+        "amount": 1
+      },
+      "shopAfter": 11128,
+      "localHire": false,
+      "gameTime": "2027-09-07T05:15:34"
+    },
+    {
+      "android": 773402,
+      "from": 10714,
+      "to": 33873,
+      "ward": "天白区",
+      "sourceWard": "天白区",
+      "stockAdded": 100,
+      "factoryBefore": 3207,
+      "factoryAccessStreet": 12700,
+      "shopAccessStreet": 30640,
+      "factoryAfter": 3107,
+      "shopBefore": 5649,
+      "nativeRequest": null,
+      "shopAfter": 5749,
+      "localHire": true,
+      "gameTime": "2027-09-07T19:59:41"
+    },
+    {
+      "android": 660154,
+      "from": 24295,
+      "to": 24107,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 3131,
+      "factoryAccessStreet": 34614,
+      "shopAccessStreet": 20782,
+      "factoryAfter": 3031,
+      "shopBefore": 9089,
+      "nativeRequest": null,
+      "shopAfter": 9189,
+      "localHire": false,
+      "gameTime": "2027-09-11T05:02:56"
+    },
+    {
+      "android": 364936,
+      "from": 5753,
+      "to": 19252,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 3140,
+      "factoryAccessStreet": 11811,
+      "shopAccessStreet": 28701,
+      "factoryAfter": 3040,
+      "shopBefore": 7860,
+      "nativeRequest": {
+        "frame": 54797156,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 7960,
+      "localHire": false,
+      "gameTime": "2027-09-14T07:08:07"
+    },
+    {
+      "android": 467443,
+      "from": 36020,
+      "to": 11971,
+      "ward": "南区",
+      "sourceWard": "南区",
+      "stockAdded": 100,
+      "factoryBefore": 2852,
+      "factoryAccessStreet": 21549,
+      "shopAccessStreet": 3252,
+      "factoryAfter": 2752,
+      "shopBefore": 9768,
+      "nativeRequest": {
+        "frame": 54803006,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 9868,
+      "localHire": false,
+      "gameTime": "2027-09-15T12:14:53"
+    },
+    {
+      "android": 693169,
+      "from": 13999,
+      "to": 3750,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 2417,
+      "factoryAccessStreet": 24020,
+      "shopAccessStreet": 659,
+      "factoryAfter": 2317,
+      "shopBefore": 10893,
+      "nativeRequest": null,
+      "shopAfter": 10993,
+      "localHire": false,
+      "gameTime": "2027-09-17T06:04:34"
+    },
+    {
+      "android": 609638,
+      "from": 8491,
+      "to": 42301,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 3343,
+      "factoryAccessStreet": 29674,
+      "shopAccessStreet": 18416,
+      "factoryAfter": 3243,
+      "shopBefore": 7182,
+      "nativeRequest": {
+        "frame": 54797276,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 7282,
+      "localHire": false,
+      "gameTime": "2027-09-18T20:54:11"
+    },
+    {
+      "android": 564634,
+      "from": 12313,
+      "to": 37589,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 1874,
+      "factoryAccessStreet": 14902,
+      "shopAccessStreet": 27210,
+      "factoryAfter": 1774,
+      "shopBefore": 9350,
+      "nativeRequest": {
+        "frame": 54800067,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 9450,
+      "localHire": false,
+      "gameTime": "2027-09-19T08:43:32"
+    },
+    {
+      "android": 12510,
+      "from": 42292,
+      "to": 23012,
+      "ward": "中村区",
+      "sourceWard": "中村区",
+      "stockAdded": 100,
+      "factoryBefore": 3661,
+      "factoryAccessStreet": 10556,
+      "shopAccessStreet": 28739,
+      "factoryAfter": 3561,
+      "shopBefore": 10809,
+      "nativeRequest": {
+        "frame": 54798199,
+        "priority": 5,
+        "amount": 1
+      },
+      "shopAfter": 10909,
+      "localHire": false,
+      "gameTime": "2027-09-19T10:04:25"
+    },
+    {
+      "android": 202123,
+      "from": 7801,
+      "to": 42073,
+      "ward": "中川区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 3222,
+      "factoryAccessStreet": 11655,
+      "shopAccessStreet": 33806,
+      "factoryAfter": 3122,
+      "shopBefore": 10707,
+      "nativeRequest": {
+        "frame": 54798043,
+        "priority": 5,
+        "amount": 1
+      },
+      "shopAfter": 10807,
+      "localHire": false,
+      "gameTime": "2027-09-20T01:38:41"
+    },
+    {
+      "android": 15998,
+      "from": 18618,
+      "to": 31778,
+      "ward": "中川区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 3516,
+      "factoryAccessStreet": 22497,
+      "shopAccessStreet": 5940,
+      "factoryAfter": 3416,
+      "shopBefore": 8776,
+      "nativeRequest": null,
+      "shopAfter": 8876,
+      "localHire": true,
+      "gameTime": "2027-09-22T16:50:21"
+    },
+    {
+      "android": 245513,
+      "from": 2839,
+      "to": 19252,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 2758,
+      "factoryAccessStreet": 532,
+      "shopAccessStreet": 28701,
+      "factoryAfter": 2658,
+      "shopBefore": 7738,
+      "nativeRequest": {
+        "frame": 54807140,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 7838,
+      "localHire": false,
+      "gameTime": "2027-09-24T06:55:38"
+    },
+    {
+      "android": 261669,
+      "from": 22465,
+      "to": 24107,
+      "ward": "港区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 3093,
+      "factoryAccessStreet": 35163,
+      "shopAccessStreet": 20782,
+      "factoryAfter": 2993,
+      "shopBefore": 8883,
+      "nativeRequest": {
+        "frame": 54802813,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 8983,
+      "localHire": false,
+      "gameTime": "2027-09-26T22:10:09"
+    },
+    {
+      "android": 773402,
+      "from": 10714,
+      "to": 33873,
+      "ward": "天白区",
+      "sourceWard": "天白区",
+      "stockAdded": 100,
+      "factoryBefore": 3331,
+      "factoryAccessStreet": 12700,
+      "shopAccessStreet": 30640,
+      "factoryAfter": 3231,
+      "shopBefore": 5258,
+      "nativeRequest": null,
+      "shopAfter": 5358,
+      "localHire": true,
+      "gameTime": "2027-09-28T18:34:44"
+    },
+    {
+      "android": 693169,
+      "from": 13999,
+      "to": 3750,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 2458,
+      "factoryAccessStreet": 24020,
+      "shopAccessStreet": 659,
+      "factoryAfter": 2358,
+      "shopBefore": 10748,
+      "nativeRequest": {
+        "frame": 54809875,
+        "priority": 6,
+        "amount": 1
+      },
+      "shopAfter": 10848,
+      "localHire": false,
+      "gameTime": "2027-09-29T01:42:26"
+    }
+  ],
+  "nativeTraffic": {
+    "passengerCars": 612,
+    "cargoTrucks": 694,
+    "buses": 30,
+    "otherVehicles": 32,
+    "roadVehiclesWithNativePath": 1334
+  },
+  "limits": [
+    "Road IDs describe the game building access used when the run selected each delivery.",
+    "The known Tenpaku route used the same access road IDs as its zoning receipts.",
+    "In the city as a whole, many game access roads differ from the zoning receipts.",
+    "The runs have different starting times and do not isolate the effect of individual changes.",
+    "The experiment used the temporary exact-city funds setting."
+  ]
+}

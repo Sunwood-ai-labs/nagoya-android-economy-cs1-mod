@@ -20,7 +20,7 @@ namespace NagoyaRoadDelivery
             sourceRoad = road;
             sourcePosition = position;
             radius = maxMeters;
-            if (!HasSidewalk(road)) return;
+            if (!HasSidewalk(segments, road)) return;
 
             var open = new RoutingGraph.MinHeap();
             NetSegment start = segments[road];
@@ -35,7 +35,7 @@ namespace NagoyaRoadDelivery
                 for (int edge = 0; edge < 8; edge++)
                 {
                     ushort segmentId = node.GetSegment(edge);
-                    if (!HasSidewalk(segmentId)) continue;
+                    if (!HasSidewalk(segments, segmentId)) continue;
                     NetSegment segment = segments[segmentId];
                     ushort next = segment.m_startNode == id ? segment.m_endNode : segment.m_startNode;
                     double length = Vector3.Distance(node.m_position, nodes[next].m_position);
@@ -56,7 +56,7 @@ namespace NagoyaRoadDelivery
 
         internal double DistanceTo(ushort road, Vector3 position)
         {
-            if (distance.Count == 0 || !HasSidewalk(road)) return double.PositiveInfinity;
+            if (distance.Count == 0 || !HasSidewalk(segments, road)) return double.PositiveInfinity;
             if (road == sourceRoad) return Vector3.Distance(sourcePosition, position);
             NetSegment target = segments[road];
             return Math.Min(Through(target.m_startNode, position), Through(target.m_endNode, position));
@@ -69,7 +69,7 @@ namespace NagoyaRoadDelivery
             return meters + Vector3.Distance(position, nodes[node].m_position);
         }
 
-        private bool HasSidewalk(ushort id)
+        internal static bool HasSidewalk(NetSegment[] segments, ushort id)
         {
             if (id == 0 || id >= segments.Length) return false;
             NetSegment segment = segments[id];
