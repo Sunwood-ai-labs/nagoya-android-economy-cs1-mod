@@ -5,6 +5,8 @@
 2026年11月18日の実ゲームでは、名古屋市内の56地域に168体を配置し、166棟を対象にMOD内の配送・充電を確認しました。CS1標準の店が出す商品注文と在庫はゲーム内で読み取れます。アンドロイドの到着でCS1標準の在庫が変わる処理と、全市での経済効果の比較は未実装です。
 
 - [CS1の都市経済との接続と検証条件](docs/native-economy.md)
+- [CS1標準の住宅・就業・通勤を使った生活試験](docs/android-life.md)
+- [PLATEAU建物をCS1の住宅として割り当てた検証](docs/plateau-zoning.md)
 - [168体の実ゲーム観測](docs/evidence/live-168-20261118.json)
 - [CS1標準の商品需要と在庫の観測](docs/evidence/native-goods-baseline-20261118.json)
 

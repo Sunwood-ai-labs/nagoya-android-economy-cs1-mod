@@ -1,0 +1,10 @@
+{
+  "bindings": [
+    {"source":"bldg_fc46c406-04e6-46b8-b7be-855993659daa","prefab":"H1 2x2 Tenement05","zone":"ResidentialHigh","road":7787,"x":144.704,"z":249.226,"angle":67.751},
+    {"source":"bldg_0614ddc2-87a4-48af-a99c-6482ec6949e7","prefab":"H1 2x2 Tenement05","zone":"ResidentialHigh","road":14042,"x":217.945,"z":284.581,"angle":309.109},
+    {"source":"bldg_51afdba6-916f-47e2-8280-96b8990bbc30","prefab":"H1 2x2 Shop01","zone":"CommercialHigh","road":14918,"x":355.081,"z":91.856,"angle":350.0},
+    {"source":"bldg_60f41894-285c-44dd-a6db-f20236f52bc6","prefab":"L1 1x1 Detached","zone":"ResidentialLow","road":18187,"x":172.481,"z":230.39,"angle":314.107},
+    {"source":"bldg_ed846aac-a09c-4e6a-ba11-14496ee9222b","prefab":"L1 1x1 Detached","zone":"ResidentialLow","road":7787,"x":127.371,"z":281.031,"angle":67.751},
+    {"source":"bldg_47eed7b4-a8ff-4131-803d-ab1a9c834bf1","prefab":"H1 2x2 Tenement05","zone":"ResidentialHigh","road":14042,"x":246.56,"z":269.051,"angle":129.109}
+  ]
+}

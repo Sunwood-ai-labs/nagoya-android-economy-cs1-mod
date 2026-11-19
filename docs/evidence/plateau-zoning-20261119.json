@@ -1,0 +1,85 @@
+{
+  "utc": "2026-11-19T00:04:07.1644618Z",
+  "runId": "20261119T000108212Z",
+  "error": null,
+  "bindings": [
+    {
+      "source": "bldg_fc46c406-04e6-46b8-b7be-855993659daa",
+      "zone": "ResidentialHigh",
+      "prefab": "H1 2x2 Tenement05",
+      "buildingId": 0,
+      "buildIndex": 0,
+      "road": 7787,
+      "zoneBlock": 0,
+      "x": 0,
+      "z": 0,
+      "error": "No available native frontage cells fit the PLATEAU footprint"
+    },
+    {
+      "source": "bldg_0614ddc2-87a4-48af-a99c-6482ec6949e7",
+      "zone": "ResidentialHigh",
+      "prefab": "H1 2x2 Tenement05",
+      "buildingId": 0,
+      "buildIndex": 0,
+      "road": 14042,
+      "zoneBlock": 0,
+      "x": 0,
+      "z": 0,
+      "error": "No available native frontage cells fit the PLATEAU footprint"
+    },
+    {
+      "source": "bldg_51afdba6-916f-47e2-8280-96b8990bbc30",
+      "zone": "CommercialHigh",
+      "prefab": "H1 2x2 Shop01",
+      "buildingId": 0,
+      "buildIndex": 0,
+      "road": 14918,
+      "zoneBlock": 0,
+      "x": 0,
+      "z": 0,
+      "error": "No available native frontage cells fit the PLATEAU footprint"
+    },
+    {
+      "source": "bldg_60f41894-285c-44dd-a6db-f20236f52bc6",
+      "zone": "ResidentialLow",
+      "prefab": "L1 1x1 Detached",
+      "buildingId": 13921,
+      "buildIndex": 9466,
+      "road": 18187,
+      "zoneBlock": 29616,
+      "x": 173.1793,
+      "z": 231.0919,
+      "error": null,
+      "nativeIdentity": true,
+      "flags": "Created, Completed, Active",
+      "nativeZoneCells": 1,
+      "nativeHomeUnits": 1,
+      "nativeResidents": 2,
+      "nativeWorkers": 0
+    },
+    {
+      "source": "bldg_ed846aac-a09c-4e6a-ba11-14496ee9222b",
+      "zone": "ResidentialLow",
+      "prefab": "L1 1x1 Detached",
+      "buildingId": 0,
+      "buildIndex": 0,
+      "road": 7787,
+      "zoneBlock": 0,
+      "x": 0,
+      "z": 0,
+      "error": "No available native frontage cells fit the PLATEAU footprint"
+    },
+    {
+      "source": "bldg_47eed7b4-a8ff-4131-803d-ab1a9c834bf1",
+      "zone": "ResidentialHigh",
+      "prefab": "H1 2x2 Tenement05",
+      "buildingId": 0,
+      "buildIndex": 0,
+      "road": 14042,
+      "zoneBlock": 0,
+      "x": 0,
+      "z": 0,
+      "error": "No available native frontage cells fit the PLATEAU footprint"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-18T23:41:12.6638248Z",
+  "gameTime": "2072-04-06T17:16:47",
+  "runId": "20261118T233919302Z",
+  "caseId": null,
+  "status": "baseline",
+  "error": null,
+  "nativeHumanResidents": 52,
+  "humansWithWorkplace": 23,
+  "androidHomeMembers": 0,
+  "androidWorkMembers": 0,
+  "androidAtHome": 0,
+  "androidAtWork": 0,
+  "androidMoving": 0,
+  "androids": []
+}

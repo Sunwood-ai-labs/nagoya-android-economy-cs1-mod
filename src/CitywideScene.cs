@@ -143,7 +143,10 @@ namespace NagoyaRoadDelivery
                 List<RegionPlan> plans=new List<RegionPlan>();foreach(object value in List(ReadMap(activeRegionFile),"regions")){Dictionary<string,object> r=Map(value);List<int> targets=new List<int>();foreach(object t in List(r,"targets"))targets.Add(checked((int)(double)t));plans.Add(new RegionPlan(Int(r,"id"),Int(r,"hub"),targets.ToArray(),Text(r,"name")));}
                 if(networkName=="nagoya-citywide-building-service-v1") ValidateBuildingService(plans);
                 foreach(RegionPlan p in plans){Point2 point=graph.GetNodePosition(p.Hub);GameObject charger=new GameObject("Blender city charger "+p.Id);charger.transform.parent=scene.transform;Vector3 pos=Position(point,p.Id*2+1,140,true);HubVisual custom;if(entranceHubs.TryGetValue(p.Id,out custom)){charger.transform.position=custom.Terminal;charger.transform.rotation=Quaternion.Euler(0,custom.Yaw,0);}else charger.transform.position=pos+new Vector3(1.2f,0,0);MakeMesh("Terminal",charger.transform,chargerMesh,chargerMaterial,Vector3.zero);chargers[p.Id]=charger;}
-                simulation=new CitywideSimulation(graph,plans.ToArray(),this,androidsPerRegion);phase="running";WriteState();
+                simulation=new CitywideSimulation(graph,plans.ToArray(),this,androidsPerRegion);
+                scene.AddComponent<AndroidLifePilot>().Initialize(this,Root,runId);
+                scene.AddComponent<PlateauZoning>().Initialize(Root,runId);
+                phase="running";WriteState();
             }
             catch(Exception e){Fail(e);}
         }
@@ -227,6 +230,34 @@ namespace NagoyaRoadDelivery
                 HumanModel m=Human(id%4==0?"Bluecollar Female 3":"Bluecollar Male 2");a.Human=m;a.HumanMesh=(Mesh)Instantiate(m.Body);ownedMeshes.Add(a.HumanMesh);MakeMesh("Body",a.Root.transform,a.HumanMesh,m.Material,Vector3.zero);
             }
             else throw new FormatException("City actor kind");actors.Add(a);return a;
+        }
+
+        internal object CreateResidentAndroid(int citizenId)
+        {
+            Actor actor=(Actor)CreateActor("android",citizenId);
+            actor.Kind="native_android";
+            actor.Root.name="Android resident "+citizenId;
+            actor.Root.SetActive(false);
+            if(actor.Parcel!=null)actor.Parcel.SetActive(false);
+            return actor;
+        }
+
+        internal void PoseResidentAndroid(object visual,bool visible,Vector3 position)
+        {
+            Actor actor=(Actor)visual;
+            if(!visible){actor.Root.SetActive(false);return;}
+            Vector3 movement=position-actor.Root.transform.position;
+            movement.y=0;
+            if(actor.Root.activeSelf&&movement.sqrMagnitude>.0001f&&movement.sqrMagnitude<16f)
+            {
+                actor.Root.transform.rotation=Quaternion.LookRotation(movement);
+                actor.LastMeters+=movement.magnitude;
+            }
+            actor.Root.transform.position=position;
+            actor.Root.SetActive(true);
+            float stride=Mathf.Sin((float)actor.LastMeters*4)*16;
+            if(actor.Left!=null)actor.Left.transform.localRotation=Quaternion.Euler(stride,0,0);
+            if(actor.Right!=null)actor.Right.transform.localRotation=Quaternion.Euler(-stride,0,0);
         }
         private static int FindRoot(int[] parent,int index)
         {
