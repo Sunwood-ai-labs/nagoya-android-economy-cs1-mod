@@ -1,0 +1,551 @@
+{
+  "status": "verified",
+  "sourceSave": {
+    "name": "NagoyaCitywide-All16Wards-CivicServices",
+    "sha256": "F792EEE40852DEA066DE14C4847B0266F01D0AA3A44776F18E61FC546F5AE38A",
+    "bytes": 12812363
+  },
+  "placementPlanSha256": "6AD604995143CD6872B4E365454001AF78C9D2254CDE927DDBDA7A845D68301D",
+  "roadReceiptSha256": "2DF2D04C0BC02111D3E5517DFAB774644E5286FBA0EB5E00FDA3929A5B23C7B9",
+  "placementReceiptSha256": "28DF71D9632DBDADFBA5F568F911650EDDF4992BC9E9E00E78A6077E0C38F792",
+  "placementSave": {
+    "name": "NagoyaCitywide-All16Wards-ExtendedStreetsZoned",
+    "sha256": "C526021445ADAE51F8609767244661D98EEA2D42CA5A80D42A1771F46564CBCF",
+    "bytes": 12783144
+  },
+  "observedSave": {
+    "name": "NagoyaCitywide-All16Wards-ExtendedStreetsObserved",
+    "sha256": "15E9CEF04D063B82B518E467346C320C9B332565C87E0F64A7825914223EA055",
+    "bytes": 12999864
+  },
+  "startGameTime": "2028-06-18T02:06:11",
+  "endGameTime": "2028-06-28T16:39:08",
+  "fundsScope": "Temporarily enabled the exact-city sandbox while observing simulation. Restored the configuration afterward.",
+  "requestedSites": 761,
+  "placedSites": 443,
+  "placedByWard": {
+    "中区": 33,
+    "中川区": 20,
+    "中村区": 22,
+    "北区": 26,
+    "千種区": 30,
+    "南区": 34,
+    "名東区": 30,
+    "天白区": 32,
+    "守山区": 30,
+    "昭和区": 34,
+    "東区": 21,
+    "港区": 23,
+    "熱田区": 22,
+    "瑞穂区": 34,
+    "緑区": 25,
+    "西区": 27
+  },
+  "placedByZone": {
+    "CommercialHigh": 15,
+    "CommercialLow": 51,
+    "Industrial": 49,
+    "Office": 45,
+    "ResidentialHigh": 100,
+    "ResidentialLow": 183
+  },
+  "rejectedByNativeReason": {
+    "No free native zone cells on the source frontage": 318
+  },
+  "retainedNewSites": 442,
+  "retainedNewSitesByWard": {
+    "中区": 33,
+    "中川区": 20,
+    "中村区": 22,
+    "北区": 26,
+    "千種区": 30,
+    "南区": 34,
+    "名東区": 30,
+    "天白区": 32,
+    "守山区": 30,
+    "昭和区": 34,
+    "東区": 20,
+    "港区": 23,
+    "熱田区": 22,
+    "瑞穂区": 34,
+    "緑区": 25,
+    "西区": 27
+  },
+  "priorSitesLostDuringObservation": 11,
+  "lossObservations": [
+    {
+      "group": "extension_af2af1f60ebda4e8",
+      "recordedBuildingIdsPresentBefore": [
+        41931
+      ],
+      "observed": "receipt ID absent from final growables",
+      "beforePrefab": "L3 1x1 Shop",
+      "beforeAbandoned": false,
+      "beforeWarnings": ""
+    },
+    {
+      "group": "extension_bf683003ddf8185c",
+      "recordedBuildingIdsPresentBefore": [
+        33191
+      ],
+      "observed": "receipt ID absent from final growables",
+      "beforePrefab": "1738898898.AC Hab V3b_Data",
+      "beforeAbandoned": true,
+      "beforeWarnings": "Death, FatalProblem"
+    },
+    {
+      "group": "extension_dbd248f70dee4de5",
+      "recordedBuildingIdsPresentBefore": [
+        15498
+      ],
+      "observed": "receipt ID absent from final growables",
+      "beforePrefab": "L1 1x1 Detached",
+      "beforeAbandoned": true,
+      "beforeWarnings": "Death, FatalProblem"
+    },
+    {
+      "group": "site_2e9ec302c760",
+      "recordedBuildingIdsPresentBefore": [
+        12467
+      ],
+      "observed": "receipt ID absent from final growables",
+      "beforePrefab": "H1 1x1 Tenement",
+      "beforeAbandoned": true,
+      "beforeWarnings": "Death, FatalProblem"
+    },
+    {
+      "group": "site_528be67bcba2",
+      "recordedBuildingIdsPresentBefore": [
+        44833
+      ],
+      "observed": "receipt ID absent from final growables",
+      "beforePrefab": "L1 3x2 Detached04",
+      "beforeAbandoned": true,
+      "beforeWarnings": "Death, FatalProblem"
+    },
+    {
+      "group": "site_547014cc9796",
+      "recordedBuildingIdsPresentBefore": [
+        45117
+      ],
+      "observed": "receipt ID absent from final growables",
+      "beforePrefab": "L1 1x1 Detached",
+      "beforeAbandoned": true,
+      "beforeWarnings": "Death, FatalProblem"
+    },
+    {
+      "group": "site_5d5f224b6ea6",
+      "recordedBuildingIdsPresentBefore": [
+        14431
+      ],
+      "observed": "receipt ID absent from final growables",
+      "beforePrefab": "L1 1x1 Detached",
+      "beforeAbandoned": true,
+      "beforeWarnings": "Death, FatalProblem"
+    },
+    {
+      "group": "site_675ff4cec350",
+      "recordedBuildingIdsPresentBefore": [
+        37960
+      ],
+      "observed": "receipt ID absent from final growables",
+      "beforePrefab": "H1 1x1 Tenement",
+      "beforeAbandoned": true,
+      "beforeWarnings": "Crime, FatalProblem"
+    },
+    {
+      "group": "site_7b8f237f92d8",
+      "recordedBuildingIdsPresentBefore": [
+        31454
+      ],
+      "observed": "receipt ID absent from final growables",
+      "beforePrefab": "H1 1x1 Tenement",
+      "beforeAbandoned": true,
+      "beforeWarnings": "Crime, FatalProblem"
+    },
+    {
+      "group": "site_7cb4d7dd7f79",
+      "recordedBuildingIdsPresentBefore": [
+        22154
+      ],
+      "observed": "receipt ID absent from final growables",
+      "beforePrefab": "H1 1x1 Tenement",
+      "beforeAbandoned": true,
+      "beforeWarnings": "Crime, FatalProblem"
+    },
+    {
+      "group": "site_ee385530ce20",
+      "recordedBuildingIdsPresentBefore": [
+        1962
+      ],
+      "observed": "receipt ID absent from final growables",
+      "beforePrefab": "1738898898.AC Hab V3b_Data",
+      "beforeAbandoned": true,
+      "beforeWarnings": "Crime, FatalProblem"
+    },
+    {
+      "group": "site_fbf0223fdcd5",
+      "recordedBuildingIdsPresentBefore": [
+        7461
+      ],
+      "observed": "receipt ID absent from final growables",
+      "beforePrefab": "H1 1x1 Tenement",
+      "beforeAbandoned": true,
+      "beforeWarnings": "Death, FatalProblem"
+    }
+  ],
+  "lossCountsByObservation": {
+    "receipt ID absent from final growables": 12
+  },
+  "ordinaryZoningCoverage": {
+    "before": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T10:45:28.1304645Z",
+      "activeNativeZonedSites": 2660,
+      "nativeSiteGroupCount": 2660,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "noActiveRole": 286350,
+        "allRolesActive": 410387,
+        "someRolesActive": 8998,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "uncovered": 307841,
+        "active": 433899
+      },
+      "writesToGame": false
+    },
+    "immediate": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T10:46:00.1778235Z",
+      "activeNativeZonedSites": 3103,
+      "nativeSiteGroupCount": 3103,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "noActiveRole": 195708,
+        "allRolesActive": 500383,
+        "someRolesActive": 9644,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "uncovered": 214198,
+        "active": 527542
+      },
+      "writesToGame": false
+    },
+    "final": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T10:48:18.7502596Z",
+      "activeNativeZonedSites": 3091,
+      "nativeSiteGroupCount": 3091,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "noActiveRole": 198268,
+        "allRolesActive": 497702,
+        "someRolesActive": 9765,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "uncovered": 216921,
+        "active": 524819
+      },
+      "writesToGame": false
+    }
+  },
+  "observedCivicFacilities": {
+    "ids": [
+      502,
+      1900,
+      2320,
+      6123,
+      6135,
+      7282,
+      7517,
+      7562,
+      10035,
+      11444,
+      13428,
+      13447,
+      14321,
+      15957,
+      16247,
+      17446,
+      17968,
+      18992,
+      20868,
+      21324,
+      22233,
+      23434,
+      25787,
+      33080,
+      36855,
+      37380,
+      38885,
+      42066,
+      42208,
+      43945,
+      46812,
+      47369
+    ],
+    "active": 32,
+    "activeWithoutWarnings": 32,
+    "sourceIdsAtActiveFacilities": 397
+  },
+  "coexistence": {
+    "nativeHumanResidents": 5832,
+    "humansWithWorkplace": 2747,
+    "androidHomeMembers": 465,
+    "androidWorkMembers": 455
+  },
+  "wardsWithHumanAndAndroidPopulationAndJobs": 16,
+  "nativeTraffic": {
+    "passengerCars": 672,
+    "cargoTrucks": 703,
+    "buses": 34,
+    "otherVehicles": 89,
+    "roadVehiclesWithNativePath": 1400,
+    "policeVehiclesWithNativePath": [
+      {
+        "vehicleId": 2855,
+        "station": 2320,
+        "destination": 13630,
+        "pathId": 257410,
+        "position": [
+          366.8634,
+          1813.126
+        ]
+      },
+      {
+        "vehicleId": 3103,
+        "station": 20868,
+        "destination": 16719,
+        "pathId": 149901,
+        "position": [
+          262.2137,
+          -2.601614
+        ]
+      },
+      {
+        "vehicleId": 3140,
+        "station": 2320,
+        "destination": 8690,
+        "pathId": 205279,
+        "position": [
+          -1169.799,
+          1239.376
+        ]
+      },
+      {
+        "vehicleId": 3532,
+        "station": 2320,
+        "destination": 47720,
+        "pathId": 115585,
+        "position": [
+          -1071.562,
+          215.5286
+        ]
+      },
+      {
+        "vehicleId": 4035,
+        "station": 20868,
+        "destination": 19547,
+        "pathId": 32862,
+        "position": [
+          266.9012,
+          -426.3157
+        ]
+      },
+      {
+        "vehicleId": 4394,
+        "station": 20868,
+        "destination": 13101,
+        "pathId": 173467,
+        "position": [
+          -478.4989,
+          111.1268
+        ]
+      },
+      {
+        "vehicleId": 6136,
+        "station": 8693,
+        "destination": 10615,
+        "pathId": 78018,
+        "position": [
+          843.0594,
+          71.81559
+        ]
+      },
+      {
+        "vehicleId": 6243,
+        "station": 25787,
+        "destination": 12693,
+        "pathId": 241508,
+        "position": [
+          2884.551,
+          1357.264
+        ]
+      },
+      {
+        "vehicleId": 6344,
+        "station": 2320,
+        "destination": 6838,
+        "pathId": 132031,
+        "position": [
+          -299.3626,
+          1075.358
+        ]
+      },
+      {
+        "vehicleId": 7952,
+        "station": 25787,
+        "destination": 5887,
+        "pathId": 115765,
+        "position": [
+          -1112.528,
+          542.5386
+        ]
+      },
+      {
+        "vehicleId": 8350,
+        "station": 2320,
+        "destination": 9619,
+        "pathId": 186722,
+        "position": [
+          30.46935,
+          1306.039
+        ]
+      },
+      {
+        "vehicleId": 9127,
+        "station": 25787,
+        "destination": 9670,
+        "pathId": 176461,
+        "position": [
+          -41.97593,
+          2274.811
+        ]
+      },
+      {
+        "vehicleId": 9417,
+        "station": 2320,
+        "destination": 6579,
+        "pathId": 173583,
+        "position": [
+          2645.957,
+          3592.971
+        ]
+      },
+      {
+        "vehicleId": 10281,
+        "station": 8693,
+        "destination": 14992,
+        "pathId": 253776,
+        "position": [
+          -1163.888,
+          955.2794
+        ]
+      },
+      {
+        "vehicleId": 10704,
+        "station": 25787,
+        "destination": 5646,
+        "pathId": 97270,
+        "position": [
+          445.1898,
+          282.2181
+        ]
+      },
+      {
+        "vehicleId": 11500,
+        "station": 8693,
+        "destination": 32321,
+        "pathId": 67922,
+        "position": [
+          1971.002,
+          122.9966
+        ]
+      },
+      {
+        "vehicleId": 13029,
+        "station": 8693,
+        "destination": 9676,
+        "pathId": 142637,
+        "position": [
+          1351.173,
+          -659.0463
+        ]
+      },
+      {
+        "vehicleId": 13481,
+        "station": 20868,
+        "destination": 16588,
+        "pathId": 60268,
+        "position": [
+          151.7776,
+          87.86352
+        ]
+      },
+      {
+        "vehicleId": 13518,
+        "station": 25787,
+        "destination": 13751,
+        "pathId": 195417,
+        "position": [
+          -498.8671,
+          113.0243
+        ]
+      },
+      {
+        "vehicleId": 14502,
+        "station": 25787,
+        "destination": 8169,
+        "pathId": 209770,
+        "position": [
+          954.3856,
+          1423.396
+        ]
+      },
+      {
+        "vehicleId": 14568,
+        "station": 8693,
+        "destination": 10273,
+        "pathId": 136099,
+        "position": [
+          1384.561,
+          -317.528
+        ]
+      },
+      {
+        "vehicleId": 14570,
+        "station": 8693,
+        "destination": 9879,
+        "pathId": 30833,
+        "position": [
+          -931.9075,
+          832.4988
+        ]
+      },
+      {
+        "vehicleId": 15067,
+        "station": 2320,
+        "destination": 3957,
+        "pathId": 28683,
+        "position": [
+          1070.215,
+          1986.093
+        ]
+      },
+      {
+        "vehicleId": 15935,
+        "station": 2320,
+        "destination": 10010,
+        "pathId": 58008,
+        "position": [
+          3265.093,
+          3938.177
+        ]
+      }
+    ]
+  }
+}
