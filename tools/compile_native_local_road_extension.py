@@ -15,10 +15,10 @@ from plan_zoning_frontage_extension import read_tsv
 
 def read_existing(plan, receipt):
     poses, segments = {}, []
-    for line in plan.read_text(encoding="utf-8").splitlines():
+    for line in plan.read_text(encoding="utf-8-sig").splitlines():
         row = line.split("\t")
-        if row[0] == "N":
-            poses[row[1]] = tuple(map(float, row[2:]))
+        if row[0] in {"N", "A"}:
+            poses[row[1]] = tuple(map(float, row[2:5]))
         else:
             segments.append(row)
     edges, degrees = [], Counter()
@@ -116,7 +116,7 @@ def overlaps(first, first_line, second, second_line):
     return abs(height(first, first_line) - height(second, second_line)) < 5.05
 
 
-def retain_streets(poses, planned, existing, degrees, anchors):
+def retain_streets(poses, planned, existing, degrees, anchors, occupied=None):
     base_lines = [geometry(a, b) for _, _, a, b in existing]
     base_tree = STRtree(base_lines)
     rows = [(a, b, poses[a], poses[b]) for _, a, b, _, _ in planned]
@@ -129,6 +129,10 @@ def retain_streets(poses, planned, existing, degrees, anchors):
             skipped["grade_or_length"] += 1
         elif degrees[a] >= 8 or degrees[b] >= 8:
             skipped["native_junction_capacity"] += 1
+        elif occupied is not None and len(occupied.query(
+                lines[i].buffer(18 if planned[i][3] == "arterial" else 10, cap_style="flat"),
+                predicate="intersects")):
+            skipped["occupied_building_frontage"] += 1
         elif any(overlaps(rows[i], lines[i], existing[k], base_lines[k]) for k in base_tree.query(lines[i])):
             skipped["impinges_on_installed_road"] += 1
         elif any(overlaps(rows[i], lines[i], rows[k], lines[k]) for k in tree.query(lines[i]) if k in keep):
@@ -155,12 +159,32 @@ def retain_streets(poses, planned, existing, degrees, anchors):
     return retained, skipped
 
 
+def occupied_footprints(inventories):
+    if not inventories:
+        return None
+    from plan_native_facility_frontage import footprint
+
+    footprints = []
+    for path in inventories:
+        data = json.loads(path.read_text(encoding="utf-8-sig"))
+        rows = data["growables"] if "growables" in data else data["facilities"]
+        if not data["ok"] or data["returned"] != data["total"] or len(rows) != data["total"]:
+            raise ValueError(f"Incomplete native building inventory: {path.name}")
+        footprints.extend(footprint(row) for row in rows)
+    return STRtree(footprints)
+
+
 def run(args):
     proposal = json.loads(args.proposals.read_text(encoding="utf-8"))
     poses, planned, anchors, contracted = graph_with_anchors(proposal)
     existing, degrees = read_existing(args.existing, args.receipt)
+    for plan, receipt in args.additional_import:
+        imported, imported_degrees = read_existing(plan, receipt)
+        existing.extend(imported)
+        degrees.update(imported_degrees)
     add_base_network(existing, degrees, args.baseline_network, args.outward_links)
-    selected, skipped = retain_streets(poses, planned, existing, degrees, anchors)
+    selected, skipped = retain_streets(poses, planned, existing, degrees, anchors,
+                                      occupied_footprints(args.occupied))
     if not selected:
         raise ValueError("No connected extension streets passed geometry checks")
     used = {node for _, a, b, _, _ in selected for node in (a, b)}
@@ -188,6 +212,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     for option in ("proposals", "existing", "receipt", "output"):
         parser.add_argument("--" + option, type=Path, required=True)
+    parser.add_argument("--additional-import", nargs=2, type=Path, action="append", default=[],
+                        metavar=("PLAN", "RECEIPT"), help="Also check clearance against this imported road network")
+    parser.add_argument("--occupied", type=Path, action="append", default=[],
+                        help="Complete native growables or facilities snapshot for building clearance")
     parser.add_argument("--baseline-network", type=Path)
     parser.add_argument("--outward-links", type=Path)
     run(parser.parse_args())

@@ -1,0 +1,256 @@
+{
+  "status": "verified",
+  "save": {
+    "name": "NagoyaCitywide-SecondLocalStreets-Roads",
+    "sha256": "ADADCBE50DFFFD9B15C17DE1EDA79461C69E7AB4A551D1E13FCC690D1E5A54DE",
+    "bytes": 14086266,
+    "verifiedPedestrianSampleCount": 16
+  },
+  "sourceRoadGraph": "OpenStreetMap Nagoya municipal road extraction",
+  "geometryCompilation": {
+    "compiledSegments": 1475,
+    "checkedExistingCenterlines": 22752,
+    "nativeJunctionsReused": 231,
+    "newJunctions": 1468,
+    "skipped": {
+      "occupied_building_frontage": 303,
+      "impinges_on_installed_road": 110,
+      "impinges_on_another_extension": 2,
+      "disconnected_after_clearance": 2013
+    },
+    "contractions": {
+      "shortLinksContracted": 1058,
+      "contractionPass1": 1058,
+      "shortLinksCollapsed": 1059
+    },
+    "groupsWithRetainedStreet": 437,
+    "wards": {
+      "南区": 35,
+      "緑区": 37,
+      "北区": 20,
+      "中村区": 34,
+      "瑞穂区": 15,
+      "中川区": 71,
+      "西区": 13,
+      "天白区": 18,
+      "港区": 49,
+      "千種区": 9,
+      "名東区": 34,
+      "守山区": 34,
+      "昭和区": 20,
+      "中区": 11,
+      "東区": 10,
+      "熱田区": 18,
+      "unassigned": 9
+    },
+    "roleMembershipsWithRetainedStreet": 49954,
+    "writesToGame": false
+  },
+  "nativeRoadsBefore": 18604,
+  "additionalRoads": 1475,
+  "nativeRoadsAfter": 20079,
+  "connectedRegisteredNodes": 20042,
+  "networkComponents": 1,
+  "nativeAnchors": 231,
+  "pedestrianSamples": [
+    {
+      "sourceWard": "南区",
+      "source": "w310316201:p0:e116497",
+      "nativeRoadId": 27082,
+      "nativeNodes": [
+        15302,
+        9165
+      ],
+      "roadPrefab": "Medium Road",
+      "pedestrianLanes": 2
+    },
+    {
+      "sourceWard": "緑区",
+      "source": "w183682051:p0:e98511",
+      "nativeRoadId": 20958,
+      "nativeNodes": [
+        31113,
+        383
+      ],
+      "roadPrefab": "Basic Road",
+      "pedestrianLanes": 2
+    },
+    {
+      "sourceWard": "中村区",
+      "source": "w139093621:p0:e42474",
+      "nativeRoadId": 8662,
+      "nativeNodes": [
+        26140,
+        23289
+      ],
+      "roadPrefab": "Basic Road",
+      "pedestrianLanes": 2
+    },
+    {
+      "sourceWard": "瑞穂区",
+      "source": "w771230700:p0:e151883",
+      "nativeRoadId": 31476,
+      "nativeNodes": [
+        11838,
+        1383
+      ],
+      "roadPrefab": "Basic Road",
+      "pedestrianLanes": 2
+    },
+    {
+      "sourceWard": "北区",
+      "source": "w100402000:p0:e27643",
+      "nativeRoadId": 27093,
+      "nativeNodes": [
+        14459,
+        6559
+      ],
+      "roadPrefab": "Basic Road",
+      "pedestrianLanes": 2
+    },
+    {
+      "sourceWard": "中川区",
+      "source": "w140515658:p0:e49959",
+      "nativeRoadId": 8909,
+      "nativeNodes": [
+        13418,
+        29781
+      ],
+      "roadPrefab": "Basic Road",
+      "pedestrianLanes": 2
+    },
+    {
+      "sourceWard": "西区",
+      "source": "w136872846:p0:e37112",
+      "nativeRoadId": 21560,
+      "nativeNodes": [
+        16454,
+        24988
+      ],
+      "roadPrefab": "Basic Road",
+      "pedestrianLanes": 2
+    },
+    {
+      "sourceWard": "天白区",
+      "source": "w50533489:p0:e8891",
+      "nativeRoadId": 26050,
+      "nativeNodes": [
+        8095,
+        17464
+      ],
+      "roadPrefab": "Basic Road",
+      "pedestrianLanes": 2
+    },
+    {
+      "sourceWard": "港区",
+      "source": "w367399830:p0:e120039",
+      "nativeRoadId": 7440,
+      "nativeNodes": [
+        15074,
+        27382
+      ],
+      "roadPrefab": "Basic Road",
+      "pedestrianLanes": 2
+    },
+    {
+      "sourceWard": "千種区",
+      "source": "w303262045:p0:e114807",
+      "nativeRoadId": 21713,
+      "nativeNodes": [
+        18333,
+        1539
+      ],
+      "roadPrefab": "Basic Road",
+      "pedestrianLanes": 2
+    },
+    {
+      "sourceWard": "名東区",
+      "source": "w155227034:p0:e77529",
+      "nativeRoadId": 34168,
+      "nativeNodes": [
+        6759,
+        20033
+      ],
+      "roadPrefab": "Basic Road",
+      "pedestrianLanes": 2
+    },
+    {
+      "sourceWard": "守山区",
+      "source": "w97344338:p0:e24216",
+      "nativeRoadId": 4280,
+      "nativeNodes": [
+        5576,
+        13814
+      ],
+      "roadPrefab": "Basic Road",
+      "pedestrianLanes": 2
+    },
+    {
+      "sourceWard": "昭和区",
+      "source": "w50981209:p0:e9467",
+      "nativeRoadId": 23410,
+      "nativeNodes": [
+        30860,
+        6934
+      ],
+      "roadPrefab": "Medium Road",
+      "pedestrianLanes": 2
+    },
+    {
+      "sourceWard": "中区",
+      "source": "w51733952:p0:e12291",
+      "nativeRoadId": 9627,
+      "nativeNodes": [
+        22042,
+        7475
+      ],
+      "roadPrefab": "Basic Road",
+      "pedestrianLanes": 2
+    },
+    {
+      "sourceWard": "東区",
+      "source": "w100402102:p0:e28046",
+      "nativeRoadId": 34521,
+      "nativeNodes": [
+        24434,
+        2516
+      ],
+      "roadPrefab": "Basic Road",
+      "pedestrianLanes": 2
+    },
+    {
+      "sourceWard": "熱田区",
+      "source": "w149841990:p0:e72600",
+      "nativeRoadId": 21740,
+      "nativeNodes": [
+        31224,
+        10489
+      ],
+      "roadPrefab": "Basic Road",
+      "pedestrianLanes": 2
+    }
+  ],
+  "zoning": {
+    "groups": 312,
+    "wards": {
+      "南区": 30,
+      "緑区": 24,
+      "中村区": 19,
+      "瑞穂区": 8,
+      "北区": 9,
+      "中川区": 47,
+      "西区": 9,
+      "天白区": 12,
+      "港区": 42,
+      "千種区": 8,
+      "名東区": 28,
+      "守山区": 21,
+      "昭和区": 19,
+      "中区": 11,
+      "東区": 8,
+      "熱田区": 17
+    },
+    "status": "planned",
+    "sha256": "6E02914A1766B31EA230B353F91F5ABA0E1E7442ADEB24DD9DE9854533002F6F"
+  }
+}

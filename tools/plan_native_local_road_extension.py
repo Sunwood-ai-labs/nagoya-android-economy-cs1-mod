@@ -16,8 +16,8 @@ def road_anchors(compiled, receipt, source_edges, project):
     with compiled.open(encoding="utf-8-sig") as source:
         for line in source:
             part, key, *fields = line.rstrip("\n").split("\t")
-            if part == "N":
-                nodes[key] = tuple(map(float, fields))
+            if part in {"N", "A"}:
+                nodes[key] = tuple(map(float, fields[:3]))
             else:
                 a, b = fields[:2]
                 if fields[-1] == "0":
@@ -95,10 +95,16 @@ def run(args):
     original = json.loads(args.source.read_text(encoding="utf-8-sig"))
     edges = {e["id"]: e for e in original["edges"]}
     anchors, existing = road_anchors(args.compiled, args.receipt, edges, project)
+    for compiled, receipt in args.additional_import:
+        additions, sources = road_anchors(compiled, receipt, edges, project)
+        existing.update(sources)
+        for key, anchor in additions.items():
+            if key not in anchors or anchor["distanceM"] < anchors[key]["distanceM"]:
+                anchors[key] = anchor
     streets, midpoints, access, previous = local_routes(edges, anchors, existing, project)
     index = index_points(midpoints)
-    applied = {r["group"] for r in read_tsv(args.built) if int(r["buildingId"]) > 0}
-    fulfilled = {r["roleGroup"] for r in read_tsv(args.links) if r["site"] in applied}
+    applied = {r["group"] for r in read_tsv(args.built) if int(r["buildingId"]) > 0} if args.built else set()
+    fulfilled = {r["roleGroup"] for r in read_tsv(args.links) if r["site"] in applied} if args.links else set()
     selected, roots, plans, wards = {}, set(), [], Counter()
     budget = args.budget
     for row in read_tsv(args.gaps):
@@ -144,13 +150,19 @@ def run(args):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    for name in ("source", "compiled", "receipt", "built", "links", "gaps", "output"):
+    for name in ("source", "compiled", "receipt", "gaps", "output"):
         parser.add_argument("--" + name, required=True, type=Path)
+    parser.add_argument("--built", type=Path)
+    parser.add_argument("--links", type=Path)
+    parser.add_argument("--additional-import", nargs=2, type=Path, action="append", default=[],
+                        metavar=("PLAN", "RECEIPT"), help="Also reuse and exclude this imported road network")
     for name in ("center-x", "center-z", "scale"):
         parser.add_argument("--" + name, required=True, type=float)
     parser.add_argument("--budget", type=int, default=5500)
     parser.add_argument("--radius", type=float, default=105)
     args = parser.parse_args()
+    if bool(args.built) != bool(args.links):
+        parser.error("Provide both the optional built-site receipt and source links")
     if not 0 < args.scale <= 1 or not 0 < args.budget <= 7000 or not 0 < args.radius <= 160:
         parser.error("Scale, street budget and frontage radius must fit the construction plan")
     run(args)
