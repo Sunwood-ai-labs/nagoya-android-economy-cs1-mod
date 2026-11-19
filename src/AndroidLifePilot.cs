@@ -420,12 +420,15 @@ namespace NagoyaRoadDelivery
             if (added.Count < requested) error = "Vacant residential units limited the experiment to " + cohort.Count;
         }
 
-        private List<object> PopulateSharedAndroidHouseholds(int requested)
+        private List<Dictionary<string, object>> PopulateSharedAndroidHouseholds(int requested, bool mixed)
         {
-            var admissions = new List<object>();
+            var admissions = new List<Dictionary<string, object>>();
             CitizenManager manager = CitizenManager.instance;
             NativeBuilding[] buildings = BuildingManager.instance.m_buildings.m_buffer;
             CitizenUnit[] units = manager.m_units.m_buffer;
+            var androids = new List<uint>(MembersPerUnit);
+            var humans = new List<uint>(MembersPerUnit);
+            var admittedUnits = new HashSet<uint>();
             Randomizer random = new Randomizer(5102026);
             const NativeBuilding.Flags readyHome = NativeBuilding.Flags.Created | NativeBuilding.Flags.Completed | NativeBuilding.Flags.Active;
             foreach (int i in HomeOrder(buildings.Length))
@@ -434,22 +437,31 @@ namespace NagoyaRoadDelivery
                 NativeBuilding building = buildings[i];
                 if ((building.m_flags & readyHome) != readyHome || !HasResidentialUtilities((ushort)i, building)) continue;
                 uint unitId = building.m_citizenUnits;
-                for (int step = 0; unitId != 0 && unitId < units.Length && step < MaximumUnitsPerBuilding; step++)
+                for (int step = 0; unitId != 0 && unitId < units.Length && step < MaximumUnitsPerBuilding && admissions.Count < requested; step++)
                 {
                     CitizenUnit unit = units[unitId];
-                    uint host = unit.m_building == i && (unit.m_flags & CitizenUnit.Flags.Home) != 0 ? SoloMember(unit) : 0;
-                    Resident existing;
-                    if (host != 0 && cohort.TryGetValue(host, out existing) && existing.Home == i && existing.HomeUnit == unitId &&
-                        manager.m_citizens.m_buffer[host].m_homeBuilding == i &&
-                        (manager.m_citizens.m_buffer[host].m_flags & (Citizen.Flags.Created | Citizen.Flags.Dead)) == Citizen.Flags.Created)
+                    if (!admittedUnits.Contains(unitId) && ReadHouseholdMembers(manager, (ushort)i, unitId, unit, androids, humans) &&
+                        (mixed ? humans.Count > 0 && androids.Count > 0 && humans.Count + androids.Count < MembersPerUnit :
+                         humans.Count == 0 && androids.Count == 1))
                     {
                         Citizen.Gender gender = (admissions.Count & 1) == 0 ? Citizen.Gender.Male : Citizen.Gender.Female;
                         uint newcomer = CreateResident((ushort)i, unitId, 0, gender, ref random);
                         if (newcomer == 0) throw new InvalidOperationException("CS1 refused the shared household seat");
+                        if (CountResidentsAtAddress(manager, (ushort)i, unitId, humans) != humans.Count ||
+                            CountResidentsAtAddress(manager, (ushort)i, unitId, androids) != androids.Count)
+                        {
+                            manager.ReleaseCitizen(newcomer);
+                            if (cohort.Remove(newcomer)) NativeCityLedger.RemoveAndroid(newcomer);
+                            throw new InvalidOperationException("An original household member changed during admission");
+                        }
+                        admittedUnits.Add(unitId);
                         admissions.Add(new Dictionary<string, object> {
-                            {"existingAndroid",host}, {"admittedAndroid",newcomer}, {"homeBuilding",i}, {"homeUnit",unitId}
+                            {"existingAndroid",androids[0]}, {"admittedAndroid",newcomer}, {"homeBuilding",(ushort)i}, {"homeUnit",unitId},
+                            {"ward",NativeCityLedger.RegisteredWard((ushort)i)},
+                            {"existingHumanIds",humans.ToArray()}, {"existingAndroidIds",androids.ToArray()},
+                            {"existingResidentsPreservedAtAdmission",true}
                         });
-                        break;
+                        if (!mixed) break;
                     }
                     unitId = unit.m_nextUnit;
                 }
@@ -458,17 +470,44 @@ namespace NagoyaRoadDelivery
             return admissions;
         }
 
-        private static uint SoloMember(CitizenUnit unit)
+        private bool ReadHouseholdMembers(CitizenManager manager, ushort home, uint unitId, CitizenUnit unit,
+            List<uint> androids, List<uint> humans)
         {
-            uint member = 0;
+            if (unit.m_building != home || (unit.m_flags & CitizenUnit.Flags.Home) == 0) return false;
+            androids.Clear();
+            humans.Clear();
             for (int slot = 0; slot < MembersPerUnit; slot++)
             {
-                uint occupant = unit.GetCitizen(slot);
-                if (occupant == 0) continue;
-                if (member != 0) return 0;
-                member = occupant;
+                uint id = unit.GetCitizen(slot);
+                if (id == 0) continue;
+                if (!HasNativeHome(manager, home, id) || androids.Contains(id) || humans.Contains(id)) return false;
+                Resident entry;
+                if (cohort.TryGetValue(id, out entry))
+                {
+                    if (entry.Home != home || entry.HomeUnit != unitId) return false;
+                    androids.Add(id);
+                }
+                else humans.Add(id);
             }
-            return member;
+            return true;
+        }
+
+        private static bool HasNativeHome(CitizenManager manager, ushort home, uint id)
+        {
+            if (id >= manager.m_citizens.m_buffer.Length) return false;
+            Citizen citizen = manager.m_citizens.m_buffer[id];
+            return (citizen.m_flags & (Citizen.Flags.Created | Citizen.Flags.Dead)) == Citizen.Flags.Created && citizen.m_homeBuilding == home;
+        }
+
+        internal static int CountResidentsAtAddress(CitizenManager manager, ushort home, uint unitId, IList<uint> ids)
+        {
+            if (unitId == 0 || unitId >= manager.m_units.m_buffer.Length) return 0;
+            CitizenUnit unit = manager.m_units.m_buffer[unitId];
+            if (unit.m_building != home || (unit.m_flags & CitizenUnit.Flags.Home) == 0) return 0;
+            int count = 0;
+            foreach (uint id in ids)
+                if (HasNativeHome(manager, home, id) && Contains(unit, id)) count++;
+            return count;
         }
 
         private void StartEmploymentTrial()
@@ -489,7 +528,8 @@ namespace NagoyaRoadDelivery
             trial.Baseline = Observe(trial.Start).Json;
             trial.OpeningCapacity = NativeCityRoster.AuditCapacity();
             int additional = Math.Min(NativeCityLedger.MaxResidents - cohort.Count, trial.AdditionalResidents);
-            if (trial.ShareAndroidHouseholds) trial.SharedHouseholdAdmissions = PopulateSharedAndroidHouseholds(additional);
+            if (trial.ShareAndroidHouseholds || trial.ShareMixedHouseholds)
+                trial.SharedHouseholdAdmissions = PopulateSharedAndroidHouseholds(additional, trial.ShareMixedHouseholds);
             else PopulateResidents(cohort.Count + additional);
             UpdateResidentIds();
             trial.AfterAdmissionCapacity = NativeCityRoster.AuditCapacity();

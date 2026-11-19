@@ -127,6 +127,15 @@ namespace NagoyaRoadDelivery
             }
         }
 
+        internal static string RegisteredWard(ushort site)
+        {
+            lock (Gate)
+            {
+                Lot lot;
+                return Lots.TryGetValue(site, out lot) ? lot.Ward : null;
+            }
+        }
+
         internal static void Snapshot(out Road[] roads, out Lot[] lots)
         {
             lock (Gate)

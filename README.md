@@ -6,6 +6,8 @@
 
 同じセーブをゲーム内で96時間進めた試験では、アンドロイドを追加しない場合に人1,856人、133体が追加で入居した場合に人1,839人が職場に登録されていました。両条件で人の住民数にも差が出ました。
 
+その後の8日間の試験では、全16区にまたがる既存の混合世帯に201体が加わりました。増員しない場合との比較で、終了時の人の就業登録は4,388人と4,360人、アンドロイドの就業登録は531体と722体、アンドロイドの店舗配送は17便と19便でした。開始残高は両方ともゲーム内通貨14万にそろえています。
+
 - [PLATEAU AWARD 応募資料（PDF）](docs/submission/Android-Skyline-Nagoya2050.pdf)
 - [CS1の都市経済との接続と検証条件](docs/native-economy.md)
 - [CS1標準の住宅・就業・通勤を使った生活試験](docs/android-life.md)
@@ -32,6 +34,7 @@
 - [昭和区・東区の配送と帰宅、全16区の在庫移動の記録](docs/evidence/native-advance-neighborhood-employment-20261119.json)
 - [同じセーブでの雇用比較](docs/evidence/native-employment-matched-20261119.json)
 - [既存世帯への同居・通勤・充電の実測](docs/evidence/native-shared-households-20261120.json)
+- [混合世帯で201体を増員した雇用・配送の比較](docs/evidence/native-mixed-households-20261120.json)
 - [168体の実ゲーム観測](docs/evidence/live-168-20261118.json)
 - [CS1標準の商品需要と在庫の観測](docs/evidence/native-goods-baseline-20261118.json)
 

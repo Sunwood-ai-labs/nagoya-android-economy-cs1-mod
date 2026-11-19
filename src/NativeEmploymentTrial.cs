@@ -23,8 +23,8 @@ namespace NagoyaRoadDelivery
         public int AdditionalResidents, Hours, Speed;
         public int? OpeningCash;
         public bool NormalEconomy;
-        public bool ShareAndroidHouseholds;
-        public List<object> SharedHouseholdAdmissions;
+        public bool ShareAndroidHouseholds, ShareMixedHouseholds;
+        public List<Dictionary<string, object>> SharedHouseholdAdmissions;
         public long OpeningCreditRaw;
         public Dictionary<string, object> OpeningEconomy;
         public DateTime Start, End, NextSample, Deadline;
@@ -67,14 +67,17 @@ namespace NagoyaRoadDelivery
                 int additional = ReadInt(values, "additionalAndroids", 0, NativeCityLedger.MaxResidents);
                 object shareHomes;
                 bool shareAndroidHouseholds = values.TryGetValue("shareAndroidHouseholds", out shareHomes) && (bool)shareHomes;
-                if (shareAndroidHouseholds && additional == 0)
-                    throw new FormatException("Household sharing requires additional Android residents");
+                object shareMixed;
+                bool shareMixedHouseholds = values.TryGetValue("shareMixedHouseholds", out shareMixed) && (bool)shareMixed;
+                if ((shareAndroidHouseholds && shareMixedHouseholds) || ((shareAndroidHouseholds || shareMixedHouseholds) && additional == 0))
+                    throw new FormatException("Select one household sharing mode with additional Android residents");
                 int? openingCash = funded ? (int?)ReadInt(values, "openingCash", 100000, 5000000) : null;
                 File.Move(path, Path.Combine(root, "native-employment-" + id + ".request.json"));
                 simulation.SimulationPaused = true;
                 return new NativeEmploymentTrial {
                     CaseId=id, AdditionalResidents=additional, Hours=hours, OpeningCash=openingCash,
-                    NormalEconomy=normalEconomy, Speed=normalEconomy ? 2 : 1, ShareAndroidHouseholds=shareAndroidHouseholds
+                    NormalEconomy=normalEconomy, Speed=normalEconomy ? 2 : 1, ShareAndroidHouseholds=shareAndroidHouseholds,
+                    ShareMixedHouseholds=shareMixedHouseholds
                 };
             }
             catch (Exception error)
@@ -150,7 +153,21 @@ namespace NagoyaRoadDelivery
                     {"openingCreditRaw",OpeningCreditRaw},
                     {"beforeOpeningCredit",OpeningEconomy}, {"end",ReadEconomy()}
                 };
-            if (ShareAndroidHouseholds) result["sharedHouseholdAdmissions"] = SharedHouseholdAdmissions;
+            if (SharedHouseholdAdmissions != null)
+            {
+                CitizenManager manager = CitizenManager.instance;
+                foreach (Dictionary<string, object> admission in SharedHouseholdAdmissions)
+                {
+                    ushort home = (ushort)admission["homeBuilding"];
+                    uint unit = (uint)admission["homeUnit"];
+                    admission["originalHumansStillInHousehold"] = AndroidLifePilot.CountResidentsAtAddress(manager, home, unit,
+                        (uint[])admission["existingHumanIds"]);
+                    admission["originalAndroidsStillInHousehold"] = AndroidLifePilot.CountResidentsAtAddress(manager, home, unit,
+                        (uint[])admission["existingAndroidIds"]);
+                }
+                result["sharedHouseholdAdmissions"] = SharedHouseholdAdmissions;
+            }
+            if (ShareMixedHouseholds) result["sharedHouseholdMode"] = "existingMixedHousehold";
             string path = Path.Combine(NativeCityRoadBuilder.Root, "native-employment-" + CaseId + ".json");
             string pending = path + ".tmp";
             File.WriteAllText(pending, JsonData.Stringify(result), new UTF8Encoding(false));

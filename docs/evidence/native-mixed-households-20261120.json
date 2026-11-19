@@ -1,0 +1,911 @@
+{
+  "baselineSave": {
+    "sha256": "105FFA04770B240762305E840B972A609EED15CBA63F9B86D436ACADAF23CC7E",
+    "segments": 32718,
+    "gameTime": "2029-12-24T08:57:39",
+    "name": "NagoyaCitywide-EmploymentTrial-SharedHomesObserved",
+    "buildIndex": 126084,
+    "bytes": 15397412,
+    "parent": "NagoyaCitywide-EmploymentTrial-SharedHomesBaseline"
+  },
+  "observedSave": {
+    "sha256": "9F4DCFBDDA74FE71B31CCBAC78D973D20598F84242F34E06D0F4DC67A292BA60",
+    "name": "NagoyaCitywide-EmploymentTrial-MixedHouseholds220-Observed",
+    "parentPreserved": true,
+    "segments": 32718,
+    "gameTime": "2030-01-01T08:57:59",
+    "bytes": 15373629,
+    "buildIndex": 126124,
+    "parent": "NagoyaCitywide-EmploymentTrial-SharedHomesObserved"
+  },
+  "observedModSha256": "D04952300CCAF8DEF1174AE072BC998D8A719323395216F434E68B924040132F",
+  "observation": {
+    "opening": {
+      "gameTime": "2029-12-24T09:03:22",
+      "nativeHumanResidents": 9736,
+      "humansWithWorkplace": 4374,
+      "androidHomeMembers": 570,
+      "androidWorkMembers": 535
+    },
+    "immediatelyAfterAdmission": {
+      "gameTime": "2029-12-24T09:03:22",
+      "nativeHumanResidents": 9736,
+      "humansWithWorkplace": 4374,
+      "androidHomeMembers": 771,
+      "androidWorkMembers": 535
+    },
+    "end": {
+      "gameTime": "2030-01-01T09:05:28",
+      "nativeHumanResidents": 9702,
+      "humansWithWorkplace": 4360,
+      "androidHomeMembers": 756,
+      "androidWorkMembers": 722
+    },
+    "requested": 220,
+    "durationHours": 192,
+    "startFrame": 55290984,
+    "endFrame": 55295666,
+    "startTicks": "640283942022642276",
+    "endTicks": "640290855288267276",
+    "originalHumanMembersPreservedAtAdmission": 348,
+    "cohortTotals": {
+      "admitted": 201,
+      "remaining": 190,
+      "sameHousehold": 53,
+      "stillWithOriginalHumans": 53,
+      "work": 190,
+      "commuted": 183,
+      "workArrival": 22,
+      "charge": 190
+    },
+    "byWard": {
+      "天白区": {
+        "admitted": 20,
+        "remaining": 19,
+        "sameHousehold": 4,
+        "stillWithOriginalHumans": 4,
+        "work": 19,
+        "commuted": 19,
+        "workArrival": 2,
+        "charge": 19
+      },
+      "昭和区": {
+        "admitted": 8,
+        "remaining": 8,
+        "sameHousehold": 1,
+        "stillWithOriginalHumans": 1,
+        "work": 8,
+        "commuted": 8,
+        "workArrival": 0,
+        "charge": 8
+      },
+      "南区": {
+        "admitted": 10,
+        "remaining": 8,
+        "sameHousehold": 2,
+        "stillWithOriginalHumans": 2,
+        "work": 8,
+        "commuted": 7,
+        "workArrival": 1,
+        "charge": 8
+      },
+      "東区": {
+        "admitted": 7,
+        "remaining": 7,
+        "sameHousehold": 1,
+        "stillWithOriginalHumans": 1,
+        "work": 7,
+        "commuted": 6,
+        "workArrival": 1,
+        "charge": 7
+      },
+      "緑区": {
+        "admitted": 25,
+        "remaining": 23,
+        "sameHousehold": 3,
+        "stillWithOriginalHumans": 3,
+        "work": 23,
+        "commuted": 22,
+        "workArrival": 1,
+        "charge": 23
+      },
+      "千種区": {
+        "admitted": 12,
+        "remaining": 11,
+        "sameHousehold": 5,
+        "stillWithOriginalHumans": 5,
+        "work": 11,
+        "commuted": 11,
+        "workArrival": 1,
+        "charge": 11
+      },
+      "中区": {
+        "admitted": 6,
+        "remaining": 6,
+        "sameHousehold": 1,
+        "stillWithOriginalHumans": 1,
+        "work": 6,
+        "commuted": 5,
+        "workArrival": 0,
+        "charge": 6
+      },
+      "中川区": {
+        "admitted": 18,
+        "remaining": 17,
+        "sameHousehold": 5,
+        "stillWithOriginalHumans": 5,
+        "work": 17,
+        "commuted": 17,
+        "workArrival": 2,
+        "charge": 17
+      },
+      "中村区": {
+        "admitted": 12,
+        "remaining": 12,
+        "sameHousehold": 6,
+        "stillWithOriginalHumans": 6,
+        "work": 12,
+        "commuted": 11,
+        "workArrival": 2,
+        "charge": 12
+      },
+      "北区": {
+        "admitted": 9,
+        "remaining": 9,
+        "sameHousehold": 2,
+        "stillWithOriginalHumans": 2,
+        "work": 9,
+        "commuted": 8,
+        "workArrival": 2,
+        "charge": 9
+      },
+      "守山区": {
+        "admitted": 25,
+        "remaining": 23,
+        "sameHousehold": 8,
+        "stillWithOriginalHumans": 8,
+        "work": 23,
+        "commuted": 23,
+        "workArrival": 4,
+        "charge": 23
+      },
+      "瑞穂区": {
+        "admitted": 8,
+        "remaining": 8,
+        "sameHousehold": 4,
+        "stillWithOriginalHumans": 4,
+        "work": 8,
+        "commuted": 8,
+        "workArrival": 0,
+        "charge": 8
+      },
+      "unassigned": {
+        "admitted": 2,
+        "remaining": 1,
+        "sameHousehold": 0,
+        "stillWithOriginalHumans": 0,
+        "work": 1,
+        "commuted": 1,
+        "workArrival": 0,
+        "charge": 1
+      },
+      "西区": {
+        "admitted": 9,
+        "remaining": 9,
+        "sameHousehold": 3,
+        "stillWithOriginalHumans": 3,
+        "work": 9,
+        "commuted": 9,
+        "workArrival": 1,
+        "charge": 9
+      },
+      "名東区": {
+        "admitted": 11,
+        "remaining": 11,
+        "sameHousehold": 2,
+        "stillWithOriginalHumans": 2,
+        "work": 11,
+        "commuted": 10,
+        "workArrival": 3,
+        "charge": 11
+      },
+      "熱田区": {
+        "admitted": 3,
+        "remaining": 3,
+        "sameHousehold": 1,
+        "stillWithOriginalHumans": 1,
+        "work": 3,
+        "commuted": 3,
+        "workArrival": 1,
+        "charge": 3
+      },
+      "港区": {
+        "admitted": 16,
+        "remaining": 15,
+        "sameHousehold": 5,
+        "stillWithOriginalHumans": 5,
+        "work": 15,
+        "commuted": 15,
+        "workArrival": 1,
+        "charge": 15
+      }
+    },
+    "confirmedDeliveryEventsDuringTrial": 19,
+    "newcomerDeliveriesFromRecentLog": [
+      {
+        "android": 1007997,
+        "from": 48295,
+        "to": 39349,
+        "ward": "緑区",
+        "sourceWard": "緑区",
+        "stockAdded": 100,
+        "factoryBefore": 6422,
+        "factoryAccessStreet": 8634,
+        "shopAccessStreet": 12159,
+        "factoryAfter": 6322,
+        "shopBefore": 7820,
+        "nativeRequest": {
+          "frame": 55294924,
+          "priority": 7,
+          "amount": 1
+        },
+        "shopAfter": 7920,
+        "localHire": false,
+        "firstDeliveryAfterAdmission": false,
+        "firstDeliveryFromExistingWorker": false,
+        "onsitePriority": false,
+        "departureFrame": 55295147,
+        "restoredAfterLoad": false,
+        "arrivalEvidence": "native arrival callback",
+        "gameTime": "2030-01-01T03:01:18"
+      },
+      {
+        "android": 290570,
+        "from": 19629,
+        "to": 27898,
+        "ward": "港区",
+        "sourceWard": "港区",
+        "stockAdded": 100,
+        "factoryBefore": 3848,
+        "factoryAccessStreet": 35602,
+        "shopAccessStreet": 5204,
+        "factoryAfter": 3748,
+        "shopBefore": 10859,
+        "nativeRequest": {
+          "frame": 55294353,
+          "priority": 6,
+          "amount": 1
+        },
+        "shopAfter": 10959,
+        "localHire": false,
+        "firstDeliveryAfterAdmission": false,
+        "firstDeliveryFromExistingWorker": false,
+        "onsitePriority": false,
+        "departureFrame": 55294475,
+        "restoredAfterLoad": false,
+        "arrivalEvidence": "native arrival callback",
+        "gameTime": "2030-01-01T05:12:31"
+      }
+    ],
+    "deliveryLogEventsCaptured": 19,
+    "economy": {
+      "openingCashTargetRaw": 14000000,
+      "openingCreditRaw": 10026291,
+      "beforeOpeningCredit": {
+        "cashRaw": 3973709,
+        "taxAndTransitIncomeRaw": 3112016,
+        "operatingExpensesRaw": 10523984,
+        "loanExpensesRaw": 69616,
+        "policyExpensesRaw": 0
+      },
+      "end": {
+        "cashRaw": 5507784,
+        "taxAndTransitIncomeRaw": 3137015,
+        "operatingExpensesRaw": 10523984,
+        "loanExpensesRaw": 69616,
+        "policyExpensesRaw": 0
+      }
+    },
+    "namedWardsWithAdmissions": 16
+  },
+  "matchedComparison": {
+    "startGameTime": "2029-12-24T09:03:22",
+    "endGameTime": "2030-01-01T09:05:28",
+    "window": {
+      "startTicks": "640283942022642276",
+      "endTicks": "640290855288267276",
+      "startFrame": 55290984,
+      "endFrame": 55295666,
+      "durationHours": 192
+    },
+    "control": {
+      "caseId": "dec24-mixed-households-control",
+      "requestedExtraAndroids": 0,
+      "baseline": {
+        "nativeHumanResidents": 9736,
+        "humansWithWorkplace": 4374,
+        "androidHomeMembers": 570,
+        "androidWorkMembers": 535,
+        "androidIdentities": 570
+      },
+      "afterAdmission": {
+        "nativeHumanResidents": 9736,
+        "humansWithWorkplace": 4374,
+        "androidHomeMembers": 570,
+        "androidWorkMembers": 535,
+        "androidIdentities": 570
+      },
+      "end": {
+        "nativeHumanResidents": 9764,
+        "humansWithWorkplace": 4388,
+        "androidHomeMembers": 565,
+        "androidWorkMembers": 531,
+        "androidIdentities": 567
+      },
+      "newAndroidsAdmitted": 0,
+      "newAndroidsAtEnd": 0,
+      "newAndroidsWithWorkplace": 0,
+      "newAndroidsWithCommutePath": 0,
+      "newAndroidsWithWorkObservation": 0,
+      "newAndroidsWithNativeWorkArrival": 0,
+      "newAndroidsWithChargeObservation": 0,
+      "shopDeliveries": 464,
+      "shopDeliveriesByWard": {
+        "千種区": 23,
+        "名東区": 14,
+        "昭和区": 31,
+        "守山区": 37,
+        "天白区": 83,
+        "緑区": 84,
+        "中区": 25,
+        "南区": 19,
+        "熱田区": 3,
+        "港区": 25,
+        "瑞穂区": 30,
+        "中村区": 8,
+        "中川区": 28,
+        "東区": 21,
+        "西区": 23,
+        "北区": 10
+      },
+      "shopDeliveriesDuringTrial": 17,
+      "shopDeliveriesDuringTrialByWard": {
+        "千種区": 1,
+        "昭和区": 2,
+        "守山区": 1,
+        "天白区": 3,
+        "緑区": 5,
+        "中区": 1,
+        "熱田区": 1,
+        "港区": 1,
+        "中川区": 1,
+        "東区": 1
+      }
+    },
+    "treatment": {
+      "caseId": "dec24-mixed-households-220",
+      "requestedExtraAndroids": 220,
+      "baseline": {
+        "nativeHumanResidents": 9736,
+        "humansWithWorkplace": 4374,
+        "androidHomeMembers": 570,
+        "androidWorkMembers": 535,
+        "androidIdentities": 570
+      },
+      "afterAdmission": {
+        "nativeHumanResidents": 9736,
+        "humansWithWorkplace": 4374,
+        "androidHomeMembers": 771,
+        "androidWorkMembers": 535,
+        "androidIdentities": 771
+      },
+      "end": {
+        "nativeHumanResidents": 9702,
+        "humansWithWorkplace": 4360,
+        "androidHomeMembers": 756,
+        "androidWorkMembers": 722,
+        "androidIdentities": 760
+      },
+      "newAndroidsAdmitted": 201,
+      "newAndroidsAtEnd": 190,
+      "newAndroidsWithWorkplace": 190,
+      "newAndroidsWithCommutePath": 183,
+      "newAndroidsWithWorkObservation": 10,
+      "newAndroidsWithNativeWorkArrival": 22,
+      "newAndroidsWithChargeObservation": 190,
+      "shopDeliveries": 466,
+      "shopDeliveriesByWard": {
+        "千種区": 23,
+        "名東区": 14,
+        "昭和区": 31,
+        "守山区": 37,
+        "天白区": 83,
+        "緑区": 85,
+        "中区": 25,
+        "南区": 19,
+        "熱田区": 3,
+        "港区": 26,
+        "瑞穂区": 30,
+        "中村区": 8,
+        "中川区": 28,
+        "東区": 21,
+        "西区": 23,
+        "北区": 10
+      },
+      "shopDeliveriesDuringTrial": 19,
+      "shopDeliveriesDuringTrialByWard": {
+        "千種区": 1,
+        "昭和区": 2,
+        "守山区": 1,
+        "天白区": 3,
+        "緑区": 6,
+        "中区": 1,
+        "熱田区": 1,
+        "港区": 2,
+        "中川区": 1,
+        "東区": 1
+      }
+    },
+    "endDifferenceTreatmentMinusControl": {
+      "nativeHumanResidents": -62,
+      "humansWithWorkplace": -28,
+      "androidHomeMembers": 191,
+      "androidWorkMembers": 191,
+      "androidIdentities": 193
+    },
+    "economy": {
+      "openingCashRaw": 14000000,
+      "oneTimeOpeningCreditRaw": 10026291,
+      "controlEnd": {
+        "cashRaw": 5469231,
+        "taxAndTransitIncomeRaw": 3103249,
+        "operatingExpensesRaw": 10523984,
+        "loanExpensesRaw": 69616,
+        "policyExpensesRaw": 0
+      },
+      "treatmentEnd": {
+        "cashRaw": 5507784,
+        "taxAndTransitIncomeRaw": 3137015,
+        "operatingExpensesRaw": 10523984,
+        "loanExpensesRaw": 69616,
+        "policyExpensesRaw": 0
+      },
+      "endDifferenceTreatmentMinusControl": {
+        "cashRaw": 38553,
+        "taxAndTransitIncomeRaw": 33766,
+        "operatingExpensesRaw": 0,
+        "loanExpensesRaw": 0,
+        "policyExpensesRaw": 0
+      }
+    }
+  },
+  "cityRoster": {
+    "utc": "2026-11-19T20:16:29.6243717Z",
+    "activeNativeRoads": 22007,
+    "activeNativeZonedSites": 7246,
+    "operationalNativeZonedSites": 4933,
+    "wardsWithHumanAndAndroidPopulationAndJobs": 16
+  },
+  "travelAtTreatmentEnd": {
+    "cityAtEndWithoutTravelEntity": 602,
+    "cityAtEndWithTravelEntity": 88,
+    "newcomerCommutesStarted": 183,
+    "newcomerNoWorkArrival": 161,
+    "newcomerNoWorkArrivalLocations": {
+      "Moving": 160,
+      "Home": 1
+    },
+    "newcomerNoWorkArrivalMovingWithoutInstanceOrVehicle": 132,
+    "newcomerNoWorkArrivalHadRecovery": 118
+  },
+  "reload": {
+    "caseId": "jan01-mixed-households-reload",
+    "gameTime": "2030-01-01T09:05:28",
+    "cityAndroidHomeMembers": 756,
+    "cityAndroidWorkMembers": 722,
+    "treatmentNewcomersInCityAtSave": 190,
+    "treatmentNewcomersWithNativeHomeAfterLoad": 190,
+    "treatmentNewcomersWithSameHomeUnitAndWorkBuilding": 190,
+    "originalNativeHomeUnitRemainsAfterLoad": 53,
+    "originalHumanIdsIndividuallyAuditedAfterReload": false
+  },
+  "examplesByWard": [
+    {
+      "existingAndroid": 498552,
+      "admittedAndroid": 713892,
+      "homeBuilding": 951,
+      "homeUnit": 136541,
+      "ward": "天白区",
+      "existingHumanIds": [
+        478739
+      ],
+      "existingAndroidIds": [
+        498552
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 1,
+      "originalAndroidsStillInHousehold": 1,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": true,
+      "workBuilding": 316,
+      "commutesStarted": 1,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 713994,
+      "admittedAndroid": 420077,
+      "homeBuilding": 38307,
+      "homeUnit": 415102,
+      "ward": "昭和区",
+      "existingHumanIds": [
+        175947,
+        1025187
+      ],
+      "existingAndroidIds": [
+        713994,
+        771971
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 2,
+      "originalAndroidsStillInHousehold": 2,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": false,
+      "workBuilding": 46495,
+      "commutesStarted": 2,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 274392,
+      "admittedAndroid": 797140,
+      "homeBuilding": 10683,
+      "homeUnit": 6749,
+      "ward": "南区",
+      "existingHumanIds": [
+        859851,
+        936024
+      ],
+      "existingAndroidIds": [
+        274392
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 2,
+      "originalAndroidsStillInHousehold": 1,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": false,
+      "workBuilding": 29928,
+      "commutesStarted": 0,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 340618,
+      "admittedAndroid": 727019,
+      "homeBuilding": 15947,
+      "homeUnit": 309472,
+      "ward": "東区",
+      "existingHumanIds": [
+        329485,
+        575638
+      ],
+      "existingAndroidIds": [
+        340618
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 2,
+      "originalAndroidsStillInHousehold": 1,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": false,
+      "workBuilding": 43877,
+      "commutesStarted": 1,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 415524,
+      "admittedAndroid": 688216,
+      "homeBuilding": 6487,
+      "homeUnit": 291832,
+      "ward": "緑区",
+      "existingHumanIds": [
+        539901,
+        862262,
+        1017524
+      ],
+      "existingAndroidIds": [
+        415524
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 3,
+      "originalAndroidsStillInHousehold": 1,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": false,
+      "workBuilding": 6514,
+      "commutesStarted": 1,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 45312,
+      "admittedAndroid": 187637,
+      "homeBuilding": 33244,
+      "homeUnit": 361400,
+      "ward": "千種区",
+      "existingHumanIds": [
+        231233
+      ],
+      "existingAndroidIds": [
+        45312
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 1,
+      "originalAndroidsStillInHousehold": 1,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": false,
+      "workBuilding": 21234,
+      "commutesStarted": 5,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 959126,
+      "admittedAndroid": 532812,
+      "homeBuilding": 31997,
+      "homeUnit": 348628,
+      "ward": "中区",
+      "existingHumanIds": [
+        854054,
+        575359
+      ],
+      "existingAndroidIds": [
+        959126
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 2,
+      "originalAndroidsStillInHousehold": 1,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": false,
+      "workBuilding": 27913,
+      "commutesStarted": 1,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 535914,
+      "admittedAndroid": 213547,
+      "homeBuilding": 48716,
+      "homeUnit": 319268,
+      "ward": "中川区",
+      "existingHumanIds": [
+        895595,
+        155215
+      ],
+      "existingAndroidIds": [
+        535914
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 2,
+      "originalAndroidsStillInHousehold": 1,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": false,
+      "workBuilding": 19149,
+      "commutesStarted": 4,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 73543,
+      "admittedAndroid": 712092,
+      "homeBuilding": 34020,
+      "homeUnit": 370836,
+      "ward": "中村区",
+      "existingHumanIds": [
+        665488,
+        312889,
+        269608
+      ],
+      "existingAndroidIds": [
+        73543
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 3,
+      "originalAndroidsStillInHousehold": 1,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": true,
+      "workBuilding": 41523,
+      "commutesStarted": 0,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 913432,
+      "admittedAndroid": 467194,
+      "homeBuilding": 20028,
+      "homeUnit": 214764,
+      "ward": "北区",
+      "existingHumanIds": [
+        548361
+      ],
+      "existingAndroidIds": [
+        913432
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 1,
+      "originalAndroidsStillInHousehold": 1,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": false,
+      "workBuilding": 42686,
+      "commutesStarted": 3,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 156516,
+      "admittedAndroid": 940565,
+      "homeBuilding": 41619,
+      "homeUnit": 191740,
+      "ward": "守山区",
+      "existingHumanIds": [
+        311399,
+        501537,
+        652120
+      ],
+      "existingAndroidIds": [
+        156516
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 3,
+      "originalAndroidsStillInHousehold": 1,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": false,
+      "workBuilding": 3583,
+      "commutesStarted": 7,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 741698,
+      "admittedAndroid": 723095,
+      "homeBuilding": 18425,
+      "homeUnit": 201924,
+      "ward": "瑞穂区",
+      "existingHumanIds": [
+        170065
+      ],
+      "existingAndroidIds": [
+        741698
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 1,
+      "originalAndroidsStillInHousehold": 1,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": false,
+      "workBuilding": 10890,
+      "commutesStarted": 1,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 660155,
+      "admittedAndroid": 904832,
+      "homeBuilding": 6090,
+      "homeUnit": 255073,
+      "ward": "unassigned",
+      "existingHumanIds": [
+        360441
+      ],
+      "existingAndroidIds": [
+        660155,
+        371
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 1,
+      "originalAndroidsStillInHousehold": 2,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": false,
+      "workBuilding": 44234,
+      "commutesStarted": 7,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 795861,
+      "admittedAndroid": 463158,
+      "homeBuilding": 30544,
+      "homeUnit": 333973,
+      "ward": "西区",
+      "existingHumanIds": [
+        1911
+      ],
+      "existingAndroidIds": [
+        795861
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 0,
+      "originalAndroidsStillInHousehold": 1,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": false,
+      "workBuilding": 12210,
+      "commutesStarted": 3,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 713240,
+      "admittedAndroid": 357483,
+      "homeBuilding": 22963,
+      "homeUnit": 251619,
+      "ward": "名東区",
+      "existingHumanIds": [
+        1013995,
+        433892
+      ],
+      "existingAndroidIds": [
+        713240
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 2,
+      "originalAndroidsStillInHousehold": 1,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": false,
+      "workBuilding": 27240,
+      "commutesStarted": 3,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 741437,
+      "admittedAndroid": 510806,
+      "homeBuilding": 40548,
+      "homeUnit": 451146,
+      "ward": "熱田区",
+      "existingHumanIds": [
+        929382
+      ],
+      "existingAndroidIds": [
+        741437
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 1,
+      "originalAndroidsStillInHousehold": 1,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": false,
+      "workBuilding": 15039,
+      "commutesStarted": 3,
+      "workArrivals": 0,
+      "chargeStarts": 1
+    },
+    {
+      "existingAndroid": 420125,
+      "admittedAndroid": 6217,
+      "homeBuilding": 37327,
+      "homeUnit": 153496,
+      "ward": "港区",
+      "existingHumanIds": [
+        555433,
+        900438
+      ],
+      "existingAndroidIds": [
+        420125,
+        463457
+      ],
+      "existingResidentsPreservedAtAdmission": true,
+      "originalHumansStillInHousehold": 2,
+      "originalAndroidsStillInHousehold": 2,
+      "newcomerInCity": true,
+      "newcomerInOriginalHousehold": true,
+      "workBuilding": 18226,
+      "commutesStarted": 1,
+      "workArrivals": 1,
+      "chargeStarts": 1
+    }
+  ],
+  "nativeReceiptSha256": {
+    "treatment-raw.json": "63099BAA0B89A08B32DE77135D49B466056ED6C24EF60B85B1B56D61A1DEF90D",
+    "control-raw.json": "0440BEA5C17ECBB10ECB5D0AEFAFEB4B38F0527710A329FAA6912C34911CB277",
+    "native-employment-jan01-mixed-households-reload.json": "5811FD6B2620C474CB63D468118F15043D03276DF43F206DAA18B496A10C6D00",
+    "mixed-verified.json": "BA4BAC2E2EBD4A0A51BB7BE1A291775EBF3EE7559E2A8D7A66997D0E07ECB2C9",
+    "mixed-roster.json": "2F047363CFA3C535DA0CD6CDC7A83A152507C798BDD116D6E9E0AD95901B9B6B"
+  }
+}

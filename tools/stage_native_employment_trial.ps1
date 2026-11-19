@@ -10,15 +10,16 @@ param(
     [ValidateRange(1, 720)][int]$DurationHours = 720,
     [ValidateRange(100000, 5000000)][int]$OpeningCash = 2000000,
     [switch]$KeepOpeningCash,
-    [switch]$ShareAndroidHouseholds
+    [switch]$ShareAndroidHouseholds,
+    [switch]$ShareMixedHouseholds
 )
 
 $ErrorActionPreference = 'Stop'
 if ($KeepOpeningCash -and $PSBoundParameters.ContainsKey('OpeningCash')) {
     throw 'Choose either the existing balance or an explicit opening grant.'
 }
-if ($ShareAndroidHouseholds -and $AdditionalAndroids -eq 0) {
-    throw 'Household sharing requires additional Android residents.'
+if (($ShareAndroidHouseholds -and $ShareMixedHouseholds) -or (($ShareAndroidHouseholds -or $ShareMixedHouseholds) -and $AdditionalAndroids -eq 0)) {
+    throw 'Select one household sharing mode with additional Android residents.'
 }
 $data = "$env:LOCALAPPDATA/Colossal Order/Cities_Skylines"
 $save = Join-Path $data "Saves/$CheckpointName.crp"
@@ -40,6 +41,7 @@ $request = @{
 if ($KeepOpeningCash) { $request.keepOpeningCash = $true }
 else { $request.openingCash = $OpeningCash }
 if ($ShareAndroidHouseholds) { $request.shareAndroidHouseholds = $true }
+if ($ShareMixedHouseholds) { $request.shareMixedHouseholds = $true }
 
 $destination = Join-Path $root 'native-employment-trial.json'
 $consumed = Join-Path $root "native-employment-$CaseId.request.json"
