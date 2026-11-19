@@ -5,6 +5,7 @@ param(
     [Parameter(Mandatory)][ValidatePattern('^[a-fA-F0-9]{64}$')][string]$CheckpointSha256,
     [ValidateRange(1,3)][int]$LimitPerWard = 2,
     [switch]$PreferExistingWorkers,
+    [switch]$ExistingWorkersOnly,
     [switch]$DispatchAtWork,
     [uint16[]]$StartupFactoryId = @(),
     [uint16[]]$StartupShopId = @(),
@@ -12,12 +13,20 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-if ($DispatchAtWork -and $PreferExistingWorkers) { throw 'Choose live dispatch at work or fixed worker assignments.' }
-if (($StartupFactoryId.Count -eq 0) -ne ($StartupShopId.Count -eq 0) -or
-    $StartupFactoryId.Count -gt 48 -or $StartupShopId.Count -gt 48 -or $StartupHomeId.Count -gt 48 -or
-    0 -in $StartupFactoryId -or 0 -in $StartupShopId -or 0 -in $StartupHomeId -or
+if ($DispatchAtWork -and ($PreferExistingWorkers -or $ExistingWorkersOnly)) {
+    throw 'Choose live dispatch at work or fixed worker assignments.'
+}
+if ($StartupFactoryId.Count -gt 48 -or $StartupShopId.Count -gt 48 -or $StartupHomeId.Count -gt 48 -or
+    0 -in $StartupFactoryId -or 0 -in $StartupShopId -or 0 -in $StartupHomeId) {
+    throw 'Select at most 48 valid IDs per building type.'
+}
+if ($ExistingWorkersOnly) {
+    if ($StartupShopId.Count -eq 0 -or $StartupHomeId.Count -ne 0 -or $PreferExistingWorkers) {
+        throw 'Select one or more receiving shops without recruiting from housing.'
+    }
+} elseif ((($StartupFactoryId.Count -eq 0) -ne ($StartupShopId.Count -eq 0)) -or
     ($StartupHomeId.Count -gt 0 -and $StartupFactoryId.Count -eq 0) -or
-    (($StartupFactoryId.Count -gt 0) -and ($DispatchAtWork -or $PreferExistingWorkers))) {
+    ($StartupFactoryId.Count -gt 0 -and ($DispatchAtWork -or $PreferExistingWorkers))) {
     throw 'Provide both new factory and store IDs for starting a local work assignment.'
 }
 $root = 'H:/CS1-PLATEAU/nagoya-station/citywide-zoning-v3'
@@ -46,6 +55,7 @@ $request=@{
     localDeliveryWards=$Ward
     limitPerWard=$LimitPerWard
     preferExistingWorkers=[bool]$PreferExistingWorkers
+    existingWorkersOnly=[bool]$ExistingWorkersOnly
     dispatchAtWork=[bool]$DispatchAtWork
     startupFactoryIds=@($StartupFactoryId | Sort-Object -Unique)
     startupShopIds=@($StartupShopId | Sort-Object -Unique)

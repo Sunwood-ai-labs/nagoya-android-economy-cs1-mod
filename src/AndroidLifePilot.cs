@@ -229,20 +229,24 @@ namespace NagoyaRoadDelivery
                 localDeliveries.PrioritizeOnsiteDeliveries(wards);
                 return;
             }
-            if (cohort.Count + wards.Count * perWard > NativeCityLedger.MaxResidents)
+            object onlyWorkers;
+            bool existingOnly = config.TryGetValue("existingWorkersOnly", out onlyWorkers) && (bool)onlyWorkers;
+            if (!existingOnly && cohort.Count + wards.Count * perWard > NativeCityLedger.MaxResidents)
                 throw new InvalidDataException("Local hiring request is outside the district or population limits");
             HashSet<ushort> startupFactories = ReadScenarioFacilities(config, "startupFactoryIds");
             HashSet<ushort> startupShops = ReadScenarioFacilities(config, "startupShopIds");
             HashSet<ushort> startupHomes = ReadScenarioFacilities(config, "startupHomeIds");
-            if ((startupFactories.Count == 0) != (startupShops.Count == 0) ||
-                (startupHomes.Count != 0 && startupFactories.Count == 0))
+            if (existingOnly && (startupHomes.Count != 0 || startupShops.Count == 0))
+                throw new InvalidDataException("Existing workers require receiving shops without new housing");
+            if (!existingOnly && ((startupFactories.Count == 0) != (startupShops.Count == 0) ||
+                (startupHomes.Count != 0 && startupFactories.Count == 0)))
                 throw new InvalidDataException("New work sites and their receiving shops must be provided together");
             localDeliveries.BeginSample(sim.m_currentGameTime);
             localDeliveryAdmissions = new List<object>();
             var usedFactories = new HashSet<ushort>();
             var random = new Randomizer(5102026);
             object preferWorkers;
-            var workers = config.TryGetValue("preferExistingWorkers", out preferWorkers) && (bool)preferWorkers
+            var workers = existingOnly || (config.TryGetValue("preferExistingWorkers", out preferWorkers) && (bool)preferWorkers)
                 ? ConfirmedWorkersByFactory() : new Dictionary<ushort, List<uint>>();
             if (startupHomes.Count > 0 && workers.Count > 0)
                 throw new InvalidDataException("Advance registration requires vacant residential and employment units");
@@ -253,7 +257,7 @@ namespace NagoyaRoadDelivery
                 {
                     Dictionary<string, int> counts;
                     NativeAndroidDeliveries.LocalOpening opening = localDeliveries.FindLocalOpening(ward, vacantHome,
-                        usedFactories, workers, startupFactories, startupShops, startupHomes, out counts);
+                        usedFactories, workers, startupFactories, startupShops, startupHomes, existingOnly, out counts);
                     var record = new Dictionary<string, object> {{"ward",ward}, {"candidateCounts",counts}};
                     localDeliveryAdmissions.Add(record);
                     if (opening.Home == 0)

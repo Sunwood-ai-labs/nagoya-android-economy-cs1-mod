@@ -1,0 +1,619 @@
+{
+  "result": "verified existing-worker delivery trial",
+  "targetShops": 48,
+  "districtsTested": 15,
+  "before": "2029-03-27T17:11:32",
+  "after": "2029-05-03T01:43:34",
+  "extraResidentsAtAssignment": 0,
+  "assignments": [
+    {
+      "ward": "港区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 2,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 57,
+        "factoriesWithReachableShop": 8,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 8
+      },
+      "status": "existing worker scheduled",
+      "citizenId": 379647,
+      "home": 9556,
+      "homeUnit": 102749,
+      "factory": 44733,
+      "shop": 9912,
+      "usedNewPlacementFrontage": false,
+      "homeToFactoryMeters": null,
+      "factoryToShopMeters": 153.521750450134
+    },
+    {
+      "ward": "中区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 2,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 54,
+        "factoriesWithReachableShop": 24,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 24
+      },
+      "status": "existing worker scheduled",
+      "citizenId": 289237,
+      "home": 15805,
+      "homeUnit": 269291,
+      "factory": 41265,
+      "shop": 22547,
+      "usedNewPlacementFrontage": false,
+      "homeToFactoryMeters": 76.9920992851257,
+      "factoryToShopMeters": 994.295123577118
+    },
+    {
+      "ward": "中川区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 1,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 42,
+        "factoriesWithReachableShop": 12,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 12
+      },
+      "status": "existing worker scheduled",
+      "citizenId": 31206,
+      "home": 5180,
+      "homeUnit": 55831,
+      "factory": 19877,
+      "shop": 38053,
+      "usedNewPlacementFrontage": false,
+      "homeToFactoryMeters": 149.927690505981,
+      "factoryToShopMeters": 2409.20055866241
+    },
+    {
+      "ward": "中村区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 1,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 29,
+        "factoriesWithReachableShop": 18,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 18
+      },
+      "status": "existing worker scheduled",
+      "citizenId": 44369,
+      "home": 26880,
+      "homeUnit": 293540,
+      "factory": 20423,
+      "shop": 14745,
+      "usedNewPlacementFrontage": false,
+      "homeToFactoryMeters": 1081.35044670105,
+      "factoryToShopMeters": 1450.20202112198
+    },
+    {
+      "ward": "熱田区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 1,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 44,
+        "factoriesWithReachableShop": 3,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 3
+      },
+      "status": "existing worker scheduled",
+      "citizenId": 544921,
+      "home": 28034,
+      "homeUnit": 208974,
+      "factory": 30682,
+      "shop": 11855,
+      "usedNewPlacementFrontage": false,
+      "homeToFactoryMeters": null,
+      "factoryToShopMeters": 1242.28691387177
+    },
+    {
+      "ward": "北区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 1,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 30,
+        "factoriesWithReachableShop": 14,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 14
+      },
+      "status": "existing worker scheduled",
+      "citizenId": 771601,
+      "home": 3112,
+      "homeUnit": 387983,
+      "factory": 6527,
+      "shop": 43059,
+      "usedNewPlacementFrontage": false,
+      "homeToFactoryMeters": 172.774593353271,
+      "factoryToShopMeters": 1246.44019937515
+    }
+  ],
+  "localCandidateReadback": [
+    {
+      "ward": "港区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 2,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 57,
+        "factoriesWithReachableShop": 8,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 8
+      },
+      "status": "existing worker scheduled",
+      "citizenId": 379647,
+      "home": 9556,
+      "homeUnit": 102749,
+      "factory": 44733,
+      "shop": 9912,
+      "usedNewPlacementFrontage": false,
+      "homeToFactoryMeters": null,
+      "factoryToShopMeters": 153.521750450134
+    },
+    {
+      "ward": "守山区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 0,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 0,
+        "factoriesWithReachableShop": 0,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 0
+      },
+      "status": "no feasible opening"
+    },
+    {
+      "ward": "昭和区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 0,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 0,
+        "factoriesWithReachableShop": 0,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 0
+      },
+      "status": "no feasible opening"
+    },
+    {
+      "ward": "瑞穂区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 0,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 0,
+        "factoriesWithReachableShop": 0,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 0
+      },
+      "status": "no feasible opening"
+    },
+    {
+      "ward": "西区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 0,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 0,
+        "factoriesWithReachableShop": 0,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 0
+      },
+      "status": "no feasible opening"
+    },
+    {
+      "ward": "千種区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 0,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 0,
+        "factoriesWithReachableShop": 0,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 0
+      },
+      "status": "no feasible opening"
+    },
+    {
+      "ward": "中区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 2,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 54,
+        "factoriesWithReachableShop": 24,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 24
+      },
+      "status": "existing worker scheduled",
+      "citizenId": 289237,
+      "home": 15805,
+      "homeUnit": 269291,
+      "factory": 41265,
+      "shop": 22547,
+      "usedNewPlacementFrontage": false,
+      "homeToFactoryMeters": 76.9920992851257,
+      "factoryToShopMeters": 994.295123577118
+    },
+    {
+      "ward": "中川区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 1,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 42,
+        "factoriesWithReachableShop": 12,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 12
+      },
+      "status": "existing worker scheduled",
+      "citizenId": 31206,
+      "home": 5180,
+      "homeUnit": 55831,
+      "factory": 19877,
+      "shop": 38053,
+      "usedNewPlacementFrontage": false,
+      "homeToFactoryMeters": 149.927690505981,
+      "factoryToShopMeters": 2409.20055866241
+    },
+    {
+      "ward": "中村区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 1,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 29,
+        "factoriesWithReachableShop": 18,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 18
+      },
+      "status": "existing worker scheduled",
+      "citizenId": 44369,
+      "home": 26880,
+      "homeUnit": 293540,
+      "factory": 20423,
+      "shop": 14745,
+      "usedNewPlacementFrontage": false,
+      "homeToFactoryMeters": 1081.35044670105,
+      "factoryToShopMeters": 1450.20202112198
+    },
+    {
+      "ward": "東区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 0,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 0,
+        "factoriesWithReachableShop": 0,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 0
+      },
+      "status": "no feasible opening"
+    },
+    {
+      "ward": "南区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 0,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 0,
+        "factoriesWithReachableShop": 0,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 0
+      },
+      "status": "no feasible opening"
+    },
+    {
+      "ward": "熱田区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 1,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 44,
+        "factoriesWithReachableShop": 3,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 3
+      },
+      "status": "existing worker scheduled",
+      "citizenId": 544921,
+      "home": 28034,
+      "homeUnit": 208974,
+      "factory": 30682,
+      "shop": 11855,
+      "usedNewPlacementFrontage": false,
+      "homeToFactoryMeters": null,
+      "factoryToShopMeters": 1242.28691387177
+    },
+    {
+      "ward": "北区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 1,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 30,
+        "factoriesWithReachableShop": 14,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 14
+      },
+      "status": "existing worker scheduled",
+      "citizenId": 771601,
+      "home": 3112,
+      "homeUnit": 387983,
+      "factory": 6527,
+      "shop": 43059,
+      "usedNewPlacementFrontage": false,
+      "homeToFactoryMeters": 172.774593353271,
+      "factoryToShopMeters": 1246.44019937515
+    },
+    {
+      "ward": "名東区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 0,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 0,
+        "factoriesWithReachableShop": 0,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 0
+      },
+      "status": "no feasible opening"
+    },
+    {
+      "ward": "緑区",
+      "candidateCounts": {
+        "shopsWithNativeAccess": 0,
+        "factoriesWithStockAndRoad": 1255,
+        "vacantConnectedHomes": 0,
+        "eligibleFactoriesWithNativeRoad": 207,
+        "factoriesWithinShopRadius": 0,
+        "factoriesWithReachableShop": 0,
+        "factoriesWithVacancy": 0,
+        "factoriesWithExistingWorkers": 0
+      },
+      "status": "no feasible opening"
+    }
+  ],
+  "matchedScheduledDeliveries": [
+    {
+      "assignment": {
+        "ward": "中区",
+        "candidateCounts": {
+          "shopsWithNativeAccess": 2,
+          "factoriesWithStockAndRoad": 1255,
+          "vacantConnectedHomes": 0,
+          "eligibleFactoriesWithNativeRoad": 207,
+          "factoriesWithinShopRadius": 54,
+          "factoriesWithReachableShop": 24,
+          "factoriesWithVacancy": 0,
+          "factoriesWithExistingWorkers": 24
+        },
+        "status": "existing worker scheduled",
+        "citizenId": 289237,
+        "home": 15805,
+        "homeUnit": 269291,
+        "factory": 41265,
+        "shop": 22547,
+        "usedNewPlacementFrontage": false,
+        "homeToFactoryMeters": 76.9920992851257,
+        "factoryToShopMeters": 994.295123577118
+      },
+      "delivery": {
+        "android": 289237,
+        "from": 41265,
+        "to": 22547,
+        "ward": "中区",
+        "sourceWard": "中区",
+        "stockAdded": 100,
+        "factoryBefore": 4736,
+        "factoryAccessStreet": 6649,
+        "shopAccessStreet": 18615,
+        "factoryAfter": 4636,
+        "shopBefore": 12844,
+        "nativeRequest": {
+          "frame": 55132789,
+          "priority": 1,
+          "amount": 1
+        },
+        "shopAfter": 12944,
+        "localHire": false,
+        "firstDeliveryAfterAdmission": false,
+        "firstDeliveryFromExistingWorker": true,
+        "onsitePriority": false,
+        "gameTime": "2029-04-15T02:37:52"
+      },
+      "homeReturnSample": null,
+      "chargeSample": null,
+      "samples": [
+        {
+          "gameTime": "2029-04-16T16:35:27",
+          "location": "Moving",
+          "home": 15805,
+          "battery": 41.179606866464
+        },
+        {
+          "gameTime": "2029-04-19T23:33:23",
+          "location": "Home",
+          "home": 15805,
+          "battery": 86.179606866464
+        },
+        {
+          "gameTime": "2029-04-23T00:31:18",
+          "location": "Moving",
+          "home": 15805,
+          "battery": 86.179606866464
+        },
+        {
+          "gameTime": "2029-04-24T16:04:24",
+          "location": "Moving",
+          "home": 15805,
+          "battery": 85.6116262432188
+        },
+        {
+          "gameTime": "2029-04-27T22:57:28",
+          "location": "Moving",
+          "home": 15805,
+          "battery": 79.6730911251158
+        },
+        {
+          "gameTime": "2029-04-29T14:24:18",
+          "location": "Moving",
+          "home": 15805,
+          "battery": 77.7731468196958
+        },
+        {
+          "gameTime": "2029-05-02T21:14:40",
+          "location": "Moving",
+          "home": 15805,
+          "battery": 77.7731468196958
+        },
+        {
+          "gameTime": "2029-05-03T01:43:34",
+          "location": "Moving",
+          "home": 15805,
+          "battery": 77.3331558223814
+        }
+      ],
+      "returnDestinationAndCharging": {
+        "departedStoreForHome": {
+          "gameTime": "2029-04-16T16:35:27",
+          "location": "Moving",
+          "homeBuilding": 15805,
+          "battery": 41.179606866464,
+          "charging": false,
+          "chargeStarts": 0,
+          "shopReturnSource": 22547,
+          "shopReturnHome": 15805,
+          "shopReturnsStarted": 1,
+          "shopReturnsArrived": 0,
+          "sourceBuilding": 22547,
+          "targetBuilding": 15805
+        },
+        "nativeHomeStateAndCharge": {
+          "gameTime": "2029-04-19T23:33:23",
+          "location": "Home",
+          "homeBuilding": 15805,
+          "battery": 86.179606866464,
+          "charging": true,
+          "chargeStarts": 1,
+          "shopReturnSource": 22547,
+          "shopReturnHome": 0,
+          "shopReturnsStarted": 1,
+          "shopReturnsArrived": 0,
+          "sourceBuilding": 0,
+          "targetBuilding": 0
+        },
+        "arrivalCallbackMatched": false
+      }
+    }
+  ],
+  "totalCheckedCityDeliveries": 51,
+  "allEventsAtTargetStores": [
+    {
+      "android": 289237,
+      "from": 41265,
+      "to": 22547,
+      "ward": "中区",
+      "sourceWard": "中区",
+      "stockAdded": 100,
+      "factoryBefore": 4736,
+      "factoryAccessStreet": 6649,
+      "shopAccessStreet": 18615,
+      "factoryAfter": 4636,
+      "shopBefore": 12844,
+      "nativeRequest": {
+        "frame": 55132789,
+        "priority": 1,
+        "amount": 1
+      },
+      "shopAfter": 12944,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": true,
+      "onsitePriority": false,
+      "gameTime": "2029-04-15T02:37:52"
+    }
+  ],
+  "verifiedCityDeliveriesByWard": {
+    "名東区": 6,
+    "昭和区": 14,
+    "中川区": 2,
+    "天白区": 3,
+    "千種区": 6,
+    "緑区": 3,
+    "守山区": 4,
+    "瑞穂区": 1,
+    "南区": 4,
+    "港区": 2,
+    "中村区": 1,
+    "北区": 2,
+    "中区": 1,
+    "東区": 1,
+    "西区": 1
+  },
+  "coexistenceDistricts": 16,
+  "humanResidents": 9267,
+  "androidResidents": 428,
+  "fundsRestored": true,
+  "checkpoints": {
+    "baseline": {
+      "name": "NagoyaCitywide-NewStoresExistingWorkers-Baseline",
+      "sha256": "EC9716AF99C8D28077914EB293A7B9736F5F7818675AC6B3F7F15A38121EF92F",
+      "length": 15540578
+    },
+    "observed": {
+      "name": "NagoyaCitywide-NewStoresExistingWorkers-Observed",
+      "sha256": "81A2782D68DCBEF191C19DBFA5B264B670D4E3BD33D3862532CF3711BD927372",
+      "length": 15440003
+    },
+    "arrival-final": {
+      "name": "NagoyaCitywide-NewStoresExistingWorkers-Arrival",
+      "sha256": "574A12F06ACB239D47A65A2C532B7635B94B730B6BB133BFD107A0BFFA338D39",
+      "length": 15484671
+    }
+  },
+  "coverage": {
+    "city": "NagoyaCitywide-Construction",
+    "rosterUtc": "2026-11-19T14:43:31.5076348Z",
+    "activeNativeZonedSites": 7178,
+    "nativeSiteGroupCount": 7178,
+    "plateauSourceIds": 738033,
+    "sourceCoverage": {
+      "allRolesActive": 691750,
+      "noActiveRole": 13131,
+      "someRolesActive": 854,
+      "withoutClassifiedRoles": 32298
+    },
+    "roleMemberships": {
+      "active": 727616,
+      "uncovered": 14124
+    },
+    "writesToGame": false
+  },
+  "nativeModMvid": "5fab2e4a-273f-4f9a-87fa-cc6c45af8fb8"
+}

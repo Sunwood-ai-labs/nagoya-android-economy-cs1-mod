@@ -309,27 +309,33 @@ namespace NagoyaRoadDelivery
 
         internal LocalOpening FindLocalOpening(string ward, Func<ushort, uint> vacantHomeUnit, HashSet<ushort> admittedFactories,
             Dictionary<ushort, List<uint>> assignedWorkers, HashSet<ushort> startupFactories, HashSet<ushort> startupShops,
-            HashSet<ushort> startupHomes, out Dictionary<string, int> counts)
+            HashSet<ushort> startupHomes, bool existingOnly, out Dictionary<string, int> counts)
         {
             bool advanceRegistration = startupHomes.Count > 0;
             global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
             Dictionary<ushort, ushort> planningRoads = advanceRegistration
                 ? NewPlacementRoads(ward, startupHomes, startupFactories, startupShops) : streetByBuilding;
             var homes = new Dictionary<ushort, uint>();
-            foreach (NativeCityLedger.Lot lot in sites.Values)
-            {
-                if (lot.Zone != ItemClass.Zone.ResidentialLow && lot.Zone != ItemClass.Zone.ResidentialHigh) continue;
-                if (!planningRoads.ContainsKey(lot.Id) || (advanceRegistration && !startupHomes.Contains(lot.Id))) continue;
-                uint unit = vacantHomeUnit(lot.Id);
-                if (unit != 0) homes.Add(lot.Id, unit);
-            }
+            if (!existingOnly)
+                foreach (NativeCityLedger.Lot lot in sites.Values)
+                {
+                    if (lot.Zone != ItemClass.Zone.ResidentialLow && lot.Zone != ItemClass.Zone.ResidentialHigh) continue;
+                    if (!planningRoads.ContainsKey(lot.Id) || (advanceRegistration && !startupHomes.Contains(lot.Id))) continue;
+                    uint unit = vacantHomeUnit(lot.Id);
+                    if (unit != 0) homes.Add(lot.Id, unit);
+                }
             var eligibleShops = advanceRegistration ? NewReceivingStores(startupShops, planningRoads, buildings) : shops;
             var destinations = eligibleShops.FindAll(delegate(NativeCityLedger.Lot shop) {
                 return shop.Ward == ward && planningRoads.ContainsKey(shop.Id) &&
                     (startupShops.Count == 0 || startupShops.Contains(shop.Id));
             });
             List<NativeCityLedger.Lot> eligibleFactories = factories;
-            if (startupFactories.Count > 0)
+            if (existingOnly)
+                eligibleFactories = factories.FindAll(delegate(NativeCityLedger.Lot factory) {
+                    return assignedWorkers.ContainsKey(factory.Id) &&
+                        (startupFactories.Count == 0 || startupFactories.Contains(factory.Id));
+                });
+            else if (startupFactories.Count > 0)
             {
                 eligibleFactories = new List<NativeCityLedger.Lot>();
                 foreach (ushort id in startupFactories)
@@ -383,7 +389,7 @@ namespace NagoyaRoadDelivery
                     counts["factoriesWithExistingWorkers"]++;
                     foreach (uint worker in workers)
                     {
-                        if (trips.ContainsKey(worker)) continue;
+                        if (trips.ContainsKey(worker) || firstShopByResident.ContainsKey(worker)) continue;
                         Citizen citizen = CitizenManager.instance.m_citizens.m_buffer[worker];
                         double homeDistance = WalkFromWorkerHome(worker, ref citizen, origin, reach, buildings);
                         double commuteCost = citizen.CurrentLocation == Citizen.Location.Work ? 0 : Math.Min(homeDistance, StreetRadiusMeters);
@@ -394,6 +400,7 @@ namespace NagoyaRoadDelivery
                         workerScore = workerDistance;
                     }
                 }
+                if (existingOnly) continue;
                 if (shopDistance >= StreetRadiusMeters || (buildings[destination].m_position - origin).sqrMagnitude >
                     MaximumShopDistanceFromFactory * MaximumShopDistanceFromFactory) continue;
                 IndustrialBuildingAI industry = OpeningAI(ref buildings[factory.Id], advanceRegistration) as IndustrialBuildingAI;
