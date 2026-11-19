@@ -91,6 +91,15 @@ def render(args):
     fresh = args.raw / "cs1-nagoya-live.jpg"
     if wards["wardsWithHumanAndAndroidPopulationAndJobs"] != 16 or android["androidHomeMembers"] <= 0:
         raise ValueError("Current capabilities require evidence across all 16 wards")
+    delivery_caption = ("工場と店舗をつなぐ配送を試作中。", "実際に届き、店舗の在庫が動くかを確かめる。")
+    if args.delivery:
+        delivery = read(args.delivery)
+        sent, received = delivery["sender"], delivery["receiver"]
+        amount = delivery["confirmedGoodsTransferred"]
+        if not amount > 0 or sent["stockBefore"] - sent["stockAfter"] != amount or received["stockAfter"] - received["stockBefore"] != amount:
+            raise ValueError("Delivery must change both real stock buffers by the same amount")
+        delivery_caption = (f'{delivery["ward"]}で、工場から店舗への配送を1件確認。',
+                            "どの工場と店舗をつなぐか、街区ごとに試す。")
     deck = Deck(args.output)
 
     deck.box(0, 0, W, H, NIGHT)
@@ -169,7 +178,7 @@ def render(args):
     for y, title, body in (
         (132, "住宅を増やしてみる", ("新しい住民を迎えると、どの区に", "人とアンドロイドが集まるだろう。")),
         (245, "職場の配置を変えてみる", ("駅の周りに仕事を集めると、", "通勤の距離や人の就業はどう変わるか。")),
-        (358, "配送のルートを考える", ("工場と店舗をつなぐ配送を試作中。", "実際に届き、店舗の在庫が動くかを確かめる。")),
+        (358, "配送のルートを考える", delivery_caption),
     ):
         deck.box(470, y, 446, 2, RULE)
         deck.text(title, 471, y + 13, 22, INK, True)
@@ -197,4 +206,5 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     for key in ("raw", "prior", "evidence", "output"):
         parser.add_argument("--" + key, required=True, type=Path)
+    parser.add_argument("--delivery", type=Path)
     render(parser.parse_args())
