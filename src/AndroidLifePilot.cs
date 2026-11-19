@@ -231,6 +231,10 @@ namespace NagoyaRoadDelivery
             }
             if (cohort.Count + wards.Count * perWard > NativeCityLedger.MaxResidents)
                 throw new InvalidDataException("Local hiring request is outside the district or population limits");
+            HashSet<ushort> startupFactories = ReadScenarioFacilities(config, "startupFactoryIds");
+            HashSet<ushort> startupShops = ReadScenarioFacilities(config, "startupShopIds");
+            if ((startupFactories.Count == 0) != (startupShops.Count == 0))
+                throw new InvalidDataException("New work sites and their receiving shops must be provided together");
             localDeliveries.BeginSample(sim.m_currentGameTime);
             localDeliveryAdmissions = new List<object>();
             var usedFactories = new HashSet<ushort>();
@@ -244,7 +248,7 @@ namespace NagoyaRoadDelivery
                 {
                     Dictionary<string, int> counts;
                     NativeAndroidDeliveries.LocalOpening opening = localDeliveries.FindLocalOpening(ward, FindVacantHomeUnit,
-                        usedFactories, workers, out counts);
+                        usedFactories, workers, startupFactories, startupShops, out counts);
                     var record = new Dictionary<string, object> {{"ward",ward}, {"candidateCounts",counts}};
                     localDeliveryAdmissions.Add(record);
                     if (opening.Home == 0)
@@ -271,10 +275,25 @@ namespace NagoyaRoadDelivery
                     record["homeUnit"] = cohort[id].HomeUnit;
                     record["factory"] = opening.Factory;
                     record["shop"] = opening.Shop;
+                    if (opening.Worker == 0) record["factoryGoodsBeforeRegistration"] = opening.FactoryGoods;
                     record["homeToFactoryMeters"] = Double.IsInfinity(opening.HomeDistance) ? null : (object)opening.HomeDistance;
                     record["factoryToShopMeters"] = opening.ShopDistance;
                 }
             }
+        }
+
+        private static HashSet<ushort> ReadScenarioFacilities(Dictionary<string, object> config, string field)
+        {
+            var ids = new HashSet<ushort>();
+            object list;
+            if (!config.TryGetValue(field, out list)) return ids;
+            foreach (object value in (List<object>)list)
+            {
+                double number = (double)value;
+                if (number < 1 || number > UInt16.MaxValue || number != Math.Floor(number) || !ids.Add((ushort)number) || ids.Count > 48)
+                    throw new InvalidDataException("Invalid scenario facility set " + field);
+            }
+            return ids;
         }
 
         private Dictionary<ushort, List<uint>> ConfirmedWorkersByFactory()

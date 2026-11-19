@@ -91,6 +91,7 @@ namespace NagoyaRoadDelivery
         {
             public ushort Home, Factory, Shop;
             public uint HomeUnit, Worker;
+            public int FactoryGoods;
             public double HomeDistance, ShopDistance;
         }
 
@@ -307,7 +308,8 @@ namespace NagoyaRoadDelivery
         }
 
         internal LocalOpening FindLocalOpening(string ward, Func<ushort, uint> vacantHomeUnit, HashSet<ushort> admittedFactories,
-            Dictionary<ushort, List<uint>> assignedWorkers, out Dictionary<string, int> counts)
+            Dictionary<ushort, List<uint>> assignedWorkers, HashSet<ushort> startupFactories, HashSet<ushort> startupShops,
+            out Dictionary<string, int> counts)
         {
             var homes = new Dictionary<ushort, uint>();
             foreach (NativeCityLedger.Lot lot in sites.Values)
@@ -318,19 +320,33 @@ namespace NagoyaRoadDelivery
                 if (unit != 0) homes.Add(lot.Id, unit);
             }
             var destinations = shops.FindAll(delegate(NativeCityLedger.Lot shop) {
-                return shop.Ward == ward && streetByBuilding.ContainsKey(shop.Id);
+                return shop.Ward == ward && streetByBuilding.ContainsKey(shop.Id) &&
+                    (startupShops.Count == 0 || startupShops.Contains(shop.Id));
             });
+            global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
+            List<NativeCityLedger.Lot> eligibleFactories = factories;
+            if (startupFactories.Count > 0)
+            {
+                eligibleFactories = new List<NativeCityLedger.Lot>();
+                foreach (ushort id in startupFactories)
+                {
+                    NativeCityLedger.Lot candidate;
+                    if (sites.TryGetValue(id, out candidate) && candidate.Ward == ward && candidate.Zone == ItemClass.Zone.Industrial &&
+                        streetByBuilding.ContainsKey(id) && ActiveAI(ref buildings[id]) is IndustrialBuildingAI)
+                        eligibleFactories.Add(candidate);
+                }
+            }
             counts = new Dictionary<string, int> {{"shopsWithNativeAccess",destinations.Count},
                 {"factoriesWithStockAndRoad",factories.Count}, {"vacantConnectedHomes",homes.Count},
+                {"eligibleFactoriesWithNativeRoad",eligibleFactories.Count},
                 {"factoriesWithinShopRadius",0}, {"factoriesWithReachableShop",0}, {"factoriesWithVacancy",0},
                 {"factoriesWithExistingWorkers",0}};
             var opening = new LocalOpening();
             var existing = new LocalOpening();
             if (destinations.Count == 0) return opening;
-            global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
             double score = double.PositiveInfinity;
             double workerScore = double.PositiveInfinity;
-            foreach (NativeCityLedger.Lot factory in factories)
+            foreach (NativeCityLedger.Lot factory in eligibleFactories)
             {
                 if (admittedFactories.Contains(factory.Id)) continue;
                 Vector3 origin = buildings[factory.Id].m_position;
@@ -378,6 +394,7 @@ namespace NagoyaRoadDelivery
                 IndustrialBuildingAI industry = ActiveAI(ref buildings[factory.Id]) as IndustrialBuildingAI;
                 if (industry == null || VacantWorkplaces(factory.Id, industry, ref buildings[factory.Id]) <= 0) continue;
                 counts["factoriesWithVacancy"]++;
+                int nativeStock = Stock(industry, factory.Id, ref buildings[factory.Id]);
                 foreach (var home in homes)
                 {
                     Vector3 position = buildings[home.Key].m_position;
@@ -385,7 +402,7 @@ namespace NagoyaRoadDelivery
                     double distance = reach.DistanceTo(streetByBuilding[home.Key], position);
                     if (distance >= LocalEmploymentStreetMeters || 2 * distance + shopDistance >= score) continue;
                     opening = new LocalOpening {Home=home.Key, HomeUnit=home.Value, Factory=factory.Id, Shop=destination,
-                        HomeDistance=distance, ShopDistance=shopDistance};
+                        HomeDistance=distance, ShopDistance=shopDistance, FactoryGoods=nativeStock};
                     score = 2 * distance + shopDistance;
                 }
             }
