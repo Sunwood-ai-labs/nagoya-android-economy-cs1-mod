@@ -394,5 +394,621 @@
       "humanWorkRegistrations": 4348,
       "completedDeliveries": 8
     }
+  },
+  "alternateApproachesTrial": {
+    "caseId": "jan01-unoccupied-approach-72h",
+    "construction": {
+      "usedReservedCapacity": true,
+      "nodeCountBefore": 32699,
+      "nodeBufferCapacity": 32768,
+      "result": {
+        "connected": false,
+        "prefab": "Basic Road",
+        "attempts": [
+          {
+            "fromSegment": 14951,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 21852,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 11930,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 33763,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 2187,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 15241,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 14951,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 14951,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 21852,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 21852,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 11930,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 11930,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 33763,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 2187,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 33763,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 2187,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 15241,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          },
+          {
+            "fromSegment": 15241,
+            "toSegment": 8796,
+            "fractions": [
+              0.5,
+              0.5
+            ],
+            "preflight": "invalidGroundRoadAnchors",
+            "fromAnchorError": "occupiedZoneBlock",
+            "toAnchorError": null
+          }
+        ]
+      }
+    },
+    "target": {
+      "route": {
+        "citizenId": 272270,
+        "frame": 55296303,
+        "from": 33828,
+        "to": 30040,
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      "end": {
+        "citizenId": 272270,
+        "homeBuilding": 33828,
+        "workBuilding": 30040,
+        "location": "Moving",
+        "nativeWorkArrivals": 0
+      }
+    },
+    "independentPedestrianLegs": [
+      {
+        "fromSegment": 6471,
+        "toSegment": 33818,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 33818,
+        "toSegment": 6471,
+        "path": {
+          "result": "failed",
+          "lengthMeters": null
+        }
+      },
+      {
+        "fromSegment": 33818,
+        "toSegment": 8796,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 79.45851,
+          "segments": [
+            33818,
+            15946,
+            34439,
+            298,
+            33475,
+            22514,
+            9963,
+            20755,
+            11642,
+            8796
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 8796,
+        "toSegment": 33818,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 76.14112,
+          "segments": [
+            8796,
+            11642,
+            20755,
+            9963,
+            22514,
+            33475,
+            298,
+            34439,
+            15946,
+            33818
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 6471,
+        "toSegment": 14951,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 102.5831,
+          "segments": [
+            6471,
+            23523,
+            28858,
+            13191,
+            8720,
+            9209,
+            26423,
+            34050,
+            7549,
+            14951
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 14951,
+        "toSegment": 6471,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 115.6866,
+          "segments": [
+            14951,
+            7549,
+            34050,
+            26423,
+            9209,
+            8720,
+            13191,
+            28858,
+            23523,
+            6471
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 6471,
+        "toSegment": 21852,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 111.4693,
+          "segments": [
+            6471,
+            23523,
+            28858,
+            13191,
+            8720,
+            9209,
+            26423,
+            34050,
+            7549,
+            14951,
+            21852
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 21852,
+        "toSegment": 6471,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 115.6867,
+          "segments": [
+            21852,
+            14951,
+            7549,
+            34050,
+            26423,
+            9209,
+            8720,
+            13191,
+            28858,
+            23523,
+            6471
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 6471,
+        "toSegment": 11930,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 129.1539,
+          "segments": [
+            6471,
+            23523,
+            28858,
+            13191,
+            8720,
+            9209,
+            26423,
+            34050,
+            7549,
+            14951,
+            21852,
+            11930
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 11930,
+        "toSegment": 6471,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 133.3895,
+          "segments": [
+            11930,
+            21852,
+            14951,
+            7549,
+            34050,
+            26423,
+            9209,
+            8720,
+            13191,
+            28858,
+            23523,
+            6471
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 6471,
+        "toSegment": 33763,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 146.1994,
+          "segments": [
+            6471,
+            23523,
+            28858,
+            13191,
+            8720,
+            9209,
+            26423,
+            34050,
+            7549,
+            14951,
+            21852,
+            11930,
+            33763
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 33763,
+        "toSegment": 6471,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 151.0562,
+          "segments": [
+            33763,
+            11930,
+            21852,
+            14951,
+            7549,
+            34050,
+            26423,
+            9209,
+            8720,
+            13191,
+            28858,
+            23523,
+            6471
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 6471,
+        "toSegment": 2187,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 161.7627,
+          "segments": [
+            6471,
+            23523,
+            28858,
+            13191,
+            8720,
+            9209,
+            26423,
+            34050,
+            7549,
+            14951,
+            21852,
+            11930,
+            33763,
+            2187
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 2187,
+        "toSegment": 6471,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 167.4852,
+          "segments": [
+            2187,
+            33763,
+            11930,
+            21852,
+            14951,
+            7549,
+            34050,
+            26423,
+            9209,
+            8720,
+            13191,
+            28858,
+            23523,
+            6471
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 6471,
+        "toSegment": 15241,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 178.5612,
+          "segments": [
+            6471,
+            23523,
+            28858,
+            13191,
+            8720,
+            9209,
+            26423,
+            34050,
+            7549,
+            14951,
+            21852,
+            11930,
+            33763,
+            2187,
+            18218,
+            15241
+          ],
+          "segmentListComplete": true
+        }
+      },
+      {
+        "fromSegment": 15241,
+        "toSegment": 6471,
+        "path": {
+          "result": "ready",
+          "lengthMeters": 189.48,
+          "segments": [
+            15241,
+            18218,
+            2187,
+            33763,
+            11930,
+            21852,
+            14951,
+            7549,
+            34050,
+            26423,
+            9209,
+            8720,
+            13191,
+            28858,
+            23523,
+            6471
+          ],
+          "segmentListComplete": true
+        }
+      }
+    ],
+    "observation": {
+      "androidsWithWorkArrival": 21,
+      "androidResidents": 755,
+      "androidWorkRegistrations": 717,
+      "humanWorkRegistrations": 4341,
+      "completedDeliveries": 8
+    },
+    "receiptSha256": "001CB98032FB24F5FAC906693C071418FC4A4843CBD0C5273EB01DBD2DD13016",
+    "requestSha256": "6406744A98DDC765817C9E074D841D77973D13C908AAAD90D695C9BAB27BCA80",
+    "alternativeFromSegments": [
+      2187,
+      11930,
+      14951,
+      15241,
+      21852,
+      33763
+    ],
+    "approximateCandidateReceiptSha256": "169E2C2830B6F1A8FE10A6868D06ADB8034378A6AD2A37BBC4419BD3DC4CCDFA",
+    "terminalRoster": {
+      "activeNativeRoads": 22007,
+      "activeNativeSiteGroups": 7245,
+      "operationalNativeSiteGroups": 4924,
+      "wardsWithHumanAndAndroidPopulationAndJobs": 16
+    }
   }
 }
