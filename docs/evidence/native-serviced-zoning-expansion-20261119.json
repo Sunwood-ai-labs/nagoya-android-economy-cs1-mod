@@ -1,0 +1,235 @@
+{
+  "nativeAndroidActivity": {
+    "observationWindowStart": "2028-09-03T08:00:41",
+    "observationWindowEnd": "2028-09-19T03:06:37",
+    "deliveredWithinWindow": 18,
+    "deliveryWards": {
+      "昭和区": 6,
+      "中区": 1,
+      "緑区": 1,
+      "港区": 3,
+      "中川区": 1,
+      "瑞穂区": 1,
+      "天白区": 1,
+      "南区": 1,
+      "千種区": 1,
+      "中村区": 1,
+      "西区": 1
+    },
+    "shopStockAdded": 1800,
+    "sample": {
+      "android": 713914,
+      "from": 45348,
+      "to": 31620,
+      "ward": "昭和区",
+      "sourceWard": "昭和区",
+      "stockAdded": 100,
+      "factoryBefore": 6058,
+      "factoryAccessStreet": 1310,
+      "shopAccessStreet": 2155,
+      "factoryAfter": 5958,
+      "shopBefore": 10034,
+      "nativeRequest": {
+        "frame": 55019428,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 10134,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "gameTime": "2028-09-18T17:16:03"
+    },
+    "androidsWithWorkArrivalOnRecordSinceLoad": 23,
+    "androidsWithChargeStartOnRecordSinceLoad": 15
+  },
+  "plannedDistanceM": {
+    "median": 86.54,
+    "maximum": 159.95
+  },
+  "androidsAtNewParcels": {
+    "registeredHome": 6,
+    "registeredJob": 1,
+    "atNewWorkplaceAtObservation": 0,
+    "atNewHomeAtObservation": 2,
+    "chargingAtNewHomeAtObservation": 0,
+    "assignedToNewJobWithRecordedWorkArrival": 0,
+    "registeredJobsByWard": {
+      "緑区": 1
+    }
+  },
+  "status": "verified",
+  "nativeTraffic": {
+    "passengerCars": 775,
+    "cargoTrucks": 747,
+    "buses": 26,
+    "roadVehiclesWithNativePath": 1544
+  },
+  "coexistence": {
+    "nativeHumanResidents": 7479,
+    "humansWithWorkplace": 4038,
+    "androidHomeMembers": 457,
+    "androidWorkMembers": 451
+  },
+  "sourceSave": {
+    "name": "NagoyaCitywide-ParcelRecovery-Observed",
+    "sha256": "F3A5EDEA4446D470D4389E482E5338BA02A92A8EA87ECB6DFD1F146F41566D14",
+    "bytes": 14081117
+  },
+  "checkpoints": {
+    "placed": {
+      "name": "NagoyaCitywide-ServicedZoning-Placed",
+      "sha256": "A9AD1699BBE6F0651B3C44E20B47AE5766D7EBCB17886DD32028C1CBAB6A8FD1",
+      "bytes": 14120851
+    },
+    "observed": {
+      "name": "NagoyaCitywide-ServicedZoning-Observed",
+      "sha256": "244774CDC193AFCE7B8D8FC8FCE982A1150D5082650631FC65D45E455E29152C",
+      "bytes": 14353562
+    }
+  },
+  "roadInventorySha256": "709FA079BFDAB7C1E4631590BEDDF5D8B8D6E3F27CF8681878B073C5D18F989A",
+  "planSha256": "E9F49B481358C9C2C68B0C93B95C85A9A54FDB70A00750B00F7D184596249394",
+  "placementReceiptSha256": "36C5EB069C909D1362B70D6E1E2C8635AC18FAA725631F990D3B2CBEF6E62501",
+  "candidates": {
+    "eligible": 3051,
+    "proposed": 1137,
+    "candidatesByWard": {
+      "西区": 52,
+      "北区": 72,
+      "南区": 72,
+      "緑区": 133,
+      "港区": 114,
+      "中村区": 83,
+      "守山区": 105,
+      "中川区": 159,
+      "千種区": 51,
+      "瑞穂区": 36,
+      "名東区": 66,
+      "天白区": 76,
+      "熱田区": 26,
+      "東区": 28,
+      "昭和区": 33,
+      "中区": 31
+    },
+    "proposedMemberships": 92090,
+    "deferred": {
+      "no_free_served_frontage": 1914
+    },
+    "writesToGame": false
+  },
+  "nativeBuildingsCreated": 444,
+  "buildingPlacements": 443,
+  "createdWithoutValidZoneCells": [
+    "extension_49f3e742a1167c2f"
+  ],
+  "placementsByWard": {
+    "緑区": 61,
+    "南区": 30,
+    "港区": 52,
+    "中村区": 19,
+    "千種区": 16,
+    "瑞穂区": 14,
+    "熱田区": 10,
+    "中川区": 55,
+    "西区": 22,
+    "北区": 26,
+    "名東区": 27,
+    "天白区": 28,
+    "守山区": 41,
+    "昭和区": 19,
+    "中区": 13,
+    "東区": 10
+  },
+  "nativeRejections": {
+    "No free native zone cells on the source frontage": 693
+  },
+  "observationHours": 431.8,
+  "startGameTime": "2028-09-01T03:18:36",
+  "endGameTime": "2028-09-19T03:06:37",
+  "fundsRestored": true,
+  "newRetained": 440,
+  "newRetainedByWard": {
+    "北区": 26,
+    "西区": 21,
+    "港区": 52,
+    "南区": 30,
+    "名東区": 27,
+    "千種区": 16,
+    "緑区": 60,
+    "天白区": 28,
+    "守山区": 41,
+    "瑞穂区": 14,
+    "中川区": 55,
+    "熱田区": 10,
+    "中村区": 19,
+    "昭和区": 19,
+    "東区": 10,
+    "中区": 12
+  },
+  "newActive": 440,
+  "newWarnings": {
+    "Crime": 1,
+    "Electricity": 2
+  },
+  "oldGroupsLost": 19,
+  "ordinaryZoningCoverage": {
+    "before": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T12:10:50.3857927Z",
+      "activeNativeZonedSites": 4571,
+      "nativeSiteGroupCount": 4571,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "noActiveRole": 123474,
+        "allRolesActive": 574544,
+        "someRolesActive": 7717,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "uncovered": 135124,
+        "active": 606616
+      },
+      "writesToGame": false
+    },
+    "immediate": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T12:12:51.0732918Z",
+      "activeNativeZonedSites": 5014,
+      "nativeSiteGroupCount": 5014,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "allRolesActive": 606137,
+        "noActiveRole": 92691,
+        "someRolesActive": 6907,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "active": 639215,
+        "uncovered": 102525
+      },
+      "writesToGame": false
+    },
+    "after": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T12:14:01.6321960Z",
+      "activeNativeZonedSites": 4992,
+      "nativeSiteGroupCount": 4992,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "allRolesActive": 602021,
+        "noActiveRole": 96779,
+        "someRolesActive": 6935,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "active": 634992,
+        "uncovered": 106748
+      },
+      "writesToGame": false
+    }
+  },
+  "nativeRoads": 20079,
+  "wardsWithHumanAndAndroidPopulationAndJobs": 16
+}
