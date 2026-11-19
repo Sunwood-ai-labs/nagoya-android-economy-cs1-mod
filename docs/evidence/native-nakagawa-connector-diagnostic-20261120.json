@@ -1,0 +1,1061 @@
+{
+  "checkpoint": {
+    "checkpointName": "NagoyaCitywide-EmploymentTrial-NakagawaDirectDiagnostic",
+    "sha256": "D9A2E50C0970754CB905958E588981160B59D7D4CDAC3891892724A107EBF3C8",
+    "time": "2030-01-04T09:02:12",
+    "buildIndex": 126321,
+    "segments": 32719
+  },
+  "construction": {
+    "ok": true,
+    "dryRun": false,
+    "segmentId": 22542,
+    "startNodeId": 30081,
+    "endNodeId": 22373,
+    "roadPrefab": "Basic Road",
+    "heightOffset": 0
+  },
+  "commute": {
+    "earlier": {
+      "window": [
+        55295666,
+        55297422
+      ],
+      "probe": {
+        "citizenId": 272270,
+        "frame": 55296303,
+        "from": 33828,
+        "to": 30040,
+        "homeWard": "中川区",
+        "workWard": "中川区",
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      "trialSha256": "739a4984b76e84b79afaf61fbd8f7d914d9705b092a47b13cb3495a4d95431fa"
+    },
+    "diagnostic": {
+      "window": [
+        55297422,
+        55299178
+      ],
+      "probe": {
+        "citizenId": 272270,
+        "frame": 55298059,
+        "from": 33828,
+        "to": 30040,
+        "homeWard": "中川区",
+        "workWard": "中川区",
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "ready",
+          "lengthMeters": 2805.873,
+          "segments": [
+            6471,
+            23523,
+            28858,
+            13191,
+            8720,
+            9209,
+            26423,
+            34050,
+            7549,
+            14951,
+            21852,
+            11930,
+            33763,
+            2187,
+            18218,
+            15241,
+            9215,
+            16419,
+            2294,
+            17643,
+            1970,
+            8380,
+            35228,
+            19018,
+            9009,
+            20543,
+            11400,
+            3940,
+            11805,
+            22671,
+            269,
+            6019,
+            29550,
+            33335,
+            25450,
+            23561,
+            11893,
+            7708,
+            9607,
+            6414,
+            31068,
+            33593,
+            22542,
+            35534,
+            8936,
+            8796,
+            11642,
+            20755,
+            9963,
+            22514,
+            33475,
+            298,
+            34439,
+            15946,
+            33818
+          ],
+          "segmentListComplete": true
+        },
+        "pedestrian": {
+          "result": "ready",
+          "lengthMeters": 694.7717,
+          "segments": [
+            6471,
+            23523,
+            28858,
+            13191,
+            8720,
+            9209,
+            26423,
+            34050,
+            7549,
+            14951,
+            21852,
+            11930,
+            33763,
+            2187,
+            18218,
+            15241,
+            9215,
+            16419,
+            2294,
+            17643,
+            1970,
+            8380,
+            35228,
+            19018,
+            9009,
+            20543,
+            11400,
+            3940,
+            11805,
+            22671,
+            269,
+            6019,
+            29550,
+            33335,
+            25450,
+            23561,
+            11893,
+            7708,
+            9607,
+            6414,
+            31068,
+            33593,
+            22542,
+            35534,
+            8936,
+            8796,
+            11642,
+            20755,
+            9963,
+            22514,
+            33475,
+            298,
+            34439,
+            15946,
+            33818
+          ],
+          "segmentListComplete": true
+        },
+        "walkingPathAssigned": false
+      },
+      "trialSha256": "63e166bd00120e80932136735d22eefc35ac7c4cae37ebdaf7117cf29719166a",
+      "end": {
+        "citizenId": 272270,
+        "homeBuilding": 6864,
+        "homeUnit": 134599,
+        "workBuilding": 30040,
+        "workUnitConfirmed": true,
+        "location": "Moving",
+        "movingSamples": 38,
+        "workSamples": 0,
+        "homeSamples": 0,
+        "commutesStarted": 1,
+        "returnsStarted": 0,
+        "commuteSamples": 19,
+        "nativeWorkArrivals": 0,
+        "nativeWorkArrivalFailures": 0,
+        "nativeCommutePathFailures": 0,
+        "nativeMovingCommuteReleases": 0,
+        "travelRecoveries": 1,
+        "charging": false,
+        "chargeStarts": 0,
+        "battery": 96.6580864787102,
+        "walkedMeters": 133.676540851593,
+        "visitBuilding": 0,
+        "shopReturnsStarted": 0,
+        "shopReturnsArrived": 0,
+        "shopReturnSource": 0,
+        "shopReturnHome": 0,
+        "instanceId": 5526,
+        "vehicleId": 0,
+        "pathId": 154048,
+        "sourceBuilding": 33828,
+        "targetBuilding": 30040
+      }
+    },
+    "matchedWindow": false
+  },
+  "pedestrianLegs": [
+    {
+      "fromSegment": 6471,
+      "toSegment": 22542,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 527.7434,
+        "segments": [
+          6471,
+          23523,
+          28858,
+          13191,
+          8720,
+          9209,
+          26423,
+          34050,
+          7549,
+          14951,
+          21852,
+          11930,
+          33763,
+          2187,
+          18218,
+          15241,
+          9215,
+          16419,
+          2294,
+          17643,
+          1970,
+          8380,
+          35228,
+          19018,
+          9009,
+          20543,
+          11400,
+          3940,
+          11805,
+          22671,
+          269,
+          6019,
+          29550,
+          33335,
+          25450,
+          23561,
+          11893,
+          7708,
+          9607,
+          6414,
+          31068,
+          33593,
+          22542
+        ],
+        "segmentListComplete": true
+      }
+    },
+    {
+      "fromSegment": 22542,
+      "toSegment": 6471,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 497.5643,
+        "segments": [
+          22542,
+          33593,
+          31068,
+          6414,
+          9607,
+          7708,
+          11893,
+          23561,
+          25450,
+          33335,
+          29550,
+          6019,
+          269,
+          22671,
+          11805,
+          3940,
+          11400,
+          20543,
+          9009,
+          19018,
+          35228,
+          8380,
+          1970,
+          17643,
+          2294,
+          16419,
+          9215,
+          15241,
+          18218,
+          2187,
+          33763,
+          11930,
+          21852,
+          14951,
+          7549,
+          34050,
+          26423,
+          9209,
+          8720,
+          13191,
+          28858,
+          23523,
+          6471
+        ],
+        "segmentListComplete": true
+      }
+    },
+    {
+      "fromSegment": 22542,
+      "toSegment": 33818,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 113.3365,
+        "segments": [
+          22542,
+          35534,
+          8936,
+          8796,
+          11642,
+          20755,
+          9963,
+          22514,
+          33475,
+          298,
+          34439,
+          15946,
+          33818
+        ],
+        "segmentListComplete": true
+      }
+    },
+    {
+      "fromSegment": 33818,
+      "toSegment": 22542,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 151.8571,
+        "segments": [
+          33818,
+          15946,
+          34439,
+          298,
+          33475,
+          22514,
+          9963,
+          20755,
+          11642,
+          8796,
+          8936,
+          35534,
+          22542
+        ],
+        "segmentListComplete": true
+      }
+    },
+    {
+      "fromSegment": 6471,
+      "toSegment": 33818,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 684.0145,
+        "segments": [
+          6471,
+          23523,
+          28858,
+          13191,
+          8720,
+          9209,
+          26423,
+          34050,
+          7549,
+          14951,
+          21852,
+          11930,
+          33763,
+          2187,
+          18218,
+          15241,
+          9215,
+          16419,
+          2294,
+          17643,
+          1970,
+          8380,
+          35228,
+          19018,
+          9009,
+          20543,
+          11400,
+          3940,
+          11805,
+          22671,
+          269,
+          6019,
+          29550,
+          33335,
+          25450,
+          23561,
+          11893,
+          7708,
+          9607,
+          6414,
+          31068,
+          33593,
+          22542,
+          35534,
+          8936,
+          8796,
+          11642,
+          20755,
+          9963,
+          22514,
+          33475,
+          298,
+          34439,
+          15946,
+          33818
+        ],
+        "segmentListComplete": true
+      }
+    },
+    {
+      "fromSegment": 33818,
+      "toSegment": 6471,
+      "path": {
+        "result": "ready",
+        "lengthMeters": 692.6941,
+        "segments": [
+          33818,
+          15946,
+          34439,
+          298,
+          33475,
+          22514,
+          9963,
+          20755,
+          11642,
+          8796,
+          8936,
+          35534,
+          22542,
+          33593,
+          31068,
+          6414,
+          9607,
+          7708,
+          11893,
+          23561,
+          25450,
+          33335,
+          29550,
+          6019,
+          269,
+          22671,
+          11805,
+          3940,
+          11400,
+          20543,
+          9009,
+          19018,
+          35228,
+          8380,
+          1970,
+          17643,
+          2294,
+          16419,
+          9215,
+          15241,
+          18218,
+          2187,
+          33763,
+          11930,
+          21852,
+          14951,
+          7549,
+          34050,
+          26423,
+          9209,
+          8720,
+          13191,
+          28858,
+          23523,
+          6471
+        ],
+        "segmentListComplete": true
+      }
+    }
+  ],
+  "topology": {
+    "beforeSha256": "202e958977c4145d4ed13900ffbf9a97007f39f69baad890054bf7ed0b6c04ed",
+    "afterSha256": "268104be90c5e96c8d336062417ea6b5c7446b4af8bf3c877cec1bc6c4741732",
+    "addedSegmentIds": [
+      22542
+    ],
+    "unchangedSegments": 23063,
+    "adjustedNeighborLengths": {
+      "28289": {
+        "before": 3.20224214,
+        "after": 1.18312454
+      },
+      "33593": {
+        "before": 8.19624,
+        "after": 5.11704
+      },
+      "35534": {
+        "before": 10.4514875,
+        "after": 1.56773615
+      }
+    }
+  },
+  "vehicleRoute": {
+    "before": [
+      8,
+      8
+    ],
+    "after": [
+      {
+        "roadSegment": 6471,
+        "status": 4,
+        "lengthMeters": 796.475
+      },
+      {
+        "roadSegment": 33818,
+        "status": 4,
+        "lengthMeters": 1550.417
+      }
+    ],
+    "observation": "Native bus routes were requested while paused. Vehicle departure and passenger trips were not observed."
+  },
+  "alternateStops": {
+    "candidates": [
+      {
+        "citizenId": 44348,
+        "roadSegments": [
+          22200,
+          2759
+        ],
+        "observedLegs": [
+          [
+            22200,
+            8,
+            20000
+          ],
+          [
+            2759,
+            8,
+            20000
+          ]
+        ]
+      },
+      {
+        "citizenId": 44348,
+        "roadSegments": [
+          22200,
+          2759
+        ],
+        "observedLegs": [
+          [
+            22200,
+            8,
+            20000
+          ],
+          [
+            2759,
+            8,
+            20000
+          ]
+        ]
+      },
+      {
+        "citizenId": 44348,
+        "roadSegments": [
+          34210,
+          33050
+        ],
+        "observedLegs": [
+          [
+            34210,
+            8,
+            20000
+          ],
+          [
+            33050,
+            8,
+            20000
+          ]
+        ]
+      },
+      {
+        "citizenId": 44348,
+        "roadSegments": [
+          34210,
+          33050
+        ],
+        "observedLegs": [
+          [
+            34210,
+            8,
+            20000
+          ],
+          [
+            33050,
+            8,
+            20000
+          ]
+        ]
+      },
+      {
+        "citizenId": 44348,
+        "roadSegments": [
+          4974,
+          33050
+        ],
+        "observedLegs": [
+          [
+            4974,
+            8,
+            20000
+          ],
+          [
+            33050,
+            8,
+            20000
+          ]
+        ]
+      },
+      {
+        "citizenId": 44348,
+        "roadSegments": [
+          8682,
+          5547
+        ],
+        "observedLegs": [
+          [
+            8682,
+            8,
+            20000
+          ],
+          [
+            5547,
+            8,
+            20000
+          ]
+        ]
+      },
+      {
+        "citizenId": 987088,
+        "roadSegments": [
+          36576,
+          9678
+        ],
+        "observedLegs": [
+          [
+            9157,
+            4,
+            10197
+          ],
+          [
+            null,
+            null,
+            0
+          ]
+        ]
+      },
+      {
+        "citizenId": 987088,
+        "roadSegments": [
+          36576,
+          9678
+        ],
+        "observedLegs": [
+          [
+            36576,
+            4,
+            12825
+          ],
+          [
+            null,
+            null,
+            0
+          ]
+        ]
+      },
+      {
+        "citizenId": 987088,
+        "roadSegments": [
+          14585,
+          32758
+        ],
+        "observedLegs": [
+          [
+            14585,
+            4,
+            10025
+          ],
+          [
+            null,
+            null,
+            0
+          ]
+        ]
+      },
+      {
+        "citizenId": 987088,
+        "roadSegments": [
+          14585,
+          32758
+        ],
+        "observedLegs": [
+          [
+            14585,
+            4,
+            11957
+          ],
+          [
+            null,
+            null,
+            0
+          ]
+        ]
+      },
+      {
+        "citizenId": 987088,
+        "roadSegments": [
+          4742,
+          12
+        ],
+        "observedLegs": [
+          [
+            4742,
+            4,
+            11346
+          ],
+          [
+            null,
+            null,
+            0
+          ]
+        ]
+      },
+      {
+        "citizenId": 987088,
+        "roadSegments": [
+          21799,
+          9071
+        ],
+        "observedLegs": [
+          [
+            21799,
+            4,
+            11401
+          ],
+          [
+            null,
+            null,
+            0
+          ]
+        ]
+      },
+      {
+        "citizenId": 108529,
+        "roadSegments": [
+          9429,
+          30053
+        ],
+        "observedLegs": [
+          [
+            9429,
+            8,
+            20000
+          ],
+          [
+            null,
+            null,
+            0
+          ]
+        ]
+      },
+      {
+        "citizenId": 108529,
+        "roadSegments": [
+          25974,
+          14142
+        ],
+        "observedLegs": [
+          [
+            25974,
+            8,
+            20000
+          ],
+          [
+            14142,
+            8,
+            20000
+          ]
+        ]
+      },
+      {
+        "citizenId": 108529,
+        "roadSegments": [
+          740,
+          24906
+        ],
+        "observedLegs": [
+          [
+            740,
+            8,
+            20000
+          ],
+          [
+            2170,
+            8,
+            20000
+          ]
+        ]
+      },
+      {
+        "citizenId": 108529,
+        "roadSegments": [
+          28436,
+          5603
+        ],
+        "observedLegs": [
+          [
+            28436,
+            8,
+            20000
+          ],
+          [
+            5603,
+            8,
+            20000
+          ]
+        ]
+      },
+      {
+        "citizenId": 272270,
+        "roadSegments": [
+          15839,
+          35645
+        ],
+        "observedLegs": [
+          [
+            15839,
+            8,
+            20000
+          ],
+          [
+            35645,
+            8,
+            20000
+          ]
+        ]
+      },
+      {
+        "citizenId": 272270,
+        "roadSegments": [
+          33201,
+          2716
+        ],
+        "observedLegs": [
+          [
+            33201,
+            8,
+            20000
+          ],
+          [
+            2716,
+            8,
+            20000
+          ]
+        ]
+      }
+    ],
+    "remainingLineIds": [
+      170
+    ]
+  },
+  "plateauClearance": {
+    "revision": "nagoya-city738033-flat140-roof-g-split-v11",
+    "activeMeshCount": 1901,
+    "pngSha256": "0019af5340761d657d9e60782d98492bb0cc6a29cb1bdd00547ef843f8f59106",
+    "straightCandidates": [
+      {
+        "fromNode": 30081,
+        "toNode": 22373,
+        "start": {
+          "z": -153.098,
+          "x": -2493.933
+        },
+        "end": {
+          "z": -58.894,
+          "x": -2523.509
+        },
+        "halfWidth": 8,
+        "overlappingSources": {
+          "bldg_0c435bb6-03e5-4c70-b116-7d246a084d55": 18,
+          "bldg_1db05709-2d6c-4335-85bd-6a367217e290": 10,
+          "bldg_22515833-e972-4f80-83a6-df115e3f6ccb": 24,
+          "bldg_348ba958-3694-489c-bd71-9ca11c07c881": 10,
+          "bldg_3b13a7ca-1314-4561-8345-719fbe37362c": 18,
+          "bldg_43b9848e-1817-4309-a899-478aec669f42": 22,
+          "bldg_53e1d043-0fe6-48c1-8229-d9b57defa4cc": 6,
+          "bldg_6db97216-9f69-4f0f-a312-54dccee460f7": 12,
+          "bldg_7a7eeac0-8535-4288-a304-2a8967739b19": 28,
+          "bldg_7b7ed011-405d-4cce-b4b9-178429b44508": 6,
+          "bldg_7d643e12-4a37-4d6d-9d36-bd7eecc65e8d": 8,
+          "bldg_7e52b980-382b-4167-b6e8-8d60bd256963": 8,
+          "bldg_88bb71e9-3186-45ad-b691-2350773805ed": 12,
+          "bldg_f351a908-ddab-484d-9711-cf5e6c654f82": 28,
+          "bldg_f9df5ca4-7c9f-4c48-a0b7-ac3f19dd933f": 10
+        }
+      },
+      {
+        "fromNode": 30081,
+        "toNode": 20710,
+        "start": {
+          "z": -153.098,
+          "x": -2493.933
+        },
+        "end": {
+          "z": -61.981,
+          "x": -2529.83
+        },
+        "halfWidth": 8,
+        "overlappingSources": {
+          "bldg_0c435bb6-03e5-4c70-b116-7d246a084d55": 16,
+          "bldg_1db05709-2d6c-4335-85bd-6a367217e290": 12,
+          "bldg_22515833-e972-4f80-83a6-df115e3f6ccb": 24,
+          "bldg_348ba958-3694-489c-bd71-9ca11c07c881": 10,
+          "bldg_3b13a7ca-1314-4561-8345-719fbe37362c": 18,
+          "bldg_43b9848e-1817-4309-a899-478aec669f42": 22,
+          "bldg_6db97216-9f69-4f0f-a312-54dccee460f7": 12,
+          "bldg_6f2d10be-6ba4-4a1b-963b-c68a0dc29304": 14,
+          "bldg_7a7eeac0-8535-4288-a304-2a8967739b19": 28,
+          "bldg_7b7ed011-405d-4cce-b4b9-178429b44508": 10,
+          "bldg_7d643e12-4a37-4d6d-9d36-bd7eecc65e8d": 8,
+          "bldg_7e52b980-382b-4167-b6e8-8d60bd256963": 24,
+          "bldg_88bb71e9-3186-45ad-b691-2350773805ed": 10,
+          "bldg_f351a908-ddab-484d-9711-cf5e6c654f82": 28,
+          "bldg_f9df5ca4-7c9f-4c48-a0b7-ac3f19dd933f": 10
+        }
+      },
+      {
+        "fromNode": 30081,
+        "toNode": 8977,
+        "start": {
+          "z": -153.098,
+          "x": -2493.933
+        },
+        "end": {
+          "z": -70.239,
+          "x": -2537.165
+        },
+        "halfWidth": 8,
+        "overlappingSources": {
+          "bldg_1db05709-2d6c-4335-85bd-6a367217e290": 12,
+          "bldg_22515833-e972-4f80-83a6-df115e3f6ccb": 24,
+          "bldg_348ba958-3694-489c-bd71-9ca11c07c881": 8,
+          "bldg_3b13a7ca-1314-4561-8345-719fbe37362c": 18,
+          "bldg_43b9848e-1817-4309-a899-478aec669f42": 10,
+          "bldg_63b74d08-a100-4a31-a222-f7742907224a": 6,
+          "bldg_6db97216-9f69-4f0f-a312-54dccee460f7": 12,
+          "bldg_6f2d10be-6ba4-4a1b-963b-c68a0dc29304": 20,
+          "bldg_7a7eeac0-8535-4288-a304-2a8967739b19": 20,
+          "bldg_7b7ed011-405d-4cce-b4b9-178429b44508": 4,
+          "bldg_7d643e12-4a37-4d6d-9d36-bd7eecc65e8d": 8,
+          "bldg_7e52b980-382b-4167-b6e8-8d60bd256963": 28,
+          "bldg_88bb71e9-3186-45ad-b691-2350773805ed": 8,
+          "bldg_973b13a4-17e1-42d7-b7da-dad7bceffd94": 8,
+          "bldg_f351a908-ddab-484d-9711-cf5e6c654f82": 24,
+          "bldg_f696d91d-8350-4fc4-a1ec-2e61d0bde81d": 8,
+          "bldg_f9df5ca4-7c9f-4c48-a0b7-ac3f19dd933f": 10
+        }
+      },
+      {
+        "fromNode": 30081,
+        "toNode": 24777,
+        "start": {
+          "z": -153.098,
+          "x": -2493.933
+        },
+        "end": {
+          "z": -75.995,
+          "x": -2549.318
+        },
+        "halfWidth": 8,
+        "overlappingSources": {
+          "bldg_1db05709-2d6c-4335-85bd-6a367217e290": 10,
+          "bldg_22515833-e972-4f80-83a6-df115e3f6ccb": 26,
+          "bldg_337f8427-5b20-40b2-b2a5-135d46633a36": 12,
+          "bldg_3b13a7ca-1314-4561-8345-719fbe37362c": 18,
+          "bldg_43b9848e-1817-4309-a899-478aec669f42": 12,
+          "bldg_63b74d08-a100-4a31-a222-f7742907224a": 18,
+          "bldg_671e6834-663c-4f5d-b395-29a6c5d6d810": 8,
+          "bldg_6db97216-9f69-4f0f-a312-54dccee460f7": 12,
+          "bldg_6f2d10be-6ba4-4a1b-963b-c68a0dc29304": 20,
+          "bldg_7a7eeac0-8535-4288-a304-2a8967739b19": 12,
+          "bldg_7ad82fbc-26ab-4bfc-ac43-bae50109bd3a": 24,
+          "bldg_7d643e12-4a37-4d6d-9d36-bd7eecc65e8d": 8,
+          "bldg_7e52b980-382b-4167-b6e8-8d60bd256963": 16,
+          "bldg_973b13a4-17e1-42d7-b7da-dad7bceffd94": 16,
+          "bldg_ae5f01f9-0bad-495d-815c-1db96735bd7d": 8,
+          "bldg_e0200189-9ada-4eb3-ab11-78638f6dba6a": 6,
+          "bldg_f351a908-ddab-484d-9711-cf5e6c654f82": 10,
+          "bldg_f696d91d-8350-4fc4-a1ec-2e61d0bde81d": 20,
+          "bldg_f9df5ca4-7c9f-4c48-a0b7-ac3f19dd933f": 10
+        }
+      }
+    ],
+    "broaderSearch": {
+      "tested": 100,
+      "clear": 0,
+      "minOverlappingSourceBuildings": 11,
+      "reportSha256": "dcee70b35f2d5f2869f5fabec59a632847013d91e700505a4d30d5810dfd1c65"
+    }
+  }
+}
