@@ -10,7 +10,7 @@ namespace NagoyaRoadDelivery
     {
         private const string PatchId = "sunwood.nagoya.android-goods-delivery";
         private const int ParcelSize = 100;
-        private const uint RouteLossGrace = 48;
+        private const uint RouteLossGrace = 512;
         private const uint StallGraceFrames = 8192;
         private const double StreetRadiusMeters = 2400;
         private const double ScheduledStreetRadiusMeters = 4200;
@@ -48,9 +48,9 @@ namespace NagoyaRoadDelivery
         private readonly Dictionary<string, int> requestingShopsByWard = new Dictionary<string, int>(StringComparer.Ordinal);
         private readonly Dictionary<string, int> hiredForWard = new Dictionary<string, int>(StringComparer.Ordinal);
         private readonly Dictionary<string, int> hiringRejections = new Dictionary<string, int>(StringComparer.Ordinal);
+        private readonly Dictionary<string, int> failuresByReason = new Dictionary<string, int>(StringComparer.Ordinal);
         private readonly Dictionary<uint, ushort> factoryHires = new Dictionary<uint, ushort>();
         private readonly Dictionary<uint, FirstDelivery> firstShopByResident = new Dictionary<uint, FirstDelivery>();
-        private readonly Queue<uint> readyAtFactory = new Queue<uint>();
         private readonly Queue<uint> arrivedAtWork = new Queue<uint>();
         private readonly Queue<object> recent = new Queue<object>();
         private readonly Queue<object> failures = new Queue<object>();
@@ -60,19 +60,21 @@ namespace NagoyaRoadDelivery
         private readonly Dictionary<string, int> onsiteDeliveriesByWard = new Dictionary<string, int>(StringComparer.Ordinal);
         private readonly HashSet<ushort> stockedFactoriesWithWorkerOnsite = new HashSet<ushort>();
         private readonly List<object> localHires = new List<object>();
-        private int pickupStarts, pickupArrivals, started, delivered, goods, stockedFactories, shopsWithSpace, workersSeenAtFactory, failedLegs, expiredLegs;
+        private int started, delivered, goods, stockedFactories, shopsWithSpace, workersSeenAtFactory, failedLegs, expiredLegs;
         private int blockedByStreetReach, observedGoodsOffers;
+        private int nativePathFailureCallbacks;
         internal int Delivered { get { return delivered; } }
 
         private sealed class Trip
         {
-            public ushort Supplier, Target, From, SupplierStreet, TargetStreet;
+            public ushort Supplier, Target, SupplierStreet, TargetStreet;
             public uint SupplierGeneration, TargetGeneration;
             public string SupplierWard, TargetWard;
-            public uint Frame, LastRouteFrame, LastProgressFrame;
+            public uint Frame, MissingRouteSinceFrame, LastProgressFrame;
+            public int NativePathFailures;
             public GoodsRequest Demand;
             public Vector3 LastPosition;
-            public bool Collecting, HasPosition, OnsitePriority;
+            public bool HasPosition, OnsitePriority, NativeRouteAccepted, RouteMissing;
         }
 
         private struct GoodsRequest
@@ -123,6 +125,11 @@ namespace NagoyaRoadDelivery
             if (target == null) throw new MissingMethodException("HumanAI.ArriveAtDestination");
             MethodInfo postfix = typeof(NativeAndroidDeliveries).GetMethod("AfterArrival", BindingFlags.Static | BindingFlags.NonPublic);
             MethodInfo prefix = typeof(NativeAndroidDeliveries).GetMethod("BeforeArrival", BindingFlags.Static | BindingFlags.NonPublic);
+            MethodInfo pathFailure = typeof(HumanAI).GetMethod("PathfindFailure",
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null,
+                new Type[] {typeof(ushort), typeof(CitizenInstance).MakeByRefType()}, null);
+            if (pathFailure == null) throw new MissingMethodException("HumanAI.PathfindFailure");
+            MethodInfo beforeFailure = typeof(NativeAndroidDeliveries).GetMethod("BeforePathFailure", BindingFlags.Static | BindingFlags.NonPublic);
             MethodInfo step = typeof(CitizenManager).GetMethod("SimulationStepImpl", BindingFlags.Instance | BindingFlags.NonPublic,
                 null, new Type[] {typeof(int)}, null);
             if (step == null) throw new MissingMethodException("CitizenManager.SimulationStepImpl");
@@ -135,6 +142,7 @@ namespace NagoyaRoadDelivery
             try
             {
                 harmony.Patch(target, new HarmonyMethod(prefix), new HarmonyMethod(postfix), null, null);
+                harmony.Patch(pathFailure, new HarmonyMethod(beforeFailure), null, null, null);
                 harmony.Patch(step, null, new HarmonyMethod(afterStep), null, null);
                 harmony.Patch(incomingOffer, null, new HarmonyMethod(afterOffer), null, null);
             }
@@ -155,14 +163,21 @@ namespace NagoyaRoadDelivery
         {
             CitizenManager manager = CitizenManager.instance;
             uint frame = SimulationManager.instance.m_currentFrameIndex;
+            var arrived = new List<uint>();
             var expired = new List<uint>();
             foreach (var trip in trips)
             {
                 Trip leg = trip.Value;
+                Citizen citizen = manager.m_citizens.m_buffer[trip.Key];
+                if (leg.NativeRouteAccepted && IsAtDeliveryStore(citizen, leg.Target))
+                {
+                    arrived.Add(trip.Key);
+                    continue;
+                }
                 Vector3 position;
                 if (TryGetTravelPosition(manager, trip.Key, out position))
                 {
-                    leg.LastRouteFrame = frame;
+                    leg.RouteMissing = false;
                     if (!leg.HasPosition || (position - leg.LastPosition).sqrMagnitude >= 1)
                     {
                         leg.HasPosition = true;
@@ -171,9 +186,19 @@ namespace NagoyaRoadDelivery
                     }
                     if (unchecked(frame - leg.LastProgressFrame) < StallGraceFrames) continue;
                 }
-                else if (unchecked(frame - leg.LastRouteFrame) < RouteLossGrace) continue;
+                else
+                {
+                    if (!leg.RouteMissing)
+                    {
+                        leg.RouteMissing = true;
+                        leg.MissingRouteSinceFrame = frame;
+                    }
+                    if (unchecked(frame - leg.MissingRouteSinceFrame) < RouteLossGrace) continue;
+                }
                 expired.Add(trip.Key);
             }
+            foreach (uint id in arrived)
+                TransferOnArrival(id, trips[id].Target, "native visit state");
             foreach (uint id in expired)
             {
                 expiredLegs++;
@@ -530,33 +555,22 @@ namespace NagoyaRoadDelivery
 
         internal bool Dispatch(uint id, ref Citizen citizen, DateTime gameTime)
         {
-            bool atWork = citizen.CurrentLocation == Citizen.Location.Work;
-            bool atHome = citizen.CurrentLocation == Citizen.Location.Home;
+            if (citizen.CurrentLocation != Citizen.Location.Work) return false;
             bool normalHours = gameTime.Hour >= 7 && gameTime.Hour < 17;
-            bool priorityAtWork = atWork && onsitePriorityWards.Count != 0;
+            bool priorityAtWork = onsitePriorityWards.Count != 0;
             if (!normalHours && !priorityAtWork) return false;
             NativeCityLedger.Lot supplier;
             DateTime next;
-            if ((!atWork && !atHome) || trips.ContainsKey(id) ||
+            if (trips.ContainsKey(id) ||
                 !sites.TryGetValue(citizen.m_workBuilding, out supplier) || supplier.Zone != ItemClass.Zone.Industrial ||
                 reservedFactories.Contains(supplier.Id) || (retryAfter.TryGetValue(id, out next) && next > gameTime)) return false;
-            if (atWork) workersSeenAtFactory++;
+            workersSeenAtFactory++;
             global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
             BuildingAI industry = ActiveAI(ref buildings[supplier.Id]);
             if (!(industry is IndustrialBuildingAI) || buildings[supplier.Id].m_buildIndex != supplier.BuildIndex ||
                 !streetByBuilding.ContainsKey(supplier.Id) ||
                 Stock(industry, supplier.Id, ref buildings[supplier.Id]) < ParcelSize) return false;
             Vector3 source = buildings[supplier.Id].m_position;
-            ushort from = atHome ? citizen.m_homeBuilding : supplier.Id;
-            if (atHome && ((buildings[from].m_position - source).sqrMagnitude > MaximumFactoryDistanceFromHome * MaximumFactoryDistanceFromHome ||
-                IsRouteCoolingDown(from, supplier.Id, gameTime))) return false;
-            ushort homeStreet;
-            if (atHome && streetByBuilding.TryGetValue(from, out homeStreet) &&
-                StreetReach(supplier, source, false).DistanceTo(homeStreet, buildings[from].m_position) > StreetRadiusMeters)
-            {
-                blockedByStreetReach++;
-                return false;
-            }
             ushort firstShop = 0;
             FirstDelivery scheduled;
             if (firstShopByResident.TryGetValue(id, out scheduled))
@@ -584,22 +598,23 @@ namespace NagoyaRoadDelivery
                 return false;
             }
             uint frame = SimulationManager.instance.m_currentFrameIndex;
-            Trip trip = new Trip {Supplier=supplier.Id, Target=target.Id, From=from,
+            Trip trip = new Trip {Supplier=supplier.Id, Target=target.Id,
                 SupplierStreet=streetByBuilding[supplier.Id], TargetStreet=streetByBuilding[target.Id],
                 SupplierGeneration=buildings[supplier.Id].m_buildIndex, TargetGeneration=buildings[target.Id].m_buildIndex,
                 SupplierWard=supplier.Ward, TargetWard=target.Ward,
-                Frame=frame, LastRouteFrame=frame, LastProgressFrame=frame,
-                Collecting=atHome, Demand=choice.Request, OnsitePriority=onsiteShipment};
+                Frame=frame, LastProgressFrame=frame,
+                Demand=choice.Request, OnsitePriority=onsiteShipment};
             trips.Add(id, trip);
             reservedShops.Add(target.Id);
             reservedFactories.Add(supplier.Id);
             AddWardCount(activeDeliveriesByWard, target.Ward);
-            if (!StartLeg(id, ref citizen, from, atHome ? supplier.Id : target.Id, !atHome))
+            if (!StartDelivery(id, ref citizen, supplier.Id, target.Id))
             {
                 if (trips.ContainsKey(id)) FailLeg(id, trip, 0, "native path rejected at departure", gameTime);
                 return false;
             }
-            if (atHome) pickupStarts++; else started++;
+            trip.NativeRouteAccepted = true;
+            started++;
             if (onsiteShipment)
             {
                 AddWardCount(onsiteStartsByWard, target.Ward);
@@ -729,17 +744,14 @@ namespace NagoyaRoadDelivery
             return true;
         }
 
-        private static bool StartLeg(uint id, ref Citizen citizen, ushort from, ushort to, bool visit)
+        private static bool StartDelivery(uint id, ref Citizen citizen, ushort from, ushort to)
         {
             ushort previousVisit = citizen.m_visitBuilding;
-            if (visit)
-            {
-                citizen.SetVisitplace(id, to, 0);
-                if (citizen.m_visitBuilding != to) return false;
-            }
+            citizen.SetVisitplace(id, to, 0);
+            if (citizen.m_visitBuilding != to) return false;
             if (!AndroidLifePilot.TryStartNativeMovement(id, ref citizen, from, to))
             {
-                if (visit && citizen.m_visitBuilding == to) citizen.SetVisitplace(id, previousVisit, 0);
+                if (citizen.m_visitBuilding == to) citizen.SetVisitplace(id, previousVisit, 0);
                 return false;
             }
             return true;
@@ -753,6 +765,16 @@ namespace NagoyaRoadDelivery
         private static void AfterArrival(bool __2, Arrival __state)
         {
             if (active != null) active.ObserveArrival(__state, __2);
+        }
+
+        private static void BeforePathFailure(ref CitizenInstance __1)
+        {
+            NativeAndroidDeliveries delivery = active;
+            Trip trip;
+            if (delivery == null || !delivery.trips.TryGetValue(__1.m_citizen, out trip) ||
+                __1.m_targetBuilding != trip.Target) return;
+            trip.NativePathFailures++;
+            delivery.nativePathFailureCallbacks++;
         }
 
         private void ObserveArrival(Arrival arrival, bool success)
@@ -775,27 +797,19 @@ namespace NagoyaRoadDelivery
                 }
                 return;
             }
-            ushort expected = trip.Collecting ? trip.Supplier : trip.Target;
-            if (arrival.Target != expected) return;
+            if (arrival.Target != trip.Target) return;
             if (!success)
             {
                 FailLeg(id, trip, arrival.Path, "native arrival failed", SimulationManager.instance.m_currentGameTime);
                 return;
             }
-            if (!trip.Collecting)
-            {
-                TransferOnArrival(id, arrival.Target);
-                return;
-            }
-            readyAtFactory.Enqueue(id);
+            TransferOnArrival(id, arrival.Target, "native arrival callback");
         }
 
         private static void AfterCitizenStep()
         {
             NativeAndroidDeliveries delivery = active;
             if (delivery == null) return;
-            int count = delivery.readyAtFactory.Count;
-            for (int i = 0; i < count; i++) delivery.LeaveFactory(delivery.readyAtFactory.Dequeue());
             int arrivals = delivery.arrivedAtWork.Count;
             if (arrivals == 0) return;
             Citizen[] people = CitizenManager.instance.m_citizens.m_buffer;
@@ -808,41 +822,15 @@ namespace NagoyaRoadDelivery
             }
         }
 
-        private void LeaveFactory(uint id)
-        {
-            Trip trip;
-            if (!trips.TryGetValue(id, out trip) || !trip.Collecting) return;
-            Citizen[] people = CitizenManager.instance.m_citizens.m_buffer;
-            if (people[id].CurrentLocation != Citizen.Location.Work || people[id].m_workBuilding != trip.Supplier ||
-                !HasPlannedBuildings(trip))
-            {
-                EndTrip(id);
-                return;
-            }
-            pickupArrivals++;
-            trip.From = trip.Supplier;
-            trip.Frame = SimulationManager.instance.m_currentFrameIndex;
-            trip.LastRouteFrame = trip.Frame;
-            trip.LastProgressFrame = trip.Frame;
-            trip.HasPosition = false;
-            trip.Collecting = false;
-            if (!StartLeg(id, ref people[id], trip.Supplier, trip.Target, true))
-            {
-                if (trips.ContainsKey(id))
-                    FailLeg(id, trip, 0, "native path rejected at departure", SimulationManager.instance.m_currentGameTime);
-                return;
-            }
-            started++;
-        }
-
         private void FailLeg(uint id, Trip trip, uint path, string reason, DateTime now)
         {
-            ushort target = trip.Collecting ? trip.Supplier : trip.Target;
             failedLegs++;
+            AddWardCount(failuresByReason, reason);
             if (failures.Count == 12) failures.Dequeue();
-            failures.Enqueue(new Dictionary<string, object> {{"android",id}, {"collecting",trip.Collecting},
-                {"from",trip.From}, {"target",target}, {"pathId",path}, {"expectedTarget",target}, {"reason",reason}});
-            failedRoutes[RouteKey(trip.From, target)] = now.AddHours(12);
+            failures.Enqueue(new Dictionary<string, object> {{"android",id},
+                {"from",trip.Supplier}, {"target",trip.Target}, {"pathId",path}, {"reason",reason},
+                {"nativePathFailureCallbacks",trip.NativePathFailures}});
+            failedRoutes[RouteKey(trip.Supplier, trip.Target)] = now.AddHours(12);
             retryAfter[id] = now.AddHours(2);
             EndTrip(id);
         }
@@ -853,12 +841,17 @@ namespace NagoyaRoadDelivery
             return buildings[trip.Supplier].m_buildIndex == trip.SupplierGeneration && buildings[trip.Target].m_buildIndex == trip.TargetGeneration;
         }
 
-        private void TransferOnArrival(uint id, ushort target)
+        private static bool IsAtDeliveryStore(Citizen citizen, ushort target)
+        {
+            return citizen.CurrentLocation == Citizen.Location.Visit && citizen.m_visitBuilding == target;
+        }
+
+        private void TransferOnArrival(uint id, ushort target, string arrivalEvidence)
         {
             Trip trip;
             if (!trips.TryGetValue(id, out trip) || target != trip.Target) return;
             Citizen citizen = CitizenManager.instance.m_citizens.m_buffer[id];
-            if (citizen.CurrentLocation != Citizen.Location.Visit || citizen.m_visitBuilding != target) return;
+            if (!IsAtDeliveryStore(citizen, target)) return;
             EndTrip(id);
             global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
             if (!HasPlannedBuildings(trip)) return;
@@ -894,6 +887,7 @@ namespace NagoyaRoadDelivery
                 {"shopAfter",Stock(destination, target, ref buildings[target])}, {"localHire",IsLocalHire(id, trip.Supplier)},
                 {"firstDeliveryAfterAdmission",plannedDelivery && !planned.ExistingWorker},
                 {"firstDeliveryFromExistingWorker",plannedDelivery && planned.ExistingWorker}, {"onsitePriority",trip.OnsitePriority},
+                {"arrivalEvidence",arrivalEvidence},
                 {"gameTime",SimulationManager.instance.m_currentGameTime.ToString("s")}});
         }
 
@@ -983,8 +977,8 @@ namespace NagoyaRoadDelivery
             foreach (var live in trips)
             {
                 Trip leg = live.Value;
-                inFlight.Add(new Dictionary<string, object> {{"android",live.Key}, {"from",leg.From},
-                    {"target",leg.Collecting ? leg.Supplier : leg.Target}, {"deliveryBuilding",leg.Target}, {"destinationWard",leg.TargetWard},
+                inFlight.Add(new Dictionary<string, object> {{"android",live.Key}, {"from",leg.Supplier},
+                    {"target",leg.Target}, {"deliveryBuilding",leg.Target}, {"destinationWard",leg.TargetWard},
                     {"onsitePriority",leg.OnsitePriority},
                     {"factoryAccessStreet",leg.SupplierStreet}, {"shopAccessStreet",leg.TargetStreet},
                     {"frame",leg.Frame}, {"lastProgressFrame",leg.LastProgressFrame}, {"nativeRequest",RequestSnapshot(leg.Demand)},
@@ -1002,8 +996,9 @@ namespace NagoyaRoadDelivery
                 {"noNativeAccessSidewalkByWard",missingEntranceSidewalksByWard},
                 {"localHires",localHires.ToArray()}, {"localHiresByReceivingWard",hiredForWard}, {"localHiringRejections",hiringRejections},
                 {"observedGoodsOffers",observedGoodsOffers}, {"requestingShopsByWard",requestingShopsByWard}, {"activeDeliveriesByWard",activeDeliveriesByWard},
-                {"workersSeenAtFactory",workersSeenAtFactory}, {"pickupStarts",pickupStarts}, {"pickupArrivals",pickupArrivals},
-                {"failedLegs",failedLegs}, {"expiredLegs",expiredLegs}, {"deliveriesByWard",deliveredByWard},
+                {"workersSeenAtFactory",workersSeenAtFactory}, {"nativePathFailureCallbacks",nativePathFailureCallbacks},
+                {"failedLegs",failedLegs}, {"failuresByReason",failuresByReason},
+                {"expiredLegs",expiredLegs}, {"deliveriesByWard",deliveredByWard},
                 {"noEligibleStreetCandidate",blockedByStreetReach},
                 {"inFlight",inFlight}, {"recentFailures",failures.ToArray()}, {"recent",recent.ToArray()}};
         }
