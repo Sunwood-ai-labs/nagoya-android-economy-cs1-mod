@@ -5,14 +5,29 @@ param(
     [ValidateRange(50, 150)][int]$ElectricityBudgetPercent,
     [ValidateRange(50, 150)][int]$ExpectedElectricityDay,
     [ValidateRange(50, 150)][int]$ExpectedElectricityNight,
+    [ValidateRange(50, 150)][int]$GarbageBudgetPercent,
+    [ValidateRange(50, 150)][int]$ExpectedGarbageDay,
+    [ValidateRange(50, 150)][int]$ExpectedGarbageNight,
+    [ValidateCount(1, 64)][uint16[]]$WasteBuildingId,
+    [switch]$FinishWasteWatch,
     [string]$Bridge = 'http://127.0.0.1:32123'
 )
 
 $ErrorActionPreference = 'Stop'
-$change = $PSBoundParameters.ContainsKey('ElectricityBudgetPercent')
-if ($change -and ($CheckpointName -cnotlike 'NagoyaCitywide-PowerBudgetTrial-*' -or
+$power = $PSBoundParameters.ContainsKey('ElectricityBudgetPercent')
+$waste = $PSBoundParameters.ContainsKey('GarbageBudgetPercent')
+if ($power -and $waste) {
+    throw 'Select one budget per trial.'
+}
+if ($power -and ($CheckpointName -cnotlike 'NagoyaCitywide-PowerBudgetTrial-*' -or
     !$PSBoundParameters.ContainsKey('ExpectedElectricityDay') -or !$PSBoundParameters.ContainsKey('ExpectedElectricityNight'))) {
     throw 'An electricity budget change requires the named trial checkpoint and both expected values.'
+}
+if (($waste -or $WasteBuildingId -or $FinishWasteWatch) -and $CheckpointName -cnotlike 'NagoyaCitywide-WasteBudgetTrial-*') {
+    throw 'A garbage budget change or collection watch requires the named waste trial checkpoint.'
+}
+if ($waste -and (!$PSBoundParameters.ContainsKey('ExpectedGarbageDay') -or !$PSBoundParameters.ContainsKey('ExpectedGarbageNight'))) {
+    throw 'A garbage budget change requires both expected values.'
 }
 $root = 'H:/CS1-PLATEAU/nagoya-station/citywide-zoning-v3'
 $finance = Get-Content -LiteralPath (Join-Path $root 'finance-runtime.json') -Raw | ConvertFrom-Json
@@ -40,12 +55,25 @@ $request = @{
     buildIndex = $live.buildIndex
     segments = $live.network.segments
 }
-if ($change) {
+if ($power) {
     $request.electricityBudget = @{
         percent = $ElectricityBudgetPercent
         expectedDay = $ExpectedElectricityDay
         expectedNight = $ExpectedElectricityNight
     }
+}
+if ($waste) {
+    $request.garbageBudget = @{
+        percent = $GarbageBudgetPercent
+        expectedDay = $ExpectedGarbageDay
+        expectedNight = $ExpectedGarbageNight
+    }
+}
+if ($WasteBuildingId) {
+    $request.wasteBuildingIds = $WasteBuildingId
+}
+if ($FinishWasteWatch) {
+    $request.finishWasteWatch = $true
 }
 $temporary = "$destination.$($request.commandId).tmp"
 [IO.File]::WriteAllText($temporary, ($request | ConvertTo-Json -Compress), [Text.UTF8Encoding]::new($false))

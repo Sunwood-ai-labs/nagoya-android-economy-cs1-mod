@@ -17,6 +17,7 @@ namespace NagoyaRoadDelivery
         private float nextRead;
         private int queued;
         private volatile bool stopped;
+        private NativeWasteObservation wasteWatch;
 
         public void Start()
         {
@@ -47,20 +48,21 @@ namespace NagoyaRoadDelivery
                     throw new InvalidDataException("Finance request identity differs from the loaded city");
                 uint build = Convert.ToUInt32(request["buildIndex"]);
                 int segments = Convert.ToInt32(request["segments"]);
-                object change;
-                var budget = request.TryGetValue("electricityBudget", out change)
-                    ? (Dictionary<string, object>)change : null;
-                SimulationManager.instance.AddAction(delegate { Collect(commandId, build, segments, budget); });
+                SimulationManager.instance.AddAction(delegate { Collect(commandId, build, segments, request); });
                 scheduled = true;
             }
             catch (Exception error) { Write("finance-runtime.json", Status(commandId, "rejected", null, error.Message)); }
             finally { if (!scheduled) Interlocked.Exchange(ref queued, 0); }
         }
 
-        private void Collect(string id, uint build, int segments, Dictionary<string, object> budget)
+        private void Collect(string id, uint build, int segments, Dictionary<string, object> request)
         {
+            const ItemClass.Service electricity = ItemClass.Service.Electricity;
+            const ItemClass.Service garbage = ItemClass.Service.Garbage;
             EconomyManager economy = null;
+            ItemClass.Service changeService = ItemClass.Service.None;
             bool changed = false;
+            bool startedWatch = false;
             int day = 0, night = 0;
             try
             {
@@ -72,8 +74,16 @@ namespace NagoyaRoadDelivery
                 economy = EconomyManager.instance;
                 string file = id + "-finance.json";
                 if (File.Exists(Path.Combine(Root, file))) throw new IOException("Finance receipt already exists");
-                day = PowerBudget(economy, false);
-                night = PowerBudget(economy, true);
+                object powerBudget, wasteBudget, targets;
+                bool changePower = request.TryGetValue("electricityBudget", out powerBudget);
+                bool changeWaste = request.TryGetValue("garbageBudget", out wasteBudget);
+                bool startWatch = request.TryGetValue("wasteBuildingIds", out targets);
+                bool finishWatch = request.ContainsKey("finishWasteWatch") && Convert.ToBoolean(request["finishWasteWatch"]);
+                if (changePower && changeWaste) throw new InvalidDataException("Select one budget per trial");
+                if (startWatch && (wasteWatch != null || finishWatch))
+                    throw new InvalidOperationException("Finish the existing observation before selecting new buildings");
+                int powerDay = Budget(economy, electricity, false), powerNight = Budget(economy, electricity, true);
+                int wasteDay = Budget(economy, garbage, false), wasteNight = Budget(economy, garbage, true);
                 var services = new List<object>();
                 foreach (ItemClass.Service service in Enum.GetValues(typeof(ItemClass.Service)))
                     if (service != ItemClass.Service.None) services.Add(Account(economy, service, ItemClass.SubService.None));
@@ -81,55 +91,71 @@ namespace NagoyaRoadDelivery
                 foreach (ItemClass.SubService subService in Enum.GetValues(typeof(ItemClass.SubService)))
                     if (subService.ToString().StartsWith("PublicTransport", StringComparison.Ordinal))
                         transport.Add(Account(economy, ItemClass.Service.PublicTransport, subService));
-                changed = budget != null && ApplyPowerBudget(economy, budget, day, night);
+                if (startWatch)
+                {
+                    wasteWatch = new NativeWasteObservation((List<object>)targets);
+                    startedWatch = true;
+                }
+                if (changePower || changeWaste)
+                {
+                    changeService = changePower ? electricity : garbage;
+                    day = changePower ? powerDay : wasteDay;
+                    night = changePower ? powerNight : wasteNight;
+                    changed = ApplyBudget(economy, changeService,
+                        (Dictionary<string, object>)(changePower ? powerBudget : wasteBudget), day, night);
+                }
                 Write(file, new Dictionary<string, object> {
                     {"runId",runId}, {"commandId",id}, {"cityName",city}, {"buildIndex",build}, {"segments",segments},
                     {"gameTime",simulation.m_currentGameTime.ToString("s")}, {"internalCash",economy.InternalCashAmount},
                     {"lastCash",economy.LastCashAmount}, {"lastCashDelta",economy.LastCashDelta},
                     {"loanExpenses",economy.GetLoanExpenses()}, {"policyExpenses",economy.GetPolicyExpenses()},
                     {"services",services}, {"publicTransport",transport}, {"writesToCity",changed},
-                    {"electricity",PowerSnapshot(economy, day, night)}
+                    {"electricity",PowerSnapshot(economy, powerDay, powerNight)},
+                    {"garbage",WasteSnapshot(economy, wasteDay, wasteNight)}
                 });
                 changed = false;
+                startedWatch = false;
+                if (finishWatch) StopWasteWatch();
                 Write("finance-runtime.json", Status(id, "complete", file, null));
             }
             catch (Exception error)
             {
-                if (changed) SetPowerBudget(economy, day, night);
+                if (changed) SetBudget(economy, changeService, day, night);
+                if (startedWatch) StopWasteWatch();
                 Write("finance-runtime.json", Status(id, "rejected", null, error.Message));
             }
             finally { Interlocked.Exchange(ref queued, 0); }
         }
 
-        private static int PowerBudget(EconomyManager economy, bool night)
+        private static int Budget(EconomyManager economy, ItemClass.Service service, bool night)
         {
-            return economy.GetBudget(ItemClass.Service.Electricity, ItemClass.SubService.None, night);
+            return economy.GetBudget(service, ItemClass.SubService.None, night);
         }
 
-        private static void SetPowerBudget(EconomyManager economy, int day, int night)
+        private static void SetBudget(EconomyManager economy, ItemClass.Service service, int day, int night)
         {
-            economy.SetBudget(ItemClass.Service.Electricity, ItemClass.SubService.None, day, false);
-            economy.SetBudget(ItemClass.Service.Electricity, ItemClass.SubService.None, night, true);
+            economy.SetBudget(service, ItemClass.SubService.None, day, false);
+            economy.SetBudget(service, ItemClass.SubService.None, night, true);
         }
 
-        private static bool ApplyPowerBudget(EconomyManager economy, Dictionary<string, object> request, int day, int night)
+        private static bool ApplyBudget(EconomyManager economy, ItemClass.Service service, Dictionary<string, object> request, int day, int night)
         {
             if (Convert.ToInt32(request["expectedDay"]) != day || Convert.ToInt32(request["expectedNight"]) != night)
-                throw new InvalidOperationException("The city's electricity budget changed before the trial");
+                throw new InvalidOperationException("The city's " + service + " budget changed before the trial");
             int next = Convert.ToInt32(request["percent"]);
-            if (next < 50 || next > 150) throw new InvalidDataException("Electricity budget must be 50–150%");
+            if (next < 50 || next > 150) throw new InvalidDataException("Budget must be 50 to 150 percent");
             if (day == next && night == next) return false;
 
             try
             {
-                SetPowerBudget(economy, next, next);
-                if (PowerBudget(economy, false) != next || PowerBudget(economy, true) != next)
-                    throw new InvalidOperationException("The game did not retain the requested electricity budget");
+                SetBudget(economy, service, next, next);
+                if (Budget(economy, service, false) != next || Budget(economy, service, true) != next)
+                    throw new InvalidOperationException("The game did not retain the requested " + service + " budget");
                 return true;
             }
             catch
             {
-                SetPowerBudget(economy, day, night);
+                SetBudget(economy, service, day, night);
                 throw;
             }
         }
@@ -157,11 +183,33 @@ namespace NagoyaRoadDelivery
             }
             return new Dictionary<string, object> {
                 {"previousDayBudgetPercent", beforeDay}, {"previousNightBudgetPercent", beforeNight},
-                {"dayBudgetPercent", PowerBudget(economy, false)}, {"nightBudgetPercent", PowerBudget(economy, true)},
+                {"dayBudgetPercent", Budget(economy, ItemClass.Service.Electricity, false)},
+                {"nightBudgetPercent", Budget(economy, ItemClass.Service.Electricity, true)},
                 {"capacityKW", citywide.GetElectricityCapacity()}, {"consumptionKW", citywide.GetElectricityConsumption()},
                 {"existingBuildingsByUse", existingByUse}, {"activeBuildingsByUse", activeByUse},
                 {"buildingsWithElectricityProblemByUse", problemsByUse}
             };
+        }
+
+        private Dictionary<string, object> WasteSnapshot(EconomyManager economy, int beforeDay, int beforeNight)
+        {
+            District citywide = DistrictManager.instance.m_districts.m_buffer[0];
+            return new Dictionary<string, object> {
+                {"previousDayBudgetPercent", beforeDay}, {"previousNightBudgetPercent", beforeNight},
+                {"dayBudgetPercent", Budget(economy, ItemClass.Service.Garbage, false)},
+                {"nightBudgetPercent", Budget(economy, ItemClass.Service.Garbage, true)},
+                {"productionPerWeek", citywide.GetGarbageAccumulation()},
+                {"processingCapacityPerWeek", citywide.GetIncinerationCapacity()},
+                {"landfillCapacity", citywide.GetGarbageCapacity()}, {"landfillAmount", citywide.GetGarbageAmount()},
+                {"monitoredBuildings", wasteWatch == null ? null : wasteWatch.Snapshot()}
+            };
+        }
+
+        private void StopWasteWatch()
+        {
+            if (wasteWatch == null) return;
+            wasteWatch.Stop();
+            wasteWatch = null;
         }
 
         private static void Increment(Dictionary<string, object> counts, string key)
@@ -194,6 +242,10 @@ namespace NagoyaRoadDelivery
             else File.Move(pending, target);
         }
 
-        public void OnDestroy() { stopped = true; }
+        public void OnDestroy()
+        {
+            stopped = true;
+            StopWasteWatch();
+        }
     }
 }

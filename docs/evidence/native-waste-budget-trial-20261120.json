@@ -1,0 +1,148 @@
+{
+  "sourceSave": {
+    "name": "NagoyaCitywide-PowerBudgetTrial-75",
+    "sha256": "A7A0D43403A572519695E1B5A3EE48D4C55768C5DEA10F9CDA6E26B41BF1FC6F",
+    "verifiedUnchanged": true
+  },
+  "trialStartSave": {
+    "name": "NagoyaCitywide-WasteBudgetTrial-Baseline",
+    "sha256": "3A916118FF4897CEFCBD652CB8816194B24B858E6690348EB26A61EDB35BFBAF",
+    "bytes": 15478272
+  },
+  "trialEndSave": {
+    "name": "NagoyaCitywide-WasteBudgetTrial-150",
+    "sha256": "A1DC6D1BB0A3AFD3D102EE31C749C9D14B798EF8F720DB864816E18A69E931FC",
+    "bytes": 15462343,
+    "archiveVerified": true,
+    "reloaded": false
+  },
+  "elapsedSimulatedSeconds": 1084311.0,
+  "forcedPauseAtEnd": true,
+  "cityNetwork": {
+    "nodes": 32636,
+    "segments": 32655
+  },
+  "existingIncinerators": 4,
+  "trackedCivicFacilities": 32,
+  "trackedWards": 16,
+  "samples": [
+    {
+      "gameTime": "2029-05-19T03:34:32",
+      "electricityDayBudget": 75,
+      "electricityNightBudget": 75,
+      "wasteDayBudget": 100,
+      "wasteNightBudget": 100,
+      "wasteProductionPerWeek": 229584,
+      "incinerationCapacityPerWeek": 192000,
+      "civicWithWasteWarnings": 17,
+      "sanitationExpenses": 5760,
+      "cityCashDelta": -69316.18,
+      "receiptSha256": "B1ED67EC5085404FA4B7C4014C8847D813597F16E5E255F0431DD748AC1B928A"
+    },
+    {
+      "gameTime": "2029-05-31T16:46:23",
+      "electricityDayBudget": 75,
+      "electricityNightBudget": 75,
+      "wasteDayBudget": 150,
+      "wasteNightBudget": 150,
+      "wasteProductionPerWeek": 227776,
+      "incinerationCapacityPerWeek": 240000,
+      "civicWithWasteWarnings": 16,
+      "sanitationExpenses": 8640,
+      "cityCashDelta": -72399.77,
+      "receiptSha256": "18522F5E727287321C3E430B0FB5C758A79E8A95D26BE2473AD2FDBD7D64C016"
+    }
+  ],
+  "confirmedFirstPickups": [
+    {
+      "building": 38885,
+      "ward": "名東区",
+      "warningBefore": true,
+      "warningAfter": false,
+      "pickup": {
+        "gameTime": "2029-05-23T07:14:49",
+        "vehicle": 1872,
+        "sourceFacility": 6206,
+        "garbageBefore": 6480,
+        "garbageAfter": 0,
+        "truckLoadBefore": 2096,
+        "truckLoadAfter": 8576
+      }
+    },
+    {
+      "building": 15957,
+      "ward": "昭和区",
+      "warningBefore": false,
+      "warningAfter": false,
+      "pickup": {
+        "gameTime": "2029-05-19T22:15:00",
+        "vehicle": 8940,
+        "sourceFacility": 45809,
+        "garbageBefore": 56,
+        "garbageAfter": 0,
+        "truckLoadBefore": 4652,
+        "truckLoadAfter": 4708
+      }
+    },
+    {
+      "building": 46812,
+      "ward": "港区",
+      "warningBefore": false,
+      "warningAfter": false,
+      "pickup": {
+        "gameTime": "2029-05-27T10:13:02",
+        "vehicle": 13058,
+        "sourceFacility": 6206,
+        "garbageBefore": 550,
+        "garbageAfter": 0,
+        "truckLoadBefore": 8972,
+        "truckLoadAfter": 9522
+      }
+    },
+    {
+      "building": 21324,
+      "ward": "西区",
+      "warningBefore": false,
+      "warningAfter": false,
+      "pickup": {
+        "gameTime": "2029-05-24T03:34:26",
+        "vehicle": 16333,
+        "sourceFacility": 6206,
+        "garbageBefore": 256,
+        "garbageAfter": 0,
+        "truckLoadBefore": 2458,
+        "truckLoadAfter": 2714
+      }
+    },
+    {
+      "building": 6123,
+      "ward": "熱田区",
+      "warningBefore": false,
+      "warningAfter": false,
+      "pickup": {
+        "gameTime": "2029-05-25T19:22:59",
+        "vehicle": 13058,
+        "sourceFacility": 6206,
+        "garbageBefore": 550,
+        "garbageAfter": 0,
+        "truckLoadBefore": 5983,
+        "truckLoadAfter": 6533
+      }
+    }
+  ],
+  "coexistenceAtEnd": {
+    "gameTime": "2029-05-31T16:46:23",
+    "rosterUtc": "2026-11-19T15:28:39.2730001Z",
+    "activeZonedSites": 7172,
+    "wardsWithHomesAndJobs": 16,
+    "humanResidents": 9066,
+    "humanWorkplaceAssigned": 4247,
+    "androidResidents": 421,
+    "androidWorkplaceAssigned": 409,
+    "androidInTransit": 41,
+    "spawnedPassengerCars": 661,
+    "spawnedCargoTrucks": 743,
+    "spawnedBuses": 28
+  },
+  "nativeBankruptcyAlertVisuallyConfirmed": true
+}
