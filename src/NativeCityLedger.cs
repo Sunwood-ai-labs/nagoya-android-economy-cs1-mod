@@ -162,10 +162,18 @@ namespace NagoyaRoadDelivery
             if (lot.Id == 0 || lot.Id >= buildings.Length)
                 return false;
             global::Building building = buildings[lot.Id];
-            if ((building.m_flags & global::Building.Flags.Created) == 0 || building.m_buildIndex != lot.BuildIndex ||
-                lot.ZoneBlock == 0 || lot.ZoneBlock >= ZoneManager.instance.m_blocks.m_buffer.Length)
+            if ((building.m_flags & global::Building.Flags.Created) == 0 || building.m_buildIndex != lot.BuildIndex)
                 return false;
-            ZoneBlock block = ZoneManager.instance.m_blocks.m_buffer[lot.ZoneBlock];
+            ZoneBlock block;
+            return TryGetZonedBlock(lot, out block);
+        }
+
+        internal static bool TryGetZonedBlock(Lot lot, out ZoneBlock block)
+        {
+            block = new ZoneBlock();
+            ZoneBlock[] blocks = ZoneManager.instance.m_blocks.m_buffer;
+            if (lot.ZoneBlock == 0 || lot.ZoneBlock >= blocks.Length) return false;
+            block = blocks[lot.ZoneBlock];
             if ((block.m_flags & ZoneBlock.FLAG_CREATED) == 0 || lot.Row + lot.Width > block.RowCount)
                 return false;
             for (int y = lot.Row; y < lot.Row + lot.Width; y++)
@@ -173,6 +181,22 @@ namespace NagoyaRoadDelivery
                     if (block.GetZone(x, y) != lot.Zone)
                         return false;
             return true;
+        }
+
+        internal static bool TryRebind(Lot original, ushort newId, uint generation)
+        {
+            lock (Gate)
+            {
+                Lot stored;
+                if (city == null || !Lots.TryGetValue(original.Id, out stored) || stored.Group != original.Group ||
+                    stored.BuildIndex != original.BuildIndex || (original.Id != newId && Lots.ContainsKey(newId)))
+                    return false;
+                Lots.Remove(original.Id);
+                original.Id = newId;
+                original.BuildIndex = generation;
+                Lots.Add(newId, original);
+                return true;
+            }
         }
 
         internal static bool HasActiveRoad(Road road)

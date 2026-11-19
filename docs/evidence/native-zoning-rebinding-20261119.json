@@ -1,0 +1,802 @@
+{
+  "status": "verified rebindings in the native Cities: Skylines roster",
+  "reloadedSave": {
+    "name": "NagoyaCitywide-ThirdLocalStreets-Observed",
+    "sha256": "56CC485A140AB5CF323FD6078F12C29C6F9211476C5F24B4CC303874CE20962F",
+    "bytes": 14505945
+  },
+  "reboundSave": {
+    "name": "NagoyaCitywide-ReboundZoning-Observed",
+    "sha256": "C266EE2C1A2937836EE87D815EF0F6B48235821CE3F374B69850B26354175372",
+    "bytes": 14417300
+  },
+  "mod": {
+    "before": "7A229542CD885BD1DE4B8D29A722D7BA8EA8198E1FBCE21BF81874CFF9BD80AB",
+    "installed": "E89841E612A6F9FD4FCA21B50346BA85274104C63E256C361DB21AC8F08EC385",
+    "mvid": "02942e5a-64dd-4744-b885-58d197830e91"
+  },
+  "gameTimeBefore": "2028-10-25T12:36:38",
+  "gameTimeAfter": "2028-10-29T12:45:22",
+  "roadsAfter": 20679,
+  "activeSitesBefore": 5506,
+  "activeSitesAfter": 5804,
+  "existingGroupsLost": 1,
+  "newActiveGroups": 299,
+  "liveRebindings": 300,
+  "confirmedAgainstPriorLoss": 4,
+  "confirmedByUse": {
+    "ResidentialLow": 4
+  },
+  "matchesFromPriorLoss": [
+    {
+      "group": "extension_2063b2122d8834b8",
+      "roadId": 32859,
+      "zoneBlock": 18133,
+      "previousBuildingId": 5793,
+      "previousBuildIndex": 106784,
+      "buildingId": 31024,
+      "buildIndex": 117583,
+      "position": {
+        "x": 1384.861,
+        "y": 140,
+        "z": -2544.69
+      },
+      "use": "ResidentialLow",
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "group": "site_6ca8511a5b38",
+      "roadId": 4191,
+      "zoneBlock": 32617,
+      "previousBuildingId": 29940,
+      "previousBuildIndex": 59018,
+      "buildingId": 11889,
+      "buildIndex": 117620,
+      "position": {
+        "x": 735.327,
+        "y": 140,
+        "z": -3.463
+      },
+      "use": "ResidentialLow",
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "group": "site_e17e69e80b23",
+      "roadId": 24806,
+      "zoneBlock": 47730,
+      "previousBuildingId": 24755,
+      "previousBuildIndex": 59935,
+      "buildingId": 47139,
+      "buildIndex": 117627,
+      "position": {
+        "x": -338.644,
+        "y": 140,
+        "z": -2852.2
+      },
+      "use": "ResidentialLow",
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "group": "future_local_goods_021_70",
+      "roadId": 70,
+      "zoneBlock": 24777,
+      "previousBuildingId": 17380,
+      "previousBuildIndex": 105315,
+      "buildingId": 43359,
+      "buildIndex": 117629,
+      "position": {
+        "x": 560.264,
+        "y": 139.997,
+        "z": -262.859
+      },
+      "use": "ResidentialLow",
+      "size": [
+        2,
+        2
+      ]
+    }
+  ],
+  "receipts": [
+    {
+      "group": "extension_b21da9869b52dcaf",
+      "roadId": 20851,
+      "zoneBlock": 29583,
+      "previousBuildingId": 32118,
+      "previousBuildIndex": 79636,
+      "buildingId": 6090,
+      "buildIndex": 105811
+    },
+    {
+      "group": "extension_ee7ab193ba25ab46",
+      "roadId": 25200,
+      "zoneBlock": 4377,
+      "previousBuildingId": 35392,
+      "previousBuildIndex": 79637,
+      "buildingId": 33777,
+      "buildIndex": 103159
+    },
+    {
+      "group": "extension_e5b203c998183616",
+      "roadId": 18971,
+      "zoneBlock": 3292,
+      "previousBuildingId": 41226,
+      "previousBuildIndex": 79657,
+      "buildingId": 29527,
+      "buildIndex": 104076
+    },
+    {
+      "group": "extension_5e3d7ea1684b4ab0",
+      "roadId": 9094,
+      "zoneBlock": 24588,
+      "previousBuildingId": 23579,
+      "previousBuildIndex": 95074,
+      "buildingId": 48843,
+      "buildIndex": 102999
+    },
+    {
+      "group": "extension_a4928800e6e9eec8",
+      "roadId": 5557,
+      "zoneBlock": 11709,
+      "previousBuildingId": 12673,
+      "previousBuildIndex": 95150,
+      "buildingId": 2944,
+      "buildIndex": 104216
+    },
+    {
+      "group": "extension_0c261043ca311609",
+      "roadId": 7271,
+      "zoneBlock": 27277,
+      "previousBuildingId": 15878,
+      "previousBuildIndex": 95172,
+      "buildingId": 48193,
+      "buildIndex": 108166
+    },
+    {
+      "group": "extension_429edb70c862405c",
+      "roadId": 33086,
+      "zoneBlock": 35110,
+      "previousBuildingId": 33531,
+      "previousBuildIndex": 95236,
+      "buildingId": 8292,
+      "buildIndex": 108193
+    },
+    {
+      "group": "extension_8f6605d7541c6f21",
+      "roadId": 20479,
+      "zoneBlock": 16069,
+      "previousBuildingId": 15702,
+      "previousBuildIndex": 95258,
+      "buildingId": 12779,
+      "buildIndex": 103038
+    },
+    {
+      "group": "extension_ae9335ab86cbf9fe",
+      "roadId": 33164,
+      "zoneBlock": 14285,
+      "previousBuildingId": 37309,
+      "previousBuildIndex": 95259,
+      "buildingId": 31108,
+      "buildIndex": 105773
+    },
+    {
+      "group": "extension_639e37df9bac9cf4",
+      "roadId": 6205,
+      "zoneBlock": 33507,
+      "previousBuildingId": 43940,
+      "previousBuildIndex": 95289,
+      "buildingId": 11863,
+      "buildIndex": 104996
+    },
+    {
+      "group": "extension_eb6ece943af58671",
+      "roadId": 34509,
+      "zoneBlock": 34042,
+      "previousBuildingId": 31388,
+      "previousBuildIndex": 95307,
+      "buildingId": 1259,
+      "buildIndex": 115120
+    },
+    {
+      "group": "extension_492d13a6ed5ab64f",
+      "roadId": 20976,
+      "zoneBlock": 38822,
+      "previousBuildingId": 32370,
+      "previousBuildIndex": 95317,
+      "buildingId": 35191,
+      "buildIndex": 105138
+    },
+    {
+      "group": "extension_1b2b1a6b3b62ee40",
+      "roadId": 10681,
+      "zoneBlock": 34818,
+      "previousBuildingId": 12842,
+      "previousBuildIndex": 95332,
+      "buildingId": 16590,
+      "buildIndex": 104392
+    },
+    {
+      "group": "extension_f1088af152c51313",
+      "roadId": 23523,
+      "zoneBlock": 21683,
+      "previousBuildingId": 33171,
+      "previousBuildIndex": 95397,
+      "buildingId": 47592,
+      "buildIndex": 105779
+    },
+    {
+      "group": "extension_2f9444c6a6113f24",
+      "roadId": 10924,
+      "zoneBlock": 42123,
+      "previousBuildingId": 47678,
+      "previousBuildIndex": 95401,
+      "buildingId": 35965,
+      "buildIndex": 114622
+    },
+    {
+      "group": "extension_cccbef0e5cc2ff7e",
+      "roadId": 16922,
+      "zoneBlock": 44488,
+      "previousBuildingId": 14723,
+      "previousBuildIndex": 95403,
+      "buildingId": 35168,
+      "buildIndex": 115140
+    },
+    {
+      "group": "extension_3b9b16e420868a67",
+      "roadId": 19077,
+      "zoneBlock": 29948,
+      "previousBuildingId": 16999,
+      "previousBuildIndex": 95412,
+      "buildingId": 21519,
+      "buildIndex": 104012
+    },
+    {
+      "group": "extension_0b494e2d1932bea8",
+      "roadId": 19579,
+      "zoneBlock": 30339,
+      "previousBuildingId": 44235,
+      "previousBuildIndex": 95451,
+      "buildingId": 21195,
+      "buildIndex": 102748
+    },
+    {
+      "group": "extension_ea254e8a1ae329e8",
+      "roadId": 3761,
+      "zoneBlock": 22260,
+      "previousBuildingId": 22499,
+      "previousBuildIndex": 95459,
+      "buildingId": 21477,
+      "buildIndex": 117616
+    },
+    {
+      "group": "extension_8b710efb1b155d2e",
+      "roadId": 8011,
+      "zoneBlock": 40528,
+      "previousBuildingId": 20055,
+      "previousBuildIndex": 95500,
+      "buildingId": 48538,
+      "buildIndex": 114598
+    },
+    {
+      "group": "extension_a7c35a85135663a9",
+      "roadId": 25354,
+      "zoneBlock": 9748,
+      "previousBuildingId": 25848,
+      "previousBuildIndex": 95525,
+      "buildingId": 36939,
+      "buildIndex": 101690
+    },
+    {
+      "group": "extension_3412e3245e78f064",
+      "roadId": 14706,
+      "zoneBlock": 37467,
+      "previousBuildingId": 23307,
+      "previousBuildIndex": 95628,
+      "buildingId": 15202,
+      "buildIndex": 102989
+    },
+    {
+      "group": "extension_2064bdb7f97380ea",
+      "roadId": 35365,
+      "zoneBlock": 874,
+      "previousBuildingId": 24977,
+      "previousBuildIndex": 95634,
+      "buildingId": 22604,
+      "buildIndex": 113956
+    },
+    {
+      "group": "extension_32684ee4471fdcef",
+      "roadId": 29524,
+      "zoneBlock": 39916,
+      "previousBuildingId": 12628,
+      "previousBuildIndex": 95730,
+      "buildingId": 22071,
+      "buildIndex": 104494
+    },
+    {
+      "group": "extension_b73d30cde9ef07d3",
+      "roadId": 20806,
+      "zoneBlock": 39978,
+      "previousBuildingId": 42900,
+      "previousBuildIndex": 95745,
+      "buildingId": 42928,
+      "buildIndex": 103565
+    },
+    {
+      "group": "extension_711a47bdbd514424",
+      "roadId": 33632,
+      "zoneBlock": 7592,
+      "previousBuildingId": 18230,
+      "previousBuildIndex": 95801,
+      "buildingId": 38794,
+      "buildIndex": 105789
+    },
+    {
+      "group": "extension_5a9e4edcbfe276e5",
+      "roadId": 15660,
+      "zoneBlock": 34343,
+      "previousBuildingId": 44655,
+      "previousBuildIndex": 95802,
+      "buildingId": 465,
+      "buildIndex": 114632
+    },
+    {
+      "group": "extension_6d3925b195f036ba",
+      "roadId": 17241,
+      "zoneBlock": 19076,
+      "previousBuildingId": 25098,
+      "previousBuildIndex": 95815,
+      "buildingId": 20876,
+      "buildIndex": 105762
+    },
+    {
+      "group": "extension_c0abb291d06cd917",
+      "roadId": 16847,
+      "zoneBlock": 13963,
+      "previousBuildingId": 46028,
+      "previousBuildIndex": 95891,
+      "buildingId": 11980,
+      "buildIndex": 104347
+    },
+    {
+      "group": "extension_b3b7371e114477cd",
+      "roadId": 21706,
+      "zoneBlock": 31701,
+      "previousBuildingId": 37559,
+      "previousBuildIndex": 95926,
+      "buildingId": 41884,
+      "buildIndex": 102892
+    },
+    {
+      "group": "extension_e167c4b9f523f1b1",
+      "roadId": 10610,
+      "zoneBlock": 21217,
+      "previousBuildingId": 16699,
+      "previousBuildIndex": 95947,
+      "buildingId": 35047,
+      "buildIndex": 104377
+    },
+    {
+      "group": "extension_e68625b2931a0968",
+      "roadId": 5999,
+      "zoneBlock": 43143,
+      "previousBuildingId": 28607,
+      "previousBuildIndex": 95962,
+      "buildingId": 30517,
+      "buildIndex": 105501
+    },
+    {
+      "group": "extension_a2e7e693abe70e5d",
+      "roadId": 21920,
+      "zoneBlock": 46169,
+      "previousBuildingId": 3711,
+      "previousBuildIndex": 96007,
+      "buildingId": 7684,
+      "buildIndex": 103432
+    },
+    {
+      "group": "extension_3d10e43044fc8a58",
+      "roadId": 26331,
+      "zoneBlock": 11393,
+      "previousBuildingId": 12550,
+      "previousBuildIndex": 96103,
+      "buildingId": 43572,
+      "buildIndex": 114055
+    },
+    {
+      "group": "extension_1d912ca0701846d2",
+      "roadId": 31613,
+      "zoneBlock": 38963,
+      "previousBuildingId": 27412,
+      "previousBuildIndex": 96164,
+      "buildingId": 31127,
+      "buildIndex": 117614
+    },
+    {
+      "group": "extension_acd9659ed3c0a138",
+      "roadId": 5116,
+      "zoneBlock": 4292,
+      "previousBuildingId": 23841,
+      "previousBuildIndex": 96175,
+      "buildingId": 8124,
+      "buildIndex": 102830
+    },
+    {
+      "group": "extension_a1f67c1005d90b35",
+      "roadId": 16556,
+      "zoneBlock": 35667,
+      "previousBuildingId": 4764,
+      "previousBuildIndex": 96192,
+      "buildingId": 12120,
+      "buildIndex": 105413
+    },
+    {
+      "group": "extension_9e9194b71637be19",
+      "roadId": 12973,
+      "zoneBlock": 14307,
+      "previousBuildingId": 16985,
+      "previousBuildIndex": 96257,
+      "buildingId": 16516,
+      "buildIndex": 103669
+    },
+    {
+      "group": "extension_00bf3ba8861544db",
+      "roadId": 29115,
+      "zoneBlock": 37206,
+      "previousBuildingId": 22383,
+      "previousBuildIndex": 96264,
+      "buildingId": 401,
+      "buildIndex": 108121
+    },
+    {
+      "group": "extension_f85b2b01c1f2c6c4",
+      "roadId": 4651,
+      "zoneBlock": 15271,
+      "previousBuildingId": 8601,
+      "previousBuildIndex": 96287,
+      "buildingId": 43563,
+      "buildIndex": 102729
+    },
+    {
+      "group": "extension_18105c2e4e7b0df9",
+      "roadId": 31130,
+      "zoneBlock": 3492,
+      "previousBuildingId": 10578,
+      "previousBuildIndex": 96339,
+      "buildingId": 10454,
+      "buildIndex": 103521
+    },
+    {
+      "group": "extension_cfb17750a2889dc6",
+      "roadId": 5034,
+      "zoneBlock": 32552,
+      "previousBuildingId": 11856,
+      "previousBuildIndex": 96349,
+      "buildingId": 25852,
+      "buildIndex": 102558
+    },
+    {
+      "group": "extension_5bba20a654136bcb",
+      "roadId": 35494,
+      "zoneBlock": 21852,
+      "previousBuildingId": 24548,
+      "previousBuildIndex": 96409,
+      "buildingId": 8052,
+      "buildIndex": 113902
+    },
+    {
+      "group": "extension_ab215e2e171f0e4c",
+      "roadId": 29190,
+      "zoneBlock": 25932,
+      "previousBuildingId": 5419,
+      "previousBuildIndex": 96442,
+      "buildingId": 13148,
+      "buildIndex": 105330
+    },
+    {
+      "group": "extension_1378e19371bd7050",
+      "roadId": 6946,
+      "zoneBlock": 21674,
+      "previousBuildingId": 45075,
+      "previousBuildIndex": 96501,
+      "buildingId": 16470,
+      "buildIndex": 102796
+    },
+    {
+      "group": "extension_27d00e21dd4f0c73",
+      "roadId": 6175,
+      "zoneBlock": 34113,
+      "previousBuildingId": 22677,
+      "previousBuildIndex": 96562,
+      "buildingId": 15508,
+      "buildIndex": 105423
+    },
+    {
+      "group": "extension_ff120690519b8aae",
+      "roadId": 31852,
+      "zoneBlock": 1437,
+      "previousBuildingId": 6597,
+      "previousBuildIndex": 96589,
+      "buildingId": 35484,
+      "buildIndex": 105856
+    },
+    {
+      "group": "extension_ade8e3d9287e25c0",
+      "roadId": 4880,
+      "zoneBlock": 31905,
+      "previousBuildingId": 7127,
+      "previousBuildIndex": 96677,
+      "buildingId": 28016,
+      "buildIndex": 105608
+    },
+    {
+      "group": "extension_f1bfa0aae776cb0c",
+      "roadId": 15017,
+      "zoneBlock": 40742,
+      "previousBuildingId": 12499,
+      "previousBuildIndex": 96733,
+      "buildingId": 36956,
+      "buildIndex": 114069
+    },
+    {
+      "group": "extension_738b9c55b9c205f6",
+      "roadId": 14424,
+      "zoneBlock": 42185,
+      "previousBuildingId": 17782,
+      "previousBuildIndex": 96750,
+      "buildingId": 10102,
+      "buildIndex": 115155
+    },
+    {
+      "group": "extension_cd1f66813b4cc190",
+      "roadId": 17378,
+      "zoneBlock": 21142,
+      "previousBuildingId": 34735,
+      "previousBuildIndex": 96764,
+      "buildingId": 4082,
+      "buildIndex": 106754
+    },
+    {
+      "group": "extension_81ef2113c6b39d2e",
+      "roadId": 21920,
+      "zoneBlock": 20855,
+      "previousBuildingId": 21296,
+      "previousBuildIndex": 96767,
+      "buildingId": 15304,
+      "buildIndex": 104932
+    },
+    {
+      "group": "site_487bd124a8f9",
+      "roadId": 22711,
+      "zoneBlock": 18840,
+      "previousBuildingId": 49103,
+      "previousBuildIndex": 104552,
+      "buildingId": 23020,
+      "buildIndex": 108109
+    },
+    {
+      "group": "extension_3abb889729ffe91b",
+      "roadId": 21264,
+      "zoneBlock": 7710,
+      "previousBuildingId": 12883,
+      "previousBuildIndex": 104578,
+      "buildingId": 13841,
+      "buildIndex": 114579
+    },
+    {
+      "group": "future_local_goods_030_33077",
+      "roadId": 33077,
+      "zoneBlock": 43087,
+      "previousBuildingId": 32608,
+      "previousBuildIndex": 105323,
+      "buildingId": 2020,
+      "buildIndex": 113946
+    },
+    {
+      "group": "extension_2063b2122d8834b8",
+      "roadId": 32859,
+      "zoneBlock": 18133,
+      "previousBuildingId": 5793,
+      "previousBuildIndex": 106784,
+      "buildingId": 31024,
+      "buildIndex": 117583
+    },
+    {
+      "group": "extension_575d64fbb05e9fd5",
+      "roadId": 11207,
+      "zoneBlock": 13660,
+      "previousBuildingId": 32841,
+      "previousBuildIndex": 106926,
+      "buildingId": 14997,
+      "buildIndex": 115157
+    },
+    {
+      "group": "site_75e064014ab6",
+      "roadId": 26831,
+      "zoneBlock": 45784,
+      "previousBuildingId": 45992,
+      "previousBuildIndex": 59089,
+      "buildingId": 3292,
+      "buildIndex": 114576
+    },
+    {
+      "group": "site_b64ba4686bd5",
+      "roadId": 15414,
+      "zoneBlock": 44160,
+      "previousBuildingId": 1098,
+      "previousBuildIndex": 59602,
+      "buildingId": 17498,
+      "buildIndex": 115127
+    },
+    {
+      "group": "site_34a7b91566a2",
+      "roadId": 23497,
+      "zoneBlock": 1400,
+      "previousBuildingId": 45922,
+      "previousBuildIndex": 58544,
+      "buildingId": 27688,
+      "buildIndex": 117632
+    },
+    {
+      "group": "site_d52410a88a37",
+      "roadId": 19284,
+      "zoneBlock": 2962,
+      "previousBuildingId": 34231,
+      "previousBuildIndex": 59831,
+      "buildingId": 39081,
+      "buildIndex": 117634
+    },
+    {
+      "group": "site_6ca8511a5b38",
+      "roadId": 4191,
+      "zoneBlock": 32617,
+      "previousBuildingId": 29940,
+      "previousBuildIndex": 59018,
+      "buildingId": 11889,
+      "buildIndex": 117620
+    },
+    {
+      "group": "site_e17e69e80b23",
+      "roadId": 24806,
+      "zoneBlock": 47730,
+      "previousBuildingId": 24755,
+      "previousBuildIndex": 59935,
+      "buildingId": 47139,
+      "buildIndex": 117627
+    },
+    {
+      "group": "future_local_goods_021_70",
+      "roadId": 70,
+      "zoneBlock": 24777,
+      "previousBuildingId": 17380,
+      "previousBuildIndex": 105315,
+      "buildingId": 43359,
+      "buildIndex": 117629
+    }
+  ],
+  "sourceCoverage": {
+    "city": "NagoyaCitywide-Construction",
+    "rosterUtc": "2026-11-19T13:05:31.0454852Z",
+    "activeNativeZonedSites": 5804,
+    "nativeSiteGroupCount": 5804,
+    "plateauSourceIds": 738033,
+    "sourceCoverage": {
+      "allRolesActive": 652913,
+      "noActiveRole": 49104,
+      "someRolesActive": 3718,
+      "withoutClassifiedRoles": 32298
+    },
+    "roleMemberships": {
+      "active": 687271,
+      "uncovered": 54469
+    },
+    "writesToGame": false
+  },
+  "nativeCoexistenceWards": 16,
+  "saveReopened": true,
+  "roundtrip": {
+    "reopenedRosterRunId": "9256b6c458f24651a0d5f0f8b4b3db8d",
+    "reopenedGameTime": "2028-11-03T19:58:48",
+    "previousGroupsRetained": 5801,
+    "previousGroupsLost": 3,
+    "otherGroupsGained": 2,
+    "activeSitesAfterReload": 5803,
+    "newRebindingsSinceReload": 4,
+    "receiptSamplesVerified": 64,
+    "receiptSamplesChecked": 64,
+    "persistedSampleGroups": [
+      "extension_b21da9869b52dcaf",
+      "extension_ee7ab193ba25ab46",
+      "extension_e5b203c998183616",
+      "extension_5e3d7ea1684b4ab0",
+      "extension_a4928800e6e9eec8",
+      "extension_0c261043ca311609",
+      "extension_429edb70c862405c",
+      "extension_8f6605d7541c6f21",
+      "extension_ae9335ab86cbf9fe",
+      "extension_639e37df9bac9cf4",
+      "extension_eb6ece943af58671",
+      "extension_492d13a6ed5ab64f",
+      "extension_1b2b1a6b3b62ee40",
+      "extension_f1088af152c51313",
+      "extension_2f9444c6a6113f24",
+      "extension_cccbef0e5cc2ff7e",
+      "extension_3b9b16e420868a67",
+      "extension_0b494e2d1932bea8",
+      "extension_ea254e8a1ae329e8",
+      "extension_8b710efb1b155d2e",
+      "extension_a7c35a85135663a9",
+      "extension_3412e3245e78f064",
+      "extension_2064bdb7f97380ea",
+      "extension_32684ee4471fdcef",
+      "extension_b73d30cde9ef07d3",
+      "extension_711a47bdbd514424",
+      "extension_5a9e4edcbfe276e5",
+      "extension_6d3925b195f036ba",
+      "extension_c0abb291d06cd917",
+      "extension_b3b7371e114477cd",
+      "extension_e167c4b9f523f1b1",
+      "extension_e68625b2931a0968",
+      "extension_a2e7e693abe70e5d",
+      "extension_3d10e43044fc8a58",
+      "extension_1d912ca0701846d2",
+      "extension_acd9659ed3c0a138",
+      "extension_a1f67c1005d90b35",
+      "extension_9e9194b71637be19",
+      "extension_00bf3ba8861544db",
+      "extension_f85b2b01c1f2c6c4",
+      "extension_18105c2e4e7b0df9",
+      "extension_cfb17750a2889dc6",
+      "extension_5bba20a654136bcb",
+      "extension_ab215e2e171f0e4c",
+      "extension_1378e19371bd7050",
+      "extension_27d00e21dd4f0c73",
+      "extension_ff120690519b8aae",
+      "extension_ade8e3d9287e25c0",
+      "extension_f1bfa0aae776cb0c",
+      "extension_738b9c55b9c205f6",
+      "extension_cd1f66813b4cc190",
+      "extension_81ef2113c6b39d2e",
+      "site_487bd124a8f9",
+      "extension_3abb889729ffe91b",
+      "future_local_goods_030_33077",
+      "extension_2063b2122d8834b8",
+      "extension_575d64fbb05e9fd5",
+      "site_75e064014ab6",
+      "site_b64ba4686bd5",
+      "site_34a7b91566a2",
+      "site_d52410a88a37",
+      "site_6ca8511a5b38",
+      "site_e17e69e80b23",
+      "future_local_goods_021_70"
+    ],
+    "coexistenceWards": 16,
+    "sourceCoverage": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T13:08:54.1033461Z",
+      "activeNativeZonedSites": 5803,
+      "nativeSiteGroupCount": 5803,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "allRolesActive": 652989,
+        "noActiveRole": 49098,
+        "someRolesActive": 3648,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "active": 687347,
+        "uncovered": 54393
+      },
+      "writesToGame": false
+    }
+  }
+}

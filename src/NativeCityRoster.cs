@@ -21,6 +21,8 @@ namespace NagoyaRoadDelivery
         private int queued;
         private string report;
         private volatile bool stopping;
+        private int reboundLots;
+        private readonly List<Dictionary<string, object>> recentLotRebindings = new List<Dictionary<string, object>>();
 
         public void Update()
         {
@@ -64,6 +66,14 @@ namespace NagoyaRoadDelivery
                     activeRoads++;
                     connectedRoads.Add(road.Id);
                 }
+            List<Dictionary<string, object>> rebindings = NativeCityLotRebinding.Apply(lots, connectedRoads);
+            if (rebindings.Count > 0)
+            {
+                reboundLots += rebindings.Count;
+                recentLotRebindings.AddRange(rebindings);
+                if (recentLotRebindings.Count > 64) recentLotRebindings.RemoveRange(0, recentLotRebindings.Count - 64);
+                NativeCityLedger.Snapshot(out roads, out lots);
+            }
             SortedDictionary<string, Ward> wards = new SortedDictionary<string, Ward>(StringComparer.Ordinal);
             HashSet<ushort> activeSites = new HashSet<ushort>();
             HashSet<string> activeGroups = new HashSet<string>(StringComparer.Ordinal);
@@ -112,6 +122,7 @@ namespace NagoyaRoadDelivery
                 {"savedParcelReferences",lots.Length}, {"activeNativeZonedSites",activeSites.Count},
                 {"activeNativeSiteGroups",groupIds},
                 {"invalidOrLostNativeSites",missingLots}, {"wardsWithHumanAndAndroidPopulationAndJobs",workingWards},
+                {"reboundNativeLotsSinceLoad",reboundLots}, {"recentLotRebindings",recentLotRebindings},
                 {"nativeTraffic",CountTraffic()},
                 {"wards",byWard}, {"utc",DateTime.UtcNow.ToString("o",CultureInfo.InvariantCulture)}
             });

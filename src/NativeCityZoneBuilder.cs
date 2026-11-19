@@ -215,7 +215,7 @@ namespace NagoyaRoadDelivery
             }
         }
 
-        private static ItemClass.SubService ZoneService(ItemClass.Zone zone)
+        internal static ItemClass.SubService ZoneService(ItemClass.Zone zone)
         {
             switch (zone)
             {
