@@ -1,0 +1,24 @@
+{
+  "observation": "CS1 Native Goods material buffer read immediately before and after the confirmed shop arrival",
+  "gameTime": "2027-02-12T12:18:35",
+  "wallClockDateJST": "2026-11-19",
+  "runId": "20261119T033500693Z",
+  "ward": "熱田区",
+  "androidCitizenId": 261644,
+  "sender": {
+    "buildingId": 21336,
+    "service": "Industrial",
+    "stockBefore": 869,
+    "stockAfter": 769
+  },
+  "receiver": {
+    "buildingId": 22146,
+    "service": "Commercial",
+    "stockBefore": 13439,
+    "stockAfter": 13539
+  },
+  "confirmedGoodsTransferred": 100,
+  "deliveriesConfirmedAtCapture": 1,
+  "factoryPickupPathsFailedAtCapture": 4,
+  "populationPanelDisplayedDeliveryCount": 1
+}

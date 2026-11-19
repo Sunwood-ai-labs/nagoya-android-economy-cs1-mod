@@ -50,11 +50,12 @@ namespace NagoyaRoadDelivery
                 card.name = "NagoyaNativePopulation";
                 card.width = container.width - 20;
                 card.height = 104;
-                card.relativePosition = new Vector3(10, originalHeight);
+                card.relativePosition = new Vector3(10, Mathf.Max(0, originalHeight - card.height - 17));
                 parent.height = originalHeight + card.height + 8;
                 UILabel title = card.AddUIComponent<UILabel>();
                 title.text = "名古屋 2050　人とアンドロイド";
                 title.textScale = 0.9f;
+                title.textColor = new Color32(169, 239, 219, 255);
                 title.relativePosition = new Vector3(0, 0);
                 rows = card.AddUIComponent<UILabel>();
                 rows.autoSize = false;

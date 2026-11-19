@@ -290,11 +290,11 @@ namespace NagoyaRoadDelivery
             CitizenManager manager = CitizenManager.instance;
             DateTime now = SimulationManager.instance.m_currentGameTime;
             bool clockRunning = !SimulationManager.instance.SimulationPaused;
-            if (localDeliveries != null && cohort.Count > 0) localDeliveries.BeginSample(now);
+            if (localDeliveries != null && cohort.Count > 0) localDeliveries.BeginSample();
             double minutes = lastGameTime == DateTime.MinValue ? 0 : Math.Max(0, Math.Min(180, (now - lastGameTime).TotalMinutes));
             lastGameTime = now;
             int humans = 0, humanEmployed = 0, androidEmployed = 0, atHome = 0, atWork = 0, moving = 0;
-            int androidHomeMembers = 0, androidWorkMembers = 0, charging = 0;
+            int androidHomeMembers = 0, androidWorkMembers = 0, charging = 0, workplaceCharging = 0;
             List<object> rows = new List<object>();
             Citizen[] people = manager.m_citizens.m_buffer;
             for (int i = 1; i < people.Length; i++)
@@ -314,7 +314,7 @@ namespace NagoyaRoadDelivery
                 androidHomeMembers++;
                 bool jobMember = employed && InWorkUnit(manager, data.m_workBuilding, (uint)i);
                 if (jobMember) { androidEmployed++; androidWorkMembers++; }
-                bool delivering = clockRunning && jobMember && localDeliveries != null && now.Hour >= 8 && now.Hour < 17 && member.Battery >= 50 &&
+                bool delivering = clockRunning && jobMember && localDeliveries != null && member.Battery >= 30 &&
                     localDeliveries.Dispatch((uint)i, ref people[i], now);
                 if (delivering || (clockRunning && jobMember && ScheduleShift((uint)i, ref people[i], member, now)))
                     data = people[i];
@@ -324,16 +324,20 @@ namespace NagoyaRoadDelivery
                 if (home) { atHome++; member.HomeSamples++; }
                 if (work) { atWork++; member.WorkSamples++; }
                 if (running) { moving++; member.MovingSamples++; }
-                bool charge = home && member.Battery < 100 && (data.m_flags & Citizen.Flags.NoElectricity) == 0;
+                // Reserve charging lets an employee with a flat battery leave an actual powered workplace.
+                bool atPoweredWork = work && jobMember && member.Battery < 45 && HasElectricity(data.m_workBuilding);
+                bool charge = (home && member.Battery < 100 && (data.m_flags & Citizen.Flags.NoElectricity) == 0) || atPoweredWork;
+                if (atPoweredWork) workplaceCharging++;
                 if (charge) charging++;
                 if (charge && !member.Charging) member.ChargeStarts++;
                 member.Charging = charge;
                 if (charge) member.Battery = Math.Min(100, member.Battery + minutes * .25);
-                if (work || running) member.Battery = Math.Max(0, member.Battery - minutes * .10);
+                CitizenInstance instance = data.m_instance > 0 ? manager.m_instances.m_buffer[data.m_instance] : new CitizenInstance();
+                if (running && (instance.m_path != 0 || data.m_vehicle != 0))
+                    member.Battery = Math.Max(0, member.Battery - minutes * .02);
                 NativeCityLedger.Record(new NativeCityLedger.Android {
                     Id=(uint)i, Home=member.Home, HomeUnit=member.HomeUnit, Battery=(float)member.Battery
                 });
-                CitizenInstance instance = data.m_instance > 0 ? manager.m_instances.m_buffer[data.m_instance] : new CitizenInstance();
                 if (jobMember && instance.m_path != 0 && instance.m_sourceBuilding == member.Home &&
                     instance.m_targetBuilding == data.m_workBuilding)
                     member.CommuteSamples++;
@@ -355,6 +359,7 @@ namespace NagoyaRoadDelivery
                 {"androidRenderHookActive",renderer == this}, {"visualError",visualError},
                 {"nativeHumanResidents",humans}, {"humansWithWorkplace",humanEmployed}, {"androidHomeMembers",androidHomeMembers},
                 {"androidWorkMembers",androidWorkMembers}, {"androidAtHome",atHome}, {"androidAtWork",atWork}, {"androidMoving",moving},
+                {"workplaceReserveCharging",workplaceCharging},
                 {"androids",rows}
             };
             return new Sample {
@@ -366,6 +371,14 @@ namespace NagoyaRoadDelivery
                     "\nアンドロイド　移動 " + moving + " / 充電 " + charging +
                     "\n店舗への配送　" + (localDeliveries == null ? "―" : localDeliveries.Delivered.ToString())
             };
+        }
+
+        private static bool HasElectricity(ushort id)
+        {
+            NativeBuilding building = BuildingManager.instance.m_buildings.m_buffer[id];
+            const NativeBuilding.Flags required = NativeBuilding.Flags.Active | NativeBuilding.Flags.Created;
+            return (building.m_flags & required) == required &&
+                (building.m_problems & (Notification.Problem1.Electricity | Notification.Problem1.ElectricityNotConnected)).IsNone;
         }
 
         private bool ConfirmHome(CitizenManager manager, uint id, ushort home, Resident member)
@@ -400,14 +413,20 @@ namespace NagoyaRoadDelivery
             CitizenInfo info = citizen.GetCitizenInfo(id);
             HumanAI ai = info == null ? null : info.GetAI() as HumanAI;
             if (ai == null) return false;
-            if (goingToWork) member.LastCommuteDay = gameTime.Date;
-            else member.LastReturnDay = gameTime.Date;
             ushort from = goingToWork ? citizen.m_homeBuilding : citizen.m_workBuilding;
             ushort to = goingToWork ? citizen.m_workBuilding : citizen.m_homeBuilding;
             if (!ai.StartMoving(id, ref citizen, from, to)) return false;
             citizen.CurrentLocation = Citizen.Location.Moving;
-            if (goingToWork) member.CommutesStarted++;
-            else member.ReturnsStarted++;
+            if (goingToWork)
+            {
+                member.LastCommuteDay = gameTime.Date;
+                member.CommutesStarted++;
+            }
+            else
+            {
+                member.LastReturnDay = gameTime.Date;
+                member.ReturnsStarted++;
+            }
             return true;
         }
 
@@ -472,6 +491,7 @@ namespace NagoyaRoadDelivery
 
         public void OnGUI()
         {
+            if (populationCard != null && populationCard.Visible) return;
             Rect panel = new Rect(Screen.width - 420, Screen.height - 202, 400, 92);
             GUI.Box(panel, "");
             GUI.Label(new Rect(panel.x + 10, panel.y + 6, panel.width - 20, panel.height - 8), hud);

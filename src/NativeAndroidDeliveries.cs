@@ -10,6 +10,7 @@ namespace NagoyaRoadDelivery
     {
         private const string PatchId = "sunwood.nagoya.android-goods-delivery";
         private const int ParcelSize = 100;
+        private const uint TripFrameLimit = 262144;
         private static NativeAndroidDeliveries active;
         private Harmony harmony;
         private readonly Dictionary<uint, Trip> trips = new Dictionary<uint, Trip>();
@@ -17,8 +18,11 @@ namespace NagoyaRoadDelivery
         private readonly Dictionary<string, List<ushort>> shops = new Dictionary<string, List<ushort>>(StringComparer.Ordinal);
         private readonly HashSet<ushort> reservedShops = new HashSet<ushort>();
         private readonly HashSet<string> busyWards = new HashSet<string>(StringComparer.Ordinal);
+        private readonly Dictionary<uint, DateTime> retryAfter = new Dictionary<uint, DateTime>();
+        private readonly Queue<uint> readyAtFactory = new Queue<uint>();
         private readonly Queue<object> recent = new Queue<object>();
-        private int started, delivered, goods, stockedFactories, shopsWithSpace, workersSeenAtFactory;
+        private readonly Queue<object> failures = new Queue<object>();
+        private int pickupStarts, pickupArrivals, started, delivered, goods, stockedFactories, shopsWithSpace, workersSeenAtFactory, failedLegs;
         internal int Delivered { get { return delivered; } }
 
         private struct Trip
@@ -26,7 +30,14 @@ namespace NagoyaRoadDelivery
             public ushort Supplier, Target;
             public uint SupplierGeneration, TargetGeneration;
             public string Ward;
-            public DateTime Expires;
+            public uint Frame;
+            public bool Collecting;
+        }
+
+        private struct Arrival
+        {
+            public uint Citizen, Path;
+            public ushort Source, Target;
         }
 
         internal NativeAndroidDeliveries()
@@ -36,16 +47,31 @@ namespace NagoyaRoadDelivery
                 new Type[] {typeof(ushort), typeof(CitizenInstance).MakeByRefType(), typeof(bool)}, null);
             if (target == null) throw new MissingMethodException("HumanAI.ArriveAtDestination");
             MethodInfo postfix = typeof(NativeAndroidDeliveries).GetMethod("AfterArrival", BindingFlags.Static | BindingFlags.NonPublic);
+            MethodInfo prefix = typeof(NativeAndroidDeliveries).GetMethod("BeforeArrival", BindingFlags.Static | BindingFlags.NonPublic);
+            MethodInfo step = typeof(CitizenManager).GetMethod("SimulationStepImpl", BindingFlags.Instance | BindingFlags.NonPublic,
+                null, new Type[] {typeof(int)}, null);
+            if (step == null) throw new MissingMethodException("CitizenManager.SimulationStepImpl");
+            MethodInfo afterStep = typeof(NativeAndroidDeliveries).GetMethod("AfterCitizenStep", BindingFlags.Static | BindingFlags.NonPublic);
             harmony = new Harmony(PatchId);
-            harmony.Patch(target, null, new HarmonyMethod(postfix), null, null);
+            try
+            {
+                harmony.Patch(target, new HarmonyMethod(prefix), new HarmonyMethod(postfix), null, null);
+                harmony.Patch(step, null, new HarmonyMethod(afterStep), null, null);
+            }
+            catch
+            {
+                harmony.UnpatchAll(PatchId);
+                throw;
+            }
             active = this;
         }
 
-        internal void BeginSample(DateTime now)
+        internal void BeginSample()
         {
+            uint frame = SimulationManager.instance.m_currentFrameIndex;
             var expired = new List<uint>();
             foreach (var trip in trips)
-                if (trip.Value.Expires <= now) expired.Add(trip.Key);
+                if (unchecked(frame - trip.Value.Frame) >= TripFrameLimit) expired.Add(trip.Key);
             foreach (uint id in expired) EndTrip(id);
             sites.Clear();
             shops.Clear();
@@ -75,51 +101,133 @@ namespace NagoyaRoadDelivery
 
         internal bool Dispatch(uint id, ref Citizen citizen, DateTime gameTime)
         {
+            bool atWork = citizen.CurrentLocation == Citizen.Location.Work;
+            bool atHome = citizen.CurrentLocation == Citizen.Location.Home && gameTime.Hour >= 7 && gameTime.Hour < 17;
             NativeCityLedger.Lot supplier;
-            if (citizen.CurrentLocation != Citizen.Location.Work || citizen.m_visitBuilding != 0 || trips.ContainsKey(id) ||
+            DateTime next;
+            if ((!atWork && !atHome) || trips.ContainsKey(id) ||
                 !sites.TryGetValue(citizen.m_workBuilding, out supplier) || supplier.Zone != ItemClass.Zone.Industrial ||
-                busyWards.Contains(supplier.Ward)) return false;
-            workersSeenAtFactory++;
+                busyWards.Contains(supplier.Ward) || (retryAfter.TryGetValue(id, out next) && next > gameTime)) return false;
+            if (atWork) workersSeenAtFactory++;
             global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
             BuildingAI industry = ActiveAI(ref buildings[supplier.Id]);
             List<ushort> candidates;
             if (!(industry is IndustrialBuildingAI) || !shops.TryGetValue(supplier.Ward, out candidates) ||
                 Stock(industry, supplier.Id, ref buildings[supplier.Id]) < ParcelSize) return false;
+            Vector3 source = buildings[supplier.Id].m_position;
+            if (atHome && (buildings[citizen.m_homeBuilding].m_position - source).sqrMagnitude > 650 * 650) return false;
             ushort target = 0;
             float best = 700 * 700;
-            Vector3 source = buildings[supplier.Id].m_position;
             foreach (ushort shop in candidates)
             {
                 float distance = (buildings[shop].m_position - source).sqrMagnitude;
-                if (reservedShops.Contains(shop) || distance < 40 * 40 || distance >= best) continue;
+                if (reservedShops.Contains(shop) || distance < 12 * 12 || distance >= best) continue;
                 BuildingAI ai = ActiveAI(ref buildings[shop]);
                 if (!(ai is CommercialBuildingAI) || Space(ai, shop, ref buildings[shop]) < ParcelSize) continue;
                 target = shop;
                 best = distance;
             }
             if (target == 0) return false;
-            CitizenInfo info = citizen.GetCitizenInfo(id);
-            HumanAI actor = info == null ? null : info.GetAI() as HumanAI;
-            if (actor == null) return false;
-            citizen.SetVisitplace(id, target, 0);
-            if (citizen.m_visitBuilding != target) return false;
-            if (!actor.StartMoving(id, ref citizen, supplier.Id, target))
-            {
-                citizen.SetVisitplace(id, 0, 0);
-                return false;
-            }
-            citizen.CurrentLocation = Citizen.Location.Moving;
-            trips.Add(id, new Trip {Supplier=supplier.Id, Target=target, SupplierGeneration=buildings[supplier.Id].m_buildIndex,
-                TargetGeneration=buildings[target].m_buildIndex, Ward=supplier.Ward, Expires=gameTime.AddHours(24)});
+            Trip trip = new Trip {Supplier=supplier.Id, Target=target, SupplierGeneration=buildings[supplier.Id].m_buildIndex,
+                TargetGeneration=buildings[target].m_buildIndex, Ward=supplier.Ward,
+                Frame=SimulationManager.instance.m_currentFrameIndex, Collecting=atHome};
+            if (atHome ? !StartLeg(id, ref citizen, citizen.m_homeBuilding, supplier.Id, false) :
+                !StartLeg(id, ref citizen, supplier.Id, target, true)) return false;
+            trips.Add(id, trip);
             reservedShops.Add(target);
             busyWards.Add(supplier.Ward);
-            started++;
+            if (atHome) pickupStarts++; else started++;
             return true;
         }
 
-        private static void AfterArrival(ref CitizenInstance __1, bool __2)
+        private static bool StartLeg(uint id, ref Citizen citizen, ushort from, ushort to, bool visit)
         {
-            if (active != null && __2) active.TransferOnArrival(__1.m_citizen, __1.m_targetBuilding);
+            CitizenInfo info = citizen.GetCitizenInfo(id);
+            HumanAI actor = info == null ? null : info.GetAI() as HumanAI;
+            if (actor == null || from == 0 || to == 0) return false;
+            if (visit)
+            {
+                citizen.SetVisitplace(id, to, 0);
+                if (citizen.m_visitBuilding != to) return false;
+            }
+            if (!actor.StartMoving(id, ref citizen, from, to))
+            {
+                if (visit) citizen.SetVisitplace(id, 0, 0);
+                return false;
+            }
+            citizen.CurrentLocation = Citizen.Location.Moving;
+            return true;
+        }
+
+        private static void BeforeArrival(ref CitizenInstance __1, out Arrival __state)
+        {
+            __state = new Arrival {Citizen=__1.m_citizen, Source=__1.m_sourceBuilding, Target=__1.m_targetBuilding, Path=__1.m_path};
+        }
+
+        private static void AfterArrival(bool __2, Arrival __state)
+        {
+            if (active != null) active.ObserveArrival(__state, __2);
+        }
+
+        private void ObserveArrival(Arrival arrival, bool success)
+        {
+            uint id = arrival.Citizen;
+            Trip trip;
+            if (!trips.TryGetValue(id, out trip)) return;
+            if (!success)
+            {
+                failedLegs++;
+                if (failures.Count == 12) failures.Dequeue();
+                failures.Enqueue(new Dictionary<string, object> {{"android",id}, {"collecting",trip.Collecting},
+                    {"from",arrival.Source}, {"target",arrival.Target}, {"pathId",arrival.Path},
+                    {"expectedTarget",trip.Collecting ? trip.Supplier : trip.Target}});
+                retryAfter[id] = SimulationManager.instance.m_currentGameTime.AddHours(18);
+                EndTrip(id);
+                return;
+            }
+            if (!trip.Collecting)
+            {
+                TransferOnArrival(id, arrival.Target);
+                return;
+            }
+            if (arrival.Target == trip.Supplier && readyAtFactory.Count < 32) readyAtFactory.Enqueue(id);
+        }
+
+        private static void AfterCitizenStep()
+        {
+            NativeAndroidDeliveries delivery = active;
+            if (delivery == null || delivery.readyAtFactory.Count == 0) return;
+            int count = delivery.readyAtFactory.Count;
+            for (int i = 0; i < count; i++) delivery.LeaveFactory(delivery.readyAtFactory.Dequeue());
+        }
+
+        private void LeaveFactory(uint id)
+        {
+            Trip trip;
+            if (!trips.TryGetValue(id, out trip) || !trip.Collecting) return;
+            Citizen[] people = CitizenManager.instance.m_citizens.m_buffer;
+            if (people[id].CurrentLocation != Citizen.Location.Work || people[id].m_workBuilding != trip.Supplier ||
+                !HasPlannedBuildings(trip))
+            {
+                EndTrip(id);
+                return;
+            }
+            pickupArrivals++;
+            if (!StartLeg(id, ref people[id], trip.Supplier, trip.Target, true))
+            {
+                failedLegs++;
+                EndTrip(id);
+                return;
+            }
+            trip.Collecting = false;
+            trips[id] = trip;
+            started++;
+        }
+
+        private static bool HasPlannedBuildings(Trip trip)
+        {
+            global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
+            return buildings[trip.Supplier].m_buildIndex == trip.SupplierGeneration && buildings[trip.Target].m_buildIndex == trip.TargetGeneration;
         }
 
         private void TransferOnArrival(uint id, ushort target)
@@ -130,11 +238,13 @@ namespace NagoyaRoadDelivery
             if (citizen.CurrentLocation != Citizen.Location.Visit || citizen.m_visitBuilding != target) return;
             EndTrip(id);
             global::Building[] buildings = BuildingManager.instance.m_buildings.m_buffer;
-            if (buildings[trip.Supplier].m_buildIndex != trip.SupplierGeneration || buildings[target].m_buildIndex != trip.TargetGeneration) return;
+            if (!HasPlannedBuildings(trip)) return;
             BuildingAI source = ActiveAI(ref buildings[trip.Supplier]);
             BuildingAI destination = ActiveAI(ref buildings[target]);
             if (!(source is IndustrialBuildingAI) || !(destination is CommercialBuildingAI)) return;
-            int requested = Math.Min(ParcelSize, Math.Min(Stock(source, trip.Supplier, ref buildings[trip.Supplier]),
+            int factoryBefore = Stock(source, trip.Supplier, ref buildings[trip.Supplier]);
+            int shopBefore = Stock(destination, target, ref buildings[target]);
+            int requested = Math.Min(ParcelSize, Math.Min(factoryBefore,
                 Space(destination, target, ref buildings[target])));
             if (requested <= 0) return;
             int debit = -requested;
@@ -150,7 +260,9 @@ namespace NagoyaRoadDelivery
             goods += credit;
             if (recent.Count == 64) recent.Dequeue();
             recent.Enqueue(new Dictionary<string, object> {{"android",id}, {"from",trip.Supplier}, {"to",target},
-                {"ward",trip.Ward}, {"stockAdded",credit}, {"gameTime",SimulationManager.instance.m_currentGameTime.ToString("s")}});
+                {"ward",trip.Ward}, {"stockAdded",credit}, {"factoryBefore",factoryBefore},
+                {"factoryAfter",Stock(source, trip.Supplier, ref buildings[trip.Supplier])}, {"shopBefore",shopBefore},
+                {"shopAfter",Stock(destination, target, ref buildings[target])}, {"gameTime",SimulationManager.instance.m_currentGameTime.ToString("s")}});
         }
 
         internal void EndTrip(uint id)
@@ -187,7 +299,8 @@ namespace NagoyaRoadDelivery
         {
             return new Dictionary<string, object> {{"active",trips.Count}, {"started",started}, {"delivered",delivered},
                 {"stockAdded",goods}, {"stockedFactories",stockedFactories}, {"shopsWithSpace",shopsWithSpace},
-                {"workersSeenAtFactory",workersSeenAtFactory}, {"recent",recent.ToArray()}};
+                {"workersSeenAtFactory",workersSeenAtFactory}, {"pickupStarts",pickupStarts}, {"pickupArrivals",pickupArrivals},
+                {"failedLegs",failedLegs}, {"recentFailures",failures.ToArray()}, {"recent",recent.ToArray()}};
         }
 
         public void Dispose()
