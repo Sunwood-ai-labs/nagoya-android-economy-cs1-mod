@@ -36,7 +36,6 @@ namespace NagoyaRoadDelivery
                     throw new InvalidDataException("Invalid waste collection building");
                 buildings.Add(id, buffer[id].m_buildIndex);
             }
-
             Type[] arguments = {typeof(ushort), typeof(Vehicle).MakeByRefType(), typeof(Vehicle.Frame).MakeByRefType(),
                 typeof(ushort), typeof(NativeBuilding).MakeByRefType()};
             Type[] offerArguments = {typeof(TransferManager.TransferReason), typeof(TransferManager.TransferOffer)};
@@ -123,8 +122,16 @@ namespace NagoyaRoadDelivery
             if (__1.m_path != 0 && __1.m_path < paths.Length)
             {
                 PathUnit path = paths[__1.m_path];
-                trace.Add("pathRequestSegments", new ushort[] {path.GetPosition(0).m_segment, path.GetPosition(1).m_segment,
-                    path.GetPosition(2).m_segment, path.GetPosition(3).m_segment});
+                var segments = new ushort[4];
+                var lanes = new byte[4];
+                for (int i = 0; i < segments.Length; i++)
+                {
+                    PathUnit.Position position = path.GetPosition(i);
+                    segments[i] = position.m_segment;
+                    lanes[i] = position.m_lane;
+                }
+                trace.Add("pathRequestSegments", segments);
+                trace.Add("pathRequestLanes", lanes);
             }
             watch.dispatchSamples.Add(trace);
             watch.activeDispatches[__0] = trace;
@@ -148,9 +155,12 @@ namespace NagoyaRoadDelivery
             string result = (path.m_pathFindFlags & PathUnit.FLAG_READY) != 0 ? "ready" :
                 (path.m_pathFindFlags & PathUnit.FLAG_FAILED) != 0 ? "failed" : null;
             if (result == null) return;
+            bool ready = result == "ready";
+            PathUnit.Position first = ready ? path.GetPosition(0) : default(PathUnit.Position);
             trace["outboundPathResult"] = new Dictionary<string, object> {
                 {"result",result}, {"gameTime",SimulationManager.instance.m_currentGameTime.ToString("s")},
-                {"flags",path.m_pathFindFlags}, {"target",__1.m_targetBuilding}, {"lengthMeters",result == "ready" ? (object)path.m_length : null}
+                {"flags",path.m_pathFindFlags}, {"target",__1.m_targetBuilding}, {"lengthMeters",ready ? (object)path.m_length : null},
+                {"firstSegment",ready ? (object)first.m_segment : null}, {"firstLane",ready ? (object)first.m_lane : null}
             };
         }
 

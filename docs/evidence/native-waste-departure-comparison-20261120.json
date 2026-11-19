@@ -1,0 +1,535 @@
+{
+  "checkpoint": {
+    "name": "NagoyaCitywide-WasteBudgetTrial-AccessProbe",
+    "bytes": 15431845,
+    "sha256": "8E0D01AD6A2A7C11C50F5FF0FF5506BCD5DC14FF92AFB3E74BDF6784C1EE49B9"
+  },
+  "experimentalAssemblySha256": "229B0B06D06B5C04421801F7129BA307072EFF7182D1EE7A0FB685EC37C06E84",
+  "baseline": {
+    "evidence": "native-waste-vehicle-path-20261120.json",
+    "from": "2029-12-02T06:59:30",
+    "until": "2029-12-03T08:35:28",
+    "dispatches": 12,
+    "ready": 2,
+    "failed": 10
+  },
+  "trial": {
+    "from": "2029-12-02T06:59:56",
+    "until": "2029-12-03T08:46:34",
+    "cashStart": 15050.5,
+    "cashEnd": 3883.5,
+    "additionalDepartureRequests": 9,
+    "alternatePathSuccesses": 0,
+    "releaseWithoutSpawn": 9,
+    "repeatedFacilityTargetPairs": 3,
+    "dispatches": 12,
+    "ready": 2,
+    "selectedWarnedBuildings": 64,
+    "selectedWarnedBuildingPickups": 0,
+    "wardCountWithHumanAndAndroidHomesAndJobs": 16
+  },
+  "cases": [
+    {
+      "gameTime": "2029-12-02T07:46:57",
+      "vehicle": 7915,
+      "facility": 28215,
+      "offeredTarget": 25787,
+      "target": 25787,
+      "path": 199670,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-02T07:54:24",
+        "flags": 8,
+        "target": 25787,
+        "lengthMeters": null,
+        "firstSegment": null,
+        "firstLane": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-02T08:38:52",
+        "target": 25787,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        24054,
+        6974,
+        24054,
+        0
+      ],
+      "pathRequestLanes": [
+        4,
+        4,
+        7,
+        0
+      ]
+    },
+    {
+      "gameTime": "2029-12-02T07:46:57",
+      "vehicle": 16204,
+      "facility": 16719,
+      "offeredTarget": 36855,
+      "target": 36855,
+      "path": 229790,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-02T08:16:46",
+        "flags": 8,
+        "target": 36855,
+        "lengthMeters": null,
+        "firstSegment": null,
+        "firstLane": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-02T08:58:45",
+        "target": 36855,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        5240,
+        3976,
+        5240,
+        3976
+      ],
+      "pathRequestLanes": [
+        4,
+        4,
+        7,
+        5
+      ]
+    },
+    {
+      "gameTime": "2029-12-02T07:46:57",
+      "vehicle": 9644,
+      "facility": 6206,
+      "offeredTarget": 24267,
+      "target": 24267,
+      "path": 10539,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "ready",
+        "gameTime": "2029-12-02T07:54:24",
+        "flags": 4,
+        "target": 24267,
+        "lengthMeters": 3189.099,
+        "firstSegment": 16450,
+        "firstLane": 5
+      },
+      "firstSpawn": {
+        "gameTime": "2029-12-02T07:54:24",
+        "target": 24267,
+        "path": 10539,
+        "load": 0,
+        "spawned": true
+      },
+      "firstPickup": {
+        "building": 28354,
+        "pickup": {
+          "gameTime": "2029-12-02T07:54:24",
+          "vehicle": 9644,
+          "sourceFacility": 6206,
+          "garbageBefore": 60,
+          "garbageAfter": 0,
+          "truckLoadBefore": 0,
+          "truckLoadAfter": 60
+        }
+      },
+      "returned": null,
+      "released": null,
+      "pathRequestSegments": [
+        16450,
+        13267,
+        16450,
+        0
+      ],
+      "pathRequestLanes": [
+        4,
+        4,
+        5,
+        0
+      ]
+    },
+    {
+      "gameTime": "2029-12-02T07:46:57",
+      "vehicle": 7865,
+      "facility": 45809,
+      "offeredTarget": 46295,
+      "target": 46295,
+      "path": 86240,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-02T07:54:24",
+        "flags": 8,
+        "target": 46295,
+        "lengthMeters": null,
+        "firstSegment": null,
+        "firstLane": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-02T08:38:52",
+        "target": 46295,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        5326,
+        22641,
+        5326,
+        0
+      ],
+      "pathRequestLanes": [
+        4,
+        5,
+        7,
+        0
+      ]
+    },
+    {
+      "gameTime": "2029-12-02T18:14:46",
+      "vehicle": 14526,
+      "facility": 16719,
+      "offeredTarget": 1900,
+      "target": 1900,
+      "path": 100915,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-02T18:47:15",
+        "flags": 8,
+        "target": 1900,
+        "lengthMeters": null,
+        "firstSegment": null,
+        "firstLane": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-02T19:27:24",
+        "target": 1900,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        5240,
+        24385,
+        5240,
+        0
+      ],
+      "pathRequestLanes": [
+        4,
+        4,
+        7,
+        0
+      ]
+    },
+    {
+      "gameTime": "2029-12-02T18:14:46",
+      "vehicle": 9336,
+      "facility": 28215,
+      "offeredTarget": 43945,
+      "target": 43945,
+      "path": 12112,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-02T18:34:07",
+        "flags": 8,
+        "target": 43945,
+        "lengthMeters": null,
+        "firstSegment": null,
+        "firstLane": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-02T19:15:01",
+        "target": 43945,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        24054,
+        15938,
+        24054,
+        0
+      ],
+      "pathRequestLanes": [
+        4,
+        4,
+        7,
+        0
+      ]
+    },
+    {
+      "gameTime": "2029-12-02T18:14:46",
+      "vehicle": 8382,
+      "facility": 45809,
+      "offeredTarget": 29653,
+      "target": 29653,
+      "path": 161045,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-02T18:34:07",
+        "flags": 8,
+        "target": 29653,
+        "lengthMeters": null,
+        "firstSegment": null,
+        "firstLane": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-02T19:15:01",
+        "target": 29653,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        5326,
+        16525,
+        5326,
+        0
+      ],
+      "pathRequestLanes": [
+        4,
+        4,
+        7,
+        0
+      ]
+    },
+    {
+      "gameTime": "2029-12-02T18:14:46",
+      "vehicle": 108,
+      "facility": 6206,
+      "offeredTarget": 25787,
+      "target": 25787,
+      "path": 143985,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-02T18:53:46",
+        "flags": 8,
+        "target": 25787,
+        "lengthMeters": null,
+        "firstSegment": null,
+        "firstLane": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-02T19:33:34",
+        "target": 25787,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        16450,
+        6974,
+        16450,
+        0
+      ],
+      "pathRequestLanes": [
+        4,
+        4,
+        5,
+        0
+      ]
+    },
+    {
+      "gameTime": "2029-12-03T04:51:24",
+      "vehicle": 3475,
+      "facility": 16719,
+      "offeredTarget": 7282,
+      "target": 7282,
+      "path": 193747,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-03T04:51:24",
+        "flags": 8,
+        "target": 7282,
+        "lengthMeters": null,
+        "firstSegment": null,
+        "firstLane": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-03T05:31:41",
+        "target": 7282,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        5240,
+        22356,
+        5240,
+        22356
+      ],
+      "pathRequestLanes": [
+        4,
+        4,
+        7,
+        5
+      ]
+    },
+    {
+      "gameTime": "2029-12-03T04:51:24",
+      "vehicle": 12725,
+      "facility": 28215,
+      "offeredTarget": 8693,
+      "target": 8693,
+      "path": 91807,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-03T05:14:48",
+        "flags": 8,
+        "target": 8693,
+        "lengthMeters": null,
+        "firstSegment": null,
+        "firstLane": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-03T05:53:54",
+        "target": 8693,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        24054,
+        24548,
+        24054,
+        24548
+      ],
+      "pathRequestLanes": [
+        4,
+        4,
+        7,
+        5
+      ]
+    },
+    {
+      "gameTime": "2029-12-03T04:51:24",
+      "vehicle": 13195,
+      "facility": 6206,
+      "offeredTarget": 3512,
+      "target": 3512,
+      "path": 183938,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "ready",
+        "gameTime": "2029-12-03T05:14:48",
+        "flags": 4,
+        "target": 3512,
+        "lengthMeters": 5062.103,
+        "firstSegment": 16450,
+        "firstLane": 5
+      },
+      "firstSpawn": {
+        "gameTime": "2029-12-03T05:14:48",
+        "target": 3512,
+        "path": 183938,
+        "load": 0,
+        "spawned": true
+      },
+      "firstPickup": {
+        "building": 28354,
+        "pickup": {
+          "gameTime": "2029-12-03T05:14:48",
+          "vehicle": 13195,
+          "sourceFacility": 6206,
+          "garbageBefore": 5,
+          "garbageAfter": 0,
+          "truckLoadBefore": 0,
+          "truckLoadAfter": 5
+        }
+      },
+      "returned": null,
+      "released": null,
+      "pathRequestSegments": [
+        16450,
+        19954,
+        16450,
+        19954
+      ],
+      "pathRequestLanes": [
+        4,
+        4,
+        5,
+        5
+      ]
+    },
+    {
+      "gameTime": "2029-12-03T04:51:24",
+      "vehicle": 2729,
+      "facility": 45809,
+      "offeredTarget": 46295,
+      "target": 46295,
+      "path": 137377,
+      "waitingForPath": true,
+      "outboundPathResult": {
+        "result": "failed",
+        "gameTime": "2029-12-03T05:26:15",
+        "flags": 8,
+        "target": 46295,
+        "lengthMeters": null,
+        "firstSegment": null,
+        "firstLane": null
+      },
+      "firstSpawn": null,
+      "firstPickup": null,
+      "returned": null,
+      "released": {
+        "gameTime": "2029-12-03T06:10:36",
+        "target": 46295,
+        "path": 0,
+        "load": 0,
+        "spawned": false
+      },
+      "pathRequestSegments": [
+        5326,
+        22641,
+        5326,
+        0
+      ],
+      "pathRequestLanes": [
+        4,
+        5,
+        7,
+        0
+      ]
+    }
+  ]
+}
