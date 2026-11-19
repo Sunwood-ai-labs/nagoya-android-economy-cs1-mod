@@ -1,0 +1,349 @@
+{
+  "status": "verified native road installation; zoning and utility candidates planned",
+  "baselineSave": {
+    "name": "NagoyaCitywide-ThirdLocalStreets-BeforeRoadExtension",
+    "sha256": "B5B2AD0D504E45A42DC242044C28ADFBA8B5F80EDF14D2692273A1A2E3053E1B",
+    "bytes": 14450550
+  },
+  "roadSave": {
+    "name": "NagoyaCitywide-ThirdLocalStreets-Roads",
+    "sha256": "519F75721F3BEA382008E6943FE4C8D8EDA5F8AA05FC6278DD6A361B07414582",
+    "bytes": 14624562
+  },
+  "planSha256": "195FA0121ECAF8CE8CCB99BEAE4B7F42FD89ADE3BE9442784684768D10E83F4B",
+  "receiptSha256": "A31B8D5381511FE6953BD9A54EC8AD25A73DE74F224961B7FBD6B993258D84A7",
+  "segmentsCreated": 600,
+  "registeredRoadsBefore": 20079,
+  "registeredRoadsAfter": 20679,
+  "existingRoadJunctionsUsed": 95,
+  "connectedRoadNodeCount": 20640,
+  "components": 1,
+  "gameNetworkNodes": 30816,
+  "gameNetworkSegments": 30832,
+  "activeParcelsUnchanged": 5435,
+  "wardsWithHumanAndAndroidPopulationAndJobs": 16,
+  "nativePedestrianSamples": [
+    {
+      "ward": "守山区",
+      "roadId": 35086,
+      "source": "w177128727:p0:e87246",
+      "prefab": "Basic Road",
+      "start": {
+        "x": 2454.237,
+        "y": 140,
+        "z": 1925.02
+      },
+      "end": {
+        "x": 2447.179,
+        "y": 140,
+        "z": 1959.819
+      },
+      "startNode": 13303,
+      "endNode": 13342,
+      "pedestrianLanes": 2
+    },
+    {
+      "ward": "中村区",
+      "roadId": 7384,
+      "source": "w139506474:p0:e44447",
+      "prefab": "Basic Road",
+      "start": {
+        "x": -2598.544,
+        "y": 140,
+        "z": 668.623
+      },
+      "end": {
+        "x": -2619.34,
+        "y": 140,
+        "z": 668.786
+      },
+      "startNode": 18511,
+      "endNode": 22640,
+      "pedestrianLanes": 2
+    },
+    {
+      "ward": "港区",
+      "roadId": 29928,
+      "source": "w392729445:p0:e123264",
+      "prefab": "Basic Road",
+      "start": {
+        "x": -2262.619,
+        "y": 140,
+        "z": -1492.526
+      },
+      "end": {
+        "x": -2207.617,
+        "y": 140,
+        "z": -1494.126
+      },
+      "startNode": 13013,
+      "endNode": 5851,
+      "pedestrianLanes": 2
+    },
+    {
+      "ward": "中川区",
+      "roadId": 25505,
+      "source": "w144897587:p0:e60251",
+      "prefab": "Basic Road",
+      "start": {
+        "x": -3337.856,
+        "y": 140,
+        "z": 275.008
+      },
+      "end": {
+        "x": -3333.93,
+        "y": 140,
+        "z": 297.644
+      },
+      "startNode": 27403,
+      "endNode": 8092,
+      "pedestrianLanes": 2
+    },
+    {
+      "ward": "名東区",
+      "roadId": 13634,
+      "source": "w179563741:p0:e90609",
+      "prefab": "Basic Road",
+      "start": {
+        "x": 3021.413,
+        "y": 140,
+        "z": 851.52
+      },
+      "end": {
+        "x": 3006.145,
+        "y": 140,
+        "z": 863.804
+      },
+      "startNode": 24102,
+      "endNode": 5816,
+      "pedestrianLanes": 2
+    },
+    {
+      "ward": "昭和区",
+      "roadId": 22452,
+      "source": "w132091252:p0:e35198",
+      "prefab": "Basic Road",
+      "start": {
+        "x": 1135.574,
+        "y": 140,
+        "z": 302.376
+      },
+      "end": {
+        "x": 1138.538,
+        "y": 140,
+        "z": 321.887
+      },
+      "startNode": 20416,
+      "endNode": 27954,
+      "pedestrianLanes": 2
+    },
+    {
+      "ward": "瑞穂区",
+      "roadId": 19521,
+      "source": "w51714147:p0:e11925",
+      "prefab": "Basic Road",
+      "start": {
+        "x": 629.344,
+        "y": 140,
+        "z": -1141.875
+      },
+      "end": {
+        "x": 674.931,
+        "y": 140,
+        "z": -1138.721
+      },
+      "startNode": 3590,
+      "endNode": 11788,
+      "pedestrianLanes": 2
+    },
+    {
+      "ward": "千種区",
+      "roadId": 3253,
+      "source": "w155227029:p0:e77520",
+      "prefab": "Basic Road",
+      "start": {
+        "x": 1925.831,
+        "y": 140,
+        "z": 1454.572
+      },
+      "end": {
+        "x": 1894.206,
+        "y": 140,
+        "z": 1463.308
+      },
+      "startNode": 4017,
+      "endNode": 5775,
+      "pedestrianLanes": 2
+    },
+    {
+      "ward": "熱田区",
+      "roadId": 24144,
+      "source": "w149827813:p0:e72419",
+      "prefab": "Basic Road",
+      "start": {
+        "x": -484.504,
+        "y": 140,
+        "z": -1154.054
+      },
+      "end": {
+        "x": -470.471,
+        "y": 140,
+        "z": -1173.279
+      },
+      "startNode": 12249,
+      "endNode": 9310,
+      "pedestrianLanes": 2
+    },
+    {
+      "ward": "北区",
+      "roadId": 16816,
+      "source": "w97195817:p0:e22674",
+      "prefab": "Basic Road",
+      "start": {
+        "x": -62.083,
+        "y": 140,
+        "z": 3693.075
+      },
+      "end": {
+        "x": -62,
+        "y": 140,
+        "z": 3710.959
+      },
+      "startNode": 23600,
+      "endNode": 22326,
+      "pedestrianLanes": 2
+    },
+    {
+      "ward": "天白区",
+      "roadId": 16381,
+      "source": "w110169515:p0:e31317",
+      "prefab": "Basic Road",
+      "start": {
+        "x": 1730.738,
+        "y": 140,
+        "z": -1626.134
+      },
+      "end": {
+        "x": 1769.973,
+        "y": 140,
+        "z": -1630.209
+      },
+      "startNode": 6650,
+      "endNode": 596,
+      "pedestrianLanes": 2
+    },
+    {
+      "ward": "南区",
+      "roadId": 35089,
+      "source": "w182165762:p0:e92676",
+      "prefab": "Basic Road",
+      "start": {
+        "x": 114.208,
+        "y": 140,
+        "z": -2248.803
+      },
+      "end": {
+        "x": 107.422,
+        "y": 140,
+        "z": -2232
+      },
+      "startNode": 31670,
+      "endNode": 29486,
+      "pedestrianLanes": 2
+    },
+    {
+      "ward": "中区",
+      "roadId": 21839,
+      "source": "w51801931:p0:e14348",
+      "prefab": "Basic Road",
+      "start": {
+        "x": -789.515,
+        "y": 140,
+        "z": -39.801
+      },
+      "end": {
+        "x": -788.524,
+        "y": 140,
+        "z": -9.858
+      },
+      "startNode": 19195,
+      "endNode": 12285,
+      "pedestrianLanes": 2
+    },
+    {
+      "ward": "西区",
+      "roadId": 29597,
+      "source": "w587977503:p0:e133322",
+      "prefab": "Basic Road",
+      "start": {
+        "x": -1060.512,
+        "y": 140,
+        "z": 1395.078
+      },
+      "end": {
+        "x": -1044.4,
+        "y": 140,
+        "z": 1390.865
+      },
+      "startNode": 12171,
+      "endNode": 10651,
+      "pedestrianLanes": 2
+    }
+  ],
+  "clearanceReview": {
+    "compiledSegments": 600,
+    "checkedExistingCenterlines": 24227,
+    "nativeJunctionsReused": 95,
+    "newJunctions": 598,
+    "skipped": {
+      "occupied_building_frontage": 232,
+      "impinges_on_installed_road": 98,
+      "impinges_on_another_extension": 3,
+      "disconnected_after_clearance": 1655
+    },
+    "contractions": {
+      "shortLinksContracted": 624,
+      "contractionPass1": 624,
+      "shortLinksCollapsed": 625
+    },
+    "groupsWithRetainedStreet": 176,
+    "wards": {
+      "守山区": 18,
+      "中村区": 14,
+      "港区": 27,
+      "中川区": 34,
+      "名東区": 14,
+      "緑区": 2,
+      "昭和区": 16,
+      "瑞穂区": 2,
+      "千種区": 3,
+      "熱田区": 15,
+      "北区": 9,
+      "天白区": 7,
+      "南区": 9,
+      "中区": 3,
+      "西区": 1,
+      "unassigned": 2
+    },
+    "roleMembershipsWithRetainedStreet": 14875,
+    "writesToGame": false
+  },
+  "zoningCandidates": 127,
+  "zoningPlanSha256": "520FCCC21799FDB86369B5A0A87AF5A3E438A6EF36FDC5479DB06953C0F0E066",
+  "proposedRoleMemberships": 12241,
+  "proposedUtilitySegments": 166,
+  "directVisualInspection": [
+    {
+      "observation": "New ground road and crosswalk visible; neighboring district render contains simple roof geometry.",
+      "ward": "守山区",
+      "roadId": 35086,
+      "sha256": "6A6F446D0CEE95763C8BB8B089D7C75C57677007DCE89A86CC33A88C8B6B2991"
+    },
+    {
+      "observation": "Ground road and adjacent surface visible. Large rock-like map objects obscure parts of the surrounding streetscape.",
+      "ward": "港区",
+      "roadId": 29928,
+      "sha256": "EB16F518D76047B4F230AE7049E58B590E79D4D304144F1ADB22A202AF540276"
+    }
+  ]
+}
