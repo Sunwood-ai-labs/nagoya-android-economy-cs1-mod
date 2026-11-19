@@ -1,0 +1,188 @@
+{
+  "status": "verified in the native Cities: Skylines simulation on the scoped test budget",
+  "checkpoints": {
+    "roads": {
+      "name": "NagoyaCitywide-ThirdLocalStreets-Roads",
+      "sha256": "519F75721F3BEA382008E6943FE4C8D8EDA5F8AA05FC6278DD6A361B07414582",
+      "bytes": 14624562
+    },
+    "utility-baseline": {
+      "name": "NagoyaCitywide-ThirdLocalStreets-UtilityBaseline-Expanded-Zoning",
+      "sha256": "99639E91AFD0760E88412A621705D39AFB4652B16BA2C294F2D761FFC26ABD52",
+      "bytes": 14649062
+    },
+    "utility": {
+      "name": "NagoyaCitywide-ThirdLocalStreets-Utilities",
+      "sha256": "7F19A5D746CC2735BFC6D64854BBEC6CCE17AE5584612954E66EE50F33573CF3",
+      "bytes": 14673704
+    },
+    "placed": {
+      "name": "NagoyaCitywide-ThirdLocalStreets-Placed",
+      "sha256": "4BC65B7405A32FB50492C329BBE3786DBAE80F413E02CE77D36D1AE70FF44EBE",
+      "bytes": 14686359
+    },
+    "observed": {
+      "name": "NagoyaCitywide-ThirdLocalStreets-Observed",
+      "sha256": "56CC485A140AB5CF323FD6078F12C29C6F9211476C5F24B4CC303874CE20962F",
+      "bytes": 14505945
+    }
+  },
+  "roadReceiptSha256": "A31B8D5381511FE6953BD9A54EC8AD25A73DE74F224961B7FBD6B993258D84A7",
+  "nativeRoads": 20679,
+  "utilityPlanSha256": "0BB304C6E94345276B4F7C99B440DA7D54872420C574F7F202A5260AE60A7A92",
+  "utilityReceiptSha256": "F2C9DA9FED5CBA0E5B706EE85E2126A0F1B51C6886204C92FDB2236D5B762735",
+  "utilitiesInstalled": {
+    "water": 83,
+    "power": 83
+  },
+  "zoningPlanSha256": "520FCCC21799FDB86369B5A0A87AF5A3E438A6EF36FDC5479DB06953C0F0E066",
+  "zoningReceiptSha256": "1281B9D7A61CF2E8E953DEBC705CC3EB8A159DEF6AF97EC077DFE1DE4B496AFC",
+  "placementsByWard": {
+    "守山区": 6,
+    "中村区": 6,
+    "港区": 13,
+    "中川区": 19,
+    "名東区": 10,
+    "昭和区": 13,
+    "瑞穂区": 1,
+    "熱田区": 12,
+    "北区": 3,
+    "天白区": 7,
+    "南区": 5,
+    "中区": 3,
+    "千種区": 1,
+    "西区": 1
+  },
+  "placementsByUse": {
+    "ResidentialLow": 20,
+    "ResidentialHigh": 21,
+    "Industrial": 15,
+    "Office": 21,
+    "CommercialLow": 21,
+    "CommercialHigh": 2
+  },
+  "zoningCandidates": 127,
+  "zoningPlaced": 100,
+  "zoningRejected": {
+    "No free native zone cells on the source frontage": 27
+  },
+  "zoningRetained": 100,
+  "zoningOperating": 100,
+  "newBuildingsWarningsAtPlacement": {},
+  "retainedBuildingsWarningsAfterObservation": {
+    "Electricity": 1
+  },
+  "previousGroupsLost": 29,
+  "activeZonedSites": 5506,
+  "sourceCoverage": {
+    "before": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T12:50:49.1304572Z",
+      "activeNativeZonedSites": 5435,
+      "nativeSiteGroupCount": 5435,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "allRolesActive": 631971,
+        "noActiveRole": 69455,
+        "someRolesActive": 4309,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "active": 665615,
+        "uncovered": 76125
+      },
+      "writesToGame": false
+    },
+    "immediate": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T12:52:30.0955431Z",
+      "activeNativeZonedSites": 5535,
+      "nativeSiteGroupCount": 5535,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "allRolesActive": 640366,
+        "noActiveRole": 61196,
+        "someRolesActive": 4173,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "active": 674332,
+        "uncovered": 67408
+      },
+      "writesToGame": false
+    },
+    "after": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T12:54:50.0555786Z",
+      "activeNativeZonedSites": 5506,
+      "nativeSiteGroupCount": 5506,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "allRolesActive": 634032,
+        "noActiveRole": 67581,
+        "someRolesActive": 4122,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "active": 667820,
+        "uncovered": 73920
+      },
+      "writesToGame": false
+    }
+  },
+  "gameTimeBefore": "2028-10-07T10:43:36",
+  "gameTimeAfter": "2028-10-25T12:36:38",
+  "observedGameHours": 433.88,
+  "nativeCoexistenceWards": 16,
+  "nativeTraffic": {
+    "passengerCars": 753,
+    "cargoTrucks": 732,
+    "buses": 27,
+    "roadVehiclesWithNativePath": 1504
+  },
+  "residentsAndJobs": {
+    "nativeHumanResidents": 7961,
+    "androidHomeMembers": 453,
+    "humansWithWorkplace": 4360,
+    "androidWorkMembers": 447
+  },
+  "deliveryObservationStart": "2028-10-09T20:58:09",
+  "deliveryWards": {
+    "東区": 1,
+    "昭和区": 4,
+    "瑞穂区": 1,
+    "港区": 2,
+    "千種区": 1,
+    "天白区": 1,
+    "中村区": 1,
+    "中区": 1,
+    "緑区": 1
+  },
+  "deliveriesMatchedToStock": 13,
+  "stockAdded": 1300,
+  "deliverySample": {
+    "android": 1034187,
+    "from": 45958,
+    "to": 35638,
+    "ward": "緑区",
+    "sourceWard": "緑区",
+    "stockAdded": 100,
+    "factoryBefore": 7888,
+    "factoryAccessStreet": 17464,
+    "shopAccessStreet": 33561,
+    "factoryAfter": 7788,
+    "shopBefore": 11150,
+    "nativeRequest": {
+      "frame": 55039929,
+      "priority": 5,
+      "amount": 1
+    },
+    "shopAfter": 11250,
+    "localHire": false,
+    "firstDeliveryAfterAdmission": false,
+    "firstDeliveryFromExistingWorker": false,
+    "onsitePriority": false,
+    "gameTime": "2028-10-25T00:15:21"
+  },
+  "fundsRestored": true
+}
