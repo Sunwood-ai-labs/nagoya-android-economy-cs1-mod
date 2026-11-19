@@ -14,6 +14,7 @@ param(
     [switch]$ShareMixedHouseholds,
     [uint32[]]$CommuteAuditIds,
     [switch]$TestLongWalkCommutes,
+    [switch]$AuditWardWorkTrips,
     [string]$PedestrianLinksFile,
     [string]$PedestrianLegsFile,
     [switch]$LoadCheckpointFromMenu,
@@ -61,6 +62,7 @@ if ($PSBoundParameters.ContainsKey('CommuteAuditIds')) {
     $request.commuteAuditIds = $CommuteAuditIds
 }
 if ($TestLongWalkCommutes) { $request.testLongWalkCommutes = $true }
+if ($AuditWardWorkTrips) { $request.auditWardWorkTrips = $true }
 if ($LinkWithRoadSidewalks -and !$PedestrianLinksFile) { throw 'Specify anchors in PedestrianLinksFile.' }
 if ($LinkWithRoadSidewalks) { $request.linkWithRoadSidewalks = $true }
 if ($LinkWithinRoadSegments -and !$LinkWithRoadSidewalks) { throw 'Segment anchors require LinkWithRoadSidewalks.' }
@@ -71,7 +73,7 @@ if ($PedestrianLinksFile) {
     if ($links.Count -lt 1 -or $links.Count -gt 24 -or @($links | Where-Object {
         $_.Count -ne $fields -and !($LinkWithRoadSidewalks -and $_.Count -eq ($fields + 2))
     }).Count) {
-        throw 'Provide 1–24 anchor pairs. Include both fractions for segment anchors, and optionally a bend for a road with sidewalks.'
+        throw 'Provide 1–24 anchor pairs. With LinkWithinRoadSegments, use 0 for a node and 0.2–0.8 for a segment. A road with sidewalks may include an optional bend.'
     }
     $request.pedestrianLinks = $links
 }

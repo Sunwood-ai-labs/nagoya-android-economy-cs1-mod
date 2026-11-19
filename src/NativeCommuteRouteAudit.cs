@@ -24,7 +24,7 @@ namespace NagoyaRoadDelivery
             public ushort From, To;
             public Vector3 Start, End;
             public PathUnit.Position StartLane, EndLane;
-            public string UnqueuedReason;
+            public string UnqueuedReason, HomeWard, WorkWard;
             public bool WalkingPathAssigned;
         }
 
@@ -63,7 +63,9 @@ namespace NagoyaRoadDelivery
             SimulationManager sim = SimulationManager.instance;
             PathManager paths = PathManager.instance;
             var probe = new Probe {Citizen=__1.m_citizen, From=__1.m_sourceBuilding, To=__1.m_targetBuilding,
-                Frame=sim.m_currentFrameIndex, Start=__2, End=__3};
+                Frame=sim.m_currentFrameIndex, Start=__2, End=__3,
+                HomeWard=NativeCityLedger.RegisteredWard(__1.m_sourceBuilding),
+                WorkWard=NativeCityLedger.RegisteredWard(__1.m_targetBuilding)};
             audit.probes.Add(probe);
             if (__result && __1.m_path != 0 && paths.AddPathReference(__1.m_path)) probe.StockPath = __1.m_path;
             PathUnit.Position secondStart, secondEnd;
@@ -106,6 +108,7 @@ namespace NagoyaRoadDelivery
             foreach (Probe probe in probes)
                 rows.Add(new Dictionary<string, object> {
                     {"citizenId",probe.Citizen}, {"frame",probe.Frame}, {"from",probe.From}, {"to",probe.To},
+                    {"homeWard",probe.HomeWard}, {"workWard",probe.WorkWard},
                     {"start",new float[] {probe.Start.x,probe.Start.y,probe.Start.z}},
                     {"end",new float[] {probe.End.x,probe.End.y,probe.End.z}},
                     {"startSidewalkSegment",probe.StartLane.m_segment}, {"endSidewalkSegment",probe.EndLane.m_segment},

@@ -127,7 +127,7 @@ namespace NagoyaRoadDelivery
         private struct Arrival
         {
             public uint Citizen, Path;
-            public ushort Target;
+            public ushort Source, Target;
         }
 
         internal NativeAndroidDeliveries()
@@ -894,16 +894,20 @@ namespace NagoyaRoadDelivery
 
         private static void BeforeArrival(ref CitizenInstance __1, out Arrival __state)
         {
-            __state = new Arrival {Citizen=__1.m_citizen, Target=__1.m_targetBuilding, Path=__1.m_path};
+            __state = new Arrival {Citizen=__1.m_citizen, Source=__1.m_sourceBuilding,
+                Target=__1.m_targetBuilding, Path=__1.m_path};
         }
 
         private static void AfterArrival(bool __2, Arrival __state)
         {
+            if (__2)
+                AndroidLifePilot.ObserveWardWorkTrip(__state.Citizen, __state.Source, __state.Target, __state.Path, true);
             if (active != null) active.ObserveArrival(__state, __2);
         }
 
         private static void BeforePathFailure(ushort __0, ref CitizenInstance __1)
         {
+            AndroidLifePilot.ObserveWardWorkTrip(__1.m_citizen, __1.m_sourceBuilding, __1.m_targetBuilding, __1.m_path, false);
             AndroidLifePilot.ObserveCommutePathFailure(__0, __1);
             NativeAndroidDeliveries delivery = active;
             Trip trip;

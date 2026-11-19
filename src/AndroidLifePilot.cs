@@ -1067,6 +1067,24 @@ namespace NagoyaRoadDelivery
             else if (citizen.CurrentLocation == Citizen.Location.Work) member.NativeWorkArrivals++;
         }
 
+        internal static void ObserveWardWorkTrip(uint id, ushort source, ushort target, uint path, bool arrived)
+        {
+            AndroidLifePilot life = active;
+            NativeEmploymentTrial trial = life == null ? null : life.employmentTrial;
+            if (trial == null || !trial.Running || trial.WardWorkTrips == null || id == 0 || source == 0 || target == 0)
+                return;
+            CitizenManager manager = CitizenManager.instance;
+            if (id >= manager.m_citizens.m_buffer.Length) return;
+            Citizen citizen = manager.m_citizens.m_buffer[id];
+            if ((citizen.m_flags & (Citizen.Flags.Created | Citizen.Flags.Dead | Citizen.Flags.Student |
+                Citizen.Flags.Tourist | Citizen.Flags.MovingIn)) != Citizen.Flags.Created ||
+                citizen.m_homeBuilding != source || citizen.m_workBuilding != target ||
+                (arrived && citizen.CurrentLocation != Citizen.Location.Work) ||
+                !InWorkUnit(manager, target, id))
+                return;
+            trial.WardWorkTrips.Record(id, source, target, path, IsAndroidCitizen(id), arrived);
+        }
+
         internal static bool CanDeliverAtWork(uint id, ref Citizen citizen)
         {
             AndroidLifePilot life = active;

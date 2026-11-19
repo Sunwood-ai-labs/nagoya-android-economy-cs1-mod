@@ -22,7 +22,7 @@ namespace NagoyaRoadDelivery
             internal ushort From, To;
             internal Vector2? Bend;
             internal float FromFraction, ToFraction;
-            internal bool OnSegments { get { return FromFraction > 0f; } }
+            internal bool HasSplit { get { return FromFraction > 0f || ToFraction > 0f; } }
         }
 
         internal static object CreateFirstValid(Candidate[] candidates, bool roadWithSidewalks)
@@ -77,22 +77,19 @@ namespace NagoyaRoadDelivery
                 var entry = new Dictionary<string, object>();
                 attempts.Add(entry);
                 NetTool.ControlPoint start, end;
-                if (candidate.OnSegments)
+                bool splitFrom = candidate.FromFraction > 0f;
+                bool splitTo = candidate.ToFraction > 0f;
+                entry[splitFrom ? "fromSegment" : "fromNode"] = from;
+                entry[splitTo ? "toSegment" : "toNode"] = to;
+                if (candidate.HasSplit)
                 {
-                    entry["fromSegment"] = from;
-                    entry["toSegment"] = to;
                     entry["fractions"] = new float[] {candidate.FromFraction, candidate.ToFraction};
                     if (protectedRoads == null) protectedRoads = ProtectedRoads(out roadSources);
-                    if (protectedRoads.Contains(from) || protectedRoads.Contains(to))
+                    if ((splitFrom && protectedRoads.Contains(from)) || (splitTo && protectedRoads.Contains(to)))
                     {
                         entry["preflight"] = "protectedBuildingFrontage";
                         continue;
                     }
-                }
-                else
-                {
-                    entry["fromNode"] = from;
-                    entry["toNode"] = to;
                 }
                 string startError = ResolveAnchor(net, from, candidate.FromFraction, out start);
                 string endError = ResolveAnchor(net, to, candidate.ToFraction, out end);
@@ -104,7 +101,7 @@ namespace NagoyaRoadDelivery
                     continue;
                 }
                 Vector3 delta = end.m_position - start.m_position;
-                float maxSpan = candidate.OnSegments ? 300f : 220f;
+                float maxSpan = candidate.HasSplit ? 300f : 220f;
                 if (delta.sqrMagnitude < 144f || delta.sqrMagnitude > maxSpan * maxSpan || Mathf.Abs(delta.y) > .5f)
                 {
                     entry["preflight"] = "invalidGroundRoadAnchors";
@@ -136,15 +133,15 @@ namespace NagoyaRoadDelivery
                 entry["lengthMeters"] = delta.magnitude;
                 ToolBase.ToolErrors errors = ProbeLink(link, start, middle, end, buffer, entry);
                 if (errors != ToolBase.ToolErrors.None) continue;
-                if (candidate.OnSegments && ((List<int>)entry["overlappingBuildings"]).Count != 0)
+                if (candidate.HasSplit && ((List<int>)entry["overlappingBuildings"]).Count != 0)
                 {
                     entry["preflight"] = "buildingOverlapInAllowedPlacement";
                     continue;
                 }
 
                 int before = net.m_segmentCount;
-                NetSegment formerFirst = candidate.OnSegments ? net.m_segments.m_buffer[from] : default(NetSegment);
-                NetSegment formerLast = candidate.OnSegments ? net.m_segments.m_buffer[to] : default(NetSegment);
+                NetSegment formerFirst = splitFrom ? net.m_segments.m_buffer[from] : default(NetSegment);
+                NetSegment formerLast = splitTo ? net.m_segments.m_buffer[to] : default(NetSegment);
                 buffer.Clear();
                 errors = NetTool.CreateNode(link, start, middle, end, buffer, 8,
                     false, true, false, false, true, false, false, 0,
@@ -155,21 +152,20 @@ namespace NagoyaRoadDelivery
                 entry["segmentId"] = segment;
                 entry["segmentsAdded"] = net.m_segmentCount - before;
                 bool connected = errors == ToolBase.ToolErrors.None && net.m_segmentCount > before;
-                if (candidate.OnSegments && connected)
+                if (connected)
                 {
-                    ushort[] fromParts = SplitParts(net, formerFirst, firstNode);
-                    ushort[] toParts = SplitParts(net, formerLast, lastNode);
-                    entry["fromParts"] = fromParts;
-                    entry["toParts"] = toParts;
-                    connected = fromParts != null && toParts != null;
+                    ushort[] fromParts = splitFrom ? SplitParts(net, formerFirst, firstNode) : null;
+                    ushort[] toParts = splitTo ? SplitParts(net, formerLast, lastNode) : null;
+                    if (splitFrom) entry["fromParts"] = fromParts;
+                    if (splitTo) entry["toParts"] = toParts;
+                    connected = (splitFrom ? fromParts != null : firstNode == from)
+                        && (splitTo ? toParts != null : lastNode == to);
                     if (connected)
                     {
-                        RecordSplit(net, roadSources, from, fromParts);
-                        RecordSplit(net, roadSources, to, toParts);
+                        if (splitFrom) RecordSplit(net, roadSources, from, fromParts);
+                        if (splitTo) RecordSplit(net, roadSources, to, toParts);
                     }
                 }
-                else if (!candidate.OnSegments)
-                    connected = connected && firstNode == from && lastNode == to;
                 return new Dictionary<string, object> {
                     {"connected",connected},
                     {"prefab",prefab}, {"attempts",attempts}

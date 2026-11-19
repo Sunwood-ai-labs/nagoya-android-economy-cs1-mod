@@ -32,6 +32,7 @@ namespace NagoyaRoadDelivery
         public bool TestLongWalkCommutes;
         public NativeCommuteRouteAudit CommuteAudit;
         public NativePedestrianLegAudit PedestrianLegAudit;
+        public NativeWardWorkTrips WardWorkTrips;
         public List<Dictionary<string, object>> SharedHouseholdAdmissions;
         public long OpeningCreditRaw;
         public Dictionary<string, object> OpeningEconomy;
@@ -94,13 +95,16 @@ namespace NagoyaRoadDelivery
                 bool testLongWalk = values.TryGetValue("testLongWalkCommutes", out longWalk) && (bool)longWalk;
                 if (testLongWalk && commuteAuditIds == null)
                     throw new FormatException("Specify the citizens participating in the long walk trial");
+                object wardAudit;
+                bool auditWardWorkTrips = values.TryGetValue("auditWardWorkTrips", out wardAudit) && (bool)wardAudit;
                 File.Move(path, Path.Combine(root, "native-employment-" + id + ".request.json"));
                 simulation.SimulationPaused = true;
                 return new NativeEmploymentTrial {
                     CaseId=id, AdditionalResidents=additional, Hours=hours, OpeningCash=openingCash,
                     NormalEconomy=normalEconomy, Speed=normalEconomy ? 2 : 1, ShareAndroidHouseholds=shareAndroidHouseholds,
                     ShareMixedHouseholds=shareMixedHouseholds, CommuteAuditIds=commuteAuditIds, TestLongWalkCommutes=testLongWalk,
-                    PedestrianLinks=pedestrianLinks, PedestrianLegs=pedestrianLegs, LinkWithRoadSidewalks=linkWithRoadSidewalks
+                    PedestrianLinks=pedestrianLinks, PedestrianLegs=pedestrianLegs, LinkWithRoadSidewalks=linkWithRoadSidewalks,
+                    WardWorkTrips=auditWardWorkTrips ? new NativeWardWorkTrips() : null
                 };
             }
             catch (Exception error)
@@ -124,13 +128,15 @@ namespace NagoyaRoadDelivery
                 bool curved = allowBend && candidate.Count == fields + 2;
                 if (candidate.Count != fields && !curved) throw new FormatException("Unexpected road link fields");
                 ushort from = ReadNetworkId(candidate[0]), to = ReadNetworkId(candidate[1]);
-                if (from == to) throw new FormatException("Expected distinct road nodes");
                 var link = new NativePedestrianLink.Candidate {From=from, To=to};
                 if (segmentAnchors)
                 {
                     link.FromFraction = ReadSegmentFraction(candidate[2]);
                     link.ToFraction = ReadSegmentFraction(candidate[3]);
+                    if (!link.HasSplit) throw new FormatException("At least one anchor must be within a road segment");
                 }
+                if (from == to && ((link.FromFraction > 0f) == (link.ToFraction > 0f)))
+                    throw new FormatException("Expected distinct road anchors");
                 if (curved)
                 {
                     double x = (double)candidate[fields], z = (double)candidate[fields + 1];
@@ -146,7 +152,8 @@ namespace NagoyaRoadDelivery
         private static float ReadSegmentFraction(object value)
         {
             double fraction = (double)value;
-            if (!(fraction >= .2 && fraction <= .8)) throw new FormatException("Segment anchor requires a position from 0.2 to 0.8");
+            if (fraction != 0d && !(fraction >= .2 && fraction <= .8))
+                throw new FormatException("Use 0 for an existing node, or a segment position from 0.2 to 0.8");
             return (float)fraction;
         }
 
@@ -274,6 +281,7 @@ namespace NagoyaRoadDelivery
             if (CommuteAudit != null) result["commuteRouteAudit"] = CommuteAudit.Finish();
             if (PedestrianLinkResult != null) result["pedestrianLink"] = PedestrianLinkResult;
             if (PedestrianLegAudit != null) result["pedestrianLegAudit"] = PedestrianLegAudit.Finish();
+            if (WardWorkTrips != null) result["wardWorkTrips"] = WardWorkTrips.Report();
             string path = Path.Combine(NativeCityRoadBuilder.Root, "native-employment-" + CaseId + ".json");
             string pending = path + ".tmp";
             File.WriteAllText(pending, JsonData.Stringify(result), new UTF8Encoding(false));

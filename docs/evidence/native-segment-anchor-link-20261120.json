@@ -1010,5 +1010,65 @@
       "operationalNativeSiteGroups": 4924,
       "wardsWithHumanAndAndroidPopulationAndJobs": 16
     }
+  },
+  "mixedAnchorTrial": {
+    "caseId": "jan01-mixed-node-and-segment-72h",
+    "receiptSha256": "D4985BBFADEB07EBC707FC0B6CEC86E9B17C01B7E620B92013CC5E8BCE8DC831",
+    "requestSha256": "4F1A3BE74E97F2F1D84B1F994797455B082943A619310D73A778DD22787EEB28",
+    "modSha256": "1C27885F4ADAC957E6B09EC483590EBE4F939A1AA0EBF4859A2BA34B6DA79041",
+    "candidateReceiptSha256": "9D6458710C1CC65EDDBFDACB77C741B0E7D19552DEC4BD2F9DFC5289C2D461A9",
+    "candidateCount": 24,
+    "observedApproximateCurves": 209,
+    "checkedHomeNodes": 21,
+    "passedCustomAnchorPreflight": 24,
+    "nativeCollisionCount": 24,
+    "commonSegmentCollisionReceipts": [
+      8796,
+      11642
+    ],
+    "attemptsWithReportedBuildingOverlaps": 12,
+    "target": {
+      "route": {
+        "citizenId": 272270,
+        "frame": 55296303,
+        "from": 33828,
+        "to": 30040,
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      "end": {
+        "citizenId": 272270,
+        "homeBuilding": 33828,
+        "workBuilding": 30040,
+        "location": "Moving",
+        "nativeWorkArrivals": 0
+      }
+    },
+    "observation": {
+      "androidsWithWorkArrival": 21,
+      "androidResidents": 756,
+      "androidWorkRegistrations": 718,
+      "humanWorkRegistrations": 4343,
+      "completedDeliveries": 8
+    }
   }
 }

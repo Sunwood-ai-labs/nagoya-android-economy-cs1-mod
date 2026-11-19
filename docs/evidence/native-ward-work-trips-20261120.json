@@ -1,0 +1,2440 @@
+{
+  "caseId": "jan01-ward-work-trips-72h",
+  "receiptSha256": "2454CE6C7B7F34F35488549B96BD579E084EDBA397099327FF20B903A45446B0",
+  "requestSha256": "48D05014E401F7C3B731CDD34249382C85E0A31AFDF550B699A845B32A783F4C",
+  "modSha256": "461191EDC1D67166936CECD8333EEFCE5D16467B7E557168284B2877B8695C33",
+  "checkpoint": {
+    "sha256": "9F4DCFBDDA74FE71B31CCBAC78D973D20598F84242F34E06D0F4DC67A292BA60",
+    "name": "NagoyaCitywide-EmploymentTrial-MixedHouseholds220-Observed",
+    "parentPreserved": true,
+    "segments": 32718,
+    "gameTime": "2030-01-01T08:57:59",
+    "bytes": 15373629,
+    "buildIndex": 126124,
+    "parent": "NagoyaCitywide-EmploymentTrial-SharedHomesObserved"
+  },
+  "matchedWindow": {
+    "startFrame": 55295666,
+    "endFrame": 55297422,
+    "startTicks": "640290855288267276",
+    "endTicks": "640293448132017276",
+    "durationHours": 72
+  },
+  "terminal": {
+    "ok": true,
+    "gameTime": "2030-01-04T08:59:42",
+    "buildIndex": 126137,
+    "simulation": {
+      "paused": true,
+      "selectedSpeed": 2,
+      "forcedPaused": false,
+      "loadingComplete": true,
+      "finalSpeed": 0
+    },
+    "network": {
+      "nodes": 32699,
+      "segments": 32718,
+      "lanes": 157604
+    },
+    "citizens": {
+      "count": 12126
+    },
+    "demand": {
+      "residential": 2,
+      "commercial": 0,
+      "workplace": 0
+    }
+  },
+  "registeredPopulationAndJobsWards": 16,
+  "eventObservations": {
+    "byHomeWard": {
+      "humans": {
+        "arrivalEventCount": 11,
+        "arrivalWards": [
+          "中川区",
+          "中村区",
+          "千種区",
+          "天白区",
+          "港区",
+          "熱田区",
+          "西区"
+        ],
+        "failureEventCount": 136,
+        "failureWards": [
+          "中区",
+          "中川区",
+          "中村区",
+          "北区",
+          "千種区",
+          "南区",
+          "名東区",
+          "天白区",
+          "守山区",
+          "昭和区",
+          "東区",
+          "港区",
+          "熱田区",
+          "瑞穂区",
+          "緑区",
+          "西区"
+        ],
+        "noRecordedArrivalWards": [
+          "中区",
+          "北区",
+          "南区",
+          "名東区",
+          "守山区",
+          "昭和区",
+          "東区",
+          "瑞穂区",
+          "緑区"
+        ]
+      },
+      "androids": {
+        "arrivalEventCount": 18,
+        "arrivalWards": [
+          "中区",
+          "中川区",
+          "名東区",
+          "守山区",
+          "東区",
+          "港区",
+          "瑞穂区",
+          "緑区"
+        ],
+        "failureEventCount": 1287,
+        "failureWards": [
+          "中区",
+          "中川区",
+          "中村区",
+          "北区",
+          "千種区",
+          "南区",
+          "名東区",
+          "天白区",
+          "守山区",
+          "昭和区",
+          "東区",
+          "港区",
+          "熱田区",
+          "瑞穂区",
+          "緑区",
+          "西区"
+        ],
+        "noRecordedArrivalWards": [
+          "中村区",
+          "北区",
+          "千種区",
+          "南区",
+          "天白区",
+          "昭和区",
+          "熱田区",
+          "西区"
+        ]
+      }
+    },
+    "byWorkWard": {
+      "humans": {
+        "arrivalEventCount": 11,
+        "arrivalWards": [
+          "中区",
+          "中川区",
+          "中村区",
+          "千種区",
+          "南区",
+          "天白区",
+          "港区",
+          "熱田区"
+        ],
+        "failureEventCount": 136,
+        "failureWards": [
+          "中区",
+          "中川区",
+          "中村区",
+          "北区",
+          "千種区",
+          "南区",
+          "名東区",
+          "天白区",
+          "守山区",
+          "昭和区",
+          "東区",
+          "港区",
+          "熱田区",
+          "瑞穂区",
+          "緑区",
+          "西区"
+        ],
+        "noRecordedArrivalWards": [
+          "北区",
+          "名東区",
+          "守山区",
+          "昭和区",
+          "東区",
+          "瑞穂区",
+          "緑区",
+          "西区"
+        ]
+      },
+      "androids": {
+        "arrivalEventCount": 18,
+        "arrivalWards": [
+          "中区",
+          "中川区",
+          "中村区",
+          "南区",
+          "名東区",
+          "守山区",
+          "東区",
+          "港区",
+          "瑞穂区",
+          "緑区"
+        ],
+        "failureEventCount": 1287,
+        "failureWards": [
+          "中区",
+          "中川区",
+          "中村区",
+          "北区",
+          "千種区",
+          "南区",
+          "名東区",
+          "天白区",
+          "守山区",
+          "昭和区",
+          "東区",
+          "港区",
+          "熱田区",
+          "瑞穂区",
+          "緑区",
+          "西区"
+        ],
+        "noRecordedArrivalWards": [
+          "北区",
+          "千種区",
+          "天白区",
+          "昭和区",
+          "熱田区",
+          "西区"
+        ]
+      }
+    }
+  },
+  "events": {
+    "byHomeWard": {
+      "unassigned": {
+        "humans": {
+          "arrivalCallbacks": 2,
+          "citizensArrived": 2,
+          "pathFailureCallbacks": 17,
+          "citizensWithPathFailure": 17,
+          "firstFailure": {
+            "citizenId": 971437,
+            "home": 41804,
+            "work": 24338,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 4,
+          "citizensArrived": 4,
+          "pathFailureCallbacks": 241,
+          "citizensWithPathFailure": 117,
+          "firstFailure": {
+            "citizenId": 979731,
+            "home": 10604,
+            "work": 809,
+            "pathId": 0
+          }
+        }
+      },
+      "中区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 10,
+          "citizensWithPathFailure": 10,
+          "firstFailure": {
+            "citizenId": 983011,
+            "home": 36135,
+            "work": 39926,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 24,
+          "citizensWithPathFailure": 11,
+          "firstFailure": {
+            "citizenId": 959126,
+            "home": 31997,
+            "work": 38120,
+            "pathId": 0
+          }
+        }
+      },
+      "中川区": {
+        "humans": {
+          "arrivalCallbacks": 2,
+          "citizensArrived": 2,
+          "pathFailureCallbacks": 14,
+          "citizensWithPathFailure": 14,
+          "firstFailure": {
+            "citizenId": 968203,
+            "home": 15788,
+            "work": 46482,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 104,
+          "citizensWithPathFailure": 50,
+          "firstFailure": {
+            "citizenId": 1000838,
+            "home": 27645,
+            "work": 31878,
+            "pathId": 0
+          }
+        }
+      },
+      "中村区": {
+        "humans": {
+          "arrivalCallbacks": 2,
+          "citizensArrived": 2,
+          "pathFailureCallbacks": 10,
+          "citizensWithPathFailure": 10,
+          "firstFailure": {
+            "citizenId": 968600,
+            "home": 37477,
+            "work": 22120,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 41,
+          "citizensWithPathFailure": 19,
+          "firstFailure": {
+            "citizenId": 47900,
+            "home": 10846,
+            "work": 7232,
+            "pathId": 0
+          }
+        }
+      },
+      "北区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 4,
+          "citizensWithPathFailure": 4,
+          "firstFailure": {
+            "citizenId": 45020,
+            "home": 43280,
+            "work": 3740,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 73,
+          "citizensWithPathFailure": 35,
+          "firstFailure": {
+            "citizenId": 975807,
+            "home": 22692,
+            "work": 24561,
+            "pathId": 0
+          }
+        }
+      },
+      "千種区": {
+        "humans": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 5,
+          "citizensWithPathFailure": 5,
+          "firstFailure": {
+            "citizenId": 983527,
+            "home": 47101,
+            "work": 34741,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 60,
+          "citizensWithPathFailure": 28,
+          "firstFailure": {
+            "citizenId": 959489,
+            "home": 37235,
+            "work": 20770,
+            "pathId": 0
+          }
+        }
+      },
+      "南区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 8,
+          "citizensWithPathFailure": 8,
+          "firstFailure": {
+            "citizenId": 976822,
+            "home": 36159,
+            "work": 3923,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 61,
+          "citizensWithPathFailure": 29,
+          "firstFailure": {
+            "citizenId": 1030056,
+            "home": 24570,
+            "work": 47501,
+            "pathId": 0
+          }
+        }
+      },
+      "名東区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 10,
+          "citizensWithPathFailure": 10,
+          "firstFailure": {
+            "citizenId": 987630,
+            "home": 294,
+            "work": 21660,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 47,
+          "citizensWithPathFailure": 21,
+          "firstFailure": {
+            "citizenId": 965714,
+            "home": 18422,
+            "work": 2603,
+            "pathId": 0
+          }
+        }
+      },
+      "天白区": {
+        "humans": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 9,
+          "citizensWithPathFailure": 9,
+          "firstFailure": {
+            "citizenId": 983484,
+            "home": 30352,
+            "work": 29653,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 87,
+          "citizensWithPathFailure": 41,
+          "firstFailure": {
+            "citizenId": 974076,
+            "home": 15143,
+            "work": 18244,
+            "pathId": 0
+          }
+        }
+      },
+      "守山区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 4,
+          "citizensWithPathFailure": 4,
+          "firstFailure": {
+            "citizenId": 978068,
+            "home": 30521,
+            "work": 33080,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 4,
+          "citizensArrived": 4,
+          "pathFailureCallbacks": 126,
+          "citizensWithPathFailure": 58,
+          "firstFailure": {
+            "citizenId": 963081,
+            "home": 48372,
+            "work": 47928,
+            "pathId": 0
+          }
+        }
+      },
+      "昭和区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 3,
+          "citizensWithPathFailure": 3,
+          "firstFailure": {
+            "citizenId": 131265,
+            "home": 34981,
+            "work": 33080,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 40,
+          "citizensWithPathFailure": 19,
+          "firstFailure": {
+            "citizenId": 987088,
+            "home": 31020,
+            "work": 31106,
+            "pathId": 0
+          }
+        }
+      },
+      "東区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 2,
+          "citizensWithPathFailure": 2,
+          "firstFailure": {
+            "citizenId": 997583,
+            "home": 42180,
+            "work": 16719,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 2,
+          "citizensArrived": 2,
+          "pathFailureCallbacks": 43,
+          "citizensWithPathFailure": 20,
+          "firstFailure": {
+            "citizenId": 999311,
+            "home": 28016,
+            "work": 19163,
+            "pathId": 0
+          }
+        }
+      },
+      "港区": {
+        "humans": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 15,
+          "citizensWithPathFailure": 15,
+          "firstFailure": {
+            "citizenId": 978026,
+            "home": 34543,
+            "work": 17848,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 87,
+          "citizensWithPathFailure": 42,
+          "firstFailure": {
+            "citizenId": 998001,
+            "home": 3362,
+            "work": 30435,
+            "pathId": 0
+          }
+        }
+      },
+      "熱田区": {
+        "humans": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 5,
+          "citizensWithPathFailure": 5,
+          "firstFailure": {
+            "citizenId": 963920,
+            "home": 3992,
+            "work": 24338,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 20,
+          "citizensWithPathFailure": 10,
+          "firstFailure": {
+            "citizenId": 995399,
+            "home": 48024,
+            "work": 36855,
+            "pathId": 0
+          }
+        }
+      },
+      "瑞穂区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 2,
+          "citizensWithPathFailure": 2,
+          "firstFailure": {
+            "citizenId": 121059,
+            "home": 24948,
+            "work": 3923,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 48,
+          "citizensWithPathFailure": 23,
+          "firstFailure": {
+            "citizenId": 961216,
+            "home": 35748,
+            "work": 39066,
+            "pathId": 0
+          }
+        }
+      },
+      "緑区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 12,
+          "citizensWithPathFailure": 12,
+          "firstFailure": {
+            "citizenId": 974469,
+            "home": 20996,
+            "work": 1900,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 3,
+          "citizensArrived": 3,
+          "pathFailureCallbacks": 131,
+          "citizensWithPathFailure": 62,
+          "firstFailure": {
+            "citizenId": 961304,
+            "home": 41621,
+            "work": 17446,
+            "pathId": 0
+          }
+        }
+      },
+      "西区": {
+        "humans": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 6,
+          "citizensWithPathFailure": 6,
+          "firstFailure": {
+            "citizenId": 987247,
+            "home": 35001,
+            "work": 42628,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 54,
+          "citizensWithPathFailure": 26,
+          "firstFailure": {
+            "citizenId": 1034596,
+            "home": 12927,
+            "work": 17628,
+            "pathId": 0
+          }
+        }
+      }
+    },
+    "byWorkWard": {
+      "unassigned": {
+        "humans": {
+          "arrivalCallbacks": 2,
+          "citizensArrived": 2,
+          "pathFailureCallbacks": 35,
+          "citizensWithPathFailure": 35,
+          "firstFailure": {
+            "citizenId": 974469,
+            "home": 20996,
+            "work": 1900,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 2,
+          "citizensArrived": 2,
+          "pathFailureCallbacks": 197,
+          "citizensWithPathFailure": 94,
+          "firstFailure": {
+            "citizenId": 961304,
+            "home": 41621,
+            "work": 17446,
+            "pathId": 0
+          }
+        }
+      },
+      "中区": {
+        "humans": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 2,
+          "citizensWithPathFailure": 2,
+          "firstFailure": {
+            "citizenId": 45943,
+            "home": 29888,
+            "work": 10836,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 23,
+          "citizensWithPathFailure": 11,
+          "firstFailure": {
+            "citizenId": 974076,
+            "home": 15143,
+            "work": 18244,
+            "pathId": 0
+          }
+        }
+      },
+      "中川区": {
+        "humans": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 20,
+          "citizensWithPathFailure": 20,
+          "firstFailure": {
+            "citizenId": 983484,
+            "home": 30352,
+            "work": 29653,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 2,
+          "citizensArrived": 2,
+          "pathFailureCallbacks": 99,
+          "citizensWithPathFailure": 47,
+          "firstFailure": {
+            "citizenId": 956468,
+            "home": 19814,
+            "work": 17628,
+            "pathId": 0
+          }
+        }
+      },
+      "中村区": {
+        "humans": {
+          "arrivalCallbacks": 2,
+          "citizensArrived": 2,
+          "pathFailureCallbacks": 3,
+          "citizensWithPathFailure": 3,
+          "firstFailure": {
+            "citizenId": 122976,
+            "home": 26548,
+            "work": 38530,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 57,
+          "citizensWithPathFailure": 27,
+          "firstFailure": {
+            "citizenId": 959126,
+            "home": 31997,
+            "work": 38120,
+            "pathId": 0
+          }
+        }
+      },
+      "北区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 7,
+          "citizensWithPathFailure": 7,
+          "firstFailure": {
+            "citizenId": 968600,
+            "home": 37477,
+            "work": 22120,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 64,
+          "citizensWithPathFailure": 29,
+          "firstFailure": {
+            "citizenId": 963081,
+            "home": 48372,
+            "work": 47928,
+            "pathId": 0
+          }
+        }
+      },
+      "千種区": {
+        "humans": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 5,
+          "citizensWithPathFailure": 5,
+          "firstFailure": {
+            "citizenId": 158928,
+            "home": 7496,
+            "work": 44671,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 73,
+          "citizensWithPathFailure": 33,
+          "firstFailure": {
+            "citizenId": 982112,
+            "home": 12286,
+            "work": 5268,
+            "pathId": 0
+          }
+        }
+      },
+      "南区": {
+        "humans": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 7,
+          "citizensWithPathFailure": 7,
+          "firstFailure": {
+            "citizenId": 135819,
+            "home": 30866,
+            "work": 28005,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 66,
+          "citizensWithPathFailure": 29,
+          "firstFailure": {
+            "citizenId": 969098,
+            "home": 35398,
+            "work": 18880,
+            "pathId": 0
+          }
+        }
+      },
+      "名東区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 6,
+          "citizensWithPathFailure": 6,
+          "firstFailure": {
+            "citizenId": 978026,
+            "home": 34543,
+            "work": 17848,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 71,
+          "citizensWithPathFailure": 34,
+          "firstFailure": {
+            "citizenId": 999311,
+            "home": 28016,
+            "work": 19163,
+            "pathId": 0
+          }
+        }
+      },
+      "天白区": {
+        "humans": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 6,
+          "citizensWithPathFailure": 6,
+          "firstFailure": {
+            "citizenId": 983011,
+            "home": 36135,
+            "work": 39926,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 81,
+          "citizensWithPathFailure": 38,
+          "firstFailure": {
+            "citizenId": 987088,
+            "home": 31020,
+            "work": 31106,
+            "pathId": 0
+          }
+        }
+      },
+      "守山区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 7,
+          "citizensWithPathFailure": 7,
+          "firstFailure": {
+            "citizenId": 987247,
+            "home": 35001,
+            "work": 42628,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 3,
+          "citizensArrived": 3,
+          "pathFailureCallbacks": 88,
+          "citizensWithPathFailure": 42,
+          "firstFailure": {
+            "citizenId": 16004,
+            "home": 38270,
+            "work": 15056,
+            "pathId": 0
+          }
+        }
+      },
+      "昭和区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 1,
+          "citizensWithPathFailure": 1,
+          "firstFailure": {
+            "citizenId": 326626,
+            "home": 18515,
+            "work": 1919,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 46,
+          "citizensWithPathFailure": 22,
+          "firstFailure": {
+            "citizenId": 961216,
+            "home": 35748,
+            "work": 39066,
+            "pathId": 0
+          }
+        }
+      },
+      "東区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 2,
+          "citizensWithPathFailure": 2,
+          "firstFailure": {
+            "citizenId": 45020,
+            "home": 43280,
+            "work": 3740,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 2,
+          "citizensArrived": 2,
+          "pathFailureCallbacks": 34,
+          "citizensWithPathFailure": 17,
+          "firstFailure": {
+            "citizenId": 1023313,
+            "home": 18527,
+            "work": 23534,
+            "pathId": 0
+          }
+        }
+      },
+      "港区": {
+        "humans": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 11,
+          "citizensWithPathFailure": 11,
+          "firstFailure": {
+            "citizenId": 968203,
+            "home": 15788,
+            "work": 46482,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 132,
+          "citizensWithPathFailure": 61,
+          "firstFailure": {
+            "citizenId": 982110,
+            "home": 45708,
+            "work": 16277,
+            "pathId": 0
+          }
+        }
+      },
+      "熱田区": {
+        "humans": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 2,
+          "citizensWithPathFailure": 2,
+          "firstFailure": {
+            "citizenId": 229891,
+            "home": 28449,
+            "work": 2203,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 38,
+          "citizensWithPathFailure": 19,
+          "firstFailure": {
+            "citizenId": 31223,
+            "home": 31274,
+            "work": 17530,
+            "pathId": 0
+          }
+        }
+      },
+      "瑞穂区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 7,
+          "citizensWithPathFailure": 7,
+          "firstFailure": {
+            "citizenId": 13765,
+            "home": 35965,
+            "work": 39585,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 1,
+          "citizensArrived": 1,
+          "pathFailureCallbacks": 36,
+          "citizensWithPathFailure": 17,
+          "firstFailure": {
+            "citizenId": 959489,
+            "home": 37235,
+            "work": 20770,
+            "pathId": 0
+          }
+        }
+      },
+      "緑区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 10,
+          "citizensWithPathFailure": 10,
+          "firstFailure": {
+            "citizenId": 983527,
+            "home": 47101,
+            "work": 34741,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 3,
+          "citizensArrived": 3,
+          "pathFailureCallbacks": 141,
+          "citizensWithPathFailure": 66,
+          "firstFailure": {
+            "citizenId": 965714,
+            "home": 18422,
+            "work": 2603,
+            "pathId": 0
+          }
+        }
+      },
+      "西区": {
+        "humans": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 5,
+          "citizensWithPathFailure": 5,
+          "firstFailure": {
+            "citizenId": 963920,
+            "home": 3992,
+            "work": 24338,
+            "pathId": 0
+          }
+        },
+        "androids": {
+          "arrivalCallbacks": 0,
+          "citizensArrived": 0,
+          "pathFailureCallbacks": 41,
+          "citizensWithPathFailure": 20,
+          "firstFailure": {
+            "citizenId": 12040,
+            "home": 38470,
+            "work": 47243,
+            "pathId": 0
+          }
+        }
+      }
+    }
+  },
+  "gamewide": {
+    "androidsWithWorkArrival": 21,
+    "androidResidents": 754,
+    "androidWorkRegistrations": 716,
+    "humanWorkRegistrations": 4344,
+    "completedDeliveries": 8
+  },
+  "routeProbes": {
+    "requested": 48,
+    "ready": 10,
+    "failed": 27,
+    "unobserved": 11,
+    "stockByHome": {
+      "中区": {
+        "failed": 1,
+        "ready": 1
+      },
+      "中川区": {
+        "ready": 1,
+        "failed": 1
+      },
+      "中村区": {
+        "failed": 2
+      },
+      "北区": {
+        "failed": 2
+      },
+      "千種区": {
+        "failed": 2
+      },
+      "南区": {
+        "failed": 1
+      },
+      "名東区": {
+        "failed": 4,
+        "ready": 1
+      },
+      "天白区": {},
+      "守山区": {
+        "failed": 2,
+        "ready": 2
+      },
+      "昭和区": {
+        "failed": 1
+      },
+      "東区": {
+        "ready": 2,
+        "failed": 2
+      },
+      "港区": {
+        "failed": 1
+      },
+      "熱田区": {},
+      "瑞穂区": {
+        "failed": 2,
+        "ready": 1
+      },
+      "緑区": {
+        "failed": 3,
+        "ready": 2
+      },
+      "西区": {},
+      "unassigned": {
+        "failed": 3
+      }
+    },
+    "rawProbes": [
+      {
+        "citizenId": 956468,
+        "frame": 55295715,
+        "from": 19814,
+        "to": 17628,
+        "homeWard": "名東区",
+        "workWard": "中川区",
+        "start": [
+          2610.509,
+          139.9844,
+          523.9521
+        ],
+        "end": [
+          -1856.01,
+          127.8422,
+          -442.2151
+        ],
+        "startSidewalkSegment": 9506,
+        "endSidewalkSegment": 9798,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 959126,
+        "frame": 55295715,
+        "from": 31997,
+        "to": 38120,
+        "homeWard": "中区",
+        "workWard": "中村区",
+        "start": [
+          -1050.086,
+          140,
+          -22.88908
+        ],
+        "end": [
+          -2103.444,
+          139.9865,
+          391.9652
+        ],
+        "startSidewalkSegment": 35714,
+        "endSidewalkSegment": 3557,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 959489,
+        "frame": 55295715,
+        "from": 37235,
+        "to": 20770,
+        "homeWard": "千種区",
+        "workWard": "瑞穂区",
+        "start": [
+          2083.336,
+          139.9977,
+          709.3204
+        ],
+        "end": [
+          -111.6012,
+          140,
+          -923.3326
+        ],
+        "startSidewalkSegment": 32840,
+        "endSidewalkSegment": 25712,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 961304,
+        "frame": 55295715,
+        "from": 41621,
+        "to": 17446,
+        "homeWard": "緑区",
+        "workWard": null,
+        "start": [
+          -297.0079,
+          139.9898,
+          -3316.064
+        ],
+        "end": [
+          2238.861,
+          140,
+          -410.9804
+        ],
+        "startSidewalkSegment": 28726,
+        "endSidewalkSegment": 14822,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 963081,
+        "frame": 55295715,
+        "from": 48372,
+        "to": 47928,
+        "homeWard": "守山区",
+        "workWard": "北区",
+        "start": [
+          2462.257,
+          139.9859,
+          2668.052
+        ],
+        "end": [
+          -444.4607,
+          139.9864,
+          1680.007
+        ],
+        "startSidewalkSegment": 36511,
+        "endSidewalkSegment": 30951,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 965714,
+        "frame": 55295715,
+        "from": 18422,
+        "to": 2603,
+        "homeWard": "名東区",
+        "workWard": "緑区",
+        "start": [
+          2924.962,
+          139.9964,
+          1505.843
+        ],
+        "end": [
+          2588.825,
+          140,
+          -2793.649
+        ],
+        "startSidewalkSegment": 22170,
+        "endSidewalkSegment": 497,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 969098,
+        "frame": 55295715,
+        "from": 35398,
+        "to": 18880,
+        "homeWard": "緑区",
+        "workWard": "南区",
+        "start": [
+          2042.914,
+          139.9935,
+          -1863.667
+        ],
+        "end": [
+          -677.0089,
+          140,
+          -2901.17
+        ],
+        "startSidewalkSegment": 9622,
+        "endSidewalkSegment": 17557,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 975807,
+        "frame": 55295715,
+        "from": 22692,
+        "to": 24561,
+        "homeWard": "北区",
+        "workWard": "緑区",
+        "start": [
+          -466.3375,
+          139.9954,
+          1734.091
+        ],
+        "end": [
+          1557.852,
+          139.9991,
+          -2732.985
+        ],
+        "startSidewalkSegment": 11892,
+        "endSidewalkSegment": 29775,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 2443,
+        "frame": 55295764,
+        "from": 21762,
+        "to": 23671,
+        "homeWard": "緑区",
+        "workWard": "緑区",
+        "start": [
+          2659.852,
+          139.9993,
+          -2334.979
+        ],
+        "end": [
+          2700.927,
+          139.9967,
+          -2318.781
+        ],
+        "startSidewalkSegment": 31713,
+        "endSidewalkSegment": 27329,
+        "stock": {
+          "result": "ready",
+          "lengthMeters": 304.3978,
+          "segments": [
+            31713,
+            27329,
+            30821,
+            27329
+          ],
+          "segmentListComplete": true
+        },
+        "pedestrian": {
+          "result": "ready",
+          "lengthMeters": 58.20385,
+          "segments": [
+            31713,
+            27329,
+            30821,
+            27329
+          ],
+          "segmentListComplete": true
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 86118,
+        "frame": 55295764,
+        "from": 15964,
+        "to": 33409,
+        "homeWard": "中川区",
+        "workWard": "中川区",
+        "start": [
+          -1527.734,
+          140,
+          345.8881
+        ],
+        "end": [
+          -1506.638,
+          140,
+          344.2691
+        ],
+        "startSidewalkSegment": 23564,
+        "endSidewalkSegment": 8738,
+        "stock": {
+          "result": "ready",
+          "lengthMeters": 100.0032,
+          "segments": [
+            23564,
+            8738
+          ],
+          "segmentListComplete": true
+        },
+        "pedestrian": {
+          "result": "ready",
+          "lengthMeters": 20.5605,
+          "segments": [
+            23564,
+            8738
+          ],
+          "segmentListComplete": true
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 156527,
+        "frame": 55295813,
+        "from": 48660,
+        "to": 22553,
+        "homeWard": "守山区",
+        "workWard": "守山区",
+        "start": [
+          1843.578,
+          139.9988,
+          2215.318
+        ],
+        "end": [
+          1873.381,
+          140,
+          2065.16
+        ],
+        "startSidewalkSegment": 15948,
+        "endSidewalkSegment": 9359,
+        "stock": {
+          "result": "ready",
+          "lengthMeters": 660.7252,
+          "segments": [
+            15948,
+            14412,
+            36485,
+            7336,
+            12433,
+            153,
+            18363,
+            24556,
+            36104,
+            16970,
+            9359
+          ],
+          "segmentListComplete": true
+        },
+        "pedestrian": {
+          "result": "ready",
+          "lengthMeters": 149.3111,
+          "segments": [
+            15948,
+            14412,
+            36485,
+            7336,
+            12433,
+            153,
+            18363,
+            24556,
+            36104,
+            16970,
+            9359
+          ],
+          "segmentListComplete": true
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 39563,
+        "frame": 55296205,
+        "from": 11426,
+        "to": 12281,
+        "homeWard": null,
+        "workWard": "南区",
+        "start": [
+          442.8683,
+          140,
+          -1608.922
+        ],
+        "end": [
+          387.4393,
+          140,
+          -2474.6
+        ],
+        "startSidewalkSegment": 5727,
+        "endSidewalkSegment": 8618,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 44348,
+        "frame": 55296205,
+        "from": 14780,
+        "to": 18845,
+        "homeWard": "瑞穂区",
+        "workWard": "天白区",
+        "start": [
+          335.7813,
+          139.9883,
+          -1059.882
+        ],
+        "end": [
+          1738.546,
+          140,
+          -940.9229
+        ],
+        "startSidewalkSegment": 34210,
+        "endSidewalkSegment": 10463,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 955683,
+        "frame": 55296205,
+        "from": 26880,
+        "to": 14696,
+        "homeWard": "東区",
+        "workWard": "東区",
+        "start": [
+          -249.1895,
+          140,
+          910.8071
+        ],
+        "end": [
+          -306.106,
+          140,
+          906.4258
+        ],
+        "startSidewalkSegment": 12912,
+        "endSidewalkSegment": 6118,
+        "stock": {
+          "result": "ready",
+          "lengthMeters": 227.5781,
+          "segments": [
+            12912,
+            21809,
+            8790,
+            6118
+          ],
+          "segmentListComplete": true
+        },
+        "pedestrian": {
+          "result": "ready",
+          "lengthMeters": 50.78049,
+          "segments": [
+            12912,
+            21809,
+            8790,
+            6118
+          ],
+          "segmentListComplete": true
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 77392,
+        "frame": 55296303,
+        "from": 39908,
+        "to": 4457,
+        "homeWard": "港区",
+        "workWard": "緑区",
+        "start": [
+          -3349.99,
+          140,
+          -1442.57
+        ],
+        "end": [
+          1184.421,
+          140,
+          -2156.339
+        ],
+        "startSidewalkSegment": 30824,
+        "endSidewalkSegment": 3633,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 108529,
+        "frame": 55296303,
+        "from": 43714,
+        "to": 14983,
+        "homeWard": "名東区",
+        "workWard": "天白区",
+        "start": [
+          3169.031,
+          140,
+          1398.323
+        ],
+        "end": [
+          1907.593,
+          139.9931,
+          -1387.204
+        ],
+        "startSidewalkSegment": 3480,
+        "endSidewalkSegment": 19057,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 263994,
+        "frame": 55296303,
+        "from": 47942,
+        "to": 46468,
+        "homeWard": "南区",
+        "workWard": "港区",
+        "start": [
+          635.6106,
+          140,
+          -1994.817
+        ],
+        "end": [
+          -1771.859,
+          131.0313,
+          -1801.12
+        ],
+        "startSidewalkSegment": 12400,
+        "endSidewalkSegment": 22133,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 272270,
+        "frame": 55296303,
+        "from": 33828,
+        "to": 30040,
+        "homeWard": "中川区",
+        "workWard": "中川区",
+        "start": [
+          -2260.547,
+          140,
+          -79.05749
+        ],
+        "end": [
+          -2451.529,
+          139.9891,
+          2.181764
+        ],
+        "startSidewalkSegment": 6471,
+        "endSidewalkSegment": 33818,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 289197,
+        "frame": 55296303,
+        "from": 20918,
+        "to": 29947,
+        "homeWard": "東区",
+        "workWard": "守山区",
+        "start": [
+          -448.0037,
+          140,
+          1206.494
+        ],
+        "end": [
+          2875.592,
+          139.9844,
+          1842.401
+        ],
+        "startSidewalkSegment": 8892,
+        "endSidewalkSegment": 16184,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 389569,
+        "frame": 55296303,
+        "from": 23892,
+        "to": 46183,
+        "homeWard": "緑区",
+        "workWard": "昭和区",
+        "start": [
+          978.1334,
+          140,
+          -2145.813
+        ],
+        "end": [
+          657.2552,
+          140,
+          -229.1122
+        ],
+        "startSidewalkSegment": 724,
+        "endSidewalkSegment": 29506,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 420131,
+        "frame": 55296303,
+        "from": 13841,
+        "to": 31285,
+        "homeWard": "東区",
+        "workWard": "瑞穂区",
+        "start": [
+          739.0074,
+          140,
+          1856.305
+        ],
+        "end": [
+          127.3063,
+          140,
+          -943.981
+        ],
+        "startSidewalkSegment": 21264,
+        "endSidewalkSegment": 3611,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 463203,
+        "frame": 55296303,
+        "from": 260,
+        "to": 9384,
+        "homeWard": null,
+        "workWard": "名東区",
+        "start": [
+          1325.017,
+          140,
+          -372.0254
+        ],
+        "end": [
+          2829.736,
+          140,
+          1123.403
+        ],
+        "startSidewalkSegment": 34662,
+        "endSidewalkSegment": 9704,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 525503,
+        "frame": 55296303,
+        "from": 36878,
+        "to": 46126,
+        "homeWard": "昭和区",
+        "workWard": "緑区",
+        "start": [
+          113.1668,
+          140,
+          312.9233
+        ],
+        "end": [
+          1922.754,
+          140,
+          -3169.967
+        ],
+        "startSidewalkSegment": 15359,
+        "endSidewalkSegment": 35437,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 596970,
+        "frame": 55296303,
+        "from": 320,
+        "to": 20181,
+        "homeWard": null,
+        "workWard": "守山区",
+        "start": [
+          -802.7033,
+          139.9988,
+          172.622
+        ],
+        "end": [
+          3471.422,
+          140,
+          3906.097
+        ],
+        "startSidewalkSegment": 1012,
+        "endSidewalkSegment": 8362,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 693169,
+        "frame": 55296303,
+        "from": 45708,
+        "to": 13999,
+        "homeWard": "北区",
+        "workWard": "港区",
+        "start": [
+          -789.9742,
+          140,
+          2643.456
+        ],
+        "end": [
+          -3995.104,
+          139.9998,
+          -1343.104
+        ],
+        "startSidewalkSegment": 8091,
+        "endSidewalkSegment": 24020,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 695642,
+        "frame": 55296303,
+        "from": 13773,
+        "to": 28391,
+        "homeWard": "瑞穂区",
+        "workWard": "千種区",
+        "start": [
+          -224.3269,
+          140,
+          -1423.706
+        ],
+        "end": [
+          1509.86,
+          139.985,
+          528.1697
+        ],
+        "startSidewalkSegment": 4085,
+        "endSidewalkSegment": 20617,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 755646,
+        "frame": 55296303,
+        "from": 10575,
+        "to": 46383,
+        "homeWard": "中村区",
+        "workWard": "港区",
+        "start": [
+          -1567.244,
+          139.9954,
+          645.7673
+        ],
+        "end": [
+          -3210.691,
+          139.9863,
+          -2563.9
+        ],
+        "startSidewalkSegment": 19827,
+        "endSidewalkSegment": 27297,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 817778,
+        "frame": 55296303,
+        "from": 2087,
+        "to": 10459,
+        "homeWard": "守山区",
+        "workWard": "港区",
+        "start": [
+          1123.701,
+          139.9983,
+          1966.612
+        ],
+        "end": [
+          -2616.317,
+          139.9878,
+          -4485.009
+        ],
+        "startSidewalkSegment": 2472,
+        "endSidewalkSegment": 430,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 886964,
+        "frame": 55296303,
+        "from": 10846,
+        "to": 7420,
+        "homeWard": "中村区",
+        "workWard": "中川区",
+        "start": [
+          -2713.46,
+          139.986,
+          455.1586
+        ],
+        "end": [
+          -3723.719,
+          139.9844,
+          778.768
+        ],
+        "startSidewalkSegment": 5247,
+        "endSidewalkSegment": 29629,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 940536,
+        "frame": 55296303,
+        "from": 2514,
+        "to": 48117,
+        "homeWard": "千種区",
+        "workWard": "中村区",
+        "start": [
+          1251.274,
+          139.9956,
+          1448.391
+        ],
+        "end": [
+          -2895.724,
+          140,
+          749.6635
+        ],
+        "startSidewalkSegment": 2459,
+        "endSidewalkSegment": 18905,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 955977,
+        "frame": 55296303,
+        "from": 27279,
+        "to": 22556,
+        "homeWard": "名東区",
+        "workWard": "名東区",
+        "start": [
+          1788.296,
+          139.9924,
+          1099.775
+        ],
+        "end": [
+          2948.889,
+          140,
+          -107.4344
+        ],
+        "startSidewalkSegment": 31454,
+        "endSidewalkSegment": 28143,
+        "stock": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "pedestrian": {
+          "result": "failed",
+          "lengthMeters": null
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 590045,
+        "frame": 55296352,
+        "from": 45402,
+        "to": 8107,
+        "homeWard": "守山区",
+        "workWard": "守山区",
+        "start": [
+          2852.802,
+          139.996,
+          1760.759
+        ],
+        "end": [
+          2851.267,
+          139.9863,
+          1685.009
+        ],
+        "startSidewalkSegment": 28308,
+        "endSidewalkSegment": 34669,
+        "stock": {
+          "result": "ready",
+          "lengthMeters": 484.169,
+          "segments": [
+            28308,
+            24789,
+            17120,
+            12012,
+            33027,
+            26515,
+            33966,
+            34669
+          ],
+          "segmentListComplete": true
+        },
+        "pedestrian": {
+          "result": "ready",
+          "lengthMeters": 115.5337,
+          "segments": [
+            28308,
+            24789,
+            17120,
+            12012,
+            33027,
+            26515,
+            33966,
+            34669
+          ],
+          "segmentListComplete": true
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 676794,
+        "frame": 55296352,
+        "from": 1387,
+        "to": 15562,
+        "homeWard": "瑞穂区",
+        "workWard": "瑞穂区",
+        "start": [
+          -94.29642,
+          139.9889,
+          -1257.491
+        ],
+        "end": [
+          -59.62025,
+          139.9997,
+          -1212.224
+        ],
+        "startSidewalkSegment": 32827,
+        "endSidewalkSegment": 9781,
+        "stock": {
+          "result": "ready",
+          "lengthMeters": 421.2341,
+          "segments": [
+            32827,
+            18147,
+            2669,
+            11495,
+            9781
+          ],
+          "segmentListComplete": true
+        },
+        "pedestrian": {
+          "result": "ready",
+          "lengthMeters": 90.22327,
+          "segments": [
+            32827,
+            18147,
+            2669,
+            11495,
+            9781
+          ],
+          "segmentListComplete": true
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 536424,
+        "frame": 55296401,
+        "from": 6892,
+        "to": 9251,
+        "homeWard": "中区",
+        "workWard": "中区",
+        "start": [
+          -332.9825,
+          140,
+          501.9738
+        ],
+        "end": [
+          -322.7382,
+          140,
+          396.4072
+        ],
+        "startSidewalkSegment": 10909,
+        "endSidewalkSegment": 34951,
+        "stock": {
+          "result": "ready",
+          "lengthMeters": 425.5709,
+          "segments": [
+            10909,
+            7345,
+            22895,
+            26567,
+            12540,
+            17650,
+            8119,
+            14113,
+            21768,
+            8967,
+            17929,
+            34951
+          ],
+          "segmentListComplete": true
+        },
+        "pedestrian": {
+          "result": "ready",
+          "lengthMeters": 103.6182,
+          "segments": [
+            10909,
+            7345,
+            22895,
+            26567,
+            12540,
+            17650,
+            8119,
+            14113,
+            21768,
+            8967,
+            17929,
+            34951
+          ],
+          "segmentListComplete": true
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 20100,
+        "frame": 55297381,
+        "from": 3307,
+        "to": 39190,
+        "homeWard": "緑区",
+        "workWard": null,
+        "start": [
+          -1174.386,
+          139.9974,
+          1373.416
+        ],
+        "end": [
+          -1139.935,
+          140,
+          1392.708
+        ],
+        "startSidewalkSegment": 20330,
+        "endSidewalkSegment": 31980,
+        "stock": {
+          "result": "ready",
+          "lengthMeters": 282.9727,
+          "segments": [
+            20330,
+            31980
+          ],
+          "segmentListComplete": true
+        },
+        "pedestrian": {
+          "result": "ready",
+          "lengthMeters": 59.05302,
+          "segments": [
+            20330,
+            31980
+          ],
+          "segmentListComplete": true
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 416888,
+        "frame": 55297381,
+        "from": 20918,
+        "to": 33262,
+        "homeWard": "東区",
+        "workWard": "東区",
+        "start": [
+          -448.0037,
+          140,
+          1206.494
+        ],
+        "end": [
+          -468.9283,
+          140,
+          1269.89
+        ],
+        "startSidewalkSegment": 8892,
+        "endSidewalkSegment": 17676,
+        "stock": {
+          "result": "ready",
+          "lengthMeters": 314.5997,
+          "segments": [
+            8892,
+            33820,
+            450,
+            12054,
+            1130,
+            32750,
+            17676
+          ],
+          "segmentListComplete": true
+        },
+        "pedestrian": {
+          "result": "ready",
+          "lengthMeters": 68.63338,
+          "segments": [
+            8892,
+            33820,
+            450,
+            12054,
+            1130,
+            32750,
+            17676
+          ],
+          "segmentListComplete": true
+        },
+        "walkingPathAssigned": false
+      },
+      {
+        "citizenId": 559795,
+        "frame": 55297381,
+        "from": 35596,
+        "to": 23119,
+        "homeWard": "名東区",
+        "workWard": "名東区",
+        "start": [
+          2672.968,
+          140,
+          540.0554
+        ],
+        "end": [
+          2587.926,
+          140,
+          511.242
+        ],
+        "startSidewalkSegment": 7327,
+        "endSidewalkSegment": 23981,
+        "stock": {
+          "result": "ready",
+          "lengthMeters": 471.4179,
+          "segments": [
+            7327,
+            28004,
+            327,
+            3496,
+            9506,
+            22564,
+            23981
+          ],
+          "segmentListComplete": true
+        },
+        "pedestrian": {
+          "result": "ready",
+          "lengthMeters": 107.1895,
+          "segments": [
+            7327,
+            28004,
+            327,
+            3496,
+            9506,
+            22564,
+            23981
+          ],
+          "segmentListComplete": true
+        },
+        "walkingPathAssigned": false
+      }
+    ]
+  },
+  "definition": "Stock HumanAI success with CurrentLocation=Work or PathfindFailure. Home-origin source and the assigned work target must match the citizen. The assigned work unit must contain the citizen. Wards use the PLATEAU building ledger. Unassigned events have no registered ward. Counts are callbacks and unique citizen counts within each ward, not travel-mode statistics or a population-wide failure rate."
+}
