@@ -56,8 +56,8 @@ namespace NagoyaRoadDelivery
         private static object BuildFirstValid(NetManager net, ushort[][] candidates, bool roadWithSidewalks)
         {
             string prefab = roadWithSidewalks ? "Basic Road" : "Pedestrian Pavement";
-            NetInfo pavement = PrefabCollection<NetInfo>.FindLoaded(prefab);
-            if (pavement == null) throw new InvalidOperationException("The pedestrian pavement prefab is unavailable");
+            NetInfo link = PrefabCollection<NetInfo>.FindLoaded(prefab);
+            if (link == null) throw new InvalidOperationException("The connection prefab is unavailable: " + prefab);
             var attempts = new List<object>(candidates.Length);
             var buffer = new FastList<NetTool.NodePosition>();
             foreach (ushort[] pair in candidates)
@@ -81,16 +81,12 @@ namespace NagoyaRoadDelivery
                 ushort firstNode, lastNode, segment;
                 int cost, production;
                 entry["lengthMeters"] = delta.magnitude;
-                ToolBase.ToolErrors errors = NetTool.CreateNode(pavement, start, middle, end, buffer, 8,
-                    true, true, false, false, true, false, false, 0,
-                    out firstNode, out lastNode, out segment, out cost, out production);
-                entry["preflight"] = errors.ToString();
-                entry["estimatedCostRaw"] = cost;
+                ToolBase.ToolErrors errors = ProbeLink(link, start, middle, end, buffer, entry);
                 if (errors != ToolBase.ToolErrors.None) continue;
 
                 int before = net.m_segmentCount;
                 buffer.Clear();
-                errors = NetTool.CreateNode(pavement, start, middle, end, buffer, 8,
+                errors = NetTool.CreateNode(link, start, middle, end, buffer, 8,
                     false, true, false, false, true, false, false, 0,
                     out firstNode, out lastNode, out segment, out cost, out production);
                 entry["built"] = errors.ToString();
@@ -104,6 +100,45 @@ namespace NagoyaRoadDelivery
                 };
             }
             return new Dictionary<string, object> {{"connected",false},{"prefab",prefab},{"attempts",attempts}};
+        }
+
+        private static ToolBase.ToolErrors ProbeLink(NetInfo link, NetTool.ControlPoint start,
+            NetTool.ControlPoint middle, NetTool.ControlPoint end, FastList<NetTool.NodePosition> buffer,
+            Dictionary<string, object> entry)
+        {
+            ToolController controller = ToolManager.instance.m_properties;
+            ulong[] segments, buildings;
+            controller.BeginColliding(out segments, out buildings);
+            try
+            {
+                ushort firstNode, lastNode, segment;
+                int cost, production;
+                ToolBase.ToolErrors errors = NetTool.CreateNode(link, start, middle, end, buffer, 8,
+                    true, true, false, false, true, false, false, 0,
+                    out firstNode, out lastNode, out segment, out cost, out production);
+                entry["preflight"] = errors.ToString();
+                entry["estimatedCostRaw"] = cost;
+                entry["overlappingSegments"] = ReadCollisionIds(segments);
+                entry["overlappingBuildings"] = ReadCollisionIds(buildings);
+                return errors;
+            }
+            finally
+            {
+                controller.EndColliding();
+            }
+        }
+
+        private static List<int> ReadCollisionIds(ulong[] words)
+        {
+            var ids = new List<int>();
+            for (int word = 0; word < words.Length; word++)
+            {
+                ulong mask = words[word];
+                if (mask == 0) continue;
+                for (int bit = 0; bit < 64; bit++)
+                    if ((mask & (1ul << bit)) != 0) ids.Add(word * 64 + bit);
+            }
+            return ids;
         }
 
         private static bool RoadAnchor(NetNode node)

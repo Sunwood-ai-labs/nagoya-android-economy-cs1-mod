@@ -1,0 +1,459 @@
+{
+  "caseId": "jan01-native-road-collision-objects",
+  "checkpoint": {
+    "sha256": "9F4DCFBDDA74FE71B31CCBAC78D973D20598F84242F34E06D0F4DC67A292BA60",
+    "name": "NagoyaCitywide-EmploymentTrial-MixedHouseholds220-Observed",
+    "parentPreserved": true,
+    "segments": 32718,
+    "gameTime": "2030-01-01T08:57:59",
+    "bytes": 15373629,
+    "buildIndex": 126124,
+    "parent": "NagoyaCitywide-EmploymentTrial-SharedHomesObserved"
+  },
+  "startFrame": 55295666,
+  "endFrame": 55295691,
+  "durationHours": 1,
+  "modSha256": "C69F7CABDA72CEBA0531EB5E30BD5ACF93E22EAD68FA802388A4EFE9A00DF610",
+  "receiptSha256": "FAD729C2E2501C85A2BFEEC5863CAD5693F3255E92FF2AF5A47742BD896BF802",
+  "construction": {
+    "usedReservedCapacity": true,
+    "nodeCountBefore": 32699,
+    "nodeBufferCapacity": 32768,
+    "result": {
+      "connected": false,
+      "prefab": "Basic Road",
+      "attempts": [
+        {
+          "fromNode": 26942,
+          "toNode": 32148,
+          "lengthMeters": 178.5808,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 88000,
+          "overlappingSegments": [
+            298,
+            13191,
+            28858,
+            30550,
+            33475
+          ],
+          "overlappingBuildings": []
+        },
+        {
+          "fromNode": 4870,
+          "toNode": 32148,
+          "lengthMeters": 185.263,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 92000,
+          "overlappingSegments": [
+            298,
+            8720,
+            30550,
+            33475
+          ],
+          "overlappingBuildings": []
+        },
+        {
+          "fromNode": 30090,
+          "toNode": 32148,
+          "lengthMeters": 186.3085,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 92000,
+          "overlappingSegments": [
+            298,
+            30550,
+            33475
+          ],
+          "overlappingBuildings": [
+            43053
+          ]
+        },
+        {
+          "fromNode": 14898,
+          "toNode": 32148,
+          "lengthMeters": 174.8197,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 88000,
+          "overlappingSegments": [
+            298,
+            13191,
+            23523,
+            28858,
+            30550,
+            33475
+          ],
+          "overlappingBuildings": []
+        },
+        {
+          "fromNode": 6610,
+          "toNode": 32148,
+          "lengthMeters": 183.1066,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 92000,
+          "overlappingSegments": [
+            298,
+            8720,
+            9209,
+            13191,
+            26423,
+            28858,
+            30550,
+            33475
+          ],
+          "overlappingBuildings": []
+        },
+        {
+          "fromNode": 22948,
+          "toNode": 11953,
+          "lengthMeters": 184.9775,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 92000,
+          "overlappingSegments": [
+            15946,
+            33818
+          ],
+          "overlappingBuildings": [
+            31064,
+            43053
+          ]
+        },
+        {
+          "fromNode": 22948,
+          "toNode": 17459,
+          "lengthMeters": 186.4276,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 92000,
+          "overlappingSegments": [
+            10650,
+            22784,
+            24935,
+            31803
+          ],
+          "overlappingBuildings": [
+            42182,
+            43053
+          ]
+        },
+        {
+          "fromNode": 30090,
+          "toNode": 17459,
+          "lengthMeters": 187.2631,
+          "preflight": "ObjectCollision",
+          "estimatedCostRaw": 96000,
+          "overlappingSegments": [
+            10650,
+            22784,
+            24935,
+            31803
+          ],
+          "overlappingBuildings": [
+            42182,
+            43053
+          ]
+        }
+      ]
+    }
+  },
+  "segmentReadback": [
+    {
+      "id": 298,
+      "prefab": "Basic Road",
+      "service": "Road",
+      "subService": "None",
+      "flags": "Created, NameVisible1, NameVisible2",
+      "startNodeId": 6006,
+      "endNodeId": 7354,
+      "start": {
+        "x": -2442.078,
+        "y": 140,
+        "z": -16.529
+      },
+      "end": {
+        "x": -2441.115,
+        "y": 140,
+        "z": -29.127
+      }
+    },
+    {
+      "id": 8720,
+      "prefab": "Basic Road",
+      "service": "Road",
+      "subService": "None",
+      "flags": "Created, NameVisible1, NameVisible2",
+      "startNodeId": 26942,
+      "endNodeId": 6610,
+      "start": {
+        "x": -2277.858,
+        "y": 140,
+        "z": -116.982
+      },
+      "end": {
+        "x": -2278.405,
+        "y": 140,
+        "z": -126.748
+      }
+    },
+    {
+      "id": 9209,
+      "prefab": "Basic Road",
+      "service": "Road",
+      "subService": "None",
+      "flags": "Created",
+      "startNodeId": 6610,
+      "endNodeId": 4870,
+      "start": {
+        "x": -2278.405,
+        "y": 140,
+        "z": -126.748
+      },
+      "end": {
+        "x": -2278.649,
+        "y": 140,
+        "z": -131.116
+      }
+    },
+    {
+      "id": 10650,
+      "prefab": "Basic Road",
+      "service": "Road",
+      "subService": "None",
+      "flags": "Created",
+      "startNodeId": 1646,
+      "endNodeId": 11959,
+      "start": {
+        "x": -2447.293,
+        "y": 140,
+        "z": 46.11
+      },
+      "end": {
+        "x": -2446.332,
+        "y": 140,
+        "z": 39.175
+      }
+    },
+    {
+      "id": 13191,
+      "prefab": "Basic Road",
+      "service": "Road",
+      "subService": "None",
+      "flags": "Created",
+      "startNodeId": 14898,
+      "endNodeId": 26942,
+      "start": {
+        "x": -2277.538,
+        "y": 140,
+        "z": -108.41
+      },
+      "end": {
+        "x": -2277.858,
+        "y": 140,
+        "z": -116.982
+      }
+    },
+    {
+      "id": 15946,
+      "prefab": "Basic Road",
+      "service": "Road",
+      "subService": "None",
+      "flags": "Created, NameVisible1, NameVisible2",
+      "startNodeId": 11953,
+      "endNodeId": 20531,
+      "start": {
+        "x": -2443.18,
+        "y": 140,
+        "z": -2.078
+      },
+      "end": {
+        "x": -2442.482,
+        "y": 140,
+        "z": -11.238
+      }
+    },
+    {
+      "id": 22784,
+      "prefab": "Power Line",
+      "service": "Electricity",
+      "subService": "None",
+      "flags": "Created, NameVisible1, NameVisible2",
+      "startNodeId": 10127,
+      "endNodeId": 20295,
+      "start": {
+        "x": -2456.751,
+        "y": 140,
+        "z": 78.856
+      },
+      "end": {
+        "x": -2428.597,
+        "y": 140,
+        "z": 17.07
+      }
+    },
+    {
+      "id": 23523,
+      "prefab": "Basic Road",
+      "service": "Road",
+      "subService": "None",
+      "flags": "Created",
+      "startNodeId": 13222,
+      "endNodeId": 8417,
+      "start": {
+        "x": -2269.885,
+        "y": 140,
+        "z": -84.286
+      },
+      "end": {
+        "x": -2275.738,
+        "y": 140,
+        "z": -102.685
+      }
+    },
+    {
+      "id": 24935,
+      "prefab": "Basic Road",
+      "service": "Road",
+      "subService": "None",
+      "flags": "Created",
+      "startNodeId": 24556,
+      "endNodeId": 17459,
+      "start": {
+        "x": -2445.925,
+        "y": 140,
+        "z": 33.84
+      },
+      "end": {
+        "x": -2445.16,
+        "y": 140,
+        "z": 23.826
+      }
+    },
+    {
+      "id": 26423,
+      "prefab": "Basic Road",
+      "service": "Road",
+      "subService": "None",
+      "flags": "Created, NameVisible1, NameVisible2",
+      "startNodeId": 4870,
+      "endNodeId": 6060,
+      "start": {
+        "x": -2278.649,
+        "y": 140,
+        "z": -131.116
+      },
+      "end": {
+        "x": -2280.007,
+        "y": 140,
+        "z": -141.467
+      }
+    },
+    {
+      "id": 28858,
+      "prefab": "Basic Road",
+      "service": "Road",
+      "subService": "None",
+      "flags": "Created, NameVisible1, NameVisible2",
+      "startNodeId": 8417,
+      "endNodeId": 14898,
+      "start": {
+        "x": -2275.738,
+        "y": 140,
+        "z": -102.685
+      },
+      "end": {
+        "x": -2277.538,
+        "y": 140,
+        "z": -108.41
+      }
+    },
+    {
+      "id": 30550,
+      "prefab": "Basic Road",
+      "service": "Road",
+      "subService": "None",
+      "flags": "Created, End, NameVisible1, NameVisible2",
+      "startNodeId": 7354,
+      "endNodeId": 32148,
+      "start": {
+        "x": -2441.115,
+        "y": 140,
+        "z": -29.127
+      },
+      "end": {
+        "x": -2433.462,
+        "y": 140,
+        "z": -29.355
+      }
+    },
+    {
+      "id": 31803,
+      "prefab": "Power Line",
+      "service": "Electricity",
+      "subService": "None",
+      "flags": "Created, NameVisible1, NameVisible2",
+      "startNodeId": 20295,
+      "endNodeId": 31967,
+      "start": {
+        "x": -2428.597,
+        "y": 140,
+        "z": 17.07
+      },
+      "end": {
+        "x": -2444.52,
+        "y": 140,
+        "z": 2.48
+      }
+    },
+    {
+      "id": 33475,
+      "prefab": "Basic Road",
+      "service": "Road",
+      "subService": "None",
+      "flags": "Created",
+      "startNodeId": 29899,
+      "endNodeId": 7354,
+      "start": {
+        "x": -2454.095,
+        "y": 140,
+        "z": -31.6
+      },
+      "end": {
+        "x": -2441.115,
+        "y": 140,
+        "z": -29.127
+      }
+    },
+    {
+      "id": 33818,
+      "prefab": "Basic Road",
+      "service": "Road",
+      "subService": "None",
+      "flags": "Created",
+      "startNodeId": 8004,
+      "endNodeId": 11953,
+      "start": {
+        "x": -2443.856,
+        "y": 140,
+        "z": 6.779
+      },
+      "end": {
+        "x": -2443.18,
+        "y": 140,
+        "z": -2.078
+      }
+    }
+  ],
+  "summary": {
+    "roadOverlap": 8,
+    "powerLineOverlap": 2,
+    "airplanePathOverlap": 0,
+    "buildingOverlap": 4,
+    "recurringRoadOverlapAtAnchor32148": [
+      298,
+      30550,
+      33475
+    ],
+    "adjacentDeadEndSegment": {
+      "id": 30550,
+      "distMeters": 7.66
+    }
+  },
+  "interpretation": "The IDs come from NetTool.CreateNode test-mode collision masks. Several flagged objects can coexist in an attempt. A plan-line intersection is not recorded as a collision unless it appears in this result."
+}
