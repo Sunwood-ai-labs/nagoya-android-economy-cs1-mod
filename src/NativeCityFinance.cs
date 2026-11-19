@@ -64,6 +64,7 @@ namespace NagoyaRoadDelivery
             bool changed = false;
             bool startedWatch = false;
             int day = 0, night = 0;
+            NativeWaterQuality.IntakeChange intakeChange = null;
             try
             {
                 if (stopped) return;
@@ -74,12 +75,15 @@ namespace NagoyaRoadDelivery
                 economy = EconomyManager.instance;
                 string file = id + "-finance.json";
                 if (File.Exists(Path.Combine(Root, file))) throw new IOException("Finance receipt already exists");
-                object powerBudget, wasteBudget, targets;
+                object powerBudget, wasteBudget, targets, waterIntake;
                 bool changePower = request.TryGetValue("electricityBudget", out powerBudget);
                 bool changeWaste = request.TryGetValue("garbageBudget", out wasteBudget);
                 bool startWatch = request.TryGetValue("wasteBuildingIds", out targets);
                 bool finishWatch = request.ContainsKey("finishWasteWatch") && Convert.ToBoolean(request["finishWasteWatch"]);
-                if (changePower && changeWaste) throw new InvalidDataException("Select one budget per trial");
+                bool changeIntake = request.TryGetValue("waterIntake", out waterIntake);
+                bool sampleWater = request.ContainsKey("sampleWaterQuality") && Convert.ToBoolean(request["sampleWaterQuality"]);
+                if ((changePower && changeWaste) || (changeIntake && (changePower || changeWaste || startWatch || finishWatch)))
+                    throw new InvalidDataException("Select one city operation per trial");
                 if (startWatch && (wasteWatch != null || finishWatch))
                     throw new InvalidOperationException("Finish the existing observation before selecting new buildings");
                 int powerDay = Budget(economy, electricity, false), powerNight = Budget(economy, electricity, true);
@@ -104,24 +108,32 @@ namespace NagoyaRoadDelivery
                     changed = ApplyBudget(economy, changeService,
                         (Dictionary<string, object>)(changePower ? powerBudget : wasteBudget), day, night);
                 }
+                if (changeIntake)
+                {
+                    intakeChange = new NativeWaterQuality.IntakeChange((Dictionary<string, object>)waterIntake);
+                    intakeChange.Apply();
+                }
                 Write(file, new Dictionary<string, object> {
                     {"runId",runId}, {"commandId",id}, {"cityName",city}, {"buildIndex",build}, {"segments",segments},
                     {"gameTime",simulation.m_currentGameTime.ToString("s")}, {"internalCash",economy.InternalCashAmount},
                     {"lastCash",economy.LastCashAmount}, {"lastCashDelta",economy.LastCashDelta},
                     {"loanExpenses",economy.GetLoanExpenses()}, {"policyExpenses",economy.GetPolicyExpenses()},
-                    {"services",services}, {"publicTransport",transport}, {"writesToCity",changed},
+                    {"services",services}, {"publicTransport",transport}, {"writesToCity",changed || changeIntake},
+                    {"waterQuality",sampleWater || changeIntake ? NativeWaterQuality.Capture() : null},
                     {"networkMaintenance", NetworkMaintenanceSnapshot()},
                     {"electricity",PowerSnapshot(economy, powerDay, powerNight)},
                     {"garbage",WasteSnapshot(economy, wasteDay, wasteNight)}
                 });
                 changed = false;
                 startedWatch = false;
+                intakeChange = null;
                 if (finishWatch) StopWasteWatch();
                 Write("finance-runtime.json", Status(id, "complete", file, null));
             }
             catch (Exception error)
             {
                 if (changed) SetBudget(economy, changeService, day, night);
+                if (intakeChange != null) intakeChange.Rollback();
                 if (startedWatch) StopWasteWatch();
                 Write("finance-runtime.json", Status(id, "rejected", null, error.Message));
             }

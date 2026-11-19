@@ -10,12 +10,18 @@ param(
     [ValidateRange(50, 150)][int]$ExpectedGarbageNight,
     [ValidateCount(1, 64)][uint16[]]$WasteBuildingId,
     [switch]$FinishWasteWatch,
+    [switch]$SampleWaterQuality,
+    [ValidateRange(1,65535)][uint16]$WaterIntakeId,
+    [uint32]$ExpectedWaterIntakeGeneration,
+    [ValidateSet(0,100)][int]$ExpectedWaterIntakeRate,
+    [ValidateSet(0,100)][int]$WaterIntakeRate,
     [string]$Bridge = 'http://127.0.0.1:32123'
 )
 
 $ErrorActionPreference = 'Stop'
 $power = $PSBoundParameters.ContainsKey('ElectricityBudgetPercent')
 $waste = $PSBoundParameters.ContainsKey('GarbageBudgetPercent')
+$intake = $PSBoundParameters.ContainsKey('WaterIntakeId')
 if ($power -and $waste) {
     throw 'Select one budget per trial.'
 }
@@ -28,6 +34,12 @@ if (($waste -or $WasteBuildingId -or $FinishWasteWatch) -and $CheckpointName -cn
 }
 if ($waste -and (!$PSBoundParameters.ContainsKey('ExpectedGarbageDay') -or !$PSBoundParameters.ContainsKey('ExpectedGarbageNight'))) {
     throw 'A garbage budget change requires both expected values.'
+}
+if ($intake -and ($CheckpointName -cnotlike 'NagoyaCitywide-WaterQualityTrial-*' -or
+    !$PSBoundParameters.ContainsKey('ExpectedWaterIntakeGeneration') -or
+    !$PSBoundParameters.ContainsKey('ExpectedWaterIntakeRate') -or !$PSBoundParameters.ContainsKey('WaterIntakeRate') -or
+    $ExpectedWaterIntakeRate + $WaterIntakeRate -ne 100 -or $power -or $waste -or $WasteBuildingId -or $FinishWasteWatch)) {
+    throw 'A groundwater intake toggle requires one separate trial save, its expected generation and both production rates.'
 }
 $root = 'H:/CS1-PLATEAU/nagoya-station/citywide-zoning-v3'
 $finance = Get-Content -LiteralPath (Join-Path $root 'finance-runtime.json') -Raw | ConvertFrom-Json
@@ -74,6 +86,17 @@ if ($WasteBuildingId) {
 }
 if ($FinishWasteWatch) {
     $request.finishWasteWatch = $true
+}
+if ($SampleWaterQuality) {
+    $request.sampleWaterQuality = $true
+}
+if ($intake) {
+    $request.waterIntake = @{
+        buildingId = $WaterIntakeId
+        expectedGeneration = $ExpectedWaterIntakeGeneration
+        expectedRate = $ExpectedWaterIntakeRate
+        rate = $WaterIntakeRate
+    }
 }
 $temporary = "$destination.$($request.commandId).tmp"
 [IO.File]::WriteAllText($temporary, ($request | ConvertTo-Json -Compress), [Text.UTF8Encoding]::new($false))

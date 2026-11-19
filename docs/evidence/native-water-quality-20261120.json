@@ -1,0 +1,2185 @@
+{
+  "startSave": {
+    "name": "NagoyaCitywide-WaterQualityTrial-Start",
+    "sha256": "A146C67620B151D152FA634EE416B37CE6B3DD9DD7D66D542C03325498C208DB",
+    "bytes": 15377163
+  },
+  "endSave": {
+    "name": "NagoyaCitywide-WaterQualityTrial-IntakeIsolated",
+    "sha256": "4C1C753348B2F26F77DFF9730F04DFE15CAC818B92E016852BCC753019838A70",
+    "bytes": 15408920
+  },
+  "cleanWaterSave": {
+    "name": "NagoyaCitywide-WaterQualityTrial-CleanWater",
+    "sha256": "77ADFF7C64D4B35421837F3F98B82B766B2AB4F8A773140E10F945A7A2B70B0F",
+    "bytes": 15404333
+  },
+  "connectedWaterSave": {
+    "name": "NagoyaCitywide-WaterQualityTrial-ServiceRestored",
+    "sha256": "B40F239B5EAFE9D72B21F2CD24278F20E222DDE185ED1A92D791EA95AA3DEA50",
+    "bytes": 15435226
+  },
+  "gameElapsedSeconds": 1075215,
+  "before": {
+    "gameTime": "2029-08-05T20:20:15",
+    "segments": 32655,
+    "waterAccountExpenses": 7589.76,
+    "capacity": 640000,
+    "consumption": 271472,
+    "sewageCapacity": 320000,
+    "sewageLoad": 271472,
+    "districtPollution": 2,
+    "sickResidents": 2872,
+    "activeResidences": 3208,
+    "waterConnections": 3208,
+    "sewerConnections": 3208,
+    "pollutedConnections": 1068,
+    "dirtyWaterWarnings": 187,
+    "waterWarnings": 0,
+    "sewageWarnings": 0,
+    "facilities": [
+      {
+        "id": 27432,
+        "generation": 78239,
+        "prefab": "Large Water Tower 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 12401,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 10000,
+        "groundPollution": 64,
+        "waterPollution": 64,
+        "position": [
+          2898.729,
+          140,
+          343.196
+        ]
+      },
+      {
+        "id": 38595,
+        "generation": 78235,
+        "prefab": "Large Water Tower 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 21056,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 10000,
+        "groundPollution": 0,
+        "waterPollution": 0,
+        "position": [
+          141.334,
+          140,
+          2482.221
+        ]
+      },
+      {
+        "id": 39541,
+        "generation": 78243,
+        "prefab": "Eco Advanced Inland Water Treatment Plant 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 17683,
+        "groundwater": true,
+        "nominalWaterIntake": 0,
+        "nominalSewageOutlet": 10000,
+        "netWaterRate": -10000,
+        "groundPollution": 149,
+        "waterPollution": 0,
+        "position": [
+          771.672,
+          140,
+          1937.173
+        ]
+      },
+      {
+        "id": 43724,
+        "generation": 78237,
+        "prefab": "Large Water Tower 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 19496,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 10000,
+        "groundPollution": 0,
+        "waterPollution": 0,
+        "position": [
+          -1088.579,
+          129.0156,
+          -3019.486
+        ]
+      },
+      {
+        "id": 44621,
+        "generation": 78241,
+        "prefab": "Large Water Tower 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 29253,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 10000,
+        "groundPollution": 0,
+        "waterPollution": 0,
+        "position": [
+          -3173.517,
+          140,
+          -331.49
+        ]
+      },
+      {
+        "id": 45276,
+        "generation": 78245,
+        "prefab": "Eco Advanced Inland Water Treatment Plant 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 29125,
+        "groundwater": true,
+        "nominalWaterIntake": 0,
+        "nominalSewageOutlet": 10000,
+        "netWaterRate": -10000,
+        "groundPollution": 90,
+        "waterPollution": 0,
+        "position": [
+          -1252.188,
+          140,
+          -3174.374
+        ]
+      }
+    ]
+  },
+  "isolated": {
+    "gameTime": "2029-08-05T20:20:15",
+    "segments": 32655,
+    "waterAccountExpenses": 7589.76,
+    "capacity": 640000,
+    "consumption": 271472,
+    "sewageCapacity": 320000,
+    "sewageLoad": 271472,
+    "districtPollution": 2,
+    "sickResidents": 2872,
+    "activeResidences": 3208,
+    "waterConnections": 3208,
+    "sewerConnections": 3208,
+    "pollutedConnections": 1068,
+    "dirtyWaterWarnings": 187,
+    "waterWarnings": 0,
+    "sewageWarnings": 0,
+    "facilities": [
+      {
+        "id": 27432,
+        "generation": 78239,
+        "prefab": "Large Water Tower 01",
+        "active": false,
+        "productionRate": 0,
+        "waterNode": 12401,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 0,
+        "groundPollution": 64,
+        "waterPollution": 64,
+        "position": [
+          2898.729,
+          140,
+          343.196
+        ]
+      },
+      {
+        "id": 38595,
+        "generation": 78235,
+        "prefab": "Large Water Tower 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 21056,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 10000,
+        "groundPollution": 0,
+        "waterPollution": 0,
+        "position": [
+          141.334,
+          140,
+          2482.221
+        ]
+      },
+      {
+        "id": 39541,
+        "generation": 78243,
+        "prefab": "Eco Advanced Inland Water Treatment Plant 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 17683,
+        "groundwater": true,
+        "nominalWaterIntake": 0,
+        "nominalSewageOutlet": 10000,
+        "netWaterRate": -10000,
+        "groundPollution": 149,
+        "waterPollution": 0,
+        "position": [
+          771.672,
+          140,
+          1937.173
+        ]
+      },
+      {
+        "id": 43724,
+        "generation": 78237,
+        "prefab": "Large Water Tower 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 19496,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 10000,
+        "groundPollution": 0,
+        "waterPollution": 0,
+        "position": [
+          -1088.579,
+          129.0156,
+          -3019.486
+        ]
+      },
+      {
+        "id": 44621,
+        "generation": 78241,
+        "prefab": "Large Water Tower 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 29253,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 10000,
+        "groundPollution": 0,
+        "waterPollution": 0,
+        "position": [
+          -3173.517,
+          140,
+          -331.49
+        ]
+      },
+      {
+        "id": 45276,
+        "generation": 78245,
+        "prefab": "Eco Advanced Inland Water Treatment Plant 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 29125,
+        "groundwater": true,
+        "nominalWaterIntake": 0,
+        "nominalSewageOutlet": 10000,
+        "netWaterRate": -10000,
+        "groundPollution": 90,
+        "waterPollution": 0,
+        "position": [
+          -1252.188,
+          140,
+          -3174.374
+        ]
+      }
+    ]
+  },
+  "end": {
+    "gameTime": "2029-08-18T07:00:30",
+    "segments": 32655,
+    "waterAccountExpenses": 6869.76,
+    "capacity": 480000,
+    "consumption": 271808,
+    "sewageCapacity": 320000,
+    "sewageLoad": 271808,
+    "districtPollution": 0,
+    "sickResidents": 2898,
+    "activeResidences": 3180,
+    "waterConnections": 3180,
+    "sewerConnections": 3180,
+    "pollutedConnections": 817,
+    "dirtyWaterWarnings": 0,
+    "waterWarnings": 0,
+    "sewageWarnings": 0,
+    "facilities": [
+      {
+        "id": 27432,
+        "generation": 78239,
+        "prefab": "Large Water Tower 01",
+        "active": false,
+        "productionRate": 0,
+        "waterNode": 12401,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 0,
+        "groundPollution": 64,
+        "waterPollution": 64,
+        "position": [
+          2898.729,
+          140,
+          343.196
+        ]
+      },
+      {
+        "id": 38595,
+        "generation": 78235,
+        "prefab": "Large Water Tower 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 21056,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 10000,
+        "groundPollution": 0,
+        "waterPollution": 0,
+        "position": [
+          141.334,
+          140,
+          2482.221
+        ]
+      },
+      {
+        "id": 39541,
+        "generation": 78243,
+        "prefab": "Eco Advanced Inland Water Treatment Plant 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 17683,
+        "groundwater": true,
+        "nominalWaterIntake": 0,
+        "nominalSewageOutlet": 10000,
+        "netWaterRate": -10000,
+        "groundPollution": 155,
+        "waterPollution": 0,
+        "position": [
+          771.672,
+          140,
+          1937.173
+        ]
+      },
+      {
+        "id": 43724,
+        "generation": 78237,
+        "prefab": "Large Water Tower 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 19496,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 10000,
+        "groundPollution": 1,
+        "waterPollution": 0,
+        "position": [
+          -1088.579,
+          129.0156,
+          -3019.486
+        ]
+      },
+      {
+        "id": 44621,
+        "generation": 78241,
+        "prefab": "Large Water Tower 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 29253,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 10000,
+        "groundPollution": 1,
+        "waterPollution": 0,
+        "position": [
+          -3173.517,
+          140,
+          -331.49
+        ]
+      },
+      {
+        "id": 45276,
+        "generation": 78245,
+        "prefab": "Eco Advanced Inland Water Treatment Plant 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 29125,
+        "groundwater": true,
+        "nominalWaterIntake": 0,
+        "nominalSewageOutlet": 10000,
+        "netWaterRate": -10000,
+        "groundPollution": 88,
+        "waterPollution": 0,
+        "position": [
+          -1252.188,
+          140,
+          -3174.374
+        ]
+      }
+    ]
+  },
+  "reloaded": {
+    "gameTime": "2029-08-21T20:26:47",
+    "segments": 32655,
+    "waterAccountExpenses": 6869.76,
+    "capacity": 480000,
+    "consumption": 271664,
+    "sewageCapacity": 320000,
+    "sewageLoad": 271664,
+    "districtPollution": 0,
+    "sickResidents": 2888,
+    "activeResidences": 3175,
+    "waterConnections": 3174,
+    "sewerConnections": 3174,
+    "pollutedConnections": 0,
+    "dirtyWaterWarnings": 0,
+    "waterWarnings": 0,
+    "sewageWarnings": 0,
+    "facilities": [
+      {
+        "id": 27432,
+        "generation": 78239,
+        "prefab": "Large Water Tower 01",
+        "active": false,
+        "productionRate": 0,
+        "waterNode": 12401,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 0,
+        "groundPollution": 64,
+        "waterPollution": 64,
+        "position": [
+          2898.729,
+          140,
+          343.196
+        ]
+      },
+      {
+        "id": 38595,
+        "generation": 78235,
+        "prefab": "Large Water Tower 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 21056,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 10000,
+        "groundPollution": 0,
+        "waterPollution": 0,
+        "position": [
+          141.334,
+          140,
+          2482.221
+        ]
+      },
+      {
+        "id": 39541,
+        "generation": 78243,
+        "prefab": "Eco Advanced Inland Water Treatment Plant 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 17683,
+        "groundwater": true,
+        "nominalWaterIntake": 0,
+        "nominalSewageOutlet": 10000,
+        "netWaterRate": -10000,
+        "groundPollution": 161,
+        "waterPollution": 0,
+        "position": [
+          771.672,
+          140,
+          1937.173
+        ]
+      },
+      {
+        "id": 43724,
+        "generation": 78237,
+        "prefab": "Large Water Tower 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 19496,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 10000,
+        "groundPollution": 0,
+        "waterPollution": 0,
+        "position": [
+          -1088.579,
+          129.0156,
+          -3019.486
+        ]
+      },
+      {
+        "id": 44621,
+        "generation": 78241,
+        "prefab": "Large Water Tower 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 29253,
+        "groundwater": true,
+        "nominalWaterIntake": 10000,
+        "nominalSewageOutlet": 0,
+        "netWaterRate": 10000,
+        "groundPollution": 0,
+        "waterPollution": 0,
+        "position": [
+          -3173.517,
+          140,
+          -331.49
+        ]
+      },
+      {
+        "id": 45276,
+        "generation": 78245,
+        "prefab": "Eco Advanced Inland Water Treatment Plant 01",
+        "active": true,
+        "productionRate": 100,
+        "waterNode": 29125,
+        "groundwater": true,
+        "nominalWaterIntake": 0,
+        "nominalSewageOutlet": 10000,
+        "netWaterRate": -10000,
+        "groundPollution": 88,
+        "waterPollution": 0,
+        "position": [
+          -1252.188,
+          140,
+          -3174.374
+        ]
+      }
+    ]
+  },
+  "intakeId": 27432,
+  "topology": {
+    "segments": 4175,
+    "nodes": 4152,
+    "nodesReachedFromPollutedTower": 4152,
+    "connectedFacilities": [
+      27432,
+      38595,
+      39541,
+      43724,
+      44621,
+      45276
+    ]
+  },
+  "lastConnection": {
+    "before": {
+      "id": 19963,
+      "generation": 125132,
+      "dirtyWarning": false,
+      "waterWarning": false,
+      "sewageWarning": false,
+      "water": false,
+      "sewage": false,
+      "networkPollution": 0
+    },
+    "after": {
+      "id": 19963,
+      "generation": 125132,
+      "dirtyWarning": false,
+      "waterWarning": false,
+      "sewageWarning": false,
+      "water": true,
+      "sewage": true,
+      "networkPollution": 0
+    },
+    "afterCity": {
+      "gameTime": "2029-08-27T00:10:11",
+      "segments": 32656,
+      "waterAccountExpenses": 6870.53,
+      "capacity": 480000,
+      "consumption": 271184,
+      "sewageCapacity": 320000,
+      "sewageLoad": 271184,
+      "districtPollution": 0,
+      "sickResidents": 2896,
+      "activeResidences": 3158,
+      "waterConnections": 3158,
+      "sewerConnections": 3158,
+      "pollutedConnections": 1084,
+      "dirtyWaterWarnings": 0,
+      "waterWarnings": 0,
+      "sewageWarnings": 0,
+      "facilities": [
+        {
+          "id": 27432,
+          "generation": 78239,
+          "prefab": "Large Water Tower 01",
+          "active": false,
+          "productionRate": 0,
+          "waterNode": 12401,
+          "groundwater": true,
+          "nominalWaterIntake": 10000,
+          "nominalSewageOutlet": 0,
+          "netWaterRate": 0,
+          "groundPollution": 64,
+          "waterPollution": 64,
+          "position": [
+            2898.729,
+            140,
+            343.196
+          ]
+        },
+        {
+          "id": 38595,
+          "generation": 78235,
+          "prefab": "Large Water Tower 01",
+          "active": true,
+          "productionRate": 100,
+          "waterNode": 21056,
+          "groundwater": true,
+          "nominalWaterIntake": 10000,
+          "nominalSewageOutlet": 0,
+          "netWaterRate": 10000,
+          "groundPollution": 0,
+          "waterPollution": 0,
+          "position": [
+            141.334,
+            140,
+            2482.221
+          ]
+        },
+        {
+          "id": 39541,
+          "generation": 78243,
+          "prefab": "Eco Advanced Inland Water Treatment Plant 01",
+          "active": true,
+          "productionRate": 100,
+          "waterNode": 17683,
+          "groundwater": true,
+          "nominalWaterIntake": 0,
+          "nominalSewageOutlet": 10000,
+          "netWaterRate": -10000,
+          "groundPollution": 166,
+          "waterPollution": 0,
+          "position": [
+            771.672,
+            140,
+            1937.173
+          ]
+        },
+        {
+          "id": 43724,
+          "generation": 78237,
+          "prefab": "Large Water Tower 01",
+          "active": true,
+          "productionRate": 100,
+          "waterNode": 19496,
+          "groundwater": true,
+          "nominalWaterIntake": 10000,
+          "nominalSewageOutlet": 0,
+          "netWaterRate": 10000,
+          "groundPollution": 0,
+          "waterPollution": 0,
+          "position": [
+            -1088.579,
+            129.0156,
+            -3019.486
+          ]
+        },
+        {
+          "id": 44621,
+          "generation": 78241,
+          "prefab": "Large Water Tower 01",
+          "active": true,
+          "productionRate": 100,
+          "waterNode": 29253,
+          "groundwater": true,
+          "nominalWaterIntake": 10000,
+          "nominalSewageOutlet": 0,
+          "netWaterRate": 10000,
+          "groundPollution": 0,
+          "waterPollution": 0,
+          "position": [
+            -3173.517,
+            140,
+            -331.49
+          ]
+        },
+        {
+          "id": 45276,
+          "generation": 78245,
+          "prefab": "Eco Advanced Inland Water Treatment Plant 01",
+          "active": true,
+          "productionRate": 100,
+          "waterNode": 29125,
+          "groundwater": true,
+          "nominalWaterIntake": 0,
+          "nominalSewageOutlet": 10000,
+          "netWaterRate": -10000,
+          "groundPollution": 88,
+          "waterPollution": 0,
+          "position": [
+            -1252.188,
+            140,
+            -3174.374
+          ]
+        }
+      ]
+    },
+    "built": {
+      "runId": "843c20a444e4448288168f222c1771b4",
+      "commandId": "e51fec208fe347fab9bc064dace08efd",
+      "phase": "built",
+      "planSha256": "D665E60DF7DD7C1552F9564B40160F6032C85D076FF7F820793D37F773BE60BD",
+      "requestedRoads": 1,
+      "requestedJunctions": 2,
+      "processedRoads": 1,
+      "createdRoads": 1,
+      "baselineNodes": 32636,
+      "baselineSegments": 32655,
+      "nativeNodes": 32637,
+      "nativeSegments": 32656,
+      "error": null,
+      "channel": "utility",
+      "loadedCity": "NagoyaCitywide-Construction",
+      "mvid": "013e1037-75a3-4cc9-b370-943fdec6573b",
+      "utc": "2026-11-19T17:15:22.9792401Z"
+    },
+    "nativeSegment": 22411,
+    "nativeStartNode": 4175,
+    "nativeEndNode": 21423
+  },
+  "collatedHomes": {
+    "beforeWarning": 187,
+    "matchedStillActive": 186,
+    "sameHomesStillSuppliedAndWarningCleared": [
+      [
+        433,
+        103912
+      ],
+      [
+        769,
+        103967
+      ],
+      [
+        1037,
+        124730
+      ],
+      [
+        1165,
+        124933
+      ],
+      [
+        1402,
+        106541
+      ],
+      [
+        1947,
+        60191
+      ],
+      [
+        2059,
+        58673
+      ],
+      [
+        2137,
+        124856
+      ],
+      [
+        2348,
+        58698
+      ],
+      [
+        2981,
+        112778
+      ],
+      [
+        3041,
+        107694
+      ],
+      [
+        3063,
+        124971
+      ],
+      [
+        3212,
+        106324
+      ],
+      [
+        3512,
+        106860
+      ],
+      [
+        3561,
+        105717
+      ],
+      [
+        3575,
+        124917
+      ],
+      [
+        3830,
+        106527
+      ],
+      [
+        4012,
+        58940
+      ],
+      [
+        4155,
+        102515
+      ],
+      [
+        4235,
+        105298
+      ],
+      [
+        4785,
+        124865
+      ],
+      [
+        5617,
+        105736
+      ],
+      [
+        5628,
+        107213
+      ],
+      [
+        5830,
+        124819
+      ],
+      [
+        6278,
+        118730
+      ],
+      [
+        6528,
+        114180
+      ],
+      [
+        6936,
+        105904
+      ],
+      [
+        6937,
+        124728
+      ],
+      [
+        6977,
+        104360
+      ],
+      [
+        7145,
+        106113
+      ],
+      [
+        7262,
+        105353
+      ],
+      [
+        7561,
+        106822
+      ],
+      [
+        7813,
+        114696
+      ],
+      [
+        9042,
+        106425
+      ],
+      [
+        9069,
+        105928
+      ],
+      [
+        9378,
+        106786
+      ],
+      [
+        9602,
+        105144
+      ],
+      [
+        10189,
+        58947
+      ],
+      [
+        10278,
+        124900
+      ],
+      [
+        10604,
+        119011
+      ],
+      [
+        10852,
+        106358
+      ],
+      [
+        10963,
+        60139
+      ],
+      [
+        11423,
+        112674
+      ],
+      [
+        11500,
+        105920
+      ],
+      [
+        11710,
+        117469
+      ],
+      [
+        11716,
+        118253
+      ],
+      [
+        12088,
+        59758
+      ],
+      [
+        12393,
+        106000
+      ],
+      [
+        12780,
+        124931
+      ],
+      [
+        12819,
+        59012
+      ],
+      [
+        12863,
+        106317
+      ],
+      [
+        12866,
+        78336
+      ],
+      [
+        13315,
+        118097
+      ],
+      [
+        14022,
+        107345
+      ],
+      [
+        14079,
+        124749
+      ],
+      [
+        14291,
+        117526
+      ],
+      [
+        14374,
+        58986
+      ],
+      [
+        14780,
+        124687
+      ],
+      [
+        14840,
+        117689
+      ],
+      [
+        14970,
+        115121
+      ],
+      [
+        14997,
+        115157
+      ],
+      [
+        15029,
+        119049
+      ],
+      [
+        15247,
+        114075
+      ],
+      [
+        15735,
+        106818
+      ],
+      [
+        15750,
+        113938
+      ],
+      [
+        15820,
+        114720
+      ],
+      [
+        16144,
+        114166
+      ],
+      [
+        16647,
+        106486
+      ],
+      [
+        17008,
+        78530
+      ],
+      [
+        17692,
+        123071
+      ],
+      [
+        17956,
+        78274
+      ],
+      [
+        18379,
+        105384
+      ],
+      [
+        18715,
+        95988
+      ],
+      [
+        18765,
+        105942
+      ],
+      [
+        18777,
+        105389
+      ],
+      [
+        18805,
+        59369
+      ],
+      [
+        19673,
+        105627
+      ],
+      [
+        19692,
+        104561
+      ],
+      [
+        19722,
+        103978
+      ],
+      [
+        19814,
+        105063
+      ],
+      [
+        19874,
+        118107
+      ],
+      [
+        19921,
+        103053
+      ],
+      [
+        19989,
+        105635
+      ],
+      [
+        20028,
+        124656
+      ],
+      [
+        20047,
+        112692
+      ],
+      [
+        20089,
+        104490
+      ],
+      [
+        20498,
+        59299
+      ],
+      [
+        21067,
+        124401
+      ],
+      [
+        21306,
+        104165
+      ],
+      [
+        21527,
+        58247
+      ],
+      [
+        22066,
+        106474
+      ],
+      [
+        22101,
+        59950
+      ],
+      [
+        22292,
+        106677
+      ],
+      [
+        22304,
+        106811
+      ],
+      [
+        22373,
+        112817
+      ],
+      [
+        22554,
+        114587
+      ],
+      [
+        22671,
+        124939
+      ],
+      [
+        22801,
+        78662
+      ],
+      [
+        22963,
+        58649
+      ],
+      [
+        24267,
+        104661
+      ],
+      [
+        24391,
+        124962
+      ],
+      [
+        24812,
+        106001
+      ],
+      [
+        25024,
+        114192
+      ],
+      [
+        25378,
+        118084
+      ],
+      [
+        26216,
+        59226
+      ],
+      [
+        26689,
+        114667
+      ],
+      [
+        26725,
+        114690
+      ],
+      [
+        26754,
+        104474
+      ],
+      [
+        26998,
+        124524
+      ],
+      [
+        27281,
+        104576
+      ],
+      [
+        27603,
+        118763
+      ],
+      [
+        28287,
+        117639
+      ],
+      [
+        28492,
+        58703
+      ],
+      [
+        28580,
+        124902
+      ],
+      [
+        28716,
+        58159
+      ],
+      [
+        28824,
+        59781
+      ],
+      [
+        28836,
+        58363
+      ],
+      [
+        29413,
+        58098
+      ],
+      [
+        29438,
+        118956
+      ],
+      [
+        29837,
+        124325
+      ],
+      [
+        29880,
+        124813
+      ],
+      [
+        30098,
+        59217
+      ],
+      [
+        30272,
+        114249
+      ],
+      [
+        30632,
+        59676
+      ],
+      [
+        30915,
+        58600
+      ],
+      [
+        31215,
+        114073
+      ],
+      [
+        31256,
+        106239
+      ],
+      [
+        31351,
+        124906
+      ],
+      [
+        31538,
+        104869
+      ],
+      [
+        31603,
+        58283
+      ],
+      [
+        31836,
+        105442
+      ],
+      [
+        32401,
+        124925
+      ],
+      [
+        32865,
+        107209
+      ],
+      [
+        33283,
+        105304
+      ],
+      [
+        33508,
+        114154
+      ],
+      [
+        33594,
+        108102
+      ],
+      [
+        33733,
+        105967
+      ],
+      [
+        33990,
+        105895
+      ],
+      [
+        34299,
+        58574
+      ],
+      [
+        34535,
+        94996
+      ],
+      [
+        34622,
+        118665
+      ],
+      [
+        34633,
+        123123
+      ],
+      [
+        34701,
+        58266
+      ],
+      [
+        34762,
+        105947
+      ],
+      [
+        34764,
+        124319
+      ],
+      [
+        35007,
+        124943
+      ],
+      [
+        35270,
+        118136
+      ],
+      [
+        35369,
+        106091
+      ],
+      [
+        35522,
+        104828
+      ],
+      [
+        35538,
+        124197
+      ],
+      [
+        36173,
+        106840
+      ],
+      [
+        36860,
+        114297
+      ],
+      [
+        36900,
+        60172
+      ],
+      [
+        37279,
+        58888
+      ],
+      [
+        38652,
+        117606
+      ],
+      [
+        38906,
+        114655
+      ],
+      [
+        39143,
+        59244
+      ],
+      [
+        39232,
+        104315
+      ],
+      [
+        39680,
+        106651
+      ],
+      [
+        39843,
+        124921
+      ],
+      [
+        40029,
+        124402
+      ],
+      [
+        40030,
+        106302
+      ],
+      [
+        40628,
+        112840
+      ],
+      [
+        41010,
+        105991
+      ],
+      [
+        41557,
+        105118
+      ],
+      [
+        41804,
+        117636
+      ],
+      [
+        43318,
+        124990
+      ],
+      [
+        43471,
+        117564
+      ],
+      [
+        43543,
+        124755
+      ],
+      [
+        43864,
+        104423
+      ],
+      [
+        44325,
+        106061
+      ],
+      [
+        44897,
+        113929
+      ],
+      [
+        45031,
+        106326
+      ],
+      [
+        45473,
+        117662
+      ],
+      [
+        45636,
+        79238
+      ],
+      [
+        45674,
+        124661
+      ],
+      [
+        45808,
+        118807
+      ],
+      [
+        45912,
+        106526
+      ],
+      [
+        46115,
+        124920
+      ],
+      [
+        46494,
+        58327
+      ],
+      [
+        46530,
+        114656
+      ],
+      [
+        48843,
+        102999
+      ],
+      [
+        48984,
+        117776
+      ],
+      [
+        49011,
+        105975
+      ],
+      [
+        49044,
+        114574
+      ],
+      [
+        49105,
+        106303
+      ]
+    ],
+    "pollutionAmongMatchedClearedHomes": {
+      "0": 71,
+      "1": 115
+    },
+    "sameHomesStillAffected": [],
+    "noLongerObservedAsSameActiveBuilding": [
+      [
+        26376,
+        114649
+      ]
+    ]
+  },
+  "residentialNetworkPollutionDistributionAmongSuppliedHomes": [
+    {
+      "0": 2140,
+      "8": 804,
+      "65": 91,
+      "16": 103,
+      "64": 29,
+      "32": 41
+    },
+    {
+      "0": 2363,
+      "1": 817
+    },
+    {
+      "0": 3174
+    },
+    {
+      "1": 1084,
+      "0": 2074
+    }
+  ],
+  "deliveryStart": 208,
+  "deliveryEnd": 234,
+  "deliveries": [
+    {
+      "android": 955683,
+      "from": 14696,
+      "to": 9110,
+      "ward": "東区",
+      "sourceWard": "東区",
+      "stockAdded": 100,
+      "factoryBefore": 303,
+      "factoryAccessStreet": 6118,
+      "shopAccessStreet": 9079,
+      "factoryAfter": 203,
+      "shopBefore": 7788,
+      "nativeRequest": null,
+      "shopAfter": 7888,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55207292,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-05T23:01:11"
+    },
+    {
+      "android": 86118,
+      "from": 33409,
+      "to": 10760,
+      "ward": "中川区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 4048,
+      "factoryAccessStreet": 8738,
+      "shopAccessStreet": 1355,
+      "factoryAfter": 3948,
+      "shopBefore": 2099,
+      "nativeRequest": null,
+      "shopAfter": 2199,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55206759,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-06T02:34:46"
+    },
+    {
+      "android": 108529,
+      "from": 14983,
+      "to": 34811,
+      "ward": "天白区",
+      "sourceWard": "天白区",
+      "stockAdded": 100,
+      "factoryBefore": 125,
+      "factoryAccessStreet": 19057,
+      "shopAccessStreet": 10395,
+      "factoryAfter": 25,
+      "shopBefore": 6428,
+      "nativeRequest": null,
+      "shopAfter": 6528,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55207329,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-06T04:43:05"
+    },
+    {
+      "android": 31206,
+      "from": 19877,
+      "to": 48869,
+      "ward": "西区",
+      "sourceWard": "西区",
+      "stockAdded": 100,
+      "factoryBefore": 1574,
+      "factoryAccessStreet": 4178,
+      "shopAccessStreet": 668,
+      "factoryAfter": 1474,
+      "shopBefore": 9351,
+      "nativeRequest": null,
+      "shopAfter": 9451,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55208004,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-07T03:14:16"
+    },
+    {
+      "android": 2443,
+      "from": 23671,
+      "to": 35638,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 5287,
+      "factoryAccessStreet": 27329,
+      "shopAccessStreet": 33561,
+      "factoryAfter": 5187,
+      "shopBefore": 4816,
+      "nativeRequest": null,
+      "shopAfter": 4916,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55208628,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-07T12:16:27"
+    },
+    {
+      "android": 676794,
+      "from": 15562,
+      "to": 22950,
+      "ward": "瑞穂区",
+      "sourceWard": "瑞穂区",
+      "stockAdded": 100,
+      "factoryBefore": 3102,
+      "factoryAccessStreet": 9781,
+      "shopAccessStreet": 32124,
+      "factoryAfter": 3002,
+      "shopBefore": 11969,
+      "nativeRequest": null,
+      "shopAfter": 12069,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55208004,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-07T18:52:10"
+    },
+    {
+      "android": 137034,
+      "from": 5743,
+      "to": 18518,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 2276,
+      "factoryAccessStreet": 32782,
+      "shopAccessStreet": 24610,
+      "factoryAfter": 2176,
+      "shopBefore": 10284,
+      "nativeRequest": {
+        "frame": 55209056,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 10384,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55209071,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-07T19:14:18"
+    },
+    {
+      "android": 540647,
+      "from": 7163,
+      "to": 45769,
+      "ward": "南区",
+      "sourceWard": "南区",
+      "stockAdded": 100,
+      "factoryBefore": 1279,
+      "factoryAccessStreet": 29566,
+      "shopAccessStreet": 7354,
+      "factoryAfter": 1179,
+      "shopBefore": 10710,
+      "nativeRequest": null,
+      "shopAfter": 10810,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55208004,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-08T11:58:37"
+    },
+    {
+      "android": 955876,
+      "from": 8054,
+      "to": 17216,
+      "ward": "瑞穂区",
+      "sourceWard": "瑞穂区",
+      "stockAdded": 100,
+      "factoryBefore": 4108,
+      "factoryAccessStreet": 12174,
+      "shopAccessStreet": 2341,
+      "factoryAfter": 4008,
+      "shopBefore": 2032,
+      "nativeRequest": {
+        "frame": 55208537,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 2132,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55208582,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-08T13:52:29"
+    },
+    {
+      "android": 289237,
+      "from": 41265,
+      "to": 18244,
+      "ward": "中区",
+      "sourceWard": "中区",
+      "stockAdded": 100,
+      "factoryBefore": 6976,
+      "factoryAccessStreet": 6649,
+      "shopAccessStreet": 32115,
+      "factoryAfter": 6876,
+      "shopBefore": 7911,
+      "nativeRequest": null,
+      "shopAfter": 8011,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55209112,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-08T16:20:41"
+    },
+    {
+      "android": 71791,
+      "from": 26235,
+      "to": 24107,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 3865,
+      "factoryAccessStreet": 30292,
+      "shopAccessStreet": 20782,
+      "factoryAfter": 3765,
+      "shopBefore": 12359,
+      "nativeRequest": null,
+      "shopAfter": 12459,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55207447,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-08T23:58:23"
+    },
+    {
+      "android": 348225,
+      "from": 28289,
+      "to": 17391,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 6122,
+      "factoryAccessStreet": 35407,
+      "shopAccessStreet": 2198,
+      "factoryAfter": 6022,
+      "shopBefore": 4121,
+      "nativeRequest": {
+        "frame": 55210330,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 4221,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55210345,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-09T15:17:28"
+    },
+    {
+      "android": 771601,
+      "from": 6527,
+      "to": 16393,
+      "ward": "西区",
+      "sourceWard": "西区",
+      "stockAdded": 100,
+      "factoryBefore": 7671,
+      "factoryAccessStreet": 10714,
+      "shopAccessStreet": 12973,
+      "factoryAfter": 7571,
+      "shopBefore": 11696,
+      "nativeRequest": null,
+      "shopAfter": 11796,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55208004,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-10T17:35:57"
+    },
+    {
+      "android": 713994,
+      "from": 39053,
+      "to": 14619,
+      "ward": "瑞穂区",
+      "sourceWard": "昭和区",
+      "stockAdded": 100,
+      "factoryBefore": 4172,
+      "factoryAccessStreet": 35803,
+      "shopAccessStreet": 7352,
+      "factoryAfter": 4072,
+      "shopBefore": 8361,
+      "nativeRequest": null,
+      "shopAfter": 8461,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55208004,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-11T00:29:12"
+    },
+    {
+      "android": 143971,
+      "from": 29062,
+      "to": 8516,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 2110,
+      "factoryAccessStreet": 28933,
+      "shopAccessStreet": 3040,
+      "factoryAfter": 2010,
+      "shopBefore": 11562,
+      "nativeRequest": {
+        "frame": 55210796,
+        "priority": 4,
+        "amount": 1
+      },
+      "shopAfter": 11662,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55210825,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-11T17:26:07"
+    },
+    {
+      "android": 167851,
+      "from": 15223,
+      "to": 18946,
+      "ward": "守山区",
+      "sourceWard": "守山区",
+      "stockAdded": 100,
+      "factoryBefore": 1371,
+      "factoryAccessStreet": 32293,
+      "shopAccessStreet": 35783,
+      "factoryAfter": 1271,
+      "shopBefore": 12872,
+      "nativeRequest": {
+        "frame": 55209058,
+        "priority": 2,
+        "amount": 1
+      },
+      "shopAfter": 12972,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55209201,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-11T20:04:11"
+    },
+    {
+      "android": 193530,
+      "from": 809,
+      "to": 31088,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 2711,
+      "factoryAccessStreet": 30655,
+      "shopAccessStreet": 13685,
+      "factoryAfter": 2611,
+      "shopBefore": 9577,
+      "nativeRequest": null,
+      "shopAfter": 9677,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55210388,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-12T03:47:12"
+    },
+    {
+      "android": 338017,
+      "from": 23732,
+      "to": 40689,
+      "ward": "北区",
+      "sourceWard": "西区",
+      "stockAdded": 100,
+      "factoryBefore": 5951,
+      "factoryAccessStreet": 5096,
+      "shopAccessStreet": 13301,
+      "factoryAfter": 5851,
+      "shopBefore": 11394,
+      "nativeRequest": null,
+      "shopAfter": 11494,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55207287,
+      "restoredAfterLoad": true,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-12T22:13:19"
+    },
+    {
+      "android": 6204,
+      "from": 26340,
+      "to": 10338,
+      "ward": "天白区",
+      "sourceWard": "天白区",
+      "stockAdded": 100,
+      "factoryBefore": 1825,
+      "factoryAccessStreet": 25063,
+      "shopAccessStreet": 31620,
+      "factoryAfter": 1725,
+      "shopBefore": 10704,
+      "nativeRequest": {
+        "frame": 55213877,
+        "priority": 6,
+        "amount": 1
+      },
+      "shopAfter": 10804,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55213877,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-15T16:04:06"
+    },
+    {
+      "android": 2443,
+      "from": 23671,
+      "to": 35638,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 5522,
+      "factoryAccessStreet": 27329,
+      "shopAccessStreet": 33561,
+      "factoryAfter": 5422,
+      "shopBefore": 4693,
+      "nativeRequest": null,
+      "shopAfter": 4793,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55213861,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-16T10:11:00"
+    },
+    {
+      "android": 146675,
+      "from": 26327,
+      "to": 27098,
+      "ward": "中川区",
+      "sourceWard": "中川区",
+      "stockAdded": 100,
+      "factoryBefore": 4116,
+      "factoryAccessStreet": 27746,
+      "shopAccessStreet": 13618,
+      "factoryAfter": 4016,
+      "shopBefore": 879,
+      "nativeRequest": {
+        "frame": 55211917,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 979,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55212130,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-16T10:41:07"
+    },
+    {
+      "android": 348225,
+      "from": 28289,
+      "to": 17391,
+      "ward": "緑区",
+      "sourceWard": "緑区",
+      "stockAdded": 100,
+      "factoryBefore": 6077,
+      "factoryAccessStreet": 35407,
+      "shopAccessStreet": 2198,
+      "factoryAfter": 5977,
+      "shopBefore": 4105,
+      "nativeRequest": {
+        "frame": 55214170,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 4205,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55214369,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-16T12:34:14"
+    },
+    {
+      "android": 414831,
+      "from": 31252,
+      "to": 44611,
+      "ward": "天白区",
+      "sourceWard": "名東区",
+      "stockAdded": 100,
+      "factoryBefore": 5148,
+      "factoryAccessStreet": 19297,
+      "shopAccessStreet": 4157,
+      "factoryAfter": 5048,
+      "shopBefore": 6638,
+      "nativeRequest": {
+        "frame": 55210216,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 6738,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55210356,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-16T21:47:14"
+    },
+    {
+      "android": 955683,
+      "from": 14696,
+      "to": 9110,
+      "ward": "東区",
+      "sourceWard": "東区",
+      "stockAdded": 100,
+      "factoryBefore": 280,
+      "factoryAccessStreet": 6118,
+      "shopAccessStreet": 9079,
+      "factoryAfter": 180,
+      "shopBefore": 7564,
+      "nativeRequest": null,
+      "shopAfter": 7664,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55213788,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-17T02:15:45"
+    },
+    {
+      "android": 340511,
+      "from": 33090,
+      "to": 29100,
+      "ward": "天白区",
+      "sourceWard": "天白区",
+      "stockAdded": 100,
+      "factoryBefore": 2914,
+      "factoryAccessStreet": 13437,
+      "shopAccessStreet": 28007,
+      "factoryAfter": 2814,
+      "shopBefore": 10543,
+      "nativeRequest": {
+        "frame": 55211415,
+        "priority": 6,
+        "amount": 1
+      },
+      "shopAfter": 10643,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55211445,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-17T13:03:30"
+    },
+    {
+      "android": 49176,
+      "from": 23180,
+      "to": 15471,
+      "ward": "港区",
+      "sourceWard": "港区",
+      "stockAdded": 100,
+      "factoryBefore": 4346,
+      "factoryAccessStreet": 3295,
+      "shopAccessStreet": 20414,
+      "factoryAfter": 4246,
+      "shopBefore": 8231,
+      "nativeRequest": {
+        "frame": 55213136,
+        "priority": 7,
+        "amount": 1
+      },
+      "shopAfter": 8331,
+      "localHire": false,
+      "firstDeliveryAfterAdmission": false,
+      "firstDeliveryFromExistingWorker": false,
+      "onsitePriority": false,
+      "departureFrame": 55213231,
+      "restoredAfterLoad": false,
+      "arrivalEvidence": "native arrival callback",
+      "gameTime": "2029-08-17T23:46:45"
+    }
+  ],
+  "wardCountWithHumanAndAndroidHomesAndJobs": 16,
+  "latestNativeTraffic": {
+    "passengerCars": 645,
+    "cargoTrucks": 734,
+    "buses": 40
+  }
+}
