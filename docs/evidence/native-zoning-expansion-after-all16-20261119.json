@@ -1,0 +1,240 @@
+{
+  "status": "verified",
+  "sourceSave": {
+    "name": "NagoyaCitywide-All16WardsGoodsDelivered",
+    "sha256": "4FD2B603E2CDC1F453B75FCC8277AB89AFADA13A363D3198CF816FF9931E0378"
+  },
+  "placementPlanSha256": "62960DDF94C66E7F3975702DB266069D3747DD3A6390C5CF991B6EE59AA4C277",
+  "receiptSha256": "2EAADAA46303088AA59C4FDBCCB2D1DFCF6C7D7F3DEC7E7B547681ACFA283577",
+  "initialSave": {
+    "name": "NagoyaCitywide-All16Wards-ZoningExpanded",
+    "sha256": "E93475FF13F8FDD02B9975365B5DF01D367915316DCD945C445D98DAC1110225",
+    "bytes": 12456176
+  },
+  "observationSave": {
+    "name": "NagoyaCitywide-All16Wards-ZoningObserved",
+    "sha256": "F9243D2E4CC7ADA912E0D8C579F34C9A12C77A100A6448D5068DA0F8B0114795",
+    "bytes": 12462443
+  },
+  "candidateSites": 192,
+  "placedSites": 133,
+  "placedByWard": {
+    "中区": 8,
+    "中川区": 8,
+    "中村区": 8,
+    "北区": 8,
+    "千種区": 8,
+    "南区": 10,
+    "名東区": 8,
+    "天白区": 9,
+    "守山区": 9,
+    "昭和区": 9,
+    "東区": 9,
+    "港区": 6,
+    "熱田区": 6,
+    "瑞穂区": 10,
+    "緑区": 10,
+    "西区": 7
+  },
+  "placedByRole": {
+    "CommercialLow": 7,
+    "Industrial": 5,
+    "Office": 9,
+    "ResidentialHigh": 19,
+    "ResidentialLow": 93
+  },
+  "rejectedByReason": {
+    "No free native zone cells on the source frontage": 59
+  },
+  "retainedNewSites": 133,
+  "retainedNewSitesByWard": {
+    "中区": 8,
+    "中川区": 8,
+    "中村区": 8,
+    "北区": 8,
+    "千種区": 8,
+    "南区": 10,
+    "名東区": 8,
+    "天白区": 9,
+    "守山区": 9,
+    "昭和区": 9,
+    "東区": 9,
+    "港区": 6,
+    "熱田区": 6,
+    "瑞穂区": 10,
+    "緑区": 10,
+    "西区": 7
+  },
+  "initialSitesLostDuringObservation": 22,
+  "wardsWithHumanAndAndroidPopulationAndJobs": 16,
+  "nativeTraffic": {
+    "passengerCars": 561,
+    "cargoTrucks": 722,
+    "buses": 26,
+    "otherVehicles": 24,
+    "roadVehiclesWithNativePath": 1308,
+    "policeVehiclesWithNativePath": [
+      {
+        "vehicleId": 5542,
+        "station": 8693,
+        "destination": 18128,
+        "pathId": 162337,
+        "position": [
+          -258.7978,
+          -1.570765
+        ]
+      },
+      {
+        "vehicleId": 6111,
+        "station": 8693,
+        "destination": 14479,
+        "pathId": 91004,
+        "position": [
+          1342.566,
+          -385.3185
+        ]
+      },
+      {
+        "vehicleId": 8877,
+        "station": 8693,
+        "destination": 14450,
+        "pathId": 172621,
+        "position": [
+          2097.282,
+          -1939.716
+        ]
+      },
+      {
+        "vehicleId": 9030,
+        "station": 8693,
+        "destination": 15904,
+        "pathId": 201981,
+        "position": [
+          -762.8997,
+          842.1291
+        ]
+      },
+      {
+        "vehicleId": 9767,
+        "station": 8693,
+        "destination": 19393,
+        "pathId": 259271,
+        "position": [
+          2076.362,
+          1178.438
+        ]
+      },
+      {
+        "vehicleId": 10281,
+        "station": 8693,
+        "destination": 16516,
+        "pathId": 124861,
+        "position": [
+          371.4008,
+          476.0502
+        ]
+      },
+      {
+        "vehicleId": 11500,
+        "station": 8693,
+        "destination": 19013,
+        "pathId": 237266,
+        "position": [
+          258.0276,
+          896.8203
+        ]
+      },
+      {
+        "vehicleId": 12510,
+        "station": 8693,
+        "destination": 47922,
+        "pathId": 144316,
+        "position": [
+          -902.6016,
+          849.1327
+        ]
+      },
+      {
+        "vehicleId": 12914,
+        "station": 8693,
+        "destination": 14119,
+        "pathId": 105196,
+        "position": [
+          1269.553,
+          -417.2
+        ]
+      },
+      {
+        "vehicleId": 14585,
+        "station": 8693,
+        "destination": 38553,
+        "pathId": 61819,
+        "position": [
+          -2572.906,
+          432.4437
+        ]
+      }
+    ]
+  },
+  "observation": {
+    "before": "2028-05-23T01:45:42",
+    "after": "2028-06-03T04:12:21",
+    "funds": "Exact-city sandbox funds used for the observation. Original configuration restored."
+  },
+  "activePlateauCoverage": {
+    "beforePlacement": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T10:24:22.5042387Z",
+      "activeNativeZonedSites": 2565,
+      "nativeSiteGroupCount": 2565,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "noActiveRole": 320887,
+        "allRolesActive": 375536,
+        "someRolesActive": 9312,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "uncovered": 343292,
+        "active": 398448
+      },
+      "writesToGame": false
+    },
+    "afterPlacement": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T10:24:54.5208785Z",
+      "activeNativeZonedSites": 2698,
+      "nativeSiteGroupCount": 2698,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "noActiveRole": 278275,
+        "allRolesActive": 418478,
+        "someRolesActive": 8982,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "uncovered": 299636,
+        "active": 442104
+      },
+      "writesToGame": false
+    },
+    "afterObservation": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T10:28:08.0287266Z",
+      "activeNativeZonedSites": 2676,
+      "nativeSiteGroupCount": 2676,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "noActiveRole": 282086,
+        "allRolesActive": 414737,
+        "someRolesActive": 8912,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "uncovered": 303464,
+        "active": 438276
+      },
+      "writesToGame": false
+    }
+  }
+}
