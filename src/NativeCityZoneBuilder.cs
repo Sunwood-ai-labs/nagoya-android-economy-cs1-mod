@@ -134,7 +134,9 @@ namespace NagoyaRoadDelivery
                     throw new InvalidDataException("The vacancy survey must target the loaded Nagoya city");
                 uint buildIndex = Convert.ToUInt32(command["expectedBuildIndex"]);
                 int segments = Convert.ToInt32(command["expectedSegments"]);
-                SimulationManager.instance.AddAction(delegate { SurveyVacancies(id, buildIndex, segments); });
+                object option;
+                bool allFootprints = command.TryGetValue("allFootprints", out option) && Convert.ToBoolean(option);
+                SimulationManager.instance.AddAction(delegate { SurveyVacancies(id, buildIndex, segments, allFootprints); });
                 return true;
             }
             catch (Exception error)
@@ -144,12 +146,12 @@ namespace NagoyaRoadDelivery
             }
         }
 
-        private void SurveyVacancies(string id, uint buildIndex, int segments)
+        private void SurveyVacancies(string id, uint buildIndex, int segments, bool allFootprints)
         {
             try
             {
                 if (stopped) return;
-                Dictionary<string, object> report = NativeCityVacantFrontages.Export(Root, id, buildIndex, segments);
+                Dictionary<string, object> report = NativeCityVacantFrontages.Export(Root, id, buildIndex, segments, allFootprints);
                 PublishVacancyResult(id, "complete", report, null);
             }
             catch (Exception error)

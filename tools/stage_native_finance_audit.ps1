@@ -11,6 +11,7 @@ param(
     [ValidateCount(1, 64)][uint16[]]$WasteBuildingId,
     [switch]$FinishWasteWatch,
     [switch]$SampleWaterQuality,
+    [switch]$SampleHousingCapacity,
     [ValidateRange(1,65535)][uint16]$WaterIntakeId,
     [uint32]$ExpectedWaterIntakeGeneration,
     [ValidateSet(0,100)][int]$ExpectedWaterIntakeRate,
@@ -89,6 +90,9 @@ if ($FinishWasteWatch) {
 }
 if ($SampleWaterQuality) {
     $request.sampleWaterQuality = $true
+}
+if ($SampleHousingCapacity) {
+    $request.sampleHousingCapacity = $true
 }
 if ($intake) {
     $request.waterIntake = @{

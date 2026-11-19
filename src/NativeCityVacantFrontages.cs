@@ -21,7 +21,8 @@ namespace NagoyaRoadDelivery
             internal int Width, Length, Mask;
         }
 
-        internal static Dictionary<string, object> Export(string root, string commandId, uint expectedBuildIndex, int expectedSegments)
+        internal static Dictionary<string, object> Export(string root, string commandId, uint expectedBuildIndex,
+            int expectedSegments, bool allFootprints)
         {
             SimulationManager sim = SimulationManager.instance;
             NetManager net = NetManager.instance;
@@ -57,7 +58,7 @@ namespace NagoyaRoadDelivery
                         ushort[] blocks = {road.m_blockStartLeft, road.m_blockStartRight, road.m_blockEndLeft, road.m_blockEndRight};
                         foreach (ushort id in blocks)
                             if (id != 0 && visitedBlocks.Add(id))
-                                records += ReadBlock(zones, reference, id, sizes, stream);
+                                records += ReadBlock(zones, reference, id, sizes, stream, allFootprints);
                     }
                 }
                 File.Move(temporary, destination);
@@ -67,7 +68,7 @@ namespace NagoyaRoadDelivery
                 {"file", filename}, {"buildIndex", expectedBuildIndex}, {"segments", expectedSegments},
                 {"registeredRoads", registeredRoads}, {"blocks", visitedBlocks.Count}, {"records", records},
                 {"zoneMaskOrder", Array.ConvertAll(Uses, delegate(ItemClass.Zone zone) { return zone.ToString(); })},
-                {"milliseconds", elapsed.ElapsedMilliseconds}, {"writesToCity", false}
+                {"milliseconds", elapsed.ElapsedMilliseconds}, {"writesToCity", false}, {"allFootprints", allFootprints}
             };
         }
 
@@ -92,7 +93,7 @@ namespace NagoyaRoadDelivery
         }
 
         private static int ReadBlock(ZoneManager zones, NativeCityLedger.Road road, ushort id,
-            List<Footprint> sizes, TextWriter output)
+            List<Footprint> sizes, TextWriter output, bool allFootprints)
         {
             ZoneBlock block = zones.m_blocks.m_buffer[id];
             if ((block.m_flags & ZoneBlock.FLAG_CREATED) == 0) return 0;
@@ -119,8 +120,11 @@ namespace NagoyaRoadDelivery
                     output.WriteLine(String.Format(Invariant, "{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7:F3}\t{8:F3}\t{9:F3}\t{10}",
                         road.Source, road.Id, road.BuildIndex, id, row, size.Width, size.Length, center.x, center.y, center.z, mask));
                     records++;
-                    remaining &= ~mask;
-                    if (remaining == 0) break;
+                    if (!allFootprints)
+                    {
+                        remaining &= ~mask;
+                        if (remaining == 0) break;
+                    }
                 }
             }
             return records;

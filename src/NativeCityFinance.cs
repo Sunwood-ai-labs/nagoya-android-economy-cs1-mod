@@ -82,6 +82,7 @@ namespace NagoyaRoadDelivery
                 bool finishWatch = request.ContainsKey("finishWasteWatch") && Convert.ToBoolean(request["finishWasteWatch"]);
                 bool changeIntake = request.TryGetValue("waterIntake", out waterIntake);
                 bool sampleWater = request.ContainsKey("sampleWaterQuality") && Convert.ToBoolean(request["sampleWaterQuality"]);
+                bool sampleHousing = request.ContainsKey("sampleHousingCapacity") && Convert.ToBoolean(request["sampleHousingCapacity"]);
                 if ((changePower && changeWaste) || (changeIntake && (changePower || changeWaste || startWatch || finishWatch)))
                     throw new InvalidDataException("Select one city operation per trial");
                 if (startWatch && (wasteWatch != null || finishWatch))
@@ -120,6 +121,7 @@ namespace NagoyaRoadDelivery
                     {"loanExpenses",economy.GetLoanExpenses()}, {"policyExpenses",economy.GetPolicyExpenses()},
                     {"services",services}, {"publicTransport",transport}, {"writesToCity",changed || changeIntake},
                     {"waterQuality",sampleWater || changeIntake ? NativeWaterQuality.Capture() : null},
+                    {"housingCapacityByWard",sampleHousing ? NativeCityRoster.AuditCapacity() : null},
                     {"networkMaintenance", NetworkMaintenanceSnapshot()},
                     {"electricity",PowerSnapshot(economy, powerDay, powerNight)},
                     {"garbage",WasteSnapshot(economy, wasteDay, wasteNight)}

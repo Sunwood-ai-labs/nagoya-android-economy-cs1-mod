@@ -1,0 +1,254 @@
+{
+  "city": "NagoyaCitywide-Construction",
+  "source": "Running Cities: Skylines, matched native command receipts, building generations, and citizen units",
+  "cashGrantsOrUnlimitedMoneyUsed": false,
+  "survey": {
+    "commandId": "8f03cd1f342143e7bf1ccc7823560777",
+    "registeredRoads": 22007,
+    "allFootprints": true,
+    "surveyed": 67628,
+    "nearBothUtilities": 39915,
+    "uncoveredRoleGroups": 618,
+    "consideredRoleGroups": 263,
+    "deferredReasons": {
+      "no compatible frontage": 193,
+      "missing nearby utilities": 10
+    },
+    "proposed": 60,
+    "deferred": 203,
+    "memberships": 13475,
+    "byWard": {
+      "緑区": 8,
+      "北区": 3,
+      "瑞穂区": 3,
+      "昭和区": 6,
+      "中川区": 5,
+      "守山区": 8,
+      "港区": 7,
+      "西区": 2,
+      "中村区": 4,
+      "天白区": 3,
+      "千種区": 6,
+      "南区": 3,
+      "東区": 1,
+      "中区": 1
+    },
+    "byUse": {
+      "ResidentialLow": 44,
+      "ResidentialHigh": 16
+    },
+    "byFootprint": {
+      "2x4": 10,
+      "1x3": 18,
+      "4x4": 5,
+      "3x2": 3,
+      "1x2": 2,
+      "3x4": 6,
+      "2x2": 3,
+      "1x1": 4,
+      "2x3": 9
+    }
+  },
+  "placements": {
+    "commandId": "7aa5abada10e47e2a66831317e981071",
+    "planSha256": "575DB57641B4D52C6510224CAC237CC3164F7539B1DD88DEA2471A8280AFAFFC",
+    "built": 60,
+    "activeWithSameBuildingIdAndGeneration": 59,
+    "activeWithBothWaterAndSewer": 59,
+    "warnings": {
+      "Pollution": 6,
+      "Death": 1
+    },
+    "missingOriginalPlacements": [
+      {
+        "group": "extension_a9222aa6569226bc",
+        "ward": "守山区",
+        "zone": "ResidentialHigh",
+        "modelMembers": "12",
+        "buildingId": "30196",
+        "buildIndex": "125386",
+        "roadId": "4109",
+        "zoneBlock": "32058",
+        "zoneCells": "6",
+        "error": ""
+      }
+    ]
+  },
+  "checkpoints": {
+    "beforeConstruction": {
+      "gameTime": "2029-09-29T03:42:58",
+      "buildIndex": 125331,
+      "networkSegments": 32656,
+      "cash": 704187.69,
+      "vacantHouseholds": 56,
+      "dirtyWaterWarnings": null
+    },
+    "beforeAdmission": {
+      "gameTime": "2029-11-04T00:26:06",
+      "buildIndex": 125565,
+      "networkSegments": 32656,
+      "cash": 318095.06,
+      "vacantHouseholds": 75,
+      "dirtyWaterWarnings": 0
+    },
+    "afterFollowup": {
+      "gameTime": "2029-11-12T10:02:22",
+      "buildIndex": 125603,
+      "networkSegments": 32656,
+      "cash": 227863.56,
+      "vacantHouseholds": 83,
+      "dirtyWaterWarnings": 0
+    }
+  },
+  "admission": {
+    "requestedAdditional": 256,
+    "newAndroidIdentities": 75,
+    "distinctVacantHouseholdUnits": 75,
+    "previousAndroidUnitsReused": 0,
+    "humanResidentsBeforeAndAfterAdmission": 9517,
+    "admittedToNewConstruction": [
+      {
+        "citizenId": 4166,
+        "homeBuilding": 7684,
+        "homeUnit": 395155,
+        "workBuilding": 0,
+        "nativeWorkArrivals": 0
+      },
+      {
+        "citizenId": 37721,
+        "homeBuilding": 39271,
+        "homeUnit": 480293,
+        "workBuilding": 0,
+        "nativeWorkArrivals": 0
+      },
+      {
+        "citizenId": 61675,
+        "homeBuilding": 35769,
+        "homeUnit": 502215,
+        "workBuilding": 0,
+        "nativeWorkArrivals": 0
+      },
+      {
+        "citizenId": 63627,
+        "homeBuilding": 23853,
+        "homeUnit": 155679,
+        "workBuilding": 0,
+        "nativeWorkArrivals": 0
+      },
+      {
+        "citizenId": 436637,
+        "homeBuilding": 7684,
+        "homeUnit": 383454,
+        "workBuilding": 0,
+        "nativeWorkArrivals": 0
+      },
+      {
+        "citizenId": 453046,
+        "homeBuilding": 39271,
+        "homeUnit": 421051,
+        "workBuilding": 0,
+        "nativeWorkArrivals": 0
+      },
+      {
+        "citizenId": 765857,
+        "homeBuilding": 22648,
+        "homeUnit": 244175,
+        "workBuilding": 0,
+        "nativeWorkArrivals": 0
+      },
+      {
+        "citizenId": 1000838,
+        "homeBuilding": 14429,
+        "homeUnit": 395153,
+        "workBuilding": 0,
+        "nativeWorkArrivals": 0
+      }
+    ]
+  },
+  "followup": {
+    "remainingInNativeHomes": 66,
+    "stillUsingNewConstruction": 9,
+    "inNativeWorkUnits": 66,
+    "commutesStarted": 59,
+    "chargeStarts": 66,
+    "nativeWorkArrivals": [
+      {
+        "citizenId": 712084,
+        "homeBuilding": 4919,
+        "homeUnit": 216093,
+        "workBuilding": 8693,
+        "nativeWorkArrivals": 1
+      }
+    ],
+    "receiptsPerWard": {
+      "緑区": 4,
+      "中川区": 1,
+      "天白区": 3,
+      "昭和区": 1,
+      "守山区": 1
+    },
+    "totalDeliveredStock": 1000,
+    "receiptsByNewAndroids": 0,
+    "wardsWithBothPopulationAndJobs": 16,
+    "inGamePopulationPanel": {
+      "nativeHumanResidents": 9490,
+      "humansWithWorkplace": 4271,
+      "androidHomeMembers": 573,
+      "androidWorkMembers": 542
+    },
+    "cumulativeDeliveries": 390,
+    "nativeVehicleCounts": {
+      "passengerCars": 605,
+      "cargoTrucks": 714,
+      "buses": 34
+    }
+  },
+  "plateauCoverage": {
+    "before": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T17:42:45.4852177Z",
+      "activeNativeZonedSites": 7153,
+      "nativeSiteGroupCount": 7153,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "allRolesActive": 685590,
+        "noActiveRole": 19278,
+        "someRolesActive": 867,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "active": 721453,
+        "uncovered": 20287
+      },
+      "writesToGame": false
+    },
+    "final": {
+      "city": "NagoyaCitywide-Construction",
+      "rosterUtc": "2026-11-19T17:53:38.7312597Z",
+      "activeNativeZonedSites": 7200,
+      "nativeSiteGroupCount": 7200,
+      "plateauSourceIds": 738033,
+      "sourceCoverage": {
+        "allRolesActive": 696114,
+        "noActiveRole": 8972,
+        "someRolesActive": 649,
+        "withoutClassifiedRoles": 32298
+      },
+      "roleMemberships": {
+        "active": 731980,
+        "uncovered": 9760
+      },
+      "writesToGame": false
+    }
+  },
+  "save": {
+    "sha256": "883B9B84FD31343D4BA8EAD99AAB786099EA87CBF382BA6E32992C2AAF2560FB",
+    "bytes": 15271670,
+    "name": "NagoyaCitywide-HousingExpansion-Verified"
+  },
+  "limits": [
+    "The vacancy change includes ordinary simulation growth and move-out.",
+    "Multiple PLATEAU IDs can share a native site.",
+    "The final city has a weekly deficit of about 75,000."
+  ]
+}

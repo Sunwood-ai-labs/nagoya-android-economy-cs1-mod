@@ -2,6 +2,7 @@
 param(
     [Parameter(Mandatory)][ValidatePattern('^NagoyaCitywide-[\w.-]+$')][string]$CheckpointName,
     [Parameter(Mandatory)][ValidatePattern('^[a-fA-F0-9]{64}$')][string]$CheckpointSha256,
+    [switch]$AllFootprints,
     [string]$Bridge = 'http://127.0.0.1:32123'
 )
 
@@ -24,6 +25,7 @@ $request = @{
     expectedCityName = $zone.loadedCity
     expectedBuildIndex = $live.buildIndex
     expectedSegments = $live.network.segments
+    allFootprints = [bool]$AllFootprints
 }
 $destination = Join-Path $root 'vacancy-command.json'
 $temporary = "$destination.$($request.commandId).tmp"

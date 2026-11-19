@@ -92,10 +92,15 @@ def plan(args):
     options, deferred = [], []
     for role, (count, sum_x, sum_z) in centers.items():
         ward, _, _, use = role.rsplit(":", 3)
+        if args.use and use not in args.use:
+            continue
         nearby = sorted((d, i) for d, i in within(index, coordinates, (sum_x / count, sum_z / count), 160)
                         if wards.get(i) == ward and int(vacancies[i]["useMask"]) & mask_by_use[use])
         served = [(d, i) for d, i in nearby if all(utility_access[i])]
         if served:
+            if args.prefer_larger:
+                served.sort(key=lambda pair: (
+                    -int(vacancies[pair[1]]["width"]) * int(vacancies[pair[1]]["length"]), pair[0], pair[1]))
             options.append((role, ward, use, count, served))
             continue
         gap = dict(role=role, ward=ward, use=use, members=count, reason="no compatible frontage")
@@ -130,9 +135,11 @@ def plan(args):
             f = row["frontage"]
             writer.writerow(("S", row["group"], f["source"], f["x"], f["z"], row["use"], row["members"], row["ward"]))
     summary = dict(surveyed=len(vacancies), nearBothUtilities=sum(all(row) for row in utility_access),
-                   uncoveredRoleGroups=len(centers), deferredReasons=Counter(row["reason"] for row in deferred),
+                   uncoveredRoleGroups=len(centers), consideredRoleGroups=len(chosen) + len(deferred),
+                   deferredReasons=Counter(row["reason"] for row in deferred),
                    proposed=len(chosen), deferred=len(deferred), memberships=sum(r["members"] for r in chosen),
-                   byWard=Counter(r["ward"] for r in chosen), byUse=Counter(r["use"] for r in chosen))
+                   byWard=Counter(r["ward"] for r in chosen), byUse=Counter(r["use"] for r in chosen),
+                   byFootprint=Counter(f'{r["frontage"]["width"]}x{r["frontage"]["length"]}' for r in chosen))
     with args.output.with_suffix(".json").open("x", encoding="utf-8") as stream:
         json.dump(dict(summary=summary, baseline=baseline, candidates=chosen, deferred=deferred), stream,
                   ensure_ascii=False, indent=2)
@@ -144,4 +151,9 @@ if __name__ == "__main__":
     for key in ("survey", "vacancies", "summary", "roster", "members", "inventory", "models", "transform",
                 "district", "wards", "roads", "water", "power", "output"):
         parser.add_argument("--" + key, type=Path, required=True)
+    parser.add_argument("--use", action="append", choices=(
+        "ResidentialLow", "ResidentialHigh", "CommercialLow", "CommercialHigh", "Industrial", "Office"),
+        help="Limit the plan to the selected native zoning uses. Repeat for multiple uses.")
+    parser.add_argument("--prefer-larger", action="store_true",
+                        help="Within the same ward and search radius, try larger compatible footprints first.")
     plan(parser.parse_args())
