@@ -19,7 +19,7 @@
   起動前に Cities: Skylines の実行中プロセスと DLL ハッシュを検査するランチャー
 - `scripts/`: Python 15 本、PowerShell の capture/verify 6 本
 
-取り込んだソースとスクリプトのパス・SHA-256は、[source manifest](https://github.com/Sunwood-ai-labs/nagoya-android-economy-cs1-mod/blob/main/optional/real-terrain/SOURCE-MANIFEST.json) に保存しています。`nagoya_map.py` の外部データルート指定と、ビルド・起動スクリプトは移植先に合わせて調整しました。
+取り込んだソースとスクリプトのパス・SHA-256は、[source manifest](https://github.com/Sunwood-ai-labs/nagoya-android-economy-cs1-mod/blob/main/optional/real-terrain/SOURCE-MANIFEST.json) に保存しています。Gitのテキストと照合できるよう、改行をLFにそろえて計算します。`nagoya_map.py` の外部データルート指定と、ビルド・起動スクリプトは移植先に合わせて調整しました。
 
 ## Provenance とライセンス
 

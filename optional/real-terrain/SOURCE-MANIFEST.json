@@ -8,75 +8,75 @@
     },
     {
       "path": "bridge/src/AgentBridge.cs",
-      "sha256": "cc2d9069a145bfea5b1cd50caf3df0d51510197a663af9b2df2bb79b41ca1a59"
+      "sha256": "74b7aef6a442b726b8ea63515322cd074bc6e673c4f386a91025d3ee5a019888"
     },
     {
       "path": "bridge/src/AgentBridgeLoading.cs",
-      "sha256": "5d3f2c9aabf0af70dd5bc73e59502a04158c479109aea635e99760827c347b56"
+      "sha256": "4a746667ead299acc87c8a62e84d2dbe369f190c9f559bc8ed45dec9cad85f29"
     },
     {
       "path": "bridge/src/AgentBridgeMod.cs",
-      "sha256": "518ba6844b3afd2aa59692c9bbf7c2857603bc5f17ab40ca6b04ced1d81dd988"
+      "sha256": "784f73e2b5f752bbf7d549e1809184b01755d036ebcc18f2a2c36d5ef36577d2"
     },
     {
       "path": "bridge/src/AgentBridgeNotifier.cs",
-      "sha256": "d7b1abcc8b6abd12bae075feb27fd567adf0975fde7708f455474b8b705502e6"
+      "sha256": "f6f80ab3fd4b1cae53edd1d815f357906ddd398eba970898fc682624fe3afe08"
     },
     {
       "path": "bridge/src/AgentBridgeThreading.cs",
-      "sha256": "88d747fc529ae16629add59b8032f5bd2b16efc03e9598a6b2c98c8078d1b5ef"
+      "sha256": "950488042f797245e905183ac46dbe5f991223101a5554841bb23cb930aee6e8"
     },
     {
       "path": "bridge/src/ApiServer.cs",
-      "sha256": "39bd82f4640cb6325465e823ae53855ae1eeab0d4acd07c92de21aaf0fbf9003"
+      "sha256": "b23c2df018d0fc0261633bd8a161084ef30dc78c30f9e4c5f1553863ceef3294"
     },
     {
       "path": "bridge/src/AreaCommands.cs",
-      "sha256": "f7ace74299f7732251278ca29094f83381618d3fca5ee210e15f8c6dd8ce06c5"
+      "sha256": "bb5a3e1e249b456f9c639a42f244f91594bba5e9bd49999eec188447454cae81"
     },
     {
       "path": "bridge/src/AssetCommands.cs",
-      "sha256": "e8c376a6e6031eb428a30babafc2e759915b0295f20ddca99982aea435b9c61f"
+      "sha256": "f9b004b1455872f2ca77d26dc70ac5779fadb540fa1296a10e7985690c8adbf1"
     },
     {
       "path": "bridge/src/AssetPolicy.cs",
-      "sha256": "8979ec79d831dee32a26aa1235cd35b6c8e10066b16aecb6a9a2a3b73c621ea8"
+      "sha256": "a2f4507efa2d9e8de6ab246fb4fe2fc92c479de7699e36fe3607a77ae5d0e2ca"
     },
     {
       "path": "bridge/src/BatchCommands.cs",
-      "sha256": "bfb2814bd0817457ef0393cdb4eb5a53cf43f4e86d3a90a16373fbc74f5d62ff"
+      "sha256": "1998c5b6dd79322487563bf73bd48829ca07a79b08eadec7a9031e8778b068d4"
     },
     {
       "path": "bridge/src/BuildingCommands.cs",
-      "sha256": "e6cd19ffdfbb1a0a49b270b47259557142eea3353377495fa5307211514710be"
+      "sha256": "b586e70ee8e725ff60b0431dded17021341e18e397dbd9d08c2f1d708aeb1bf6"
     },
     {
       "path": "bridge/src/BulldozeCommands.cs",
-      "sha256": "07ce3523dc9462c104e30101f01a026af6f46da98dcae930513cc4e108e5e284"
+      "sha256": "0e06ef49b2477e2bc44bfe59608a57e073b290a5392222a0905ce763ecfcaa9c"
     },
     {
       "path": "bridge/src/CommandQueue.cs",
-      "sha256": "71d79edb04377e5415b1fbd76e664bed7cf1b1bf8be2aa42e7559b533bd16272"
+      "sha256": "19474c6174ef27d81cf94e108e214ab04fdebb899b03bbebaa3e4d9cf3ed92ed"
     },
     {
       "path": "bridge/src/CommandResult.cs",
-      "sha256": "6dc20d5a36670e78551d44ceaa8263a8eb36fc25a66e75247aeaf0bc5781e3c6"
+      "sha256": "bc552ba250923b8bf0aef8b4ba7103424dee618040096db56e4f948c98295abf"
     },
     {
       "path": "bridge/src/EconomyCommands.cs",
-      "sha256": "536bfe00dcf6c46c67aed5a8ed9857a3da14e3b769e705bf6be617648f0f2b83"
+      "sha256": "47ccdde1b924790b6e56ce63081bb7838dbaed786ddeab94c16492de61e10c23"
     },
     {
       "path": "bridge/src/GameState.cs",
-      "sha256": "b8586d21b5836eda6cca4e37d3c1d9dcaf52915c97c8c43087a2852c07a27078"
+      "sha256": "85975ecb906b4bb6fce5606354cb43ee762a80128cc797f841c87ca63871ff9f"
     },
     {
       "path": "bridge/src/GameThreadHelpers.cs",
-      "sha256": "2ed6b6d85db780e5b63e4f7a71ba975949c08e6dc6c008158e57df36aadd0808"
+      "sha256": "6fa19ccc15790051b3fc5c6b838897f4a220e9c7336fa5ad9a8bcdc714dc59f8"
     },
     {
       "path": "bridge/src/JsonUtil.cs",
-      "sha256": "1e66410cc4cc8e2d7023591e62360b60d3d40a81c0e724fc4000fcd6ebfe3ab9"
+      "sha256": "07e28f04c985056ad0bb2f8df17616117193a1014c31fbfdbcd9678c38f1ea59"
     },
     {
       "path": "bridge/src/MetroNetworkCommands.cs",
@@ -112,35 +112,35 @@
     },
     {
       "path": "bridge/src/RoadCommands.cs",
-      "sha256": "f840101136a3599ce82514754ffcd966eb48721c7cd6603be9a568117f2bb48e"
+      "sha256": "12d6029197dc9fa610f7d1a6bb009e77c41c94359cd0cace0eae7bf3165e48d5"
     },
     {
       "path": "bridge/src/SaveCommands.cs",
-      "sha256": "4a69b2d86c01f167ce40acee9a9264a04662aae8d432b1223fdff27599cfa9bc"
+      "sha256": "72c5127ad2bc6743c143238ae3536b35cf756ae8a464dedfea1170a6b810975a"
     },
     {
       "path": "bridge/src/SettingsCommands.cs",
-      "sha256": "79b6ae3fc5678ffb8acdff5044ca68cc31e35c6688eea2d8e71938c6530166e7"
+      "sha256": "7ee749eaf2610cfc7a3d08307dd501d9546971df4db0880703cc647bdf6c23ab"
     },
     {
       "path": "bridge/src/SimulationCommands.cs",
-      "sha256": "c1d3f9d27b6b9a4c0a1fc406dbc709a9f35f88aa85c9ae5e74d305e62e9fe9bb"
+      "sha256": "bc39b75d68840c47b3fdec0a313ba705243d543a4c369f6b8074a241184e0463"
     },
     {
       "path": "bridge/src/StationCommands.cs",
-      "sha256": "5c02ad0b37c0c59d6c89e2a6c4e90134c29837f18f7d21286ab419145a469014"
+      "sha256": "8f2f5e460d6717f7effcad421247a6b7f4f0e852293f48138bfb09e57337f011"
     },
     {
       "path": "bridge/src/StationGeometryCommands.cs",
-      "sha256": "5329a1bfaac184fbe706397ef6c7c65d2dc657ee54c2b0494fe4152db27b6bb3"
+      "sha256": "ee80d4975c5d607ebfe317cbd9ef827a1a8d3b53dbc4c946740bd91f055312f0"
     },
     {
       "path": "bridge/src/StringUtil.cs",
-      "sha256": "79225680ab88b1644d6297ceaac5249ebfe0f48178307493607b6172dd2f2e96"
+      "sha256": "5aac31f286d7f0ca8f485493b929973f68d471cbb575f4fae892a9faa13eaf56"
     },
     {
       "path": "bridge/src/TransportCommands.cs",
-      "sha256": "dde5f7da314dfcafa5aab7becef1c21ed4165e90e5143ea9cd0ba04902b2b93b"
+      "sha256": "3cdb7545ffd681a13683da14c37bae1e907af939d6e778f3f10f5d3fee4df565"
     },
     {
       "path": "bridge/src/UtilityNetworkCommands.cs",
@@ -148,11 +148,11 @@
     },
     {
       "path": "bridge/src/ZoneCommands.cs",
-      "sha256": "ccd1c6fd3cdf0d30fc3b7d556d4090c9c2bb31df4b71e0a55bfdb16336a7e3c8"
+      "sha256": "0a84e1d8651ab1c0fa68c8c727759748eee1941c6360d67a154d96afd8f08a34"
     },
     {
       "path": "bridge/src/ZoneHelpers.cs",
-      "sha256": "8e2256170f81b0ed8f89294bdc452656ce51e55a837f3b15d366ddb590abbdff"
+      "sha256": "7c3dce95f4ff48afed8da67a84a6ceae77a9790d1e4899300757baf317bbf547"
     },
     {
       "path": "build.ps1",
@@ -246,5 +246,6 @@
       "path": "scripts/verify_nagoya_map.py",
       "sha256": "e80bfdc525ddbc2bdfd2ac6da829cdab4f3bea17979efba2e9a4cca2ca48505e"
     }
-  ]
+  ],
+  "hashMode": "SHA-256 of text with CRLF normalized to LF (canonical Git text bytes)"
 }

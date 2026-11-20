@@ -1,6 +1,7 @@
 """Fail on broken Markdown file links, invalid evidence JSON or leaked media."""
 
 import argparse
+import hashlib
 from html.parser import HTMLParser
 import json
 from pathlib import Path
@@ -78,12 +79,18 @@ def check(root):
                 failures.append("Non-Tailnet evidence URL: " + item["source"])
     catalog = root / "docs/images/catalog.json"
     if catalog.exists():
-        import hashlib
         data = json.loads(catalog.read_text(encoding="utf-8"))
         for item in data["images"]:
             path = root / "docs" / item["path"]
             if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != item["sha256"]:
                 failures.append("Screenshot catalog hash mismatch: " + item["path"])
+    source_manifest = root / "optional/real-terrain/SOURCE-MANIFEST.json"
+    if source_manifest.exists():
+        data = json.loads(source_manifest.read_text(encoding="utf-8"))
+        for item in data["files"]:
+            path = source_manifest.parent / item["path"]
+            if not path.is_file() or hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest() != item["sha256"]:
+                failures.append("Optional source manifest mismatch: " + item["path"])
     if failures:
         raise SystemExit("\n".join(failures))
     print(json.dumps({"markdownPages": len(pages), "evidenceJson": len(records), "repositoryChecks": "passed"}))
