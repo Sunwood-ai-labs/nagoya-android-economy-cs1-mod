@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace NagoyaRoadDelivery {
  public sealed partial class CitywideScene {
-  private string androidManifest=@"H:\CS1-PLATEAU\nagoya-station\android-finish-v1\manifest.json";
+  private string androidManifest=RuntimePaths.Data(@"android-finish-v1\manifest.json");
   private string androidAppearanceError="",androidAppearanceSignature="";
   private DateTime androidAppearanceStamp=DateTime.MinValue;
   private float nextAndroidAppearance;
@@ -30,7 +30,7 @@ namespace NagoyaRoadDelivery {
     if(new FileInfo(file).Length>4096)throw new FormatException("Android appearance file size");
     byte[] configBytes=File.ReadAllBytes(file);Dictionary<string,object> cfg=Map(JsonData.Parse(Encoding.UTF8.GetString(configBytes)));
     string manifest=Text(cfg,"manifest");
-    AndroidAssetData candidate=AndroidObjAsset.Load(manifest,@"H:\CS1-PLATEAU\nagoya-station");
+    AndroidAssetData candidate=AndroidObjAsset.Load(manifest,RuntimePaths.DataRoot);
     string signature=Hash(configBytes)+"|"+candidate.Sha256;if(signature==androidAppearanceSignature)return;
     Bounds before=ActorBounds(android),after=ActorBounds(candidate);
     if(after.min.z<before.min.z-.001f||after.max.z>before.max.z+.001f||after.min.y<-.001f||after.max.y>before.max.y+.03f)

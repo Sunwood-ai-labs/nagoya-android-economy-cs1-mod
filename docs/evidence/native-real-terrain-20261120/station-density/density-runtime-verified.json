@@ -1,0 +1,42 @@
+{
+  "pid": 23300,
+  "captures": [
+    {
+      "sha256": "EA5E61A6A18D56F6E9AFA2294595C7E55E701609CE54C3F8A97D4A2F088ACD94",
+      "name": "nagoya-station-density-after-overview.png"
+    },
+    {
+      "sha256": "C686BF967FA8D1E5285304B7C59705178B3325E941E2C83D25B58024C200F1B8",
+      "name": "nagoya-station-density-after-east.png"
+    },
+    {
+      "sha256": "09AD2D8DA7A940C235C161A223B2E4A40F6954B969CF8BC6C1CEA8FA63B16789",
+      "name": "nagoya-station-density-after-west.png"
+    },
+    {
+      "sha256": "5DF470B2B2EA872AF0B3E231E9A7B61D6A176E0220044979217933B899EA415B",
+      "name": "nagoya-station-density-after-north.png"
+    },
+    {
+      "sha256": "F7D31A0F0E23A328B832001D562E3F63A93F810BB5EAF7290CD96FD94C5FC187",
+      "name": "nagoya-station-density-after-south.png"
+    }
+  ],
+  "roads": {
+    "nodes": 17473,
+    "segments": 19380,
+    "lanes": 117885
+  },
+  "observedAt": "2026-11-20T22:44:21.5129822+09:00",
+  "map": "Nagoya-Real-Citywide-Neighborhoods-20261120",
+  "manifestSha256": "5500BE836E4393F155B359E3C4B530C3CC66FD02912AC303E3F8B73E53BA18E8",
+  "unlimitedUtilities": true,
+  "models": {
+    "ok": true,
+    "renderObjects": 1911,
+    "plateauSourceBuildings": 738033,
+    "triangles": 15319224,
+    "loadMilliseconds": 27855,
+    "stationPrecinct": true
+  }
+}

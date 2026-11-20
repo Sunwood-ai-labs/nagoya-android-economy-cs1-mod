@@ -11,7 +11,7 @@ namespace NagoyaStationBlock {
  public sealed class HumanCoexistence : MonoBehaviour {
   public int DesiredHumans=12;
   public int MaxTransitions=NagoyaStationBlock.NativeHumanRouteLoop.DefaultMaxTransitions;
-  public string RuntimeStatePath=@"H:\CS1-PLATEAU\nagoya-station\runtime\human-coexistence-runtime.json";
+  public string RuntimeStatePath=NagoyaRoadDelivery.RuntimePaths.Data(@"runtime\human-coexistence-runtime.json");
   public bool NativeCitizenMode=true;
   public bool LoopRoutes=true;
   private readonly object stateLock=new object();

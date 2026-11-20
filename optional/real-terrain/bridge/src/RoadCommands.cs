@@ -1,0 +1,258 @@
+using ColossalFramework;
+using ColossalFramework.Math;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SkylinesAgentBridge
+{
+    public static class RoadCommands
+    {
+        public static CommandResult BuildRoad(string body)
+        {
+            return BuildRoad(body, null);
+        }
+
+        internal static CommandResult BuildRoad(string body, Dictionary<string, ushort> plannedNodes)
+        {
+            bool dryRun = JsonUtil.GetBool(body, "dryRun", false);
+            string prefabName = JsonUtil.GetString(body, "roadPrefab", "Basic Road");
+            string name = JsonUtil.GetString(body, "name", "");
+            float heightOffset = JsonUtil.GetNumber(body, "heightOffset", 0f);
+
+            Vector3 start = ReadPoint(body, "start");
+            Vector3 end = ReadPoint(body, "end");
+
+            NetInfo info = PrefabCollection<NetInfo>.FindLoaded(prefabName);
+            if (info == null)
+            {
+                return CommandResult.Fail("Road prefab was not found: " + prefabName);
+            }
+
+            if ((end - start).sqrMagnitude < 16f)
+            {
+                return CommandResult.Fail("Road is too short.");
+            }
+
+            TerrainManager terrain = TerrainManager.instance;
+            start.y = terrain.SampleRawHeightSmoothWithWater(start, false, 0f);
+            end.y = terrain.SampleRawHeightSmoothWithWater(end, false, 0f);
+            if (heightOffset < -64f)
+            {
+                heightOffset = -64f;
+            }
+            else if (heightOffset > 64f)
+            {
+                heightOffset = 64f;
+            }
+            float startOffset = JsonUtil.GetNumber(body, "startHeightOffset", heightOffset);
+            float endOffset = JsonUtil.GetNumber(body, "endHeightOffset", heightOffset);
+            start.y += Mathf.Clamp(startOffset, -64f, 64f);
+            end.y += Mathf.Clamp(endOffset, -64f, 64f);
+
+            NetManager net = NetManager.instance;
+            ushort startNode = 0;
+            ushort endNode = 0;
+            string startKey = JsonUtil.GetString(body, "plannedStart", "");
+            string endKey = JsonUtil.GetString(body, "plannedEnd", "");
+            bool planned = plannedNodes != null && (startKey.Length > 0 || endKey.Length > 0);
+            if (planned)
+            {
+                if (startKey == endKey || startKey.Length == 0 || endKey.Length == 0
+                    || startKey.Length > 40 || endKey.Length > 40)
+                    return CommandResult.Fail("Invalid native road node keys.");
+                plannedNodes.TryGetValue(startKey, out startNode);
+                plannedNodes.TryGetValue(endKey, out endNode);
+                if (!MatchesPlannedNode(net, startNode, start) || !MatchesPlannedNode(net, endNode, end))
+                    return CommandResult.Fail("A planned road node no longer matches its coordinates.");
+            }
+            else
+            {
+                startNode = FindNearbyNode(start, 2f, info);
+                endNode = FindNearbyNode(end, 2f, info);
+            }
+            bool requiresExistingUndergroundMetroNodes = IsMetroBuildProtected(info, prefabName) && heightOffset > -8f;
+            if (requiresExistingUndergroundMetroNodes && (startNode == 0 || endNode == 0))
+            {
+                return CommandResult.Fail("Metro track creation at terrain height is blocked. Use an underground heightOffset or connect to existing metro station/track nodes.");
+            }
+
+            if (dryRun)
+            {
+                return CommandResult.FromJson("{\"ok\":true,\"dryRun\":true,\"message\":\"Build-road validation passed.\",\"roadPrefab\":\"" +
+                    JsonUtil.Escape(prefabName) + "\",\"heightOffset\":" + JsonUtil.Number(heightOffset) +
+                    ",\"reusedStartNode\":" + JsonUtil.Bool(startNode != 0) +
+                    ",\"reusedEndNode\":" + JsonUtil.Bool(endNode != 0) + "}");
+            }
+
+            SimulationManager simulation = Singleton<SimulationManager>.instance;
+            Randomizer randomizer = simulation.m_randomizer;
+
+            bool createdStartNode = false;
+            bool createdEndNode = false;
+
+            if (startNode == 0)
+            {
+                if (!net.CreateNode(out startNode, ref randomizer, info, start, simulation.m_currentBuildIndex))
+                {
+                    return CommandResult.Fail("Failed to create start node.");
+                }
+                createdStartNode = true;
+            }
+            if (createdStartNode)
+            {
+                simulation.m_currentBuildIndex += 1u;
+            }
+
+            if (endNode == 0)
+            {
+                if (!net.CreateNode(out endNode, ref randomizer, info, end, simulation.m_currentBuildIndex))
+                {
+                    return CommandResult.Fail("Failed to create end node.");
+                }
+                createdEndNode = true;
+            }
+            if (createdEndNode)
+            {
+                simulation.m_currentBuildIndex += 1u;
+            }
+
+            Vector3 direction = (end - start).normalized;
+            Vector3 startDirection = ReadPoint(body, "startDirection");
+            Vector3 endDirection = ReadPoint(body, "endDirection");
+            if (!planned || startDirection.sqrMagnitude < .25f)
+                startDirection = direction;
+            else
+                startDirection.Normalize();
+            if (!planned || endDirection.sqrMagnitude < .25f)
+                endDirection = -direction;
+            else
+                endDirection.Normalize();
+            ushort segment;
+            bool created = net.CreateSegment(
+                out segment,
+                ref randomizer,
+                info,
+                startNode,
+                endNode,
+                startDirection,
+                endDirection,
+                simulation.m_currentBuildIndex,
+                simulation.m_currentBuildIndex,
+                false);
+
+            simulation.m_randomizer = randomizer;
+
+            if (!created)
+            {
+                if (createdStartNode)
+                    net.ReleaseNode(startNode);
+                if (createdEndNode)
+                    net.ReleaseNode(endNode);
+                return CommandResult.Fail("Failed to create road segment.");
+            }
+
+            if (planned)
+            {
+                plannedNodes[startKey] = startNode;
+                plannedNodes[endKey] = endNode;
+            }
+            simulation.m_currentBuildIndex += 2u;
+
+            if (name != null && name.Length > 0)
+            {
+                net.SetSegmentNameImpl(segment, name);
+            }
+
+            string json = "{\"ok\":true,\"dryRun\":false,\"segmentId\":" + segment +
+                ",\"startNodeId\":" + startNode +
+                ",\"endNodeId\":" + endNode +
+                ",\"roadPrefab\":\"" + JsonUtil.Escape(prefabName) + "\"" +
+                ",\"heightOffset\":" + JsonUtil.Number(heightOffset) + "}";
+
+            if (!planned)
+                Debug.Log("[SkylinesAgentBridge] Built road segment " + segment + " with prefab " + prefabName);
+            return CommandResult.FromJson(json);
+        }
+
+        private static bool MatchesPlannedNode(NetManager net, ushort id, Vector3 point)
+        {
+            if (id == 0)
+                return true;
+            var node = net.m_nodes.m_buffer[id];
+            return (node.m_flags & NetNode.Flags.Created) != 0
+                && (node.m_position - point).sqrMagnitude <= 0.25f;
+        }
+
+        private static ushort FindNearbyNode(Vector3 position, float maxDistance, NetInfo info)
+        {
+            NetManager net = NetManager.instance;
+            float maxDistanceSq = maxDistance * maxDistance;
+
+            for (ushort i = 1; i < net.m_nodes.m_buffer.Length; i++)
+            {
+                NetNode node = net.m_nodes.m_buffer[i];
+                if ((node.m_flags & NetNode.Flags.Created) == NetNode.Flags.None)
+                {
+                    continue;
+                }
+                if (!CanReuseNode(node.Info, info))
+                {
+                    continue;
+                }
+
+                Vector3 delta = node.m_position - position;
+                delta.y = 0f;
+                if (delta.sqrMagnitude <= maxDistanceSq)
+                {
+                    return i;
+                }
+            }
+
+            return 0;
+        }
+
+        private static bool IsMetroBuildProtected(NetInfo info, string prefabName)
+        {
+            if (info == null || info.m_class == null)
+            {
+                return false;
+            }
+
+            return info.m_class.m_service == ItemClass.Service.PublicTransport &&
+                info.m_class.m_subService == ItemClass.SubService.PublicTransportMetro &&
+                prefabName != null &&
+                prefabName.IndexOf("Metro Line") < 0;
+        }
+
+        private static bool CanReuseNode(NetInfo existing, NetInfo requested)
+        {
+            if (existing == null || requested == null || existing.m_class == null || requested.m_class == null)
+            {
+                return false;
+            }
+
+            if (existing == requested)
+            {
+                return true;
+            }
+
+            if (existing.m_class.m_service == ItemClass.Service.PublicTransport &&
+                requested.m_class.m_service == ItemClass.Service.PublicTransport &&
+                existing.m_class.m_subService == requested.m_class.m_subService)
+            {
+                return true;
+            }
+
+            return existing.m_class.m_service == ItemClass.Service.Road &&
+                requested.m_class.m_service == ItemClass.Service.Road;
+        }
+
+        private static Vector3 ReadPoint(string body, string name)
+        {
+            float x = JsonUtil.GetPointNumber(body, name, "x", 0f);
+            float z = JsonUtil.GetPointNumber(body, name, "z", 0f);
+            float y = JsonUtil.GetPointNumber(body, name, "y", 0f);
+            return new Vector3(x, y, z);
+        }
+    }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://maps.gsi.go.jp/xyz/seamlessphoto_spec/11/1802/809.geojson",
+    "requestedBboxShare": 0.1436,
+    "sourceProperties": {
+      "データソース": "簡易空中写真",
+      "撮影年月": "2020年8月～9月",
+      "_color": "#ffbf00",
+      "_opacity": 0,
+      "_fillColor": "#ffbf00",
+      "_fillOpacity": 0.5
+    }
+  },
+  {
+    "url": "https://maps.gsi.go.jp/xyz/seamlessphoto_spec/11/1802/810.geojson",
+    "requestedBboxShare": 0.8564,
+    "sourceProperties": {
+      "データソース": "簡易空中写真",
+      "撮影年月": "2020年8月～9月",
+      "_color": "#ffbf00",
+      "_opacity": 0,
+      "_fillColor": "#ffbf00",
+      "_fillOpacity": 0.5
+    }
+  }
+]

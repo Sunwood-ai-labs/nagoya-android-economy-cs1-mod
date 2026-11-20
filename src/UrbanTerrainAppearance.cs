@@ -15,7 +15,7 @@ namespace NagoyaRoadDelivery
         private static Texture2D originalPavement,concrete;
         private static DateTime textureStamp=DateTime.MinValue;
         private static float nextTextureCheck;
-        private const string TexturePath=@"H:\CS1-PLATEAU\nagoya-station\simulation\urban-concrete-diffuse.png";
+        private static readonly string TexturePath =RuntimePaths.Data(@"simulation\urban-concrete-diffuse.png");
         public static string TextureSHA256="";
         public static string TextureError="";
         private static bool originalDecorations;

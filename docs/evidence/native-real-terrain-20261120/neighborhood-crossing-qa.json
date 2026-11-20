@@ -1,0 +1,953 @@
+{
+  "method": "offline straight chords, interior crossings, no common node, estimated height difference under 5 m",
+  "streetPlan": {
+    "roadSegments": 12544,
+    "candidatesByPrefab": {
+      "HighwayRampElevated / HighwayRampElevated": 5,
+      "HighwayRamp Tunnel / HighwayRampElevated": 1,
+      "Basic Road Bridge / Medium Road Tunnel": 3,
+      "Basic Road Bridge / HighwayRampElevated": 11,
+      "HighwayRamp Tunnel / Medium Road": 1,
+      "Basic Road Tunnel / Highway": 1,
+      "Basic Road Tunnel / Basic Road Tunnel": 1,
+      "Basic Road Tunnel / Highway Slope": 2,
+      "Basic Road Tunnel / HighwayRamp Tunnel": 2
+    },
+    "candidates": [
+      {
+        "x": -3506.029,
+        "z": 285.668,
+        "estimatedHeightDifferenceM": 0.0061,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n000777",
+            "plannedEnd": "n000771"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n000801",
+            "plannedEnd": "n000765"
+          }
+        ]
+      },
+      {
+        "x": -883.052,
+        "z": -1913.15,
+        "estimatedHeightDifferenceM": 3.592,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n004841",
+            "plannedEnd": "n004862"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n004813",
+            "plannedEnd": "n004895"
+          }
+        ]
+      },
+      {
+        "x": -417.095,
+        "z": 1870.605,
+        "estimatedHeightDifferenceM": 3.8843,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n005895",
+            "plannedEnd": "n005881"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n005878",
+            "plannedEnd": "n005904"
+          }
+        ]
+      },
+      {
+        "x": -2578.053,
+        "z": -3808.772,
+        "estimatedHeightDifferenceM": 4.1855,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n001503",
+            "plannedEnd": "n001484"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n001483",
+            "plannedEnd": "n001507"
+          }
+        ]
+      },
+      {
+        "x": 2631.971,
+        "z": 912.18,
+        "estimatedHeightDifferenceM": 4.6637,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n012281",
+            "plannedEnd": "n012321"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n012322",
+            "plannedEnd": "n012311"
+          }
+        ]
+      },
+      {
+        "x": 650.464,
+        "z": -3954.015,
+        "estimatedHeightDifferenceM": 4.7637,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n008359",
+            "plannedEnd": "n008498"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n008404",
+            "plannedEnd": "n008370"
+          }
+        ]
+      },
+      {
+        "x": -2594.101,
+        "z": -3799.384,
+        "estimatedHeightDifferenceM": 4.7797,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n001454",
+            "plannedEnd": "n001483"
+          },
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n001437",
+            "plannedEnd": "n001481"
+          }
+        ]
+      },
+      {
+        "x": -1795.634,
+        "z": -3703.672,
+        "estimatedHeightDifferenceM": 4.8181,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n002632",
+            "plannedEnd": "n002678"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n002664",
+            "plannedEnd": "n002642"
+          }
+        ]
+      },
+      {
+        "x": -1669.394,
+        "z": -3726.854,
+        "estimatedHeightDifferenceM": 4.8432,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n003033",
+            "plannedEnd": "n003003"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n003031",
+            "plannedEnd": "n003019"
+          }
+        ]
+      },
+      {
+        "x": 2447.473,
+        "z": -457.297,
+        "estimatedHeightDifferenceM": 4.8948,
+        "segments": [
+          {
+            "roadPrefab": "Highway",
+            "plannedStart": "n011818",
+            "plannedEnd": "n011758"
+          },
+          {
+            "roadPrefab": "Basic Road Tunnel",
+            "plannedStart": "n011769",
+            "plannedEnd": "n011768"
+          }
+        ]
+      },
+      {
+        "x": 2629.341,
+        "z": 908.726,
+        "estimatedHeightDifferenceM": 4.8993,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n012322",
+            "plannedEnd": "n012311"
+          },
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n012314",
+            "plannedEnd": "n012295"
+          }
+        ]
+      },
+      {
+        "x": -2585.801,
+        "z": -3804.903,
+        "estimatedHeightDifferenceM": 4.8995,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n001483",
+            "plannedEnd": "n001507"
+          },
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n001509",
+            "plannedEnd": "n001391"
+          }
+        ]
+      },
+      {
+        "x": 2447.415,
+        "z": -446.687,
+        "estimatedHeightDifferenceM": 4.9161,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Tunnel",
+            "plannedStart": "n011769",
+            "plannedEnd": "n011768"
+          },
+          {
+            "roadPrefab": "Highway Slope",
+            "plannedStart": "n011771",
+            "plannedEnd": "n011735"
+          }
+        ]
+      },
+      {
+        "x": 611.781,
+        "z": -3913.248,
+        "estimatedHeightDifferenceM": 4.9219,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n008315",
+            "plannedEnd": "n008239"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n008247",
+            "plannedEnd": "n008285"
+          }
+        ]
+      },
+      {
+        "x": 2985.403,
+        "z": 1077.761,
+        "estimatedHeightDifferenceM": 4.9291,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRamp Tunnel",
+            "plannedStart": "n013005",
+            "plannedEnd": "n013010"
+          },
+          {
+            "roadPrefab": "Medium Road",
+            "plannedStart": "n013082",
+            "plannedEnd": "n012996"
+          }
+        ]
+      },
+      {
+        "x": -2595.181,
+        "z": -3799.473,
+        "estimatedHeightDifferenceM": 4.9378,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n001469",
+            "plannedEnd": "n001487"
+          },
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n001437",
+            "plannedEnd": "n001481"
+          }
+        ]
+      },
+      {
+        "x": 2447.463,
+        "z": -455.405,
+        "estimatedHeightDifferenceM": 4.9458,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Tunnel",
+            "plannedStart": "n011769",
+            "plannedEnd": "n011768"
+          },
+          {
+            "roadPrefab": "Basic Road Tunnel",
+            "plannedStart": "n011651",
+            "plannedEnd": "n011914"
+          }
+        ]
+      },
+      {
+        "x": -3535.422,
+        "z": 441.518,
+        "estimatedHeightDifferenceM": 4.9559,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n000676",
+            "plannedEnd": "n000614"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n000698",
+            "plannedEnd": "n000624"
+          }
+        ]
+      },
+      {
+        "x": -2593.561,
+        "z": -3813.984,
+        "estimatedHeightDifferenceM": 4.9573,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n001484",
+            "plannedEnd": "n001474"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n001415",
+            "plannedEnd": "n001521"
+          }
+        ]
+      },
+      {
+        "x": 2905.994,
+        "z": 1421.059,
+        "estimatedHeightDifferenceM": 4.963,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n012832",
+            "plannedEnd": "n012849"
+          },
+          {
+            "roadPrefab": "Medium Road Tunnel",
+            "plannedStart": "n012850",
+            "plannedEnd": "n012828"
+          }
+        ]
+      },
+      {
+        "x": 2904.325,
+        "z": 1413.32,
+        "estimatedHeightDifferenceM": 4.9656,
+        "segments": [
+          {
+            "roadPrefab": "Medium Road Tunnel",
+            "plannedStart": "n012850",
+            "plannedEnd": "n012828"
+          },
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n012846",
+            "plannedEnd": "n012829"
+          }
+        ]
+      },
+      {
+        "x": 3205.077,
+        "z": 990.615,
+        "estimatedHeightDifferenceM": 4.9661,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n013336",
+            "plannedEnd": "n013351"
+          },
+          {
+            "roadPrefab": "HighwayRamp Tunnel",
+            "plannedStart": "n013352",
+            "plannedEnd": "n013338"
+          }
+        ]
+      },
+      {
+        "x": 2452.268,
+        "z": -422.215,
+        "estimatedHeightDifferenceM": 4.9739,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRamp Tunnel",
+            "plannedStart": "n011821",
+            "plannedEnd": "n011780"
+          },
+          {
+            "roadPrefab": "Basic Road Tunnel",
+            "plannedStart": "n011807",
+            "plannedEnd": "n011805"
+          }
+        ]
+      },
+      {
+        "x": 2447.203,
+        "z": -407.366,
+        "estimatedHeightDifferenceM": 4.9742,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Tunnel",
+            "plannedStart": "n011768",
+            "plannedEnd": "n011764"
+          },
+          {
+            "roadPrefab": "HighwayRamp Tunnel",
+            "plannedStart": "n011780",
+            "plannedEnd": "n011752"
+          }
+        ]
+      },
+      {
+        "x": 2452.209,
+        "z": -442.064,
+        "estimatedHeightDifferenceM": 4.9791,
+        "segments": [
+          {
+            "roadPrefab": "Highway Slope",
+            "plannedStart": "n011816",
+            "plannedEnd": "n011771"
+          },
+          {
+            "roadPrefab": "Basic Road Tunnel",
+            "plannedStart": "n011805",
+            "plannedEnd": "n011802"
+          }
+        ]
+      },
+      {
+        "x": 2942.122,
+        "z": 1369.309,
+        "estimatedHeightDifferenceM": 4.9877,
+        "segments": [
+          {
+            "roadPrefab": "Medium Road Tunnel",
+            "plannedStart": "n012969",
+            "plannedEnd": "n012895"
+          },
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n012941",
+            "plannedEnd": "n012951"
+          }
+        ]
+      },
+      {
+        "x": 652.841,
+        "z": -3956.231,
+        "estimatedHeightDifferenceM": 4.991,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n008383",
+            "plannedEnd": "n008439"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n008430",
+            "plannedEnd": "n008404"
+          }
+        ]
+      }
+    ]
+  },
+  "neighborhoodPlan": {
+    "roadSegments": 19380,
+    "candidatesByPrefab": {
+      "HighwayRampElevated / HighwayRampElevated": 5,
+      "HighwayRamp Tunnel / HighwayRampElevated": 1,
+      "Basic Road Bridge / Medium Road Tunnel": 3,
+      "Basic Road Bridge / HighwayRampElevated": 11,
+      "HighwayRamp Tunnel / Medium Road": 1,
+      "Basic Road Tunnel / Highway": 1,
+      "Basic Road Tunnel / Basic Road Tunnel": 1,
+      "Basic Road Tunnel / Highway Slope": 2,
+      "Basic Road Tunnel / HighwayRamp Tunnel": 2
+    },
+    "candidates": [
+      {
+        "x": -3506.029,
+        "z": 285.668,
+        "estimatedHeightDifferenceM": 0.0061,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n000777",
+            "plannedEnd": "n000771"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n000801",
+            "plannedEnd": "n000765"
+          }
+        ]
+      },
+      {
+        "x": -883.052,
+        "z": -1913.15,
+        "estimatedHeightDifferenceM": 3.592,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n004841",
+            "plannedEnd": "n004862"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n004813",
+            "plannedEnd": "n004895"
+          }
+        ]
+      },
+      {
+        "x": -417.095,
+        "z": 1870.605,
+        "estimatedHeightDifferenceM": 3.8843,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n005895",
+            "plannedEnd": "n005881"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n005878",
+            "plannedEnd": "n005904"
+          }
+        ]
+      },
+      {
+        "x": -2578.053,
+        "z": -3808.772,
+        "estimatedHeightDifferenceM": 4.1855,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n001503",
+            "plannedEnd": "n001484"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n001483",
+            "plannedEnd": "n001507"
+          }
+        ]
+      },
+      {
+        "x": 2631.971,
+        "z": 912.18,
+        "estimatedHeightDifferenceM": 4.6637,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n012281",
+            "plannedEnd": "n012321"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n012322",
+            "plannedEnd": "n012311"
+          }
+        ]
+      },
+      {
+        "x": 650.464,
+        "z": -3954.015,
+        "estimatedHeightDifferenceM": 4.7637,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n008359",
+            "plannedEnd": "n008498"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n008404",
+            "plannedEnd": "n008370"
+          }
+        ]
+      },
+      {
+        "x": -2594.101,
+        "z": -3799.384,
+        "estimatedHeightDifferenceM": 4.7797,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n001454",
+            "plannedEnd": "n001483"
+          },
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n001437",
+            "plannedEnd": "n001481"
+          }
+        ]
+      },
+      {
+        "x": -1795.634,
+        "z": -3703.672,
+        "estimatedHeightDifferenceM": 4.8181,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n002632",
+            "plannedEnd": "n002678"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n002664",
+            "plannedEnd": "n002642"
+          }
+        ]
+      },
+      {
+        "x": -1669.394,
+        "z": -3726.854,
+        "estimatedHeightDifferenceM": 4.8432,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n003033",
+            "plannedEnd": "n003003"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n003031",
+            "plannedEnd": "n003019"
+          }
+        ]
+      },
+      {
+        "x": 2447.473,
+        "z": -457.297,
+        "estimatedHeightDifferenceM": 4.8948,
+        "segments": [
+          {
+            "roadPrefab": "Highway",
+            "plannedStart": "n011818",
+            "plannedEnd": "n011758"
+          },
+          {
+            "roadPrefab": "Basic Road Tunnel",
+            "plannedStart": "n011769",
+            "plannedEnd": "n011768"
+          }
+        ]
+      },
+      {
+        "x": 2629.341,
+        "z": 908.726,
+        "estimatedHeightDifferenceM": 4.8993,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n012322",
+            "plannedEnd": "n012311"
+          },
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n012314",
+            "plannedEnd": "n012295"
+          }
+        ]
+      },
+      {
+        "x": -2585.801,
+        "z": -3804.903,
+        "estimatedHeightDifferenceM": 4.8995,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n001483",
+            "plannedEnd": "n001507"
+          },
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n001509",
+            "plannedEnd": "n001391"
+          }
+        ]
+      },
+      {
+        "x": 2447.415,
+        "z": -446.687,
+        "estimatedHeightDifferenceM": 4.9161,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Tunnel",
+            "plannedStart": "n011769",
+            "plannedEnd": "n011768"
+          },
+          {
+            "roadPrefab": "Highway Slope",
+            "plannedStart": "n011771",
+            "plannedEnd": "n011735"
+          }
+        ]
+      },
+      {
+        "x": 611.781,
+        "z": -3913.248,
+        "estimatedHeightDifferenceM": 4.9219,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n008315",
+            "plannedEnd": "n008239"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n008247",
+            "plannedEnd": "n008285"
+          }
+        ]
+      },
+      {
+        "x": 2985.403,
+        "z": 1077.761,
+        "estimatedHeightDifferenceM": 4.9291,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRamp Tunnel",
+            "plannedStart": "n013005",
+            "plannedEnd": "n013010"
+          },
+          {
+            "roadPrefab": "Medium Road",
+            "plannedStart": "n013082",
+            "plannedEnd": "n012996"
+          }
+        ]
+      },
+      {
+        "x": -2595.181,
+        "z": -3799.473,
+        "estimatedHeightDifferenceM": 4.9378,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n001469",
+            "plannedEnd": "n001487"
+          },
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n001437",
+            "plannedEnd": "n001481"
+          }
+        ]
+      },
+      {
+        "x": 2447.463,
+        "z": -455.405,
+        "estimatedHeightDifferenceM": 4.9458,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Tunnel",
+            "plannedStart": "n011769",
+            "plannedEnd": "n011768"
+          },
+          {
+            "roadPrefab": "Basic Road Tunnel",
+            "plannedStart": "n011651",
+            "plannedEnd": "n011914"
+          }
+        ]
+      },
+      {
+        "x": -3535.422,
+        "z": 441.518,
+        "estimatedHeightDifferenceM": 4.9559,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n000676",
+            "plannedEnd": "n000614"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n000698",
+            "plannedEnd": "n000624"
+          }
+        ]
+      },
+      {
+        "x": -2593.561,
+        "z": -3813.984,
+        "estimatedHeightDifferenceM": 4.9573,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n001484",
+            "plannedEnd": "n001474"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n001415",
+            "plannedEnd": "n001521"
+          }
+        ]
+      },
+      {
+        "x": 2905.994,
+        "z": 1421.059,
+        "estimatedHeightDifferenceM": 4.963,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n012832",
+            "plannedEnd": "n012849"
+          },
+          {
+            "roadPrefab": "Medium Road Tunnel",
+            "plannedStart": "n012850",
+            "plannedEnd": "n012828"
+          }
+        ]
+      },
+      {
+        "x": 2904.325,
+        "z": 1413.32,
+        "estimatedHeightDifferenceM": 4.9656,
+        "segments": [
+          {
+            "roadPrefab": "Medium Road Tunnel",
+            "plannedStart": "n012850",
+            "plannedEnd": "n012828"
+          },
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n012846",
+            "plannedEnd": "n012829"
+          }
+        ]
+      },
+      {
+        "x": 3205.077,
+        "z": 990.615,
+        "estimatedHeightDifferenceM": 4.9661,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n013336",
+            "plannedEnd": "n013351"
+          },
+          {
+            "roadPrefab": "HighwayRamp Tunnel",
+            "plannedStart": "n013352",
+            "plannedEnd": "n013338"
+          }
+        ]
+      },
+      {
+        "x": 2452.268,
+        "z": -422.215,
+        "estimatedHeightDifferenceM": 4.9739,
+        "segments": [
+          {
+            "roadPrefab": "HighwayRamp Tunnel",
+            "plannedStart": "n011821",
+            "plannedEnd": "n011780"
+          },
+          {
+            "roadPrefab": "Basic Road Tunnel",
+            "plannedStart": "n011807",
+            "plannedEnd": "n011805"
+          }
+        ]
+      },
+      {
+        "x": 2447.203,
+        "z": -407.366,
+        "estimatedHeightDifferenceM": 4.9742,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Tunnel",
+            "plannedStart": "n011768",
+            "plannedEnd": "n011764"
+          },
+          {
+            "roadPrefab": "HighwayRamp Tunnel",
+            "plannedStart": "n011780",
+            "plannedEnd": "n011752"
+          }
+        ]
+      },
+      {
+        "x": 2452.209,
+        "z": -442.064,
+        "estimatedHeightDifferenceM": 4.9791,
+        "segments": [
+          {
+            "roadPrefab": "Highway Slope",
+            "plannedStart": "n011816",
+            "plannedEnd": "n011771"
+          },
+          {
+            "roadPrefab": "Basic Road Tunnel",
+            "plannedStart": "n011805",
+            "plannedEnd": "n011802"
+          }
+        ]
+      },
+      {
+        "x": 2942.122,
+        "z": 1369.309,
+        "estimatedHeightDifferenceM": 4.9877,
+        "segments": [
+          {
+            "roadPrefab": "Medium Road Tunnel",
+            "plannedStart": "n012969",
+            "plannedEnd": "n012895"
+          },
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n012941",
+            "plannedEnd": "n012951"
+          }
+        ]
+      },
+      {
+        "x": 652.841,
+        "z": -3956.231,
+        "estimatedHeightDifferenceM": 4.991,
+        "segments": [
+          {
+            "roadPrefab": "Basic Road Bridge",
+            "plannedStart": "n008383",
+            "plannedEnd": "n008439"
+          },
+          {
+            "roadPrefab": "HighwayRampElevated",
+            "plannedStart": "n008430",
+            "plannedEnd": "n008404"
+          }
+        ]
+      }
+    ]
+  }
+}

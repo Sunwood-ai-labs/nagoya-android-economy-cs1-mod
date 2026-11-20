@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "origin": "Local real-terrain implementation; see docs/real-terrain-source.md for source/license boundaries",
+  "files": [
+    {
+      "path": "bridge/build-stage.ps1",
+      "sha256": "884565ef0ba6c59fd31dddb9f80cc5dc8df38ebb42e96e47935525b60403361b"
+    },
+    {
+      "path": "bridge/src/AgentBridge.cs",
+      "sha256": "cc2d9069a145bfea5b1cd50caf3df0d51510197a663af9b2df2bb79b41ca1a59"
+    },
+    {
+      "path": "bridge/src/AgentBridgeLoading.cs",
+      "sha256": "5d3f2c9aabf0af70dd5bc73e59502a04158c479109aea635e99760827c347b56"
+    },
+    {
+      "path": "bridge/src/AgentBridgeMod.cs",
+      "sha256": "518ba6844b3afd2aa59692c9bbf7c2857603bc5f17ab40ca6b04ced1d81dd988"
+    },
+    {
+      "path": "bridge/src/AgentBridgeNotifier.cs",
+      "sha256": "d7b1abcc8b6abd12bae075feb27fd567adf0975fde7708f455474b8b705502e6"
+    },
+    {
+      "path": "bridge/src/AgentBridgeThreading.cs",
+      "sha256": "88d747fc529ae16629add59b8032f5bd2b16efc03e9598a6b2c98c8078d1b5ef"
+    },
+    {
+      "path": "bridge/src/ApiServer.cs",
+      "sha256": "39bd82f4640cb6325465e823ae53855ae1eeab0d4acd07c92de21aaf0fbf9003"
+    },
+    {
+      "path": "bridge/src/AreaCommands.cs",
+      "sha256": "f7ace74299f7732251278ca29094f83381618d3fca5ee210e15f8c6dd8ce06c5"
+    },
+    {
+      "path": "bridge/src/AssetCommands.cs",
+      "sha256": "e8c376a6e6031eb428a30babafc2e759915b0295f20ddca99982aea435b9c61f"
+    },
+    {
+      "path": "bridge/src/AssetPolicy.cs",
+      "sha256": "8979ec79d831dee32a26aa1235cd35b6c8e10066b16aecb6a9a2a3b73c621ea8"
+    },
+    {
+      "path": "bridge/src/BatchCommands.cs",
+      "sha256": "bfb2814bd0817457ef0393cdb4eb5a53cf43f4e86d3a90a16373fbc74f5d62ff"
+    },
+    {
+      "path": "bridge/src/BuildingCommands.cs",
+      "sha256": "e6cd19ffdfbb1a0a49b270b47259557142eea3353377495fa5307211514710be"
+    },
+    {
+      "path": "bridge/src/BulldozeCommands.cs",
+      "sha256": "07ce3523dc9462c104e30101f01a026af6f46da98dcae930513cc4e108e5e284"
+    },
+    {
+      "path": "bridge/src/CommandQueue.cs",
+      "sha256": "71d79edb04377e5415b1fbd76e664bed7cf1b1bf8be2aa42e7559b533bd16272"
+    },
+    {
+      "path": "bridge/src/CommandResult.cs",
+      "sha256": "6dc20d5a36670e78551d44ceaa8263a8eb36fc25a66e75247aeaf0bc5781e3c6"
+    },
+    {
+      "path": "bridge/src/EconomyCommands.cs",
+      "sha256": "536bfe00dcf6c46c67aed5a8ed9857a3da14e3b769e705bf6be617648f0f2b83"
+    },
+    {
+      "path": "bridge/src/GameState.cs",
+      "sha256": "b8586d21b5836eda6cca4e37d3c1d9dcaf52915c97c8c43087a2852c07a27078"
+    },
+    {
+      "path": "bridge/src/GameThreadHelpers.cs",
+      "sha256": "2ed6b6d85db780e5b63e4f7a71ba975949c08e6dc6c008158e57df36aadd0808"
+    },
+    {
+      "path": "bridge/src/JsonUtil.cs",
+      "sha256": "1e66410cc4cc8e2d7023591e62360b60d3d40a81c0e724fc4000fcd6ebfe3ab9"
+    },
+    {
+      "path": "bridge/src/MetroNetworkCommands.cs",
+      "sha256": "6a77a3b0be36fc6b3c6a6f0d20840f02a0f8da6b19569765f53a5754007bc633"
+    },
+    {
+      "path": "bridge/src/MetroReleaseCommands.cs",
+      "sha256": "c41f170cfcec2a5694e9bbcda123a25f953e139b6e6898f0c8aadc6bbf7ad234"
+    },
+    {
+      "path": "bridge/src/NagoyaMapJob.cs",
+      "sha256": "a7b30225785cbe02b9e50ca9b69a4f0f0ef3e2ea23bd2cc97495557dbc7346aa"
+    },
+    {
+      "path": "bridge/src/NagoyaMetroDiagnostics.cs",
+      "sha256": "6acc604e86bbcc52eca0e63e33fdec029c67d1e50bc991b4f50e2176832c74f1"
+    },
+    {
+      "path": "bridge/src/NagoyaRefinedVisuals.cs",
+      "sha256": "dccb208d9b6f2102a724816be30e97ab9a3d40f96d6de745098b81239c0f7540"
+    },
+    {
+      "path": "bridge/src/NagoyaUnlimitedUtilities.cs",
+      "sha256": "7693bc457e666aedad85b576985af5210b4a8ee75fcc30aecdf6057d38ca6af2"
+    },
+    {
+      "path": "bridge/src/NagoyaVerifiedBlocks.cs",
+      "sha256": "7c91bbd408e1a38cb16a27b11219bb59e61f671bde278534a8858ff94d6842cb"
+    },
+    {
+      "path": "bridge/src/NagoyaZonedBuilding.cs",
+      "sha256": "f7b36774e98b941c8612e54742aaa65b09a6c831abc6ce7f5765f9676a4dc528"
+    },
+    {
+      "path": "bridge/src/RoadCommands.cs",
+      "sha256": "f840101136a3599ce82514754ffcd966eb48721c7cd6603be9a568117f2bb48e"
+    },
+    {
+      "path": "bridge/src/SaveCommands.cs",
+      "sha256": "4a69b2d86c01f167ce40acee9a9264a04662aae8d432b1223fdff27599cfa9bc"
+    },
+    {
+      "path": "bridge/src/SettingsCommands.cs",
+      "sha256": "79b6ae3fc5678ffb8acdff5044ca68cc31e35c6688eea2d8e71938c6530166e7"
+    },
+    {
+      "path": "bridge/src/SimulationCommands.cs",
+      "sha256": "c1d3f9d27b6b9a4c0a1fc406dbc709a9f35f88aa85c9ae5e74d305e62e9fe9bb"
+    },
+    {
+      "path": "bridge/src/StationCommands.cs",
+      "sha256": "5c02ad0b37c0c59d6c89e2a6c4e90134c29837f18f7d21286ab419145a469014"
+    },
+    {
+      "path": "bridge/src/StationGeometryCommands.cs",
+      "sha256": "5329a1bfaac184fbe706397ef6c7c65d2dc657ee54c2b0494fe4152db27b6bb3"
+    },
+    {
+      "path": "bridge/src/StringUtil.cs",
+      "sha256": "79225680ab88b1644d6297ceaac5249ebfe0f48178307493607b6172dd2f2e96"
+    },
+    {
+      "path": "bridge/src/TransportCommands.cs",
+      "sha256": "dde5f7da314dfcafa5aab7becef1c21ed4165e90e5143ea9cd0ba04902b2b93b"
+    },
+    {
+      "path": "bridge/src/UtilityNetworkCommands.cs",
+      "sha256": "54863c9ceeba5f5faaa79806184db0488b7c7a5687bfcd4af3e15fb9bb821195"
+    },
+    {
+      "path": "bridge/src/ZoneCommands.cs",
+      "sha256": "ccd1c6fd3cdf0d30fc3b7d556d4090c9c2bb31df4b71e0a55bfdb16336a7e3c8"
+    },
+    {
+      "path": "bridge/src/ZoneHelpers.cs",
+      "sha256": "8e2256170f81b0ed8f89294bdc452656ce51e55a837f3b15d366ddb590abbdff"
+    },
+    {
+      "path": "build.ps1",
+      "sha256": "1c8c86b39af99257372ee73fbc82059ad5669548b6fc8bde0986d06b925d413b"
+    },
+    {
+      "path": "launch-nagoya.ps1",
+      "sha256": "27fc82a7a3aea98b7021ce01efb243ef1707a8c391af6644ccedd9867f46468f"
+    },
+    {
+      "path": "scripts/audit_citywide_street_access.py",
+      "sha256": "305592afb65a0e2230b97e81d501f99aa4edda2f433f87c0b6d9f4e7371f0fc0"
+    },
+    {
+      "path": "scripts/audit_nagoya_road_crossings.py",
+      "sha256": "91920524815f95a9ac00e593e725026e29f1ff72801a3962711a22323bb9fb57"
+    },
+    {
+      "path": "scripts/audit_station_orthophoto.py",
+      "sha256": "3c4e53656a06480c623195462c93c14625ca55f8c8924bd724782cbe6eea5ab0"
+    },
+    {
+      "path": "scripts/build_station_blocks.py",
+      "sha256": "7df42892b6deaff8a70641436fec49f3a0d53b4d54c51f17ca605d278a57851f"
+    },
+    {
+      "path": "scripts/build_station_density.py",
+      "sha256": "654ea30b955f885d6a884a273c4e11c4fb6d7960c8013c2513300e9c7dde2b1d"
+    },
+    {
+      "path": "scripts/build_station_precinct.py",
+      "sha256": "df0cfbef63caf613400b08e27747e837670f689ba2f8ecf8f3630050793fc906"
+    },
+    {
+      "path": "scripts/capture-citywide.ps1",
+      "sha256": "d89a9a45ac1852ffc08151df53520276e88feecc91741f4ac2a74e515b965f81"
+    },
+    {
+      "path": "scripts/capture-refined.ps1",
+      "sha256": "48c3bc146b125838f641d905246fab5447e45ece8513ed50d4fcd3d914585064"
+    },
+    {
+      "path": "scripts/capture-station-blocks.ps1",
+      "sha256": "1455ce2a1b284386f61784730baa1d3ccd6308c4731fbad631c80bff6f100eea"
+    },
+    {
+      "path": "scripts/capture-station-density.ps1",
+      "sha256": "e3ac56ea61ec9d47169f67b129f03e13a4080efda76e598579f51b51880cbab5"
+    },
+    {
+      "path": "scripts/compare_station_density_captures.py",
+      "sha256": "d4db10c7bfed7bb78fce12aae334c9f66bba379477abd4041413298d2b1fe784"
+    },
+    {
+      "path": "scripts/nagoya_citywide.py",
+      "sha256": "e0a162d1fb51783500863abdb83a42ef373fa66cdc05188d09ae07a257d11c79"
+    },
+    {
+      "path": "scripts/nagoya_map.py",
+      "sha256": "50fbf5f5257e4d7028fe6062070c459e78f289e72f9fc6f469aa15c3af645a91"
+    },
+    {
+      "path": "scripts/plan_nagoya_neighborhoods.py",
+      "sha256": "4463b87c199fb6f6b40eff27e6361cc33f7b29deae00cb3c72df719de57d1287"
+    },
+    {
+      "path": "scripts/prepare_refined_visuals.py",
+      "sha256": "7572abec5d19658070a9b65ce1c7c6523c8ae4cf10685ad2d6df17ee7c039ed5"
+    },
+    {
+      "path": "scripts/record_station_block.py",
+      "sha256": "5e0a3e865a9ea0023d9a25a2bcb99054fa684af24ad5124f44beeba18b4c0658"
+    },
+    {
+      "path": "scripts/smooth_citywide_roads.py",
+      "sha256": "8fe097925c5038b0e12e5ec56f7e933eabe9d6928988e4883cea93aeb7ad6797"
+    },
+    {
+      "path": "scripts/verify-station-blocks.ps1",
+      "sha256": "0946fe9192e69171836bf9e3792d3216fcb9b0d80dc1637b763038364c920a74"
+    },
+    {
+      "path": "scripts/verify-station-density.ps1",
+      "sha256": "03b05dddbf4ce4aa5ae27365db8ed1622de2bd1762e9523d66e4a9ef1e1656c9"
+    },
+    {
+      "path": "scripts/verify_nagoya_citywide.py",
+      "sha256": "2f0dba78d33ebbcaddc9f6cea77186a5ae204b9fa47c238c635e644a973f810f"
+    },
+    {
+      "path": "scripts/verify_nagoya_map.py",
+      "sha256": "e80bfdc525ddbc2bdfd2ac6da829cdab4f3bea17979efba2e9a4cca2ca48505e"
+    }
+  ]
+}

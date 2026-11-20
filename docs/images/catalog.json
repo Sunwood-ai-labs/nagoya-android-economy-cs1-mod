@@ -1,0 +1,1046 @@
+{
+  "schemaVersion": 1,
+  "publicationApproval": "User authorized public development screenshots on 2026-11-21 JST",
+  "images": [
+    {
+      "path": "images/09e0b6bbf0c37fd4544e4a35.png",
+      "sha256": "09e0b6bbf0c37fd4544e4a3540284c7454fb8cd5c47d728f67a79d2708b55fc3",
+      "caption": "初期実験：人とアンドロイド",
+      "kind": "実機スクショ・初期の配送実験",
+      "group": "overview",
+      "source": "proposal/main/1",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/09e0b6bbf0c37fd4544e4a35.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/1c2f841f666ebe544bde4c31.png",
+      "sha256": "1c2f841f666ebe544bde4c3108012d74f40e8a2bac3b02ddba238eb1c87d3b93",
+      "caption": "初期実験：充電中",
+      "kind": "実機スクショ・初期の配送実験",
+      "group": "overview",
+      "source": "proposal/main/2",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/1c2f841f666ebe544bde4c31.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/ee713d36c24d5c3fbcb6a4ce.png",
+      "sha256": "ee713d36c24d5c3fbcb6a4ced21f777532d617e0712cf6049ee938014958f08d",
+      "caption": "実地形版：名古屋駅前",
+      "kind": "実機スクショ・実地形版",
+      "group": "overview",
+      "source": "proposal/main/3",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/ee713d36c24d5c3fbcb6a4ce.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/805af2e372c0a8ce8bf83b21.png",
+      "sha256": "805af2e372c0a8ce8bf83b21c822330935fe6befa23f0fd765c725c9dd7c6062",
+      "caption": "実地形版：広域の街並み",
+      "kind": "実機スクショ・実地形版",
+      "group": "overview",
+      "source": "proposal/main/4",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/805af2e372c0a8ce8bf83b21.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/416b68f8d50d971bc928321c.jpg",
+      "sha256": "416b68f8d50d971bc928321c6ecba911d35ec8aac990ee2ef17c0b5db61ae330",
+      "caption": "航空写真・整備前・整備後",
+      "kind": "航空写真・実機比較（国土地理院、2020年8月撮影）",
+      "group": "overview",
+      "source": "proposal/main/5",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/416b68f8d50d971bc928321c.jpg",
+      "dimensions": [
+        1560,
+        570
+      ]
+    },
+    {
+      "path": "images/e2b0cfe4d7cdcd101120b573.png",
+      "sha256": "e2b0cfe4d7cdcd101120b57359d792ad6372a75e88f6184e1465bacaa6cb982c",
+      "caption": "建物ごとの形状・屋上の加工確認 1",
+      "kind": "Blenderのモデル確認画像",
+      "group": "models",
+      "source": "proposal/models/1",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/e2b0cfe4d7cdcd101120b573.png",
+      "dimensions": [
+        640,
+        640
+      ]
+    },
+    {
+      "path": "images/63a6429e5514df743a379da6.png",
+      "sha256": "63a6429e5514df743a379da6f18e6a137deab5ee0bd1cbb02edcc2cc0a1642bb",
+      "caption": "建物ごとの形状・屋上の加工確認 2",
+      "kind": "Blenderのモデル確認画像",
+      "group": "models",
+      "source": "proposal/models/2",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/63a6429e5514df743a379da6.png",
+      "dimensions": [
+        640,
+        640
+      ]
+    },
+    {
+      "path": "images/25a744a3d60bf8c1a902dcbf.png",
+      "sha256": "25a744a3d60bf8c1a902dcbf3678fe70a405a635f392168e89dd8b2977753ffa",
+      "caption": "建物ごとの形状・屋上の加工確認 3",
+      "kind": "Blenderのモデル確認画像",
+      "group": "models",
+      "source": "proposal/models/3",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/25a744a3d60bf8c1a902dcbf.png",
+      "dimensions": [
+        640,
+        640
+      ]
+    },
+    {
+      "path": "images/e4c3eb1daf4144dd7ebe0638.png",
+      "sha256": "e4c3eb1daf4144dd7ebe0638793b75d55a8ad05788a9a5dc13390b83d75502d4",
+      "caption": "建物ごとの形状・屋上の加工確認 4",
+      "kind": "Blenderのモデル確認画像",
+      "group": "models",
+      "source": "proposal/models/4",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/e4c3eb1daf4144dd7ebe0638.png",
+      "dimensions": [
+        640,
+        640
+      ]
+    },
+    {
+      "path": "images/db5204024be21545f4e74d83.png",
+      "sha256": "db5204024be21545f4e74d831c7738d974758d4e863840831e87a2ab0631f85e",
+      "caption": "建物ごとの形状・屋上の加工確認 5",
+      "kind": "Blenderのモデル確認画像",
+      "group": "models",
+      "source": "proposal/models/5",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/db5204024be21545f4e74d83.png",
+      "dimensions": [
+        640,
+        640
+      ]
+    },
+    {
+      "path": "images/a95cd6c6657875bbb86a8b45.png",
+      "sha256": "a95cd6c6657875bbb86a8b455b04597b266e715506709192fd485c9fc9617f74",
+      "caption": "建物ごとの形状・屋上の加工確認 6",
+      "kind": "Blenderのモデル確認画像",
+      "group": "models",
+      "source": "proposal/models/6",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/a95cd6c6657875bbb86a8b45.png",
+      "dimensions": [
+        640,
+        640
+      ]
+    },
+    {
+      "path": "images/db35c5588e8f984b5e8bfd7a.png",
+      "sha256": "db35c5588e8f984b5e8bfd7a84c5de2eca0cb5666262f4c5959e423448a1220b",
+      "caption": "建物ごとの形状・屋上の加工確認 7",
+      "kind": "Blenderのモデル確認画像",
+      "group": "models",
+      "source": "proposal/models/7",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/db35c5588e8f984b5e8bfd7a.png",
+      "dimensions": [
+        640,
+        640
+      ]
+    },
+    {
+      "path": "images/2c6efa8f71d2b3b105575f3e.png",
+      "sha256": "2c6efa8f71d2b3b105575f3ee95110a11c195b56c5db24bbb97b9157d9644346",
+      "caption": "建物ごとの形状・屋上の加工確認 8",
+      "kind": "Blenderのモデル確認画像",
+      "group": "models",
+      "source": "proposal/models/8",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/2c6efa8f71d2b3b105575f3e.png",
+      "dimensions": [
+        640,
+        640
+      ]
+    },
+    {
+      "path": "images/c69ccb06a0c6ffa16ba0e60b.png",
+      "sha256": "c69ccb06a0c6ffa16ba0e60bb1271b029f4047abe628921c375f037b2ff3f3a4",
+      "caption": "建物ごとの形状・屋上の加工確認 9",
+      "kind": "Blenderのモデル確認画像",
+      "group": "models",
+      "source": "proposal/models/9",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/c69ccb06a0c6ffa16ba0e60b.png",
+      "dimensions": [
+        640,
+        640
+      ]
+    },
+    {
+      "path": "images/1b3fe8c022cb267d5e2c6468.png",
+      "sha256": "1b3fe8c022cb267d5e2c6468b9aa805f5b07c9e32985d66021226df8e53d800a",
+      "caption": "建物ごとの形状・屋上の加工確認 10",
+      "kind": "Blenderのモデル確認画像",
+      "group": "models",
+      "source": "proposal/models/10",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/1b3fe8c022cb267d5e2c6468.png",
+      "dimensions": [
+        640,
+        640
+      ]
+    },
+    {
+      "path": "images/85eaef7b8a05c0bc5bfda4fe.png",
+      "sha256": "85eaef7b8a05c0bc5bfda4fea900734c45065bd394a7c41859b98c41ab478450",
+      "caption": "人が歩く交差点",
+      "kind": "実機スクショ・初期の配送実験",
+      "group": "life",
+      "source": "proposal/life/1",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/85eaef7b8a05c0bc5bfda4fe.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/8eec27c6ccd82a3d77967fe2.png",
+      "sha256": "8eec27c6ccd82a3d77967fe22863a59edc7e1c9b1b37599fb8b4a1dd363e407c",
+      "caption": "アンドロイドの配送場面",
+      "kind": "実機スクショ・初期の配送実験",
+      "group": "life",
+      "source": "proposal/life/2",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/8eec27c6ccd82a3d77967fe2.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/96eb9a4397562ae0a9a27a75.png",
+      "sha256": "96eb9a4397562ae0a9a27a75b80a9015d9271c1cbd2818bbfe8dbd9547475b61",
+      "caption": "実地形導入後の名駅",
+      "kind": "実機スクショ・実地形版",
+      "group": "terrain",
+      "source": "proposal/terrain/1",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/96eb9a4397562ae0a9a27a75.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/d92c165767b38ea23131cf2a.png",
+      "sha256": "d92c165767b38ea23131cf2a1a8284ef1d7ab459412f63c35dcf5bc8c3b071c7",
+      "caption": "東部の市街地・丘陵側",
+      "kind": "実機スクショ・実地形版",
+      "group": "terrain",
+      "source": "proposal/terrain/2",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/d92c165767b38ea23131cf2a.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/fdb0371bc0cffb9c791ebf58.png",
+      "sha256": "fdb0371bc0cffb9c791ebf581d273db0c031a19eb4b10e1bc60b28cd62bb1f42",
+      "caption": "港側の街並み",
+      "kind": "実機スクショ・実地形版",
+      "group": "terrain",
+      "source": "proposal/terrain/3",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/fdb0371bc0cffb9c791ebf58.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/e949bc9f8ecf30e35955b76f.png",
+      "sha256": "e949bc9f8ecf30e35955b76f4c0ff5143ee78464a6a77cd4b05955c53d96f8ac",
+      "caption": "修正前：不自然な入口形状が残るランプ",
+      "kind": "実機スクショ・実地形版",
+      "group": "roads",
+      "source": "proposal/roads/1",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/e949bc9f8ecf30e35955b76f.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/490141b72fde292674399732.png",
+      "sha256": "490141b72fde292674399732d56fdcc2804f5584df3a6e5836162faca1332d90",
+      "caption": "修正後：ランプ形状を調整",
+      "kind": "実機スクショ・実地形版",
+      "group": "roads",
+      "source": "proposal/roads/2",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/490141b72fde292674399732.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/41a581ccb059f678906b4cfa.png",
+      "sha256": "41a581ccb059f678906b4cfa1d718675073cc37f9483b11a645e0692a6b8c751",
+      "caption": "建物表示・道路整備の途中",
+      "kind": "実機スクショ・実地形版",
+      "group": "roads",
+      "source": "proposal/roads/3",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/41a581ccb059f678906b4cfa.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/a0cf3388b4d1027f61d0a41d.png",
+      "sha256": "a0cf3388b4d1027f61d0a41dc864fd4f8407b14601d4be80e88bf456826008c2",
+      "caption": "道路と建物を追加した版",
+      "kind": "実機スクショ・実地形版",
+      "group": "roads",
+      "source": "proposal/roads/4",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/a0cf3388b4d1027f61d0a41d.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/da32996ba161298f6cc2bd4f.png",
+      "sha256": "da32996ba161298f6cc2bd4f74ce07eef39ef8f4c7ad14166c7dc2a0730ff377",
+      "caption": "熱田区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/1",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/da32996ba161298f6cc2bd4f.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/bf3881790e81923549ed689d.png",
+      "sha256": "bf3881790e81923549ed689d62c0f003eaee456f421ce8a01455f5d572929b03",
+      "caption": "千種区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/2",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/bf3881790e81923549ed689d.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/cab3f9e7387eeb3f8cb4dcd7.png",
+      "sha256": "cab3f9e7387eeb3f8cb4dcd7d8c895bd6048456a2e25cd404d6036b0c7350416",
+      "caption": "東区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/3",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/cab3f9e7387eeb3f8cb4dcd7.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/71049e5a20f55dd8f244bda2.png",
+      "sha256": "71049e5a20f55dd8f244bda2a3ecdba4413a3fbfa5098d79eba35640f4638101",
+      "caption": "北区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/4",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/71049e5a20f55dd8f244bda2.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/84e387fc25792acc440ed42c.png",
+      "sha256": "84e387fc25792acc440ed42c6ba872427642944c60e1058a94050fd9afd2281f",
+      "caption": "名東区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/5",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/84e387fc25792acc440ed42c.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/60ec8b72642d7d374e12a36a.png",
+      "sha256": "60ec8b72642d7d374e12a36a65c48e05456fbdbf07b0a327e72313e892df50b5",
+      "caption": "緑区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/6",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/60ec8b72642d7d374e12a36a.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/20254ac885de87187db4cb5c.png",
+      "sha256": "20254ac885de87187db4cb5cb343eb55849fe5a018585f9e3bc945a2c1ace784",
+      "caption": "南区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/7",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/20254ac885de87187db4cb5c.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/935068025536a6ad2acfee0f.png",
+      "sha256": "935068025536a6ad2acfee0f019fe9b44fbe2181fd586e0fa82a0ef3a60fc57e",
+      "caption": "港区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/8",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/935068025536a6ad2acfee0f.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/19a6afee89c1909506a2dda7.png",
+      "sha256": "19a6afee89c1909506a2dda79ffacb3c2e95aed3dfaa2b27984ee0d4c9803037",
+      "caption": "瑞穂区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/9",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/19a6afee89c1909506a2dda7.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/54f7f89bd17777898b1a01c9.png",
+      "sha256": "54f7f89bd17777898b1a01c9b356147aa431bc263aed5422c7eb5bb7e551adbd",
+      "caption": "守山区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/10",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/54f7f89bd17777898b1a01c9.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/f4b17b3e5899e658af137081.png",
+      "sha256": "f4b17b3e5899e658af1370814a59c3fc87ad9c3b0eaeec87ae11a4247957695d",
+      "caption": "中区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/11",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/f4b17b3e5899e658af137081.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/e2c77b5ffb104c0c81f5e4c3.png",
+      "sha256": "e2c77b5ffb104c0c81f5e4c36af5debe849c0226c84203e049493a64ab35b106",
+      "caption": "中川区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/12",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/e2c77b5ffb104c0c81f5e4c3.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/2ec50d944c194e8a2494d857.png",
+      "sha256": "2ec50d944c194e8a2494d8579141b2803bcf150681eb32b539e693bf953652b5",
+      "caption": "中村区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/13",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/2ec50d944c194e8a2494d857.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/4c548ff20c3a459eea851353.png",
+      "sha256": "4c548ff20c3a459eea851353f7d77add484599fb3f92122e8598e0b7931d5efe",
+      "caption": "西区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/14",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/4c548ff20c3a459eea851353.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/3843078f80ab640d9098eff1.png",
+      "sha256": "3843078f80ab640d9098eff1003822ed3e44abaa986fe45c7a60971e163fa6e7",
+      "caption": "昭和区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/15",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/3843078f80ab640d9098eff1.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/81a2a9150f85683019386576.png",
+      "sha256": "81a2a9150f85683019386576b627409181195fee3898f2519d46a899c9247fb3",
+      "caption": "天白区の実機スクショ",
+      "kind": "実機スクショ・実地形版",
+      "group": "wards",
+      "source": "proposal/wards/16",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/81a2a9150f85683019386576.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/4505e55b7e1aab55dc5e5570.png",
+      "sha256": "4505e55b7e1aab55dc5e5570c8e42a673ae8f315aadf63b282f86d023f504d79",
+      "caption": "無限供給を有効にした実機画面",
+      "kind": "実機スクショ・実地形版",
+      "group": "utilities",
+      "source": "proposal/utilities/1",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/4505e55b7e1aab55dc5e5570.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/85ed37948beae01cbaa889ae.png",
+      "sha256": "85ed37948beae01cbaa889ae2640d550ac4e4836b91be93520f3b7ca9bb1930e",
+      "caption": "真上：整備前",
+      "kind": "実機スクショ・実地形版",
+      "group": "station",
+      "source": "proposal/station/1",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/85ed37948beae01cbaa889ae.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/c3d667365906f69af939b601.png",
+      "sha256": "c3d667365906f69af939b601e9141afc687de1784c153a0f7ce1eff246a4ea71",
+      "caption": "真上：整備後",
+      "kind": "実機スクショ・実地形版",
+      "group": "station",
+      "source": "proposal/station/2",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/c3d667365906f69af939b601.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/a766007565f4bd2572357f7d.png",
+      "sha256": "a766007565f4bd2572357f7d567219b581a552bd266f1ef06478e11150d55b72",
+      "caption": "斜め：整備前",
+      "kind": "実機スクショ・実地形版",
+      "group": "station",
+      "source": "proposal/station/3",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/a766007565f4bd2572357f7d.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/6794cac075b9972af92a2f11.png",
+      "sha256": "6794cac075b9972af92a2f11258fb1aaf47f91302ad8e40099400742456ad5ed",
+      "caption": "斜め：整備後",
+      "kind": "実機スクショ・実地形版",
+      "group": "station",
+      "source": "proposal/station/4",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/6794cac075b9972af92a2f11.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/3fb1d18a1f5a76615b3a10c2.png",
+      "sha256": "3fb1d18a1f5a76615b3a10c20c0fa99eead295c94cfa38020bde8cc4dea7a79b",
+      "caption": "太閤通口側の整備後",
+      "kind": "実機スクショ・実地形版",
+      "group": "station",
+      "source": "proposal/station/5",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/3fb1d18a1f5a76615b3a10c2.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/b504e29e8f772edbb3394a09.png",
+      "sha256": "b504e29e8f772edbb3394a09cbaa73d63234338a8ff2f4685fb51030c8c0b4b9",
+      "caption": "桜通口側の整備後",
+      "kind": "実機スクショ・実地形版",
+      "group": "station",
+      "source": "proposal/station/6",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/b504e29e8f772edbb3394a09.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/03be5ae5fc0b4aa35144a595.jpg",
+      "sha256": "03be5ae5fc0b4aa35144a595175ee93d59fb6edc98e4bab9b0fd18e762bc97de",
+      "caption": "東・桜通口：航空写真／整備前／整備後",
+      "kind": "航空写真・実機比較（国土地理院、2020年8月撮影）",
+      "group": "comparisons",
+      "source": "proposal/aerial/2",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/03be5ae5fc0b4aa35144a595.jpg",
+      "dimensions": [
+        1560,
+        570
+      ]
+    },
+    {
+      "path": "images/5be6b451b26b50f2f327c89d.jpg",
+      "sha256": "5be6b451b26b50f2f327c89d47c8a2a8d92e58ef8aa3c7b27a77400e94e35b93",
+      "caption": "西・太閤通口：航空写真／整備前／整備後",
+      "kind": "航空写真・実機比較（国土地理院、2020年8月撮影）",
+      "group": "comparisons",
+      "source": "proposal/aerial/3",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/5be6b451b26b50f2f327c89d.jpg",
+      "dimensions": [
+        1560,
+        570
+      ]
+    },
+    {
+      "path": "images/ab720318033753bf25073c3b.jpg",
+      "sha256": "ab720318033753bf25073c3b9bf609044189ed2091e959f410dc8853aba4e6e5",
+      "caption": "北・牛島町：航空写真／整備前／整備後",
+      "kind": "航空写真・実機比較（国土地理院、2020年8月撮影）",
+      "group": "comparisons",
+      "source": "proposal/aerial/4",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/ab720318033753bf25073c3b.jpg",
+      "dimensions": [
+        1560,
+        570
+      ]
+    },
+    {
+      "path": "images/82d0b653f98a6c4de0cd93e4.jpg",
+      "sha256": "82d0b653f98a6c4de0cd93e42010c2150da97203784e85a882527d6838a789f8",
+      "caption": "南・広小路通方面：航空写真／整備前／整備後",
+      "kind": "航空写真・実機比較（国土地理院、2020年8月撮影）",
+      "group": "comparisons",
+      "source": "proposal/aerial/5",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/82d0b653f98a6c4de0cd93e4.jpg",
+      "dimensions": [
+        1560,
+        570
+      ]
+    },
+    {
+      "path": "images/df5109f272f38dd373e0c939.png",
+      "sha256": "df5109f272f38dd373e0c93956ca4a1b647b96add69b2f5b29c610b66488bf16",
+      "caption": "駅前の密度改善前",
+      "kind": "実機スクショ・実地形版",
+      "group": "station",
+      "source": "proposal/density/1",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/df5109f272f38dd373e0c939.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/ea5e61a6a18d56f6e9afa229.png",
+      "sha256": "ea5e61a6a18d56f6e9afa2294595c7e55e701609ce54c3f8a97d4a2f088acd94",
+      "caption": "駅前の密度改善後",
+      "kind": "実機スクショ・実地形版",
+      "group": "station",
+      "source": "proposal/density/2",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/ea5e61a6a18d56f6e9afa229.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/c2f9af484bdc32d4420cdee4.png",
+      "sha256": "c2f9af484bdc32d4420cdee48090a3602d5063dd951c07f8077f9a69072f2e98",
+      "caption": "街区 01 / after",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/01/after.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/c2f9af484bdc32d4420cdee4.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/3404d80f55d207987e6d9ddd.png",
+      "sha256": "3404d80f55d207987e6d9ddd1211b25c556deebb1560458cebb4d2e537dfb04b",
+      "caption": "街区 01 / before",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/01/before.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/3404d80f55d207987e6d9ddd.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/a998feab1a754df9f98939fe.jpg",
+      "sha256": "a998feab1a754df9f98939fee803b162f619e6d485bdfe443f81aa924559ac42",
+      "caption": "街区 01 / comparison",
+      "kind": "航空写真・実機比較（国土地理院、2020年8月撮影）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/01/comparison.jpg",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/a998feab1a754df9f98939fe.jpg",
+      "dimensions": [
+        1500,
+        475
+      ]
+    },
+    {
+      "path": "images/dc718452b4555f1b8440db06.png",
+      "sha256": "dc718452b4555f1b8440db0606a22c1e0ff1d4bde89947776bcffc2fffbcba65",
+      "caption": "街区 02 / after",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/02/after.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/dc718452b4555f1b8440db06.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/87da153cebbae108f6d9279d.png",
+      "sha256": "87da153cebbae108f6d9279da5ddb842d105ee71f54ca0fa64f7d3d12d615d44",
+      "caption": "街区 02 / before",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/02/before.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/87da153cebbae108f6d9279d.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/1c280b3b8cae339ce872a03a.jpg",
+      "sha256": "1c280b3b8cae339ce872a03ab046ed47a472c06dea09acfe1e904b58c06c76a8",
+      "caption": "街区 02 / comparison",
+      "kind": "航空写真・実機比較（国土地理院、2020年8月撮影）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/02/comparison.jpg",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/1c280b3b8cae339ce872a03a.jpg",
+      "dimensions": [
+        1500,
+        475
+      ]
+    },
+    {
+      "path": "images/b7679fee6882c4ae7cd43d08.png",
+      "sha256": "b7679fee6882c4ae7cd43d08e51c7e2122a3a799c8c9ffa5bc8919780efd96f3",
+      "caption": "街区 03 / after",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/03/after.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/b7679fee6882c4ae7cd43d08.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/308f60f001ae3405e40a1293.png",
+      "sha256": "308f60f001ae3405e40a129325389a95d95b86c25c716251ce71bf9e5f7dbd5d",
+      "caption": "街区 03 / before",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/03/before.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/308f60f001ae3405e40a1293.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/6469ce0b136b29e32f55a1ba.jpg",
+      "sha256": "6469ce0b136b29e32f55a1baf1a3ac61e5b157b0c142ad409d47a70e1cc9bd99",
+      "caption": "街区 03 / comparison",
+      "kind": "航空写真・実機比較（国土地理院、2020年8月撮影）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/03/comparison.jpg",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/6469ce0b136b29e32f55a1ba.jpg",
+      "dimensions": [
+        1500,
+        475
+      ]
+    },
+    {
+      "path": "images/6a9754544e7ef3dc1686313c.png",
+      "sha256": "6a9754544e7ef3dc1686313c2356f7722e15745b42504c53f28ea955761a1d2e",
+      "caption": "街区 04 / after",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/04/after.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/6a9754544e7ef3dc1686313c.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/ccc65080732f0285b125f7a9.png",
+      "sha256": "ccc65080732f0285b125f7a9ba4b6a2ee38227b989a832bdda6a8c2e01b7a657",
+      "caption": "街区 04 / before",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/04/before.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/ccc65080732f0285b125f7a9.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/7a6595f60c3836443ff7cf51.jpg",
+      "sha256": "7a6595f60c3836443ff7cf519a21401e89479b328cdeec235a7c8e31bda7b853",
+      "caption": "街区 04 / comparison",
+      "kind": "航空写真・実機比較（国土地理院、2020年8月撮影）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/04/comparison.jpg",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/7a6595f60c3836443ff7cf51.jpg",
+      "dimensions": [
+        1500,
+        475
+      ]
+    },
+    {
+      "path": "images/886286b3afa1a8768a0ba55b.png",
+      "sha256": "886286b3afa1a8768a0ba55b6643af1b62942f52e4bd373934ef9ee538ce4791",
+      "caption": "街区 05 / after",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/05/after.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/886286b3afa1a8768a0ba55b.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/206f54011bc1c7fffde406d4.png",
+      "sha256": "206f54011bc1c7fffde406d4a5a5161b09ca6944231c98a29a5f78c0e82ebb1e",
+      "caption": "街区 05 / before",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/05/before.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/206f54011bc1c7fffde406d4.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/dd5a74b257a7822c1347f524.jpg",
+      "sha256": "dd5a74b257a7822c1347f524d68ff26b9c5f8a74391f9bb04e89bd6d180cfe9d",
+      "caption": "街区 05 / comparison",
+      "kind": "航空写真・実機比較（国土地理院、2020年8月撮影）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/05/comparison.jpg",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/dd5a74b257a7822c1347f524.jpg",
+      "dimensions": [
+        1500,
+        475
+      ]
+    },
+    {
+      "path": "images/7deb00dc8b19c90b73261e48.png",
+      "sha256": "7deb00dc8b19c90b73261e488331b05d0ed7df77a34f839ae928033aa181a353",
+      "caption": "街区 05 / reload roof",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/05/reload-roof.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/7deb00dc8b19c90b73261e48.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/77d1c04c30219d4499e1c1da.png",
+      "sha256": "77d1c04c30219d4499e1c1dadfd6eb89d4a829b29e34a849067fe667fdf32242",
+      "caption": "街区 06 / after",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/06/after.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/77d1c04c30219d4499e1c1da.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/04d43df02b373fa6ce94b911.png",
+      "sha256": "04d43df02b373fa6ce94b91119fc0bf5f6715800cf48caff800e9aaf736601c3",
+      "caption": "街区 06 / before",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/06/before.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/04d43df02b373fa6ce94b911.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/40f455d41b83c4c7d8f17fc1.jpg",
+      "sha256": "40f455d41b83c4c7d8f17fc15ce22cbcda633afa32e743d04bef0fe167947052",
+      "caption": "街区 06 / comparison",
+      "kind": "航空写真・実機比較（国土地理院、2020年8月撮影）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/06/comparison.jpg",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/40f455d41b83c4c7d8f17fc1.jpg",
+      "dimensions": [
+        1500,
+        475
+      ]
+    },
+    {
+      "path": "images/2433b21f53889d1505aa47a5.png",
+      "sha256": "2433b21f53889d1505aa47a5bea1dc64db176fcd3b32ed0a96991b6e68a34a98",
+      "caption": "街区 07 / after",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/07/after.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/2433b21f53889d1505aa47a5.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/cfa4428acd0644d04e5372ad.png",
+      "sha256": "cfa4428acd0644d04e5372ad00213b2ff34dbbf7f468d21fa2783571961a88ae",
+      "caption": "街区 07 / before",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/07/before.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/cfa4428acd0644d04e5372ad.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/ea2963a3cd748cf5dfd2ead3.jpg",
+      "sha256": "ea2963a3cd748cf5dfd2ead378c8e6de3e9b85e5ad9f5d261165f02d08bc6d2c",
+      "caption": "街区 07 / comparison",
+      "kind": "航空写真・実機比較（国土地理院、2020年8月撮影）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/07/comparison.jpg",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/ea2963a3cd748cf5dfd2ead3.jpg",
+      "dimensions": [
+        1500,
+        475
+      ]
+    },
+    {
+      "path": "images/69aca2a2bef9c85dc26bf4df.png",
+      "sha256": "69aca2a2bef9c85dc26bf4dfb541ad45cdb16bbb344d2ec559023094ffe6861c",
+      "caption": "街区 08 / after",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/08/after.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/69aca2a2bef9c85dc26bf4df.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/ee3b79c795300d2306052ff0.png",
+      "sha256": "ee3b79c795300d2306052ff0b332e5c9f1d07c6a40477401bff6dfcf77d9e906",
+      "caption": "街区 08 / before",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/08/before.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/ee3b79c795300d2306052ff0.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/20b0c726e4d958efaf7e3569.jpg",
+      "sha256": "20b0c726e4d958efaf7e35699ef4f7ffe66aaf554ef1ed708157f8cf4efaf19a",
+      "caption": "街区 08 / comparison",
+      "kind": "航空写真・実機比較（国土地理院、2020年8月撮影）",
+      "group": "blocks",
+      "source": "evidence/native-real-terrain-20261120/block-by-block/08/comparison.jpg",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/20b0c726e4d958efaf7e3569.jpg",
+      "dimensions": [
+        1500,
+        475
+      ]
+    },
+    {
+      "path": "images/86f8006429583bd431659aa0.png",
+      "sha256": "86f8006429583bd431659aa0f9137031809b3808fc850d2a28c6adb54b815d42",
+      "caption": "plateau recovered station",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "station",
+      "source": "evidence/native-real-terrain-20261120/nagoya-plateau-recovered-station.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/86f8006429583bd431659aa0.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "images/fa54b5be87e9ac16a049727b.png",
+      "sha256": "fa54b5be87e9ac16a049727b94250e60d9b7ba676499000b59b1c3dd1c68aeb8",
+      "caption": "ramps urban",
+      "kind": "実機スクショ・実地形版（2026-11-20の記録）",
+      "group": "roads",
+      "source": "evidence/native-real-terrain-20261120/nagoya-ramps-urban.png",
+      "tailnetUrl": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/fa54b5be87e9ac16a049727b.png",
+      "dimensions": [
+        1600,
+        900
+      ]
+    }
+  ]
+}

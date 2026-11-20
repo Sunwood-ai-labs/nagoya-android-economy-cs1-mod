@@ -37,7 +37,7 @@ namespace NagoyaRoadDelivery
 
         public void Start()
         {
-            output = Path.Combine(@"H:\CS1-PLATEAU\nagoya-station\citywide-live-v1", "native-goods-state.json");
+            output = Path.Combine(RuntimePaths.Data(@"citywide-live-v1"), "native-goods-state.json");
             run = DateTime.UtcNow.ToString("o");
             harmony = new Harmony(Owner);
             try

@@ -1,46 +1,74 @@
-# Android Skyline | 名古屋2050
+# Android Skyline — Nagoya 2050
 
-同じ名古屋の街でアンドロイドの導入有無・台数・充電口数を変え、CS1の住民や店舗にどう影響するかを比較するMODです。PLATEAUの建物配置を実験の空間に使います。
+English | [日本語](README.ja.md)
 
-全16区で、人とアンドロイドの入居とゲーム本体の職場登録を確認しました。ゲーム内2029年12月24日のセーブには道路の対応22,007区間と、PLATEAUに用途を対応づけた区画7,251件があり、うち4,952棟が稼働中でした。工場と店舗の実際の在庫で照合したアンドロイド配送は、試験を通算して全16区に到着しました。配送後に同じアンドロイドが自宅へ戻って充電するところまで追跡しました。
+An experimental Cities: Skylines (2015) mod for studying how Android residents, deliveries, charging, zoning, and the native city economy can coexist in a Nagoya-scale test city. The repository contains the C# source, offline checks, and the written evidence from earlier runs.
 
-同じセーブをゲーム内で96時間進めた試験では、アンドロイドを追加しない場合に人1,856人、133体が追加で入居した場合に人1,839人が職場に登録されていました。両条件で人の住民数にも差が出ました。
+This is a research-oriented source repository, not a one-click map pack. The required game save, external Nagoya data, PLATEAU/OSM-derived datasets, meshes, and some runtime assets are not included. An optional real-terrain bridge source may be present, but it still needs external data and the other loaders used by the map workflow.
 
-その後の8日間の試験では、全16区にまたがる既存の混合世帯に201体が加わりました。増員しない場合との比較で、終了時の人の就業登録は4,388人と4,360人、アンドロイドの就業登録は531体と722体、アンドロイドの店舗配送は17便と19便でした。開始残高は両方ともゲーム内通貨14万にそろえています。
+## 🖼️ See the development
 
-- [PLATEAU AWARD 応募資料（PDF）](docs/submission/Android-Skyline-Nagoya2050.pdf)
-- [CS1の都市経済との接続と検証条件](docs/native-economy.md)
-- [CS1標準の住宅・就業・通勤を使った生活試験](docs/android-life.md)
-- [PLATEAU建物をCS1の住宅として割り当てた検証](docs/plateau-zoning.md)
-- [名古屋全域の建物用途とCS1への接続計画](docs/citywide-zoning.md)
-- [ゲームを進めた後も有効な区画とPLATEAU建物IDの照合](docs/evidence/native-multi-frontage-zoning-20261119.json)
-- [全域建設のデータと実機での適用手順](docs/native-city-construction.md)
-- [道路・上下水道・電力と入居・就業の実測](docs/evidence/native-network-expansion-20261119.json)
-- [工場から店舗への配送と在庫変化](docs/evidence/native-delivery-20261119.json)
-- [市内の複数区での配送と経路の検証](docs/evidence/native-delivery-coverage-20261119.json)
-- [工場から店舗への配送、自宅への帰宅・充電の実測](docs/evidence/native-delivery-return-20261119.json)
-- [CS1標準の発注を使った配送と区別の実績](docs/evidence/native-goods-requests-20261119.json)
-- [店舗が扱う商品と、配送できた区の実測](docs/evidence/native-retail-stock-20261119.json)
-- [PLATEAUの商業区画に追加した店舗と配送記録](docs/evidence/native-goods-retail-repair-20261119.json)
-- [アンドロイドの採用・通勤・配送・帰宅を追った実測](docs/evidence/native-local-factory-hiring-20261119.json)
-- [6区での出入口修復とCS1の道路アクセス](docs/evidence/native-frontages-20261119.json)
-- [CS1の出入口で経路を選んだ配送と天白区の到着記録](docs/evidence/native-entrance-routing-20261119.json)
-- [昭和区で警察と一般商品を扱う商店5棟の稼働を確認](docs/evidence/native-showa-goods-and-police-20261119.json)
-- [配送未確認の5区を対象にした通勤と配車の試験](docs/evidence/native-commute-first-deliveries-20261119.json)
-- [通勤の再試行と15区での用途付き建物の復旧](docs/evidence/native-travel-and-zoning-recovery-20261119.json)
-- [工場に到着した従業員による瑞穂区の配送と帰宅](docs/evidence/native-onsite-dispatch-20261119.json)
-- [名東区での一般商店2棟への配送4便](docs/evidence/native-four-ward-short-deliveries-20261119.json)
-- [千種区での入居・就業と新設工場からの配送](docs/evidence/native-local-goods-neighborhoods-20261119.json)
-- [昭和区・東区の配送と帰宅、全16区の在庫移動の記録](docs/evidence/native-advance-neighborhood-employment-20261119.json)
-- [同じセーブでの雇用比較](docs/evidence/native-employment-matched-20261119.json)
-- [既存世帯への同居・通勤・充電の実測](docs/evidence/native-shared-households-20261120.json)
-- [混合世帯で201体を増員した雇用・配送の比較](docs/evidence/native-mixed-households-20261120.json)
-- [168体の実ゲーム観測](docs/evidence/live-168-20261118.json)
-- [CS1標準の商品需要と在庫の観測](docs/evidence/native-goods-baseline-20261118.json)
+<a href="docs/images/ee713d36c24d5c3fbcb6a4ce.png"><img src="docs/images/ee713d36c24d5c3fbcb6a4ce.png" alt="実地形版：名古屋駅前" width="900" loading="lazy"></a>
 
-## Windowsでビルド
+*Nagoya Station in the real-terrain map: a historical in-game capture from November 20, 2026.*
 
-初代Cities: Skylinesの `Cities_Data/Managed`、ゲームと互換性のあるCitiesHarmonyのランタイムDLL、.NET Framework 3.5のC#コンパイラを使います。
+[**Explore all 80 development images**](docs/gallery.md): the 16 wards, 10 Blender model checks, road repairs and before/after records for eight station blocks.
+
+| Early delivery experiment | Early charging experiment |
+| --- | --- |
+| <a href="docs/images/8eec27c6ccd82a3d77967fe2.png"><img src="docs/images/8eec27c6ccd82a3d77967fe2.png" alt="アンドロイドの配送場面" width="420" loading="lazy"></a> | <a href="docs/images/1c2f841f666ebe544bde4c31.png"><img src="docs/images/1c2f841f666ebe544bde4c31.png" alt="初期実験：充電中" width="420" loading="lazy"></a> |
+
+| Road before repair | Road after repair |
+| --- | --- |
+| <a href="docs/images/e949bc9f8ecf30e35955b76f.png"><img src="docs/images/e949bc9f8ecf30e35955b76f.png" alt="修正前：不自然な入口形状が残るランプ" width="420" loading="lazy"></a> | <a href="docs/images/490141b72fde292674399732.png"><img src="docs/images/490141b72fde292674399732.png" alt="修正後：ランプ形状を調整" width="420" loading="lazy"></a> |
+
+<a href="docs/images/416b68f8d50d971bc928321c.jpg"><img src="docs/images/416b68f8d50d971bc928321c.jpg" alt="航空写真・整備前・整備後" width="900" loading="lazy"></a>
+
+*Left to right: GSI aerial imagery from August 2020, the game before, and the game after. The life-simulation trials and real-terrain map are separate stages.*
+
+## 🧭 Start here
+
+- [Documentation home](docs/index.md)
+- [Getting started](docs/getting-started.md) — prerequisites, build, offline test, and live-check commands
+- [Architecture](docs/architecture.md) — native CS1 systems versus independent MOD-owned simulation
+- [Data and licenses](docs/data-and-licenses.md) — what is included, what is external, and attribution boundaries
+- [Troubleshooting](docs/troubleshooting.md)
+- [Contributing](CONTRIBUTING.md)
+- [Security policy](SECURITY.md)
+
+The longer Japanese experiment notes remain available as source evidence:
+
+- [Native economy experiment](docs/native-economy.md)
+- [Android life and employment trials](docs/android-life.md)
+- [Citywide zoning and native construction](docs/citywide-zoning.md)
+- [Native construction notes](docs/native-city-construction.md)
+- [Real-terrain road/building QA](docs/real-terrain-road-building-qa.md)
+- [Optional real-terrain source](docs/real-terrain-source.md)
+- [Nagoya Station aerial comparison](docs/nagoya-station-aerial-comparison.md)
+- [Nagoya Station block-by-block record](docs/nagoya-station-block-by-block.md)
+
+## 🧪 What this repository demonstrates
+
+The current codebase contains three related but distinct paths:
+
+1. **Native CS1 construction and economy hooks.** In cities whose name starts with `NagoyaCitywide-`, the `NativeCity*` components use CS1 roads, zoning, buildings, residents, workplaces, utilities, and save-backed ledgers. PLATEAU IDs are treated as source identities for placement/audit; the source mesh itself is not a native economic building.
+2. **A route-owned citywide experiment.** `CitywideScene` and `CitywideSimulation` load an external routing graph and draw Androids, humans, roads, parcels, and chargers. This path owns its actor and parcel rules; it is not the same thing as native citizen pathfinding or native demand.
+3. **A small waypoint demo and district pilots.** `AndroidDemo` is a deliberately simple in-game delivery/charging loop. Its own state identifies it as waypoint logic, not citizen pathfinding. The district controllers and historic life trials are useful experiments, not proof that every path is native.
+
+Keep those paths separate when reading results. A shared map or screenshot does not by itself mean that a MOD-owned actor used a native citizen route, that a PLATEAU mesh became a native lot, or that an Android delivery changed native demand.
+
+## 📏 Repository facts
+
+At the source revision documented here:
+
+- `src/` contains **52 C# files**; `build.ps1` discovers and compiles every `src/*.cs` file.
+- `tests/` contains three C# checks, including the runtime-path check, offline fleet simulation, and native-city ledger round trip.
+- `tools/` contains data planners, auditors, capture helpers, and the live-state verifier. They consume external datasets and game state; they do not ship those inputs.
+- The repository's recorded trials are historical observations tied to named saves and external runtime data. They are not a reproducible benchmark package.
+
+## 🛠️ Build and test
+
+Build on Windows with a compatible Cities: Skylines 1 installation, its `Cities_Data/Managed` assemblies, a compatible CitiesHarmony DLL, and the .NET Framework 3.5 C# compiler:
 
 ```powershell
 $game = 'G:\SteamLibrary\steamapps\common\Cities_Skylines'
@@ -49,21 +77,59 @@ $data = 'H:\CS1-PLATEAU\nagoya-station'
     -HarmonyAssembly "$data\runtime\lib\CitiesHarmonyOfficial\CitiesHarmony\CitiesHarmony.Harmony.dll"
 ```
 
-出力は `.build/NagoyaAndroidDemo.dll` です。ゲームを終了した状態で、既存DLLのバックアップを取ってから `%LOCALAPPDATA%/Colossal Order/Cities_Skylines/Addons/Mods/NagoyaAndroidDemo/` に置きます。ゲーム内でCitiesHarmonyとこのMODを有効にし、名古屋のセーブを読み込みます。
+The output is `.build/NagoyaAndroidDemo.dll`. Copy it manually, after backing up any existing build and while the game is closed, to:
+`%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Addons\Mods\NagoyaAndroidDemo\`.
+Enable CitiesHarmony and the MOD in the game. This repository does not contain a compatible save or the external data needed to make a complete Nagoya map appear.
 
-現在のシーンは `H:/CS1-PLATEAU/nagoya-station` にある `citywide-live-v1/network.json`、道路・歩道データ、建物データ、アンドロイドと充電器のアセットを参照します。稼働中の名古屋セットでは `citywide-live-v1/enabled.txt` を使ってシーンを有効にしています。これらのランタイムデータとゲーム内セーブは別途必要です。
+Run the offline check with the repository's synthetic fixture:
 
-## 配送の回帰試験
+```powershell
+./test.ps1
+```
+
+Validate the configured/default data roots without launching the game:
+
+```powershell
+./test-paths.ps1
+```
+
+To check a real production dataset, pass its inputs explicitly instead of relying on a local default:
 
 ```powershell
 $service = 'H:\CS1-PLATEAU\nagoya-station\citywide-live-v1\building-service-v1'
 ./test.ps1 -GraphPath "$service\routing.ncg" -RegionsPath "$service\regions.json"
 ```
 
-この試験は、同じ実地経路で1〜3体／拠点の配送・回収・充電、荷物保存、配送先と充電器の重複割り当てを確認します。
+For the live verifier, inspect the available options first:
 
-実ゲームの観測は `py -3 tools/verify_live.py --root $data --report fleet-observation.json` で保存できます。CS1標準バスも照合する場合は、CS1操作ブリッジを起動して `--bridge-url http://127.0.0.1:32123` を追加します。
+```powershell
+uv run --python 3.11 tools/verify_live.py --help
+```
 
-## ソースの出典
+The live check requires a running game/bridge state and a fresh `citywide-live-v1/state.json`; it is not a substitute for the offline test.
 
-[cities-skylines1-agent-skill](https://github.com/Sunwood-ai-labs/cities-skylines1-agent-skill) のローカルコミット `78b94841d589b6730f57ddf01dc24fdf18cf858f` から、稼働中のMODを構成する25個のC#ソースを移しました。元のMITライセンスを引き継いでいます。
+## 🗂️ Runtime data roots
+
+The MOD reads data outside this repository. The source supports these process-start configuration variables:
+
+| Variable | Meaning | Default when unset |
+| --- | --- | --- |
+| `NAGOYA_DATA_ROOT` | Absolute path to the external `nagoya-station` data root | `H:\CS1-PLATEAU\nagoya-station` |
+| `NAGOYA_ANDROID_DEMO_ROOT` | Absolute path to the separate legacy waypoint-demo root | `H:\CS1-PLATEAU\android` |
+
+Paths are resolved once when the game process starts. Restart the game after changing either variable. Runtime subdirectories include `citywide-live-v1`, `citywide-zoning-v3`, `simulation`, and asset manifests; their contents are intentionally not vendored here.
+
+## ⚠️ Scope and limitations
+
+- No external saves, map packages, large terrain/building datasets, or mesh catalog are shipped. Optional bridge source does not make the map workflow self-contained.
+- The real-terrain and station records describe a separate map-building/launcher workflow. They are retained as historical evidence and are not a promise that this DLL can install that map by itself.
+- Historical life-simulation results are evidence from prior runs, not a guarantee of current performance or a release benchmark. Re-run the checks against the exact save and data revision you intend to study.
+- Cities: Skylines and CitiesHarmony are third-party software. This project is not affiliated with or endorsed by Paradox Interactive, Colossal Order, or the data providers.
+
+## 📜 License
+
+Repository code is released under the [MIT License](LICENSE). Third-party game files, PLATEAU/OSM/GSI-derived data, photographs, meshes, and saves remain subject to their own terms; see [Data and licenses](docs/data-and-licenses.md).
+
+## 🤝 Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening an issue or pull request. For a security concern, follow [SECURITY.md](SECURITY.md).

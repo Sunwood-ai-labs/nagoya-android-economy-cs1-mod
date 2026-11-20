@@ -1,0 +1,24 @@
+{
+  "status": "verified-build-and-offline-checks",
+  "dateJst": "2026-11-21",
+  "repository": "Sunwood-ai-labs/nagoya-android-economy-cs1-mod",
+  "mainModSources": 52,
+  "optionalBridgeSources": 37,
+  "publicDevelopmentImages": 80,
+  "tailnetVerifiedImages": 88,
+  "nativeGameRunAfterThisChange": "not performed; running game and installed DLLs were preserved",
+  "checks": {
+    "mainModBuild": "passed using installed CS1 + CitiesHarmony",
+    "mainModSha256": "db0fa5cad3c40f00ed5a9a357f8c8d87109a512da1f80c5c188cb5269dc944be",
+    "optionalBridgeBuild": "passed using installed CS1 + CitiesHarmony",
+    "optionalBridgeSha256": "d41a0a3cf217faafd84809a995c61211ee072f501563f3b3cc1a300a123898ce",
+    "portableFleet": "passed, 2 regions, 1/2/3 Androids per region",
+    "productionFleet": "passed, 56 regions, 1/2/3 Androids per region, expected initial parcels 168",
+    "runtimePaths": "passed, default/custom/invalid inputs",
+    "pythonTests": "2 passed, including rejection with python -O",
+    "pythonSyntax": "passed for tools, tests and optional terrain scripts",
+    "documentation": "strict MkDocs build and generated HTML file links passed",
+    "media": "88 HTTPS responses, MIME, SHA-256 and decoded dimensions checked; representative comparison and gallery viewed in Chrome",
+    "launcher": "refused an already running Cities process; no launch performed"
+  }
+}

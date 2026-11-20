@@ -1,0 +1,43 @@
+{
+  "id": "08",
+  "after": {
+    "capturedAt": "2026-11-20T23:36:42.3492032+09:00",
+    "name": "nagoya-block-08-after.png",
+    "settings": {
+      "yaw": 0,
+      "zoom": 122,
+      "x": -1414,
+      "pitch": 88,
+      "name": "nagoya-block-08-after.png",
+      "z": 849
+    },
+    "sha256": "69ACA2A2BEF9C85DC26BF4DFB541AD45CDB16BBB344D2EC559023094FFE6861C"
+  },
+  "applied": {
+    "ok": true,
+    "block": "08",
+    "renderObjects": 1,
+    "triangles": 97,
+    "alreadyApplied": false
+  },
+  "name": "広小路通・線路の南側アプローチ",
+  "before": {
+    "capturedAt": "2026-11-20T23:36:40.1830414+09:00",
+    "name": "nagoya-block-08-before.png",
+    "settings": {
+      "yaw": 0,
+      "zoom": 122,
+      "x": -1414,
+      "pitch": 88,
+      "name": "nagoya-block-08-before.png",
+      "z": 849
+    },
+    "sha256": "EE3B79C795300D2306052FF0B332E5C9F1D07C6A40477401BFF6DFCF77D9E906"
+  },
+  "bounds": [
+    -1466,
+    796,
+    -1362,
+    902
+  ]
+}

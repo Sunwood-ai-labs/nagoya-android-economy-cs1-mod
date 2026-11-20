@@ -1,0 +1,120 @@
+{
+  "metric": "Visible grass-colored pixels in a constant game screenshot crop; a proxy, not ground area.",
+  "views": {
+    "overview": {
+      "aerialBoundsXZ": [
+        -1600,
+        790,
+        -1240,
+        1100
+      ],
+      "captureFiles": {
+        "before": "nagoya-station-density-before-overview.png",
+        "after": "nagoya-station-density-after-overview.png"
+      },
+      "cropPixels": [
+        390,
+        170,
+        1280,
+        740
+      ],
+      "grassColoredPixelsPercent": {
+        "before": 31.02,
+        "after": 7.85
+      },
+      "percentagePointReduction": 23.17
+    },
+    "east": {
+      "aerialBoundsXZ": [
+        -1410,
+        900,
+        -1285,
+        1020
+      ],
+      "captureFiles": {
+        "before": "nagoya-station-density-before-east.png",
+        "after": "nagoya-station-density-after-east.png"
+      },
+      "cropPixels": [
+        390,
+        170,
+        1280,
+        740
+      ],
+      "grassColoredPixelsPercent": {
+        "before": 43.02,
+        "after": 10.04
+      },
+      "percentagePointReduction": 32.98
+    },
+    "west": {
+      "aerialBoundsXZ": [
+        -1570,
+        895,
+        -1450,
+        1012
+      ],
+      "captureFiles": {
+        "before": "nagoya-station-density-before-west.png",
+        "after": "nagoya-station-density-after-west.png"
+      },
+      "cropPixels": [
+        390,
+        170,
+        1280,
+        740
+      ],
+      "grassColoredPixelsPercent": {
+        "before": 29.08,
+        "after": 5.29
+      },
+      "percentagePointReduction": 23.79
+    },
+    "north": {
+      "aerialBoundsXZ": [
+        -1508,
+        985,
+        -1372,
+        1100
+      ],
+      "captureFiles": {
+        "before": "nagoya-station-density-before-north.png",
+        "after": "nagoya-station-density-after-north.png"
+      },
+      "cropPixels": [
+        390,
+        170,
+        1280,
+        740
+      ],
+      "grassColoredPixelsPercent": {
+        "before": 48.34,
+        "after": 11.25
+      },
+      "percentagePointReduction": 37.09
+    },
+    "south": {
+      "aerialBoundsXZ": [
+        -1450,
+        795,
+        -1310,
+        922
+      ],
+      "captureFiles": {
+        "before": "nagoya-station-density-before-south.png",
+        "after": "nagoya-station-density-after-south.png"
+      },
+      "cropPixels": [
+        390,
+        170,
+        1280,
+        740
+      ],
+      "grassColoredPixelsPercent": {
+        "before": 30.12,
+        "after": 9.9
+      },
+      "percentagePointReduction": 20.22
+    }
+  }
+}

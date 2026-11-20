@@ -1,0 +1,43 @@
+{
+  "id": "05",
+  "after": {
+    "capturedAt": "2026-11-20T23:36:28.4532909+09:00",
+    "name": "nagoya-block-05-after.png",
+    "settings": {
+      "yaw": 0,
+      "zoom": 104,
+      "x": -1415,
+      "pitch": 88,
+      "name": "nagoya-block-05-after.png",
+      "z": 1054
+    },
+    "sha256": "886286B3AFA1A8768A0BA55B6643AF1B62942F52E4BD373934EF9EE538CE4791"
+  },
+  "applied": {
+    "ok": true,
+    "block": "05",
+    "renderObjects": 1,
+    "triangles": 57,
+    "alreadyApplied": false
+  },
+  "name": "JPタワー・牛島町の駅北街区",
+  "before": {
+    "capturedAt": "2026-11-20T23:36:26.2724128+09:00",
+    "name": "nagoya-block-05-before.png",
+    "settings": {
+      "yaw": 0,
+      "zoom": 104,
+      "x": -1415,
+      "pitch": 88,
+      "name": "nagoya-block-05-before.png",
+      "z": 1054
+    },
+    "sha256": "206F54011BC1C7FFFDE406D4A5A5161B09CA6944231C98A29A5F78C0E82EBB1E"
+  },
+  "bounds": [
+    -1450,
+    1013,
+    -1380,
+    1095
+  ]
+}

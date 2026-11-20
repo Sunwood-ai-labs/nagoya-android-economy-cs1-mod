@@ -1,0 +1,66 @@
+{
+  "map": "H:\\CS1-PLATEAU\\nagoya-station\\real-terrain-20261120\\Nagoya-Real-Citywide-Neighborhoods-20261120.crp",
+  "packageSha256": "89b344508057c0b9c7e5baee5c52fe714484ac78d7382e24d92ff4235b463d36",
+  "terrainGameHeights": {
+    "NagoyaStation": 140.606,
+    "UrbanEastHills": 165.057,
+    "WesternLowland": 139.605,
+    "NagoyaPort": 140.154
+  },
+  "roads": 19380,
+  "growableCount": 5019,
+  "verifiedPlacedBuildings": 5018,
+  "expectedPlacedBuildings": 5018,
+  "missingBuildingIds": [],
+  "sameSiteReplacements": [
+    {
+      "site": "infill_5a82817a83f43dcf",
+      "originalId": 19874,
+      "currentId": 12518,
+      "originalPrefab": "L1 1x1 Detached",
+      "currentPrefab": "1738896378.AC Hab V3a_Data",
+      "zone": "ResidentialLow"
+    }
+  ],
+  "verifiedBuildingsByWard": {
+    "中村区": 299,
+    "天白区": 323,
+    "緑区": 467,
+    "熱田区": 165,
+    "瑞穂区": 188,
+    "名東区": 324,
+    "港区": 542,
+    "中川区": 474,
+    "守山区": 458,
+    "西区": 323,
+    "南区": 290,
+    "千種区": 321,
+    "昭和区": 237,
+    "東区": 138,
+    "中区": 170,
+    "北区": 275,
+    "unassigned": 24
+  },
+  "props": 48,
+  "propWards": [
+    "中区",
+    "中川区",
+    "中村区",
+    "北区",
+    "千種区",
+    "南区",
+    "名東区",
+    "天白区",
+    "守山区",
+    "昭和区",
+    "東区",
+    "港区",
+    "熱田区",
+    "瑞穂区",
+    "緑区",
+    "西区"
+  ],
+  "zonedCells": 5869,
+  "roadComponents": 1,
+  "outsideConnected": false
+}

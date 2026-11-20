@@ -13,7 +13,7 @@ namespace NagoyaRoadDelivery
     // Loading a save only opens tiles on terrain that is already flat.
     public sealed class NativeCityFlatStart : MonoBehaviour
     {
-        private const string Root = NativeCityRoadBuilder.Root;
+        private static readonly string Root = NativeCityRoadBuilder.Root;
         internal bool NewGame;
         private string result;
 

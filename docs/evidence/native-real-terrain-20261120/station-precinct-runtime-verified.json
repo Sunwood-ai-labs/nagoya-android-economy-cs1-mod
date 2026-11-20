@@ -1,0 +1,21 @@
+{
+  "map": "Nagoya-Real-Citywide-Neighborhoods-20261120",
+  "pid": 47864,
+  "observedAt": "2026-11-20T22:19:35.0277864+09:00",
+  "models": {
+    "ok": true,
+    "renderObjects": 1905,
+    "plateauSourceBuildings": 738033,
+    "triangles": 15290901,
+    "loadMilliseconds": 28159,
+    "stationPrecinct": true
+  },
+  "screenshots": [
+    "nagoya-station-precinct-final-overhead.png",
+    "nagoya-station-precinct-final-west.png",
+    "nagoya-station-precinct-final-east.png",
+    "nagoya-station-precinct-final-close.png"
+  ],
+  "roadSegments": 19380,
+  "unlimitedUtilities": true
+}

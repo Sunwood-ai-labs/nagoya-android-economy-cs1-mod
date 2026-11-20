@@ -1,6 +1,12 @@
-/.build/
+.build/
 __pycache__/
 *.pyc
 *.dll
 *.exe
 *.crp
+/site/
+/.venv/
+# Evidence images are served only through Tailnet HTTPS.
+/docs/evidence/**/*.png
+/docs/evidence/**/*.jpg
+/docs/evidence/**/*.jpeg

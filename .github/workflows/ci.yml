@@ -1,0 +1,43 @@
+name: Portable CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  portable-regression:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - name: Install Python test dependencies
+        shell: pwsh
+        run: python -m pip install -r requirements-dev.txt
+      - name: Run portable C# regression
+        shell: pwsh
+        run: .\test.ps1
+      - name: Run runtime path regression
+        shell: pwsh
+        run: .\test-paths.ps1
+      - name: Run Python tests
+        shell: pwsh
+        run: python -m pytest -q
+      - name: Compile Python tools
+        shell: pwsh
+        run: python -m compileall -q tools tests optional/real-terrain/scripts
+      - name: Check repository links and artifacts
+        shell: pwsh
+        run: python tools/check_repository.py

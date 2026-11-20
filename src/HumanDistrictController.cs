@@ -9,7 +9,7 @@ namespace NagoyaRoadDelivery
     public sealed class HumanDistrictController:MonoBehaviour
     {
         public string Mode;
-        private const string Root=@"H:\CS1-PLATEAU\nagoya-station";
+        private static readonly string Root =RuntimePaths.DataRoot;
         private NagoyaStationBlock.HumanCoexistence humans;
         private DateTime stamp=DateTime.MinValue;
         private float nextPoll;

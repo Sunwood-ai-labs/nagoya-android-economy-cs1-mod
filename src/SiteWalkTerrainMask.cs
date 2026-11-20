@@ -61,7 +61,7 @@ namespace NagoyaRoadDelivery
         {
             if(string.IsNullOrEmpty(path))return new PublicRealmMaskCells();
             string full=Path.GetFullPath(path);
-            if(!string.Equals(full,@"H:\CS1-PLATEAU\nagoya-station\simulation\publicrealm-mask.json",StringComparison.OrdinalIgnoreCase))throw new FormatException("Unexpected public realm mask path");
+            if(!string.Equals(full,RuntimePaths.Data(@"simulation\publicrealm-mask.json"),StringComparison.OrdinalIgnoreCase))throw new FormatException("Unexpected public realm mask path");
             if(!File.Exists(full))return new PublicRealmMaskCells();
             if(new FileInfo(full).Length>4096)throw new FormatException("Public realm mask file budget");
             FileSystemInfo current=new FileInfo(full);

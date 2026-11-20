@@ -11,7 +11,7 @@ namespace NagoyaRoadDelivery
 {
     internal sealed class NativeCityFinance : MonoBehaviour
     {
-        private const string Root = NativeCityRoadBuilder.Root;
+        private static readonly string Root = NativeCityRoadBuilder.Root;
         private string city, runId;
         private DateTime lastRequest;
         private float nextRead;

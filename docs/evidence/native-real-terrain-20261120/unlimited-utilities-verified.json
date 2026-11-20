@@ -1,0 +1,26 @@
+{
+  "map": "Nagoya-Real-Citywide-Neighborhoods-20261120",
+  "pid": 24960,
+  "roadSegments": 19380,
+  "observedAt": "2026-11-20T21:37:55.2273944+09:00",
+  "preEnableProblemCounts": {
+    "Electricity": 5019,
+    "Water": 5019,
+    "MajorProblem": 5019,
+    "RoadNotConnected": 206
+  },
+  "activeUtilityState": {
+    "ok": true,
+    "enabled": true,
+    "electricitySupplied": 27859,
+    "waterSupplied": 24895,
+    "sewageAccepted": 24894
+  },
+  "postEnableProblemCounts": {
+    "RoadNotConnected": 206
+  },
+  "postEnableElectricityProblems": 0,
+  "postEnableWaterProblems": 0,
+  "switchDisabledAndRestored": true,
+  "screenshot": "nagoya-utilities-after.png"
+}

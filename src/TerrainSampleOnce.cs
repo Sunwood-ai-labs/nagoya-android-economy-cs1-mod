@@ -12,7 +12,7 @@ namespace NagoyaRoadDelivery
         internal static void Run()
         {
             if(attempted)return;attempted=true;
-            const string root=@"H:\CS1-PLATEAU\nagoya-station\publicrealm-v1";
+            string root=RuntimePaths.Data(@"publicrealm-v1");
             string request=Path.Combine(root,"terrain-sample-request.json"),result=Path.Combine(root,"terrain-samples.json");
             if(!File.Exists(request))return;
             Dictionary<string,object> output=new Dictionary<string,object>{{"utc",DateTime.UtcNow.ToString("o")},{"time",DateTime.UtcNow.ToString("o")},{"revision","publicrealm-terrain-start-once-v1"},{"source","CS1 TerrainManager.SampleRawHeightSmoothWithWater main thread Start once"}};

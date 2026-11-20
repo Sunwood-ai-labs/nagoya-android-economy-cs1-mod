@@ -1,0 +1,48 @@
+{
+  "observedAt": "2026-11-20T23:38:03.4427408+09:00",
+  "phase": "save",
+  "segments": 19380,
+  "pid": 46096,
+  "blocks": [
+    {
+      "block": "01",
+      "triangles": 81,
+      "manifestSha256": "52C0F4A90CD24BD177BFD667FEE5881933711801E777936E07A3325B0D8144C3"
+    },
+    {
+      "block": "02",
+      "triangles": 85,
+      "manifestSha256": "CC2F71842CAE60028234DFC0C159B9D87EEF048069A3600E135584A15AAC93C1"
+    },
+    {
+      "block": "03",
+      "triangles": 71,
+      "manifestSha256": "AC16E33D3B910D3AA6695713AF43AF49E701E397FB63B5940CAC9CFBF51EB69A"
+    },
+    {
+      "block": "04",
+      "triangles": 822,
+      "manifestSha256": "E54C2F2AB40029EDD93B733945E6F0C6C8508B57E7F197765DFD5F1E351A3DEB"
+    },
+    {
+      "block": "05",
+      "triangles": 57,
+      "manifestSha256": "77E6AFF58DEFB3200B304F2E78416DCD0A1A0904CD0E97B6F94155CD6F5E171D"
+    },
+    {
+      "block": "06",
+      "triangles": 93,
+      "manifestSha256": "0513E0BAF3B7305C201D5AD90E7C13C3E7B06B9D2869904202EB44D629190F94"
+    },
+    {
+      "block": "07",
+      "triangles": 56,
+      "manifestSha256": "EDB26262DC803BC0EB50388331F00EEB92D326BC3F7243634F856AAE9546137C"
+    },
+    {
+      "block": "08",
+      "triangles": 97,
+      "manifestSha256": "4C3997D65577E1EFE14BDB9683D3A7AE0C5EF4060D8F84B2D5CBAC654F39CC09"
+    }
+  ]
+}

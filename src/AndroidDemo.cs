@@ -58,7 +58,7 @@ namespace NagoyaAndroidDemo
     public sealed class Demo : MonoBehaviour
     {
         public string Mode;
-        private const string Folder = @"H:\CS1-PLATEAU\android";
+        private static readonly string Folder = NagoyaRoadDelivery.RuntimePaths.DemoRoot;
         private readonly List<Robot> robots = new List<Robot>();
         private readonly List<Material> materials = new List<Material>();
         private GameObject scene;

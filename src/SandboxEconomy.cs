@@ -8,7 +8,7 @@ namespace NagoyaRoadDelivery
     // Opt-in, exact-city sandbox. Matches the game's bundled Unlimited Money API.
     public sealed class SandboxEconomy : EconomyExtensionBase
     {
-        private const string Root=@"H:\CS1-PLATEAU\nagoya-station\simulation";
+        private static readonly string Root =RuntimePaths.Data(@"simulation");
         private readonly object sync=new object();
         private long nextConfigTicks,nextStateTicks,updateCalls;
         private bool configured;

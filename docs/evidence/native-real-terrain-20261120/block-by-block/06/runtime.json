@@ -1,0 +1,43 @@
+{
+  "id": "06",
+  "after": {
+    "capturedAt": "2026-11-20T23:36:33.0972053+09:00",
+    "name": "nagoya-block-06-after.png",
+    "settings": {
+      "yaw": 0,
+      "zoom": 118,
+      "x": -1491,
+      "pitch": 88,
+      "name": "nagoya-block-06-after.png",
+      "z": 1049
+    },
+    "sha256": "77D1C04C30219D4499E1C1DADFD6EB89D4A829B29E34A849067FE667FDF32242"
+  },
+  "applied": {
+    "ok": true,
+    "block": "06",
+    "renderObjects": 1,
+    "triangles": 93,
+    "alreadyApplied": false
+  },
+  "name": "名古屋駅北の線路脇・椿町北端",
+  "before": {
+    "capturedAt": "2026-11-20T23:36:30.9282115+09:00",
+    "name": "nagoya-block-06-before.png",
+    "settings": {
+      "yaw": 0,
+      "zoom": 118,
+      "x": -1491,
+      "pitch": 88,
+      "name": "nagoya-block-06-before.png",
+      "z": 1049
+    },
+    "sha256": "04D43DF02B373FA6CE94B91119FC0BF5F6715800CF48CAFF800E9AAF736601C3"
+  },
+  "bounds": [
+    -1529,
+    1001,
+    -1453,
+    1097
+  ]
+}

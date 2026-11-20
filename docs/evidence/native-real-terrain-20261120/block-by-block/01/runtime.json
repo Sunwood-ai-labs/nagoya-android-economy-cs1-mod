@@ -1,0 +1,43 @@
+{
+  "bounds": [
+    -1393,
+    915,
+    -1346,
+    982
+  ],
+  "before": {
+    "sha256": "3404D80F55D207987E6D9DDD1211B25C556DEEBB1560458CEBB4D2E537DFB04B",
+    "settings": {
+      "yaw": 0,
+      "z": 948.5,
+      "name": "nagoya-block-01-before.png",
+      "zoom": 83,
+      "pitch": 88,
+      "x": -1369.5
+    },
+    "name": "nagoya-block-01-before.png",
+    "capturedAt": "2026-11-20T23:35:50.0427602+09:00"
+  },
+  "applied": {
+    "ok": true,
+    "block": "01",
+    "renderObjects": 1,
+    "triangles": 81,
+    "alreadyApplied": false
+  },
+  "id": "01",
+  "after": {
+    "sha256": "C2F9AF484BDC32D4420CDEE48090A3602D5063DD951C07F8077F9A69072F2E98",
+    "settings": {
+      "yaw": 0,
+      "z": 948.5,
+      "name": "nagoya-block-01-after.png",
+      "zoom": 83,
+      "pitch": 88,
+      "x": -1369.5
+    },
+    "name": "nagoya-block-01-after.png",
+    "capturedAt": "2026-11-20T23:35:52.2427576+09:00"
+  },
+  "name": "桜通口ロータリー・タワーズ前"
+}

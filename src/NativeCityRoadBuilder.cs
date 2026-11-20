@@ -14,7 +14,7 @@ namespace NagoyaRoadDelivery
     // are queued on the CS1 simulation thread.
     public sealed class NativeCityRoadBuilder : MonoBehaviour
     {
-        internal const string Root = @"H:\CS1-PLATEAU\nagoya-station\citywide-zoning-v3";
+        internal static readonly string Root = RuntimePaths.Data(@"citywide-zoning-v3");
         private const int BatchSize = 96;
         private const int MaxRoads = 32000;
         private const int MaxFileBytes = 12 * 1024 * 1024;

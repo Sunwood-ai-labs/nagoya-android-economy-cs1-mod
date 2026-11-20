@@ -12,7 +12,7 @@ namespace NagoyaRoadDelivery
 {
     public sealed class NativeCityZoneBuilder : MonoBehaviour
     {
-        private const string Root = NativeCityRoadBuilder.Root;
+        private static readonly string Root = NativeCityRoadBuilder.Root;
         private const int MaxSites = 3000;
         private const int MaxFrontagesPerSite = 8;
         private const float DefaultPlacementDistance = 48f;

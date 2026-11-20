@@ -1,0 +1,7 @@
+# Optional offline geospatial/data-preparation and submission tools; not needed by verify_live.py.
+numpy>=1.26,<3
+scipy>=1.11,<2
+shapely>=2.0,<3
+pyproj>=3.6,<4
+Pillow>=10.4,<13
+reportlab>=4,<5

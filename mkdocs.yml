@@ -1,0 +1,48 @@
+site_name: Android Skyline · 名古屋2050
+site_description: Cities Skylines 1 MOD development, native economy trials and Nagoya map evidence
+site_url: https://sunwood-ai-labs.github.io/nagoya-android-economy-cs1-mod/
+repo_url: https://github.com/Sunwood-ai-labs/nagoya-android-economy-cs1-mod
+edit_uri: blob/main/docs/
+use_directory_urls: false
+theme:
+  name: mkdocs
+  color_mode: auto
+  user_color_mode_toggle: true
+  nav_style: dark
+  locale: ja
+plugins:
+  - search:
+      lang: [en, ja]
+exclude_docs: |
+  submission/
+  evidence/**/*.png
+  evidence/**/*.jpg
+  evidence/**/*.jpeg
+  **/*.pdf
+nav:
+  - Home: index.md
+  - Screenshot gallery: gallery.md
+  - Getting started: getting-started.md
+  - Architecture: architecture.md
+  - Data and licenses: data-and-licenses.md
+  - Troubleshooting: troubleshooting.md
+  - Native simulation:
+      - Economy: native-economy.md
+      - Android life: android-life.md
+      - PLATEAU zoning: plateau-zoning.md
+      - Citywide zoning: citywide-zoning.md
+      - Native construction: native-city-construction.md
+  - Real terrain and station:
+      - Optional bridge source: real-terrain-source.md
+      - Road and building QA: real-terrain-road-building-qa.md
+      - Aerial comparison: nagoya-station-aerial-comparison.md
+      - Block by block: nagoya-station-block-by-block.md
+  - Evidence: evidence/index.md
+  - Maintenance: maintenance.md
+markdown_extensions:
+  - tables
+  - fenced_code
+validation:
+  links:
+    not_found: warn
+    unrecognized_links: warn

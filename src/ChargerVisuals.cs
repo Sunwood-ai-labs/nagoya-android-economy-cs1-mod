@@ -10,7 +10,7 @@ namespace NagoyaRoadDelivery
     // Visual-only replacement. The delivery engine and charger occupancy are unchanged.
     public sealed class ChargerVisuals : MonoBehaviour
     {
-        private const string Root=@"H:\CS1-PLATEAU\nagoya-station";
+        private static readonly string Root =RuntimePaths.DataRoot;
         private readonly List<Vector3> anchors=new List<Vector3>();
         private readonly List<GameObject> legacy=new List<GameObject>();
         private readonly List<GameObject> terminals=new List<GameObject>();

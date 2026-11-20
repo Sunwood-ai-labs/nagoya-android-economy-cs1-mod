@@ -1,0 +1,43 @@
+{
+  "id": "03",
+  "after": {
+    "capturedAt": "2026-11-20T23:36:19.1382182+09:00",
+    "name": "nagoya-block-03-after.png",
+    "settings": {
+      "yaw": 0,
+      "zoom": 88,
+      "x": -1477.5,
+      "pitch": 88,
+      "name": "nagoya-block-03-after.png",
+      "z": 942.5
+    },
+    "sha256": "B7679FEE6882C4AE7CD43D08E51C7E2122A3A799C8C9FFA5BC8919780EFD96F3"
+  },
+  "applied": {
+    "ok": true,
+    "block": "03",
+    "renderObjects": 1,
+    "triangles": 71,
+    "alreadyApplied": false
+  },
+  "name": "太閤通口バスのりば・駅前広場",
+  "before": {
+    "capturedAt": "2026-11-20T23:36:16.9517635+09:00",
+    "name": "nagoya-block-03-before.png",
+    "settings": {
+      "yaw": 0,
+      "zoom": 88,
+      "x": -1477.5,
+      "pitch": 88,
+      "name": "nagoya-block-03-before.png",
+      "z": 942.5
+    },
+    "sha256": "308F60F001AE3405E40A129325389A95D95B86C25C716251CE71BF9E5F7DBD5D"
+  },
+  "bounds": [
+    -1500,
+    906,
+    -1455,
+    979
+  ]
+}

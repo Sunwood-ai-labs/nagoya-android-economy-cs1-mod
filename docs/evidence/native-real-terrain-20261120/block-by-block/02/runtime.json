@@ -1,0 +1,43 @@
+{
+  "id": "02",
+  "after": {
+    "capturedAt": "2026-11-20T23:36:14.4951544+09:00",
+    "name": "nagoya-block-02-after.png",
+    "settings": {
+      "yaw": 0,
+      "zoom": 94,
+      "x": -1312,
+      "pitch": 88,
+      "name": "nagoya-block-02-after.png",
+      "z": 991.5
+    },
+    "sha256": "DC718452B4555F1B8440DB0606A22C1E0FF1D4BDE89947776BCFFC2FFFBCBA65"
+  },
+  "applied": {
+    "ok": true,
+    "block": "02",
+    "renderObjects": 1,
+    "triangles": 85,
+    "alreadyApplied": false
+  },
+  "name": "大名古屋ビルヂング・桜通東側",
+  "before": {
+    "capturedAt": "2026-11-20T23:36:12.3093863+09:00",
+    "name": "nagoya-block-02-before.png",
+    "settings": {
+      "yaw": 0,
+      "zoom": 94,
+      "x": -1312,
+      "pitch": 88,
+      "name": "nagoya-block-02-before.png",
+      "z": 991.5
+    },
+    "sha256": "87DA153CEBBAE108F6D9279DA5DDB842D105EE71F54CA0FA64F7D3D12D615D44"
+  },
+  "bounds": [
+    -1351,
+    963,
+    -1273,
+    1020
+  ]
+}

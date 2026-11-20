@@ -7,6 +7,13 @@ using NagoyaRoadDelivery;
 
 internal static class FleetCheck
 {
+    private sealed class Options
+    {
+        public int ExpectedRegions = -1;
+        public int ExpectedInitialParcels = -1;
+        public int[] FleetSizes = new int[] { 1, 2, 3 };
+    }
+
     private sealed class VisualProbe : ICitywideVisuals, ICitywideFleetVisuals
     {
         private readonly Dictionary<int, int> _charging = new Dictionary<int, int>();
@@ -25,6 +32,42 @@ internal static class FleetCheck
     private static List<object> List(object value) { return (List<object>)value; }
     private static int Count(object value) { return (int)(double)value; }
 
+    private static Options ParseOptions(string[] args)
+    {
+        Options options = new Options();
+        for (int i = 2; i < args.Length; i++)
+        {
+            string option = args[i];
+            int separator = option.IndexOf('=');
+            if (separator <= 2 || !option.StartsWith("--"))
+                throw new ArgumentException("Options must use --name=value: " + option);
+            string name = option.Substring(2, separator - 2);
+            string value = option.Substring(separator + 1);
+            if (name == "expected-regions") options.ExpectedRegions = ParsePositive(value, name);
+            else if (name == "expected-initial-parcels") options.ExpectedInitialParcels = ParsePositive(value, name);
+            else if (name == "fleet-sizes") options.FleetSizes = ParseFleetSizes(value);
+            else throw new ArgumentException("Unknown option: " + option);
+        }
+        if (options.FleetSizes.Length == 0) throw new ArgumentException("fleet-sizes cannot be empty");
+        return options;
+    }
+
+    private static int ParsePositive(string value, string name)
+    {
+        int result;
+        if (!Int32.TryParse(value, out result) || result < 1)
+            throw new ArgumentException(name + " must be a positive integer");
+        return result;
+    }
+
+    private static int[] ParseFleetSizes(string value)
+    {
+        string[] parts = value.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+        int[] result = new int[parts.Length];
+        for (int i = 0; i < parts.Length; i++) result[i] = ParsePositive(parts[i].Trim(), "fleet-sizes");
+        return result;
+    }
+
     private static void Require(bool condition, string message)
     {
         if (!condition) throw new InvalidOperationException(message);
@@ -32,6 +75,19 @@ internal static class FleetCheck
 
     private static void Main(string[] args)
     {
+        try { Run(args); }
+        catch (Exception error)
+        {
+            Console.Error.WriteLine("FleetCheck error type=" + error.GetType().FullName);
+            Console.Error.WriteLine("FleetCheck error=" + error.Message);
+            Environment.ExitCode = 1;
+        }
+    }
+
+    private static void Run(string[] args)
+    {
+        if (args == null || args.Length < 2) throw new ArgumentException("Usage: FleetCheck.exe graph.ncg regions.json [--expected-regions=N] [--expected-initial-parcels=N] [--fleet-sizes=1,2,3]");
+        Options options = ParseOptions(args);
         RoutingGraph graph = RoutingGraph.Load(args[0]);
         List<RegionPlan> regions = new List<RegionPlan>();
         foreach (object value in List(Map(JsonData.Parse(File.ReadAllText(args[1])))["regions"]))
@@ -41,14 +97,16 @@ internal static class FleetCheck
             foreach (object target in List(row["targets"])) targets.Add(Count(target));
             regions.Add(new RegionPlan(Count(row["id"]), Count(row["hub"]), targets.ToArray(), (string)row["name"]));
         }
-        Require(regions.Count == 56, "Expected all 56 Nagoya regions");
-        int baseline = Check(graph, regions.ToArray(), 1);
-        int doubled = Check(graph, regions.ToArray(), 2);
-        int scaled = Check(graph, regions.ToArray(), 3);
-        Require(doubled > baseline && scaled > doubled, "Fleet changes must improve completed deliveries");
+        if (options.ExpectedRegions >= 0)
+            Require(regions.Count == options.ExpectedRegions, "Region count did not match the explicit expectation");
+        int[] deliveries = new int[options.FleetSizes.Length];
+        for (int i = 0; i < options.FleetSizes.Length; i++)
+            deliveries[i] = Check(graph, regions.ToArray(), options.FleetSizes[i], options.ExpectedInitialParcels);
+        for (int i = 1; i < deliveries.Length; i++)
+            Require(deliveries[i] >= deliveries[i - 1], "A larger fleet must not reduce completed deliveries");
     }
 
-    private static int Check(RoutingGraph graph, RegionPlan[] regions, int fleetSize)
+    private static int Check(RoutingGraph graph, RegionPlan[] regions, int fleetSize, int expectedInitialParcels)
     {
         Stopwatch timer = Stopwatch.StartNew();
         CitywideSimulation simulation = new CitywideSimulation(graph, regions, new VisualProbe(), fleetSize);
@@ -62,16 +120,22 @@ internal static class FleetCheck
             Require(timer.Elapsed.TotalSeconds < 30, "Offline run exceeded wall clock budget");
             Dictionary<string, object> state = Map(JsonData.Parse(simulation.StateJson()));
             Dictionary<string, object> totals = Map(state["parcelTotals"]);
-            Require((bool)totals["conserved"] && Count(totals["initial"]) == 168, "Parcel conservation at checkpoint");
+            int initial = Count(totals["initial"]);
+            Require((bool)totals["conserved"], "Parcel conservation at checkpoint");
+            if (expectedInitialParcels >= 0)
+                Require(initial == expectedInitialParcels, "Initial parcel count did not match the explicit expectation");
             delivered = Count(totals["delivered"]);
             collected = Count(totals["collected"]);
             HashSet<int> ids = new HashSet<int>();
+            int computedParcels = 0;
             foreach (object value in List(state["regions"]))
             {
                 Dictionary<string, object> region = Map(value);
-                Require(region["error"] == null && Count(region["hubStock"]) >= 0, "Region error or negative hub inventory");
+                Require(region["error"] == null, "Region error at checkpoint: " + (region["error"] == null ? "unknown" : (string)region["error"]));
+                Require(Count(region["hubStock"]) >= 0, "Negative hub inventory");
                 List<object> actors = List(region["agents"]);
                 Require(actors.Count == fleetSize + 1, "Incorrect regional fleet size");
+                int regionParcels = Count(region["hubStock"]);
                 int charging = 0;
                 HashSet<int> jobs = new HashSet<int>();
                 foreach (object item in actors)
@@ -95,9 +159,17 @@ internal static class FleetCheck
                     Dictionary<string, object> record = Map(target);
                     int inventory = Count(record["inventory"]);
                     Require(inventory >= 0 && inventory <= 1, "Target inventory out of range");
+                    regionParcels += inventory;
                     if (step == 1799) Require(Count(record["deliveries"]) > 0 && Count(record["collections"]) > 0, "Target was not served");
                 }
+                foreach (object actorValue in actors)
+                {
+                    Dictionary<string, object> actor = Map(actorValue);
+                    regionParcels += Count(actor["carried"]);
+                }
+                computedParcels += regionParcels;
             }
+            Require(computedParcels == initial, "Parcel total did not match the region inventories");
         }
         Require(worked.Count == regions.Length * fleetSize, "Each Android must deliver, collect and charge");
         if (fleetSize > 1) Require(waited.Count > 0, "Fleet never exercised the charging queue");

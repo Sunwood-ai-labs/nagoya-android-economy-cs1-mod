@@ -1,0 +1,405 @@
+{
+  "status": "offline centerline distance, not proof of road access or native zoning",
+  "rampPlan": {
+    "smoothing": {
+      "inputSegments": 13677,
+      "outputSegments": 8463,
+      "narrowedLocalStreets": 496,
+      "nativeOneLaneRampSourceSegments": 1869,
+      "continuousCurveNodes": 2370,
+      "horizontalToleranceMeters": 1.5,
+      "verticalToleranceMeters": 0.5,
+      "maximumChordMeters": 78
+    },
+    "topology": {
+      "nodes": 8434,
+      "components": 1,
+      "largestComponentNodes": 8434,
+      "maximumJunctionDegree": 7,
+      "cycleRank": 30
+    },
+    "zoningCandidates": 2228,
+    "exclusions": {},
+    "unassigned": 0,
+    "allSourceCentroids": {
+      "PLATEAUSourceCentroids": 738033,
+      "nearbyWithin24m": 64227,
+      "medianCenterlineDistanceM": 118.08,
+      "p90CenterlineDistanceM": 259.55
+    },
+    "wards": {
+      "": {
+        "PLATEAUSourceCentroids": 1329,
+        "nearbyWithin24m": 60,
+        "medianCenterlineDistanceM": 179.31,
+        "p90CenterlineDistanceM": 370.98
+      },
+      "中区": {
+        "PLATEAUSourceCentroids": 17242,
+        "nearbyWithin24m": 1410,
+        "medianCenterlineDistanceM": 104.95,
+        "p90CenterlineDistanceM": 247.45
+      },
+      "中川区": {
+        "PLATEAUSourceCentroids": 79716,
+        "nearbyWithin24m": 5448,
+        "medianCenterlineDistanceM": 129.76,
+        "p90CenterlineDistanceM": 257.44
+      },
+      "中村区": {
+        "PLATEAUSourceCentroids": 50709,
+        "nearbyWithin24m": 5651,
+        "medianCenterlineDistanceM": 94.32,
+        "p90CenterlineDistanceM": 205.27
+      },
+      "北区": {
+        "PLATEAUSourceCentroids": 49306,
+        "nearbyWithin24m": 3228,
+        "medianCenterlineDistanceM": 150.03,
+        "p90CenterlineDistanceM": 295.68
+      },
+      "千種区": {
+        "PLATEAUSourceCentroids": 39902,
+        "nearbyWithin24m": 5302,
+        "medianCenterlineDistanceM": 84.72,
+        "p90CenterlineDistanceM": 200.23
+      },
+      "南区": {
+        "PLATEAUSourceCentroids": 50249,
+        "nearbyWithin24m": 3110,
+        "medianCenterlineDistanceM": 142.16,
+        "p90CenterlineDistanceM": 255.53
+      },
+      "名東区": {
+        "PLATEAUSourceCentroids": 41618,
+        "nearbyWithin24m": 3922,
+        "medianCenterlineDistanceM": 121.44,
+        "p90CenterlineDistanceM": 324.88
+      },
+      "天白区": {
+        "PLATEAUSourceCentroids": 44545,
+        "nearbyWithin24m": 3708,
+        "medianCenterlineDistanceM": 133.13,
+        "p90CenterlineDistanceM": 273.01
+      },
+      "守山区": {
+        "PLATEAUSourceCentroids": 63808,
+        "nearbyWithin24m": 7223,
+        "medianCenterlineDistanceM": 103.43,
+        "p90CenterlineDistanceM": 252.93
+      },
+      "昭和区": {
+        "PLATEAUSourceCentroids": 31640,
+        "nearbyWithin24m": 3824,
+        "medianCenterlineDistanceM": 88.48,
+        "p90CenterlineDistanceM": 224.54
+      },
+      "東区": {
+        "PLATEAUSourceCentroids": 17661,
+        "nearbyWithin24m": 979,
+        "medianCenterlineDistanceM": 132.5,
+        "p90CenterlineDistanceM": 287.19
+      },
+      "港区": {
+        "PLATEAUSourceCentroids": 58003,
+        "nearbyWithin24m": 5026,
+        "medianCenterlineDistanceM": 117.71,
+        "p90CenterlineDistanceM": 242.15
+      },
+      "熱田区": {
+        "PLATEAUSourceCentroids": 19166,
+        "nearbyWithin24m": 1307,
+        "medianCenterlineDistanceM": 128.12,
+        "p90CenterlineDistanceM": 289.7
+      },
+      "瑞穂区": {
+        "PLATEAUSourceCentroids": 35089,
+        "nearbyWithin24m": 1647,
+        "medianCenterlineDistanceM": 144.51,
+        "p90CenterlineDistanceM": 258.32
+      },
+      "緑区": {
+        "PLATEAUSourceCentroids": 87365,
+        "nearbyWithin24m": 6805,
+        "medianCenterlineDistanceM": 129.66,
+        "p90CenterlineDistanceM": 284.16
+      },
+      "西区": {
+        "PLATEAUSourceCentroids": 50685,
+        "nearbyWithin24m": 5577,
+        "medianCenterlineDistanceM": 93.78,
+        "p90CenterlineDistanceM": 228.49
+      }
+    }
+  },
+  "extendedPlan": {
+    "smoothing": {
+      "inputSegments": 21994,
+      "outputSegments": 12544,
+      "narrowedLocalStreets": 496,
+      "nativeOneLaneRampSourceSegments": 1869,
+      "continuousCurveNodes": 3824,
+      "horizontalToleranceMeters": 1.5,
+      "verticalToleranceMeters": 0.5,
+      "maximumChordMeters": 78
+    },
+    "topology": {
+      "nodes": 12502,
+      "components": 1,
+      "largestComponentNodes": 12502,
+      "maximumJunctionDegree": 7,
+      "cycleRank": 43
+    },
+    "zoningCandidates": 4290,
+    "exclusions": {
+      "extension_1_length_or_grade": 1,
+      "extension_1_unreachable_or_already_present": 12
+    },
+    "unassigned": 0,
+    "allSourceCentroids": {
+      "PLATEAUSourceCentroids": 738033,
+      "nearbyWithin24m": 191797,
+      "medianCenterlineDistanceM": 46.98,
+      "p90CenterlineDistanceM": 109.14
+    },
+    "wards": {
+      "": {
+        "PLATEAUSourceCentroids": 1329,
+        "nearbyWithin24m": 148,
+        "medianCenterlineDistanceM": 81.89,
+        "p90CenterlineDistanceM": 157.16
+      },
+      "中区": {
+        "PLATEAUSourceCentroids": 17242,
+        "nearbyWithin24m": 4975,
+        "medianCenterlineDistanceM": 44.36,
+        "p90CenterlineDistanceM": 106.03
+      },
+      "中川区": {
+        "PLATEAUSourceCentroids": 79716,
+        "nearbyWithin24m": 19963,
+        "medianCenterlineDistanceM": 47.61,
+        "p90CenterlineDistanceM": 107.21
+      },
+      "中村区": {
+        "PLATEAUSourceCentroids": 50709,
+        "nearbyWithin24m": 11610,
+        "medianCenterlineDistanceM": 51.23,
+        "p90CenterlineDistanceM": 120.45
+      },
+      "北区": {
+        "PLATEAUSourceCentroids": 49306,
+        "nearbyWithin24m": 14390,
+        "medianCenterlineDistanceM": 43.18,
+        "p90CenterlineDistanceM": 102.54
+      },
+      "千種区": {
+        "PLATEAUSourceCentroids": 39902,
+        "nearbyWithin24m": 9321,
+        "medianCenterlineDistanceM": 50.21,
+        "p90CenterlineDistanceM": 119.16
+      },
+      "南区": {
+        "PLATEAUSourceCentroids": 50249,
+        "nearbyWithin24m": 15500,
+        "medianCenterlineDistanceM": 40.44,
+        "p90CenterlineDistanceM": 95.1
+      },
+      "名東区": {
+        "PLATEAUSourceCentroids": 41618,
+        "nearbyWithin24m": 10462,
+        "medianCenterlineDistanceM": 47.5,
+        "p90CenterlineDistanceM": 110.12
+      },
+      "天白区": {
+        "PLATEAUSourceCentroids": 44545,
+        "nearbyWithin24m": 11363,
+        "medianCenterlineDistanceM": 47.27,
+        "p90CenterlineDistanceM": 101.48
+      },
+      "守山区": {
+        "PLATEAUSourceCentroids": 63808,
+        "nearbyWithin24m": 16521,
+        "medianCenterlineDistanceM": 47.33,
+        "p90CenterlineDistanceM": 115.6
+      },
+      "昭和区": {
+        "PLATEAUSourceCentroids": 31640,
+        "nearbyWithin24m": 7571,
+        "medianCenterlineDistanceM": 49.95,
+        "p90CenterlineDistanceM": 106.82
+      },
+      "東区": {
+        "PLATEAUSourceCentroids": 17661,
+        "nearbyWithin24m": 4532,
+        "medianCenterlineDistanceM": 45.42,
+        "p90CenterlineDistanceM": 108.33
+      },
+      "港区": {
+        "PLATEAUSourceCentroids": 58003,
+        "nearbyWithin24m": 15262,
+        "medianCenterlineDistanceM": 48.41,
+        "p90CenterlineDistanceM": 123.03
+      },
+      "熱田区": {
+        "PLATEAUSourceCentroids": 19166,
+        "nearbyWithin24m": 4951,
+        "medianCenterlineDistanceM": 48.74,
+        "p90CenterlineDistanceM": 103.27
+      },
+      "瑞穂区": {
+        "PLATEAUSourceCentroids": 35089,
+        "nearbyWithin24m": 8505,
+        "medianCenterlineDistanceM": 50.18,
+        "p90CenterlineDistanceM": 116.56
+      },
+      "緑区": {
+        "PLATEAUSourceCentroids": 87365,
+        "nearbyWithin24m": 23651,
+        "medianCenterlineDistanceM": 45.64,
+        "p90CenterlineDistanceM": 105.6
+      },
+      "西区": {
+        "PLATEAUSourceCentroids": 50685,
+        "nearbyWithin24m": 13072,
+        "medianCenterlineDistanceM": 46.22,
+        "p90CenterlineDistanceM": 103.51
+      }
+    }
+  },
+  "infillPlan": {
+    "smoothing": {
+      "inputSegments": 29494,
+      "outputSegments": 19380,
+      "narrowedLocalStreets": 496,
+      "nativeOneLaneRampSourceSegments": 1869,
+      "continuousCurveNodes": 3660,
+      "horizontalToleranceMeters": 1.5,
+      "verticalToleranceMeters": 0.5,
+      "maximumChordMeters": 78
+    },
+    "topology": {
+      "nodes": 17473,
+      "components": 1,
+      "largestComponentNodes": 17473,
+      "maximumJunctionDegree": 7,
+      "cycleRank": 1908
+    },
+    "zoningCandidates": 5103,
+    "exclusions": {
+      "extension_1_length_or_grade": 1,
+      "extension_1_unreachable_or_already_present": 12
+    },
+    "unassigned": 0,
+    "allSourceCentroids": {
+      "PLATEAUSourceCentroids": 738033,
+      "nearbyWithin24m": 257020,
+      "medianCenterlineDistanceM": 38.55,
+      "p90CenterlineDistanceM": 102.88
+    },
+    "wards": {
+      "": {
+        "PLATEAUSourceCentroids": 1329,
+        "nearbyWithin24m": 165,
+        "medianCenterlineDistanceM": 78.61,
+        "p90CenterlineDistanceM": 157.16
+      },
+      "中区": {
+        "PLATEAUSourceCentroids": 17242,
+        "nearbyWithin24m": 5279,
+        "medianCenterlineDistanceM": 42.06,
+        "p90CenterlineDistanceM": 104.01
+      },
+      "中川区": {
+        "PLATEAUSourceCentroids": 79716,
+        "nearbyWithin24m": 28793,
+        "medianCenterlineDistanceM": 37.63,
+        "p90CenterlineDistanceM": 100.27
+      },
+      "中村区": {
+        "PLATEAUSourceCentroids": 50709,
+        "nearbyWithin24m": 14460,
+        "medianCenterlineDistanceM": 45.4,
+        "p90CenterlineDistanceM": 112.77
+      },
+      "北区": {
+        "PLATEAUSourceCentroids": 49306,
+        "nearbyWithin24m": 22707,
+        "medianCenterlineDistanceM": 27.4,
+        "p90CenterlineDistanceM": 90.43
+      },
+      "千種区": {
+        "PLATEAUSourceCentroids": 39902,
+        "nearbyWithin24m": 10471,
+        "medianCenterlineDistanceM": 46.92,
+        "p90CenterlineDistanceM": 115.29
+      },
+      "南区": {
+        "PLATEAUSourceCentroids": 50249,
+        "nearbyWithin24m": 25100,
+        "medianCenterlineDistanceM": 24.06,
+        "p90CenterlineDistanceM": 75.15
+      },
+      "名東区": {
+        "PLATEAUSourceCentroids": 41618,
+        "nearbyWithin24m": 15960,
+        "medianCenterlineDistanceM": 35.59,
+        "p90CenterlineDistanceM": 106.25
+      },
+      "天白区": {
+        "PLATEAUSourceCentroids": 44545,
+        "nearbyWithin24m": 14644,
+        "medianCenterlineDistanceM": 40.14,
+        "p90CenterlineDistanceM": 94.72
+      },
+      "守山区": {
+        "PLATEAUSourceCentroids": 63808,
+        "nearbyWithin24m": 20059,
+        "medianCenterlineDistanceM": 41.55,
+        "p90CenterlineDistanceM": 113.74
+      },
+      "昭和区": {
+        "PLATEAUSourceCentroids": 31640,
+        "nearbyWithin24m": 9464,
+        "medianCenterlineDistanceM": 44.35,
+        "p90CenterlineDistanceM": 102.2
+      },
+      "東区": {
+        "PLATEAUSourceCentroids": 17661,
+        "nearbyWithin24m": 5514,
+        "medianCenterlineDistanceM": 41.44,
+        "p90CenterlineDistanceM": 106.28
+      },
+      "港区": {
+        "PLATEAUSourceCentroids": 58003,
+        "nearbyWithin24m": 20657,
+        "medianCenterlineDistanceM": 39.02,
+        "p90CenterlineDistanceM": 114.4
+      },
+      "熱田区": {
+        "PLATEAUSourceCentroids": 19166,
+        "nearbyWithin24m": 5952,
+        "medianCenterlineDistanceM": 42.62,
+        "p90CenterlineDistanceM": 98.36
+      },
+      "瑞穂区": {
+        "PLATEAUSourceCentroids": 35089,
+        "nearbyWithin24m": 14308,
+        "medianCenterlineDistanceM": 33.63,
+        "p90CenterlineDistanceM": 106.59
+      },
+      "緑区": {
+        "PLATEAUSourceCentroids": 87365,
+        "nearbyWithin24m": 28194,
+        "medianCenterlineDistanceM": 40.52,
+        "p90CenterlineDistanceM": 100.25
+      },
+      "西区": {
+        "PLATEAUSourceCentroids": 50685,
+        "nearbyWithin24m": 15293,
+        "medianCenterlineDistanceM": 42.03,
+        "p90CenterlineDistanceM": 101.32
+      }
+    }
+  }
+}

@@ -10,8 +10,8 @@ namespace NagoyaRoadDelivery
 {
     public sealed class DistrictController : MonoBehaviour
     {
-        private const string Root=@"H:\CS1-PLATEAU\nagoya-station";
-        private const string Folder=Root+@"\simulation";
+        private static readonly string Root =RuntimePaths.DataRoot;
+        private static readonly string Folder =Root+@"\simulation";
         public string Mode;
         private Engine engine;
         private GameObject scene;
@@ -73,7 +73,7 @@ namespace NagoyaRoadDelivery
             foreach(string raw in File.ReadAllLines(ini)){string[] pair=raw.Split(new char[]{'='},2);if(pair.Length==2)cfg[pair[0].Trim()]=pair[1].Trim();}
             Clear();error="";halted=false;
             if(!cfg.ContainsKey("enabled")||cfg["enabled"]!="true"){WriteState();return;}
-            string single=@"H:\CS1-PLATEAU\android\demo-command.ini";
+            string single=Path.Combine(RuntimePaths.DemoRoot,"demo-command.ini");
             if(File.Exists(single) && File.ReadAllText(single).IndexOf("enabled=true",StringComparison.OrdinalIgnoreCase)>=0)throw new InvalidOperationException("Disable the single-building android demo first");
             string path=cfg.ContainsKey("graphPath")?cfg["graphPath"]:Root+@"\roads\delivery-graph.json";
             path=Path.GetFullPath(path);if(!path.StartsWith(Root+"\\",StringComparison.OrdinalIgnoreCase))throw new InvalidOperationException("Graph must stay under district root");

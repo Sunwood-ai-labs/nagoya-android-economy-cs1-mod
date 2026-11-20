@@ -1,0 +1,974 @@
+{
+  "schemaVersion": 1,
+  "visibility": "tailnet-only",
+  "images": [
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/01/after.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/c2f9af484bdc32d4420cdee4.png",
+      "sha256": "c2f9af484bdc32d4420cdee48090a3602d5063dd951c07f8077f9a69072f2e98",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/c2f9af484bdc32d4420cdee4.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/01/before.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/3404d80f55d207987e6d9ddd.png",
+      "sha256": "3404d80f55d207987e6d9ddd1211b25c556deebb1560458cebb4d2e537dfb04b",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/3404d80f55d207987e6d9ddd.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/01/comparison.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/a998feab1a754df9f98939fe.jpg",
+      "sha256": "a998feab1a754df9f98939fee803b162f619e6d485bdfe443f81aa924559ac42",
+      "mime": "image/jpeg",
+      "dimensions": [
+        1500,
+        475
+      ],
+      "publicPath": "images/a998feab1a754df9f98939fe.jpg"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/01/gsi-august-2020.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/7f16f28068b629cff5f51e94.jpg",
+      "sha256": "7f16f28068b629cff5f51e94391b32a5b605fe1a384496356cb985450b55d21b",
+      "mime": "image/jpeg",
+      "dimensions": [
+        188,
+        268
+      ],
+      "publicPath": null
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/02/after.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/dc718452b4555f1b8440db06.png",
+      "sha256": "dc718452b4555f1b8440db0606a22c1e0ff1d4bde89947776bcffc2fffbcba65",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/dc718452b4555f1b8440db06.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/02/before.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/87da153cebbae108f6d9279d.png",
+      "sha256": "87da153cebbae108f6d9279da5ddb842d105ee71f54ca0fa64f7d3d12d615d44",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/87da153cebbae108f6d9279d.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/02/comparison.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/1c280b3b8cae339ce872a03a.jpg",
+      "sha256": "1c280b3b8cae339ce872a03ab046ed47a472c06dea09acfe1e904b58c06c76a8",
+      "mime": "image/jpeg",
+      "dimensions": [
+        1500,
+        475
+      ],
+      "publicPath": "images/1c280b3b8cae339ce872a03a.jpg"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/02/gsi-august-2020.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/aea5c6e5e95ce397e8325c3f.jpg",
+      "sha256": "aea5c6e5e95ce397e8325c3f0d0bac56bcf479076c286ca7763c2c8f05b1e1a2",
+      "mime": "image/jpeg",
+      "dimensions": [
+        312,
+        228
+      ],
+      "publicPath": null
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/03/after.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/b7679fee6882c4ae7cd43d08.png",
+      "sha256": "b7679fee6882c4ae7cd43d08e51c7e2122a3a799c8c9ffa5bc8919780efd96f3",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/b7679fee6882c4ae7cd43d08.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/03/before.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/308f60f001ae3405e40a1293.png",
+      "sha256": "308f60f001ae3405e40a129325389a95d95b86c25c716251ce71bf9e5f7dbd5d",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/308f60f001ae3405e40a1293.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/03/comparison.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/6469ce0b136b29e32f55a1ba.jpg",
+      "sha256": "6469ce0b136b29e32f55a1baf1a3ac61e5b157b0c142ad409d47a70e1cc9bd99",
+      "mime": "image/jpeg",
+      "dimensions": [
+        1500,
+        475
+      ],
+      "publicPath": "images/6469ce0b136b29e32f55a1ba.jpg"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/03/gsi-august-2020.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/215252593cc2ef1adf6978b7.jpg",
+      "sha256": "215252593cc2ef1adf6978b729ce0a452539badd21bdfc1d8f99830e9e022c04",
+      "mime": "image/jpeg",
+      "dimensions": [
+        180,
+        292
+      ],
+      "publicPath": null
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/04/after.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/6a9754544e7ef3dc1686313c.png",
+      "sha256": "6a9754544e7ef3dc1686313c2356f7722e15745b42504c53f28ea955761a1d2e",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/6a9754544e7ef3dc1686313c.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/04/before.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/ccc65080732f0285b125f7a9.png",
+      "sha256": "ccc65080732f0285b125f7a9ba4b6a2ee38227b989a832bdda6a8c2e01b7a657",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/ccc65080732f0285b125f7a9.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/04/comparison.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/7a6595f60c3836443ff7cf51.jpg",
+      "sha256": "7a6595f60c3836443ff7cf519a21401e89479b328cdeec235a7c8e31bda7b853",
+      "mime": "image/jpeg",
+      "dimensions": [
+        1500,
+        475
+      ],
+      "publicPath": "images/7a6595f60c3836443ff7cf51.jpg"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/04/gsi-august-2020.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/7cb305b9c4e48c8d5e08b83f.jpg",
+      "sha256": "7cb305b9c4e48c8d5e08b83fcd5386ef3d2f05f5f00e95b7dcd7cd1d61333bda",
+      "mime": "image/jpeg",
+      "dimensions": [
+        244,
+        300
+      ],
+      "publicPath": null
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/05/after.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/886286b3afa1a8768a0ba55b.png",
+      "sha256": "886286b3afa1a8768a0ba55b6643af1b62942f52e4bd373934ef9ee538ce4791",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/886286b3afa1a8768a0ba55b.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/05/before.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/206f54011bc1c7fffde406d4.png",
+      "sha256": "206f54011bc1c7fffde406d4a5a5161b09ca6944231c98a29a5f78c0e82ebb1e",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/206f54011bc1c7fffde406d4.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/05/comparison.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/dd5a74b257a7822c1347f524.jpg",
+      "sha256": "dd5a74b257a7822c1347f524d68ff26b9c5f8a74391f9bb04e89bd6d180cfe9d",
+      "mime": "image/jpeg",
+      "dimensions": [
+        1500,
+        475
+      ],
+      "publicPath": "images/dd5a74b257a7822c1347f524.jpg"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/05/gsi-august-2020.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/0660839aa925e3862ed9840e.jpg",
+      "sha256": "0660839aa925e3862ed9840e2798b7d0f4b4bce56b6169e6f1044337bd720909",
+      "mime": "image/jpeg",
+      "dimensions": [
+        280,
+        328
+      ],
+      "publicPath": null
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/05/reload-roof.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/7deb00dc8b19c90b73261e48.png",
+      "sha256": "7deb00dc8b19c90b73261e488331b05d0ed7df77a34f839ae928033aa181a353",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/7deb00dc8b19c90b73261e48.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/06/after.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/77d1c04c30219d4499e1c1da.png",
+      "sha256": "77d1c04c30219d4499e1c1dadfd6eb89d4a829b29e34a849067fe667fdf32242",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/77d1c04c30219d4499e1c1da.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/06/before.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/04d43df02b373fa6ce94b911.png",
+      "sha256": "04d43df02b373fa6ce94b91119fc0bf5f6715800cf48caff800e9aaf736601c3",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/04d43df02b373fa6ce94b911.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/06/comparison.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/40f455d41b83c4c7d8f17fc1.jpg",
+      "sha256": "40f455d41b83c4c7d8f17fc15ce22cbcda633afa32e743d04bef0fe167947052",
+      "mime": "image/jpeg",
+      "dimensions": [
+        1500,
+        475
+      ],
+      "publicPath": "images/40f455d41b83c4c7d8f17fc1.jpg"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/06/gsi-august-2020.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/1e6f1cb4b2bbff59307d8775.jpg",
+      "sha256": "1e6f1cb4b2bbff59307d8775af894719c4bcdd7d20f8d8f6f0c4d4c73f794905",
+      "mime": "image/jpeg",
+      "dimensions": [
+        304,
+        384
+      ],
+      "publicPath": null
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/07/after.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/2433b21f53889d1505aa47a5.png",
+      "sha256": "2433b21f53889d1505aa47a5bea1dc64db176fcd3b32ed0a96991b6e68a34a98",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/2433b21f53889d1505aa47a5.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/07/before.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/cfa4428acd0644d04e5372ad.png",
+      "sha256": "cfa4428acd0644d04e5372ad00213b2ff34dbbf7f468d21fa2783571961a88ae",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/cfa4428acd0644d04e5372ad.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/07/comparison.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/ea2963a3cd748cf5dfd2ead3.jpg",
+      "sha256": "ea2963a3cd748cf5dfd2ead378c8e6de3e9b85e5ad9f5d261165f02d08bc6d2c",
+      "mime": "image/jpeg",
+      "dimensions": [
+        1500,
+        475
+      ],
+      "publicPath": "images/ea2963a3cd748cf5dfd2ead3.jpg"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/07/gsi-august-2020.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/80df42df9c9d1646fd3672b3.jpg",
+      "sha256": "80df42df9c9d1646fd3672b30192193d9e6b9cc4135245e5b076f0e45210cd68",
+      "mime": "image/jpeg",
+      "dimensions": [
+        280,
+        300
+      ],
+      "publicPath": null
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/08/after.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/69aca2a2bef9c85dc26bf4df.png",
+      "sha256": "69aca2a2bef9c85dc26bf4dfb541ad45cdb16bbb344d2ec559023094ffe6861c",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/69aca2a2bef9c85dc26bf4df.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/08/before.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/ee3b79c795300d2306052ff0.png",
+      "sha256": "ee3b79c795300d2306052ff0b332e5c9f1d07c6a40477401bff6dfcf77d9e906",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/ee3b79c795300d2306052ff0.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/08/comparison.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/20b0c726e4d958efaf7e3569.jpg",
+      "sha256": "20b0c726e4d958efaf7e35699ef4f7ffe66aaf554ef1ed708157f8cf4efaf19a",
+      "mime": "image/jpeg",
+      "dimensions": [
+        1500,
+        475
+      ],
+      "publicPath": "images/20b0c726e4d958efaf7e3569.jpg"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/block-by-block/08/gsi-august-2020.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/d91cded3ff2c7b7586856f14.jpg",
+      "sha256": "d91cded3ff2c7b7586856f14822fabdf02f89a2673f67643c0b621b5b402e3da",
+      "mime": "image/jpeg",
+      "dimensions": [
+        416,
+        424
+      ],
+      "publicPath": null
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/nagoya-citywide-verified-station.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/41a581ccb059f678906b4cfa.png",
+      "sha256": "41a581ccb059f678906b4cfa1d718675073cc37f9483b11a645e0692a6b8c751",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/41a581ccb059f678906b4cfa.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/nagoya-neighborhoods-all-models-station-close.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/a0cf3388b4d1027f61d0a41d.png",
+      "sha256": "a0cf3388b4d1027f61d0a41dc864fd4f8407b14601d4be80e88bf456826008c2",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/a0cf3388b4d1027f61d0a41d.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/nagoya-neighborhoods-all-models-urban.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/805af2e372c0a8ce8bf83b21.png",
+      "sha256": "805af2e372c0a8ce8bf83b21c822330935fe6befa23f0fd765c725c9dd7c6062",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/805af2e372c0a8ce8bf83b21.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/nagoya-plateau-recovered-station.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/86f8006429583bd431659aa0.png",
+      "sha256": "86f8006429583bd431659aa0f9137031809b3808fc850d2a28c6adb54b815d42",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/86f8006429583bd431659aa0.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/nagoya-ramps-ramp.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/490141b72fde292674399732.png",
+      "sha256": "490141b72fde292674399732d56fdcc2804f5584df3a6e5836162faca1332d90",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/490141b72fde292674399732.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/nagoya-ramps-station-close.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/96eb9a4397562ae0a9a27a75.png",
+      "sha256": "96eb9a4397562ae0a9a27a75b80a9015d9271c1cbd2818bbfe8dbd9547475b61",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/96eb9a4397562ae0a9a27a75.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/nagoya-ramps-urban.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/fa54b5be87e9ac16a049727b.png",
+      "sha256": "fa54b5be87e9ac16a049727b94250e60d9b7ba676499000b59b1c3dd1c68aeb8",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/fa54b5be87e9ac16a049727b.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/nagoya-refined-ramp.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/e949bc9f8ecf30e35955b76f.png",
+      "sha256": "e949bc9f8ecf30e35955b76f4c0ff5143ee78464a6a77cd4b05955c53d96f8ac",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/e949bc9f8ecf30e35955b76f.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/nagoya-station-precinct-before-close.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/a766007565f4bd2572357f7d.png",
+      "sha256": "a766007565f4bd2572357f7d567219b581a552bd266f1ef06478e11150d55b72",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/a766007565f4bd2572357f7d.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/nagoya-station-precinct-before-overhead.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/85ed37948beae01cbaa889ae.png",
+      "sha256": "85ed37948beae01cbaa889ae2640d550ac4e4836b91be93520f3b7ca9bb1930e",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/85ed37948beae01cbaa889ae.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/nagoya-station-precinct-final-close.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/6794cac075b9972af92a2f11.png",
+      "sha256": "6794cac075b9972af92a2f11258fb1aaf47f91302ad8e40099400742456ad5ed",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/6794cac075b9972af92a2f11.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/nagoya-station-precinct-final-east.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/b504e29e8f772edbb3394a09.png",
+      "sha256": "b504e29e8f772edbb3394a09cbaa73d63234338a8ff2f4685fb51030c8c0b4b9",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/b504e29e8f772edbb3394a09.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/nagoya-station-precinct-final-overhead.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/c3d667365906f69af939b601.png",
+      "sha256": "c3d667365906f69af939b601e9141afc687de1784c153a0f7ce1eff246a4ea71",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/c3d667365906f69af939b601.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/nagoya-station-precinct-final-west.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/3fb1d18a1f5a76615b3a10c2.png",
+      "sha256": "3fb1d18a1f5a76615b3a10c20c0fa99eead295c94cfa38020bde8cc4dea7a79b",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/3fb1d18a1f5a76615b3a10c2.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/nagoya-utilities-after.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/4505e55b7e1aab55dc5e5570.png",
+      "sha256": "4505e55b7e1aab55dc5e5570c8e42a673ae8f315aadf63b282f86d023f504d79",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/4505e55b7e1aab55dc5e5570.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/station-density/gsi-cs1-east.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/03be5ae5fc0b4aa35144a595.jpg",
+      "sha256": "03be5ae5fc0b4aa35144a595175ee93d59fb6edc98e4bab9b0fd18e762bc97de",
+      "mime": "image/jpeg",
+      "dimensions": [
+        1560,
+        570
+      ],
+      "publicPath": "images/03be5ae5fc0b4aa35144a595.jpg"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/station-density/gsi-cs1-north.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/ab720318033753bf25073c3b.jpg",
+      "sha256": "ab720318033753bf25073c3b9bf609044189ed2091e959f410dc8853aba4e6e5",
+      "mime": "image/jpeg",
+      "dimensions": [
+        1560,
+        570
+      ],
+      "publicPath": "images/ab720318033753bf25073c3b.jpg"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/station-density/gsi-cs1-overview.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/416b68f8d50d971bc928321c.jpg",
+      "sha256": "416b68f8d50d971bc928321c6ecba911d35ec8aac990ee2ef17c0b5db61ae330",
+      "mime": "image/jpeg",
+      "dimensions": [
+        1560,
+        570
+      ],
+      "publicPath": "images/416b68f8d50d971bc928321c.jpg"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/station-density/gsi-cs1-south.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/82d0b653f98a6c4de0cd93e4.jpg",
+      "sha256": "82d0b653f98a6c4de0cd93e42010c2150da97203784e85a882527d6838a789f8",
+      "mime": "image/jpeg",
+      "dimensions": [
+        1560,
+        570
+      ],
+      "publicPath": "images/82d0b653f98a6c4de0cd93e4.jpg"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/station-density/gsi-cs1-west.jpg",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/5be6b451b26b50f2f327c89d.jpg",
+      "sha256": "5be6b451b26b50f2f327c89d47c8a2a8d92e58ef8aa3c7b27a77400e94e35b93",
+      "mime": "image/jpeg",
+      "dimensions": [
+        1560,
+        570
+      ],
+      "publicPath": "images/5be6b451b26b50f2f327c89d.jpg"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/station-density/nagoya-station-density-after-oblique.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/ee713d36c24d5c3fbcb6a4ce.png",
+      "sha256": "ee713d36c24d5c3fbcb6a4ced21f777532d617e0712cf6049ee938014958f08d",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/ee713d36c24d5c3fbcb6a4ce.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/station-density/nagoya-station-density-after-overview.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/ea5e61a6a18d56f6e9afa229.png",
+      "sha256": "ea5e61a6a18d56f6e9afa2294595c7e55e701609ce54c3f8a97d4a2f088acd94",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/ea5e61a6a18d56f6e9afa229.png"
+    },
+    {
+      "source": "evidence/native-real-terrain-20261120/station-density/nagoya-station-density-before-overview.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/df5109f272f38dd373e0c939.png",
+      "sha256": "df5109f272f38dd373e0c93956ca4a1b647b96add69b2f5b29c610b66488bf16",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/df5109f272f38dd373e0c939.png"
+    },
+    {
+      "source": "images/09e0b6bbf0c37fd4544e4a35.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/09e0b6bbf0c37fd4544e4a35.png",
+      "sha256": "09e0b6bbf0c37fd4544e4a3540284c7454fb8cd5c47d728f67a79d2708b55fc3",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/09e0b6bbf0c37fd4544e4a35.png"
+    },
+    {
+      "source": "images/1c2f841f666ebe544bde4c31.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/1c2f841f666ebe544bde4c31.png",
+      "sha256": "1c2f841f666ebe544bde4c3108012d74f40e8a2bac3b02ddba238eb1c87d3b93",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/1c2f841f666ebe544bde4c31.png"
+    },
+    {
+      "source": "images/e2b0cfe4d7cdcd101120b573.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/e2b0cfe4d7cdcd101120b573.png",
+      "sha256": "e2b0cfe4d7cdcd101120b57359d792ad6372a75e88f6184e1465bacaa6cb982c",
+      "mime": "image/png",
+      "dimensions": [
+        640,
+        640
+      ],
+      "publicPath": "images/e2b0cfe4d7cdcd101120b573.png"
+    },
+    {
+      "source": "images/63a6429e5514df743a379da6.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/63a6429e5514df743a379da6.png",
+      "sha256": "63a6429e5514df743a379da6f18e6a137deab5ee0bd1cbb02edcc2cc0a1642bb",
+      "mime": "image/png",
+      "dimensions": [
+        640,
+        640
+      ],
+      "publicPath": "images/63a6429e5514df743a379da6.png"
+    },
+    {
+      "source": "images/25a744a3d60bf8c1a902dcbf.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/25a744a3d60bf8c1a902dcbf.png",
+      "sha256": "25a744a3d60bf8c1a902dcbf3678fe70a405a635f392168e89dd8b2977753ffa",
+      "mime": "image/png",
+      "dimensions": [
+        640,
+        640
+      ],
+      "publicPath": "images/25a744a3d60bf8c1a902dcbf.png"
+    },
+    {
+      "source": "images/e4c3eb1daf4144dd7ebe0638.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/e4c3eb1daf4144dd7ebe0638.png",
+      "sha256": "e4c3eb1daf4144dd7ebe0638793b75d55a8ad05788a9a5dc13390b83d75502d4",
+      "mime": "image/png",
+      "dimensions": [
+        640,
+        640
+      ],
+      "publicPath": "images/e4c3eb1daf4144dd7ebe0638.png"
+    },
+    {
+      "source": "images/db5204024be21545f4e74d83.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/db5204024be21545f4e74d83.png",
+      "sha256": "db5204024be21545f4e74d831c7738d974758d4e863840831e87a2ab0631f85e",
+      "mime": "image/png",
+      "dimensions": [
+        640,
+        640
+      ],
+      "publicPath": "images/db5204024be21545f4e74d83.png"
+    },
+    {
+      "source": "images/a95cd6c6657875bbb86a8b45.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/a95cd6c6657875bbb86a8b45.png",
+      "sha256": "a95cd6c6657875bbb86a8b455b04597b266e715506709192fd485c9fc9617f74",
+      "mime": "image/png",
+      "dimensions": [
+        640,
+        640
+      ],
+      "publicPath": "images/a95cd6c6657875bbb86a8b45.png"
+    },
+    {
+      "source": "images/db35c5588e8f984b5e8bfd7a.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/db35c5588e8f984b5e8bfd7a.png",
+      "sha256": "db35c5588e8f984b5e8bfd7a84c5de2eca0cb5666262f4c5959e423448a1220b",
+      "mime": "image/png",
+      "dimensions": [
+        640,
+        640
+      ],
+      "publicPath": "images/db35c5588e8f984b5e8bfd7a.png"
+    },
+    {
+      "source": "images/2c6efa8f71d2b3b105575f3e.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/2c6efa8f71d2b3b105575f3e.png",
+      "sha256": "2c6efa8f71d2b3b105575f3ee95110a11c195b56c5db24bbb97b9157d9644346",
+      "mime": "image/png",
+      "dimensions": [
+        640,
+        640
+      ],
+      "publicPath": "images/2c6efa8f71d2b3b105575f3e.png"
+    },
+    {
+      "source": "images/c69ccb06a0c6ffa16ba0e60b.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/c69ccb06a0c6ffa16ba0e60b.png",
+      "sha256": "c69ccb06a0c6ffa16ba0e60bb1271b029f4047abe628921c375f037b2ff3f3a4",
+      "mime": "image/png",
+      "dimensions": [
+        640,
+        640
+      ],
+      "publicPath": "images/c69ccb06a0c6ffa16ba0e60b.png"
+    },
+    {
+      "source": "images/1b3fe8c022cb267d5e2c6468.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/1b3fe8c022cb267d5e2c6468.png",
+      "sha256": "1b3fe8c022cb267d5e2c6468b9aa805f5b07c9e32985d66021226df8e53d800a",
+      "mime": "image/png",
+      "dimensions": [
+        640,
+        640
+      ],
+      "publicPath": "images/1b3fe8c022cb267d5e2c6468.png"
+    },
+    {
+      "source": "images/85eaef7b8a05c0bc5bfda4fe.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/85eaef7b8a05c0bc5bfda4fe.png",
+      "sha256": "85eaef7b8a05c0bc5bfda4fea900734c45065bd394a7c41859b98c41ab478450",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/85eaef7b8a05c0bc5bfda4fe.png"
+    },
+    {
+      "source": "images/8eec27c6ccd82a3d77967fe2.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/8eec27c6ccd82a3d77967fe2.png",
+      "sha256": "8eec27c6ccd82a3d77967fe22863a59edc7e1c9b1b37599fb8b4a1dd363e407c",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/8eec27c6ccd82a3d77967fe2.png"
+    },
+    {
+      "source": "images/d92c165767b38ea23131cf2a.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/d92c165767b38ea23131cf2a.png",
+      "sha256": "d92c165767b38ea23131cf2a1a8284ef1d7ab459412f63c35dcf5bc8c3b071c7",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/d92c165767b38ea23131cf2a.png"
+    },
+    {
+      "source": "images/fdb0371bc0cffb9c791ebf58.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/fdb0371bc0cffb9c791ebf58.png",
+      "sha256": "fdb0371bc0cffb9c791ebf581d273db0c031a19eb4b10e1bc60b28cd62bb1f42",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/fdb0371bc0cffb9c791ebf58.png"
+    },
+    {
+      "source": "images/da32996ba161298f6cc2bd4f.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/da32996ba161298f6cc2bd4f.png",
+      "sha256": "da32996ba161298f6cc2bd4f74ce07eef39ef8f4c7ad14166c7dc2a0730ff377",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/da32996ba161298f6cc2bd4f.png"
+    },
+    {
+      "source": "images/bf3881790e81923549ed689d.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/bf3881790e81923549ed689d.png",
+      "sha256": "bf3881790e81923549ed689d62c0f003eaee456f421ce8a01455f5d572929b03",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/bf3881790e81923549ed689d.png"
+    },
+    {
+      "source": "images/cab3f9e7387eeb3f8cb4dcd7.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/cab3f9e7387eeb3f8cb4dcd7.png",
+      "sha256": "cab3f9e7387eeb3f8cb4dcd7d8c895bd6048456a2e25cd404d6036b0c7350416",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/cab3f9e7387eeb3f8cb4dcd7.png"
+    },
+    {
+      "source": "images/71049e5a20f55dd8f244bda2.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/71049e5a20f55dd8f244bda2.png",
+      "sha256": "71049e5a20f55dd8f244bda2a3ecdba4413a3fbfa5098d79eba35640f4638101",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/71049e5a20f55dd8f244bda2.png"
+    },
+    {
+      "source": "images/84e387fc25792acc440ed42c.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/84e387fc25792acc440ed42c.png",
+      "sha256": "84e387fc25792acc440ed42c6ba872427642944c60e1058a94050fd9afd2281f",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/84e387fc25792acc440ed42c.png"
+    },
+    {
+      "source": "images/60ec8b72642d7d374e12a36a.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/60ec8b72642d7d374e12a36a.png",
+      "sha256": "60ec8b72642d7d374e12a36a65c48e05456fbdbf07b0a327e72313e892df50b5",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/60ec8b72642d7d374e12a36a.png"
+    },
+    {
+      "source": "images/20254ac885de87187db4cb5c.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/20254ac885de87187db4cb5c.png",
+      "sha256": "20254ac885de87187db4cb5cb343eb55849fe5a018585f9e3bc945a2c1ace784",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/20254ac885de87187db4cb5c.png"
+    },
+    {
+      "source": "images/935068025536a6ad2acfee0f.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/935068025536a6ad2acfee0f.png",
+      "sha256": "935068025536a6ad2acfee0f019fe9b44fbe2181fd586e0fa82a0ef3a60fc57e",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/935068025536a6ad2acfee0f.png"
+    },
+    {
+      "source": "images/19a6afee89c1909506a2dda7.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/19a6afee89c1909506a2dda7.png",
+      "sha256": "19a6afee89c1909506a2dda79ffacb3c2e95aed3dfaa2b27984ee0d4c9803037",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/19a6afee89c1909506a2dda7.png"
+    },
+    {
+      "source": "images/54f7f89bd17777898b1a01c9.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/54f7f89bd17777898b1a01c9.png",
+      "sha256": "54f7f89bd17777898b1a01c9b356147aa431bc263aed5422c7eb5bb7e551adbd",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/54f7f89bd17777898b1a01c9.png"
+    },
+    {
+      "source": "images/f4b17b3e5899e658af137081.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/f4b17b3e5899e658af137081.png",
+      "sha256": "f4b17b3e5899e658af1370814a59c3fc87ad9c3b0eaeec87ae11a4247957695d",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/f4b17b3e5899e658af137081.png"
+    },
+    {
+      "source": "images/e2c77b5ffb104c0c81f5e4c3.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/e2c77b5ffb104c0c81f5e4c3.png",
+      "sha256": "e2c77b5ffb104c0c81f5e4c36af5debe849c0226c84203e049493a64ab35b106",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/e2c77b5ffb104c0c81f5e4c3.png"
+    },
+    {
+      "source": "images/2ec50d944c194e8a2494d857.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/2ec50d944c194e8a2494d857.png",
+      "sha256": "2ec50d944c194e8a2494d8579141b2803bcf150681eb32b539e693bf953652b5",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/2ec50d944c194e8a2494d857.png"
+    },
+    {
+      "source": "images/4c548ff20c3a459eea851353.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/4c548ff20c3a459eea851353.png",
+      "sha256": "4c548ff20c3a459eea851353f7d77add484599fb3f92122e8598e0b7931d5efe",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/4c548ff20c3a459eea851353.png"
+    },
+    {
+      "source": "images/3843078f80ab640d9098eff1.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/3843078f80ab640d9098eff1.png",
+      "sha256": "3843078f80ab640d9098eff1003822ed3e44abaa986fe45c7a60971e163fa6e7",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/3843078f80ab640d9098eff1.png"
+    },
+    {
+      "source": "images/81a2a9150f85683019386576.png",
+      "url": "https://madesk.tail8be30.ts.net:9222/content/pages/index-b258ee/repository-evidence/81a2a9150f85683019386576.png",
+      "sha256": "81a2a9150f85683019386576b627409181195fee3898f2519d46a899c9247fb3",
+      "mime": "image/png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "publicPath": "images/81a2a9150f85683019386576.png"
+    }
+  ]
+}

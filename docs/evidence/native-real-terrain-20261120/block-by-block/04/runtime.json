@@ -1,0 +1,43 @@
+{
+  "id": "04",
+  "after": {
+    "capturedAt": "2026-11-20T23:36:23.7564736+09:00",
+    "name": "nagoya-block-04-after.png",
+    "settings": {
+      "yaw": 0,
+      "zoom": 92,
+      "x": -1530.5,
+      "pitch": 88,
+      "name": "nagoya-block-04-after.png",
+      "z": 939.5
+    },
+    "sha256": "6A9754544E7EF3DC1686313C2356F7722E15745B42504C53F28EA955761A1D2E"
+  },
+  "applied": {
+    "ok": true,
+    "block": "04",
+    "renderObjects": 1,
+    "triangles": 822,
+    "alreadyApplied": false
+  },
+  "name": "椿町・駅西銀座の街区",
+  "before": {
+    "capturedAt": "2026-11-20T23:36:21.5773080+09:00",
+    "name": "nagoya-block-04-before.png",
+    "settings": {
+      "yaw": 0,
+      "zoom": 92,
+      "x": -1530.5,
+      "pitch": 88,
+      "name": "nagoya-block-04-before.png",
+      "z": 939.5
+    },
+    "sha256": "CCC65080732F0285B125F7A9BA4B6A2EE38227B989A832BDDA6A8C2E01B7A657"
+  },
+  "bounds": [
+    -1561,
+    902,
+    -1500,
+    977
+  ]
+}

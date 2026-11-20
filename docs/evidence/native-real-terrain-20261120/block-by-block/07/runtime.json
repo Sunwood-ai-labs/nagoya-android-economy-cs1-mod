@@ -1,0 +1,43 @@
+{
+  "id": "07",
+  "after": {
+    "capturedAt": "2026-11-20T23:36:37.7293550+09:00",
+    "name": "nagoya-block-07-after.png",
+    "settings": {
+      "yaw": 0,
+      "zoom": 95,
+      "x": -1340,
+      "pitch": 88,
+      "name": "nagoya-block-07-after.png",
+      "z": 883.5
+    },
+    "sha256": "2433B21F53889D1505AA47A5BEA1DC64DB176FCD3B32ED0A96991B6E68A34A98"
+  },
+  "applied": {
+    "ok": true,
+    "block": "07",
+    "renderObjects": 1,
+    "triangles": 56,
+    "alreadyApplied": false
+  },
+  "name": "名鉄百貨店本館・名駅通南側",
+  "before": {
+    "capturedAt": "2026-11-20T23:36:35.5627925+09:00",
+    "name": "nagoya-block-07-before.png",
+    "settings": {
+      "yaw": 0,
+      "zoom": 95,
+      "x": -1340,
+      "pitch": 88,
+      "name": "nagoya-block-07-before.png",
+      "z": 883.5
+    },
+    "sha256": "CFA4428ACD0644D04E5372AD00213B2FF34DBBF7F468D21FA2783571961A88AE"
+  },
+  "bounds": [
+    -1375,
+    846,
+    -1305,
+    921
+  ]
+}

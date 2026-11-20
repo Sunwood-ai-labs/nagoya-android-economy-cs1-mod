@@ -14,7 +14,7 @@ namespace NagoyaRoadDelivery
     // native NetSegments, native citizens or economic BuildingInfo objects.
     public sealed partial class CitywideScene : MonoBehaviour, ICitywideVisuals, ICitywideSurfaceVisuals, ICitywideFleetVisuals
     {
-        private const string Root=@"H:\CS1-PLATEAU\nagoya-station\citywide-live-v1";
+        private static readonly string Root =RuntimePaths.Data(@"citywide-live-v1");
         internal bool NativeConstruction;
         internal NativeEmploymentTrial EmploymentTrial;
         private RoutingGraph graph;
@@ -41,7 +41,7 @@ namespace NagoyaRoadDelivery
         private float nextState;
         private float nextAppearance;private string appearanceSignature="",lastAppearanceAttempt="",appearanceError="";
         private string cityHud="NAGOYA CITYWIDE / loading";
-        private string networkName="original source network",activeRoadIndex="roads-index.json",activeRegionFile="regions.json",activeGraph=@"H:\CS1-PLATEAU\nagoya-station\citywide-roads-v1\city-routing.ncg",activeGraphHash="";
+        private string networkName="original source network",activeRoadIndex="roads-index.json",activeRegionFile="regions.json",activeGraph=RuntimePaths.Data(@"citywide-roads-v1\city-routing.ncg"),activeGraphHash="";
         private readonly Dictionary<int,HubVisual> entranceHubs=new Dictionary<int,HubVisual>();
         private List<object> buildingTargets=new List<object>();
         private sealed class HubVisual {public string Source;public Vector3 Terminal,Dock;public float Yaw,RobotYaw;}
@@ -183,8 +183,8 @@ namespace NagoyaRoadDelivery
         private Material TextureMaterial(string path){Texture2D t=new Texture2D(2,2,TextureFormat.RGBA32,true);if(!t.LoadImage(File.ReadAllBytes(path)))throw new FormatException("City PNG decode");t.wrapMode=TextureWrapMode.Clamp;t.filterMode=FilterMode.Bilinear;ownedTextures.Add(t);Material m=new Material(Shader.Find("Legacy Shaders/Diffuse"));m.color=Color.white;m.mainTexture=t;ownedMaterials.Add(m);return m;}
         private GameObject MakeMesh(string name,Transform parent,Mesh mesh,Material material,Vector3 pivot){GameObject o=new GameObject(name);o.transform.parent=parent;o.transform.localPosition=pivot;o.AddComponent<MeshFilter>().sharedMesh=mesh;o.AddComponent<MeshRenderer>().sharedMaterial=material;return o;}
         private Mesh PartMesh(AndroidPartData part){int n=part.Vertices.Length/3;Vector3[] v=new Vector3[n],norm=new Vector3[n];Vector2[] uv=new Vector2[n];for(int i=0;i<n;i++){v[i]=new Vector3(part.Vertices[i*3],part.Vertices[i*3+1],part.Vertices[i*3+2]);norm[i]=new Vector3(part.Normals[i*3],part.Normals[i*3+1],part.Normals[i*3+2]);uv[i]=new Vector2(part.UV[i*2],part.UV[i*2+1]);}Mesh mesh=new Mesh();mesh.vertices=v;mesh.normals=norm;mesh.uv=uv;mesh.triangles=part.Triangles;mesh.RecalculateBounds();ownedMeshes.Add(mesh);return mesh;}
-        private void LoadAndroid(){android=AndroidObjAsset.Load(@"H:\CS1-PLATEAU\nagoya-station\android-finish-v1\manifest.json",@"H:\CS1-PLATEAU\nagoya-station");Texture2D t=new Texture2D(2,2,TextureFormat.RGBA32,true);if(!t.LoadImage(android.Texture))throw new FormatException("Android texture");ownedTextures.Add(t);androidMaterial=new Material(Shader.Find("Legacy Shaders/Diffuse"));androidMaterial.mainTexture=t;androidMaterial.color=Color.white;ownedMaterials.Add(androidMaterial);foreach(AndroidPartData p in android.Parts)androidMeshes[p.Name]=PartMesh(p);}
-        private void LoadCharger(){string dir=@"H:\CS1-PLATEAU\nagoya-station\charger-finish-v2";Dictionary<string,object> m=Map(JsonData.Parse(File.ReadAllText(Path.Combine(dir,"manifest.json"))));AndroidPartData p=AndroidObjAsset.ParsePart("charger",new float[]{0,0,0},File.ReadAllText(Path.Combine(dir,Text(m,"obj"))));chargerMesh=PartMesh(p);chargerMaterial=TextureMaterial(Path.Combine(dir,Text(m,"texture")));}
+        private void LoadAndroid(){android=AndroidObjAsset.Load(RuntimePaths.Data(@"android-finish-v1\manifest.json"),RuntimePaths.DataRoot);Texture2D t=new Texture2D(2,2,TextureFormat.RGBA32,true);if(!t.LoadImage(android.Texture))throw new FormatException("Android texture");ownedTextures.Add(t);androidMaterial=new Material(Shader.Find("Legacy Shaders/Diffuse"));androidMaterial.mainTexture=t;androidMaterial.color=Color.white;ownedMaterials.Add(androidMaterial);foreach(AndroidPartData p in android.Parts)androidMeshes[p.Name]=PartMesh(p);}
+        private void LoadCharger(){string dir=RuntimePaths.Data(@"charger-finish-v2");Dictionary<string,object> m=Map(JsonData.Parse(File.ReadAllText(Path.Combine(dir,"manifest.json"))));AndroidPartData p=AndroidObjAsset.ParsePart("charger",new float[]{0,0,0},File.ReadAllText(Path.Combine(dir,Text(m,"obj"))));chargerMesh=PartMesh(p);chargerMaterial=TextureMaterial(Path.Combine(dir,Text(m,"texture")));}
         private float EdgeWidth(int edge,byte kind){return surfaceMetadata==null?Width(kind):surfaceMetadata.Width(edge);}
         private void LoadSurfaceMetadata()
         {
